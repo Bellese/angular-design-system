@@ -1,0 +1,5 @@
+<label class="ds-c-label" [ngClass]="labelClass" for="input-{{id}}">
+    <span class="ds-u-font-weight--bold">{{title}}</span>
+    <span *ngIf="hint" class="ds-c-field__hint" [ngClass]="hintClass" role="alert">{{hint}}</span>
+</label>
+<input class="ds-c-field" tabindex="0" [ngClass]="inputClass" id="input-{{id}}" name="{{id}}" type="text" (keyup)="callBackFunction($event)">

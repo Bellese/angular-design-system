@@ -1,0 +1,52 @@
+.pagination {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.table-background {
+    overflow-x: auto;
+    margin-bottom: 25px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width:500px;
+    table-layout: fixed;
+}
+
+caption {
+    text-align: left;
+    font-weight: bold;
+    font-size: 20px;
+    background-color:#e1f3f8;
+    padding: 10px;
+    margin-bottom: 25px;
+}
+
+th {
+    background-color: #FFFFFF;
+    vertical-align: middle;
+    height:55px;
+    font-size: 16px;
+    text-align: left;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+tbody tr:hover {
+    background:#f1f1f1;
+}
+
+.noResults {
+    text-align:center;
+    padding:20px; 
+    font-weight: bold; 
+    font-size: 16px;
+}
+
+@media only screen and (max-width: 768px) {
+    table {
+        table-layout: auto;
+    }
+}

@@ -1,0 +1,63 @@
+<!-- <app-accordion-group>
+    <app-accordion
+    *ngFor="let item of items">
+        <app-accordion-header>
+            <h2>{{item.title}}</h2>
+        </app-accordion-header>
+        <app-accordion-content>
+            <div class="red-box"></div>
+        </app-accordion-content>
+    </app-accordion>
+</app-accordion-group> -->
+
+<!-- <app-dropdown
+[id]=2
+[options]="options"
+[labelName]="'name'">
+</app-dropdown> -->
+
+<!-- <app-star-rating 
+[starAmount]="5" 
+[rating]="2">
+</app-star-rating> -->
+
+<!-- <app-spinner
+[dataAutoId]="1"
+[hide]="false"
+[inversed]="true"
+[filled]="true"
+[color]="'primary'"
+[size]="'big'">
+</app-spinner> -->
+
+<!-- <app-table-descr
+[title]="'title'"
+[subTitle]="'subtitle'" 
+[description]="'description'">
+</app-table-descr> -->
+
+
+<app-table
+(onOpenModal)="openModal($event)"
+[theme]="'previewReportTheme'"
+[index]="1" 
+[tableTitle]="'Table Title'"
+[headers]="headerData" 
+[dataRows]="data" 
+[searchable]="true" 
+[paginate]="false"
+[tableSummary]="'table summary'">
+</app-table>
+
+<app-table
+(onOpenModal)="openModal($event)"
+[index]="1" 
+[tableTitle]="'Table Title'"
+[headers]="headerData" 
+[dataRows]="data" 
+[searchable]="false" 
+[paginate]="false"
+[tableSummary]="'table summary'">
+</app-table>
+
+<ng-template modal-host></ng-template>

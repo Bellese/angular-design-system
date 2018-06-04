@@ -1,0 +1,49 @@
+.button {
+    color: black;
+    background-color: #d3d3d3;
+    border: none;
+}
+
+.tableCell {
+    border: none;
+    padding: 4px 0px;
+    color:black;
+}
+
+.tableCell:hover {
+    color: #0071bc;
+}
+
+.downloadIcon {
+    width:25px;
+    height:auto;
+    margin-right: 10px;
+}
+
+.info {
+    background-image: url(../../../assets/css/images/info.svg);
+    background-repeat: no-repeat;
+    padding-left: 25px;
+    background-position: left;
+    background-size: 25px;
+}
+
+.footnote {
+    font-weight: normal;
+}
+
+.ascending {
+    background-image: url(../../../assets/css/images/up-arrow.svg) !important;
+    background-size: 25px !important;
+}
+
+.descending {
+    background-image: url(../../../assets/css/images/down-arrow.svg)!important;
+    background-size: 25px !important;
+}
+
+.arrow {
+    background-repeat: no-repeat;
+    background-position: right;
+    padding-right: 25px;
+}

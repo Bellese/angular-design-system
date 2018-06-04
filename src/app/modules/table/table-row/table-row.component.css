@@ -1,0 +1,22 @@
+th {
+    background-color: #f1f1f1;
+}
+
+td {
+    line-height: 25px;
+}
+
+th, td {
+    border-bottom: 1px solid #5b616b;
+    text-align: left;
+    vertical-align: middle;
+    height:55px;
+    font-size: 16px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+
+/*
+Above add classes for all tables, below reference unique classes to modify data values
+*/

@@ -1,0 +1,8 @@
+<div
+[@expansionTrigger]="isExpanded === 'true' ? 'true' : 'false'"
+[@fadeInTrigger]="isExpanded === 'true' ? 'true' : 'false'"
+class="ds-u-sans">
+    <div class="padding-20">
+        <ng-content></ng-content>
+    </div>
+</div>

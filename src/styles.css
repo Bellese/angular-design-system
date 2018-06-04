@@ -1,0 +1,10 @@
+/* You can add themes to trickle down to components, but these themes names must be placed or the styles will apply everywhere */
+/*publicReportingTheme*/
+
+.previewReportTheme thead th, .previewReportTheme tbody th{
+    background-color: transparent!important;
+}
+.previewReportTheme tbody tr:last-of-type th, .previewReportTheme tbody tr:last-of-type td {
+    border-bottom: none;
+}
+/*publicReportingTheme*/
