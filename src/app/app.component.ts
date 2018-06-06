@@ -20,6 +20,8 @@ import { AppModal } from "./modules/modal/modal/modal.component";
 export class AppComponent {
   @ViewChild(ModalDirective) modalHost: ModalDirective;
   dataRows = [];
+  p: number;
+  list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
   //footnote & info MUST have modal property
   data = [
@@ -45,8 +47,8 @@ export class AppComponent {
       },
       val2: {
         value: "88%",
-        el: "default",
-        attr: ""
+        el: "button",
+        attr: "footnote"
       },
       val3: {
         value: "1%",
@@ -62,10 +64,9 @@ export class AppComponent {
         modal: []
       },
       val2: {
-        value: "34%",
-        el: "default",
-        attr: "",
-        modal: []
+        value: "88%",
+        el: "button",
+        attr: "footnote"
       },
       val3: {
         value: "4%",

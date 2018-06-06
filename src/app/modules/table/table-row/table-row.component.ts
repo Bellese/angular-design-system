@@ -27,7 +27,6 @@ export class AppTableRow {
       e.colHeader === "row_Header"
         ? this.dataRow.row_Header.value + ": Details"
         : this.dataRow.row_Header.value + ": " + e.colHeader + " Details";
-
     this.onOpenModal.emit({ data: e.data, modalTitle: title, e: e.e });
   }
 }

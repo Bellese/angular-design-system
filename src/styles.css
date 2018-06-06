@@ -6,5 +6,6 @@
 }
 .previewReportTheme tbody tr:last-of-type th, .previewReportTheme tbody tr:last-of-type td {
     border-bottom: none;
+    margin-bottom: 0
 }
 /*publicReportingTheme*/

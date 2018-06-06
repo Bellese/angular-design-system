@@ -37,7 +37,7 @@
 </app-table-descr> -->
 
 
-<app-table
+<!-- <app-table
 (onOpenModal)="openModal($event)"
 [theme]="'previewReportTheme'"
 [index]="1" 
@@ -60,4 +60,11 @@
 [tableSummary]="'table summary'">
 </app-table>
 
-<ng-template modal-host></ng-template>
+<ng-template modal-host></ng-template> -->
+
+<ul>
+    <li *ngFor="let item of list | paginate: { itemsPerPage: 3, currentPage: p}">
+        {{item}}
+    </li>
+</ul>
+<app-paging (currentPage)="p = $event"></app-paging>

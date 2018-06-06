@@ -12,7 +12,10 @@
         </thead>
         <tbody>
             <ng-container *ngFor="let dataRow of dataRows | sorting: headerEvent | filter: searchText | paginate: { itemsPerPage: 9, currentPage: p }; let x = index;">
-                <tr *ngIf="dataRow" [attr.data-rowname]="dataRow.row_Header.value" app-table-row [buttonFocus]="buttonFocus" [dataRow]="dataRow"
+                <!-- <tr *ngIf="dataRow" [attr.data-rowname]="dataRow.row_Header.value" app-table-row [buttonFocus]="buttonFocus" [dataRow]="dataRow"
+                    [headers]="headers" [index]="index + '_' + x" (onOpenModal)="openModal($event)">
+                </tr> -->
+                <tr *ngIf="dataRow" app-table-row [buttonFocus]="buttonFocus" [dataRow]="dataRow"
                     [headers]="headers" [index]="index + '_' + x" (onOpenModal)="openModal($event)">
                 </tr>
                 <tr *ngIf="!dataRow" class="noResults" role="alert">
