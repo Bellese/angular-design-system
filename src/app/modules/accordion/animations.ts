@@ -4,7 +4,8 @@ import {
   style,
   transition,
   animate,
-  keyframes
+  keyframes,
+  AnimationTriggerMetadata
 } from "@angular/animations";
 
 export const Animations = {
