@@ -6,6 +6,6 @@ export * from './src/app/modules/table/table.module'
 export * from './src/app/modules/modal/modal.module'
 export * from './src/app/directives/directive.module'
 export * from './src/app/directives/modal-host'
-export * from './src/app/modules/modal/modal/modal.component'
-export * from './src/app/directives/modal-host'
+export { AppModal } from './src/app/modules/modal/modal/modal.component'
+
 
