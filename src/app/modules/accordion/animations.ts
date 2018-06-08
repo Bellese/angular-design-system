@@ -4,11 +4,10 @@ import {
   style,
   transition,
   animate,
-  keyframes,
-  AnimationEntryMetadata
-} from "@angular/core";
+  keyframes
+} from "@angular/animations";
 
-export const Animations: AnimationEntryMetadata = {
+export const Animations = {
   animations: [
     trigger("expansionTrigger", [
       state(
