@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from "@angular/core";
 @Pipe({
-    name: "sorting",
-    pure: true
+  name: "sorting",
+  pure: true
 })
 export class SortingPipe implements PipeTransform {
   event;
@@ -9,7 +9,6 @@ export class SortingPipe implements PipeTransform {
   colHeader;
 
   transform(items: any[], event: any): any[] {
-
     if (!items) return [];
     if (event) this.colHeader = event.e.target.id;
 
@@ -24,22 +23,25 @@ export class SortingPipe implements PipeTransform {
           ? (valB = new Date(b[this.colHeader].value))
           : (valB = b[this.colHeader].value);
 
-          if(valA.toLowerCase() === 'n/a') {
-            valA = '0'
-          }
+        if (valA.toLowerCase() === "n/a") {
+          valA = "-1";
+        }
 
-          if(valB.toLowerCase() === 'n/a') {
-            valB = '0'
-          }
+        if (valB.toLowerCase() === "n/a") {
+          valB = "-1";
+        }
 
-          if (valA.indexOf("%") !== -1) {
-            valA = Number(valA.replace('%', ""));
-          }
+        let re = /^\d/;
+        let rep = /\D/g;
 
-          if (valB.indexOf("%") !== -1) {
-            valB = Number(valB.replace('%', ""));
-          }
+        if (valA.match(re)) {
+          valA = Number(valA.replace(rep, ""));
+        }
 
+        if (valB.match(re)) {
+          valB = Number(valB.replace(rep, ""));
+        }
+        
         return (valA < valB ? -1 : 1) * (event.asc ? 1 : -1);
       }
     });

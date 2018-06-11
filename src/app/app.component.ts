@@ -27,7 +27,7 @@ export class AppComponent {
   data = [
     {
       row_Header: {
-        value: "ED-2b",
+        value: "99%",
         el: "button",
         attr: "footnote",
         modal: [
@@ -46,7 +46,7 @@ export class AppComponent {
         ]
       },
       val2: {
-        value: "88%",
+        value: "N/A",
         el: "button",
         attr: "footnote"
       },
@@ -64,7 +64,7 @@ export class AppComponent {
         modal: []
       },
       val2: {
-        value: "100%",
+        value: "8 minutes",
         el: "button",
         attr: "footnote"
       },
@@ -76,19 +76,95 @@ export class AppComponent {
     },
     {
       row_Header: {
-        value: "44",
+        value: "33%",
         el: "button",
         attr: "info",
         modal: []
       },
       val2: {
-        value: "89%",
+        value: "390 minutes",
         el: "default",
         attr: "info",
         modal: []
       },
       val3: {
-        value: "12%",
+        value: "N/A",
+        el: "default",
+        attr: ""
+      }
+    },
+    {
+      row_Header: {
+        value: "22%",
+        el: "button",
+        attr: "info",
+        modal: []
+      },
+      val2: {
+        value: "900 minutes",
+        el: "default",
+        attr: "info",
+        modal: []
+      },
+      val3: {
+        value: "N/A",
+        el: "default",
+        attr: ""
+      }
+    },
+    {
+      row_Header: {
+        value: "11%",
+        el: "button",
+        attr: "info",
+        modal: []
+      },
+      val2: {
+        value: "40 minutes",
+        el: "default",
+        attr: "info",
+        modal: []
+      },
+      val3: {
+        value: "N/A",
+        el: "default",
+        attr: ""
+      }
+    },
+    {
+      row_Header: {
+        value: "1%",
+        el: "button",
+        attr: "info",
+        modal: []
+      },
+      val2: {
+        value: "2 minutes",
+        el: "default",
+        attr: "info",
+        modal: []
+      },
+      val3: {
+        value: "N/A",
+        el: "default",
+        attr: ""
+      }
+    },
+    {
+      row_Header: {
+        value: "44444%",
+        el: "button",
+        attr: "info",
+        modal: []
+      },
+      val2: {
+        value: "10 minutes",
+        el: "default",
+        attr: "info",
+        modal: []
+      },
+      val3: {
+        value: "N/A",
         el: "default",
         attr: ""
       }
