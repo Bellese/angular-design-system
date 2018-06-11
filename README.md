@@ -42,6 +42,12 @@ Reference the styles in `.angular-cli.json`
 import { AccordionModule } from 'hqr-component-library'
 import { StarModule } from 'hqr-component-library'
 import { DropdownModule } from 'hqr-component-library'
+import { SpinnerModule } from "./modules/spinner/spinner.module"
+import { TableModule } from "./modules/table/table.module"
+import { ModalModule } from "./modules/modal/modal.module"
+import { ButtonModule } from "./modules/button/button.module"
+import { DirectiveModule } from "./directives/directive.module" <-- DirectiveModule required for the Modal Component
+import { PagingModule } from './modules/paging/paging.module'
 ```
 
 ## Accordion Component Example
@@ -258,4 +264,17 @@ val1: {
         { paragraph: "Content of modal goes here"}
     ]
 }
+```
+
+## Pagination Component
+
+The pagination component utilizes the [ngx-pagination](http://michaelbromley.github.io/ngx-pagination/#/) library. In order to paginate a list, a `paginate` pipe must be added to your list items. You can also configure `itemsPerPage` to display the amount of list items you'd like per page. 
+
+```
+<ul>
+    <li *ngFor="let item of list | paginate: { itemsPerPage: 3, currentPage: p}">
+        {{item}}
+    </li>
+</ul>
+<app-paging (currentPage)="p = $event"></app-paging>
 ```
