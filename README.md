@@ -63,11 +63,13 @@ import { DropdownModule } from 'hqr-component-library'
 
 ## Star Rating Component Example
 
-`starAmount` is the amount of stars you want displayed. `rating` is the amount of stars that will be filled. For example, a starAmount of 5 with a rating of 2 is 2 out of 5 stars.
+`starAmount` is the amount of stars you want displayed, this is defaulted to `5` so unless you need more than `5` you will not need to pass anything for this input. `rating` is the amount of stars that will be filled. For example, a starAmount of 5 with a rating of 2 is 2 out of 5 stars. `width` and `height` are defaulted to `30px`, but you can pass a custom width and height be sure to detail the value as px.
 
 ```
 //app.component.html
 <app-star-rating
+[width]="'10px'"
+[height]="'10px'"
 [starAmount]="5"
 [rating]="2">
 </app-star-rating>
@@ -114,6 +116,7 @@ The table is built with many features. Each table is built to call the needed co
 * `searchable` : this input is `true` or `false` and will present a global table search
 * `tableTitle`: this input will allow a caption to show up within the table itself giving the table a name
 * `pagination`: this input will allow the option for pagination to work within the table, accepts `true` or `false`
+* `starRating` : this input is set to `false`. Use this input to put a star rating on the table. All you need to pass is `starRating` with a number, the table will build the rest.
 
 ```
 <app-table
@@ -122,6 +125,7 @@ The table is built with many features. Each table is built to call the needed co
 [dataRows]="dataRows"
 [searchable]="true"
 [paginate]="true"
+[starRating]="3"
 [tableSummary]="'A table summary for screen readers'">
 </app-table>
 ```

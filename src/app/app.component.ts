@@ -51,20 +51,20 @@ export class AppComponent {
         attr: "footnote"
       },
       val3: {
-        value: "1%",
+        value: "100%",
         el: "default",
         attr: ""
       }
     },
     {
       row_Header: {
-        value: "56%",
+        value: "N/A",
         el: "button",
         attr: "info",
         modal: []
       },
       val2: {
-        value: "88%",
+        value: "100%",
         el: "button",
         attr: "footnote"
       },
@@ -76,7 +76,7 @@ export class AppComponent {
     },
     {
       row_Header: {
-        value: "44%",
+        value: "44",
         el: "button",
         attr: "info",
         modal: []
@@ -97,7 +97,7 @@ export class AppComponent {
 
   headerData = [
     {
-      header: { value: "", prop: "row_Header", el: "sort", attr: "" }
+      header: { value: "State", prop: "row_Header", el: "sort", attr: "" }
     },
     {
       header: { value: "National", prop: "val2", el: "sort", attr: "" }

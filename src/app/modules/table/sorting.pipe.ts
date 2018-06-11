@@ -9,6 +9,7 @@ export class SortingPipe implements PipeTransform {
   colHeader;
 
   transform(items: any[], event: any): any[] {
+
     if (!items) return [];
     if (event) this.colHeader = event.e.target.id;
 
@@ -22,6 +23,23 @@ export class SortingPipe implements PipeTransform {
         b[this.colHeader].el === "date"
           ? (valB = new Date(b[this.colHeader].value))
           : (valB = b[this.colHeader].value);
+
+          if(valA.toLowerCase() === 'n/a') {
+            valA = '0'
+          }
+
+          if(valB.toLowerCase() === 'n/a') {
+            valB = '0'
+          }
+
+          if (valA.indexOf("%") !== -1) {
+            valA = Number(valA.replace('%', ""));
+          }
+
+          if (valB.indexOf("%") !== -1) {
+            valB = Number(valB.replace('%', ""));
+          }
+
         return (valA < valB ? -1 : 1) * (event.asc ? 1 : -1);
       }
     });

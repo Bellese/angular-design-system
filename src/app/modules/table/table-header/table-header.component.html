@@ -1,9 +1,13 @@
 <ng-container>
-    <app-button *ngIf="header.header.el === 'sort'" class="headerElement" [buttonID]="header.header.prop" [content]="header.header.value"
-        [ariaLabel]="header.header.prop === selected ? (header.header.prop + ': ' + handleDirection()) : header.header.prop"
-        [ariaSort]="header.header.prop === selected ? handleDirection() : setDefaultDirection()" title="{{header.header.value}}"
-        [buttonType]="(header.header.prop === selected) ? handleDirection() + ' tableCell pointer arrow ' + 'header_'+header.header.prop : setDefaultDirection() + ' tableCell pointer arrow ' + 'header_'+header.header.prop"
-        (callBack)="getHeader($event)">
+    <app-button 
+    *ngIf="header.header.el === 'sort'" 
+    class="headerElement" 
+    [buttonID]="header.header.prop" 
+    [content]="header.header.value"
+    [ariaLabel]="header.header.prop === selected ? (header.header.value + ': ' + handleDirection()) : header.header.prop"
+    [ariaSort]="header.header.prop === selected ? handleDirection() : setDefaultDirection()" 
+    [buttonType]="(header.header.prop === selected) ? handleDirection() + ' tableCell pointer arrow ' + 'header_'+header.header.prop : setDefaultDirection() + ' tableCell pointer arrow ' + 'header_'+header.header.prop"
+    (callBack)="getHeader($event)">
     </app-button>
 
     <div *ngIf="header.header.el === 'checkbox'" class="{{'header_'+header.header.prop}} headerElement pointer" title="{{header.header.value}}">

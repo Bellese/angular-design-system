@@ -10,6 +10,8 @@ export class StarComponent  {
   @Input() rating;
   @Input() starAmount;
   @Input() index;
+  @Input() height;
+  @Input() width;
   description;
 
   ngOnInit(){

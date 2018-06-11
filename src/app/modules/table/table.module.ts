@@ -13,6 +13,7 @@ import { AppTextField } from './text-field/text-field.component'
 import { NgxPaginationModule } from "ngx-pagination";
 import { PagingModule } from '../paging/paging.module'
 import { ButtonModule } from '../button/button.module'
+import { StarModule } from '../star/star.module'
 
 import { DirectiveModule } from '../../directives/directive.module'
 
@@ -28,7 +29,8 @@ import { SortingPipe } from "./sorting.pipe";
     RouterModule,
     ButtonModule,
     DirectiveModule,
-    PagingModule
+    PagingModule,
+    StarModule
   ],
   declarations: [
     AppTable,
