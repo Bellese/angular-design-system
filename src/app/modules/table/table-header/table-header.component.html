@@ -4,7 +4,7 @@
     class="headerElement" 
     [buttonID]="header.header.prop" 
     [content]="header.header.value"
-    [ariaLabel]="header.header.prop === selected ? (header.header.value + ': ' + handleDirection()) : header.header.prop"
+    [ariaLabel]="header.header.prop === selected ? (header.header.value + ': ' + handleDirection()) : header.header.value"
     [ariaSort]="header.header.prop === selected ? handleDirection() : setDefaultDirection()" 
     [buttonType]="(header.header.prop === selected) ? handleDirection() + ' tableCell pointer arrow ' + 'header_'+header.header.prop : setDefaultDirection() + ' tableCell pointer arrow ' + 'header_'+header.header.prop"
     (callBack)="getHeader($event)">
