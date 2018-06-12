@@ -11,6 +11,7 @@ import { ModalModule } from "./modules/modal/modal.module";
 import { ButtonModule } from "./modules/button/button.module";
 import { DirectiveModule } from "./directives/directive.module";
 import { PagingModule } from './modules/paging/paging.module';
+import { DatepickerModule } from './modules/datepicker/datepicker.module'
 
 import { NgxPaginationModule } from "ngx-pagination";
 
@@ -31,7 +32,8 @@ import { AppComponent } from "./app.component";
     ModalModule,
     ButtonModule,
     DirectiveModule,
-    PagingModule
+    PagingModule,
+    DatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
