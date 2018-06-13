@@ -49,6 +49,7 @@ export class AppTable {
   }
 
   passHeaderEvent(e) {
+    console.log(e)
     if (e.header === "sort") {
       this.headerEvent = e;
       this.selected = e.e.target.id;

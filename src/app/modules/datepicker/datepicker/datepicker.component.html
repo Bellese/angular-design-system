@@ -1,32 +1,58 @@
-<form (keyup)="onSubmit(f)" (click)="onSubmit(f)" #f="ngForm">
+<form [formGroup]="myform">
   <fieldset class="ds-c-fieldset">
     <legend class="ds-c-label--error">
       <span class="ds-u-font-weight--bold">
         Date of birth
       </span>
-      <span class="ds-c-field__hint">
-        For example: 4 28 1986
+      <span class="ds-c-field__hint ds-u-color--error">
+        Please enter a valid month
       </span>
     </legend>
     <div class="ds-l-form-row">
       <div class="ds-l-col--auto">
-        <label class="ds-c-label ds-u-font-weight--normal ds-u-margin-top--1" for="month">
+        <label 
+        class="ds-c-label ds-u-font-weight--normal ds-u-margin-top--1" 
+        for="month">
           Month
         </label>
-        <input ngModel class="ds-c-field ds-c-field--month" type="number" min="1" max="12" id="month" name="month">
+        <input
+        class="ds-c-field ds-c-field--month" 
+        type="number" 
+        min="1" 
+        max="12"
+        id="month"
+        formControlName="month"
+        name="month">
       </div>
       <div class="ds-l-col--auto">
         <label class="ds-c-label ds-u-font-weight--normal ds-u-margin-top--1" for="day">
           Day
         </label>
-        <input ngModel class="ds-c-field ds-c-field--day" type="number" min="1" max="31" id="day" name="day">
+        <input
+        [attr.disabled]="myform.value.month?.valid"
+        class="ds-c-field ds-c-field--day" 
+        type="number" 
+        min="1" 
+        max="31" 
+        id="day"
+        formControlName="day"
+        name="day">
       </div>
       <div class="ds-l-col--auto">
         <label class="ds-c-label ds-u-font-weight--normal ds-u-margin-top--1" for="year">
           Year
         </label>
-        <input ngModel class="ds-c-field ds-c-field--year" type="number" min="1900" max="2000" id="year" name="year">
+        <input 
+        class="ds-c-field ds-c-field--year" 
+        type="number" 
+        min="1900" 
+        max="2000" 
+        id="year"
+        formControlName="year"
+        name="year">
       </div>
     </div>
   </fieldset>
 </form>
+
+<pre>{{myform.value | json }}</pre>

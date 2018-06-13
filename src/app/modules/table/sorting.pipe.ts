@@ -9,8 +9,14 @@ export class SortingPipe implements PipeTransform {
   colHeader;
 
   transform(items: any[], event: any): any[] {
+    console.log(event.length);
+    
     if (!items) return [];
-    if (event) this.colHeader = event.e.target.id;
+    if (Object.keys(event).length) {
+      this.colHeader = event.e.target.id;
+    } else {
+      return items;
+    }
 
     return items.sort((a, b) => {
       if (this.colHeader) {

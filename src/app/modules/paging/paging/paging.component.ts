@@ -8,6 +8,7 @@ import { Component, Input, Output, EventEmitter} from '@angular/core';
 export class AppPagination  {
   @Output() currentPage = new EventEmitter<any>();
   @Input() dataRows;
+  @Input() id;
   p: number = 1;
 
   pageChanged(e){
