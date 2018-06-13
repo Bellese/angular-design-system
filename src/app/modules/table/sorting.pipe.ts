@@ -9,7 +9,6 @@ export class SortingPipe implements PipeTransform {
   colHeader;
 
   transform(items: any[], event: any): any[] {
-    console.log(event.length);
     
     if (!items) return [];
     if (Object.keys(event).length) {
@@ -19,7 +18,7 @@ export class SortingPipe implements PipeTransform {
     }
 
     return items.sort((a, b) => {
-      if (this.colHeader) {
+      if (this.colHeader) { 
         let valA;
         let valB;
         a[this.colHeader].el === "date"
