@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./datepicker.component.css']
 })
 export class DatepickerComponent {
-  
+  onSubmit(f){
+    console.log(f.value)
+    console.log(f)
+  }
 }

@@ -12,6 +12,7 @@ import { ButtonModule } from "./modules/button/button.module";
 import { DirectiveModule } from "./directives/directive.module";
 import { PagingModule } from './modules/paging/paging.module';
 import { DatepickerModule } from './modules/datepicker/datepicker.module'
+import { FormsModule } from '@angular/forms'
 
 import { NgxPaginationModule } from "ngx-pagination";
 
@@ -33,7 +34,8 @@ import { AppComponent } from "./app.component";
     ButtonModule,
     DirectiveModule,
     PagingModule,
-    DatepickerModule
+    DatepickerModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

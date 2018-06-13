@@ -27,6 +27,7 @@ export class AppTable {
   @Input() paginate;
   @Input() searchText = "";
   @Input() starRating;
+  @Input() maxRows;
   @Output() onOpenModal = new EventEmitter<object>();
   headerLength;
   headerEvent = "";

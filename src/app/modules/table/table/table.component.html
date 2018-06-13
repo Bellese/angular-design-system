@@ -17,7 +17,7 @@
             </tr>
         </thead>
         <tbody>
-            <ng-container *ngFor="let dataRow of dataRows | sorting: headerEvent | filter: searchText | paginate: { itemsPerPage: 9, currentPage: p }; let x = index;">
+            <ng-container *ngFor="let dataRow of dataRows | sorting: headerEvent | filter: searchText | paginate: { itemsPerPage: maxRows, currentPage: p }; let x = index;">
                 <tr *ngIf="dataRow" [attr.data-auto-id]="dataRow.row_Header.value + '_' + index + '_' + x" app-table-row [buttonFocus]="buttonFocus"
                     [dataRow]="dataRow" [headers]="headers" [index]="index + '_' + x" (onOpenModal)="openModal($event)">
                 </tr>
