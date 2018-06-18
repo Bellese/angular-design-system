@@ -1,21 +1,22 @@
-<form [formGroup]="myform">
+<form [formGroup]="myform" (input)="validateDate()">
   <fieldset class="ds-c-fieldset">
     <legend class="ds-c-label--error">
-      <span class="ds-u-font-weight--bold">
-        Date of birth
+      <span *ngIf="label" class="ds-u-font-weight--bold">
+        {{label}}
       </span>
-      <span class="ds-c-field__hint ds-u-color--error">
-        Please enter a valid month
+      <span *ngIf="invalid" class="ds-c-field__hint ds-u-color--error">
+        Please enter a valid date
       </span>
     </legend>
     <div class="ds-l-form-row">
       <div class="ds-l-col--auto">
-        <label 
+        <label
         class="ds-c-label ds-u-font-weight--normal ds-u-margin-top--1" 
         for="month">
           Month
         </label>
         <input
+        [(ngModel)]="currentMonth"
         class="ds-c-field ds-c-field--month" 
         type="number" 
         min="1" 
@@ -29,11 +30,11 @@
           Day
         </label>
         <input
-        [attr.disabled]="myform.value.month?.valid"
+        [(ngModel)]="currentDay"
         class="ds-c-field ds-c-field--day" 
         type="number" 
         min="1" 
-        max="31" 
+        [max]="endOfMonth" 
         id="day"
         formControlName="day"
         name="day">
@@ -42,11 +43,10 @@
         <label class="ds-c-label ds-u-font-weight--normal ds-u-margin-top--1" for="year">
           Year
         </label>
-        <input 
+        <input
+        [(ngModel)]="currentYear"
         class="ds-c-field ds-c-field--year" 
         type="number" 
-        min="1900" 
-        max="2000" 
         id="year"
         formControlName="year"
         name="year">
@@ -54,5 +54,3 @@
     </div>
   </fieldset>
 </form>
-
-<pre>{{myform.value | json }}</pre>

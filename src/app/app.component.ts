@@ -95,7 +95,7 @@ export class AppComponent {
     },
     {
       row_Header: {
-        value: "22%",
+        value: "2222222222222222222222222222222222222%",
         el: "button",
         attr: "info",
         modal: []
@@ -120,7 +120,7 @@ export class AppComponent {
         modal: []
       },
       val2: {
-        value: "40 minutes",
+        value: "40sdfasfasfssdfsasfasdfdfsdfdsfsdfdsfssf",
         el: "default",
         attr: "info",
         modal: []
@@ -321,15 +321,6 @@ export class AppComponent {
     private componentFactoryResolver: ComponentFactoryResolver
   ) {}
 
-  ngOnInit() {
-    this.getData();
-  }
-
-  getData() {
-    this.appService.getData().subscribe(data => {
-      this.dataRows = data[0].measureSet[0].measureData;
-    });
-  }
 
   closeModal(val, target) {
     document.getElementById(val).focus();
