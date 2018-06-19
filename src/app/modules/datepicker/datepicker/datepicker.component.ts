@@ -8,7 +8,7 @@ import * as moment from "moment";
   styleUrls: ["./datepicker.component.css"]
 })
 export class DatepickerComponent implements OnInit {
-  myform: FormGroup;
+
 
   date = new Date();
   currentDay = this.date.getDate();
@@ -16,25 +16,26 @@ export class DatepickerComponent implements OnInit {
   currentYear = this.date.getFullYear();
   invalid = false;
   endOfMonth: number;
+  selectedInput: string;
 
   @Input() label;
 
-  ngOnInit() {
-    this.myform = new FormGroup({
-      month: new FormControl("", Validators.required),
-      day: new FormControl("", Validators.required),
-      year: new FormControl("", Validators.required)
-    });
-  }
+  ngOnInit() {}
 
-  validateDate() {
+  validateDate(f) {
     let date = moment(
-      this.currentYear + "-" + this.currentMonth + "-" + this.currentDay,
-      "YYYY-M-D"
+      this.currentMonth + "-" + this.currentDay + "-" + this.currentYear,
+      "M-D-YYYY",
+      true
     );
     let end = date.daysInMonth();
     this.endOfMonth = end;
 
     !date.isValid() ? (this.invalid = true) : (this.invalid = false);
+
+  }
+
+  focus(e) {
+    this.selectedInput = e.target.name;
   }
 }

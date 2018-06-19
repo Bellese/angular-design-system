@@ -1,4 +1,4 @@
-<form [formGroup]="myform" (input)="validateDate()">
+<form #f="ngForm" (input)="validateDate(f)">
   <fieldset class="ds-c-fieldset">
     <legend class="ds-c-label--error">
       <span *ngIf="label" class="ds-u-font-weight--bold">
@@ -16,13 +16,15 @@
           Month
         </label>
         <input
+        [disabled]="this.selectedInput !== 'month' && invalid"
         [(ngModel)]="currentMonth"
-        class="ds-c-field ds-c-field--month" 
+        class="ds-c-field ds-c-field--month"
+        [ngClass]="{'ds-c-field--error': selectedInput === 'month' && invalid}"
+        (focus)="focus($event)"
         type="number" 
         min="1" 
         max="12"
         id="month"
-        formControlName="month"
         name="month">
       </div>
       <div class="ds-l-col--auto">
@@ -30,13 +32,15 @@
           Day
         </label>
         <input
+        [disabled]="this.selectedInput !== 'day' && invalid"
+        [ngClass]="{'ds-c-field--error': selectedInput === 'day' && invalid}"
+        (focus)="focus($event)"
         [(ngModel)]="currentDay"
         class="ds-c-field ds-c-field--day" 
         type="number" 
         min="1" 
         [max]="endOfMonth" 
         id="day"
-        formControlName="day"
         name="day">
       </div>
       <div class="ds-l-col--auto">
@@ -44,11 +48,13 @@
           Year
         </label>
         <input
+        [disabled]="this.selectedInput !== 'year' && invalid"
+        [ngClass]="{'ds-c-field--error': selectedInput === 'year' && invalid}"
+        (focus)="focus($event)"
         [(ngModel)]="currentYear"
         class="ds-c-field ds-c-field--year" 
         type="number" 
         id="year"
-        formControlName="year"
         name="year">
       </div>
     </div>
