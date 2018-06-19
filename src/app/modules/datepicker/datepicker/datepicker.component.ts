@@ -7,7 +7,7 @@ import * as moment from "moment";
   templateUrl: "./datepicker.component.html",
   styleUrls: ["./datepicker.component.css"]
 })
-export class DatepickerComponent implements OnInit {
+export class DatepickerComponent {
 
 
   date = new Date();
@@ -19,8 +19,6 @@ export class DatepickerComponent implements OnInit {
   selectedInput: string;
 
   @Input() label;
-
-  ngOnInit() {}
 
   validateDate(f) {
     let date = moment(
