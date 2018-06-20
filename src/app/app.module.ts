@@ -17,9 +17,10 @@ import { FormsModule } from '@angular/forms'
 import { NgxPaginationModule } from "ngx-pagination";
 
 import { AppComponent } from "./app.component";
+import { CardComponent } from './modules/card/card.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, CardComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
