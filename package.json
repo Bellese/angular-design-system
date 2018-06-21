@@ -1,6 +1,6 @@
 {
   "name": "@bellese/angular-design-system",
-  "version": "1.1.61",
+  "version": "1.1.62",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -11,8 +11,8 @@
     "e2e": "ng e2e",
     "packagr": "ng-packagr -p ng-package.json",
     "repository": {
-        "type": "git",
-        "url": "https://github.com/Bellese/angular-design-system.git"
+      "type": "git",
+      "url": "https://github.com/Bellese/angular-design-system.git"
     }
   },
   "private": false,
