@@ -11,7 +11,8 @@
     </app-button>
 
     <div *ngIf="header.header.el === 'checkbox'" class="{{'header_'+header.header.prop}} headerElement pointer" title="{{header.header.value}}">
-        <app-checkbox [value]="header.header.value" [groupName]="header.header.attr" [showTitle]="true" [labelClass]="'bold'">
+        <app-checkbox [value]="header.header.value" [groupName]="header.header.attr" [showTitle]="true" 
+        [labelClass]="'bold'">
         </app-checkbox>
     </div>
 
