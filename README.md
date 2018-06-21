@@ -1,8 +1,8 @@
-# HQRComponentLibrary
+# Bellese Angular Design System
 
 ## Step 1 - Installation
 
-Run `npm i hqr-component-library` to install
+Run `npm i @bellese/angular-design-system` to install
 
 ## Step 2 - Installing [CMS Design System](https://design.cms.gov/)
 

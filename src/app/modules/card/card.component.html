@@ -1,12 +1,23 @@
-<div class="card-container ds-l-container ds-u-sans">
-  <div class="ds-l-row">
-    <div class="ds-l-col">
-      icon here
-    </div>
-    <div class="ds-l-col">
-      <h1 class="ds-h2">eCQM</h1>
-      <p>Track status and validation of QRDA patient files</p>
+<div attr.data-auto-id="{{dataAutoId}}_wrapper">
+  <div>
+    <span class="ds-c-badge ds-c-badge--alert ds-u-font-size--base" attr.data-auto-id="{{dataAutoId}}_new_label">
+      Beta
+    </span>
+  </div>
+  <div class="ds-l-container nav-box ds-u-border-x--1 ds-u-border-bottom--1">
+    <div class="nav-container ds-l-row ds-u-margin-y--1" tabindex="0" attr.aria-label="{{desc}}" role="link">
+      <div class="ds-l-col--3 ds-u-display--flex ds-u-align-items--center">
+        <img attr.src="{{svgPath}}" class="ds-l-col--12 ds-u-padding--0" height="auto" width="auto" alt="{{desc}}" attr.data-auto-id="{{dataAutoId}}_image"
+        />
+      </div>
+      <div class="ds-l-col--8 ds-u-padding-right--0 ds-u-align-items--center">
+        <div class="ds-u-font-size--h2 ds-u-margin-top--5 ds-u-margin-bottom--2 ds-u-font-weight--semibold">
+          <span class="nav-header" attr.data-auto-id="{{dataAutoId}}_header">{{header}}</span>
+        </div>
+        <div class="ds-u-font-size--h5 ds-u-color--gray ds-u-margin-bottom--5">
+          <span class="nav-body" attr.data-auto-id="{{dataAutoId}}_body">{{bodyContent}}</span>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="ds-l-row"></div>
 </div>
