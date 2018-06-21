@@ -1,12 +1,14 @@
-<button button-focus [modalFocus]="modalFocus" [buttonFocus]="buttonFocus"
-role="button"
-id="{{buttonID}}"
-(click)="callBackFunction($event)" 
-(keyup.enter)="callBackFunction($event)" 
-attr.aria-label="{{ ariaLabel }}"
-class="ds-c-button pointer" 
-[attr.aria-pressed]="state"
-[ngClass]="buttonType">
-{{content}}
-<img *ngIf="image" src="{{ image }}" [ngClass]="imageClass" style="float:left;"/>
+<button button-focus 
+        [modalFocus]="modalFocus"
+        [buttonFocus]="buttonFocus"
+    role="button"
+    id="{{buttonID}}"
+    (click)="callBackFunction($event)" 
+    (keyup.enter)="callBackFunction($event)" 
+    attr.aria-label="{{ ariaLabel }}"
+    class="ds-c-button pointer" 
+    [attr.aria-pressed]="state"
+    [ngClass]="buttonType">
+        {{content}}
+    <img *ngIf="image" src="{{ image }}" [ngClass]="imageClass" style="float:left;"/>
 </button>

@@ -1,9 +1,12 @@
 th {
     background-color: #f1f1f1;
+    min-width: 100px;
 }
 
 td {
     line-height: 25px;
+    white-space: nowrap; 
+    overflow: hidden;
 }
 
 th, td {
@@ -15,8 +18,13 @@ th, td {
     padding-left: 24px;
     padding-right: 24px;
 }
-
-
 /*
 Above add classes for all tables, below reference unique classes to modify data values
 */
+
+@media only screen and (max-width: 768px) {
+    th {
+        white-space: nowrap;
+        min-width: 100%;
+    }
+}
