@@ -1,0 +1,11 @@
+<label
+*ngIf="labelName" 
+class="ds-c-label ds-u-margin-top--0 ds-u-sans" 
+for="{{'dropdown-' + id}}">
+  {{labelName}}
+</label>
+<select id="{{'dropdown-' + id}}" class="ds-c-field ds-c-field--{{width}}" name="options">
+  <option *ngFor="let option of options; let i = index" value="{{i}}">
+    {{option}}
+  </option>
+</select>

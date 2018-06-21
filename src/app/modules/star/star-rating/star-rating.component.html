@@ -1,0 +1,3 @@
+<app-star [rating]="rating" [starAmount]="starAmount" *ngFor="let star of Arr(starAmount).fill({}); let i = index" [index]="i"
+    [width]="width" [height]="height" [fill]="i < rating">
+</app-star>

@@ -1,0 +1,2139 @@
+[
+    {
+        "measureSetGroup": "IQR Timely and Effective Care",
+        "measureSet": [
+            {
+                "tableSummary": "Include summary of table here",
+                "measureTitle": "Venous Thromboembolism",
+                "measureData":
+                [
+                    {
+                        "row_Header": {"value":"VTE-7", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value":"82%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "heavy High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]
+                                 },
+                        "national": {"value": "80%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-8", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-9", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-10", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-11", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-12", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    }
+                ]
+            },
+            {
+                "tableSummary": "Include summary of table here",
+                "measureTitle": "Emergency Department",
+                "measureData":
+                [
+                    {
+                        "row_Header": {"value":"ED-1b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value":"82%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "80%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-2b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-3b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-4b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"ED-5b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"ED-6b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    }
+                ]
+            }
+        ]
+    },{
+        "measureSetGroup": "IQR Timely and Effective Care",
+        "measureSet": [
+            {
+                "tableSummary": "Include summary of table here",
+                "measureTitle": "Venous Thromboembolism",
+                "measureData":
+                [
+                    {
+                        "row_Header": {"value":"VTE-7", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value":"82%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "heavy High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]
+                                 },
+                        "national": {"value": "80%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-8", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-9", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-10", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-11", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-12", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    }
+                ]
+            },
+            {
+                "tableSummary": "Include summary of table here",
+                "measureTitle": "Emergency Department",
+                "measureData":
+                [
+                    {
+                        "row_Header": {"value":"ED-1b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value":"82%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "80%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-2b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-3b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-4b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"ED-5b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"ED-6b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    }
+                ]
+            }
+        ]
+    },{
+        "measureSetGroup": "IQR Timely and Effective Care",
+        "measureSet": [
+            {
+                "tableSummary": "Include summary of table here",
+                "measureTitle": "Venous Thromboembolism",
+                "measureData":
+                [
+                    {
+                        "row_Header": {"value":"VTE-7", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value":"82%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "heavy High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]
+                                 },
+                        "national": {"value": "80%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-8", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-9", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-10", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-11", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-12", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    }
+                ]
+            },
+            {
+                "tableSummary": "Include summary of table here",
+                "measureTitle": "Emergency Department",
+                "measureData":
+                [
+                    {
+                        "row_Header": {"value":"ED-1b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value":"82%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "80%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-2b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-3b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-4b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"ED-5b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"ED-6b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    }
+                ]
+            }
+        ]
+    },{
+        "measureSetGroup": "IQR Timely and Effective Care",
+        "measureSet": [
+            {
+                "tableSummary": "Include summary of table here",
+                "measureTitle": "Venous Thromboembolism",
+                "measureData":
+                [
+                    {
+                        "row_Header": {"value":"VTE-7", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value":"82%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "heavy High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]
+                                 },
+                        "national": {"value": "80%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-8", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-9", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-10", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-11", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-12", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    }
+                ]
+            },
+            {
+                "tableSummary": "Include summary of table here",
+                "measureTitle": "Emergency Department",
+                "measureData":
+                [
+                    {
+                        "row_Header": {"value":"ED-1b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value":"82%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "80%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-2b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-3b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-4b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"ED-5b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"ED-6b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    }
+                ]
+            }
+        ]
+    },{
+        "measureSetGroup": "IQR Timely and Effective Care",
+        "measureSet": [
+            {
+                "tableSummary": "Include summary of table here",
+                "measureTitle": "Venous Thromboembolism",
+                "measureData":
+                [
+                    {
+                        "row_Header": {"value":"VTE-7", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value":"82%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "heavy High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]
+                                 },
+                        "national": {"value": "80%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-8", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-9", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-10", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-11", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-12", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    }
+                ]
+            },
+            {
+                "tableSummary": "Include summary of table here",
+                "measureTitle": "Emergency Department",
+                "measureData":
+                [
+                    {
+                        "row_Header": {"value":"ED-1b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value":"82%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "80%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-2b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-3b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-4b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"ED-5b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"ED-6b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    }
+                ]
+            }
+        ]
+    },{
+        "measureSetGroup": "IQR Timely and Effective Care",
+        "measureSet": [
+            {
+                "tableSummary": "Include summary of table here",
+                "measureTitle": "Venous Thromboembolism",
+                "measureData":
+                [
+                    {
+                        "row_Header": {"value":"VTE-7", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value":"82%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "heavy High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]
+                                 },
+                        "national": {"value": "80%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-8", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-9", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-10", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-11", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-12", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    }
+                ]
+            },
+            {
+                "tableSummary": "Include summary of table here",
+                "measureTitle": "Emergency Department",
+                "measureData":
+                [
+                    {
+                        "row_Header": {"value":"ED-1b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value":"82%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "80%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-2b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-3b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-4b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"ED-5b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"ED-6b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    }
+                ]
+            }
+        ]
+    },{
+        "measureSetGroup": "IQR Timely and Effective Care",
+        "measureSet": [
+            {
+                "tableSummary": "Include summary of table here",
+                "measureTitle": "Venous Thromboembolism",
+                "measureData":
+                [
+                    {
+                        "row_Header": {"value":"VTE-7", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value":"82%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "heavy High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]
+                                 },
+                        "national": {"value": "80%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-8", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-9", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-10", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-11", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-12", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    }
+                ]
+            },
+            {
+                "tableSummary": "Include summary of table here",
+                "measureTitle": "Emergency Department",
+                "measureData":
+                [
+                    {
+                        "row_Header": {"value":"ED-1b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value":"82%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "80%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-2b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-3b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-4b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"ED-5b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"ED-6b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    }
+                ]
+            }
+        ]
+    },{
+        "measureSetGroup": "IQR Timely and Effective Care",
+        "measureSet": [
+            {
+                "tableSummary": "Include summary of table here",
+                "measureTitle": "Venous Thromboembolism",
+                "measureData":
+                [
+                    {
+                        "row_Header": {"value":"VTE-7", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value":"82%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "heavy High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]
+                                 },
+                        "national": {"value": "80%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-8", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-9", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-10", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-11", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"VTE-12", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    }
+                ]
+            },
+            {
+                "tableSummary": "Include summary of table here",
+                "measureTitle": "Emergency Department",
+                "measureData":
+                [
+                    {
+                        "row_Header": {"value":"ED-1b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value":"82%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "80%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-2b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-3b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    },
+                    {
+                        "row_Header": {"value":"ED-4b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"ED-5b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "75%", "el": "default"},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]}
+                    },
+                    {
+                        "row_Header": {"value":"ED-6b", "el": "button", "attr": "info", "modal": [
+                                {"heading": "Description"}, 
+                                {"paragraph": "Admit Decision Time to ED Departure Time for Admitted Patients"}
+                            ]},
+                        "facility": {"value": "81%", "el": "default"},
+                        "state": {"value": "N/A", "el": "button", "attr": "footnote", "modal": [
+                                {"heading": "Footnote(s)"}, 
+                                {"paragraph": "(13) - Results cannot be calculated for this reporting period."},
+                                {"heading": "Your Hospital ED Volume Category:"}, 
+                                {"paragraph": "High"},
+                                {"heading": "National ED Volume Category Reference:"},
+                                {"paragraph": "Low: 302 mins"},
+                                {"paragraph": "Medium: 379 mins"},
+                                {"paragraph": "High: 376 mins"},
+                                {"paragraph": "Very High: 430 mins"}
+                            ]},
+                        "national": {"value": "79%", "el": "default"},
+                        "topTen": {"value": "1%", "el": "default"}
+                    }
+                ]
+            }
+        ]
+    }
+]

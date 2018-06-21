@@ -1,0 +1,4 @@
+::ng-deep .ngx-pagination {
+    padding-left: 0;
+    text-align:center;
+ }

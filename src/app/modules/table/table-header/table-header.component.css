@@ -1,0 +1,5 @@
+.headerElement {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}

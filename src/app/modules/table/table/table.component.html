@@ -1,0 +1,35 @@
+<app-table-search *ngIf="searchable" (onSearchText)="SearchText($event)">
+</app-table-search>
+<div class="table-background ds-c-table--borderless {{theme}}">
+    <table summary="{{ tableSummary }}" role="grid" [attr.aria-label]="tableTitle">
+        <caption *ngIf="tableTitle" class="tableHeading">
+            {{ tableTitle }}
+            <ng-container *ngIf="starRating">
+                <br>
+                <app-star-rating [rating]="starRating" [width]="'18px'" [height]="'18px'"></app-star-rating>
+            </ng-container>
+        </caption>
+        <thead *ngIf="headers" class="tableHeading">
+            <tr>
+                <th *ngFor="let header of headers; let i = index" app-table-header [attr.data-auto-id]="'header_' + i" [header]="header"
+                    [selected]="selected" (onHeaderClick)="passHeaderEvent($event)" scope="col">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let dataRow of dataRows | sorting: headerEvent | filter: searchText | paginate: { itemsPerPage: maxRows, currentPage: p, id: index }; let x = index;">
+                <tr *ngIf="dataRow" [attr.data-auto-id]="dataRow.row_Header.value + '_' + index + '_' + x" app-table-row [buttonFocus]="buttonFocus"
+                    [dataRow]="dataRow" [headers]="headers" [index]="index + '_' + x" (onOpenModal)="openModal($event)">
+                </tr>
+                <tr *ngIf="!dataRow" class="noResults" role="alert">
+                    <td [attr.colspan]="headerLength" class="noResults">No Results Found</td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>
+
+<div class="pagination">
+    <app-paging [id]="index" *ngIf="paginate" [dataRows]="dataRows" (currentPage)="passPage($event)">
+    </app-paging>
+</div>
