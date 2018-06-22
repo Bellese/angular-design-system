@@ -1,7 +1,5 @@
 <ng-container *ngFor="let data of generateArray(dataRow); let i = index">
-    <th *ngIf="data.key === 'row_Header'" scope="row" app-table-data [buttonFocus]="buttonFocus" [data]="data" [index]="index + '_' + i"
-        [attr.data-auto-id]="'data_cell_' + index + '_' + i" (onOpenModal)="openModal($event)"></th>
-
-    <td [attr.data-auto-id]="'data_cell_' + index + '_' + i" *ngIf="data.key !== 'row_Header'" app-table-data [buttonFocus]="buttonFocus"
-        [data]="data" [index]="index + '_' + i" (onOpenModal)="openModal($event)"></td>
+    <th *ngIf="data.key === 'row_Header'" scope="row" app-table-data [dataClass]="'rowHeader'"[buttonFocus]="buttonFocus" [data] = "data" [index]="index + '_' + i" (onOpenModal)="openModal($event)"></th>
+    
+    <td *ngIf="data.key !== 'row_Header'" app-table-data [dataClass]="'columnCell'" [buttonFocus]="buttonFocus" [data] = "data" [index]="index + '_' + i" (onOpenModal)="openModal($event)"></td>
 </ng-container>

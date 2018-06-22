@@ -1,0 +1,57 @@
+<form #f="ngForm" (input)="validateDate(f)">
+    <fieldset class="ds-c-fieldset">
+        <legend class="ds-c-label--error">
+            <span *ngIf="label" class="ds-u-font-weight--bold">
+                {{label}}
+            </span>
+            <span *ngIf="!valid" class="ds-c-field__hint ds-u-color--error">
+                {{ errorMessage }}
+            </span>
+        </legend>
+        <div class="ds-l-form-row">
+            <div class="ds-l-col--auto">
+                <label class="ds-c-label ds-u-font-weight--normal ds-u-margin-top--1" for="month">
+                    Month
+                </label>
+                <input
+                    [disabled]="this.selectedInput !== 'month' && !valid"
+                    [(ngModel)]="currentMonth"
+                    class="ds-c-field ds-c-field--month"
+                    [ngClass]="{'ds-c-field--error': selectedInput === 'month' && !valid}"
+                    type="number" 
+                    min="1" 
+                    max="12"
+                    id="month"
+                    name="month">
+            </div>
+            <div class="ds-l-col--auto">
+                <label class="ds-c-label ds-u-font-weight--normal ds-u-margin-top--1" for="day">
+                    Day
+                </label>
+                <input
+                    [disabled]="this.selectedInput !== 'day' && !valid"
+                    [ngClass]="{'ds-c-field--error': selectedInput === 'day' && !valid}"
+                    [(ngModel)]="currentDay"
+                    class="ds-c-field ds-c-field--day" 
+                    type="number" 
+                    min="1" 
+                    [max]="max" 
+                    id="day"
+                    name="day">
+            </div>
+            <div class="ds-l-col--auto">
+                <label class="ds-c-label ds-u-font-weight--normal ds-u-margin-top--1" for="year">
+                    Year
+                </label>
+                <input
+                    [disabled]="this.selectedInput !== 'year' && !valid"
+                    [ngClass]="{'ds-c-field--error': selectedInput === 'year' && !valid}"
+                    [(ngModel)]="currentYear"
+                    class="ds-c-field ds-c-field--year" 
+                    type="number" 
+                    id="year"
+                    name="year">
+            </div>
+        </div>
+    </fieldset>
+</form>
