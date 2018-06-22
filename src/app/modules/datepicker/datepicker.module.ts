@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DatepickerComponent } from './datepicker/datepicker.component'
+import { AppDatepicker } from './datepicker/date-picker.component';
 import { BrowserModule } from '@angular/platform-browser'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
@@ -11,7 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     BrowserModule,
     ReactiveFormsModule
   ],
-  declarations: [DatepickerComponent],
-  exports: [DatepickerComponent]
+  declarations: [AppDatepicker],
+  exports: [AppDatepicker]
 })
 export class DatepickerModule { }

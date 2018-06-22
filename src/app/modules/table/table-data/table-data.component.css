@@ -1,9 +1,3 @@
-.columnElement {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
 .red {
     color:red;
 }
@@ -25,10 +19,18 @@ sup {
     padding: 2px;
 }
 
+:host ::ng-deep .columnCell, .columnCell {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
 
 /*
 Above add classes for all tables, below reference unique classes to modify data values
 */
+
 .stus_cd_ready {
     background-image: url(../../../../assets/css/images/success.svg);
     background-repeat: no-repeat;

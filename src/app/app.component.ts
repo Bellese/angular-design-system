@@ -64,7 +64,7 @@ export class AppComponent {
         modal: []
       },
       val2: {
-        value: "8 minutes",
+        value: "8 minutessssssssssssssssssssssssss",
         el: "button",
         attr: "footnote"
       },
@@ -82,7 +82,7 @@ export class AppComponent {
         modal: []
       },
       val2: {
-        value: "390 minutes",
+        value: "390 minutessssssssssssssssssss",
         el: "default",
         attr: "info",
         modal: []
@@ -95,7 +95,7 @@ export class AppComponent {
     },
     {
       row_Header: {
-        value: "2222222222222222222222222222222222222%",
+        value: "222%",
         el: "button",
         attr: "info",
         modal: []
@@ -120,7 +120,7 @@ export class AppComponent {
         modal: []
       },
       val2: {
-        value: "40sdfasfasfssdfsasfasdfdfsdfdsfsdfdsfssf",
+        value: "40",
         el: "default",
         attr: "info",
         modal: []
@@ -247,7 +247,7 @@ export class AppComponent {
     },
     {
       row_Header: {
-        value: "22%",
+        value: "22222%",
         el: "button",
         attr: "info",
         modal: []

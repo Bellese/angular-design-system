@@ -117,12 +117,15 @@ The table is built with many features. Each table is built to call the needed co
 * `dataRows` : the table data used in each column
 * `tableSummary` : the 508 summary to explain the purpose and describe the table. _BE DETAILED_
 
+The table has been constructed to handle most cases for text overflow. We need to keep in mind that the column headers should utilize spaces or hyphens to wrap the text, the row headers should use the same format. The table data will turn into an ellipsis should the table shrink down and have text overflow. When buttons inside the data table shrink down the Asterix should still appear but there should be ellipsis where the words are. Keep in mind the Asterix is placed outside the button component so that it will always appear in a table.
+
 ### Optional :
 
 * `searchable` : this input is `true` or `false` and will present a global table search
 * `tableTitle`: this input will allow a caption to show up within the table itself giving the table a name
 * `pagination`: this input will allow the option for pagination to work within the table, accepts `true` or `false`
 * `starRating` : this input is set to `false`. Use this input to put a star rating on the table. All you need to pass is `starRating` with a number, the table will build the rest.
+
 
 ```
 <app-table
@@ -265,6 +268,11 @@ val1: {
     ]
 }
 ```
+The modal is built the way it is because we have to come up with a way to destroy the modal after it has been enabled, if we dont we run into memory leak issues. This will cause the modal to take on values from a previous implementation. This will become a bigger issue if/when we start adding forms to modals.
+
+## Modal and Accessibility
+
+In order to get the modal to disable JAWS in the background you have to add `modal-aria-hidden` class on every level that is above the modal host, but does not contain the modal host. So for example do not add this class to the body, because modal host sits inside the body. But you can put this on page header because page header exist on the page but does not contain the modal within it
 
 ## Pagination Component
 

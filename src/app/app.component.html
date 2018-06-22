@@ -36,33 +36,34 @@
 [description]="'description'">
 </app-table-descr> -->
 
+<div style="width: 50%">
+    <app-table
+    (onOpenModal)="openModal($event)"
+    [theme]="'previewReportTheme'"
+    [index]="1" 
+    [tableTitle]="'Table Title'"
+    [headers]="headerData" 
+    [dataRows]="data" 
+    [searchable]="true" 
+    [paginate]="false"
+    [starRating]="3"
+    [tableSummary]="'table summary'">
+    </app-table>
 
-<!-- <app-table
-(onOpenModal)="openModal($event)"
-[theme]="'previewReportTheme'"
-[index]="1" 
-[tableTitle]="'Table Title'"
-[headers]="headerData" 
-[dataRows]="data" 
-[searchable]="true" 
-[paginate]="false"
-[starRating]="3"
-[tableSummary]="'table summary'">
-</app-table>
+    <app-table
+    (onOpenModal)="openModal($event)"
+    [index]="2" 
+    [tableTitle]="'Table Title'"
+    [headers]="headerData" 
+    [dataRows]="data" 
+    [searchable]="false" 
+    [paginate]="true"
+    [maxRows]="4"
+    [tableSummary]="'table summary'">
+    </app-table>
+</div>
 
-<app-table
-(onOpenModal)="openModal($event)"
-[index]="2" 
-[tableTitle]="'Table Title'"
-[headers]="headerData" 
-[dataRows]="data" 
-[searchable]="false" 
-[paginate]="true"
-[maxRows]="4"
-[tableSummary]="'table summary'">
-</app-table>
-
-<ng-template modal-host></ng-template> -->
+<ng-template modal-host></ng-template>
 
 <!-- <ul>
     <li *ngFor="let item of list | paginate: { itemsPerPage: 3, currentPage: p}">
@@ -75,10 +76,11 @@
 [label]="'this is a label'">
 </app-datepicker> -->
 
-<div class="ds-l-container">
+<!-- <div class="ds-l-container">
     <div class="ds-l-row">
         <div class="ds-l-col">
-            <app-card></app-card>
+            <app-card>
+            </app-card>
         </div>
         <div class="ds-l-col">
             <app-card></app-card>
@@ -92,4 +94,4 @@
             <app-card></app-card>
         </div>
     </div>
-</div>
+</div> -->

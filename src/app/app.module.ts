@@ -18,9 +18,11 @@ import { NgxPaginationModule } from "ngx-pagination";
 
 import { AppComponent } from "./app.component";
 import { CardComponent } from './modules/card/card.component';
+import { HeaderComponent } from './modules/card/header/header.component';
+import { FooterComponent } from './modules/card/footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, CardComponent],
+  declarations: [AppComponent, CardComponent, HeaderComponent, FooterComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
