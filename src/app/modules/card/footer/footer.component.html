@@ -1,3 +1,13 @@
-<p>
-  footer works!
-</p>
+<div class="footer-container ds-l-row">
+  <div class="a" [ngClass]="isExpanded === 'false'? 'ds-l-col--6' : 'ds-l-col--8'">
+    Due Date: 4/22/18
+  </div>
+  <div class="ds-l-col">
+    Status:
+    <br> In Progress
+  </div>
+</div>
+<img 
+class="a" 
+[ngClass]="isExpanded === 'true' ? 'active' : 'card-icon'" 
+src="../../../../assets/css/images/HQR_DashboardCard_Button.svg"/>

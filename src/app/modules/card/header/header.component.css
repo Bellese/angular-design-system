@@ -1,0 +1,22 @@
+.ds-l-row {
+  padding: 30px;
+}
+
+.nav-header {
+  color: #323a45;
+}
+
+.nav-body {
+  color: #5b616b;
+  font-size: 15px;
+}
+
+.ds-l-col div {
+  width: 75%;
+}
+
+.card-img {
+  width: 60px;
+}
+
+

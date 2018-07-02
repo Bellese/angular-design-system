@@ -1,0 +1,18 @@
+<div class="container" [@expansionTrigger]="isExpanded === 'true' ? 'true' : 'false'">
+  <div
+  class="ds-l-row" 
+  *ngFor="let body of data.body; let i = index"
+  [ngClass]="i % 2 === 0 && 'content-1'">
+    <div
+    class="a" 
+    [ngClass]="isExpanded === 'false'? 'ds-l-col--6' : 'ds-l-col--8'">
+      <span class="title ds-u-font-size--h3">{{body.title}}</span><br>
+      <span class="subtitle">
+      completed: {{body.complete}}<br>
+      by: {{body.by}}
+      </span>
+    </div>
+    <div class="ds-l-col">
+    </div>
+  </div>
+</div>

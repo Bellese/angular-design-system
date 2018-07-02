@@ -1,0 +1,35 @@
+.content-1 {
+  background-color: #F1F1F1;
+}
+
+
+.ds-l-col--6 {
+  border-right: solid 1px #aeb0b5;
+  padding: 20px;
+  font-size: 15px;
+}
+
+.ds-l-col--8 {
+  transition: flex 1000ms ease;
+  -webkit-transition: flex 1000ms ease;
+  padding: 20px;
+  border-right: solid 1px #aeb0b5;
+  font-size: 15px;
+}
+
+.a {
+  transition-duration: 1000ms;
+}
+
+title {
+  color: #323a45;
+}
+
+.subtitle {
+  color: #5b616b;
+}
+
+
+
+
+

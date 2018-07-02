@@ -1,0 +1,110 @@
+[
+    {
+      "title": "eCQM",
+      "summary": "Track status and validation of QRDA files",
+      "svg_url": "assets/css/images/HQR_DashboardCard_Icon_File.svg",
+      "body": [
+        {
+          "title": "Registration",
+          "complete": "8/02/18",
+          "by": "Lauryl Zenobi"
+        },
+        {
+          "title": "Attestation",
+          "complete": "8/02/18",
+          "by": "Lindsay Ferris"
+        },
+        {
+          "title": "Data Accuracy",
+          "complete": "4/02/18",
+          "by": "Lauryl Zenobi"
+        },
+        {
+          "title": "Measure Outcomes",
+          "complete": "4/15/18",
+          "by": "Lauryl Zenobi"
+        }
+      ]
+    },
+    {
+      "title": "Public Reporting",
+      "summary": "Preview and analyze measure benchmarks for your facility",
+      "svg_url": "assets/css/images/HQR_DashboardCard_Icon_Pencil.svg",
+      "body": [
+        {
+          "title": "Registration",
+          "complete": "8/02/18",
+          "by": "Lauryl Zenobi"
+        },
+        {
+          "title": "Attestation",
+          "complete": "8/02/18",
+          "by": "Lindsay Ferris"
+        },
+        {
+          "title": "Data Accuracy",
+          "complete": "4/02/18",
+          "by": "Lauryl Zenobi"
+        },
+        {
+          "title": "Measure Outcomes",
+          "complete": "4/15/18",
+          "by": "Lauryl Zenobi"
+        }
+      ]
+    },
+    {
+      "title": "IQR",
+      "summary": "Track the quality of inpatient care",
+      "svg_url": "assets/css/images/HQR_DashboardCard_Icon_Folder.svg",
+      "body": [
+        {
+          "title": "Registration",
+          "complete": "8/02/18",
+          "by": "Lauryl Zenobi"
+        },
+        {
+          "title": "Attestation",
+          "complete": "8/02/18",
+          "by": "Lindsay Ferris"
+        },
+        {
+          "title": "Data Accuracy",
+          "complete": "4/02/18",
+          "by": "Lauryl Zenobi"
+        },
+        {
+          "title": "Measure Outcomes",
+          "complete": "4/15/18",
+          "by": "Lauryl Zenobi"
+        }
+      ]
+    },
+    {
+      "title": "OQR",
+      "summary": "Track the quality of outpatient care",
+      "svg_url": "assets/css/images/HQR_DashboardCard_Icon_File.svg",
+      "body": [
+        { 
+          "title": "Registration",
+          "complete": "8/02/18",
+          "by": "Lauryl Zenobi"
+        },
+        { 
+          "title": "Attestation",
+          "complete": "8/02/18",
+          "by": "Lindsay Ferris"
+        },
+        { 
+          "title": "Data Accuracy",
+          "complete": "4/02/18",
+          "by": "Lauryl Zenobi"
+        },
+        { 
+          "title": "Measure Outcomes",
+          "complete": "4/15/18",
+          "by": "Lauryl Zenobi"
+        }
+      ]
+    }
+  ]

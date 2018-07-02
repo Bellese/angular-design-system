@@ -9,6 +9,7 @@ import { AppService } from "./app.service";
 import { ModalModule } from "./modules/modal/modal.module";
 import { ModalDirective } from "./directives/modal-host";
 import { AppModal } from "./modules/modal/modal/modal.component";
+import * as cardData from '../assets/data/card-data.json'
 
 @Component({
   selector: "app-root",
@@ -21,7 +22,10 @@ export class AppComponent {
   @ViewChild(ModalDirective) modalHost: ModalDirective;
   dataRows = [];
   p: number;
-  list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  isExpanded;
+
+  items = cardData
 
   //footnote & info MUST have modal property
   data = [
@@ -304,6 +308,10 @@ export class AppComponent {
     }
   ];
 
+  handleExpansion(e) {
+    this.isExpanded = e;
+  }
+
   headerData = [
     {
       header: { value: "State", prop: "row_Header", el: "sort", attr: "" }
@@ -320,7 +328,6 @@ export class AppComponent {
     private appService: AppService,
     private componentFactoryResolver: ComponentFactoryResolver
   ) {}
-
 
   closeModal(val, target) {
     document.getElementById(val).focus();

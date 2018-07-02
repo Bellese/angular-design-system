@@ -20,9 +20,10 @@ import { AppComponent } from "./app.component";
 import { CardComponent } from './modules/card/card.component';
 import { HeaderComponent } from './modules/card/header/header.component';
 import { FooterComponent } from './modules/card/footer/footer.component';
+import { BodyComponent } from './modules/card/body/body.component';
 
 @NgModule({
-  declarations: [AppComponent, CardComponent, HeaderComponent, FooterComponent],
+  declarations: [AppComponent, CardComponent, HeaderComponent, FooterComponent, BodyComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
