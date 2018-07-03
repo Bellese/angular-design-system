@@ -1,17 +1,19 @@
-<!-- <app-accordion-group>
-    <app-accordion>
-        <app-accordion-header>
-            <h2>title</h2>
-        </app-accordion-header>
-        <app-accordion-content>
-            <app-table (onOpenModal)="openModal($event)" [theme]="'previewReportTheme'" [index]="1" [tableTitle]="'Table Title'" [headers]="headerData"
-                [dataRows]="data" [searchable]="true" [paginate]="false" [starRating]="3" [tableSummary]="'table summary'">
-            </app-table>
-        </app-accordion-content>
-    </app-accordion>
-</app-accordion-group>
+<div class="ds-l-container">
+    <app-accordion-group>
+        <app-accordion *ngFor="let item of items">
+            <app-accordion-header>
+                <h2>title</h2>
+            </app-accordion-header>
+            <app-accordion-content>
+                <app-table (onOpenModal)="openModal($event)" [theme]="'previewReportTheme'" [index]="1" [tableTitle]="'Table Title'" [headers]="headerData"
+                    [dataRows]="data" [searchable]="true" [paginate]="false" [starRating]="3" [tableSummary]="'table summary'">
+                </app-table>
+            </app-accordion-content>
+        </app-accordion>
+    </app-accordion-group>
+</div>
 
-<ng-template modal-host></ng-template> -->
+<ng-template modal-host></ng-template>
 
 <!-- <app-dropdown
 [id]=2
@@ -79,6 +81,6 @@
 [label]="'this is a label'">
 </app-datepicker> -->
 
-<div class="ds-l-container">
+<!-- <div class="ds-l-container">
     <app-card [data]="items"></app-card>
-</div>
+</div> -->

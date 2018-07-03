@@ -6,7 +6,6 @@ import {
   AfterViewInit
 } from "@angular/core";
 import { AppService } from "./app.service";
-import { ModalModule } from "./modules/modal/modal.module";
 import { ModalDirective } from "./directives/modal-host";
 import { AppModal } from "./modules/modal/modal/modal.component";
 import * as cardData from '../assets/data/card-data.json'
