@@ -32,21 +32,21 @@
 }
 
 .card-icon {
-  display: block;
-  margin: 0 auto;
-  top: -98px;
-  left: 0;
-  position: relative;
+  position: absolute;
+  bottom: 80%;
+  right: 46.8%;
 }
 
 .active {
-  left: 85px;
-  display: block;
-  margin: 0 auto;
-  top: -98px;
-  position: relative;
+  position: absolute;
+  top: -15px;
+  left: 318px;
   transform: rotate(180deg);
   transition: all 1000ms ease;
+}
+
+.footer-container {
+  position: relative;
 }
 
 
