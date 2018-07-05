@@ -34,7 +34,7 @@
 .card-icon {
   display: block;
   margin: 0 auto;
-  top: -65px;
+  top: -98px;
   left: 0;
   position: relative;
 }
@@ -43,15 +43,12 @@
   left: 85px;
   display: block;
   margin: 0 auto;
-  top: -65px;
+  top: -98px;
   position: relative;
   transform: rotate(180deg);
   transition: all 1000ms ease;
 }
 
-.footer-container {
-  margin-bottom: -32px;
-}
 
 
 

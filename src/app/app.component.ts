@@ -3,12 +3,13 @@ import {
   ComponentFactory,
   ViewChild,
   ComponentFactoryResolver,
-  AfterViewInit
+  AfterViewInit,
+  OnInit
 } from "@angular/core";
 import { AppService } from "./app.service";
 import { ModalDirective } from "./directives/modal-host";
 import { AppModal } from "./modules/modal/modal/modal.component";
-import * as cardData from '../assets/data/card-data.json'
+import * as cardData from "../assets/data/card-data.json";
 
 @Component({
   selector: "app-root",
@@ -17,14 +18,14 @@ import * as cardData from '../assets/data/card-data.json'
   providers: [AppService],
   entryComponents: [AppModal]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   @ViewChild(ModalDirective) modalHost: ModalDirective;
   dataRows = [];
   p: number;
   list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   isExpanded;
 
-  items = cardData
+  items: any;
 
   //footnote & info MUST have modal property
   data = [
@@ -327,6 +328,10 @@ export class AppComponent {
     private appService: AppService,
     private componentFactoryResolver: ComponentFactoryResolver
   ) {}
+
+  ngOnInit() {
+    this.items = cardData;
+  }
 
   closeModal(val, target) {
     document.getElementById(val).focus();

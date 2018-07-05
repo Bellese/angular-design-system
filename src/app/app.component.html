@@ -1,13 +1,30 @@
 <div class="ds-l-container">
-    <app-accordion-group>
-        <app-accordion *ngFor="let item of items">
+    <app-accordion-group *ngIf="items">
+        <app-accordion  *ngFor="let item of items">
             <app-accordion-header>
-                <h2>title</h2>
+                <h2>{{item.title}}</h2>
             </app-accordion-header>
             <app-accordion-content>
-                <app-table (onOpenModal)="openModal($event)" [theme]="'previewReportTheme'" [index]="1" [tableTitle]="'Table Title'" [headers]="headerData"
-                    [dataRows]="data" [searchable]="true" [paginate]="false" [starRating]="3" [tableSummary]="'table summary'">
-                </app-table>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
             </app-accordion-content>
         </app-accordion>
     </app-accordion-group>

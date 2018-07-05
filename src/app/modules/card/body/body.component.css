@@ -29,6 +29,11 @@ title {
   color: #5b616b;
 }
 
+.success-icon {
+  display: block;
+  margin: 25px auto 0 auto;
+  width: 80px;
+}
 
 
 
