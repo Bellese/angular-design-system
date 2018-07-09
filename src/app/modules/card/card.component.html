@@ -7,7 +7,7 @@
         tabindex="0"
         [id]="i" 
         [attr.aria-label]="d.title + ' card'"
-        [attr.aria-expanded]="isExpanded[i]" 
+        [attr.aria-expanded]="isExpanded[i]"
         role="button" 
         (keyup.enter)="isExpanded[i] = !isExpanded[i]"
         (click)="isExpanded[i] = !isExpanded[i]">
@@ -16,7 +16,8 @@
         [data]="d" 
         [isExpanded]="isExpanded[i] ? (isExpanded[i].toString()) : 'false'">
         </app-body>
-        <app-footer 
+        <app-footer
+        [data]="d.footer"
         [isExpanded]="isExpanded[i] ? (isExpanded[i].toString()) : 'false'">
         </app-footer>
       </div>

@@ -1,10 +1,22 @@
 <div class="footer-container ds-l-row">
-  <div class="a" [ngClass]="isExpanded === 'false'? 'ds-l-col--6' : 'ds-l-col--8'">
-      <img class="a" [ngClass]="isExpanded === 'true' ? 'active' : 'card-icon'" src="../../../../assets/css/images/HQR_DashboardCard_Button.svg"/>
-    Due Date: 4/22/18
+  <div
+  [attr.aria-label]="'Due date ' + data[0].date"
+  class="a" 
+  [ngClass]="isExpanded === 'false'? 'ds-l-col--6' : 'ds-l-col--8'">
+    Due Date: 
+    <span class="ds-u-font-weight--bold ds-u-font-size--h4">
+      <br>{{data[0].date}}
+    </span>
   </div>
-  <div class="ds-l-col">
+  <div
+  [attr.aria-label]="'Status ' + data[0].status"
+  class="ds-l-col">
     Status:
-    <br> In Progress
+    <br>{{data[0].status}}
   </div>
+  <img
+  class="a" 
+  [ngClass]="isExpanded === 'true' ? 'active' : 'card-icon'" 
+  src="../../../../assets/css/images/HQR_DashboardCard_Button.svg"/>
 </div>
+

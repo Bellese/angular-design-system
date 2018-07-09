@@ -33,21 +33,23 @@
 
 .card-icon {
   position: absolute;
-  bottom: 80%;
-  right: 46.8%;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 
 .active {
   position: absolute;
-  top: -15px;
-  left: 318px;
-  transform: rotate(180deg);
+  top: 5%;
+  left: 66.5%;
+  transform: translate(-50%,-50%) rotate(180deg);
   transition: all 1000ms ease;
 }
 
 .footer-container {
   position: relative;
 }
+
 
 
 
