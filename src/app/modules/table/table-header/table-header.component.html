@@ -1,22 +1,32 @@
 <ng-container>
-    <app-button 
-    *ngIf="header.header.el === 'sort'" 
-    class="headerElement" 
-    [buttonID]="header.header.prop" 
-    [content]="header.header.value"
-    [ariaLabel]="header.header.prop === selected ? (header.header.value + ': ' + handleDirection()) : header.header.value"
-    [ariaSort]="header.header.prop === selected ? handleDirection() : setDefaultDirection()" 
-    [buttonType]="(header.header.prop === selected) ? handleDirection() + ' tableCell pointer arrow ' + 'header_'+header.header.prop : setDefaultDirection() + ' tableCell pointer arrow ' + 'header_'+header.header.prop"
-    (callBack)="getHeader($event)">
+    <app-button *ngIf="header.header.el === 'sort'"
+        title="{{header.header.value}}"
+        class="headerElement"
+        [abbr]="header.header.abbr ? header.header.abbr : false"
+        [buttonID]="header.header.prop"
+        [content]="header.header.value"
+        [ariaLabel]="header.header.prop === selected ? (header.header.value + ': ' + handleDirection()) : header.header.prop"
+        [ariaSort]="header.header.prop === selected ? handleDirection() : setDefaultDirection()"
+        [buttonType]="(header.header.prop === selected) ? handleDirection() + ' tableCell pointer arrow ' + 'header_'+header.header.prop : setDefaultDirection() + ' tableCell pointer arrow ' + 'header_'+header.header.prop"
+        (callBack)="getHeader($event)">
     </app-button>
-
+    
     <div *ngIf="header.header.el === 'checkbox'" class="{{'header_'+header.header.prop}} headerElement pointer" title="{{header.header.value}}">
-        <app-checkbox [value]="header.header.value" [groupName]="header.header.attr" [showTitle]="true" 
-        [labelClass]="'bold'">
+       <app-checkbox
+            [value]="header.header.value"
+            [groupName]="header.header.attr"
+            [showTitle]="true"
+            [labelClass]="'bold'">
         </app-checkbox>
     </div>
-
+    
     <div *ngIf="header.header.el === 'default'" class="{{'header_'+header.header.prop}} headerElement" title="{{header.header.value}}">
-        {{header.header.value}}
+        <ng-container *ngIf="header.header.abbr; else normal">
+            {{ header.header.abbr }}
+        </ng-container>
+        
+        <ng-template #normal>
+            {{header.header.value}}
+        </ng-template>
     </div>
 </ng-container>

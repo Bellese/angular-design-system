@@ -314,7 +314,7 @@ export class AppComponent implements OnInit {
 
   headerData = [
     {
-      header: { value: "State", prop: "row_Header", el: "sort", attr: "" }
+      header: { value: "State", prop: "row_Header", el: "default", abbr: "ST" }
     },
     {
       header: { value: "National", prop: "val2", el: "sort", attr: "" }
