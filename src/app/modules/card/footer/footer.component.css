@@ -1,43 +1,43 @@
-.ds-l-col--6 {
+.col-1 {
   border-right: solid 1px #aeb0b5;
   border-top: solid 1px #d6d7d9;
   border-bottom: none;
   background-color: white;
-  padding: 20px;
   text-align: center;
   color: #5B616B;
+  padding: 20px;
+  font-size: 15px;
+  width: 50%;
+  box-sizing: border-box;
 }
-
-.ds-l-col {
+.col-2 {
   background-color: white;
   padding: 20px;
   text-align: center;
   color: #5B616B;
   border-top: solid 1px #d6d7d9;
+  flex-grow: 1;
+  flex-shrink: 1;
 }
-
-.ds-l-col--8 {
-  transition: flex 1000ms ease;
-  border-right: solid 1px #aeb0b5;
-  border-top: solid 1px #d6d7d9;
-  border-bottom: none;
-  background-color: white;
-  padding: 20px;
-  text-align: center;
-  color: #5B616B;
+.col-1.expand {
+  width: 66.66667%;
+  padding: 30px;
 }
-
-.a {
+.col-1, .col-2 {
+  -webkit-transition: width 1s ease;
+  -ms-transition:  width 1s ease;
+  -o-transition:  width 1s ease;
+  transition:  width 1s ease;
+}
+.animation {
   transition-duration: 1000ms;
 }
-
 .card-icon {
   position: absolute;
   top: 5%;
   left: 50%;
   transform: translate(-50%,-50%);
 }
-
 .active {
   position: absolute;
   top: 5%;
@@ -45,9 +45,11 @@
   transform: translate(-50%,-50%) rotate(180deg);
   transition: all 1000ms ease;
 }
-
 .footer-container {
   position: relative;
+}
+.in-progress {
+  color: #02BFE7;
 }
 
 

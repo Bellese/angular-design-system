@@ -1,10 +1,11 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
-  selector: "app-header",
+  selector: "app-card-header",
   templateUrl: "./header.component.html",
   styleUrls: ["./header.component.css"]
 })
-export class HeaderComponent {
+export class CardHeaderComponent {
+  @Input() isExpanded;
   @Input() data;
 }

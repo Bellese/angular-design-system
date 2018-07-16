@@ -1,4 +1,7 @@
-import { Component, Output, EventEmitter, Input } from "@angular/core";
+import {
+  Component,
+  Input
+} from "@angular/core";
 
 @Component({
   selector: "app-card",
@@ -9,4 +12,9 @@ export class CardComponent {
   @Input() index;
   @Input() data;
   isExpanded: any = {};
+
+  expand(index){
+    this.isExpanded[index] = !this.isExpanded[index];
+    (!this.isExpanded[index]) ? document.getElementById('topLevel_'+index).focus() : false;
+  }
 }

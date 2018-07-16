@@ -7,22 +7,28 @@
       {
         "title": "Registration",
         "complete": "8/02/18",
-        "by": "Lauryl Zenobi"
+        "by": "Lauryl Zenobi",
+        "status": "Complete"
       },
       {
         "title": "Attestation",
         "complete": "8/02/18",
-        "by": "Lindsay Ferris"
+        "by": "Lindsay Ferris",
+        "status": "Complete"
       },
       {
         "title": "Data Accuracy",
         "complete": "4/02/18",
-        "by": "Lauryl Zenobi"
+        "by": "Lauryl Zenobi",
+        "status": "Unavailable",
+        "lastUpload": "04/02/18"
       },
       {
         "title": "Measure Outcomes",
         "complete": "4/15/18",
-        "by": "Lauryl Zenobi"
+        "by": "Lauryl Zenobi",
+        "status": "Unavailable",
+        "lastUpload": "04/15/18"
       }
     ],
     "footer": [
@@ -40,22 +46,28 @@
       {
         "title": "Registration",
         "complete": "8/02/18",
-        "by": "Lauryl Zenobi"
+        "by": "Lauryl Zenobi",
+        "status": "Complete"
       },
       {
         "title": "Attestation",
         "complete": "8/02/18",
-        "by": "Lindsay Ferris"
+        "by": "Lindsay Ferris",
+        "status": "Complete"
       },
       {
         "title": "Data Accuracy",
         "complete": "4/02/18",
-        "by": "Lauryl Zenobi"
+        "by": "Lauryl Zenobi",
+        "status": "Unavailable",
+        "lastUpload": "04/02/18"
       },
       {
         "title": "Measure Outcomes",
         "complete": "4/15/18",
-        "by": "Lauryl Zenobi"
+        "by": "Lauryl Zenobi",
+        "status": "Unavailable",
+        "lastUpload": "04/15/18"
       }
     ],
     "footer": [
@@ -73,22 +85,28 @@
       {
         "title": "Registration",
         "complete": "8/02/18",
-        "by": "Lauryl Zenobi"
+        "by": "Lauryl Zenobi",
+        "status": "Complete"
       },
       {
         "title": "Attestation",
         "complete": "8/02/18",
-        "by": "Lindsay Ferris"
+        "by": "Lindsay Ferris",
+        "status": "Complete"
       },
       {
         "title": "Data Accuracy",
         "complete": "4/02/18",
-        "by": "Lauryl Zenobi"
+        "by": "Lauryl Zenobi",
+        "status": "Unavailable",
+        "lastUpload": "04/02/18"
       },
       {
         "title": "Measure Outcomes",
         "complete": "4/15/18",
-        "by": "Lauryl Zenobi"
+        "by": "Lauryl Zenobi",
+        "status": "Unavailable",
+        "lastUpload": "04/15/18"
       }
     ],
     "footer": [
@@ -106,22 +124,28 @@
       {
         "title": "Registration",
         "complete": "8/02/18",
-        "by": "Lauryl Zenobi"
+        "by": "Lauryl Zenobi",
+        "status": "Complete"
       },
       {
         "title": "Attestation",
         "complete": "8/02/18",
-        "by": "Lindsay Ferris"
+        "by": "Lindsay Ferris",
+        "status": "Complete"
       },
       {
         "title": "Data Accuracy",
         "complete": "4/02/18",
-        "by": "Lauryl Zenobi"
+        "by": "Lauryl Zenobi",
+        "status": "Unavailable",
+        "lastUpload": "04/02/18"
       },
       {
         "title": "Measure Outcomes",
         "complete": "4/15/18",
-        "by": "Lauryl Zenobi"
+        "by": "Lauryl Zenobi",
+        "status": "Unavailable",
+        "lastUpload": "04/15/18"
       }
     ],
     "footer": [

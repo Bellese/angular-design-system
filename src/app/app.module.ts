@@ -12,18 +12,17 @@ import { ButtonModule } from "./modules/button/button.module";
 import { DirectiveModule } from "./directives/directive.module";
 import { PagingModule } from './modules/paging/paging.module';
 import { DatepickerModule } from './modules/datepicker/datepicker.module'
-import { FormsModule } from '@angular/forms'
+import { BarGraphModule } from './modules/bar-graph/bar-graph.module'
 
+import { CardModule } from './modules/card/card.module'
+import { FormsModule } from '@angular/forms'
+import { NgxChartsModule } from '@swimlane/ngx-charts'
 import { NgxPaginationModule } from "ngx-pagination";
 
 import { AppComponent } from "./app.component";
-import { CardComponent } from './modules/card/card.component';
-import { HeaderComponent } from './modules/card/header/header.component';
-import { FooterComponent } from './modules/card/footer/footer.component';
-import { BodyComponent } from './modules/card/body/body.component';
 
 @NgModule({
-  declarations: [AppComponent, CardComponent, HeaderComponent, FooterComponent, BodyComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -39,7 +38,10 @@ import { BodyComponent } from './modules/card/body/body.component';
     DirectiveModule,
     PagingModule,
     DatepickerModule,
-    FormsModule
+    FormsModule,
+    NgxChartsModule,
+    BarGraphModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,7 +16,8 @@
 }
 
 .card-img {
-  width: 100%;
+  max-width: 65px;
+  min-width: 50px;
 }
 
 

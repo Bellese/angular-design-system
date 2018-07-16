@@ -1,25 +1,20 @@
-<div class="ds-l-row">
-    <div 
-    *ngFor="let d of data; let i = index" 
-    class="ds-l-lg-col--6 ds-l-sm-col--12">
-        <div 
-        class="ds-l-col" 
-        tabindex="0"
-        [id]="i" 
-        [attr.aria-label]="d.title + ' card'"
-        [attr.aria-expanded]="isExpanded[i]"
-        role="button" 
-        (keyup.enter)="isExpanded[i] = !isExpanded[i]"
-        (click)="isExpanded[i] = !isExpanded[i]">
-        <app-header [data]="d"></app-header>
-        <app-body 
-        [data]="d" 
-        [isExpanded]="isExpanded[i] ? (isExpanded[i].toString()) : 'false'">
-        </app-body>
-        <app-footer
-        [data]="d.footer"
-        [isExpanded]="isExpanded[i] ? (isExpanded[i].toString()) : 'false'">
-        </app-footer>
-      </div>
+<div class="ds-l-row mainCard">
+        <div *ngFor="let d of data; let i = index" class="ds-l-lg-col--6 ds-l-sm-col--12">
+            <div class="ds-l-row">
+                <div 
+                class="ds-l-col" 
+                tabindex="0" 
+                [id]="'topLevel_'+i" 
+                [attr.aria-expanded]="isExpanded[i]" 
+                role="button"
+                (keyup.enter)="expand(i)"
+                (click)="expand(i)">
+                    <app-card-header [data]="d" [isExpanded]="isExpanded[i] ? (isExpanded[i].toString()) : 'false'"></app-card-header>
+                    <app-card-body [id]="i" [data]="d" [isExpanded]="isExpanded[i] ? (isExpanded[i].toString()) : 'false'">
+                    </app-card-body>
+                    <app-card-footer [data]="d.footer" [isExpanded]="isExpanded[i] ? (isExpanded[i].toString()) : 'false'">
+                    </app-card-footer>
+                </div>
+            </div>
+        </div>
     </div>
-</div>

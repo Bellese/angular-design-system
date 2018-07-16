@@ -27,6 +27,17 @@ export class AppComponent implements OnInit {
 
   items: any;
 
+  chartData = [
+    {
+      name: "Germany",
+      value: 46268
+    },
+    {
+      name: "USA",
+      value: 53041
+    }
+  ];
+
   //footnote & info MUST have modal property
   data = [
     {
