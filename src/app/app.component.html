@@ -1,14 +1,36 @@
-<!-- <app-accordion-group>
-    <app-accordion
-    *ngFor="let item of items">
-        <app-accordion-header>
-            <h2>{{item.title}}</h2>
-        </app-accordion-header>
-        <app-accordion-content>
-            <div class="red-box"></div>
-        </app-accordion-content>
-    </app-accordion>
-</app-accordion-group> -->
+<!-- <div class="ds-l-container">
+    <app-accordion-group *ngIf="items">
+        <app-accordion  *ngFor="let item of items">
+            <app-accordion-header>
+                <h2>{{item.title}}</h2>
+            </app-accordion-header>
+            <app-accordion-content>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+                hhhh<br>
+            </app-accordion-content>
+        </app-accordion>
+    </app-accordion-group>
+</div>
+
+<ng-template modal-host></ng-template> -->
 
 <!-- <app-dropdown
 [id]=2
@@ -36,33 +58,34 @@
 [description]="'description'">
 </app-table-descr> -->
 
+<!-- <div>
+    <app-table
+    (onOpenModal)="openModal($event)"
+    [theme]="'previewReportTheme'"
+    [index]="1" 
+    [tableTitle]="'Table Title'"
+    [headers]="headerData" 
+    [dataRows]="data" 
+    [searchable]="true" 
+    [paginate]="false"
+    [starRating]="3"
+    [tableSummary]="'table summary'">
+    </app-table>
 
-<!-- <app-table
-(onOpenModal)="openModal($event)"
-[theme]="'previewReportTheme'"
-[index]="1" 
-[tableTitle]="'Table Title'"
-[headers]="headerData" 
-[dataRows]="data" 
-[searchable]="true" 
-[paginate]="false"
-[starRating]="3"
-[tableSummary]="'table summary'">
-</app-table>
+    <app-table
+    (onOpenModal)="openModal($event)"
+    [index]="2" 
+    [tableTitle]="'Table Title'"
+    [headers]="headerData" 
+    [dataRows]="data" 
+    [searchable]="false" 
+    [paginate]="true"
+    [maxRows]="4"
+    [tableSummary]="'table summary'">
+    </app-table>
+</div>
 
-<app-table
-(onOpenModal)="openModal($event)"
-[index]="2" 
-[tableTitle]="'Table Title'"
-[headers]="headerData" 
-[dataRows]="data" 
-[searchable]="false" 
-[paginate]="true"
-[maxRows]="4"
-[tableSummary]="'table summary'">
-</app-table>
-
-<ng-template modal-host></ng-template> -->
+<ng-template modal-host></ng-template>  -->
 
 <!-- <ul>
     <li *ngFor="let item of list | paginate: { itemsPerPage: 3, currentPage: p}">
@@ -75,21 +98,12 @@
 [label]="'this is a label'">
 </app-datepicker> -->
 
+
 <div class="ds-l-container">
-    <div class="ds-l-row">
-        <div class="ds-l-col">
-            <app-card></app-card>
-        </div>
-        <div class="ds-l-col">
-            <app-card></app-card>
-        </div>
-    </div>
-    <div class="ds-l-row">
-        <div class="ds-l-col">
-            <app-card></app-card>
-        </div>
-        <div class="ds-l-col">
-            <app-card></app-card>
-        </div>
-    </div>
+    <app-card [data]="items"></app-card>
 </div>
+
+<!-- <div class="ds-l-container">
+    <app-bar-graph [view]="[400, 150]" [results]="chartData">
+    </app-bar-graph>
+</div> -->

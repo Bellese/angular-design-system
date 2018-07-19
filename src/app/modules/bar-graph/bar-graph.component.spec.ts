@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppDatepicker } from './date-picker.component';
+import { BarGraphComponent } from './bar-graph.component';
 
-describe('DatepickerComponent', () => {
-  let component: AppDatepicker;
-  let fixture: ComponentFixture<AppDatepicker>;
+describe('BarGraphComponent', () => {
+  let component: BarGraphComponent;
+  let fixture: ComponentFixture<BarGraphComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppDatepicker ]
+      declarations: [ BarGraphComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AppDatepicker);
+    fixture = TestBed.createComponent(BarGraphComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

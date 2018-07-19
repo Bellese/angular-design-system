@@ -1,6 +1,6 @@
 {
   "name": "@bellese/angular-design-system",
-  "version": "1.1.61",
+  "version": "1.1.68",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -11,8 +11,8 @@
     "e2e": "ng e2e",
     "packagr": "ng-packagr -p ng-package.json",
     "repository": {
-        "type": "git",
-        "url": "https://github.com/Bellese/angular-design-system.git"
+      "type": "git",
+      "url": "https://github.com/Bellese/angular-design-system.git"
     }
   },
   "private": false,
@@ -55,7 +55,8 @@
     "@angular/platform-browser-dynamic": "^5.2.9",
     "@angular/router": "^6.0.1",
     "@angular/tsc-wrapped": "^4.4.6",
-    "moment": "^2.22.2",
+    "@swimlane/ngx-charts": "^8.1.0",
+    "d3": "^5.5.0",
     "ngx-pagination": "^3.1.1",
     "npm": "^6.0.1",
     "rxjs": "^5.5.6",

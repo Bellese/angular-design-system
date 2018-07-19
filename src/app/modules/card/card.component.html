@@ -1,18 +1,20 @@
-<div attr.data-auto-id="{{dataAutoId}}_wrapper">
-  <div class="ds-l-container nav-box ds-u-border-x--1 ds-u-border-bottom--1">
-    <div class="nav-container ds-l-row ds-u-margin-y--1" tabindex="0" attr.aria-label="{{desc}}" role="link">
-      <div class="ds-l-col--3 ds-u-display--flex ds-u-align-items--center">
-        <img attr.src="{{svgPath}}" class="ds-l-col--12 ds-u-padding--0" height="auto" width="auto" alt="{{desc}}" attr.data-auto-id="{{dataAutoId}}_image"
-        />
-      </div>
-      <div class="ds-l-col--8 ds-u-padding-right--0 ds-u-align-items--center">
-        <div class="ds-u-font-size--h2 ds-u-margin-top--5 ds-u-margin-bottom--2 ds-u-font-weight--semibold">
-          <span class="nav-header" attr.data-auto-id="{{dataAutoId}}_header">{{header}}</span>
+<div class="ds-l-row mainCard">
+        <div *ngFor="let d of data; let i = index" class="ds-l-lg-col--6 ds-l-sm-col--12">
+            <div class="ds-l-row">
+                <div 
+                class="ds-l-col" 
+                tabindex="0" 
+                [id]="'topLevel_'+i" 
+                [attr.aria-expanded]="isExpanded[i]" 
+                role="button"
+                (keyup.enter)="expand(i)"
+                (click)="expand(i)">
+                    <app-card-header [data]="d" [isExpanded]="isExpanded[i] ? (isExpanded[i].toString()) : 'false'"></app-card-header>
+                    <app-card-body [id]="i" [data]="d" [isExpanded]="isExpanded[i] ? (isExpanded[i].toString()) : 'false'">
+                    </app-card-body>
+                    <app-card-footer [data]="d.footer" [isExpanded]="isExpanded[i] ? (isExpanded[i].toString()) : 'false'">
+                    </app-card-footer>
+                </div>
+            </div>
         </div>
-        <div class="ds-u-font-size--h5 ds-u-color--gray ds-u-margin-bottom--5">
-          <span class="nav-body" attr.data-auto-id="{{dataAutoId}}_body">{{bodyContent}}</span>
-        </div>
-      </div>
     </div>
-  </div>
-</div>

@@ -13,12 +13,6 @@
             <a [routerLink]="data.value.attr">{{ data.value.value }}</a>
     </div>
     
-    <div *ngIf="data.value.el === 'date'" 
-         class="{{data.key + uniqueClass + ' ' + dataClass}}"
-         title="{{data.value.value | date:'MM/dd/yyyy'}}">
-            {{ data.value.value | date:'MM/dd/yyyy' }}
-    </div>
-    
     <div *ngIf="data.value.el === 'checkbox'" 
          class="{{data.key + uniqueClass + ' ' + dataClass}}"
          title="{{data.value.value}}">

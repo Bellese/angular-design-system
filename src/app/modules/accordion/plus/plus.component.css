@@ -1,8 +1,7 @@
 #plus {
-  padding-top: 28px;
-  padding-bottom: 28px;
+  position:absolute;
+  top:50%;
+  bottom:50%;
+  transform:translate(-50%, -50%);
+  margin-left: 10px;
 }
-
-
-
-

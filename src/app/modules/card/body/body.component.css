@@ -1,0 +1,47 @@
+.content-1 {
+  background-color: #f1f1f1;
+}
+
+.col-1 {
+  border-right: solid 1px #aeb0b5;
+  padding: 30px;
+  font-size: 15px;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.col-1.expand {
+  width: 66.66667%;
+  padding: 30px;
+}
+
+.col-2 {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.col-1,
+.col-2 {
+  -webkit-transition: width 1s ease;
+  -ms-transition: width 1s ease;
+  -o-transition: width 1s ease;
+  transition: width 1s ease;
+  position: relative;
+}
+
+.title {
+  color: #323a45;
+  margin: 1;
+}
+
+.subtitle {
+  color: #5b616b;
+}
+
+.status-icon {
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}

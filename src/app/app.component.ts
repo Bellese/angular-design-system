@@ -3,12 +3,13 @@ import {
   ComponentFactory,
   ViewChild,
   ComponentFactoryResolver,
-  AfterViewInit
+  AfterViewInit,
+  OnInit
 } from "@angular/core";
 import { AppService } from "./app.service";
-import { ModalModule } from "./modules/modal/modal.module";
 import { ModalDirective } from "./directives/modal-host";
 import { AppModal } from "./modules/modal/modal/modal.component";
+import * as cardData from "../assets/data/card-data.json";
 
 @Component({
   selector: "app-root",
@@ -17,11 +18,25 @@ import { AppModal } from "./modules/modal/modal/modal.component";
   providers: [AppService],
   entryComponents: [AppModal]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   @ViewChild(ModalDirective) modalHost: ModalDirective;
   dataRows = [];
   p: number;
-  list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  isExpanded;
+
+  items: any;
+
+  chartData = [
+    {
+      name: "Germany",
+      value: 46268
+    },
+    {
+      name: "USA",
+      value: 53041
+    }
+  ];
 
   //footnote & info MUST have modal property
   data = [
@@ -64,7 +79,7 @@ export class AppComponent {
         modal: []
       },
       val2: {
-        value: "8 minutes",
+        value: "8 minutessssssssssssssssssssssssss",
         el: "button",
         attr: "footnote"
       },
@@ -82,7 +97,7 @@ export class AppComponent {
         modal: []
       },
       val2: {
-        value: "390 minutes",
+        value: "390 minutessssssssssssssssssss",
         el: "default",
         attr: "info",
         modal: []
@@ -95,7 +110,7 @@ export class AppComponent {
     },
     {
       row_Header: {
-        value: "2222222222222222222222222222222222222%",
+        value: "222%",
         el: "button",
         attr: "info",
         modal: []
@@ -120,7 +135,7 @@ export class AppComponent {
         modal: []
       },
       val2: {
-        value: "40sdfasfasfssdfsasfasdfdfsdfdsfsdfdsfssf",
+        value: "40",
         el: "default",
         attr: "info",
         modal: []
@@ -247,7 +262,7 @@ export class AppComponent {
     },
     {
       row_Header: {
-        value: "22%",
+        value: "22222%",
         el: "button",
         attr: "info",
         modal: []
@@ -304,9 +319,13 @@ export class AppComponent {
     }
   ];
 
+  handleExpansion(e) {
+    this.isExpanded = e;
+  }
+
   headerData = [
     {
-      header: { value: "State", prop: "row_Header", el: "sort", attr: "" }
+      header: { value: "State", prop: "row_Header", el: "default", abbr: "ST" }
     },
     {
       header: { value: "National", prop: "val2", el: "sort", attr: "" }
@@ -321,6 +340,9 @@ export class AppComponent {
     private componentFactoryResolver: ComponentFactoryResolver
   ) {}
 
+  ngOnInit() {
+    this.items = cardData;
+  }
 
   closeModal(val, target) {
     document.getElementById(val).focus();

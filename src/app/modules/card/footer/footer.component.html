@@ -1,0 +1,17 @@
+<div class="footer-container ds-l-row" [attr.aria-hidden]="isExpanded === 'true' ? true : false">
+    <div class="animation" [ngClass]="isExpanded === 'false'? 'col-1' : 'col-1 expand'">
+      Due Date:
+      <div class="ds-u-font-weight--bold ds-u-font-size--h3">
+        {{data[0].date}}
+      </div>
+    </div>
+    <div class="col-2">
+      Status:
+      <div [ngSwitch]="data[0].status">
+        <span class="in-progress ds-u-font-size--h3 ds-u-font-weight--bold" *ngSwitchCase="'In Progress'">In Progress</span>
+        <span class="unavailable ds-u-font-size--h3 ds-u-font-weight--bold" *ngSwitchCase="'Unavailable'">Unavailable</span>
+        <span class="complete ds-u-font-size--h3 ds-u-font-weight--bold" *ngSwitchCase="'Complete'">Complete</span>
+      </div>
+    </div>
+    <img class="animation" [ngClass]="isExpanded === 'true' ? 'active' : 'card-icon'" src="../../../../assets/css/images/HQR_DashboardCard_Button.svg"/>
+  </div>

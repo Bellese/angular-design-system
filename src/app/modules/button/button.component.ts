@@ -14,7 +14,7 @@ export class AppButton {
     @Input() imageClass;
     @Input() buttonID;
     @Input() ariaSort;
-
+    @Input() abbr;
     @Input() modalFocus;
     @Input() buttonFocus;
     
@@ -35,4 +35,3 @@ export class AppButton {
 
     //in order to capture the event and write a function for it. You will need to add a function to be bound to the callback on the parent
 }
-

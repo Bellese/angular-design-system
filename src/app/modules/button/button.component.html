@@ -9,6 +9,11 @@
     class="ds-c-button pointer" 
     [attr.aria-pressed]="state"
     [ngClass]="buttonType">
-        {{content}}
+        <ng-container *ngIf="abbr; else normal">
+            {{ abbr }}
+        </ng-container>
+        <ng-template #normal>
+            {{content}}
+        </ng-template>
     <img *ngIf="image" src="{{ image }}" [ngClass]="imageClass" style="float:left;"/>
 </button>

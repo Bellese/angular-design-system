@@ -16,7 +16,8 @@ export const Animations = {
         style({
           height: "*",
           display: "inline-block",
-          width: "100%"
+          width: "100%",
+          overflow: "hidden"
         })
       ),
       state(
@@ -24,11 +25,12 @@ export const Animations = {
         style({
           height: "0",
           display: "none",
-          padding: "0"
+          padding: "0",
+          overflow: "hidden"
         })
       ),
-      transition("true => false", animate("0.3s 100ms ease-out")),
-      transition("false => true", animate("0.3s ease-in"))
+      transition("true => false", animate("1s 100ms ease-out")),
+      transition("false => true", animate("1s ease-in"))
     ]),
     trigger("plusTrigger", [
       state(
@@ -45,7 +47,7 @@ export const Animations = {
           transform: "rotate(0deg)"
         })
       ),
-      transition("true <=> false", animate("0.3s"))
+      transition("true <=> false", animate("1s"))
     ]),
     trigger("fadeInTrigger", [
       state(
@@ -60,8 +62,8 @@ export const Animations = {
           opacity: "0"
         })
       ),
-      transition("true => false", animate("0.2s ease")),
-      transition("false => true", animate("0.3s 300ms ease"))
+      transition("true => false", animate("1s ease")),
+      transition("false => true", animate("1s 300ms ease"))
     ]),
     trigger("borderTrigger", [
       state('true', style({
