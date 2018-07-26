@@ -1,21 +1,28 @@
-<ngx-charts-chart
-  [view]="[width, height]"  
-  [showLegend]="false">  
-  <svg:g class="bar-chart chart">    
-    <svg:g 
-      ngx-charts-series-vertical      
-      [xScale]="xScale"      
-      [yScale]="yScale"      
-      [colors]="colors"      
-      [series]="results"      
-      [dims]="dims">   
-      <svg:line
-      class="xAxis"
-      [attr.stroke]="'black'"
-      [attr.x1]="60"
-      [attr.y1]="5"
-      [attr.x2]="1440"
-      [attr.y2]="5" /> 
-    </svg:g>
-  </svg:g>
-</ngx-charts-chart>
+<div class="mainGraphClass" (window:resize)="resize()" (window:load)="resize()">
+    <ngx-charts-bar-vertical
+        *ngIf="data"
+        #target
+        [xAxisTickFormatting]="axisFormat"
+        [view]="view"
+        [scheme]="colorScheme"
+        [results]="data"
+        [gradient]="gradient"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        (select)="onSelect($event)"
+        [animations] = "true"
+        [showGridLines] = "true"
+        [roundDomains] = "true"
+        [gradient] = "true"
+        [legend] = "true"
+        [showDataLabel] = "false"
+        [roundEdges] = "true"
+        [tooltipDisabled] = "false"
+        [barPadding] = "20">
+    </ngx-charts-bar-vertical>
+</div>

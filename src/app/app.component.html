@@ -1,36 +1,6 @@
-<!-- <div class="ds-l-container">
-    <app-accordion-group *ngIf="items">
-        <app-accordion  *ngFor="let item of items">
-            <app-accordion-header>
-                <h2>{{item.title}}</h2>
-            </app-accordion-header>
-            <app-accordion-content>
-                hhhh<br>
-                hhhh<br>
-                hhhh<br>
-                hhhh<br>
-                hhhh<br>
-                hhhh<br>
-                hhhh<br>
-                hhhh<br>
-                hhhh<br>
-                hhhh<br>
-                hhhh<br>
-                hhhh<br>
-                hhhh<br>
-                hhhh<br>
-                hhhh<br>
-                hhhh<br>
-                hhhh<br>
-                hhhh<br>
-                hhhh<br>
-                hhhh<br>
-            </app-accordion-content>
-        </app-accordion>
-    </app-accordion-group>
-</div>
-
-<ng-template modal-host></ng-template> -->
+<!-- <app-accordion-group
+[data]="accs">
+</app-accordion-group> -->
 
 <!-- <app-dropdown
 [id]=2
@@ -99,11 +69,14 @@
 </app-datepicker> -->
 
 
-<div class="ds-l-container">
-    <app-card [data]="items"></app-card>
-</div>
-
 <!-- <div class="ds-l-container">
-    <app-bar-graph [view]="[400, 150]" [results]="chartData">
-    </app-bar-graph>
+    <app-card [data]="items"></app-card>
 </div> -->
+
+
+<div class="ds-l-container">
+    <app-bar-graph
+    [colorScheme]="colorScheme"
+    [data]="chartData">
+    </app-bar-graph>
+</div>

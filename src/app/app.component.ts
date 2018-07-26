@@ -25,18 +25,26 @@ export class AppComponent implements OnInit {
   list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   isExpanded;
 
+  accs = [
+    {}, {}, {}, {}
+  ]
+
   items: any;
 
   chartData = [
     {
-      name: "Germany",
-      value: 46268
+      name: "Facility",
+      value: -1.0
     },
     {
-      name: "USA",
-      value: 53041
+      name: "National",
+      value: 2.2
     }
   ];
+
+  colorScheme = {
+    domain: ['#94BFA2', '#D6D7D9']
+  }
 
   //footnote & info MUST have modal property
   data = [

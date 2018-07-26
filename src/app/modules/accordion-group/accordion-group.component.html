@@ -1,0 +1,3 @@
+<app-accordion (toggleAccordion)="handleExpansion($event)" *ngFor="let acc of data; let i = index" [expand]="isExpanded[i]"
+  [index]="i">
+</app-accordion>

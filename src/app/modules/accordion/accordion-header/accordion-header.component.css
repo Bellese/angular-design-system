@@ -1,9 +1,0 @@
-@media (max-width: 768px){
-  .header-title {
-    display: none;
-  }
-}
-
-.ds-l-col--auto {
-  position: relative;
-}

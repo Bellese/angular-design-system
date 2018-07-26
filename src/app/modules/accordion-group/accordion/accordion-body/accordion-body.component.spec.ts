@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlusComponent } from './plus.component';
+import { AccordionBodyComponent } from './accordion-body.component';
 
-describe('PlusComponent', () => {
-  let component: PlusComponent;
-  let fixture: ComponentFixture<PlusComponent>;
+describe('AccordionBodyComponent', () => {
+  let component: AccordionBodyComponent;
+  let fixture: ComponentFixture<AccordionBodyComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlusComponent ]
+      declarations: [ AccordionBodyComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PlusComponent);
+    fixture = TestBed.createComponent(AccordionBodyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -3,3 +3,9 @@
 .ds-l-col--12 {
     transition: all 1000ms ease-out;
 }
+
+.container {
+    width: 50%;
+    margin: 0 auto;
+    border: solid 1px black;
+}

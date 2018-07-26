@@ -1,0 +1,8 @@
+/* :host ::ng-deep .textDataLabel {
+    transform: rotate(0deg)
+} */
+
+/* :host ::ng-deep .ng-star-inserted text {
+    transform: rotate(0deg);
+    text-anchor: end;
+} */
