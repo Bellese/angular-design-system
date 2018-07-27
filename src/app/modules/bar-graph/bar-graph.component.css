@@ -1,8 +1,23 @@
-/* :host ::ng-deep .textDataLabel {
-    transform: rotate(0deg)
-} */
+.title {
+    color: #0071BC;
+    padding: 20px;
+    text-align: center;
+}
 
-/* :host ::ng-deep .ng-star-inserted text {
-    transform: rotate(0deg);
-    text-anchor: end;
-} */
+.ds-l-col {
+    display: inline-block;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+.ds-l-row.values  {
+    margin-top: -30px;
+    margin-left: 30px !important;
+    margin-right: 0 !important;
+}
+
+
+
+

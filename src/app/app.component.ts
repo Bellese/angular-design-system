@@ -34,11 +34,11 @@ export class AppComponent implements OnInit {
   chartData = [
     {
       name: "Facility",
-      value: -1.0
+      value: 0.75
     },
     {
       name: "National",
-      value: 2.2
+      value: 0.43
     }
   ];
 
