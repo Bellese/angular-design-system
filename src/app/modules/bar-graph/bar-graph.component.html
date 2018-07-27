@@ -1,18 +1,41 @@
 <h4 class="title">{{title}}</h4>
-<div class="ds-l-row mainGraphClass" (window:resize)="resize()" (window:load)="resize()">
-    <ngx-charts-bar-vertical *ngIf="data" #target [xAxisTickFormatting]="axisFormat" [view]="view" [scheme]="colorScheme" [results]="data"
-        [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel"
-        [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" (select)="onSelect($event)" [animations]="true"
-        [showGridLines]="true" [roundDomains]="true" [gradient]="true" [legend]="true" [showDataLabel]="false" [roundEdges]="true"
-        [tooltipDisabled]="false" [barPadding]="0">
+<div 
+class="ds-l-row mainGraphClass" 
+(window:resize)="resize()" 
+(window:load)="resize()">
+    <ngx-charts-bar-vertical 
+    *ngIf="data" 
+    #target 
+    [xAxisTickFormatting]="axisFormat" 
+    [view]="view" 
+    [scheme]="colorScheme" 
+    [results]="data"
+    [gradient]="gradient" 
+    [xAxis]="showXAxis" 
+    [yAxis]="showYAxis" 
+    [legend]="showLegend" 
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel" 
+    [xAxisLabel]="xAxisLabel" 
+    [yAxisLabel]="yAxisLabel" 
+    (select)="onSelect($event)" 
+    [animations]="true"
+    [showGridLines]="true" 
+    [roundDomains]="true" 
+    [gradient]="true" 
+    [legend]="true" 
+    [showDataLabel]="false" 
+    [roundEdges]="true"
+    [tooltipDisabled]="false"
+    [barPadding]="20">
     </ngx-charts-bar-vertical>
 </div>
 
-
 <div class="ds-l-row values">
-    <div 
-    *ngFor="let val of data; let i = index" 
-    [id]="'bar_'+i" class="ds-l-col">
-        {{val.value}}
-    </div>
+    <ng-container *ngFor="let val of data; let i = index">
+        <div id="'bar_'+i" class="ds-l-col">
+            {{val.value}}
+        </div>
+        <div class='gap' *ngIf="i % 2 === 0"></div>
+    </ng-container>
 </div>
