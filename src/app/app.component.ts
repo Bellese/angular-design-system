@@ -1,9 +1,7 @@
 import {
   Component,
-  ComponentFactory,
   ViewChild,
   ComponentFactoryResolver,
-  AfterViewInit,
   OnInit
 } from "@angular/core";
 import { AppService } from "./app.service";
@@ -25,16 +23,14 @@ export class AppComponent implements OnInit {
   list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   isExpanded;
 
-  accs = [
-    {}, {}, {}, {}
-  ]
+  accs = [{}, {}, {}, {}];
 
   items: any;
 
   chartData = [
     {
       name: "Facility",
-      value: -0.755555551
+      value: 7.755555551
     },
     {
       name: "National",
@@ -42,9 +38,6 @@ export class AppComponent implements OnInit {
     }
   ];
 
-  colorScheme = {
-    domain: ['#94BFA2', '#D6D7D9']
-  }
 
   //footnote & info MUST have modal property
   data = [

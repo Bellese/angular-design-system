@@ -1,4 +1,4 @@
-<h4 class="title">{{title}}</h4>
+<h4 role="heading" class="title">{{title}}</h4>
 <div 
 class="ds-l-row mainGraphClass" 
 (window:resize)="resize()" 
@@ -23,10 +23,10 @@ class="ds-l-row mainGraphClass"
     [showGridLines]="true" 
     [roundDomains]="true" 
     [gradient]="true" 
-    [legend]="true" 
     [showDataLabel]="false" 
     [roundEdges]="true"
     [tooltipDisabled]="false"
+    [customColors]="customColors"
     [barPadding]="20">
     </ngx-charts-bar-vertical>
 </div>
