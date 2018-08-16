@@ -1,7 +1,11 @@
 .title {
-    color: #0071BC;
+    color: #212121;
     padding: 20px;
     text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 24px;
+    height: 24px;
 }
 
 .ds-l-col {
@@ -13,13 +17,43 @@
 
 
 .ds-l-row.values  {
-    margin-top: -30px;
-    margin-left: 20px;
     margin-right: 0;
 }
 
-.gap {
-    padding: 10px;
+.tooltip {
+    padding: 20px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+.value {
+    position: absolute;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 31.2px;
+}
+
+#valueContainer {
+    position: relative;
+}
+
+.x-axis-label {
+    text-align: center;
+    margin: 40px auto 0 auto;
+}
+
+:host ::ng-deep .x.axis .tick text {
+    font-size: 16px !important;
 }
 
 

@@ -1,4 +1,4 @@
-import { Component, ViewChild, Input, ElementRef } from "@angular/core";
+import { Component, ViewChild, Input } from "@angular/core";
 
 @Component({
   selector: "app-bar-graph",
@@ -6,59 +6,115 @@ import { Component, ViewChild, Input, ElementRef } from "@angular/core";
   styleUrls: ["./bar-graph.component.css"]
 })
 export class BarGraphComponent {
-  single: any[];
-  showXAxis = true;
-  showYAxis = true;
-  gradient = false;
-  showLegend = false;
-  showXAxisLabel = true;
-  showYAxisLabel = false;
-  yAxisLabel = "Group Score";
-  childrenArr: any[];
-  bar;
-  @Input() view: any[];
-  @Input() data;
-  colorScheme = { domain: ["#2E8540", "#D6D7D9"] };
-  @Input() theme;
-  @Input() title;
-  @ViewChild("target", { read: ElementRef })
-  target: ElementRef;
+  bars;
+  chart;
   customColors;
 
+  @Input()
+  view: any[];
+  @Input()
+  data;
+  @Input()
+  title;
+  @Input()
+  id = 0;
+  @Input()
+  colorScheme;
+  @Input()
+  showXAxis
+  @Input()
+  showYAxis
+  @Input()
+  showXAxisLabel
+  @Input()
+  gradient = false;
+  @Input()
+  compareBars = false;
+  @Input()
+  tooltipDisabled = true;
+  @Input()
+  barPadding = "20";
+  @Input()
+  showYAxisLabel;
+  @Input()
+  animations = true;
+  @Input()
+  xAxisLabel;
+  @Input()
+  yAxisLabel;
+  @Input()
+  showGridLines;
+  @Input()
+  roundDomains;
+  @Input()
+  roundEdges;
+
   ngOnInit() {
+    if (this.compareBars) this.handleColor();
+  }
+
+  ngAfterViewInit() {
+    this.handleAria();
+  }
+
+  resize() {
+    let graphContainer = document.getElementsByClassName("mainGraphClass")[0]
+      .clientWidth;
+
+    this.view = [graphContainer, graphContainer / 2];
+
+    this.setPosition();
+  }
+
+  handleColor() {
     if (this.data[0].value < this.data[1].value) {
       this.customColors = [
         {
-          name: "Facility",
-          value: "#D32121"
+          name: `${this.data[0].name}`,
+          value: "#950000"
         }
       ];
     }
   }
 
-  resize() {
-    // this.bar = document
-    //   .getElementsByClassName("bar")[0]
-    //   .getBoundingClientRect().width;
-    // let bars = document.getElementsByClassName("bars");
-    let graphContainer = document.getElementsByClassName("mainGraphClass")[0]
-      .clientWidth;
+  handleAria() {
+    this.bars = document.querySelectorAll("#barGraph_" + this.id + " .bar");
+    this.chart = document.querySelectorAll(
+      "#barGraph_" + this.id + " .ngx-charts"
+    );
 
-    // for (let x = 0; x < bars.length; x++) {
-    //   bars[x].setAttribute("style", `width:${this.bar - 10}px`);
-    // }
+    this.chart[0].setAttribute("aria-hidden", true);
+    //for IE/Edge
+    this.chart[0].setAttribute("focusable", false);
 
-    this.view = [graphContainer, graphContainer / 2];
+    //tabindex of -1 on the bars to avoid focus inside the graph on tab
+    for (let i = 0; i < this.bars.length; i++) {
+      let parent = this.bars[i].parentNode;
+      parent.setAttribute("tabindex", -1);
+      parent.setAttribute("focusable", false);
+    }
   }
 
-  //for formatting xAxis labels
-  axisFormat = val => {
-    let result;
-    for (let x of this.data) {
-      if (x.name === val) {
-        result = val + ` [${x.value}]`;
-      }
+  setPosition() {
+    if (this.showXAxis) {
+      setTimeout(() => {
+        let tickTransform = document.querySelectorAll(".x.axis .tick");
+
+        let container = document
+          .getElementById("valueContainer")
+          .getBoundingClientRect().left;
+
+        Array.from(tickTransform).forEach((x, i) => {
+          let tick = x.getBoundingClientRect();
+          let left = tick.left - container;
+          let width = tick.width;
+
+          let target = document.getElementById("value_" + i);
+
+          target.style.left = left + "px";
+          target.style.width = width + "px";
+        });
+      }, 0);
     }
-    return val;
-  };
+  }
 }

@@ -1,41 +1,50 @@
-<h4 role="heading" class="title">{{title}}</h4>
+<h2 
+class="title">
+    {{title}}
+</h2>
+<p class="sr-only">
+    {{title}} bar graph image
+    <ng-container *ngFor="let item of data; let i = index">
+       Bar {{ i + 1 }} {{item.name}} value is {{item.value}} 
+    </ng-container>
+</p>
 <div 
 class="ds-l-row mainGraphClass" 
+[id]="'barGraph_' + id"
 (window:resize)="resize()" 
 (window:load)="resize()">
     <ngx-charts-bar-vertical 
-    *ngIf="data" 
-    #target 
     [xAxisTickFormatting]="axisFormat" 
     [view]="view" 
     [scheme]="colorScheme" 
     [results]="data"
-    [gradient]="gradient" 
+    [yAxis]="showYAxis"
     [xAxis]="showXAxis" 
-    [yAxis]="showYAxis" 
-    [legend]="showLegend" 
-    [showXAxisLabel]="showXAxisLabel"
     [showYAxisLabel]="showYAxisLabel" 
     [xAxisLabel]="xAxisLabel" 
     [yAxisLabel]="yAxisLabel" 
-    (select)="onSelect($event)" 
-    [animations]="true"
-    [showGridLines]="true" 
-    [roundDomains]="true" 
-    [gradient]="true" 
-    [showDataLabel]="false" 
-    [roundEdges]="true"
-    [tooltipDisabled]="false"
+    [animations]="animations"
+    [showGridLines]="showGridLines" 
+    [roundDomains]="roundDomains" 
+    [gradient]="gradient" 
+    [roundEdges]="roundEdges"
+    [tooltipDisabled]="true"
     [customColors]="customColors"
-    [barPadding]="20">
+    [barPadding]="barPadding">
+        <ng-template #tooltipTemplate let-model="model">
+            <div role="tooltip" class="tooltip">
+               {{model.name}} : 
+               {{model.value === "" ? "N/A" : model.value}}
+            </div>
+        </ng-template>
     </ngx-charts-bar-vertical>
 </div>
 
-<div class="ds-l-row values">
-    <ng-container *ngFor="let val of data; let i = index">
-        <div id="'bar_'+i" class="ds-l-col">
-            {{val.value}}
-        </div>
-        <div class='gap' *ngIf="i % 2 === 0"></div>
-    </ng-container>
+<div *ngIf="showXAxis" aria-hidden="true" id="valueContainer">
+    <span class="value" *ngFor="let val of data; let i = index" [id]="'value_' + i">
+        {{val.value === "" ? "N/A" : val.value}}
+    </span>
+</div>
+<div id="nameContainer" aria-hidden="true" *ngIf="showXAxisLabel" class="x-axis-label">
+    {{xAxisLabel}}
 </div>

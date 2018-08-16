@@ -74,9 +74,23 @@
 </div> -->
 
 <div class="ds-l-container">
-    <app-bar-graph
-    [title]="'Group Score Comparison'"
-    [theme]="'previewReportTheme'"
-    [data]="chartData">
-    </app-bar-graph>
-</div>
+        <app-bar-graph
+        [xAxisLabel]="'X AXIS LABEL'" 
+        [yAxisLabel]="'Y AXIS LABEL'" 
+        [showXAxisLabel]="true"
+        [showYAxisLabel]="true"
+        [showGridLines]="true"
+        [colorScheme]="colorScheme"
+        [roundDomains]="true"
+        [showXAxis]="true"
+        [showYAxis]="true"
+        [gradient]="false"
+        [roundEdges]="false"
+        [id]="1"
+        [title]="'Group Score Comparison'"
+        [compareBars]="true"
+        [barPadding]="20"
+        [animations]="true"
+        [data]="chartData"> 
+        </app-bar-graph>
+    </div>
