@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BarGraphComponent } from './bar-graph.component';
+import { AccordionBodyComponent } from './accordion-body.component';
 
-describe('BarGraphComponent', () => {
-  let component: BarGraphComponent;
-  let fixture: ComponentFixture<BarGraphComponent>;
+describe('AccordionBodyComponent', () => {
+  let component: AccordionBodyComponent;
+  let fixture: ComponentFixture<AccordionBodyComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BarGraphComponent ]
+      declarations: [ AccordionBodyComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BarGraphComponent);
+    fixture = TestBed.createComponent(AccordionBodyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

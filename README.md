@@ -272,7 +272,7 @@ The modal is built the way it is because we have to come up with a way to destro
 
 ## Modal and Accessibility
 
-In order to get the modal to disable JAWS in the background you have to add `modal-aria-hidden` class on every level that is above the modal host, but does not contain the modal host. So for example do not add this class to the body, because modal host sits inside the body. But you can put this on page header because page header exist on the page but does not contain the modal within it
+In order to get the modal to disable JAWS in the background you have to add `modal-aria-hidden` class on every level that is above the modal host, but does not contain the modal host. For example, do not add this class to the body, because modal host sits inside the body. But you can put this on page header because page header exist on the page but does not contain the modal within it
 
 ## Pagination Component
 
@@ -286,3 +286,78 @@ The pagination component utilizes the [ngx-pagination](http://michaelbromley.git
 </ul>
 <app-paging (currentPage)="p = $event"></app-paging>
 ```
+
+## Bar Graph Component 
+
+The bar graph component utilizes the [ngx-charts](https://swimlane.github.io/ngx-charts) library.
+
+This component has several inputs: 
+
+Input  | Description
+------------- | -------------
+xAxisLabel (string)  | Label for xAxis 
+yAxisLabel (string)  | Label for yAxis
+showYAxisLabel (boolean)  | Will show/hide yAxis label
+showXAxisLabel (boolean)  | Will show/hide xAxis label
+showGridLines (boolean)  | Will show/hide graph grid lines
+colorScheme  | The color scheme of the chart.
+showXAxis (boolean) | Will show/hide xAxis names and values
+showYAxis (boolean) | Will show/hide yAxis values
+roundEdges (boolean) | Will make the edges of bars round/square
+id (number) | Unique id for using multiple charts on a single page
+title (string) | Heading for bar chart
+compareBars (boolean) | For comparing two bars. When true, if the first bar value is less than the second bar, the bar will be red
+barPadding (number) | The amount of padding between each bar
+animations (boolean) | Enable/disable animations
+data | The chart data
+
+
+### Data Formats:
+
+Expected format for `data` :
+
+```
+[
+  {
+    "name": "Facility",
+    "value": 2
+  },
+  {
+    "name": "National",
+    "value": 4
+  }
+]
+```
+
+Expected format for `colorScheme` :
+
+```
+  colorScheme = {
+    domain: ["#256D34", "#D6D7D9"]
+  }
+```
+
+```
+<div class="ds-l-container">
+        <app-bar-graph
+        [xAxisLabel]="'X AXIS LABEL'" 
+        [yAxisLabel]="'Y AXIS LABEL'"
+        [showXAxisLabel]="true"
+        [showYAxisLabel]="true"
+        [showGridLines]="true"
+        [colorScheme]="colorScheme"
+        [roundDomains]="true"
+        [showXAxis]="true"
+        [showYAxis]="true"
+        [gradient]="false"
+        [roundEdges]="false"
+        [id]="1"
+        [title]="'Group Score Comparison'"
+        [compareBars]="true"
+        [barPadding]="20"
+        [animations]="true"
+        [data]="chartData"> 
+        </app-bar-graph>
+</div>
+```
+

@@ -1,0 +1,10 @@
+.collapsed {
+    overflow: hidden;
+    height: 0;
+}
+
+.expanded {
+    height: auto;
+}
+
+
