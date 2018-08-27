@@ -1,7 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
-import { AccordionModule } from "./modules/accordion/accordion.module";
 import { StarModule } from "./modules/star/star.module";
 import { DropdownModule } from "./modules/dropdown/dropdown.module";
 import { SpinnerModule } from "./modules/spinner/spinner.module";
@@ -13,6 +12,7 @@ import { DirectiveModule } from "./directives/directive.module";
 import { PagingModule } from './modules/paging/paging.module';
 import { DatepickerModule } from './modules/datepicker/datepicker.module'
 import { BarGraphModule } from './modules/bar-graph/bar-graph.module'
+import { PlusModule } from './modules/plus/plus.module'
 
 import { CardModule } from './modules/card/card.module'
 import { FormsModule } from '@angular/forms'
@@ -26,7 +26,6 @@ import { AppComponent } from "./app.component";
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AccordionModule,
     StarModule,
     DropdownModule,
     SpinnerModule,
@@ -41,7 +40,8 @@ import { AppComponent } from "./app.component";
     FormsModule,
     NgxChartsModule,
     BarGraphModule,
-    CardModule
+    CardModule,
+    PlusModule
   ],
   providers: [],
   bootstrap: [AppComponent]

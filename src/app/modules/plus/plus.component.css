@@ -1,0 +1,73 @@
+@keyframes rotate-open {
+  0% {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+  }
+}
+
+@keyframes rotate-close {
+  0% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(45deg);
+     -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+  }
+}
+
+.plusContainer {
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.verticalBar, .horizontalBar {
+    background-color: white;
+    padding: 8px 2px;
+    position: absolute;
+    top: 30%;
+}
+
+.horizontalBar {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+}
+
+#plus {
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+.verticalBar.expand {
+  animation-name: rotate-open;
+  animation-iteration-count: 1;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+
+}
+
+.verticalBar.collapse{
+  animation-name: rotate-close;
+  animation-iteration-count: 1;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+}

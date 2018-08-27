@@ -1,21 +1,50 @@
-<ngx-charts-chart
-  [view]="[width, height]"  
-  [showLegend]="false">  
-  <svg:g class="bar-chart chart">    
-    <svg:g 
-      ngx-charts-series-vertical      
-      [xScale]="xScale"      
-      [yScale]="yScale"      
-      [colors]="colors"      
-      [series]="results"      
-      [dims]="dims">   
-      <svg:line
-      class="xAxis"
-      [attr.stroke]="'black'"
-      [attr.x1]="60"
-      [attr.y1]="5"
-      [attr.x2]="1440"
-      [attr.y2]="5" /> 
-    </svg:g>
-  </svg:g>
-</ngx-charts-chart>
+<h2 
+class="title">
+    {{title}}
+</h2>
+<p class="sr-only">
+    {{title}} bar graph image
+    <ng-container *ngFor="let item of data; let i = index">
+       Bar {{ i + 1 }} {{item.name}} value is {{item.value}} 
+    </ng-container>
+</p>
+<div 
+class="ds-l-row mainGraphClass" 
+[id]="'barGraph_' + id"
+(window:resize)="resize()" 
+(window:load)="resize()">
+    <ngx-charts-bar-vertical 
+    [xAxisTickFormatting]="axisFormat" 
+    [view]="view" 
+    [scheme]="colorScheme" 
+    [results]="data"
+    [yAxis]="showYAxis"
+    [xAxis]="showXAxis" 
+    [showYAxisLabel]="showYAxisLabel" 
+    [xAxisLabel]="xAxisLabel" 
+    [yAxisLabel]="yAxisLabel" 
+    [animations]="animations"
+    [showGridLines]="showGridLines" 
+    [roundDomains]="roundDomains" 
+    [gradient]="gradient" 
+    [roundEdges]="roundEdges"
+    [tooltipDisabled]="true"
+    [customColors]="customColors"
+    [barPadding]="barPadding">
+        <ng-template #tooltipTemplate let-model="model">
+            <div role="tooltip" class="tooltip">
+               {{model.name}} : 
+               {{model.value === "" ? "N/A" : model.value}}
+            </div>
+        </ng-template>
+    </ngx-charts-bar-vertical>
+</div>
+
+<div *ngIf="showXAxis" aria-hidden="true" id="valueContainer">
+    <span class="value" *ngFor="let val of data; let i = index" [id]="'value_' + i">
+        {{val.value === "" ? "N/A" : val.value}}
+    </span>
+</div>
+<div id="nameContainer" aria-hidden="true" *ngIf="showXAxisLabel" class="x-axis-label">
+    {{xAxisLabel}}
+</div>

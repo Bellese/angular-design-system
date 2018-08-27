@@ -1,61 +1,120 @@
-import { Component, Input, OnChanges } from "@angular/core";
-import { BaseChartComponent, ColorHelper } from "@swimlane/ngx-charts";
-import * as d3 from "d3";
+import { Component, ViewChild, Input } from "@angular/core";
 
 @Component({
   selector: "app-bar-graph",
   templateUrl: "./bar-graph.component.html",
   styleUrls: ["./bar-graph.component.css"]
 })
-export class BarGraphComponent extends BaseChartComponent implements OnChanges {
-  dims: any;
-  xScale: any;
-  yScale: any;
-  xDomain: any;
-  yDomain: any;
-  colors: ColorHelper;
-  colorScheme: any = "cool";
-  @Input() view;
-  @Input() results;
-  ngOnChanges() {
-    this.update();
+export class BarGraphComponent {
+  bars;
+  chart;
+  customColors;
+
+  @Input()
+  view: any[];
+  @Input()
+  data;
+  @Input()
+  title;
+  @Input()
+  id = 0;
+  @Input()
+  colorScheme;
+  @Input()
+  showXAxis
+  @Input()
+  showYAxis
+  @Input()
+  showXAxisLabel
+  @Input()
+  gradient = false;
+  @Input()
+  compareBars = false;
+  @Input()
+  tooltipDisabled = true;
+  @Input()
+  barPadding = "20";
+  @Input()
+  showYAxisLabel;
+  @Input()
+  animations = true;
+  @Input()
+  xAxisLabel;
+  @Input()
+  yAxisLabel;
+  @Input()
+  showGridLines;
+  @Input()
+  roundDomains;
+  @Input()
+  roundEdges;
+
+  ngOnInit() {
+    if (this.compareBars) this.handleColor();
   }
-  update() {
-    super.update();
-    this.dims = {
-      width: this.width,
-      height: this.height
-    };
-    this.xScale = this.getXScale();
-    this.yScale = this.getYScale();
-    this.setColors();
+
+  ngAfterViewInit() {
+    this.handleAria();
   }
-  getXScale() {
-    const spacing = 0.1;
-    this.xDomain = this.getXDomain();
-    return d3
-      .scaleBand()
-      .rangeRound([0, this.dims.width])
-      .paddingInner(spacing)
-      .domain(this.xDomain);
+
+  resize() {
+    let graphContainer = document.getElementsByClassName("mainGraphClass")[0]
+      .clientWidth;
+
+    this.view = [graphContainer, graphContainer / 2];
+
+    this.setPosition();
   }
-  getYScale() {
-    this.yDomain = this.getYDomain();
-    return d3
-      .scaleLinear()
-      .range([this.dims.height, 0])
-      .domain(this.yDomain);
+
+  handleColor() {
+    if (this.data[0].value < this.data[1].value) {
+      this.customColors = [
+        {
+          name: `${this.data[0].name}`,
+          value: "#950000"
+        }
+      ];
+    }
   }
-  getXDomain() {
-    return this.results.map(d => d.name);
+
+  handleAria() {
+    this.bars = document.querySelectorAll("#barGraph_" + this.id + " .bar");
+    this.chart = document.querySelectorAll(
+      "#barGraph_" + this.id + " .ngx-charts"
+    );
+
+    this.chart[0].setAttribute("aria-hidden", true);
+    //for IE/Edge
+    this.chart[0].setAttribute("focusable", false);
+
+    //tabindex of -1 on the bars to avoid focus inside the graph on tab
+    for (let i = 0; i < this.bars.length; i++) {
+      let parent = this.bars[i].parentNode;
+      parent.setAttribute("tabindex", -1);
+      parent.setAttribute("focusable", false);
+    }
   }
-  getYDomain() {
-    let values = this.results.map(d => d.value);
-    let min = Math.min(0, ...values);
-    let max = Math.max(...values);
-    return [min, max];
-  }
-  setColors() {
-    this.colors = new ColorHelper(this.colorScheme, "ordinal", this.xDomain);
+
+  setPosition() {
+    if (this.showXAxis) {
+      setTimeout(() => {
+        let tickTransform = document.querySelectorAll(".x.axis .tick");
+
+        let container = document
+          .getElementById("valueContainer")
+          .getBoundingClientRect().left;
+
+        Array.from(tickTransform).forEach((x, i) => {
+          let tick = x.getBoundingClientRect();
+          let left = tick.left - container;
+          let width = tick.width;
+
+          let target = document.getElementById("value_" + i);
+
+          target.style.left = left + "px";
+          target.style.width = width + "px";
+        });
+      }, 0);
+    }
   }
 }
