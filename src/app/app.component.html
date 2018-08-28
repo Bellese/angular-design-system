@@ -69,7 +69,7 @@
     <app-card [data]="items"></app-card>
 </div> -->
 
-<!-- <div class="ds-l-container">
+<div class="ds-l-container">
         <app-bar-graph
         [xAxisLabel]="'X AXIS LABEL'" 
         [yAxisLabel]="'Y AXIS LABEL'" 
@@ -89,7 +89,9 @@
         [animations]="true"
         [data]="chartData"> 
         </app-bar-graph>
-</div> -->
+</div>
 
-<!-- <app-plus>
-</app-plus> -->
+<app-plus
+(click)="!expand"
+[expand]="expand">
+</app-plus>
