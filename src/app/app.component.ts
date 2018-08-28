@@ -29,6 +29,7 @@ export class AppComponent implements OnInit {
   chartData = {};
   tableData = {};
   tableHeaderData = {};
+  expand = false;
 
   items: any;
 
