@@ -1,0 +1,87 @@
+:host ::ng-deep .tick text {
+    font-size: 15px !important;
+    fill: #5B616B !important;
+}
+
+.circleGraphShell {
+    min-width: 300px;
+}
+
+.centerTextShell {
+    position: relative;
+}
+
+.centerText {
+    position: absolute;
+    text-align: center;
+    font-size: 36px;
+}
+
+.subText {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom:16px;
+}
+
+.tableScope {
+    border: 1px solid #D6D7D9;
+    padding: 8px;
+    padding-bottom: 12px;
+}
+
+.tableScope td, .tableScope th {
+    padding: 0 !important;
+    padding-bottom: 10px !important;
+}
+
+.tableScope .ds-c-table td, .ds-c-table th {
+    border: none;
+    padding: 1em;
+}
+
+.tableScope .ds-c-table th, .ds-c-table thead td {
+    background-color: transparent;
+}
+
+.tableScope table {
+    table-layout: auto;
+}
+
+.tableScope table th {
+    font-weight: normal;
+}
+
+.tableScope table td {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.tableScope table th, .tableScope table td{
+    text-align: center;
+    border-right: 1px solid #979797 !important;
+    padding: 0 10px !important;
+}
+
+.tableScope table th:last-of-type , .tableScope table td:last-of-type {
+    border-right: none !important;
+}
+
+.tableScope caption {
+    padding-bottom: 20px;
+}
+
+.tableScope caption .legendTitle {
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    color: #212121;
+}
+
+.tableScope caption .legendDate {
+    color: #212121;
+    text-align: right;
+    font-size: 16px;
+}
+
+@media only screen and (max-width: 544px) {
+}

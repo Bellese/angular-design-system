@@ -10,7 +10,6 @@ export class AppTable {
     @Input() index;
     @Input() headers;
     @Input() dataRows;
-    @Input() searchable;
     @Input() tableSummary;
     @Input() theme;
     @Input() tableTitle;

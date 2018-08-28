@@ -1,6 +1,6 @@
 .table-background {
     overflow-x: auto;
-    margin-bottom: 25px;
+    margin-bottom:25px;
 }
 
 table {
@@ -20,7 +20,7 @@ caption {
 }
 
 th {
-    background-color: #FFFFFF;
+    background-color: #f1f1f1;
     vertical-align: middle;
     height:55px;
     font-size: 16px;

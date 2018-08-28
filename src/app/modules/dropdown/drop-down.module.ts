@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DropdownComponent } from './dropdown/dropdown.component'
+import { AppDropDown } from './drop-down/drop-down.component'
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [
-    DropdownComponent
+    AppDropDown
   ],
   exports: [
-    DropdownComponent
+    AppDropDown
   ]
 })
 export class DropdownModule { }

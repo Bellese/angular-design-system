@@ -10,7 +10,7 @@
     <div *ngIf="data.value.el === 'link'" 
          class="{{data.key + uniqueClass + ' ' + dataClass}}"
          title="{{data.value.value}}">
-            <a [routerLink]="data.value.attr">{{ data.value.value }}</a>
+         <a [routerLink]="data.value.attr">{{ data.value.value }}</a>
     </div>
     
     <div *ngIf="data.value.el === 'checkbox'" 
@@ -26,7 +26,7 @@
     
     <app-button *ngIf="data.value.el === 'button'"
     class="{{data.key + uniqueClass + ' ' + data.value.attr + ' ' + dataClass}}"
-    title="click to view {{data.value.value}} supplemental information"
+    title="activate to view {{data.value.value}} supplemental information"
         [buttonFocus]="buttonFocus === index ? true: false"
         [buttonID]="index"
         [content]="data.value.value"
