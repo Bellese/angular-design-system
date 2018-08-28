@@ -1,13 +1,12 @@
 <button button-focus 
         [modalFocus]="modalFocus"
         [buttonFocus]="buttonFocus"
-    role="button"
+    type="button"
     id="{{buttonID}}"
     (click)="callBackFunction($event)" 
     (keyup.enter)="callBackFunction($event)" 
     attr.aria-label="{{ ariaLabel }}"
-    class="ds-c-button pointer" 
-    [attr.aria-pressed]="state"
+    class="ds-c-button pointer"
     [ngClass]="buttonType">
         <ng-container *ngIf="abbr; else normal">
             {{ abbr }}
