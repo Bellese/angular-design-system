@@ -50,22 +50,6 @@ import { DirectiveModule } from "./directives/directive.module" <-- DirectiveMod
 import { PagingModule } from './modules/paging/paging.module'
 ```
 
-## Accordion Component Example
-
-```
-//app.component.html
-<app-accordion-group>
-    <app-accordion
-    *ngFor="let item of items">
-        <app-accordion-header>
-            <h2>{{item.title}}</h2> // <-- header goes here
-        </app-accordion-header>
-        <app-accordion-content>
-            <p>your content</p> // <-- content goes here
-        </app-accordion-content>
-    </app-accordion>
-</app-accordion-group>
-```
 
 ## Star Rating Component Example
 
