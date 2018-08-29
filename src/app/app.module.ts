@@ -20,7 +20,7 @@ import { CardModule } from './modules/card/card.module'
 import { FormsModule } from '@angular/forms'
 import { DatePickerModule } from './modules/date-picker/date-picker.module'
 import { CircleGraphModule } from './modules/circle-graph/circle-graph.module'
-import { CheckboxModule } from './modules/check-box/check-box.module'
+import { CheckBoxModule } from './modules/check-box/check-box.module'
 import { LineGraphModule } from './modules/line-graph/line-graph.module'
 import { DropdownModule } from './modules/drop-down/drop-down.module'
 
@@ -45,7 +45,7 @@ import { DropdownModule } from './modules/drop-down/drop-down.module'
     PlusModule,
     DatePickerModule,
     CircleGraphModule,
-    CheckboxModule,
+    CheckBoxModule,
     LineGraphModule,
     DropdownModule
 

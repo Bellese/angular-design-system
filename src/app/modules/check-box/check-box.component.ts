@@ -3,11 +3,11 @@ import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-checkbox',
-  templateUrl: './checkbox.component.html',
-  styleUrls: ['./checkbox.component.css']
+  templateUrl: './check-box.component.html',
+  styleUrls: ['./check-box.component.css']
 })
 
-export class AppCheckbox {
+export class AppCheckBox {
     @Input() index;
     @Input() value;
     @Input() groupName;
