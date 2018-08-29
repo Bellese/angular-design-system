@@ -101,12 +101,12 @@ ul {
     padding: 5px 0;
 }
 
-.info {
+/* .info {
     background-image: url(../../../assets/images/info.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 25px;
-}
+} */
 
 .alignRight {
     text-align: right;

@@ -29,19 +29,19 @@ Above add classes for all tables, below reference unique classes to modify data 
     max-width: 100%;
 }
 
-.stus_cd_ready {
+/* .stus_cd_ready {
     background-image: url(../../../assets/images/success.svg);
     background-repeat: no-repeat;
     padding: 6px 0px 6px 50px;
     background-size: 50px 50px;
     text-align: justify;
     margin-left: -10px;
-}
+} */
 
-.stus_cd_waiting {
+/* .stus_cd_waiting {
     background-image: url(../../../assets/images/processing.svg);
     background-repeat: no-repeat;
     padding: 4px 0px 4px 40px;
     background-size: 30px 30px;
     text-align: justify;
-}
+} */
