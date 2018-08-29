@@ -1,6 +1,4 @@
-import { Component, Input, Output, OnInit, EventEmitter, AfterViewInit } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-line-graph',

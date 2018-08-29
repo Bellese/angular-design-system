@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
     name: 'graphToolTip'
 })
 
-export class GraphToolTippipe implements PipeTransform {
+export class GraphToolTipPipe implements PipeTransform {
     
     transform(items: any, descriptor: any): any {
         
