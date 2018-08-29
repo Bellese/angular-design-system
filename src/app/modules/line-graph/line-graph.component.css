@@ -1,0 +1,175 @@
+.mainGraphClass {
+}
+
+.legendContainer {
+    border: 1px solid #D6D7D9;
+    padding: 8px;
+    text-align: center;
+    margin-top: 16px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+}
+
+span[id^="marker_"] {
+    position: absolute;
+    text-align: center;
+    margin-top: -24px;
+}
+
+:host ::ng-deep .tick text {
+    font-size: 15px !important;
+    fill: #5B616B !important;
+}
+
+:host ::ng-deep .ng-star-inserted text {
+    font-size: 17px;
+    fill: #212121;
+    font-weight: 700;
+}
+
+:host ::ng-deep .gridline-path, 
+:host ::ng-deep .refline-path {
+    stroke-width: 1.5 !important;
+}
+
+:host ::ng-deep rect.tooltip-anchor {
+    fill: #9BDAF1 !important;
+}
+
+:host ::ng-deep .line {
+    stroke-width: 3px;
+}
+
+.xAxisLabel {
+    color: #212121;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.yAxisLabel {
+    color: #5B616B;
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.series {
+    color: #212121;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.seriesValue {
+    color: #212121;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.seriesValue2 {
+    color: #212121;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.square {
+    width: 13px;
+    height: 13px;
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: -1px; 
+}
+
+ul {
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.cycleValues li {
+    text-align: center;
+    width:25px;
+}
+
+.cycleValues {
+    text-align: center;
+}
+
+.seriesToolTip {
+    text-align: left;
+    padding: 5px 0;
+}
+
+.info {
+    background-image: url(../../../assets/images/info.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25px;
+}
+
+.alignRight {
+    text-align: right;
+}
+
+.leftArrow {
+    transform: rotate(90deg);
+}
+
+.rightArrow {
+     transform: rotate(-90deg);
+}
+
+#movingLegend li {
+    display: inline;
+}
+
+.ds-l-form-row {
+    margin-bottom:20px;
+}
+
+.arrowSelector {
+    padding-top: 5px;
+}
+
+.noSelect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+    supported by Chrome and Opera */
+    -webkit-tap-highlight-color: transparent;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.legendLeft {
+    text-align: left;
+    font-size: 16px;
+}
+
+.legendRight {
+    text-align: right;
+    font-size: 16px;
+}
+
+.focus-trap-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    outline: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+@media only screen and (max-width: 544px) {
+}

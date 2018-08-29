@@ -1,0 +1,80 @@
+<div class="ds-l-row ds-u-justify-content--center ds-u-align-items--center">
+    <div class="ds-l-lg-col--6 ds-l-md-col--12">
+        <div class="mainGraphClass circleGraphShell" (window:load)="resize()" (window:resize)="resize()" id="strictCircleGraph" aria-label="pie chart expressing the results of errors and non error submitted, tab to hear results">
+            <ngx-charts-pie-chart
+                [view]="view"
+                [results]="data"
+                [scheme]="scheme"
+                [customColors]="customColors"
+                [animations]="animations"
+                [labels]="labels"
+                [trimLabels]="trimLabels"
+                [maxLabelLength]="maxLabelLength"
+                [explodeSlices]="explodeSlices"
+                [doughnut]="doughnut"
+                [arcWidth]="arcWidth"
+                [gradient]="gradient"
+                [tooltipDisabled]="tooltipDisabled"
+                [labelFormatting]="labelFormat()"
+                [tooltipText]="toolTipFormat()"
+                (select)="onSelect($event)"
+                (activate)="onActivate($event)"
+                (deactivate)="onDeactivate($event)">
+                <ng-template #tooltipTemplate let-model="model">
+                    <div>
+                        <h1 class="ds-h6" style="margin: 2px; font-weight: normal; color: white">
+                            {{model.name}}
+                        </h1>
+                        <h3 class="ds-h4" style="margin: 2px; font-weight: bold">{{ model.value | graphToolTip}}</h3>
+                    </div>
+                </ng-template>
+            </ngx-charts-pie-chart>
+
+            <div class="centerTextShell">
+                <div id="centerText" class="centerText">
+                    {{ centerNum }}
+                </div>
+            </div>
+
+            <div id="subText" class="subText">
+                {{ title }}
+            </div>
+        </div>
+    </div>
+    <div class="ds-l-lg-col--6 ds-l-md-col--12">
+        <div class="tableScope">
+            <table class="ds-c-table ds-c-table--borderless" summary="{{tableSummary}}">
+                <caption>
+                    <div class="ds-l-row ds-u-justify-content--center ds-u-align-items--center">
+                        <div class="ds-l-col legendTitle">
+                            {{ legendTitle }}
+                        </div>
+                        <div class="ds-l-col legendDate">
+                            {{ legendDate }}
+                        </div>
+                    </div>
+                </caption>
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            Total {{ firstColumnName }}
+                        </th>
+                        <th *ngFor="let d of data; let i = index" scope="col">
+                            {{ d.name }}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            {{ totalValues }}
+                        </td>
+                        <td *ngFor="let d of data; let i = index">
+                            {{ d.value }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

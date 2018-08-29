@@ -1,0 +1,25 @@
+<label
+    *ngIf="labelName" 
+    class="ds-c-label ds-u-margin-top--0 ds-u-sans" 
+    for="{{'dropdown-' + id}}">
+        {{ labelName }}
+    <span *ngIf="hintMessage" class="ds-c-field__hint ds-c-field__hint--inverse">{{ hintMessage }}</span>
+    <span *ngIf="errorMessage" class="ds-c-field__hint ds-u-color--error" id="undefined-message" role="alert">{{ errorMessage }}</span>
+</label>
+<select 
+        id="{{'dropdown-' + id}}" 
+        class="ds-c-field ds-c-field--{{width}}"
+        [ngClass]="{'ds-c-field--error': error}"
+        name="options"
+        (change)="selectOption($event)">
+    <ng-container *ngFor="let option of options; let i = index">
+        <option *ngIf="i === defaultSelected; else notSelected" value="{{ option }}" selected>
+            {{ option }}
+        </option>
+        <ng-template #notSelected>
+            <option value="{{ option }}">
+                {{ option }}
+            </option>
+        </ng-template>
+    </ng-container>
+</select>

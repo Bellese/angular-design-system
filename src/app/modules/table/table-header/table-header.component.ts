@@ -1,35 +1,33 @@
-import { Component, Input, EventEmitter, Output, OnInit } from "@angular/core";
+import { Component, Input, EventEmitter, Output, OnInit, AfterViewChecked } from '@angular/core';
 
 @Component({
-  selector: "[app-table-header]",
-  templateUrl: "./table-header.component.html",
-  styleUrls: ["./table-header.component.css"]
+  selector: '[app-table-header]',
+  templateUrl: './table-header.component.html',
+  styleUrls: ['./table-header.component.css']
 })
+
 export class AppTableHeader {
-  @Input() header;
-  @Input() selected;
-  @Output() onHeaderClick = new EventEmitter<object>();
-  asc: boolean = false;
+    @Input() header;
+    @Input() selected;
+    @Output() onHeaderClick = new EventEmitter<object>();
+    asc: boolean = false;
 
-  getHeader(e) {
-    this.asc = !this.asc;
-    this.onHeaderClick.emit({
-      e: e,
-      asc: this.asc,
-      header: this.header.header.el
-    });
-  }
+    getHeader(e) {
+        this.asc = !this.asc
+        this.onHeaderClick.emit({e: e, asc: this.asc, header: this.header.header.el});
+    };
 
-  //sets a class of 'ascending' or 'descending'
-  //only to the currently selected (clicked) header
+    //sets a class of 'ascending' or 'descending'
+    //only to the currently selected (clicked) header
 
-  handleDirection() {
-    if (this.asc) return "ascending";
-    else return "descending";
-  }
+    handleDirection(){
+        if(this.asc) return "ascending"
+        else return "descending"
+    }
 
-  //sets previously selected headers to a default state of false
-  setDefaultDirection() {
-    this.asc = true;
-  }
+    //sets previously selected headers to a default state of false
+    setDefaultDirection(){
+        this.asc = true;
+    }
+
 }
