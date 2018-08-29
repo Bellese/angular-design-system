@@ -14,4 +14,4 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
   declarations: [AppDatepicker],
   exports: [AppDatepicker]
 })
-export class DatepickerModule { }
+export class DatePickerModule { }

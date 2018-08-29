@@ -1,6 +1,3 @@
-.mainGraphClass {
-}
-
 .legendContainer {
     border: 1px solid #D6D7D9;
     padding: 8px;
@@ -102,7 +99,7 @@ ul {
 }
 
 .info {
-    background-image: url(../../../assets/images/info.svg);
+    background-image: url(../../../assets/css/images/info.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 25px;
@@ -169,7 +166,4 @@ ul {
     outline: 0;
     -webkit-appearance: none;
     -moz-appearance: none;
-}
-
-@media only screen and (max-width: 544px) {
 }

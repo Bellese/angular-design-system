@@ -11,6 +11,7 @@ import * as cardData from "../assets/data/card-data.json";
 import * as chartData from "../assets/data/chart-data.json";
 import * as tableData from "../assets/data/table-data.json";
 import * as tableHeaderData from "../assets/data/table-header-data.json";
+import * as lineData from '../assets/data/line-data.json'
 
 @Component({
   selector: "app-root",
@@ -29,6 +30,7 @@ export class AppComponent implements OnInit {
   chartData = {};
   tableData = {};
   tableHeaderData = {};
+  lineData = {};
   expand = false;
 
   items: any;
@@ -58,6 +60,7 @@ export class AppComponent implements OnInit {
     this.chartData = chartData;
     this.tableData = tableData;
     this.tableHeaderData = tableHeaderData;
+    this.lineData = lineData;
   }
 
   closeModal(val, target) {

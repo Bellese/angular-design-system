@@ -2,12 +2,12 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
 
 @Component({
-  selector: 'app-checkbox',
-  templateUrl: './checkbox.component.html',
-  styleUrls: ['./checkbox.component.css']
+  selector: 'app-check-box',
+  templateUrl: './check-box.component.html',
+  styleUrls: ['./check-box.component.css']
 })
 
-export class AppCheckbox {
+export class AppCheckBox {
     @Input() index;
     @Input() value;
     @Input() groupName;

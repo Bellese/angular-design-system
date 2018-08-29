@@ -17,9 +17,7 @@ import { StarModule } from '../star/star.module'
 
 import { DirectiveModule } from '../../directives/directive.module'
 
-import { FilterPipe } from "./filter.pipe";
-import { FilterTypepipe } from "./filterType.pipe";
-import { SortingPipe } from "./sorting.pipe";
+import { PipesModule } from '../pipes/pipes.module'
 
 
 @NgModule({
@@ -30,7 +28,8 @@ import { SortingPipe } from "./sorting.pipe";
     ButtonModule,
     DirectiveModule,
     PagingModule,
-    StarModule
+    StarModule,
+    PipesModule
   ],
   declarations: [
     AppTable,
@@ -40,10 +39,7 @@ import { SortingPipe } from "./sorting.pipe";
     AppTableRow,
     AppTableSearch,
     AppCheckbox,
-    AppTextField,
-    FilterPipe,
-    FilterTypepipe,
-    SortingPipe
+    AppTextField
   ],
   exports: [
     AppTable,
@@ -51,10 +47,7 @@ import { SortingPipe } from "./sorting.pipe";
     AppTableDescr,
     AppTableHeader,
     AppTableRow,
-    AppTableSearch,
-    FilterPipe,
-    FilterTypepipe,
-    SortingPipe
+    AppTableSearch
   ]
 })
 export class TableModule { }

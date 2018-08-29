@@ -1,9 +1,3 @@
-<!-- <app-dropdown
-[id]=2
-[options]="options"
-[labelName]="'name'">
-</app-dropdown> -->
-
 <!-- <app-star-rating 
 [starAmount]="5" 
 [rating]="2">
@@ -30,9 +24,8 @@
     [theme]="'previewReportTheme'"
     [index]="1" 
     [tableTitle]="'Table Title'"
-    [headers]="headerData" 
-    [dataRows]="data" 
-    [searchable]="true" 
+    [headers]="tableHeaderData" 
+    [dataRows]="tableData" 
     [paginate]="false"
     [starRating]="3"
     [tableSummary]="'table summary'">
@@ -42,9 +35,8 @@
     (onOpenModal)="openModal($event)"
     [index]="2" 
     [tableTitle]="'Table Title'"
-    [headers]="headerData" 
-    [dataRows]="data" 
-    [searchable]="false" 
+    [headers]="tableHeaderData" 
+    [dataRows]="tableData" 
     [paginate]="true"
     [maxRows]="4"
     [tableSummary]="'table summary'">
@@ -65,11 +57,11 @@
 </app-datepicker> -->
 
 
-<!-- <div class="ds-l-container">
-    <app-card [data]="items"></app-card>
-</div> -->
-
 <div class="ds-l-container">
+    <app-card [data]="items"></app-card>
+</div>
+
+<!-- <div class="ds-l-container">
         <app-bar-graph
         [xAxisLabel]="'X AXIS LABEL'" 
         [yAxisLabel]="'Y AXIS LABEL'" 
@@ -89,9 +81,21 @@
         [animations]="true"
         [data]="chartData"> 
         </app-bar-graph>
-</div>
+</div> -->
 
-<app-plus
-(click)="!expand"
-[expand]="expand">
-</app-plus>
+<!-- <app-plus>
+</app-plus> -->
+
+<!-- <app-date-picker></app-date-picker> -->
+
+<!-- <app-circle-graph
+[data]="chartData">
+</app-circle-graph> -->
+
+<!-- <app-check-box></app-check-box> -->
+
+<!-- <app-line-graph
+[data]="lineData">
+</app-line-graph> -->
+
+
