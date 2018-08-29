@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { AppCheckbox } from "./checkbox.component";
+import { AppCheckbox } from "./check-box.component";
 
 @NgModule({
   imports: [CommonModule],
