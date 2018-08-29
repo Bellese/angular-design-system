@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { URL } from "../../app_routing/urlGlobal";
 
 @Component({
   selector: '[app-table-data]',
