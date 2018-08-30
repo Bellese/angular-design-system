@@ -378,7 +378,7 @@ Optional:
 - `trimLabels`: Boolean, this will cut the labels off if they’re too long and turn them into ellipses
   - `maxLabelLength`: This is required to be used along with `trimLabels` (determines how many characters you want each label to be)
 - `explodeSlices` – This just makes the circle graph slices pop out, Boolean
-- doughnut – Boolean, allows the graph to have a hole in the center
+- `doughnut` – Boolean, allows the graph to have a hole in the center
   - Required: `arcWidth`
 - `arcWidth` – This is the thickness of the doughnut where 1 is full width and .1 is a tiny width
 - `gradient` – Boolean, gradient or not
