@@ -395,7 +395,7 @@ Optional:
 </app-circle-graph>
 ```
 
-## Expected Data Format
+### Expected Data Format
 
 ```
 chartData = [
@@ -410,7 +410,7 @@ chartData = [
 ]
 ```
 
-### Line Graph Component Example
+## Line Graph Component Example
 
 The line graph was built from utilizing the [ngx-charts](https://swimlane.github.io/ngx-charts)
 library
@@ -443,7 +443,7 @@ Optional:
 </app-line-graph>
 ```
 
-## Expected Data Format
+### Expected Data Format
 
 ```
 [
