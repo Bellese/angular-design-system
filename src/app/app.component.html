@@ -57,9 +57,9 @@
 </app-datepicker> -->
 
 
-<div class="ds-l-container">
+<!-- <div class="ds-l-container">
     <app-card [data]="items"></app-card>
-</div>
+</div> -->
 
 <!-- <div class="ds-l-container">
         <app-bar-graph
@@ -97,5 +97,14 @@
 <!-- <app-line-graph
 [data]="lineData">
 </app-line-graph> -->
+
+<app-alert
+[hide]="false"
+[heading]="'My heading'"
+[hideIcon]="false"
+[variation]="'warn'">
+    This is my content!<br>
+    <a href="#">This is a link.</a>
+</app-alert>
 
 

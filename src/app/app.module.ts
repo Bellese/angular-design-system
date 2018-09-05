@@ -22,7 +22,8 @@ import { DatePickerModule } from './modules/date-picker/date-picker.module'
 import { CircleGraphModule } from './modules/circle-graph/circle-graph.module'
 import { CheckBoxModule } from './modules/check-box/check-box.module'
 import { LineGraphModule } from './modules/line-graph/line-graph.module'
-import { DropdownModule } from './modules/drop-down/drop-down.module'
+import { DropdownModule } from './modules/drop-down/drop-down.module';
+import { AlertModule } from './modules/alert/alert.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -47,7 +48,8 @@ import { DropdownModule } from './modules/drop-down/drop-down.module'
     CircleGraphModule,
     CheckBoxModule,
     LineGraphModule,
-    DropdownModule
+    DropdownModule,
+    AlertModule
 
   ],
   providers: [],

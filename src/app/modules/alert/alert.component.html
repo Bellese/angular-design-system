@@ -1,0 +1,19 @@
+<div 
+*ngIf="!hide"
+role="alertdialog" 
+class="ds-c-alert ds-c-alert--{{variation}} ds-c-alert--{{hideIcon ? 'hide-icon' : null}}">
+  <button
+  (click)="hide = true"
+  class="ds-c-button ds-c-button--transparent ds-c-dialog__close" 
+  attr.aria-label="Close alert dialog">
+    Close
+  </button>
+  <div class="ds-c-alert__body">
+    <h3 id="alert-heading" class="ds-c-alert__heading">
+      {{heading}}
+    </h3>
+    <span id="alert-body">
+      <ng-content></ng-content>
+    </span>
+  </div>
+</div>
