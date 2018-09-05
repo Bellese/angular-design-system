@@ -10,4 +10,5 @@ export * from './src/app/modules/modal/modal/modal.component'
 export * from './src/app/modules/plus/plus.module'
 export * from './src/app/modules/bar-graph/bar-graph.module'
 export * from './src/app/modules/button/button.module'
+export * from './src/app/modules/alert/alert.module'
 
