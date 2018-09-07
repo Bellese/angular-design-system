@@ -10,5 +10,6 @@ export class AlertComponent {
   @Input() heading: string;
   @Input() hideIcon: boolean;
   @Input() hide: boolean;
+  @Input() hideClose: boolean;
 
 }
