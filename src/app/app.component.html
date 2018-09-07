@@ -18,32 +18,22 @@
 [description]="'description'">
 </app-table-descr> -->
 
-<div>
-    <app-table
-    (onOpenModal)="openModal($event)"
-    [theme]="'previewReportTheme'"
-    [index]="1" 
-    [tableTitle]="'Table Title'"
-    [headers]="tableHeaderData" 
-    [dataRows]="tableData" 
-    [paginate]="false"
-    [starRating]="3"
-    [tableSummary]="'table summary'">
+<div style="width: 50%">
+    <app-alert>
+        THIS IS SOME CONTENT
+    </app-alert>
+
+
+    <app-table (onOpenModal)="openModal($event)" [theme]="'previewReportTheme'" [index]="1" [tableTitle]="'Table Title'" [headers]="tableHeaderData"
+        [dataRows]="tableData" [paginate]="false" [starRating]="3" [tableSummary]="'table summary'">
     </app-table>
 
-    <app-table
-    (onOpenModal)="openModal($event)"
-    [index]="2" 
-    [tableTitle]="'Table Title'"
-    [headers]="tableHeaderData" 
-    [dataRows]="tableData" 
-    [paginate]="true"
-    [maxRows]="4"
-    [tableSummary]="'table summary'">
+    <app-table (onOpenModal)="openModal($event)" [index]="2" [tableTitle]="'Table Title'" [headers]="tableHeaderData" [dataRows]="tableData"
+        [paginate]="true" [maxRows]="4" [tableSummary]="'table summary'">
     </app-table>
 </div>
 
-<ng-template modal-host></ng-template> 
+<ng-template modal-host></ng-template>
 
 <!-- <ul>
     <li *ngFor="let item of list | paginate: { itemsPerPage: 3, currentPage: p}">
@@ -97,14 +87,3 @@
 <!-- <app-line-graph
 [data]="lineData">
 </app-line-graph> -->
-
-<!-- <app-alert
-[hide]="false"
-[hideClose]="false"
-[heading]="'Development in progress'"
-[hideIcon]="false"
-[variation]="'warn'">
-    To ensure you get the best possible user experience this page is currently under construction. As we make updates, things may change between visits.
-</app-alert> -->
-
-

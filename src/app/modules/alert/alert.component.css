@@ -1,3 +1,7 @@
-.ds-c-dialog__close {
-    float: right;
+.ds-c-alert {
+    background-position: 16px !important;
+}
+
+.close {
+    text-align: right;
 }

@@ -8,8 +8,9 @@ import { Component, Input } from '@angular/core';
 export class AlertComponent {
   @Input() variation: string;
   @Input() heading: string;
-  @Input() hideIcon: boolean;
-  @Input() hide: boolean;
-  @Input() hideClose: boolean;
+  @Input() hideIcon: boolean = false;
+  @Input() hideClose: boolean = false;
+
+  hide: boolean;
 
 }
