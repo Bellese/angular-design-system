@@ -573,3 +573,21 @@ Required:
   }
 ]
 ```
+
+### Alert Component Example
+
+* `heading (string)` : Status heading of the alert
+* `variation (string)` : Type of alert status, can be `error`, `warn`, or `success`
+* `hideIcon (boolean)` :  Hide/show the alert status icon
+* `hideClose (boolean)` : Hide/show the close button
+
+
+```
+<app-alert
+[heading]="'Status heading'"
+[variation]="'warn'"
+[hideIcon]="false"
+[hideClose]="false">
+  Content of the alert <-- Alert content goes here
+</app-alert>
+```
