@@ -55,6 +55,7 @@ export class BarGraphComponent {
 
   ngAfterViewInit() {
     this.handleAria();
+    this.setPosition();
   }
 
   resize() {
