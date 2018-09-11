@@ -51,12 +51,12 @@ export class BarGraphComponent {
 
   ngOnInit() {
     if (this.compareBars) this.handleColor();
+    this.resize();
   }
 
   ngAfterViewInit() {
     this.handleAria();
     this.setPosition();
-    this.resize();
   }
 
   resize() {
