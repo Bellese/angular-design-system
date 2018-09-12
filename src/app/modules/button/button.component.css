@@ -21,7 +21,7 @@
 }
 
 .info {
-    background-image: url(../../../assets/images/info.svg);
+    background-image: url(../../../assets/css/images/info.svg);
     background-repeat: no-repeat;
     padding-left: 25px;
     background-position: left;
@@ -33,12 +33,12 @@
 }
 
 .ascending {
-    background-image: url('../../../assets/images/up-arrow.svg') !important;
+    background-image: url('../../../assets/css/images/up-arrow.svg') !important;
     background-size: 25px !important;
 }
 
 .descending {
-    background-image: url('../../../assets/images/down-arrow.svg')!important;
+    background-image: url('../../../assets/css/images/down-arrow.svg')!important;
     background-size: 25px !important;
 }
 
@@ -49,11 +49,11 @@
 }
 
 .leftArrow {
-    background-image: url('../../../assets/images/up-arrow.svg') !important;
+    background-image: url('../../../assets/css/images/up-arrow.svg') !important;
     background-size: 25px !important;
 }
 
 .rightArrow {
-    background-image: url('../../../assets/images/up-arrow.svg') !important;
+    background-image: url('../../../assets/css/images/up-arrow.svg') !important;
     background-size: 25px !important;
 }
