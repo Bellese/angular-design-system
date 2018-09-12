@@ -59,6 +59,7 @@ import { PipesModule } from '../../pipes/pipes.module';
     AppTable,
     AppTableData,
     AppTableHeader,
+    AppTableModal,
     AppTableRow,
     AppTableSearch
   ]

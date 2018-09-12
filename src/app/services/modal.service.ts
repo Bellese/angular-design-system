@@ -18,7 +18,7 @@ import {
 
 import { 
     DOCUMENT 
-} from '@angular/common';
+} from '@angular/platform-browser';
 
 @Injectable()
 
@@ -31,9 +31,8 @@ export class ModalService {
         private appRef: ApplicationRef,
         private injector: Injector,
         private resolver: ComponentFactoryResolver,
-         @Inject(DOCUMENT) private document: Document
+         @Inject(DOCUMENT) private document: any
     ) {
-        
     }
     
     modalCount = 0;
