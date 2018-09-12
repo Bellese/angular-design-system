@@ -1,4 +1,9 @@
- <app-star-rating 
+<app-table [theme]="'previewReportTheme'" [index]="1" [tableTitle]="'Table Title'" [headers]="tableHeaderData"
+    [dataRows]="tableData" [paginate]="false" [starRating]="3" [tableSummary]="'table summary'">
+</app-table>
+
+<!--
+<app-star-rating 
 [starAmount]="5" 
 [rating]="2">
 </app-star-rating> 
@@ -15,11 +20,6 @@
  <app-alert>
     THIS IS SOME CONTENT
 </app-alert>
-
-
-<app-table [theme]="'previewReportTheme'" [index]="1" [tableTitle]="'Table Title'" [headers]="tableHeaderData"
-    [dataRows]="tableData" [paginate]="false" [starRating]="3" [tableSummary]="'table summary'">
-</app-table>
 
 <app-table [index]="2" [tableTitle]="'Table Title'" [headers]="tableHeaderData" [dataRows]="tableData"
     [paginate]="true" [maxRows]="4" [tableSummary]="'table summary'">
@@ -84,4 +84,4 @@
 [hideIcon]="false"
 [hideClose]="false">
     To ensure you get the best possible user experience this page is currently under construction. As we make updates, things may change between visits. <a href="#">Send us your feedback</a>
-</app-alert>
+</app-alert>-->
