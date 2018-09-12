@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from "@angular/core";
 @Pipe({
-  name: "sorting",
-  pure: true
+    name: "sorting",
+    pure: true
 })
 export class SortingPipe implements PipeTransform {
   event;
@@ -10,11 +10,15 @@ export class SortingPipe implements PipeTransform {
 
   transform(items: any[], event: any): any[] {
     if (!items) return [];
-    if (event) {
-      this.colHeader = event.name ? event.id : event.e.target.id;
+      
+    if(!event) {
+        return items;
+    } else {
+        this.colHeader = (event.name) ? event.id : event.e.target.id;
     }
-
+      
     return items.sort((a, b) => {
+        
       if (this.colHeader) {
         let valA;
         let valB;
@@ -25,24 +29,24 @@ export class SortingPipe implements PipeTransform {
           ? (valB = new Date(b[this.colHeader].value))
           : (valB = b[this.colHeader].value);
 
-        if (valA.toLowerCase() === "n/a") {
-          valA = "-1";
-        }
+          if(valA.toLowerCase() === 'n/a') {
+            valA = '-1'
+          }
 
-        if (valB.toLowerCase() === "n/a") {
-          valB = "-1";
-        }
-
-        let re = /^\d/;
-        let rep = /\D/g;
-
-        if (valA.match(re)) {
-          valA = Number(valA.replace(rep, ""));
-        }
-
-        if (valB.match(re)) {
-          valB = Number(valB.replace(rep, ""));
-        }
+          if(valB.toLowerCase() === 'n/a') {
+            valB = '-1'
+          }
+          
+          let re = /^\d/;
+          let rep = /\D/g;
+          
+          if(valA.match(re)) {
+              valA = Number(valA.replace(rep, ""));
+          }
+          
+          if(valB.match(re)) {
+              valB = Number(valB.replace(rep, ""));
+          }
 
         return (valA < valB ? -1 : 1) * (event.asc ? 1 : -1);
       }

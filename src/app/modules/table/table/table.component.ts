@@ -13,20 +13,19 @@ export class AppTable {
     @Input() tableSummary;
     @Input() theme;
     @Input() tableTitle;
-    @Input() buttonFocus;
     @Input() paginate;
     @Input() searchText ="";
     @Input() starRating;
     @Input() maxRows;
-    @Output() onOpenModal = new EventEmitter<object>();
     headerLength;
     headerEvent;
     selected;
     p: number;
+    rowHeader = "row Header";
     
     ngOnInit() {
         this.headerLength = this.headers.length;
-
+        
         this.headers.map(x => {
             (x.header.attr === "sorted") ? this.headerEvent = {name: x.header.attr, id: x.header.prop, asc: true} : false;
         });
@@ -46,8 +45,8 @@ export class AppTable {
             this.selected = e.e.target.id
         }
     }
-    
-    openModal(e) {
-        this.onOpenModal.emit(e);  
+     
+    callBack(e) {
+        
     }
 }

@@ -4,9 +4,8 @@ import {
   ComponentFactoryResolver,
   OnInit
 } from "@angular/core";
-import { AppService } from "./app.service";
-import { ModalDirective } from "./directives/modal-host";
-import { AppModal } from "./modules/modal/modal/modal.component";
+import { AppService } from "./services/app.service";
+import { AppModal } from "./modules/modal/modal.component";
 import * as cardData from "../assets/data/card-data.json";
 import * as chartData from "../assets/data/chart-data.json";
 import * as tableData from "../assets/data/table-data.json";
@@ -21,8 +20,6 @@ import * as lineData from '../assets/data/line-data.json'
   entryComponents: [AppModal]
 })
 export class AppComponent implements OnInit {
-  @ViewChild(ModalDirective)
-  modalHost: ModalDirective;
   dataRows = [];
   p: number;
   list = [1, 2, 3];
@@ -61,30 +58,5 @@ export class AppComponent implements OnInit {
     this.tableData = tableData;
     this.tableHeaderData = tableHeaderData;
     this.lineData = lineData;
-  }
-
-  closeModal(val, target) {
-    document.getElementById(val).focus();
-    //this.buttonFocus = val;
-    target.destroy();
-  }
-
-  openModal(e) {
-    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(
-      AppModal
-    );
-    let viewContainerRef = this.modalHost.viewContainerRef;
-    viewContainerRef.clear();
-    let componentRef = viewContainerRef.createComponent(componentFactory);
-
-    (<AppModal>componentRef.instance).closeModal.subscribe(x =>
-      this.closeModal(x, componentRef)
-    );
-
-    //updates should occur below, above will always stay the same.
-    (<AppModal>componentRef.instance).focusBack = e.e;
-    (<AppModal>componentRef.instance).modalTitle = e.modalTitle;
-    (<AppModal>componentRef.instance).modalData = e.data.modal;
-    (<AppModal>componentRef.instance).modalClass = "ds-c-dialog--wide";
   }
 }

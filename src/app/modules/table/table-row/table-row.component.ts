@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: '[app-table-row]',
@@ -10,24 +10,25 @@ export class AppTableRow {
     @Input() dataRow;
     @Input() headers;
     @Input() index;
-    @Input() buttonFocus;
-    @Output() onOpenModal = new EventEmitter<object>();
-    
-    generateArray(obj){
-        return Object.keys(this.headers).map((key)=>{
-            return {
-                key: this.headers[key].header.prop, 
-                value: obj[this.headers[key].header.prop], 
-                header: this.headers[key].header.value
-            }
+    @Input() rowHeader;
+
+    @Output() onCallBack = new EventEmitter<any>();
+     
+    shadowArray = [];
+     
+    ngOnInit() {
+        Object.keys(this.headers).map((key)=>{
+            this.shadowArray.push(
+                {
+                    key: this.headers[key].header.prop, 
+                    value: this.dataRow[this.headers[key].header.prop], 
+                    header: this.headers[key].header.value   
+                }
+            ) 
         });
     }
-    
-    openModal(e) {
-        let title = (e.colHeader === "row_Header") ? 
-            this.dataRow.row_Header.value + ': Details' : 
-            this.dataRow.row_Header.value + ': ' + e.colHeader + ' Details';
-        
-        this.onOpenModal.emit({"data": e.data, "modalTitle": title, "e": e.e}); 
+     
+    callBack(e) {
+        this.onCallBack.emit(e);
     }
 }

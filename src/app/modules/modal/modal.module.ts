@@ -1,13 +1,14 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { AppModal } from "./modal/modal.component";
-import { AppModalBody } from "./modal-body/modal-body.component";
-import { ButtonModule } from "../button/button.module";
+import { ModalService } from'../../services/modal.service';
 
 @NgModule({
-  imports: [CommonModule, ButtonModule],
-  declarations: [AppModal, AppModalBody],
-  exports: [AppModal, AppModalBody],
-  entryComponents: [AppModal]
+  imports: [CommonModule],
+  declarations: [],
+  exports: [],
+  entryComponents: [],
+  providers: [
+    ModalService
+  ],
 })
 export class ModalModule {}

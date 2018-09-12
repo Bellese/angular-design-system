@@ -19,21 +19,20 @@
 </app-table-descr> -->
 
 <div style="width: 50%">
-    <app-alert>
+    <app-alert
+        [heading]="'Some important information'">
         THIS IS SOME CONTENT
     </app-alert>
 
 
-    <app-table (onOpenModal)="openModal($event)" [theme]="'previewReportTheme'" [index]="1" [tableTitle]="'Table Title'" [headers]="tableHeaderData"
+    <app-table [theme]="'previewReportTheme'" [index]="1" [tableTitle]="'Table Title'" [headers]="tableHeaderData"
         [dataRows]="tableData" [paginate]="false" [starRating]="3" [tableSummary]="'table summary'">
     </app-table>
 
-    <app-table (onOpenModal)="openModal($event)" [index]="2" [tableTitle]="'Table Title'" [headers]="tableHeaderData" [dataRows]="tableData"
+    <app-table [index]="2" [tableTitle]="'Table Title'" [headers]="tableHeaderData" [dataRows]="tableData"
         [paginate]="true" [maxRows]="4" [tableSummary]="'table summary'">
     </app-table>
 </div>
-
-<ng-template modal-host></ng-template>
 
 <!-- <ul>
     <li *ngFor="let item of list | paginate: { itemsPerPage: 3, currentPage: p}">

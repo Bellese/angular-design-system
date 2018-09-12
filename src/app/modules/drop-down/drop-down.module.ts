@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppDropDown } from './drop-down/drop-down.component'
+import { AppDropDown } from './drop-down.component'
 
 @NgModule({
   imports: [
