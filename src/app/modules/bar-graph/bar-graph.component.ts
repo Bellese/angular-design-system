@@ -21,11 +21,11 @@ export class BarGraphComponent {
   @Input()
   colorScheme;
   @Input()
-  showXAxis
+  showXAxis;
   @Input()
-  showYAxis
+  showYAxis;
   @Input()
-  showXAxisLabel
+  showXAxisLabel;
   @Input()
   gradient = false;
   @Input()
@@ -51,18 +51,18 @@ export class BarGraphComponent {
 
   ngOnInit() {
     if (this.compareBars) this.handleColor();
+    this.resize();
   }
 
   ngAfterViewInit() {
     this.handleAria();
+    this.setPosition();
   }
 
   resize() {
     let graphContainer = document.getElementsByClassName("mainGraphClass")[0]
       .clientWidth;
-
     this.view = [graphContainer, graphContainer / 2];
-
     this.setPosition();
   }
 

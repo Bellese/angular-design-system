@@ -18,21 +18,18 @@
 [description]="'description'">
 </app-table-descr> -->
 
-<div style="width: 50%">
-    <app-alert
-        [heading]="'Some important information'">
-        THIS IS SOME CONTENT
-    </app-alert>
+<!-- <app-alert>
+    THIS IS SOME CONTENT
+</app-alert>
 
 
-    <app-table [theme]="'previewReportTheme'" [index]="1" [tableTitle]="'Table Title'" [headers]="tableHeaderData"
-        [dataRows]="tableData" [paginate]="false" [starRating]="3" [tableSummary]="'table summary'">
-    </app-table>
+<app-table (onOpenModal)="openModal($event)" [theme]="'previewReportTheme'" [index]="1" [tableTitle]="'Table Title'" [headers]="tableHeaderData"
+    [dataRows]="tableData" [paginate]="false" [starRating]="3" [tableSummary]="'table summary'">
+</app-table>
 
-    <app-table [index]="2" [tableTitle]="'Table Title'" [headers]="tableHeaderData" [dataRows]="tableData"
-        [paginate]="true" [maxRows]="4" [tableSummary]="'table summary'">
-    </app-table>
-</div>
+<app-table (onOpenModal)="openModal($event)" [index]="2" [tableTitle]="'Table Title'" [headers]="tableHeaderData" [dataRows]="tableData"
+    [paginate]="true" [maxRows]="4" [tableSummary]="'table summary'">
+</app-table>
 
 <!-- <ul>
     <li *ngFor="let item of list | paginate: { itemsPerPage: 3, currentPage: p}">
@@ -50,7 +47,7 @@
     <app-card [data]="items"></app-card>
 </div> -->
 
-<!-- <div class="ds-l-container">
+<div class="ds-l-container">
         <app-bar-graph
         [xAxisLabel]="'X AXIS LABEL'" 
         [yAxisLabel]="'Y AXIS LABEL'" 
@@ -64,13 +61,13 @@
         [gradient]="false"
         [roundEdges]="false"
         [id]="1"
-        [title]="'Group Score Comparison'"
+        [title]="'National Score Comparison'"
         [compareBars]="true"
         [barPadding]="20"
         [animations]="true"
         [data]="chartData"> 
         </app-bar-graph>
-</div> -->
+</div>
 
 <!-- <app-plus>
 </app-plus> -->
@@ -86,3 +83,11 @@
 <!-- <app-line-graph
 [data]="lineData">
 </app-line-graph> -->
+
+<!-- <app-alert
+[heading]="'Development in Progress'"
+[variation]="'warn'"
+[hideIcon]="false"
+[hideClose]="false">
+    To ensure you get the best possible user experience this page is currently under construction. As we make updates, things may change between visits. <a href="#">Send us your feedback</a>
+</app-alert> -->
