@@ -1,3 +1,36 @@
+.mainDiv {
+    padding: 20px;
+}
+
+.fixedHeight {
+    height: 750px;
+    overflow-y: auto;
+}
+
+.pointer {
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.ds-l-row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.overflowHidden {
+    overflow: hidden;
+}
+
+tbody th {
+    min-width:75px;
+    word-break:break-word;
+}
+
 /* You can add themes to trickle down to components, but these themes names must be placed or the styles will apply everywhere */
 /*publicReportingTheme*/
 

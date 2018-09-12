@@ -2,7 +2,7 @@
     {
       "row_Header": {
         "value": "99%",
-        "el": "button",
+        "el": "modal",
         "attr": "footnote",
         "modal": [
           { "heading": "Footnote(s)" },
