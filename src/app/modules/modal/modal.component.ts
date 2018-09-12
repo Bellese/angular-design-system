@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { ModalService } from'../../services/modal.service';
 
 @Component({
