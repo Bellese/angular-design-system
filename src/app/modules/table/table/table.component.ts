@@ -17,6 +17,8 @@ export class AppTable {
     @Input() searchText ="";
     @Input() starRating;
     @Input() maxRows;
+    @Input() linearScore;
+    @Input() reportingPeriod;
     headerLength;
     headerEvent;
     selected;

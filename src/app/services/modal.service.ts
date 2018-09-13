@@ -14,11 +14,11 @@ import {
 
 import { 
     AppModalShell 
-} from '../modules/modal-shell/modal-shell.component';
+} from '../app_components/modal-shell/modal-shell.component';
 
 import { 
     DOCUMENT 
-} from '@angular/platform-browser';
+} from '@angular/common';
 
 @Injectable()
 
@@ -31,26 +31,28 @@ export class ModalService {
         private appRef: ApplicationRef,
         private injector: Injector,
         private resolver: ComponentFactoryResolver,
-         @Inject(DOCUMENT) private document: any
+         @Inject(DOCUMENT) private doc: any
     ) {
+        
     }
     
     modalCount = 0;
+    scrollBarWidth = (window.innerWidth - document.documentElement.clientWidth);
      
     prepModalSettings() {
         this.modalCount++;
         
         //Check if there's a vertical scroll
-        if ( document.getElementsByTagName("body")[0].scrollHeight > window.innerHeight && this.modalCount === 1 ) {
+        if ( this.scrollBarWidth > 0 && this.modalCount === 1 ) {
 
             //Stop background from scrolling
-            document.getElementsByTagName("body")[0].classList.add("overflowHidden");
+            document.getElementsByTagName("body")[0].style.overflowY = "hidden";
 
             //keep page from bouncing when removing overflow
             let bodyRightMargin = document.getElementsByTagName("body")[0].style.marginRight;
             
-            //Either there will be a margin tied to body or default is 8px, sccrollbar is 16px
-            let margin = bodyRightMargin ? parseInt(bodyRightMargin) + 16 + "px" : "24px";
+            //Either there will be a margin tied to body or default is 8px, sccrollbar grabbed by variable
+            let margin = bodyRightMargin ? parseInt(bodyRightMargin) + this.scrollBarWidth + "px" : (this.scrollBarWidth + 8) + "px";
             
             document.getElementsByTagName("body")[0].style.marginRight = margin;
         }
@@ -72,16 +74,16 @@ export class ModalService {
         this.modalCount--;
         
         //Check if there's a vertical scroll
-        if ( document.getElementsByTagName("body")[0].scrollHeight > window.innerHeight && this.modalCount === 0 ) {
+        if ( this.scrollBarWidth > 0 && this.modalCount === 0 ) {
 
             //Allow background to scroll again
-            document.getElementsByTagName("body")[0].classList.remove("overflowHidden");
+            document.getElementsByTagName("body")[0].style.overflowY = "auto";
 
             //keep page from bouncing when removing overflow
             let bodyRightMargin = document.getElementsByTagName("body")[0].style.marginRight;
             
             //Either there will be a margin tied to body or default is 8px, sccrollbar is 16px
-            let margin = bodyRightMargin ? ((parseInt(bodyRightMargin) - 16) * 2 )/2 + "px" : "24px";
+            let margin = bodyRightMargin ? ((parseInt(bodyRightMargin) - this.scrollBarWidth) * 2 )/2 + "px" : (this.scrollBarWidth + 8) + "px";
             
             document.getElementsByTagName("body")[0].style.marginRight = margin;
         }
@@ -109,6 +111,12 @@ export class ModalService {
     }
 
     appendComponentToBody(component: any, id: any, title: any, data: Array<any>, firstFocus) {
+        //first create and append a div to hook the modal onto
+        if(!document.getElementById("unique-modal-host")) {
+            let modalHost = document.createElement('div');
+            modalHost.setAttribute("id", "unique-modal-host");
+            document.body.appendChild(modalHost);
+        }
         
         this.prepModalSettings();
 
@@ -125,7 +133,7 @@ export class ModalService {
             .rootNodes[0] as HTMLElement;
 
         // Append DOM element to the div id of modal-host
-        document.getElementById("modal-host").appendChild(domElem);
+        document.getElementById("unique-modal-host").appendChild(domElem);
         
         //Send Title Inputs to any Modal Body
         (<any>componentRef
@@ -166,7 +174,7 @@ export class ModalService {
         
         if (comp) {
             if (typeof comp === 'string') {
-                const element = this.document.createTextNode(comp);
+                const element = this.doc.createTextNode(comp);
                     return [[element]];
             } 
 
