@@ -15,6 +15,12 @@
     padding-right: 0;
 }
 
+.footnote {
+    font-size: 20px;
+    margin: 2px;
+    color: #00A6D2;
+}
+
 
 .ds-l-row.values  {
     margin-right: 0;

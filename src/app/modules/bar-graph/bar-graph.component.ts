@@ -9,7 +9,7 @@ export class BarGraphComponent {
   bars;
   chart;
   customColors;
-  footnoteData = []
+  showModal = false;
 
   @Input()
   view: any[];
@@ -49,6 +49,8 @@ export class BarGraphComponent {
   roundDomains;
   @Input()
   roundEdges;
+  @Input()
+  footnoteData = {}
 
   ngOnInit() {
     if (this.compareBars) this.handleColor();
@@ -118,4 +120,5 @@ export class BarGraphComponent {
       }, 250);
     }
   }
+
 }
