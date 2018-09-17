@@ -1,4 +1,5 @@
 import { Component, ViewChild, Input } from "@angular/core";
+import { AppTableModal } from '../table/table-modal/table-modal.component'
 
 @Component({
   selector: "app-bar-graph",
@@ -9,6 +10,8 @@ export class BarGraphComponent {
   bars;
   chart;
   customColors;
+  showModal = false;
+  comp = AppTableModal;
 
   @Input()
   view: any[];
@@ -48,6 +51,8 @@ export class BarGraphComponent {
   roundDomains;
   @Input()
   roundEdges;
+  @Input()
+  footnoteData = []
 
   ngOnInit() {
     if (this.compareBars) this.handleColor();
@@ -117,4 +122,5 @@ export class BarGraphComponent {
       }, 250);
     }
   }
+
 }
