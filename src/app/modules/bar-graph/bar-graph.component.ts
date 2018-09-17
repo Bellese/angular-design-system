@@ -114,7 +114,7 @@ export class BarGraphComponent {
           target.style.left = left + "px";
           target.style.width = width + "px";
         });
-      }, 0);
+      }, 250);
     }
   }
 }
