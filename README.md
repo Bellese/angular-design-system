@@ -260,46 +260,52 @@ val1: {
 
 The modal is essentially the button component that renders a modal component. But we are extending the option to add dynamic custom components within the modal. once you render the app-modal component with the requirements below everything should connect for you.
 
+*remember - when you import modalModule make sure you do it as modalModule.forRoot()
+
 	Required:
-Modal Title – Title of the Modal
-Modal Data – The data to be sent to the modal body
-Modal ID – The Id of the button that triggers the modal
-Content – The name of the modal button
-Modal Component – This will currently allow you to place a static component inside the modal, this component cannot receive data. When you use this you must import the component in the controller you are using to hold the modal component, then pass the export class name to the modal
+`Modal Title` – Title of the Modal
 
-Optional
+`Modal Data` – The data to be sent to the modal body
 
-Button Class—The style to apply to the modal button
-abbr—In case you need to abbr the name of the button, mostly used inside the table
-firstfocus—The first thing that should be focused on when modal opens, use when it should be something that is not the cancel button
+`Modal ID` – The Id of the button that triggers the modal
+
+`Content` – The name of the modal button
+
+`Modal Component` – This will currently allow you to place a static component inside the modal, this component cannot receive data. When you use this you must import the component in the controller you are using to hold the modal component, then pass the export class name to the modal
+
+	Optional:
+
+`Button Class`—The style to apply to the modal button
+
+`abbr`—In case you need to abbr the name of the button, mostly used inside the table
+
+`firstfocus`—The first thing that should be focused on when modal opens, use when it should be something that is not the cancel button
 
 ## Build your own modal
 
 Modal Shell:
 Modal Shell is the easiest way to create your own unique modal. You’re going to need a few things to set this up. First make sure you followed the step above explaining how to modify app-root. Then we can start. You’re going to need to create a new component. Name it whatever you want. In the html you are going to start with <app-modal-shell>. Add the following inputs
 
-modalTitle = title of modal
-modalCount = allows for multiple modals
+`modalTitle` = title of modal
 
-and add an output for (closeModal). 
+`modalCount` = allows for multiple modals
 
-This will track when the modal closes.
+add an output for `(closeModal)` = This will track when the modal closes.
+
 After you have this setup include a <ng-container> inside the <app-modal-shell> and add whatever you want here. This will be the body of the modal. 
+
 Optionally you can add extra buttons on the modal for this you will need to also add a `span` inside the `app-modal-shell` add this beneath, NOT INSIDE, the `ng-container`. Inside the span you can add any buttons you wish, you can even add `app-modal` to open a confirmation modal if you so choose. 
+
 In the TS file be sure to add inputs for modalTitle, modalData, and modalCount. And an output for closeModal;
 Everything is handled automatically once you provide these input and outputs. Matter of fact the only one you are directly interacting with is modalData. And this is the data you need to make you modal body interactive. You should have a solid understand of how this works already. 
+
 Once you bundle this up you are good to go. Make sure you add this component as an entry component inside your app.module.ts. 
 Now you have created your own reusable modal.
+
 Now when you are ready to add this to a page, just go to your new page controller and import the modal component you just built and pass that component as a variable to app-modal under modalComponent. Be sure to pass in modalTitle, ID and modalData. First focus is optional but it is neseccary if you want to focus on something in the modal other than the cancel button when the modal first opens. By 508 standards the first input should be focused on. 
 From here you are all set. 
 
-
-
 The modal is built the way it is because we have to come up with a way to destroy the modal after it has been enabled, if we dont we run into memory leak issues. This will cause the modal to take on values from a previous implementation. This will become a bigger issue if/when we start adding forms to modals.
-
-## Modal and Accessibility
-
-In order to get the modal to disable JAWS in the background you have to add `modal-aria-hidden` class to `app-root`.
 
 ## Pagination Component Example
 
