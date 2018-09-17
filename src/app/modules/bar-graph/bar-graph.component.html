@@ -41,7 +41,8 @@ class="ds-l-row mainGraphClass"
 
 <div *ngIf="showXAxis" aria-hidden="true" id="valueContainer">
     <span class="value" *ngFor="let val of data; let i = index" [id]="'value_' + i">
-        {{val.value === "" ? "N/A" : val.value}}
+        <div *ngIf="val.value === ''">N/A</div>
+        <div *ngIf="val.value !== ''">{{val.value}}</div>
     </span>
 </div>
 <div id="nameContainer" aria-hidden="true" *ngIf="showXAxisLabel" class="x-axis-label">

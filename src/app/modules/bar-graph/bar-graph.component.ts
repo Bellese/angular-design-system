@@ -9,6 +9,7 @@ export class BarGraphComponent {
   bars;
   chart;
   customColors;
+  footnoteData = []
 
   @Input()
   view: any[];
