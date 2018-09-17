@@ -1,39 +1,45 @@
-<ng-container>
-    
-    <div *ngIf="data.value.el === 'default'" 
-         class="{{data.key + uniqueClass + ' ' + dataClass}}"
-        [ngClass]="data.value.attr ? data.value.attr : false"
-         title="{{data.value.value}}">
-            {{ data.value.value }}
-    </div>
-    
-    <div *ngIf="data.value.el === 'link'" 
-         class="{{data.key + uniqueClass + ' ' + dataClass}}"
-         title="{{data.value.value}}">
-         <a [routerLink]="data.value.attr">{{ data.value.value }}</a>
-    </div>
-    
-    <div *ngIf="data.value.el === 'checkbox'" 
-         class="{{data.key + uniqueClass + ' ' + dataClass}}"
-         title="{{data.value.value}}">
-        <app-checkbox
-            [value]="data.value.value"
-            [groupName]="data.value.attr"
-            [showTitle]="false"
-            [index]="index">
-        </app-checkbox>
-    </div>
-    
-    <app-button *ngIf="data.value.el === 'button'"
+<div *ngIf="data.value.el === 'default'" 
+     class="{{data.key + uniqueClass + ' ' + dataClass}}"
+    [ngClass]="data.value.attr ? data.value.attr : false"
+     title="{{data.value.value}}">
+        {{ data.value.value }}
+</div>
+
+<div *ngIf="data.value.el === 'link'" 
+     class="{{data.key + uniqueClass + ' ' + dataClass}}"
+     title="{{data.value.value}}">
+     <a [routerLink]="data.value.attr">{{ data.value.value }}</a>
+</div>
+
+<div *ngIf="data.value.el === 'checkbox'" 
+     class="{{data.key + uniqueClass + ' ' + dataClass}}"
+     title="{{data.value.value}}">
+    <app-check-box
+        [value]="data.value.value"
+        [groupName]="data.value.attr"
+        [showTitle]="false"
+        [index]="index">
+    </app-check-box>
+</div>
+
+<app-button *ngIf="data.value.el === 'button'" 
+    class="{{data.key + uniqueClass + ' ' + dataClass}}"
+    title="{{data.value.value}}"
+    [content]="data.value.value"
+    [buttonType]="'tableCell ' + data.value.attr + ' ' + dataClass"
+    [abbr]="data.value.abbr ? data.value.abbr : null"
+    (callBack)="buttonCallback($event)">
+</app-button>
+
+<app-modal *ngIf="data.value.el === 'modal'"
     class="{{data.key + uniqueClass + ' ' + data.value.attr + ' ' + dataClass}}"
     title="activate to view {{data.value.value}} supplemental information"
-        [buttonFocus]="buttonFocus === index ? true: false"
-        [buttonID]="index"
-        [content]="data.value.value"
-        [ariaLabel]="data.value.value"
-        [buttonType]="'tableCell ' + data.value.attr + ' ' + dataClass"
-        (callBack)="openModal($event)">
-    </app-button>
-    <sup *ngIf="data.value.attr === 'footnote'" class="bold">*</sup>
+    [id]="'modal_'+index"
+    [modalComponent]="comp"
+    [modalTitle]="modalTitle"
+    [data]="data.value.modal"
+    [content]="data.value.value"
+    [buttonClass]="'tableCell ' + data.value.attr + ' ' + dataClass">
+</app-modal>
 
-</ng-container>
+<sup *ngIf="data.value.attr === 'footnote'" class="bold">*</sup>

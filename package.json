@@ -1,11 +1,11 @@
 {
   "name": "@bellese/angular-design-system",
-  "version": "1.1.74",
+  "version": "1.1.88",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "build": "ng-packagr -p ng-package.json && cp -r ./src/assets ./dist/src/assets",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",

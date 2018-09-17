@@ -36,7 +36,7 @@ Above add classes for all tables, below reference unique classes to modify data 
     background-size: 50px 50px;
     text-align: justify;
     margin-left: -10px;
-} 
+}
 
 .stus_cd_waiting {
     background-image: url(../../../../assets/css/images/processing.svg);

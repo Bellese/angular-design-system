@@ -1,0 +1,20 @@
+<div
+*ngIf="!hide"
+class="ds-c-alert ds-c-alert--{{variation}} ds-c-alert--{{hideIcon ? 'hide-icon' : null}}">
+  <div class="close">
+    <button
+    *ngIf="!hideClose"
+    (click)="hide = true"
+    class="ds-c-button ds-c-button--transparent ds-c-dialog__close">
+      Close
+    </button>
+  </div>
+  <div class="ds-c-alert__body">
+    <h3 class="ds-c-alert__heading">
+      {{heading}}
+    </h3>
+    <div class="ds-c-alert__text">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

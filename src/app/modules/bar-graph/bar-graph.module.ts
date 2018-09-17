@@ -12,6 +12,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
   declarations: [BarGraphComponent],
   exports: [
     BarGraphComponent,
+    NgxChartsModule
   ]
 })
 export class BarGraphModule { }

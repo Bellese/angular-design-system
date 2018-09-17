@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges } from "@angular/core";
-import { Animations } from "../animations";
+import { Animations } from "../../animations/animations";
 
 @Component({
   selector: "app-card-body",

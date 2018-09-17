@@ -1,67 +1,47 @@
-<!-- <app-star-rating 
+<app-table [theme]="'previewReportTheme'" [index]="1" [tableTitle]="'Table Title'" [headers]="tableHeaderData"
+    [dataRows]="tableData" [paginate]="false" [starRating]="3" [tableSummary]="'table summary'">
+</app-table>
+
+<!--
+<app-star-rating 
 [starAmount]="5" 
 [rating]="2">
-</app-star-rating> -->
+</app-star-rating> 
 
-<!-- <app-spinner
+ <app-spinner
 [dataAutoId]="1"
 [hide]="false"
 [inversed]="true"
 [filled]="true"
 [color]="'primary'"
 [size]="'big'">
-</app-spinner> -->
+</app-spinner> 
 
-<!-- <app-table-descr
-[title]="'title'"
-[subTitle]="'subtitle'" 
-[description]="'description'">
-</app-table-descr> -->
+ <app-alert>
+    THIS IS SOME CONTENT
+</app-alert>
 
-<!-- <div>
-    <app-table
-    (onOpenModal)="openModal($event)"
-    [theme]="'previewReportTheme'"
-    [index]="1" 
-    [tableTitle]="'Table Title'"
-    [headers]="tableHeaderData" 
-    [dataRows]="tableData" 
-    [paginate]="false"
-    [starRating]="3"
-    [tableSummary]="'table summary'">
-    </app-table>
+<app-table [index]="2" [tableTitle]="'Table Title'" [headers]="tableHeaderData" [dataRows]="tableData"
+    [paginate]="true" [maxRows]="4" [tableSummary]="'table summary'">
+</app-table>
 
-    <app-table
-    (onOpenModal)="openModal($event)"
-    [index]="2" 
-    [tableTitle]="'Table Title'"
-    [headers]="tableHeaderData" 
-    [dataRows]="tableData" 
-    [paginate]="true"
-    [maxRows]="4"
-    [tableSummary]="'table summary'">
-    </app-table>
-</div>
-
-<ng-template modal-host></ng-template>  -->
-
-<!-- <ul>
+ <ul>
     <li *ngFor="let item of list | paginate: { itemsPerPage: 3, currentPage: p}">
         {{item}}
     </li>
 </ul>
-<app-paging (currentPage)="p = $event"></app-paging> -->
+<app-paging (currentPage)="p = $event"></app-paging> 
 
-<!-- <app-datepicker
+ <app-date-picker
 [label]="'this is a label'">
-</app-datepicker> -->
+</app-date-picker> 
 
+
+ <div class="ds-l-container">
+    <app-card [data]="items"></app-card>
+</div> 
 
 <div class="ds-l-container">
-    <app-card [data]="items"></app-card>
-</div>
-
-<!-- <div class="ds-l-container">
         <app-bar-graph
         [xAxisLabel]="'X AXIS LABEL'" 
         [yAxisLabel]="'Y AXIS LABEL'" 
@@ -75,27 +55,33 @@
         [gradient]="false"
         [roundEdges]="false"
         [id]="1"
-        [title]="'Group Score Comparison'"
+        [title]="'National Score Comparison'"
         [compareBars]="true"
         [barPadding]="20"
         [animations]="true"
         [data]="chartData"> 
         </app-bar-graph>
-</div> -->
+</div>
 
-<!-- <app-plus>
-</app-plus> -->
+ <app-plus>
+</app-plus> 
 
-<!-- <app-date-picker></app-date-picker> -->
+ <app-date-picker></app-date-picker> 
 
-<!-- <app-circle-graph
+ <app-circle-graph
 [data]="chartData">
-</app-circle-graph> -->
+</app-circle-graph> 
 
-<!-- <app-check-box></app-check-box> -->
+ <app-check-box></app-check-box> 
 
-<!-- <app-line-graph
+ <app-line-graph
 [data]="lineData">
-</app-line-graph> -->
+</app-line-graph> 
 
-
+<app-alert
+[heading]="'Development in Progress'"
+[variation]="'warn'"
+[hideIcon]="false"
+[hideClose]="false">
+    To ensure you get the best possible user experience this page is currently under construction. As we make updates, things may change between visits. <a href="#">Send us your feedback</a>
+</app-alert>-->

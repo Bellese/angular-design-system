@@ -41,6 +41,25 @@ tbody tr:hover {
     font-size: 16px;
 }
 
+caption {
+    overflow: hidden;
+}
+
+.linearScoreShell {
+    color: #5B616B;
+    font-size: 16px;
+}
+
+.starRatingShell {
+    margin-right: 8px;
+}
+
+.reportingPeriodShell {
+    float: right;
+    color: #5B616B;
+    font-size: 16px;
+}
+
 @media only screen and (max-width: 768px) {
     table {
         table-layout: auto;

@@ -1,0 +1,14 @@
+<button
+    type="button"
+    id="{{id}}"
+    (click)="addToBody($event)" 
+    (keyup.enter)="addToBody($event)"
+    class="ds-c-button pointer"
+    [ngClass]="buttonClass">
+        <ng-container *ngIf="abbr; else normal">
+            {{ abbr }}
+        </ng-container>
+        <ng-template #normal>
+            {{ content }}
+        </ng-template>
+</button>

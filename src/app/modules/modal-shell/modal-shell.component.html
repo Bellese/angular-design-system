@@ -1,41 +1,33 @@
-<div class="ds-c-dialog-wrap" [attr.aria-modal]="true" [attr.aria-labelledby]="'dialog-title'" role="dialog" id="modalDialog" id="modal">
+<div id="{{'modalImplementation' + modalCount}}" class="ds-c-dialog-wrap" [attr.aria-modal]="true" [attr.aria-labelledby]="'dialog-title'" role="dialog" id="modalDialog" id="modal">
     <div tabindex="0" class="focus-trap-hidden" id="firstModalTab" (focus)="findTab($event)" aria-hidden="true"></div>
         <div class="tableClass">
             <div class="cellClass">
                 <div class="ds-c-dialog {{modalClass}}" role="document">
                     <app-button
                         class="floatRight"
-                        (callBack)="close($event)" 
+                        (callBack)="onClose()" 
                         [ariaLabel]="'Close modal dialog'" 
                         [buttonType]="'modalTabIndex ds-c-button--transparent ds-c-dialog__close'" 
                         [content]="'Close'"
-                        [buttonID]="'closeButton'">
+                        [buttonID]="'closeButton'+modalCount">
                     </app-button>
 
                     <h1 class="ds-h1" id="dialog-title">{{modalTitle}}</h1>
-                    
+
                     <main role="main">
-                        
-                        <app-modal-body
-                            [modalData]="modalData">
-                        </app-modal-body>
+
+                        <ng-content select="ng-container">
+                        </ng-content>
 
                         <aside class="ds-c-dialog__actions" role="complementary">
-                            <app-button *ngIf="actionButton"
-                                [modalFocus]="true"
-                                (callBack)="proceedModal($event)" 
-                                [ariaLabel]="actionButtonAria" 
-                                [buttonType]="'modalTabIndex ' + actionButtonClass" 
-                                [content]="actionButtonLabel"
-                                [buttonID]="actionButtonID">
-                            </app-button>
+                            <ng-content select="span">
+                            </ng-content>
                             <app-button
-                                [modalFocus]="actionButton ? false : true"
-                                (callBack)="close($event)" 
+                                (callBack)="onClose()" 
                                 [ariaLabel]="'Cancel modal'" 
                                 [buttonType]="'modalTabIndex ds-c-button--transparent'" 
                                 [content]="'Cancel'"
-                                [buttonID]="'cancelButton'">
+                                [buttonID]="'cancelButton'+modalCount">
                             </app-button>
                         </aside>
                     </main>
