@@ -260,6 +260,8 @@ val1: {
 
 The modal is essentially the button component that renders a modal component. But we are extending the option to add dynamic custom components within the modal. once you render the app-modal component with the requirements below everything should connect for you.
 
+*remember - when you import modalModule make sure you do it as modalModule.forRoot()
+
 	Required:
 Modal Title – Title of the Modal
 Modal Data – The data to be sent to the modal body
