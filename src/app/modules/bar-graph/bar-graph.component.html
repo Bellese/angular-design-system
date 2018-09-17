@@ -43,6 +43,7 @@ class="ds-l-row mainGraphClass"
     <span class="value" *ngFor="let val of data; let i = index" [id]="'value_' + i">
         <div *ngIf="val.value === ''">
             <app-modal
+            [data]="footnoteData"
             [modalComponent]="comp"
             [buttonClass]="'tableCell'"
             [content]="'N/A*'"
