@@ -263,17 +263,17 @@ The modal is essentially the button component that renders a modal component. Bu
 *remember - when you import modalModule make sure you do it as modalModule.forRoot()
 
 	Required:
-Modal Title – Title of the Modal
-Modal Data – The data to be sent to the modal body
-Modal ID – The Id of the button that triggers the modal
-Content – The name of the modal button
-Modal Component – This will currently allow you to place a static component inside the modal, this component cannot receive data. When you use this you must import the component in the controller you are using to hold the modal component, then pass the export class name to the modal
+`Modal Title` – Title of the Modal
+`Modal Data` – The data to be sent to the modal body
+`Modal ID` – The Id of the button that triggers the modal
+`Content` – The name of the modal button
+`Modal Component` – This will currently allow you to place a static component inside the modal, this component cannot receive data. When you use this you must import the component in the controller you are using to hold the modal component, then pass the export class name to the modal
 
-Optional
+	Optional:
 
-Button Class—The style to apply to the modal button
-abbr—In case you need to abbr the name of the button, mostly used inside the table
-firstfocus—The first thing that should be focused on when modal opens, use when it should be something that is not the cancel button
+`Button Class`—The style to apply to the modal button
+`abbr`—In case you need to abbr the name of the button, mostly used inside the table
+`firstfocus`—The first thing that should be focused on when modal opens, use when it should be something that is not the cancel button
 
 ## Build your own modal
 
@@ -298,10 +298,6 @@ From here you are all set.
 
 
 The modal is built the way it is because we have to come up with a way to destroy the modal after it has been enabled, if we dont we run into memory leak issues. This will cause the modal to take on values from a previous implementation. This will become a bigger issue if/when we start adding forms to modals.
-
-## Modal and Accessibility
-
-In order to get the modal to disable JAWS in the background you have to add `modal-aria-hidden` class to `app-root`.
 
 ## Pagination Component Example
 
