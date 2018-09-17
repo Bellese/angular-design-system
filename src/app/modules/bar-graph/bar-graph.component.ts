@@ -119,7 +119,7 @@ export class BarGraphComponent {
           target.style.left = left + "px";
           target.style.width = width + "px";
         });
-      }, 250);
+      }, 50);
     }
   }
 
