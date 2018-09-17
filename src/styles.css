@@ -31,6 +31,32 @@ tbody th {
     word-break:break-word;
 }
 
+.ascending {
+    background-image: url('./assets/css/images/up-arrow.svg') !important;
+    background-size: 25px !important;
+}
+
+.descending {
+    background-image: url('./assets/css/images/down-arrow.svg')!important;
+    background-size: 25px !important;
+}
+
+.arrow {
+    background-repeat: no-repeat;
+    background-position: right;
+    padding-right: 25px;
+}
+
+.leftArrow {
+    background-image: url('./assets/css/images/up-arrow.svg') !important;
+    background-size: 25px !important;
+}
+
+.rightArrow {
+    background-image: url('./assets/css/images/up-arrow.svg') !important;
+    background-size: 25px !important;
+}
+
 /* You can add themes to trickle down to components, but these themes names must be placed or the styles will apply everywhere */
 /*publicReportingTheme*/
 
