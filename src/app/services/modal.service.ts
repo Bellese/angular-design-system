@@ -14,7 +14,7 @@ import {
 
 import { 
     AppModalShell 
-} from '../app_components/modal-shell/modal-shell.component';
+} from '../modules/modal-shell/modal-shell.component';
 
 import { 
     DOCUMENT 
