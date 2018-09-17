@@ -264,15 +264,21 @@ The modal is essentially the button component that renders a modal component. Bu
 
 	Required:
 `Modal Title` – Title of the Modal
+
 `Modal Data` – The data to be sent to the modal body
+
 `Modal ID` – The Id of the button that triggers the modal
+
 `Content` – The name of the modal button
+
 `Modal Component` – This will currently allow you to place a static component inside the modal, this component cannot receive data. When you use this you must import the component in the controller you are using to hold the modal component, then pass the export class name to the modal
 
 	Optional:
 
 `Button Class`—The style to apply to the modal button
+
 `abbr`—In case you need to abbr the name of the button, mostly used inside the table
+
 `firstfocus`—The first thing that should be focused on when modal opens, use when it should be something that is not the cancel button
 
 ## Build your own modal
@@ -280,10 +286,10 @@ The modal is essentially the button component that renders a modal component. Bu
 Modal Shell:
 Modal Shell is the easiest way to create your own unique modal. You’re going to need a few things to set this up. First make sure you followed the step above explaining how to modify app-root. Then we can start. You’re going to need to create a new component. Name it whatever you want. In the html you are going to start with <app-modal-shell>. Add the following inputs
 
-modalTitle = title of modal
-modalCount = allows for multiple modals
+`modalTitle` = title of modal
+`modalCount` = allows for multiple modals
 
-and add an output for (closeModal). 
+and add an output for `(closeModal)`. 
 
 This will track when the modal closes.
 After you have this setup include a <ng-container> inside the <app-modal-shell> and add whatever you want here. This will be the body of the modal. 
