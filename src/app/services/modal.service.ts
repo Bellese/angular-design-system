@@ -42,8 +42,8 @@ export class ModalService {
     prepModalSettings() {
         this.modalCount++;
         
-        //Check if there's a vertical scroll
-        if ( this.scrollBarWidth > 0 && this.modalCount === 1 ) {
+        //Must use clientheight and innerheight because mac hides scrollbar automatically so we cant base it off width
+        if ( document.body.clientHeight > window.innerHeight && this.modalCount === 1 ) {
 
             //Stop background from scrolling
             document.getElementsByTagName("body")[0].style.overflowY = "hidden";
@@ -73,8 +73,8 @@ export class ModalService {
     removeModalSettings(id) {
         this.modalCount--;
         
-        //Check if there's a vertical scroll
-        if ( this.scrollBarWidth > 0 && this.modalCount === 0 ) {
+        //Must use clientheight and innerheight because mac hides scrollbar automatically so we cant base it off width
+        if ( document.body.clientHeight > window.innerHeight && this.modalCount === 0 ) {
 
             //Allow background to scroll again
             document.getElementsByTagName("body")[0].style.overflowY = "auto";
