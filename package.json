@@ -5,7 +5,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng-packagr -p ng-package.json && cp -r ./src/assets ./dist/src/assets",
+    "build": "ng-packagr --aot -p ng-package.json && cp -r ./src/assets ./dist/src/assets",
+    "build-prod": "ng build --aot",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
