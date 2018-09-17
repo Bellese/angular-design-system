@@ -1,4 +1,5 @@
 import { Component, ViewChild, Input } from "@angular/core";
+import { AppTableModal } from '../table/table-modal/table-modal.component'
 
 @Component({
   selector: "app-bar-graph",
@@ -10,6 +11,7 @@ export class BarGraphComponent {
   chart;
   customColors;
   showModal = false;
+  comp = AppTableModal;
 
   @Input()
   view: any[];

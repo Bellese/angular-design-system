@@ -41,31 +41,19 @@ class="ds-l-row mainGraphClass"
 
 <div *ngIf="showXAxis" aria-hidden="true" id="valueContainer">
     <span class="value" *ngFor="let val of data; let i = index" [id]="'value_' + i">
-        <div *ngIf="val.value === ''">N/A<a class="footnote" (click)="showModal = true">*</a></div>
-        <div *ngIf="val.value !== ''">{{val.value}}</div>
-    </span>
-    <div *ngIf="showModal" style="min-height: 450px;">
-        <div class="ds-c-dialog-wrap" aria-labelledby="dialog-title" role="dialog">
-            <div class="ds-c-dialog ds-c-dialog--wide" role="document">
-            <header class="ds-c-dialog__header" role="banner">
-                <h1 class="ds-h2" id="dialog-title">
-                    Footnotes
-                </h1>
-                <button
-                (click)="showModal = false" 
-                class="ds-c-button ds-c-button--transparent ds-c-dialog__close" 
-                aria-label="Close modal dialog">
-                Close
-                </button>
-            </header>
-            <main role="main">
-                <p class="ds-text">
-                   <strong>({{footnoteData.id}})</strong> - {{footnoteData.value}}
-                </p>
-            </main>
-            </div>
+        <div *ngIf="val.value === ''">
+            <app-modal
+            [modalComponent]="comp"
+            [buttonClass]="'tableCell'"
+            [content]="'N/A*'"
+            [id]="'col_' + i"
+            [modalTitle]="'Footnotes'">
+            </app-modal>
         </div>
-    </div>
+        <div *ngIf="val.value !== ''">
+            {{val.value}}
+        </div>
+    </span>
 </div>
 <div id="nameContainer" aria-hidden="true" *ngIf="showXAxisLabel" class="x-axis-label">
     {{xAxisLabel}}
