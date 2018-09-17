@@ -39,7 +39,7 @@ import { AppService } from './services/app.service'
     TextFieldModule,
     NgxPaginationModule,
     HttpClientModule,
-    ModalModule,
+    ModalModule.forRoot(),
     ButtonModule,
     DirectiveModule,
     PagingModule,
