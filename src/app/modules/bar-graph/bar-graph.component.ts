@@ -1,5 +1,5 @@
 import { Component, ViewChild, Input } from "@angular/core";
-import { AppTableModal } from '../table-modal/table-modal.component'
+import { AppTableModal } from '../table/table-modal/table-modal.component'
 
 @Component({
   selector: "app-bar-graph",
