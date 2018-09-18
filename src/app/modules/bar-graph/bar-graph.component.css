@@ -40,12 +40,16 @@
     border: 0;
 }
 
-.value {
+.tickMarkers {
     position: absolute;
     text-align: center;
     font-size: 24px;
     font-weight: bold;
     line-height: 31.2px;
+}
+
+span[id^="value_"] {
+    display:none;
 }
 
 #valueContainer {
@@ -59,10 +63,6 @@
 
 :host ::ng-deep .x.axis .tick text {
     font-size: 16px !important;
-}
-
-::ng-deep .tableCell {
-    font-size: 24px;
 }
 
 

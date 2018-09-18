@@ -1,12 +1,12 @@
 import { Component, ViewChild, Input } from "@angular/core";
-import { AppTableModal } from '../table/table-modal/table-modal.component'
+import { AppTableModal } from '../table-modal/table-modal.component'
 
 @Component({
   selector: "app-bar-graph",
   templateUrl: "./bar-graph.component.html",
   styleUrls: ["./bar-graph.component.css"]
 })
-export class BarGraphComponent {
+export class AppBarGraph {
   bars;
   chart;
   customColors;
@@ -114,12 +114,13 @@ export class BarGraphComponent {
           let left = tick.left - container;
           let width = tick.width;
 
-          let target = document.getElementById("value_" + i);
+          let target = document.getElementById("value_" + i + this.id);
 
           target.style.left = left + "px";
           target.style.width = width + "px";
+          target.style.display = "inline";
         });
-      }, 50);
+      }, 225);
     }
   }
 

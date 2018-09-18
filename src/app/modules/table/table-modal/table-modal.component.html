@@ -1,4 +1,4 @@
-<app-modal-shell [modalTitle]="modalTitle" [modalCount]="modalCount" (closeModal)="onClose()">
+<app-modal-shell [modalTitle]="modalTitle" [modalCount]="modalCount" [jawsBody]="true" (closeModal)="onClose()">
     <ng-container *ngFor="let data of modalData">
         <h2 *ngIf="data.heading" class="ds-h2">
             {{ data.heading }}
