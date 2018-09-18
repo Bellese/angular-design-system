@@ -15,6 +15,7 @@ export class AppModalShell {
     @Input() modalTitle: any;
     @Input() modalClass: string;
     @Input() modalCount: number;
+    @Input() jawsBody: boolean;
 
     @Output() closeModal = new EventEmitter<any>();
 
