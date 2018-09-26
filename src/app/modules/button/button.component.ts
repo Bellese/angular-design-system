@@ -15,8 +15,6 @@ export class AppButton {
     @Input() buttonID;
     @Input() ariaSort;
     @Input() abbr;
-    @Input() modalFocus;
-    @Input() buttonFocus;
     
     @Output() callBack = new EventEmitter<any>();
     
@@ -30,8 +28,5 @@ export class AppButton {
         if(e) {
             this.callBack.emit(e);
         }
-
     }
-
-    //in order to capture the event and write a function for it. You will need to add a function to be bound to the callback on the parent
 }

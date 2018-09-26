@@ -10,11 +10,15 @@ export class SortingPipe implements PipeTransform {
 
   transform(items: any[], event: any): any[] {
     if (!items) return [];
-    if (event) {
+      
+    if(!event) {
+        return items;
+    } else {
         this.colHeader = (event.name) ? event.id : event.e.target.id;
     }
-
+      
     return items.sort((a, b) => {
+        
       if (this.colHeader) {
         let valA;
         let valB;

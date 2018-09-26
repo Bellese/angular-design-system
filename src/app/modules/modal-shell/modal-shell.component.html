@@ -1,0 +1,38 @@
+<div id="{{'modalImplementation' + modalCount}}" class="ds-c-dialog-wrap" [attr.aria-modal]="true" [attr.aria-labelledby]="'dialog-title-' + modalCount" [attr.aria-describedby]="'dialog-body-' + modalCount" role="dialog" id="modalDialog" id="modal" (keyDown.esc)="onClose()">
+    <div tabindex="0" class="focus-trap-hidden" id="firstModalTab" (focus)="findTab($event)" aria-hidden="true"></div>
+        <div class="tableClass">
+            <div class="cellClass">
+                <div class="ds-c-dialog {{modalClass}}" role="document">
+                    <app-button
+                        class="floatRight"
+                        (callBack)="onClose()" 
+                        [ariaLabel]="'Close modal dialog'" 
+                        [buttonType]="'modalTabIndex ds-c-button--transparent ds-c-dialog__close'" 
+                        [content]="'Close'"
+                        [buttonID]="'closeButton'+modalCount">
+                    </app-button>
+
+                    <h1 class="ds-h1" id="{{'dialog-title-' + modalCount}}">{{modalTitle}}</h1>
+
+                    <main [id]="jawsBody ? 'dialog-body-' + modalCount : ''">
+
+                        <ng-content select="ng-container">
+                        </ng-content>
+
+                        <aside class="ds-c-dialog__actions">
+                            <ng-content select="span">
+                            </ng-content>
+                            <app-button
+                                (callBack)="onClose()" 
+                                [ariaLabel]="'Cancel modal'" 
+                                [buttonType]="'modalTabIndex ds-c-button--transparent'" 
+                                [content]="'Cancel'"
+                                [buttonID]="'cancelButton'+modalCount">
+                            </app-button>
+                        </aside>
+                    </main>
+                </div>
+            </div>
+        </div>
+    <div tabindex="0" class="focus-trap-hidden" id="lastModalTab" (focus)="findTab($event)" aria-hidden="true"></div>
+</div>

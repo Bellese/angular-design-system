@@ -1,0 +1,47 @@
+.ds-c-dialog-wrap {
+    overflow: hidden;
+    padding: 0;
+}
+
+.focus-trap-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    outline: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.floatRight {
+    float: right;
+}
+
+h1 {
+    text-transform: capitalize;
+}
+
+.close {
+    display: none;
+}
+
+
+.tableClass {
+    display:table;
+    height: 100%;
+    width: 100%;
+}
+
+.cellClass {
+    display:table-cell;
+    vertical-align: middle;
+}
+
+.ds-c-dialog {
+    max-height: 100vh;
+    overflow-y:auto;
+}

@@ -14,14 +14,8 @@
     color: #0071bc;
 }
 
-.downloadIcon {
-    width:25px;
-    height:auto;
-    margin-right: 10px;
-}
-
 .info {
-    background-image: url('../../../assets/css/images/info.svg');
+    background-image: url(../../../assets/css/images/info.svg);
     background-repeat: no-repeat;
     padding-left: 25px;
     background-position: left;

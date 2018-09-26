@@ -4,25 +4,23 @@ import {
   ComponentFactoryResolver,
   OnInit
 } from "@angular/core";
-import { AppService } from "./app.service";
-import { ModalDirective } from "./directives/modal-host";
-import { AppModal } from "./modules/modal/modal/modal.component";
+
+import { AppModal } from "./modules/modal/modal.component";
 import * as cardData from "../assets/data/card-data.json";
 import * as chartData from "../assets/data/chart-data.json";
 import * as tableData from "../assets/data/table-data.json";
 import * as tableHeaderData from "../assets/data/table-header-data.json";
 import * as lineData from '../assets/data/line-data.json'
+import { AppService } from'./services/app.service';
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"],
-  providers: [AppService],
+  providers: [],
   entryComponents: [AppModal]
 })
 export class AppComponent implements OnInit {
-  @ViewChild(ModalDirective)
-  modalHost: ModalDirective;
   dataRows = [];
   p: number;
   list = [1, 2, 3];
@@ -32,7 +30,9 @@ export class AppComponent implements OnInit {
   tableHeaderData = {};
   lineData = {};
   expand = false;
-
+    modalData = [ 
+            {"paragraph": "Testing Bar Graph component"}
+                            ]
   items: any;
 
   colorScheme = {
@@ -61,30 +61,5 @@ export class AppComponent implements OnInit {
     this.tableData = tableData;
     this.tableHeaderData = tableHeaderData;
     this.lineData = lineData;
-  }
-
-  closeModal(val, target) {
-    document.getElementById(val).focus();
-    //this.buttonFocus = val;
-    target.destroy();
-  }
-
-  openModal(e) {
-    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(
-      AppModal
-    );
-    let viewContainerRef = this.modalHost.viewContainerRef;
-    viewContainerRef.clear();
-    let componentRef = viewContainerRef.createComponent(componentFactory);
-
-    (<AppModal>componentRef.instance).closeModal.subscribe(x =>
-      this.closeModal(x, componentRef)
-    );
-
-    //updates should occur below, above will always stay the same.
-    (<AppModal>componentRef.instance).focusBack = e.e;
-    (<AppModal>componentRef.instance).modalTitle = e.modalTitle;
-    (<AppModal>componentRef.instance).modalData = e.data.modal;
-    (<AppModal>componentRef.instance).modalClass = "ds-c-dialog--wide";
   }
 }

@@ -1,14 +1,17 @@
 import { Component, ViewChild, Input } from "@angular/core";
+import { AppTableModal } from '../table/table-modal/table-modal.component'
 
 @Component({
   selector: "app-bar-graph",
   templateUrl: "./bar-graph.component.html",
   styleUrls: ["./bar-graph.component.css"]
 })
-export class BarGraphComponent {
+export class AppBarGraph {
   bars;
   chart;
   customColors;
+  showModal = false;
+  comp = AppTableModal;
 
   @Input()
   view: any[];
@@ -21,11 +24,11 @@ export class BarGraphComponent {
   @Input()
   colorScheme;
   @Input()
-  showXAxis
+  showXAxis;
   @Input()
-  showYAxis
+  showYAxis;
   @Input()
-  showXAxisLabel
+  showXAxisLabel;
   @Input()
   gradient = false;
   @Input()
@@ -48,21 +51,23 @@ export class BarGraphComponent {
   roundDomains;
   @Input()
   roundEdges;
+  @Input()
+  footnoteData = []
 
   ngOnInit() {
     if (this.compareBars) this.handleColor();
+    this.resize();
   }
 
   ngAfterViewInit() {
     this.handleAria();
+    this.setPosition();
   }
 
   resize() {
     let graphContainer = document.getElementsByClassName("mainGraphClass")[0]
       .clientWidth;
-
     this.view = [graphContainer, graphContainer / 2];
-
     this.setPosition();
   }
 
@@ -109,12 +114,14 @@ export class BarGraphComponent {
           let left = tick.left - container;
           let width = tick.width;
 
-          let target = document.getElementById("value_" + i);
+          let target = document.getElementById("value_" + i + this.id);
 
           target.style.left = left + "px";
           target.style.width = width + "px";
+          target.style.display = "inline";
         });
-      }, 0);
+      }, 225);
     }
   }
+
 }
