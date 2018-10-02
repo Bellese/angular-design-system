@@ -19,6 +19,7 @@ export class AppTable {
     @Input() maxRows;
     @Input() linearScore;
     @Input() reportingPeriod;
+    @Output() buttonClick = new EventEmitter<any>();
     headerLength;
     headerEvent;
     selected;
@@ -49,6 +50,6 @@ export class AppTable {
     }
      
     callBack(e) {
-        
+        this.buttonClick.emit(e);
     }
 }
