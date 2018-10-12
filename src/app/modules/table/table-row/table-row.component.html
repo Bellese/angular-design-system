@@ -1,5 +1,5 @@
 <ng-container *ngFor="let data of shadowArray; let i = index">
     <th *ngIf="data.key === 'row_Header'" scope="row" app-table-data [modalTitle]="rowHeader + ': Details'" [dataClass]="'rowHeader'" [data] = "data" [index]="index + '_' + i" (callBack)="callBack($event)"></th>
     
-    <td *ngIf="data.key !== 'row_Header'" app-table-data [modalTitle]="rowHeader + ' ' + data.header +': Details'" [dataClass]="'columnCell'" [data] = "data" [index]="index + '_' + i" (callBack)="callBack($event)"></td>
+    <td *ngIf="data.key !== 'row_Header'" [attr.data-column-header]="data.header" app-table-data [modalTitle]="rowHeader + ' ' + data.header +': Details'" [dataClass]="'columnCell'" [data] = "data" [index]="index + '_' + i" (callBack)="callBack($event)"></td>
 </ng-container>
