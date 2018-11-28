@@ -52,7 +52,7 @@ export class AppBarGraph {
   @Input()
   roundEdges;
   @Input()
-  footnoteData = []
+  footnoteData =  [] 
 
   ngOnInit() {
     if (this.compareBars) this.handleColor();
