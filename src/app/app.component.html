@@ -4,10 +4,10 @@
 </app-table> 
 -->
 
- <app-star-rating 
+ <!-- <app-star-rating 
 [starAmount]="4" 
 [rating]="2">
-</app-star-rating> 
+</app-star-rating>  -->
 
 <!--
  <app-spinner
@@ -91,3 +91,23 @@
 [hideClose]="false">
     To ensure you get the best possible user experience this page is currently under construction. As we make updates, things may change between visits. <a href="#">Send us your feedback</a>
 </app-alert> -->
+
+<app-bar-graph
+[xAxisLabel]="'X AXIS LABEL'"
+[yAxisLabel]="'Y AXIS LABEL'"
+[showXAxisLabel]="true"
+[showYAxisLabel]="true"
+[showGridLines]="true"
+[colorScheme]="colorScheme"
+[roundDomains]="true"
+[showXAxis]="true"
+[showYAxis]="true"
+[gradient]="false"
+[roundEdges]="false"
+[id]="1"
+[title]="'Group Score Comparison'"
+[compareBars]="true"
+[barPadding]="20"
+[animations]="true"
+[data]="chartData">
+</app-bar-graph>
