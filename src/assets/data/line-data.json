@@ -1,40 +1,52 @@
 [
   {
-    "name": "Germany",
+    "name": "Strata-1",
     "series": [
       {
-        "name": "2010",
-        "value": 7300000
+        "name": "Q1",
+        "value": 4300
       },
       {
-        "name": "2011",
-        "value": 8940000
+        "name": "Q2",
+        "value": 4000
+      },
+      {
+        "name": "Q3",
+        "value": 5940
       }
     ]
   },
   {
-    "name": "USA",
+    "name": "Strata-2",
     "series": [
       {
-        "name": "2010",
-        "value": 7870000
+        "name": "Q1",
+        "value": 5300
       },
       {
-        "name": "2011",
-        "value": 8270000
+        "name": "Q2",
+        "value": 3000
+      },
+      {
+        "name": "Q3",
+        "value": 1940
       }
     ]
   },
   {
-    "name": "h",
+    "name": "Strata-3",
     "series": [
       {
-        "name": "2010",
-        "value": 4870000
+        "name": "Q1",
+        "value": 2300
       },
       {
-        "name": "2011",
-        "value": 3270000
+        "name": "Q2",
+        "value": 6000
+      },
+      {
+        "name": "Q3",
+        "value": 3940
       }
     ]
   }

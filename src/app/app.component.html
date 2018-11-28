@@ -4,10 +4,15 @@
 </app-table> 
 -->
 
- <!-- <app-star-rating 
-[starAmount]="4" 
-[rating]="2">
-</app-star-rating>  -->
+
+
+
+    <app-line-graph
+        [data]="lineData"
+        [xLabel]="'Quarters'"
+        [xAxis]=true>
+    </app-line-graph>
+
 
 <!--
  <app-spinner
@@ -78,11 +83,7 @@
 [data]="chartData">
 </app-circle-graph> 
 
- <app-check-box></app-check-box> 
-
- <app-line-graph
-[data]="lineData">
-</app-line-graph> 
+ <app-check-box></app-check-box>  
 
 <app-alert
 [heading]="'Development in Progress'"
@@ -90,24 +91,3 @@
 [hideIcon]="false"
 [hideClose]="false">
     To ensure you get the best possible user experience this page is currently under construction. As we make updates, things may change between visits. <a href="#">Send us your feedback</a>
-</app-alert> -->
-
-<app-bar-graph
-[xAxisLabel]="'X AXIS LABEL'"
-[yAxisLabel]="'Y AXIS LABEL'"
-[showXAxisLabel]="true"
-[showYAxisLabel]="true"
-[showGridLines]="true"
-[colorScheme]="colorScheme"
-[roundDomains]="true"
-[showXAxis]="true"
-[showYAxis]="true"
-[gradient]="false"
-[roundEdges]="false"
-[id]="1"
-[title]="'Group Score Comparison'"
-[compareBars]="true"
-[barPadding]="20"
-[animations]="true"
-[data]="chartData">
-</app-bar-graph>
