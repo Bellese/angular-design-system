@@ -50,7 +50,7 @@ class="ds-l-row mainGraphClass"
                 [buttonClass]="'tableCell'"
                 [content]="'N/A*'"
                 [id]="'col_' + i + id"
-                [modalTitle]="val.footnoteTitle">
+                [modalTitle]="val.modalTitle">
             </app-modal>
         </div>
         <div *ngIf="val.value === '' && !val.modal">
@@ -63,7 +63,7 @@ class="ds-l-row mainGraphClass"
                 [buttonClass]="'tableCell'"
                 [content]="val.value + '*'"
                 [id]="'col_' + i + id"
-                [modalTitle]="val.footnoteTitle">
+                [modalTitle]="val.modalTitle">
             </app-modal>
         </div>
         <ng-template #noModal>

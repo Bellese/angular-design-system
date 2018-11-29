@@ -7,7 +7,7 @@
             "paragraph": "No Footnote added"
         }
     ],
-    "footnoteTitle": "Footnote Details N/A"
+    "modalTitle": "Footnote Details N/A"
   },
   {
     "name": "National",
@@ -17,6 +17,6 @@
             "paragraph": "Footnote added with Value"
         }
     ],
-    "footnoteTitle": "Footnote Details -10"
+    "modalTitle": "Footnote Details -10"
   }
 ]
