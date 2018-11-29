@@ -41,17 +41,27 @@ class="ds-l-row mainGraphClass"
 
 <div *ngIf="showXAxis" aria-hidden="true" id="valueContainer">
     <span class="tickMarkers" *ngFor="let val of data; let i = index" [id]="'value_' + i + id">
-        <div *ngIf="val.value === ''">
+        <div *ngIf="val.value === '' && footnoteData.length > 0">
             <app-modal
                 [data]="footnoteData"
                 [modalComponent]="comp"
                 [buttonClass]="'tableCell'"
                 [content]="'N/A*'"
                 [id]="'col_' + i + id"
-                [modalTitle]="'Footnotes'">
+                [modalTitle]="footnoteTitle">
             </app-modal>
         </div>
-        <div *ngIf="val.value !== ''">
+        <div *ngIf="footnoteData.length > 0">
+            <app-modal
+                [data]="footnoteData"
+                [modalComponent]="comp"
+                [buttonClass]="'tableCell'"
+                [content]="val.value + '*'"
+                [id]="'col_' + i + id"
+                [modalTitle]="footnoteTitle">
+            </app-modal>
+        </div>
+        <div *ngIf="val.value !== '' && footnoteData.length <= 0">
             {{val.value}}
         </div>
     </span>
