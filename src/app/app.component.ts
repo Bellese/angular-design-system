@@ -30,9 +30,6 @@ export class AppComponent implements OnInit {
   tableHeaderData = {};
   lineData = {};
   expand = false;
-    modalData = [ 
-            {"paragraph": "Testing Bar Graph component"}
-                            ]
   items: any;
 
   colorScheme = {

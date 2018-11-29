@@ -30,40 +30,45 @@ class="ds-l-row mainGraphClass"
     [tooltipDisabled]="true"
     [customColors]="customColors"
     [barPadding]="barPadding">
+<!--
         <ng-template #tooltipTemplate let-model="model">
             <div role="tooltip" class="tooltip">
                {{model.name}} : 
                {{model.value === "" ? "N/A" : model.value}}
             </div>
         </ng-template>
+-->
     </ngx-charts-bar-vertical>
 </div>
 
 <div *ngIf="showXAxis" aria-hidden="true" id="valueContainer">
     <span class="tickMarkers" *ngFor="let val of data; let i = index" [id]="'value_' + i + id">
-        <div *ngIf="val.value === '' && footnoteData.length > 0">
+        <div *ngIf="val.value === '' && val.modal">
             <app-modal
-                [data]="footnoteData"
+                [data]="val.modal"
                 [modalComponent]="comp"
                 [buttonClass]="'tableCell'"
                 [content]="'N/A*'"
                 [id]="'col_' + i + id"
-                [modalTitle]="footnoteTitle">
+                [modalTitle]="val.modalTitle">
             </app-modal>
         </div>
-        <div *ngIf="footnoteData.length > 0">
+        <div *ngIf="val.value === '' && !val.modal">
+            N/A
+        </div>
+        <div *ngIf="val.value !== '' && val.modal; else noModal">
             <app-modal
-                [data]="footnoteData"
+                [data]="val.modal"
                 [modalComponent]="comp"
                 [buttonClass]="'tableCell'"
                 [content]="val.value + '*'"
                 [id]="'col_' + i + id"
-                [modalTitle]="footnoteTitle">
+                [modalTitle]="val.modalTitle">
             </app-modal>
         </div>
-        <div *ngIf="val.value !== '' && footnoteData.length <= 0">
+        <ng-template #noModal>
             {{val.value}}
-        </div>
+        </ng-template>
     </span>
 </div>
 <div id="nameContainer" aria-hidden="true" *ngIf="showXAxisLabel" class="x-axis-label">

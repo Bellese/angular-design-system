@@ -48,6 +48,10 @@
     line-height: 31.2px;
 }
 
+:host ::ng-deep .tableCell {
+    font-size: 24px !important;
+}
+
 span[id^="value_"] {
     display:none;
 }
