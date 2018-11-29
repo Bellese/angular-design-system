@@ -51,10 +51,6 @@ export class AppBarGraph {
   roundDomains;
   @Input()
   roundEdges;
-  @Input()
-  footnoteData =  []  
-  @Input()
-  footnoteTitle: string = ''
 
   ngOnInit() {
     if (this.compareBars) this.handleColor();

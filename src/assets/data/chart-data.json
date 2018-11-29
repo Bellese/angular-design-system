@@ -1,10 +1,22 @@
 [
   {
     "name": "Facility",
-    "value": ""
+    "value": "",
+    "modal": [ 
+        {
+            "paragraph": "No Footnote added"
+        }
+    ],
+    "footnoteTitle": "Footnote Details N/A"
   },
   {
     "name": "National",
-    "value": -10
+    "value": -10,
+    "modal": [ 
+        {
+            "paragraph": "Footnote added with Value"
+        }
+    ],
+    "footnoteTitle": "Footnote Details -10"
   }
 ]
