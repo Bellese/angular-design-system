@@ -41,7 +41,7 @@ class="ds-l-row mainGraphClass"
 
 <div *ngIf="showXAxis" aria-hidden="true" id="valueContainer">
     <span class="tickMarkers" *ngFor="let val of data; let i = index" [id]="'value_' + i + id">
-        <div *ngIf="val.value === '' && footnoteData.length > 0">
+        <div *ngIf="i === 0 && val.value === '' && footnoteData.length > 0">
             <app-modal
                 [data]="footnoteData"
                 [modalComponent]="comp"
@@ -51,7 +51,7 @@ class="ds-l-row mainGraphClass"
                 [modalTitle]="footnoteTitle">
             </app-modal>
         </div>
-        <div *ngIf="footnoteData.length > 0">
+        <div *ngIf="i === 0 && val.value !== '' && footnoteData.length > 0; else noModal">
             <app-modal
                 [data]="footnoteData"
                 [modalComponent]="comp"
@@ -61,9 +61,9 @@ class="ds-l-row mainGraphClass"
                 [modalTitle]="footnoteTitle">
             </app-modal>
         </div>
-        <div *ngIf="val.value !== '' && footnoteData.length <= 0">
+        <ng-template #noModal>
             {{val.value}}
-        </div>
+        </ng-template>
     </span>
 </div>
 <div id="nameContainer" aria-hidden="true" *ngIf="showXAxisLabel" class="x-axis-label">
