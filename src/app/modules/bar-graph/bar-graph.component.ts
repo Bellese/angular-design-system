@@ -52,14 +52,7 @@ export class AppBarGraph {
   @Input()
   roundEdges;
   @Input()
-  footnoteData =  [
-    {
-      heading: 'Footnotes:'
-    },
-    {
-      paragraph: '(9) - value'
-    }
-  ]  
+  footnoteData =  []  
   @Input()
   footnoteTitle: string = ''
 
