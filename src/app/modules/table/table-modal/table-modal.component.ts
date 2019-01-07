@@ -17,8 +17,6 @@ export class AppTableModal {
     @Input() modalCount: number;
 
     @Output() closeModal = new EventEmitter<any>();
-     
-    newModalData = "Are you sure you want to accept this?"
     
     onClose() {
         this.closeModal.emit(true);

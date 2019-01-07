@@ -1,5 +1,5 @@
-<app-modal-shell [modalTitle]="modalTitle" [modalCount]="modalCount" [jawsBody]="true" (closeModal)="onClose()">
-    <ng-container *ngFor="let data of modalData">
+<ng-template #bodyTemplate let-modalBody="modalBody">
+    <ng-container *ngFor="let data of modalBody.modalData">
         <h2 *ngIf="data.heading" class="ds-h2">
             {{ data.heading }}
         </h2>
@@ -11,4 +11,13 @@
         </h3>
         <hr *ngIf="data.hline"/>
     </ng-container>
+</ng-template>
+
+<app-modal-shell #tableModal
+    [bodyTemplate]="bodyTemplate"
+    [modalData]="modalData"
+    [modalTitle]="modalTitle" 
+    [modalCount]="modalCount" 
+    [jawsBody]="true" 
+    (closeModal)="onClose()">
 </app-modal-shell>
