@@ -31,40 +31,125 @@ tbody th {
     word-break:break-word;
 }
 
+/* You can add themes to trickle down to components, but these themes names must be placed or the styles will apply everywhere */
+/*publicReportingTheme*/
+
+thead th, tbody th{
+    background-color: transparent!important;
+}
+
+tbody tr:last-of-type th, tbody tr:last-of-type td {
+    border-bottom: none;
+    margin-bottom: 0
+}
+
+/*
+.success {
+    background-image: url(./assets/images/success.svg);
+    background-repeat: no-repeat;
+    padding: 6px 0px 6px 50px !important;
+    background-size: 50px 50px;
+    text-align: justify;
+    margin-left: -10px;
+    font-weight: normal;
+}
+
+.progress {
+    background-image: url(./assets/images/processing.svg);
+    background-repeat: no-repeat;
+    padding: 4px 0px 4px 40px !important;
+    background-size: 30px 30px;
+    text-align: justify;
+}
+
+.error {
+    background-image: url(./assets/images/error.svg);
+    background-repeat: no-repeat;
+    padding: 4px 0px 4px 40px !important;
+    background-size: 30px 30px;
+    text-align: justify;
+}
+*/
+
+.downloadIcon {
+    width:25px;
+    height:auto;
+    margin-right: 10px;
+}
+
+/*
+.footnote {
+    font-weight: normal;
+    background-image: url('./assets/images/asterisk.svg');
+    background-repeat: no-repeat;
+    padding-right: 10px !important;
+    background-position: right top;
+    background-size: 7px;
+}
+
+.info {
+    background-image: url('./assets/images/info.svg');
+    background-repeat: no-repeat;
+    padding-left: 25px !important;
+    background-position: left;
+    background-size: 25px;
+}
+
 .ascending {
-    background-image: url('./assets/css/images/up-arrow.svg') !important;
+    background-image: url('./assets/images/up-arrow.svg') !important;
     background-size: 25px !important;
 }
 
 .descending {
-    background-image: url('./assets/css/images/down-arrow.svg')!important;
+    background-image: url('./assets/images/down-arrow.svg')!important;
     background-size: 25px !important;
 }
 
 .arrow {
     background-repeat: no-repeat;
     background-position: right;
-    padding-right: 25px;
+    padding-right: 25px !important;
 }
 
 .leftArrow {
-    background-image: url('./assets/css/images/up-arrow.svg') !important;
+    background-image: url('./assets/images/up-arrow.svg') !important;
     background-size: 25px !important;
 }
 
 .rightArrow {
-    background-image: url('./assets/css/images/up-arrow.svg') !important;
+    background-image: url('./assets/images/up-arrow.svg') !important;
     background-size: 25px !important;
 }
+*/
 
-/* You can add themes to trickle down to components, but these themes names must be placed or the styles will apply everywhere */
-/*publicReportingTheme*/
+.buttonCell {
+    padding: 2px;
+}
 
-.previewReportTheme thead th, .previewReportTheme tbody th{
-    background-color: transparent!important;
+.columnCell {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
 }
-.previewReportTheme tbody tr:last-of-type th, .previewReportTheme tbody tr:last-of-type td {
-    border-bottom: none;
-    margin-bottom: 0
+
+.tableCell {
+    border: none;
+    padding: 4px 0px;
+    color:black;
 }
-/*publicReportingTheme*/
+
+.tableCell:hover {
+    color: #0071bc;
+}
+
+.button {
+    color: black;
+    background-color: #d3d3d3;
+    border: none;
+}
+
+
+mark {
+    pointer-events: none;
+}
