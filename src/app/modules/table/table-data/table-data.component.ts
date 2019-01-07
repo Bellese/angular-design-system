@@ -1,5 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { AppTableModal } from '../table-modal/table-modal.component';
+import { Component, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: '[app-table-data]',
@@ -11,22 +10,15 @@ export class AppTableData {
     @Input() data;
     @Input() dataClass;
     @Input() index;
-    @Input() modalTitle;
+    @Input() searchText;
+    @Input() highlightSearch;
 
     @Output() callBack = new EventEmitter<any>();
-     
-    uniqueClass = "_data";
-    comp=AppTableModal
     
-    constructor() {
-    }
-    
-    ngOnInit () {
-        (this.data.value.value === 'Ready to View') ? this.uniqueClass = "_ready": false;
-        (this.data.value.value === 'Processing') ? this.uniqueClass = "_waiting": false;
-    }
-     
     buttonCallback(e) {
-        this.callBack.emit(e);
+        this.callBack.emit({ 
+            "event" : e,
+            "button": this.data.value.instanceRef
+        });
     }
 }

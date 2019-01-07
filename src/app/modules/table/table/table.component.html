@@ -1,4 +1,4 @@
-<div class="table-background ds-c-table--borderless {{theme}}">
+<div class="table-background ds-c-table--borderless">
     <table summary="{{ tableSummary }}" role="grid" [attr.aria-label]="tableTitle">
         <caption *ngIf="tableTitle" class="tableHeading">
             {{ tableTitle }}
@@ -28,7 +28,16 @@
         </thead>
         <tbody >
             <ng-container *ngFor="let dataRow of dataRows | sorting: headerEvent | filter: searchText | paginate: { itemsPerPage: maxRows, currentPage: p, id: index }; let x = index;">
-                <tr *ngIf="dataRow" [attr.data-auto-id]="dataRow.row_Header.value + '_' + index + '_' + x" app-table-row [dataRow]="dataRow" [headers]="headers" [rowHeader]="dataRow.row_Header.value" [index]="index + '_' + x" (onCallBack)="callBack($event)">
+                <tr *ngIf="dataRow" 
+                    [attr.data-auto-id]="dataRow.row_Header.value + '_' + index + '_' + x" 
+                    app-table-row
+                        [searchText]="searchText"
+                        [highlightSearch]="highlightSearch"
+                        [dataRow]="dataRow" 
+                        [headers]="headers" 
+                        [rowHeader]="dataRow.row_Header.value" 
+                        [index]="index + '_' + x"
+                        (onCallBack)="callBack($event)">
                 </tr>
                 <tr *ngIf="!dataRow" class="noResults" role="alert">
                     <td [attr.colspan]="headerLength" class="noResults">No Results Found</td>

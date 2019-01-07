@@ -1,0 +1,23 @@
+<div class="ds-l-row ds-u-align-items--center ds-u-justify-content--center ds-h2 pointer panel" 
+     (click)="panelStateChange($event)" 
+     (keyup.enter)="panelStateChange($event)" 
+     tabindex="0" 
+     role="button" 
+     [attr.aria-expanded]="expand || openAll">
+    <div class="ds-l-col--auto plusIcon">
+        <app-plus 
+            [expand]="expand || openAll" 
+            [clicked]="clicked || openAll">
+        </app-plus>
+    </div>
+    <div class="ds-l-col title">
+        {{ title }}
+    </div>
+    <div *ngIf="extTitle" [ngClass]="extTitleClass" class="extTitle ds-l-col ds-u-text-align--right">
+        {{ extTitle }}
+    </div>
+</div>
+
+<div *ngIf="expand || openAll" [@fadeInTrigger]="expand">
+    <ng-content></ng-content>
+</div>

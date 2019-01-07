@@ -7,6 +7,8 @@ import { AppComponent } from "./app.component";
 import { NgxChartsModule } from '@swimlane/ngx-charts'
 import { NgxPaginationModule } from "ngx-pagination";
 
+import { AccordionModule } from "./modules/accordion/accordion.module";
+import { PanelModule } from "./modules/panel/panel.module";
 import { StarModule } from "./modules/star/star.module";
 import { SpinnerModule } from "./modules/spinner/spinner.module";
 import { TableModule } from "./modules/table/table.module";
@@ -54,7 +56,9 @@ import { AppService } from './services/app.service'
     LineGraphModule,
     DropdownModule,
     AlertModule,
-    ModalShellModule
+    ModalShellModule,
+    AccordionModule,
+    PanelModule
   ],
   providers: [AppService],
   bootstrap: [AppComponent]

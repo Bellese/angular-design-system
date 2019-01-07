@@ -2,7 +2,8 @@ import {
     Component, 
     Input, 
     Output, 
-    EventEmitter
+    EventEmitter,
+    TemplateRef
 } from '@angular/core';
 
 @Component({
@@ -16,8 +17,13 @@ export class AppModalShell {
     @Input() modalClass: string;
     @Input() modalCount: number;
     @Input() jawsBody: boolean;
+    @Input() modalData;
 
     @Output() closeModal = new EventEmitter<any>();
+     
+    @Input() headerTemplate: TemplateRef<any>;
+    @Input() bodyTemplate: TemplateRef<any>;
+    @Input() footerTemplate: TemplateRef<any>;
 
     findTab(e) {
         (e.target.id === "lastModalTab") ? document.getElementById("closeButton"+this.modalCount).focus() : false;
@@ -26,5 +32,22 @@ export class AppModalShell {
     
     onClose() {
         this.closeModal.emit(true);
+    }
+     
+    get getTitle() {
+        return { 
+            modalHeader: {
+                modalTitle: this.modalTitle,
+                modalCount: this.modalCount
+            }
+        };
+    }
+     
+    get getBody() {
+        return { 
+            modalBody: {
+                modalData: this.modalData
+            }
+        };
     }
 }

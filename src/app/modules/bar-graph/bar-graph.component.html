@@ -45,7 +45,7 @@ class="ds-l-row mainGraphClass"
     <span class="tickMarkers" *ngFor="let val of data; let i = index" [id]="'value_' + i + id">
         <div *ngIf="val.value === '' && val.modal">
             <app-modal
-                [data]="val.modal"
+                [modalData]="val.modal"
                 [modalComponent]="comp"
                 [buttonClass]="'tableCell'"
                 [content]="'N/A*'"
@@ -58,7 +58,7 @@ class="ds-l-row mainGraphClass"
         </div>
         <div *ngIf="val.value !== '' && val.modal; else noModal">
             <app-modal
-                [data]="val.modal"
+                [modalData]="val.modal"
                 [modalComponent]="comp"
                 [buttonClass]="'tableCell'"
                 [content]="val.value + '*'"

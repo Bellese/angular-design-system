@@ -8,27 +8,42 @@
                         (callBack)="onClose()" 
                         [ariaLabel]="'Close modal dialog'" 
                         [buttonType]="'modalTabIndex ds-c-button--transparent ds-c-dialog__close'" 
-                        [content]="'Close'"
                         [buttonID]="'closeButton'+modalCount">
+                        Close
                     </app-button>
-
-                    <h1 class="ds-h1" id="{{'dialog-title-' + modalCount}}">{{modalTitle}}</h1>
+                    
+                    <ng-template #defaultHeader let-modalHeader="modalHeader">
+                        <h1 class="ds-h1" id="{{'dialog-title-' + modalHeader.modalCount}}">                    {{modalHeader.modalTitle}}
+                        </h1>
+                    </ng-template>
+                    
+                    <ng-container *ngTemplateOutlet="headerTemplate ? headerTemplate : defaultHeader; context: getTitle">
+                    </ng-container>
 
                     <main [id]="jawsBody ? 'dialog-body-' + modalCount : ''">
 
-                        <ng-content select="ng-container">
-                        </ng-content>
+                        <ng-template #defaultBody let-modalBody="modalBody">
+                            <p>
+                                {{modalBody.modalData}}
+                            </p>
+                        </ng-template>
+
+                        <ng-container *ngTemplateOutlet="bodyTemplate ? bodyTemplate : defaultBody; context: getBody">
+                        </ng-container>
 
                         <aside class="ds-c-dialog__actions">
-                            <ng-content select="span">
-                            </ng-content>
-                            <app-button
-                                (callBack)="onClose()" 
-                                [ariaLabel]="'Cancel modal'" 
-                                [buttonType]="'modalTabIndex ds-c-button--transparent'" 
-                                [content]="'Cancel'"
-                                [buttonID]="'cancelButton'+modalCount">
-                            </app-button>
+                            <ng-template #defaultFooter>
+                                <app-button
+                                    (callBack)="onClose()" 
+                                    [ariaLabel]="'Cancel modal'" 
+                                    [buttonType]="'modalTabIndex ds-c-button--transparent'" 
+                                    [buttonID]="'cancelButton'+modalCount">
+                                    Cancel
+                                </app-button>
+                            </ng-template>
+
+                            <ng-container *ngTemplateOutlet="footerTemplate ? footerTemplate : defaultFooter">
+                            </ng-container>
                         </aside>
                     </main>
                 </div>

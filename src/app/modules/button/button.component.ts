@@ -7,14 +7,10 @@ import { Component, Input, EventEmitter, Output, OnChanges } from '@angular/core
 })
 
 export class AppButton {
-    @Input() content;
     @Input() ariaLabel;
     @Input() buttonType;
-    @Input() image;
-    @Input() imageClass;
     @Input() buttonID;
     @Input() ariaSort;
-    @Input() abbr;
     
     @Output() callBack = new EventEmitter<any>();
     

@@ -4,13 +4,8 @@
     (click)="callBackFunction($event)" 
     (keyup.enter)="callBackFunction($event)" 
     attr.aria-label="{{ ariaLabel }}"
+    attr.aria-sort="{{ ariaSort }}"
     class="ds-c-button pointer"
     [ngClass]="buttonType">
-        <ng-container *ngIf="abbr; else normal">
-            {{ abbr }}
-        </ng-container>
-        <ng-template #normal>
-            {{content}}
-        </ng-template>
-    <img *ngIf="image" src="{{ image }}" [ngClass]="imageClass" style="float:left;"/>
+        <ng-content></ng-content>
 </button>

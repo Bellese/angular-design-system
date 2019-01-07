@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { ModalService } from'../../services/modal.service';
 
 @Component({
@@ -10,21 +9,20 @@ import { ModalService } from'../../services/modal.service';
 })
 
 export class AppModal {
-    
-    @Input() id: any;
+
     @Input() modalTitle: any;
-    @Input() data: Array<any>;
+    @Input() modalData: Array<any>;
     @Input() modalComponent: any;
     @Input() firstFocus;
     @Input() content: string;
     @Input() buttonClass: string;
     @Input() abbr;
-
+ 
     constructor(private modalService: ModalService) {
     }
 
     addToBody(e) {
         //build modal with service
-        this.modalService.appendComponentToBody(this.modalComponent, this.id, this.modalTitle, this.data, this.firstFocus);
+        this.modalService.appendComponentToBody(this.modalComponent, e.target, this.modalTitle, this.modalData, this.firstFocus);
     }
 }

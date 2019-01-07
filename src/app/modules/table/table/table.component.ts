@@ -11,14 +11,14 @@ export class AppTable {
     @Input() headers;
     @Input() dataRows;
     @Input() tableSummary;
-    @Input() theme;
     @Input() tableTitle;
     @Input() paginate;
-    @Input() searchText ="";
+    @Input() searchText: string ="";
     @Input() starRating;
     @Input() maxRows;
     @Input() linearScore;
     @Input() reportingPeriod;
+    @Input() highlightSearch: boolean = true;
     @Output() buttonClick = new EventEmitter<any>();
     headerLength;
     headerEvent;

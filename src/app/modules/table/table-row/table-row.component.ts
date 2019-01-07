@@ -11,7 +11,8 @@ export class AppTableRow {
     @Input() headers;
     @Input() index;
     @Input() rowHeader;
-
+    @Input() searchText;
+    @Input() highlightSearch;
     @Output() onCallBack = new EventEmitter<any>();
      
     shadowArray = [];

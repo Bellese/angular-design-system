@@ -8,7 +8,6 @@ import { AppTableData } from './table-data/table-data.component';
 import { AppTableHeader } from './table-header/table-header.component';
 import { AppTableModal } from './table-modal/table-modal.component';
 import { AppTableRow } from './table-row/table-row.component';
-import { AppTableSearch } from './table-search/table-search.component';
 
 //component modules
 import { ButtonModule } from '../button/button.module';
@@ -49,8 +48,7 @@ import { PipesModule } from '../../pipes/pipes.module';
     AppTableData,
     AppTableHeader,
     AppTableModal,
-    AppTableRow,
-    AppTableSearch
+    AppTableRow
   ],
   entryComponents: [
     AppTableModal
@@ -60,8 +58,7 @@ import { PipesModule } from '../../pipes/pipes.module';
     AppTableData,
     AppTableHeader,
     AppTableModal,
-    AppTableRow,
-    AppTableSearch
+    AppTableRow
   ]
 })
 export class TableModule { }

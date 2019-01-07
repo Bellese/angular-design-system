@@ -1,19 +1,22 @@
 <div *ngIf="data.value.el === 'default'" 
-     class="{{data.key + uniqueClass + ' ' + dataClass}}"
+     class="{{data.key + ' ' + dataClass}}"
     [ngClass]="data.value.attr ? data.value.attr : false"
-     title="{{data.value.value}}">
-        {{ data.value.value }}
+     [attr.title]="!data.value.title ? data.value.value : data.value.title"
+     [innerHtml]="data.value.abbr ? data.value.abbr : data.value.value | highlightSearch: searchText: highlightSearch">
 </div>
 
 <div *ngIf="data.value.el === 'link'" 
-     class="{{data.key + uniqueClass + ' ' + dataClass}}"
-     title="{{data.value.value}}">
-     <a [routerLink]="data.value.attr">{{ data.value.value }}</a>
+     class="{{data.key + ' ' + dataClass}}"
+     [ngClass]="data.value.attr ? data.value.attr : false"
+     [attr.title]="!data.value.title ? data.value.value : data.value.title">
+     <a [routerLink]="data.value.href" [innerHtml]="data.value.abbr ? data.value.abbr : data.value.value | highlightSearch: searchText: highlightSearch">
+    </a>
 </div>
 
 <div *ngIf="data.value.el === 'checkbox'" 
-     class="{{data.key + uniqueClass + ' ' + dataClass}}"
-     title="{{data.value.value}}">
+     class="{{data.key + ' ' + dataClass}}"
+     [ngClass]="data.value.attr ? data.value.attr : false"
+     [attr.title]="!data.value.title ? data.value.value : data.value.title">
     <app-check-box
         [value]="data.value.value"
         [groupName]="data.value.attr"
@@ -22,24 +25,13 @@
     </app-check-box>
 </div>
 
-<app-button *ngIf="data.value.el === 'button'" 
-    class="{{data.key + uniqueClass + ' ' + dataClass}}"
-    title="{{data.value.value}}"
-    [content]="data.value.value"
-    [buttonType]="'tableCell ' + data.value.attr + ' ' + dataClass"
-    [abbr]="data.value.abbr ? data.value.abbr : null"
-    (callBack)="buttonCallback($event)">
-</app-button>
 
-<app-modal *ngIf="data.value.el === 'modal'"
-    class="{{data.key + uniqueClass + ' ' + data.value.attr + ' ' + dataClass}}"
-    title="activate to view {{data.value.value}} supplemental information"
-    [id]="'modal_'+index"
-    [modalComponent]="comp"
-    [modalTitle]="modalTitle"
-    [data]="data.value.modal"
-    [content]="data.value.value"
-    [buttonClass]="'tableCell ' + data.value.attr + ' ' + dataClass">
-</app-modal>
-
-<sup *ngIf="data.value.attr === 'footnote'" class="bold">*</sup>
+<button *ngIf="data.value.el === 'button'"
+    [attr.title]="!data.value.title ? data.value.value : data.value.title"
+    type="button"
+    (click)="buttonCallback($event)" 
+    (keyup.enter)="buttonCallback($event)" 
+    class="ds-c-button pointer {{data.key + ' ' + dataClass}}"
+    [ngClass]="'tableCell ' + data.value.attr + ' ' + dataClass"
+    [innerHtml]="data.value.abbr ? data.value.abbr : data.value.value | highlightSearch: searchText: highlightSearch">
+</button>
