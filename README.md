@@ -113,6 +113,7 @@ The table has been constructed to handle most cases for text overflow. We need t
 -`starRating`: This is specific to HQR, a way to show table ratings
 -`linearScore`: A string to represent the linear score
 -`reportingPeriod`: A string to represent the reporting period in the table header
+-`highlightSearch`: A boolean to allow text to be highlighted as the searchtext is queried.
 
 ```
 <app-table
@@ -123,6 +124,7 @@ The table has been constructed to handle most cases for text overflow. We need t
 [dataRows]="dataRows"
 [paginate]="true"
 [starRating]="3"
+[highlightSearch]="true"
 [tableSummary]="'A table summary for screen readers'">
 </app-table>
 ```
@@ -167,8 +169,10 @@ headers = [
 Table data is where the JSON structure really comes into play. The data structure has to make sure that the key value pair is really the data prop followed by an object with three parameters:
 
 - Value - `value` is the actual value populated in the data cell
-- El - what helps the user choose between elements to include in the cell (ex: `link`, `date`, `checkbox`, `button`, and `default`)
-- Attr - `attr` is the specific content needed to render the element. (ex: `info` and `footnote`)
+- El - what helps the user choose between elements to include in the cell (ex: `link`, `checkbox`, `button` and `default`)
+- Attr - `attr` is the class you want to pass to content to supplement the element. (ex: `success` and `failure`)
+- href - this is used with el: link to set location of link
+- instanceRef - this is a catch all key that is used with el: button. It passes any object back to the developer when a button is clicked. You can use this to open models, trigger alerts. All under the developers control or for their needs. 
 
 ```
 //app.component.ts
@@ -177,50 +181,21 @@ dataRows = [
     {
         val1: {
             value: "100%",
-            el: "default",
-            attr: ""
+            el: "button",
+            attr: "",
+            instanceRef: {
+                key: value,
+                key: value
+            }
         },
         val2: {
             value: "88%",
-            el: "default",
-            attr: ""
+            el: "link",
+            attr: "",
+            href: "./location"
         },
         val3: {
             value: "1%",
-            el: "default",
-            attr: ""
-        }
-    },
-    {
-        val1: {
-            value: "56%",
-            el: "default",
-            attr: ""
-        },
-        val2: {
-            value: "34%",
-            el: "default",
-            attr: ""
-        },
-        val3: {
-            value: "4%",
-            el: "default",
-            attr: ""
-        }
-    },
-    {
-        val1: {
-            value: "44%",
-            el: "default",
-            attr: ""
-        },
-        val2: {
-            value: "89%",
-            el: "default",
-            attr: ""
-        },
-        val3: {
-            value: "12%",
             el: "default",
             attr: ""
         }
@@ -239,23 +214,6 @@ row_Header: {
 }
 ```
 
-### Using a Modal within the Data Table
-
-In order to enable a modal(s) within the data table component, include a `modal` property within your `dataRows` data where needed. `el` property must have a value of `modal`. `attr` property must have a value of `info` or `footnote`.
-
-`modal` must be an array with two objects including properties `heading` and `paragraph`.
-
-```
-val1: {
-    value: "12%",
-    el: "button",
-    attr: "info", <-- could also be "footnote"
-    modal: [
-        { heading: "Heading" },
-        { paragraph: "Content of modal goes here"}
-    ]
-}
-```
 ## Modal Implementation
 
 The modal is essentially the button component that renders a modal component. But we are extending the option to add dynamic custom components within the modal. once you render the app-modal component with the requirements below everything should connect for you.
@@ -267,13 +225,13 @@ The modal is essentially the button component that renders a modal component. Bu
 
 `Modal Data` – The data to be sent to the modal body
 
-`Modal ID` – The Id of the button that triggers the modal
-
 `Content` – The name of the modal button
 
 `Modal Component` – This will currently allow you to place a static component inside the modal, this component cannot receive data. When you use this you must import the component in the controller you are using to hold the modal component, then pass the export class name to the modal
 
 	Optional:
+    
+`Modal ID` – The Id of the button that triggers the modal
 
 `Button Class`—The style to apply to the modal button
 
@@ -292,11 +250,18 @@ Modal Shell is the easiest way to create your own unique modal. You’re going t
 
 add an output for `(closeModal)` = This will track when the modal closes.
 
-After you have this setup include a <ng-container> inside the <app-modal-shell> and add whatever you want here. This will be the body of the modal. 
+After you have this setup you have options to build the modal
 
-Optionally you can add extra buttons on the modal for this you will need to also add a `span` inside the `app-modal-shell` add this beneath, NOT INSIDE, the `ng-container`. Inside the span you can add any buttons you wish, you can even add `app-modal` to open a confirmation modal if you so choose. 
+`headerTemplate`: Modal header
+`bodyTemplate`: Modal Body
+`footerTemplate`: Modal Footer
+
+These templates can be referenced through Angular's template syntax.
+ 
+ ex: <ng-template #headerTemplate let-modalHeader="modalHeader">
 
 In the TS file be sure to add inputs for modalTitle, modalData, and modalCount. And an output for closeModal;
+
 Everything is handled automatically once you provide these input and outputs. Matter of fact the only one you are directly interacting with is modalData. And this is the data you need to make you modal body interactive. You should have a solid understand of how this works already. 
 
 Once you bundle this up you are good to go. Make sure you add this component as an entry component inside your app.module.ts. 
@@ -639,3 +604,28 @@ Required:
   Content of the alert <-- Alert content goes here
 </app-alert>
 ```
+
+
+### Accordion Component
+
+When using accordion, use app-accordion to keep communicating with the other panels. For example if you open one panel the other will close. If you want the panels to open independent of each other dont wrap the panels in app-accordion.
+
+There are no inputs.
+
+```
+<app-accordion>
+    <app-panel></app-panel>
+    <app-panel></app-panel>
+    <app-panel></app-panel>
+</app-accordion>
+```
+
+### Panel Component
+
+* `title`: Use to name each accordion panel
+* `extTitle`: Use to add supplimental information to each panel. Goes to the right of the main title and inline with it.
+* `extTitleClass`: Use this to add different classes to change the look and feel of each ext title
+* `expand`: Use this only to set a main panel to open on load. For example if I want the first panel to be set to open I will add expand=true to panel.
+* `openAll`: Same concept as expand. Use this input on all panels to make each one open. Its optional: we use it when a search is open on the panels, we set openAll to true on each panel.
+
+
