@@ -25,7 +25,9 @@
                         <h1 class="ds-h6" style="margin: 2px; font-weight: normal; color: white">
                             {{model.name}}
                         </h1>
-                        <h3 class="ds-h4" style="margin: 2px; font-weight: bold">{{ model.value | graphToolTip}}</h3>
+                        <h3 class="ds-h4" style="margin: 2px; font-weight: bold">
+                            {{ model.value | graphToolTip}}
+                        </h3>
                     </div>
                 </ng-template>
             </ngx-charts-pie-chart>
