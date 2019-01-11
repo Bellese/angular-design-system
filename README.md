@@ -175,6 +175,7 @@ Table data is where the JSON structure really comes into play. The data structur
 - Attr - `attr` is the class you want to pass to content to supplement the element. (ex: `success` and `failure`)
 - href - this is used with el: link to set location of link
 - instanceRef - this is a catch all key that is used with el: button. It passes any object back to the developer when a button is clicked. You can use this to open models, trigger alerts. All under the developers control or for their needs. 
+- disabled - use this to add the disabled attr to the element
 
 ```
 //app.component.ts

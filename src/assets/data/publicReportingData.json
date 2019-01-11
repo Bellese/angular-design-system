@@ -53,7 +53,7 @@
             "row_Header": {
               "value": "SEP-1",
               "el": "button",
-              "attr": "info",
+              "attr": "info disabled",
               "instanceRef": {
                   "modal": "appTableModal",
                   "array": [
@@ -386,7 +386,7 @@
               "value": "Number of Patients",
               "prop": "val2",
               "el": "sort",
-              "attr": "sorted"
+              "attr": "des"
             }
           },
           {
