@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 export class GraphToolTipPipe implements PipeTransform {
     
-    transform(items: any, descriptor: any): any {
+    transform(items: any): any {
         
         if(items === "") {
             return "N/A"

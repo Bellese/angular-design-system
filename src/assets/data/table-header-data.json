@@ -1,16 +1,17 @@
 [
-  {
-    "header": {
-      "value": "State",
-      "prop": "row_Header",
-      "el": "sort",
-      "attr": ""
+    {
+        "header": {"value": "row header", "prop": "row_Header", "el": "sort", "attr" : "sorted"}
+    },
+    {
+        "header": {"value": "GastroIntestinal", "prop": "facility", "el": "default", "abbr": "GI"}
+    },
+    {
+        "header": {"value": "State", "prop": "state", "el": "sort", "abbr": "GI"}
+    },
+    {
+        "header": {"value": "National", "prop": "national", "el": "sort", "attr" : ""}
+    },
+    {
+        "header": {"value": "Top 10%", "prop": "topTen", "el": "sort", "attr" : ""}
     }
-  },
-  {
-    "header": { "value": "National", "prop": "val2", "el": "sort", "attr": "" }
-  },
-  {
-    "header": { "value": "Facility", "prop": "val3", "el": "sort", "attr": "" }
-  }
 ]

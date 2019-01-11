@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
-  "whitelistedNonPeerDependencies": ["angular", "rxjs", "sw-toolbox", "zone.js", "ngx-pagination", "npm", "moment", "ngx-charts", "d3"],
+  "whitelistedNonPeerDependencies": ["angular", "rxjs", "sw-toolbox", "zone.js", "ngx-pagination", "npm", "moment", "ngx-charts", "d3", "tsickle"],
   "lib": {
     "entryFile": "public_api.ts"
   }

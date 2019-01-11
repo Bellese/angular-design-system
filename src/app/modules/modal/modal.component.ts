@@ -17,6 +17,7 @@ export class AppModal {
     @Input() content: string;
     @Input() buttonClass: string;
     @Input() abbr;
+    @Input() id;
  
     constructor(private modalService: ModalService) {
     }
