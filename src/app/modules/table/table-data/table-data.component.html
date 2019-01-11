@@ -9,7 +9,7 @@
      class="{{data.key + ' ' + dataClass}}"
      [ngClass]="data.value.attr ? data.value.attr : false"
      [attr.title]="!data.value.title ? data.value.value : data.value.title">
-     <a [routerLink]="data.value.href" [disabled]="data.value.disabled ? data.value.disabled: false"[innerHtml]="data.value.abbr ? data.value.abbr : data.value.value | highlightSearch: searchText: highlightSearch">
+     <a [routerLink]="data.value.href" [innerHtml]="data.value.abbr ? data.value.abbr : data.value.value | highlightSearch: searchText: highlightSearch">
     </a>
 </div>
 
