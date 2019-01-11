@@ -10,7 +10,7 @@ export class AppTableHeader {
     @Input() header;
     @Input() selected;
     @Output() onHeaderClick = new EventEmitter<object>();
-    asc: boolean = false;
+    @Input() asc;
 
     getHeader(e) {
         this.asc = !this.asc
@@ -21,8 +21,11 @@ export class AppTableHeader {
     //only to the currently selected (clicked) header
 
     handleDirection(){
-        if(this.asc) return "ascending"
-        else return "descending"
+        if(this.asc) {
+            return "ascending"
+        } else {
+            return "descending"
+        }
     }
 
     //sets previously selected headers to a default state of false

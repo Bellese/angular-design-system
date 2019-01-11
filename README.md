@@ -137,6 +137,8 @@ The data provided to `headers` in the table component has to include `header` an
 
 Include "sort" in the `el` property in order to enable sorting for that column. When enabled the header will render as a sortable header with the proper `aria-label` included and a sort indicator svg indicating ascending or descending data. If "sort" is not provided, you will just get a normal header.
 
+If you want to sort a column on load use `el` sort with `attr` set to `asc` or `des`. This will set the direction you want to load the column data filtered as.
+
 ```
 //app.component.ts
 headers = [
