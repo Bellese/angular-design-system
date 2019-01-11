@@ -19,6 +19,7 @@
             <tr>
                 <th *ngFor="let header of headers; let i = index" title="{{header.header.value}}"
                     app-table-header
+                        [asc]="asc"
                         [header]="header"
                         [selected]="selected"
                         (onHeaderClick)="passHeaderEvent($event)"

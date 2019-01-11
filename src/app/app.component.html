@@ -1,8 +1,29 @@
-<app-accordion>
-    <app-panel
-        [title]="'test1'">
-    </app-panel>
-    <app-panel
-        [title]="'test2'">
-    </app-panel>
-</app-accordion>
+<section class="ds-l-container preview__grid">
+    <app-accordion>
+        <ng-container *ngFor="let dataObj of dataSet; let i = index">
+            <app-panel *ngIf="dataObj" 
+                       [title]="dataObj.measureGroupName"
+                       [openAll]="openAll">
+                <div *ngFor="let data of dataObj.measureSets; let in = index">
+                    <app-table
+                        [starRating]="3"
+                        [index]="i + '_' + in"
+                        [headers]="data ? data.tableHeaders: false" 
+                        [dataRows]="data.tableRows"
+                        [searchText]="searchText"
+                        [highlightSearch]="true"
+                        [paginate]="false"
+                        [tableTitle]="data.tableHeading"
+                        [tableSummary]="data.tableSummary"
+                        [linearScore]="'Linear Score (1-100): 61'"
+                        [reportingPeriod]="'(Q1)2016-(Q2)2016'"
+                        (buttonClick)="buttonClick($event)">
+                    </app-table>
+                </div>
+            </app-panel>
+            <div *ngIf="!dataObj" class="displayNone" role="alert">
+                No Results Found
+            </div>
+        </ng-container>
+    </app-accordion>
+</section>

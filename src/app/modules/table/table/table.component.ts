@@ -24,24 +24,34 @@ export class AppTable {
     headerEvent;
     selected;
     p: number;
-    rowHeader = "row Header";
+    rowHeader = 'row Header';
+    asc: boolean = false;
     
     ngOnInit() {
         this.headerLength = this.headers.length;
-        
         this.headers.map(x => {
-            (x.header.attr === "sorted") ? this.headerEvent = {name: x.header.attr, id: x.header.prop, asc: true} : false;
+            if (x.header.attr) {
+                if (x.header.attr === 'asc') {
+                    this.asc = true;
+                    this.headerEvent = {name: true, id: x.header.prop, asc: this.asc};
+                    this.selected = x.header.prop
+                } else if (x.header.attr === 'des') {
+                    this.asc = false;
+                    this.headerEvent = {name: true, id: x.header.prop, asc: this.asc};
+                    this.selected = x.header.prop
+                }
+            }
         });
     }
 
-    passPage(e){
+    passPage(e) {
         this.p = e;
     }
 
     SearchText(value) {
         this.searchText = value;
     }
-    
+
     passHeaderEvent(e) {
         if (e.header === "sort") {
             this.headerEvent = e
