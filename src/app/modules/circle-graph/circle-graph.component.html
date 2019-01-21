@@ -56,21 +56,26 @@
     </div>
 
     <div class="ds-l-lg-col--4 ds-l-md-col--4 ds-l-sm-col--12">
-        <div id="pieGraphCard2" [ngClass]="buttonClicked === 'pieGraphCard2' ? 'active': null" class="pointer card ds-u-padding--1 ds-u-margin-bottom--2" (click)="passAction($event)" role="button">
-            <div class="ds-u-font-size--h1 ds-u-color--black ds-u-font-weight--bold noPoint">
-                {{ data[0].value}} 
+        <div class="ds-l-row">
+            <div class="ds-l-lg-col--12 ds-l-md-col--12 ds-l-sm-col--6 ds-l-col--6  padding-R-8">
+                <div id="pieGraphCard2" [ngClass]="buttonClicked === 'pieGraphCard2' ? 'active': null" class="pointer card ds-u-padding--1 ds-u-margin-bottom--2" (click)="passAction($event)" role="button">
+                    <div class="ds-u-font-size--h1 ds-u-color--black ds-u-font-weight--bold noPoint">
+                        {{ data[0].value}} 
+                    </div>
+                    <div class="ds-u-font-size--h3 ds-u-color--black noPoint">
+                        {{ data[0].name }}
+                    </div>
+                </div>
             </div>
-            <div class="ds-u-font-size--h3 ds-u-color--black noPoint">
-                {{ data[0].name }}
-            </div>
-        </div>
-        
-        <div id="pieGraphCard3" [ngClass]="buttonClicked === 'pieGraphCard3' ? 'active': null" class="pointer card ds-u-padding--1" (click)="passAction($event)" role="button">
-            <div class="ds-u-font-size--h1 ds-u-color--black ds-u-font-weight--bold noPoint">
-                {{ data[1].value}} 
-            </div>
-            <div class="ds-u-font-size--h3 ds-u-color--black noPoint">
-                {{ data[1].name }}
+            <div class="ds-l-lg-col--12 ds-l-md-col--12 ds-l-sm-col--6 ds-l-col--6 padding-L-8">
+                <div id="pieGraphCard3" [ngClass]="buttonClicked === 'pieGraphCard3' ? 'active': null" class="pointer card ds-u-padding--1" (click)="passAction($event)" role="button">
+                    <div class="ds-u-font-size--h1 ds-u-color--black ds-u-font-weight--bold noPoint">
+                        {{ data[1].value}} 
+                    </div>
+                    <div class="ds-u-font-size--h3 ds-u-color--black noPoint">
+                        {{ data[1].name }}
+                    </div>
+                </div>
             </div>
         </div>
     </div>

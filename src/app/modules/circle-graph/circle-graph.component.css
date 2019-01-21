@@ -55,4 +55,22 @@
         padding-left: 8px;
         padding-right: 8px;
     }
+    
+    .padding-L-8 {
+        padding-left: 8px;
+    }
+    
+    .padding-R-8 {
+        padding-right: 8px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .padding-L-8 {
+        padding-left: 8px;
+    }
+    
+    .padding-R-8 {
+        padding-right: 8px;
+    }
 }

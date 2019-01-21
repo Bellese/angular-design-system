@@ -27,7 +27,7 @@
                 </th>
             </tr>
         </thead>
-        <tbody >
+        <tbody>
             <ng-container *ngFor="let dataRow of dataRows | sorting: headerEvent | filter: searchText | paginate: { itemsPerPage: maxRows, currentPage: p, id: index }; let x = index;">
                 <tr *ngIf="dataRow" 
                     [attr.data-auto-id]="dataRow.row_Header.value + '_' + index + '_' + x" 

@@ -24,23 +24,39 @@ import { AppService } from './services/app.service';
 })
 
 export class AppComponent implements OnInit {
-  dataSet;
-  pieData;
+    dataSet;
+    pieData;
+    searchText;
+    openAll;
 
-  constructor(
+    constructor(
     private appService: AppService,
-  ) {}
-    
-  buttonClick(e) {
-    if(e.button) {
-        alert('Button with no modal pressed');
-    } else {
-        console.log('Button pressed.');
-    }
-}
+    ) {}
 
-  ngOnInit() {
-    this.dataSet = dataSet.default;
-    this.pieData = pieData.default;
-  }  
+    buttonClick(e) {
+        if (e.button) {
+            alert('Button with no modal pressed');
+        } else {
+            console.log('Button pressed.');
+        }
+    }
+
+    ngOnInit() {
+        this.dataSet = dataSet.default;
+        this.pieData = pieData.default;
+    }
+
+    searchFunction(e) {
+        if (e.target.value.trim() !== '') {
+            this.openAll = true;
+            this.searchText = e.target.value;
+            setTimeout(() => {
+                const rows = document.querySelectorAll('[scope="row"]').length;
+                console.log(rows);
+            }, 250);
+        } else {
+            this.openAll = false;
+            this.searchText = false;
+        }
+    }
 }

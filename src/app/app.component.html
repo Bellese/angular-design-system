@@ -1,5 +1,7 @@
 <section class="ds-l-container preview__grid">
 
+ CIRCLE GRAPH COMPONENT EXAMPLE
+    <br/>
 <app-circle-graph
     [data]="pieData"
     [animations]="true"
@@ -12,8 +14,13 @@
     [firstColumnName]="'Total Files'"
     (passButton)="buttonClick($event)">
 </app-circle-graph>
+
     
-<!-- TABLE AND ACCORDION EXAMPLE
+<!--
+ TABLE, SEARCH AND ACCORDION EXAMPLE
+    <br/>
+    <input type="text" (keyup.enter)="searchFunction($event)"/>
+    <br/>
     <app-accordion>
         <ng-container *ngFor="let dataObj of dataSet; let i = index">
             <app-panel *ngIf="dataObj" 
@@ -42,4 +49,5 @@
         </ng-container>
     </app-accordion>
 -->
+
 </section>

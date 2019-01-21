@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter, AfterViewChecked } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, AfterViewChecked, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-table',
@@ -46,10 +46,6 @@ export class AppTable {
 
     passPage(e) {
         this.p = e;
-    }
-
-    SearchText(value) {
-        this.searchText = value;
     }
 
     passHeaderEvent(e) {
