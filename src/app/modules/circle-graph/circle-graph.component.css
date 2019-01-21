@@ -4,7 +4,10 @@
 }
 
 .circleGraphShell {
-    min-width: 300px;
+    max-width: 400px;
+    max-height: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .centerTextShell {
@@ -23,65 +26,33 @@
     margin-bottom:16px;
 }
 
-.tableScope {
-    border: 1px solid #D6D7D9;
-    padding: 8px;
-    padding-bottom: 12px;
+.noPoint {
+    pointer-events: none;
 }
 
-.tableScope td, .tableScope th {
-    padding: 0 !important;
-    padding-bottom: 10px !important;
+.active {
+    border-top: 6px solid #4C2C92 !important;
+    box-shadow: 0px 4px 9px #d9d9d9 !important;
 }
 
-.tableScope .ds-c-table td, .ds-c-table th {
-    border: none;
-    padding: 1em;
+.card {
+    border-top: 6px solid #A5E9FF;
+    box-shadow: 0px 4px 6px #F1F1F1;
+    transition: all 200ms cubic-bezier(.25,.8,.25,1);
 }
 
-.tableScope .ds-c-table th, .ds-c-table thead td {
-    background-color: transparent;
+.card:hover {
+    border-top: 6px solid #00A6D2;
+    box-shadow: 0px 4px 9px #d9d9d9;
 }
 
-.tableScope table {
-    table-layout: auto;
-}
-
-.tableScope table th {
-    font-weight: normal;
-}
-
-.tableScope table td {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.tableScope table th, .tableScope table td{
-    text-align: center;
-    border-right: 1px solid #979797 !important;
-    padding: 0 10px !important;
-}
-
-.tableScope table th:last-of-type , .tableScope table td:last-of-type {
-    border-right: none !important;
-}
-
-.tableScope caption {
-    padding-bottom: 20px;
-}
-
-.tableScope caption .legendTitle {
-    text-align: left;
-    font-size: 18px;
-    font-weight: bold;
-    color: #212121;
-}
-
-.tableScope caption .legendDate {
-    color: #212121;
-    text-align: right;
-    font-size: 16px;
-}
-
-@media only screen and (max-width: 544px) {
+@media only screen and (min-width: 768px) {
+    .no-Margin-Bottom {
+        margin-bottom: 0px !important;
+    }
+    
+    .ds-l-lg-col--4 {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
 }

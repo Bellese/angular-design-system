@@ -1,4 +1,19 @@
 <section class="ds-l-container preview__grid">
+
+<app-circle-graph
+    [data]="pieData"
+    [animations]="true"
+    [labels]="false"
+    [doughnut]="true"
+    [arcWidth]=".25"
+    [tooltipDisabled]="true"
+    [title]="'Error Free'"
+    [tableSummary]="'An example of a pie chart with a legend'"
+    [firstColumnName]="'Total Files'"
+    (passButton)="buttonClick($event)">
+</app-circle-graph>
+    
+<!-- TABLE AND ACCORDION EXAMPLE
     <app-accordion>
         <ng-container *ngFor="let dataObj of dataSet; let i = index">
             <app-panel *ngIf="dataObj" 
@@ -26,4 +41,5 @@
             </div>
         </ng-container>
     </app-accordion>
+-->
 </section>

@@ -12,6 +12,7 @@ import * as tableData from "../assets/data/table-data.json";
 import * as tableHeaderData from "../assets/data/table-header-data.json";
 import * as lineData from '../assets/data/line-data.json';
 import * as dataSet from '../assets/data/publicReportingData.json';
+import * as pieData from '../assets/data/pie-data.json';
 import { AppService } from './services/app.service';
 
 @Component({
@@ -21,8 +22,10 @@ import { AppService } from './services/app.service';
   providers: [],
   entryComponents: [AppModal]
 })
+
 export class AppComponent implements OnInit {
   dataSet;
+  pieData;
 
   constructor(
     private appService: AppService,
@@ -31,10 +34,13 @@ export class AppComponent implements OnInit {
   buttonClick(e) {
     if(e.button) {
         alert('Button with no modal pressed');
+    } else {
+        console.log('Button pressed.');
     }
 }
 
   ngOnInit() {
     this.dataSet = dataSet.default;
+    this.pieData = pieData.default;
   }  
 }

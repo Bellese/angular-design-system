@@ -27,17 +27,18 @@ export class AppCircleGraph {
     @Input() tooltipDisabled: object;
     @Input() title;
     @Input() tableSummary;
-    @Input() legendTitle;
-    @Input() legendDate;
+
     @Input() firstColumnName;
     @Output() select;
     @Output() activate;
     @Output() deactivate;
+    @Output() passButton = new EventEmitter<any>();
     tooltipText;
     tooltipTemplate;
     labelFormatting;
     totalValues: number = 0;
     centerNum;
+    buttonClicked = "pieGraphCard1";
     
     ngOnInit(){
         this.resize();
@@ -53,21 +54,26 @@ export class AppCircleGraph {
         this.centerNum = Math.floor(100 * (rate / this.totalValues)) + '%';
     }
    
+    passAction(e) {
+        this.passButton.emit(e);
+        this.buttonClicked = e.target.id;
+    }
+    
     resize() {
         let graphContainer = document.getElementsByClassName("circleGraphShell")[0].clientWidth;
-        this.view = [graphContainer, graphContainer / 2];
+        this.view = [graphContainer, graphContainer - 50];
         
-        this.setPosition(graphContainer / 2);
+        this.setPosition(graphContainer);
     }
     
     setPosition(height) {
-            let circle = document.querySelectorAll('.circleGraphShell')[0].getBoundingClientRect();
-            let text = document.getElementById('centerText').style;
-            let sub = document.getElementById('subText').style;
-            
-                sub.width = circle.width + 'px';
-                text.width = circle.width + 'px';
-                text.top = height/2 - 25 + 'px';
+        let circle = document.querySelectorAll('.circleGraphShell')[0].getBoundingClientRect();
+        let text = document.getElementById('centerText').style;
+        let sub = document.getElementById('subText').style;
+
+        sub.width = circle.width + 'px';
+        text.width = circle.width + 'px';
+        text.top = height/2 - 50 + 'px';
     }
     
     labelFormat() {

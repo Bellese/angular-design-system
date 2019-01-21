@@ -1,5 +1,5 @@
-<div class="ds-l-row ds-u-justify-content--center ds-u-align-items--center">
-    <div class="ds-l-lg-col--6 ds-l-md-col--12">
+<div class="ds-l-row ds-u-justify-content--center ds-u-align-items--center ds-u-padding--1">
+    <div class="ds-l-lg-col--4 ds-l-md-col--4 ds-l-sm-col--12">
         <div class="mainGraphClass circleGraphShell" (window:load)="resize()" (window:resize)="resize()" id="strictCircleGraph" aria-label="pie chart expressing the results of errors and non error submitted, tab to hear results">
             <ngx-charts-pie-chart
                 [view]="view"
@@ -43,40 +43,36 @@
             </div>
         </div>
     </div>
-    <div class="ds-l-lg-col--6 ds-l-md-col--12">
-        <div class="tableScope">
-            <table class="ds-c-table ds-c-table--borderless" summary="{{tableSummary}}">
-                <caption>
-                    <div class="ds-l-row ds-u-justify-content--center ds-u-align-items--center">
-                        <div class="ds-l-col legendTitle">
-                            {{ legendTitle }}
-                        </div>
-                        <div class="ds-l-col legendDate">
-                            {{ legendDate }}
-                        </div>
-                    </div>
-                </caption>
-                <thead>
-                    <tr>
-                        <th scope="col">
-                            Total {{ firstColumnName }}
-                        </th>
-                        <th *ngFor="let d of data; let i = index" scope="col">
-                            {{ d.name }}
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            {{ totalValues }}
-                        </td>
-                        <td *ngFor="let d of data; let i = index">
-                            {{ d.value }}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            
+    <div class="ds-l-lg-col--4 ds-l-md-col--4 ds-l-sm-col--12">
+        <div role="button" id="pieGraphCard1" [ngClass]="buttonClicked === 'pieGraphCard1' ? 'active': null" class="ds-u-margin-bottom--2 no-Margin-Bottom pointer card ds-u-padding-top--6 ds-u-padding-bottom--6 ds-u-padding-x--1" (click)="passAction($event)">
+            <div class="ds-u-font-size--title ds-u-color--black ds-u-font-weight--bold noPoint">
+                {{ totalValues }}
+            </div>
+            <div class="ds-u-font-size--h1 ds-u-color--black noPoint">
+                {{ firstColumnName }}
+            </div>
         </div>
     </div>
+
+    <div class="ds-l-lg-col--4 ds-l-md-col--4 ds-l-sm-col--12">
+        <div id="pieGraphCard2" [ngClass]="buttonClicked === 'pieGraphCard2' ? 'active': null" class="pointer card ds-u-padding--1 ds-u-margin-bottom--2" (click)="passAction($event)" role="button">
+            <div class="ds-u-font-size--h1 ds-u-color--black ds-u-font-weight--bold noPoint">
+                {{ data[0].value}} 
+            </div>
+            <div class="ds-u-font-size--h3 ds-u-color--black noPoint">
+                {{ data[0].name }}
+            </div>
+        </div>
+        
+        <div id="pieGraphCard3" [ngClass]="buttonClicked === 'pieGraphCard3' ? 'active': null" class="pointer card ds-u-padding--1" (click)="passAction($event)" role="button">
+            <div class="ds-u-font-size--h1 ds-u-color--black ds-u-font-weight--bold noPoint">
+                {{ data[1].value}} 
+            </div>
+            <div class="ds-u-font-size--h3 ds-u-color--black noPoint">
+                {{ data[1].name }}
+            </div>
+        </div>
+    </div>
+
 </div>
