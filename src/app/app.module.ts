@@ -28,7 +28,8 @@ import { CheckBoxModule } from './modules/check-box/check-box.module';
 import { LineGraphModule } from './modules/line-graph/line-graph.module';
 import { DropdownModule } from './modules/drop-down/drop-down.module';
 import { AlertModule } from './modules/alert/alert.module';
-import { AppService } from './services/app.service'
+import { AppService } from './services/app.service';
+import { CardClusterModule } from './modules/card-cluster/card-cluster.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -58,7 +59,8 @@ import { AppService } from './services/app.service'
     AlertModule,
     ModalShellModule,
     AccordionModule,
-    PanelModule
+    PanelModule,
+    CardClusterModule
   ],
   providers: [AppService],
   bootstrap: [AppComponent]
