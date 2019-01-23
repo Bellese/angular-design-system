@@ -75,6 +75,13 @@ tbody tr:last-of-type th, tbody tr:last-of-type td {
     margin-right: 10px;
 }
 
+.viewPerformanceIcon {
+    background-image: url('./assets/images/performance.svg');
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 40px;
+}
+
 .footnote {
     font-weight: normal;
     background-image: url('./assets/images/asterisk.svg');
