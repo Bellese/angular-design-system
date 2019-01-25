@@ -44,12 +44,12 @@
         </div>
     </div>
             
-    <div class="ds-l-lg-col--4 ds-l-md-col--4 ds-l-sm-col--12">
-        <div role="button" id="pieGraphCard1" [ngClass]="buttonClicked === 'pieGraphCard1' ? 'active': null" class="ds-u-margin-bottom--2 no-Margin-Bottom pointer card ds-u-padding-top--6 ds-u-padding-bottom--6 ds-u-padding-x--1" (click)="passAction($event)">
-            <div class="ds-u-font-size--title ds-u-color--black ds-u-font-weight--bold noPoint">
+    <div class="ds-l-lg-col--4 ds-l-md-col--4 ds-l-sm-col--12 padding-L-R">
+        <div tabindex="0" role="button" id="pieGraphCard0" [ngClass]="buttonClicked === 'pieGraphCard0' ? 'active': null" class="margin-Bottom pointer card ds-u-padding-top--6 ds-u-padding-bottom--6 ds-u-padding-x--1" (click)="passAction($event)">
+            <div class="ds-u-font-size--h1 ds-u-color--black ds-u-font-weight--bold noPoint">
                 {{ totalValues }}
             </div>
-            <div class="ds-u-font-size--h1 ds-u-color--black noPoint">
+            <div class="ds-u-font-size--h3 ds-u-color--black noPoint">
                 {{ firstColumnName }}
             </div>
         </div>
@@ -57,23 +57,13 @@
 
     <div class="ds-l-lg-col--4 ds-l-md-col--4 ds-l-sm-col--12">
         <div class="ds-l-row">
-            <div class="ds-l-lg-col--12 ds-l-md-col--12 ds-l-sm-col--6 ds-l-col--6  padding-R-8">
-                <div id="pieGraphCard2" [ngClass]="buttonClicked === 'pieGraphCard2' ? 'active': null" class="pointer card ds-u-padding--1 ds-u-margin-bottom--2" (click)="passAction($event)" role="button">
-                    <div class="ds-u-font-size--h1 ds-u-color--black ds-u-font-weight--bold noPoint">
-                        {{ data[0].value}} 
+            <div *ngFor="let d of data; let x = index" class="ds-l-lg-col--12 ds-l-md-col--12 ds-l-sm-col--6 ds-l-col--6 padding-margin-adjust">
+                <div id="{{'pieGraphCard' + (x+1)}}" [ngClass]="buttonClicked === 'pieGraphCard'+(x+1) ? 'active': null" class="cardHeight pointer card ds-u-padding--1" (click)="passAction($event)" role="button" tabindex="0">
+                    <div class="ds-u-font-size--h2 ds-u-color--black ds-u-font-weight--bold noPoint">
+                        {{ d.value}} 
                     </div>
-                    <div class="ds-u-font-size--h3 ds-u-color--black noPoint">
-                        {{ data[0].name }}
-                    </div>
-                </div>
-            </div>
-            <div class="ds-l-lg-col--12 ds-l-md-col--12 ds-l-sm-col--6 ds-l-col--6 padding-L-8">
-                <div id="pieGraphCard3" [ngClass]="buttonClicked === 'pieGraphCard3' ? 'active': null" class="pointer card ds-u-padding--1" (click)="passAction($event)" role="button">
-                    <div class="ds-u-font-size--h1 ds-u-color--black ds-u-font-weight--bold noPoint">
-                        {{ data[1].value}} 
-                    </div>
-                    <div class="ds-u-font-size--h3 ds-u-color--black noPoint">
-                        {{ data[1].name }}
+                    <div class="ds-text ds-u-color--black noPoint">
+                        {{ d.name }}
                     </div>
                 </div>
             </div>

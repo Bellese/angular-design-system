@@ -38,7 +38,7 @@ export class AppCircleGraph {
     labelFormatting;
     totalValues: number = 0;
     centerNum;
-    buttonClicked = "pieGraphCard1";
+    buttonClicked = "pieGraphCard0";
     
     ngOnInit(){
         this.resize();

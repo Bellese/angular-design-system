@@ -1,8 +1,7 @@
 <section class="ds-l-container preview__grid">
 
-    <app-card-cluster></app-card-cluster>
+<!--<app-card-cluster [cardArray]="cluster"></app-card-cluster>-->
     
-<!--
  CIRCLE GRAPH COMPONENT EXAMPLE
     <br/>
 <app-circle-graph
@@ -17,18 +16,20 @@
     [firstColumnName]="'Total Files'"
     (passButton)="buttonClick($event)">
 </app-circle-graph>
--->
     
 <!--
  TABLE, SEARCH AND ACCORDION EXAMPLE
     <br/>
     <input type="text" (keyup.enter)="searchFunction($event)"/>
+    <span>{{ totalRows }} results</span>
+    <br/>
     <br/>
     <app-accordion>
         <ng-container *ngFor="let dataObj of dataSet; let i = index">
             <app-panel *ngIf="dataObj" 
                        [title]="dataObj.measureGroupName"
                        [openAll]="openAll">
+                <span> data data data<br/> data data data</span>
                 <div *ngFor="let data of dataObj.measureSets; let in = index">
                     <app-table
                         [starRating]="3"
@@ -42,7 +43,8 @@
                         [tableSummary]="data.tableSummary"
                         [linearScore]="'Linear Score (1-100): 61'"
                         [reportingPeriod]="'(Q1)2016-(Q2)2016'"
-                        (buttonClick)="buttonClick($event)">
+                        (buttonClick)="buttonClick($event)"
+                        (tableRowsFiltered)="countTableRows($event)">
                     </app-table>
                 </div>
             </app-panel>

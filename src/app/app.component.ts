@@ -13,6 +13,7 @@ import * as tableHeaderData from "../assets/data/table-header-data.json";
 import * as lineData from '../assets/data/line-data.json';
 import * as dataSet from '../assets/data/publicReportingData.json';
 import * as pieData from '../assets/data/pie-data.json';
+import * as cluster from '../assets/data/cluster-data.json';
 import { AppService } from './services/app.service';
 
 @Component({
@@ -26,8 +27,10 @@ import { AppService } from './services/app.service';
 export class AppComponent implements OnInit {
     dataSet;
     pieData;
+    cluster;
     searchText;
     openAll;
+    totalRows = 0;
 
     constructor(
     private appService: AppService,
@@ -44,19 +47,22 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         this.dataSet = dataSet.default;
         this.pieData = pieData.default;
+        this.cluster = cluster.default;
     }
 
     searchFunction(e) {
         if (e.target.value.trim() !== '') {
             this.openAll = true;
             this.searchText = e.target.value;
-            setTimeout(() => {
-                const rows = document.querySelectorAll('[scope="row"]').length;
-                console.log(rows);
-            }, 250);
+            this.totalRows = 0;
         } else {
             this.openAll = false;
             this.searchText = false;
+            this.totalRows = 0;
         }
+    }
+    
+    countTableRows(e) {
+        this.totalRows += e;
     }
 }

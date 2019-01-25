@@ -30,6 +30,8 @@ export class FilterPipe implements PipeTransform {
         })
         //search through the items array passed, and find any values matching search text, save the index of that value in array
 
+        //add protype to return the count of rows available from search
+        
         //if(this.indexArray.length == 1) return items;
         if (this.indexArray.length > 1) {
             return (items).filter( (it, ind) => {

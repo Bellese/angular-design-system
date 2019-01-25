@@ -7,43 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
     })
 export class AppCardCluster implements OnInit {
 
-    @Input() cardArray =
-        {
-            'mainTitle': 'STK-2',
-            'mainSub': 'Episodes',
-            'cluster': [
-                {
-                    'value': 13,
-                    'name': 'IPP Not Met'
-                },
-                {
-                    'value': 0,
-                    'name': 'IPP Met'
-                },
-                {
-                    'value': 1,
-                    'name': 'Denominator'
-                },
-                {
-                    'value': 16,
-                    'name': 'Denominator'
-                },
-                {
-                    'value': 85,
-                    'name': 'Numerator'
-                },
-                {
-                    'value': 3,
-                    'name': 'Den. Exceptions'
-                },
-                {
-                    'classValue': 'viewPerformanceIcon',
-                    'classButton': 'vpi',
-                    'name': 'View Performance',
-                    'className': 'vpi'
-                } 
-            ]   
-        };
+    @Input() cardArray;
     
     @Output() passButton = new EventEmitter<any>();
     
@@ -102,8 +66,6 @@ export class AppCardCluster implements OnInit {
                 }
             })
         }
-        
-        console.log(this.numArray);
     }
 
 }
