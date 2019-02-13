@@ -1,7 +1,27 @@
 <section class="ds-l-container preview__grid">
-
-<!--<app-card-cluster [cardArray]="cluster"></app-card-cluster>-->
     
+<!--
+BAR GRAPH COMPONENT EXAMPLE
+<app-bar-graph
+    [data]="barData"
+    [title]="'Bar Graph Example'"
+    [colorScheme]="'aqua'"
+    [showXAxis]="true"
+    [showYAxis]="true"
+    [animations]="true"
+    [xAxisLabel]="'test'"
+    [yAxisLabel]="'test2'"
+    [roundDomains]="false">
+</app-bar-graph>
+-->
+
+CARD CLUSTER COMPONENT EXAMPLE
+<app-card-cluster 
+    [cardArray]="cluster" 
+    (passButton)="buttonClick($event)">
+</app-card-cluster>
+    
+<!--
  CIRCLE GRAPH COMPONENT EXAMPLE
     <br/>
 <app-circle-graph
@@ -16,6 +36,7 @@
     [firstColumnName]="'Total Files'"
     (passButton)="buttonClick($event)">
 </app-circle-graph>
+-->
     
 <!--
  TABLE, SEARCH AND ACCORDION EXAMPLE

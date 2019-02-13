@@ -13,6 +13,7 @@ import * as tableHeaderData from "../assets/data/table-header-data.json";
 import * as lineData from '../assets/data/line-data.json';
 import * as dataSet from '../assets/data/publicReportingData.json';
 import * as pieData from '../assets/data/pie-data.json';
+import * as barData from '../assets/data/bar-data.json';
 import * as cluster from '../assets/data/cluster-data.json';
 import { AppService } from './services/app.service';
 
@@ -27,6 +28,7 @@ import { AppService } from './services/app.service';
 export class AppComponent implements OnInit {
     dataSet;
     pieData;
+    barData;
     cluster;
     searchText;
     openAll;
@@ -48,6 +50,7 @@ export class AppComponent implements OnInit {
         this.dataSet = dataSet.default;
         this.pieData = pieData.default;
         this.cluster = cluster.default;
+        this.barData = barData.default;
     }
 
     searchFunction(e) {

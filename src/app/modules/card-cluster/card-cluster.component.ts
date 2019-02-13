@@ -67,5 +67,18 @@ export class AppCardCluster implements OnInit {
             })
         }
     }
+    
+    resize() {
+        setTimeout(()=>{
+            let graphContainer = window.outerWidth;
+
+            if (this.cardArray.mainCard && graphContainer >= 768) {
+                let followHeight = document.getElementById("followCard").clientHeight - 86;
+                document.getElementById("CardCluster0").style.height = followHeight + 'px';
+            } else if (this.cardArray.mainCard && graphContainer < 768) {
+                document.getElementById("CardCluster0").style.height = 'auto';
+            }
+        }, 250);
+    }
 
 }
