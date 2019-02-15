@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes, RouterLink } from '@angular/router';
 
@@ -26,7 +26,7 @@ import { DirectiveModule } from '../../directives/directive.module';
 
 //pipes modules
 import { PipesModule } from '../../pipes/pipes.module';
-
+import { FilterPipe } from'../../pipes/filter.pipe';
 
 @NgModule({
   imports: [
@@ -61,4 +61,11 @@ import { PipesModule } from '../../pipes/pipes.module';
     AppTableRow
   ]
 })
-export class TableModule { }
+export class TableModule { 
+    static forRoot(): ModuleWithProviders {
+        return {
+            ngModule: TableModule,
+            providers: [ FilterPipe ]
+        }
+    }
+}

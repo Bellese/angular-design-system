@@ -29,6 +29,7 @@ import { LineGraphModule } from './modules/line-graph/line-graph.module';
 import { DropdownModule } from './modules/drop-down/drop-down.module';
 import { AlertModule } from './modules/alert/alert.module';
 import { AppService } from './services/app.service';
+import { FilterPipe } from'./pipes/filter.pipe';
 import { CardClusterModule } from './modules/card-cluster/card-cluster.module'
 
 @NgModule({
@@ -62,7 +63,7 @@ import { CardClusterModule } from './modules/card-cluster/card-cluster.module'
     PanelModule,
     CardClusterModule
   ],
-  providers: [AppService],
+  providers: [AppService, FilterPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
