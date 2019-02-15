@@ -1,4 +1,5 @@
-import { Component, Input, OnInit, Output, EventEmitter, AfterViewChecked, OnChanges } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, AfterViewChecked, OnChanges, SimpleChanges } from '@angular/core';
+import { FilterPipe } from '../../../pipes/filter.pipe'
 
 @Component({
   selector: 'app-table',
@@ -28,6 +29,10 @@ export class AppTable {
     rowHeader = 'row Header';
     asc: boolean = false;
     indexArray = [];
+    displayRows;
+    
+    constructor(private filter: FilterPipe) {
+    }
     
     ngOnInit() {
         this.headerLength = this.headers.length;
@@ -46,30 +51,13 @@ export class AppTable {
         });
     }
     
-    ngOnChanges() {
-        if (this.searchText) {
-            this.searchText = this.searchText.toLowerCase().trim();
-            //always convert to lowercase to and remove any leading or ending white spaces
-
-            this.indexArray = [""];
-            //dump the indexarray so that each search is a fresh array
-            //even though it fills first position in the array w/ quotes, the filter wont read the first position, since it reads 0 as false and wont return anything even if it were true
-
-            this.dataRows.map((x, ind) => {
-                Object.keys(x).map((key)=>{
-                    if (x[key].value.toString().toLowerCase().includes(this.searchText) && this.indexArray.indexOf(ind) == -1 ) {
-                        this.indexArray.push(ind);
-                    }
-                })
-            })
-            
-            this.tableRowsFiltered.emit(this.indexArray.length - 1);
+    ngOnChanges(changes: SimpleChanges) {
+        if (changes.searchText) {
+            this.displayRows = this.filter.transform(this.dataRows, this.searchText);
+            (this.displayRows[0]) ? this.tableRowsFiltered.emit(this.displayRows.length) : this.tableRowsFiltered.emit(0);
         } else {
-            let totalRows = 0;
-            this.dataRows.map((x, ind) => {
-                totalRows++;
-            })
-             this.tableRowsFiltered.emit(totalRows);
+            this.displayRows = this.dataRows;
+            this.tableRowsFiltered.emit(this.displayRows.length);
         }
     }
 
