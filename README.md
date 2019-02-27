@@ -114,6 +114,9 @@ The table has been constructed to handle most cases for text overflow. We need t
 -`linearScore`: A string to represent the linear score
 -`reportingPeriod`: A string to represent the reporting period in the table header
 -`highlightSearch`: A boolean to allow text to be highlighted as the searchtext is queried.
+-`paginateNext`: This will return the next pagination page(ex: 1, 2, 3...)
+-`total`: This is used in server side pagination, this will set the total number of rows count. Works with paginateNext.
+-`tableRowsFiltered`: This will return the total amount of rows in the table
 
 ```
 <app-table
@@ -233,7 +236,8 @@ The modal is essentially the button component that renders a modal component. Bu
 `Modal Component` – This will currently allow you to place a static component inside the modal, this component cannot receive data. When you use this you must import the component in the controller you are using to hold the modal component, then pass the export class name to the modal
 
 	Optional:
-    
+`Modal Class` - This will change the width of the modal shell. This can be ds-c-dialog--narrow, ds-c-dialog--wide, ds-c-dialog--full    
+
 `Modal ID` – The Id of the button that triggers the modal
 
 `Button Class`—The style to apply to the modal button
