@@ -17,11 +17,13 @@ export class AppTable {
     @Input() searchText: string ="";
     @Input() starRating;
     @Input() maxRows;
+    @Input() total;
     @Input() linearScore;
     @Input() reportingPeriod;
     @Input() highlightSearch: boolean = true;
     @Output() buttonClick = new EventEmitter<any>();
     @Output() tableRowsFiltered = new EventEmitter<any>();
+    @Output() paginateNext = new EventEmitter<any>();
     headerLength;
     headerEvent;
     selected;
@@ -63,6 +65,7 @@ export class AppTable {
 
     passPage(e) {
         this.p = e;
+        this.paginateNext.emit(this.p);
     }
 
     passHeaderEvent(e) {

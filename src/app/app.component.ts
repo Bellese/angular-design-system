@@ -15,6 +15,7 @@ import * as dataSet from '../assets/data/publicReportingData.json';
 import * as pieData from '../assets/data/pie-data.json';
 import * as barData from '../assets/data/bar-data.json';
 import * as cluster from '../assets/data/cluster-data.json';
+import * as singleTableData from '../assets/data/single-table-data.json';
 import { AppService } from './services/app.service';
 
 @Component({
@@ -32,6 +33,7 @@ export class AppComponent implements OnInit {
     cluster;
     searchText;
     openAll;
+    singleTableData;
     totalRows = 0;
 
     constructor(
@@ -51,6 +53,7 @@ export class AppComponent implements OnInit {
         this.pieData = pieData.default;
         this.cluster = cluster.default;
         this.barData = barData.default;
+        this.singleTableData = singleTableData.default;
     }
 
     searchFunction(e) {
@@ -67,5 +70,9 @@ export class AppComponent implements OnInit {
     
     countTableRows(e) {
         this.totalRows += e;
+    }
+    
+    announce(e) {
+        console.log(e);
     }
 }

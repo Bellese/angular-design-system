@@ -40,6 +40,7 @@ CARD CLUSTER COMPONENT EXAMPLE
 </app-circle-graph>
 -->
     
+<!--
  TABLE, SEARCH AND ACCORDION EXAMPLE
     <br/>
     <input type="text" (keyup.enter)="searchFunction($event)"/>
@@ -75,5 +76,18 @@ CARD CLUSTER COMPONENT EXAMPLE
             </div>
         </ng-container>
     </app-accordion>
+-->
 
+    TABLE AND PAGINATION
+    <br/>
+    <app-table
+        [headers]="singleTableData.tableHeaders" 
+        [dataRows]="singleTableData.tableRows"
+        [paginate]="true"
+        [total]="singleTableData.count"
+        [maxRows]=10
+        (buttonClick)="buttonClick($event)"
+        (paginateNext)="announce($event)">
+    </app-table>
+    
 </section>
