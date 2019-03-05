@@ -635,4 +635,24 @@ There are no inputs.
 * `expand`: Use this only to set a main panel to open on load. For example if I want the first panel to be set to open I will add expand=true to panel.
 * `openAll`: Same concept as expand. Use this input on all panels to make each one open. Its optional: we use it when a search is open on the panels, we set openAll to true on each panel.
 
+### Ticket Component
 
+
+* `title`: Use to name each accordion panel
+* `id`: Use this to give the button an id
+* `description`: Use this to put text beneath the title
+* `buttonClick`: this will be emitted out so you have control over the event
+
+This component will span the width of the screen, you will need to put it in a grid layout to organize it on the page
+
+Furthermore there is an option to add any content on the right side of the box. You will see that in the example of the img tag inside the app ticket component below.
+
+```
+<app-ticket
+    [id]="'ticketComp'"
+    [title]="'eCQM'"
+    [description]="'Track status and validation of EHR patients.'"
+    (buttonClick)="announce($event)">
+    <img src="../assets/images/performance.svg" alt="Place holder image">
+</app-ticket>
+```
