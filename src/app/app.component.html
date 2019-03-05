@@ -1,5 +1,16 @@
 <section class="ds-l-container preview__grid">
     
+TICKET COMPONENT EXAMPLE
+<div style="width: 330px">
+    <app-ticket
+        [id]="'ticketComp'"
+        [title]="'eCQM'"
+        [description]="'Track status and validation of EHR patients.'"
+        (buttonClick)="announce($event)">
+        <img src="../assets/images/performance.svg" alt="Place holder image">
+    </app-ticket>
+</div>
+    
 <!--
 BAR GRAPH COMPONENT EXAMPLE
 <app-bar-graph
@@ -78,6 +89,7 @@ CARD CLUSTER COMPONENT EXAMPLE
     </app-accordion>
 -->
 
+<!--
     TABLE AND PAGINATION
     <br/>
     <app-table
@@ -89,5 +101,6 @@ CARD CLUSTER COMPONENT EXAMPLE
         (buttonClick)="buttonClick($event)"
         (paginateNext)="announce($event)">
     </app-table>
+-->
     
 </section>

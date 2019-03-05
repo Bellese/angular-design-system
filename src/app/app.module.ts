@@ -30,7 +30,8 @@ import { DropdownModule } from './modules/drop-down/drop-down.module';
 import { AlertModule } from './modules/alert/alert.module';
 import { AppService } from './services/app.service';
 import { FilterPipe } from'./pipes/filter.pipe';
-import { CardClusterModule } from './modules/card-cluster/card-cluster.module'
+import { CardClusterModule } from './modules/card-cluster/card-cluster.module';
+import { TicketModule } from './modules/ticket/ticket.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -61,7 +62,8 @@ import { CardClusterModule } from './modules/card-cluster/card-cluster.module'
     ModalShellModule,
     AccordionModule,
     PanelModule,
-    CardClusterModule
+    CardClusterModule,
+    TicketModule
   ],
   providers: [AppService, FilterPipe],
   bootstrap: [AppComponent]
