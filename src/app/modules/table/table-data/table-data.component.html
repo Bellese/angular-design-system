@@ -1,11 +1,13 @@
-<div *ngIf="data.value.el === 'default'" 
+<div *ngIf="data.value.el === 'default'"
+     [id]="data.value.id"
      class="{{data.key + ' ' + dataClass}}"
     [ngClass]="data.value.attr ? data.value.attr : false"
      [attr.title]="!data.value.title ? data.value.value : data.value.title"
      [innerHtml]="data.value.abbr ? data.value.abbr : data.value.value | highlightSearch: searchText: highlightSearch">
 </div>
 
-<div *ngIf="data.value.el === 'link'" 
+<div *ngIf="data.value.el === 'link'"
+     [id]="data.value.id"
      class="{{data.key + ' ' + dataClass}}"
      [ngClass]="data.value.attr ? data.value.attr : false"
      [attr.title]="!data.value.title ? data.value.value : data.value.title">
@@ -28,6 +30,7 @@
 -->
 
 <button *ngIf="data.value.el === 'button'"
+    [id]="data.value.id"
     [disabled]="data.value.disabled ? data.value.disabled: false"
     [attr.title]="!data.value.title ? data.value.value : data.value.title"
     [attr.aria-label]="data.value.ariaLabel ? data.value.ariaLabel : false"

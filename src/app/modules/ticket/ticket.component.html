@@ -1,0 +1,20 @@
+<div 
+     id="{{id}}" 
+     [ngClass]="buttonClicked ? 'active' : null" 
+     class="pointer card cardHeight ds-u-padding-bottom--2 ds-u-padding-top--1 ds-u-margin-bottom--2 ds-l-row ds-u-align-items--center" 
+     (click)="passAction($event)"  
+     (keyup.enter)="passAction($event)" 
+     role="button"  
+     tabindex="0">
+    <div class="ds-l-col--9 noPoint">
+        <div class="ds-u-font-size--h4 ds-u-color--black ds-u-font-weight--bold noPoint ds-u-margin-y--1">
+            {{title}}
+        </div>
+        <div class="ds-u-font-size--base ds-u-color--gray noPoint">
+            {{description}}
+        </div>
+    </div>
+    <div class="ds-l-col--3 noPoint">
+        <ng-content></ng-content>
+    </div>
+</div>
