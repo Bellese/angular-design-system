@@ -24,6 +24,6 @@ export class AppModal {
 
     addToBody(e) {
         //build modal with service
-        this.modalService.appendComponentToBody(this.modalComponent, e.target, this.modalTitle, this.modalData, this.firstFocus);
+        this.modalService.appendComponentToBody(this.modalComponent, this.id, this.modalTitle, this.modalData, this.firstFocus);
     }
 }
