@@ -642,6 +642,7 @@ There are no inputs.
 * `id`: Use this to give the button an id
 * `description`: Use this to put text beneath the title
 * `buttonClick`: this will be emitted out so you have control over the event
+* `ariaLabel` : This will be for adding an aria label.
 
 This component will span the width of the screen, you will need to put it in a grid layout to organize it on the page
 
@@ -652,6 +653,7 @@ Furthermore there is an option to add any content on the right side of the box. 
     [id]="'ticketComp'"
     [title]="'eCQM'"
     [description]="'Track status and validation of EHR patients.'"
+    [ariaLabel]="'place holder for aria label'"
     (buttonClick)="announce($event)">
     <img src="../assets/images/performance.svg" alt="Place holder image">
 </app-ticket>
