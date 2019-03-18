@@ -13,6 +13,7 @@ export class AppTextField {
     @Input() labelClass;
     @Input() hint;
     @Input() hintClass;
+    @Input() dataAutoId: string;
     @Output() userInput = new EventEmitter<any>();
     
     constructor() { }

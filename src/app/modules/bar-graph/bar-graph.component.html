@@ -11,6 +11,7 @@ class="title">
 <div 
 class="ds-l-row mainGraphClass" 
 [id]="'barGraph_' + id"
+attr.data-auto-id="{{dataAutoId}}"
 (window:resize)="resize()" 
 (window:load)="resize()">
     <ngx-charts-bar-vertical 

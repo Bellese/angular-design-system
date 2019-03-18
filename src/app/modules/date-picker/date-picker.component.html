@@ -1,4 +1,4 @@
-<form #f="ngForm" (input)="validateDate(f)">
+<form #f="ngForm" (input)="validateDate(f)" attr.data-auto-id="{{dataAutoId}}">
     <fieldset class="ds-c-fieldset">
         <legend class="ds-c-label--error">
             <span *ngIf="label" class="ds-u-font-weight--bold">

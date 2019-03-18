@@ -13,6 +13,7 @@ export class AppCheckBox {
     @Input() groupName;
     @Input() showTitle: boolean = true;
     @Input() labelClass;
+    @Input() dataAutoId: string;
     
     constructor() { }
     

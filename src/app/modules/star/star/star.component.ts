@@ -12,6 +12,7 @@ export class StarComponent  {
   @Input() index;
   @Input() height;
   @Input() width;
+  @Input() dataAutoId: string;
   description;
 
   ngOnInit(){

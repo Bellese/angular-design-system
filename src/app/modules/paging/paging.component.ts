@@ -9,6 +9,8 @@ export class AppPagination  {
   @Output() currentPage = new EventEmitter<any>();
   @Input() dataRows;
   @Input() id;
+  @Input() dataAutoId: string;
+    
   p: number = 1;
 
   pageChanged(e){

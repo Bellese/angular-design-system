@@ -32,6 +32,8 @@ export class AppLineGraph {
     @Input() autoScale: boolean;
     @Input() timeLine: boolean;
     @Input() toolTip: boolean;
+    @Input() dataAutoId: string;
+    
     @Output() onLineClick = new EventEmitter<object>();
     current;
     shadowData;

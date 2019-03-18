@@ -3,7 +3,8 @@
      (keyup.enter)="panelStateChange($event)" 
      tabindex="0" 
      role="button" 
-     [attr.aria-expanded]="expand || openAll">
+     [attr.aria-expanded]="expand || openAll"
+     attr.data-auto-id="{{dataAutoId}}">
     <div class="ds-l-col--auto plusIcon">
         <app-plus 
             [expand]="expand || openAll" 

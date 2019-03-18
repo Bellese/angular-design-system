@@ -6,7 +6,8 @@
      (keyup.enter)="passAction($event)" 
      role="button"  
      tabindex="0"
-     [attr.aria-label]="ariaLabel">
+     [attr.aria-label]="ariaLabel"
+     attr.data-auto-id="{{dataAutoId}}">
     <div class="ds-l-col--9 noPoint">
         <div class="ds-u-font-size--h4 ds-u-color--black ds-u-font-weight--bold noPoint ds-u-margin-y--1">
             {{title}}

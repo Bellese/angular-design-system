@@ -1,4 +1,4 @@
-<div class="mainGraphClass" (window:load)="resize()" (window:resize)="resize()" id="strictLineGraph">
+<div class="mainGraphClass" (window:load)="resize()" (window:resize)="resize()" id="strictLineGraph" attr.data-auto-id="{{dataAutoId}}">
     
     <div class="ds-l-form-row">
         <div class="ds-l-col--auto info pointer" role="button" [attr.aria-label]="'activate enter key to hear instructions for using the interactive line graph, you may need to use down arrow after you activate enter key if you are using Internet Explorer'" tabindex="0" (click)="openInfo($event)" (keyup.enter)="openInfo($event)">

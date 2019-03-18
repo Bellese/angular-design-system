@@ -14,6 +14,8 @@ export class AppDropDown {
     @Input() hintMessage: string;
     @Input() errorMessage: string;
     @Input() error: boolean;
+    @Input() dataAutoId: string;
+    
     @Output() selectedOption = new EventEmitter<any>();
     
     ngOnInit() {

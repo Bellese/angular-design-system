@@ -51,6 +51,7 @@ export class AppBarGraph {
   roundDomains;
   @Input()
   roundEdges;
+  @Input() dataAutoId: string;
 
   ngOnInit() {
     if (this.compareBars) this.handleColor();

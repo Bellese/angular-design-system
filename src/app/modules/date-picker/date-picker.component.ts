@@ -7,6 +7,8 @@ import { Component, Input } from "@angular/core";
 })
 export class AppDatepicker {
     @Input() label;
+    @Input() dataAutoId: string;
+    
     date = new Date();
     currentDay = this.date.getDate();
     currentMonth = this.date.getMonth() + 1;

@@ -17,6 +17,7 @@ export class AppPanel {
     @Input() extTitleClass;
     @Input() expand: boolean = false;
     @Input() openAll: boolean = false;
+    @Input() dataAutoId: string;
 
     clicked;
     

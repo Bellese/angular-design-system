@@ -10,6 +10,7 @@ export class AppTicket {
     @Input() title;
     @Input() description;
     @Input() ariaLabel;
+    @Input() dataAutoId: string;
     @Output() buttonClick = new EventEmitter<any>();
     
     buttonClicked = false;

@@ -11,6 +11,7 @@ export class AppButton {
     @Input() buttonType;
     @Input() buttonID;
     @Input() ariaSort;
+    @Input() dataAutoId: string;
     
     @Output() callBack = new EventEmitter<any>();
     

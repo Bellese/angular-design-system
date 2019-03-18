@@ -4,7 +4,8 @@
     (click)="addToBody($event)" 
     (keyup.enter)="addToBody($event)"
     class="ds-c-button pointer"
-    [ngClass]="buttonClass">
+    [ngClass]="buttonClass"
+    attr.data-auto-id="{{dataAutoId}}">
         <ng-container *ngIf="abbr; else normal">
             {{ abbr }}
         </ng-container>

@@ -1,4 +1,4 @@
-<div id="cardClusterComponent" class="ds-l-row ds-u-justify-content--center ds-u-align-items--center ds-u-padding--1" (window:resize)="resize()" (window:load)="resize()">
+<div id="cardClusterComponent" attr.data-auto-id="{{dataAutoId}}" class="ds-l-row ds-u-justify-content--center ds-u-align-items--center ds-u-padding--1" (window:resize)="resize()" (window:load)="resize()">
     
     <div *ngIf="cardArray.mainCard" class="ds-l-lg-col--3 ds-l-md-col--3 ds-l-sm-col--12">
         <div role="button" tabindex="0" id="CardCluster0" [ngClass]="buttonClicked === 'CardCluster0' ? 'active': null" class="ds-u-margin-bottom--2 no-Margin-Bottom pointer card ds-u-padding-top--4 ds-u-padding-bottom--4 ds-u-padding-x--1" (click)="passAction($event)" (keyup.enter)="passAction($event)">

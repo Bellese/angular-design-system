@@ -8,6 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class AppCardCluster implements OnInit {
 
     @Input() cardArray;
+    @Input() dataAutoId: string;
     
     @Output() passButton = new EventEmitter<any>();
     

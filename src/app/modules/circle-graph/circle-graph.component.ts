@@ -27,6 +27,7 @@ export class AppCircleGraph {
     @Input() tooltipDisabled: object;
     @Input() title;
     @Input() tableSummary;
+    @Input() dataAutoId: string;
 
     @Input() firstColumnName;
     @Output() select;

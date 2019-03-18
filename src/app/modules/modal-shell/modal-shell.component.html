@@ -1,4 +1,4 @@
-<div id="{{'modalImplementation' + modalCount}}" class="ds-c-dialog-wrap" [attr.aria-modal]="true" [attr.aria-labelledby]="'dialog-title-' + modalCount" [attr.aria-describedby]="'dialog-body-' + modalCount" role="dialog" id="modalDialog" id="modal" (keyDown.esc)="onClose()">
+<div id="{{'modalImplementation' + modalCount}}" class="ds-c-dialog-wrap" [attr.aria-modal]="true" [attr.aria-labelledby]="'dialog-title-' + modalCount" [attr.aria-describedby]="'dialog-body-' + modalCount" role="dialog" id="modalDialog" id="modal" (keyDown.esc)="onClose()" attr.data-auto-id="{{dataAutoId}}">
     <div tabindex="0" class="focus-trap-hidden" id="firstModalTab" (focus)="findTab($event)" aria-hidden="true"></div>
         <div class="tableClass">
             <div class="cellClass">
