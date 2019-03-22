@@ -8,6 +8,7 @@ import { FilterPipe } from '../../../pipes/filter.pipe'
 })
 
 export class AppTable {
+    @Input() tableClass;
     @Input() index;
     @Input() headers;
     @Input() dataRows;
