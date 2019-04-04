@@ -1,5 +1,6 @@
 <section class="ds-l-container preview__grid">
     
+<!--
 TICKET COMPONENT EXAMPLE
 <div class="ds-l-row ds-u-justify-content--center ds-u-align-items--center ds-u-padding-y--1">
     <div class="ds-l-lg-col--4 ds-l-md-col--6 ds-l-sm-col--12">
@@ -30,6 +31,7 @@ TICKET COMPONENT EXAMPLE
         </app-ticket>
     </div>
 </div>
+-->
     
 <!--
 BAR GRAPH COMPONENT EXAMPLE
@@ -71,7 +73,6 @@ CARD CLUSTER COMPONENT EXAMPLE
 </app-circle-graph>
 -->
     
-<!--
  TABLE, SEARCH AND ACCORDION EXAMPLE
     <br/>
     <input type="text" (keyup.enter)="searchFunction($event)"/>
@@ -92,12 +93,15 @@ CARD CLUSTER COMPONENT EXAMPLE
                         [dataRows]="data.tableRows"
                         [searchText]="searchText"
                         [highlightSearch]="true"
-                        [paginate]="false"
+                        [paginate]="true"
+                        [maxRows]="4"
                         [tableTitle]="data.tableHeading"
                         [tableSummary]="data.tableSummary"
                         [linearScore]="'Linear Score (1-100): 61'"
                         [reportingPeriod]="'(Q1)2016-(Q2)2016'"
                         (buttonClick)="buttonClick($event)"
+                        (paginateNext)="announce($event)"
+                        (sortServer)="announce($event)"
                         (tableRowsFiltered)="countTableRows($event)">
                     </app-table>
                 </div>
@@ -107,7 +111,6 @@ CARD CLUSTER COMPONENT EXAMPLE
             </div>
         </ng-container>
     </app-accordion>
--->
 
 <!--
     TABLE AND PAGINATION

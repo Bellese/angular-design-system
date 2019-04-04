@@ -16,14 +16,14 @@
             "header": {
               "value": "Facility Rate",
               "prop": "val1",
-              "el": "default"
+              "el": "sort"
             }
           },
           {
             "header": {
               "value": "Number of Patients",
               "prop": "val2",
-              "el": "default"
+              "el": "sort"
             }
           },
           {

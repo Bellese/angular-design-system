@@ -1,6 +1,6 @@
 [
     {
-        "header": {"value": "row header", "prop": "row_Header", "el": "sort", "attr" : "sorted"}
+        "header": {"value": "row header", "prop": "row_Header", "el": "default", "attr" : "sorted"}
     },
     {
         "header": {"value": "GastroIntestinal", "prop": "facility", "el": "default", "abbr": "GI"}

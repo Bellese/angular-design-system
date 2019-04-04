@@ -25,6 +25,8 @@ export class AppTable {
     @Output() buttonClick = new EventEmitter<any>();
     @Output() tableRowsFiltered = new EventEmitter<any>();
     @Output() paginateNext = new EventEmitter<any>();
+    @Output() sortServer = new EventEmitter<any>();
+    
     headerLength;
     headerEvent;
     selected;
@@ -33,9 +35,12 @@ export class AppTable {
     asc: boolean = false;
     indexArray = [];
     displayRows;
+    sortCallback={};
     
     constructor(private filter: FilterPipe) {
     }
+    
+    //refactor to have one function that emits for pagination, sorting and searching in server. since they all have to move together. 
     
     ngOnInit() {
         this.headerLength = this.headers.length;
@@ -43,13 +48,11 @@ export class AppTable {
             if (x.header.attr) {
                 if (x.header.attr === 'asc') {
                     this.asc = true;
-                    this.headerEvent = {name: true, id: x.header.prop, asc: this.asc};
-                    this.selected = x.header.prop
                 } else if (x.header.attr === 'des') {
                     this.asc = false;
-                    this.headerEvent = {name: true, id: x.header.prop, asc: this.asc};
-                    this.selected = x.header.prop
                 }
+                this.selected = x.header.prop;
+                (!x.header.sortServer) ? this.headerEvent = {name: true, id: x.header.prop, asc: this.asc} : null;
             }
         });
     }
@@ -66,13 +69,23 @@ export class AppTable {
 
     passPage(e) {
         this.p = e;
-        this.paginateNext.emit(this.p);
+        this.paginateNext.emit({
+            page: this.p, 
+            sort: this.sortCallback
+        });
     }
 
     passHeaderEvent(e) {
         if (e.header === "sort") {
-            this.headerEvent = e
-            this.selected = e.e.target.id
+            this.selected = e.e.target.id;
+            (!e.sortServer) ? this.headerEvent = e : false;
+            this.sortCallback = {
+                name: e.e.target.innerText,
+                target: this.selected,
+                asc: e.asc
+            }
+            
+            this.sortServer.emit(this.sortCallback);
         }
     }
      

@@ -14,7 +14,7 @@ export class AppTableHeader {
 
     getHeader(e) {
         this.asc = !this.asc
-        this.onHeaderClick.emit({e: e, asc: this.asc, header: this.header.header.el});
+        this.onHeaderClick.emit({e: e, asc: this.asc, header: this.header.header.el, sortServer: this.header.header.sortServer});
     };
 
     //sets a class of 'ascending' or 'descending'

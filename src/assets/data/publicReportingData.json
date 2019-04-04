@@ -16,14 +16,16 @@
             "header": {
               "value": "Facility Rate",
               "prop": "val1",
-              "el": "default"
+              "el": "sort",
+              "sortServer": true
             }
           },
           {
             "header": {
               "value": "Number of Patients",
               "prop": "val2",
-              "el": "default"
+              "el": "sort",
+              "sortServer": false
             }
           },
           {
@@ -378,15 +380,16 @@
             "header": {
               "value": "Facility Rate",
               "prop": "val1",
-              "el": "default"
+              "el": "sort",
+              "attr": "des",
+             "sortServer": true
             }
           },
           {
             "header": {
               "value": "Number of Patients",
               "prop": "val2",
-              "el": "sort",
-              "attr": "des"
+              "el": "sort"
             }
           },
           {
