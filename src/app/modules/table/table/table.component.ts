@@ -41,9 +41,7 @@ export class AppTable {
     }
     
     //refactor to have one function that emits for pagination, sorting and searching in server. since they all have to move together. 
-    
-    ngOnInit() {
-        this.headerLength = this.headers.length;
+    mapHeader() {
         this.headers.map(x => {
             if (x.header.attr) {
                 if (x.header.attr === 'asc') {
@@ -57,7 +55,13 @@ export class AppTable {
         });
     }
     
+    ngOnInit() {
+        this.headerLength = this.headers.length;
+        this.mapHeader();
+    }
+    
     ngOnChanges(changes: SimpleChanges) {
+        this.mapHeader();
         if (changes.searchText) {
             this.displayRows = this.filter.transform(this.dataRows, this.searchText);
             (this.displayRows[0]) ? this.tableRowsFiltered.emit(this.displayRows.length) : this.tableRowsFiltered.emit(0);
