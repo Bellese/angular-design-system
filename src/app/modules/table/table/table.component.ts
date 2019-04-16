@@ -22,6 +22,7 @@ export class AppTable {
     @Input() linearScore;
     @Input() reportingPeriod;
     @Input() highlightSearch: boolean = true;
+    @Input() p: number;
     @Output() buttonClick = new EventEmitter<any>();
     @Output() tableRowsFiltered = new EventEmitter<any>();
     @Output() paginateNext = new EventEmitter<any>();
@@ -30,7 +31,6 @@ export class AppTable {
     headerLength;
     headerEvent;
     selected;
-    p: number;
     rowHeader = 'row Header';
     asc: boolean = false;
     indexArray = [];
