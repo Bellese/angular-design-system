@@ -1,6 +1,7 @@
 .ds-c-field {
     margin-bottom: 0;
     margin-top:5px;
+    max-width: 100%;
 }
 
 .ds-c-label {
@@ -9,4 +10,8 @@
 
 .white {
     color:white;
+}
+
+input {
+    width: 100%;
 }

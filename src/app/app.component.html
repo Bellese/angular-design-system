@@ -1,6 +1,14 @@
 <section class="ds-l-container preview__grid">
-    
-<!--
+
+SEARCH_FIELD EXAMPLE
+<div style='width: 460px;'>
+    <app-search-field searchValue='{{searchValue}}' placeHolder='Search' title='Search Field' id='tableSearch' inputClass='searchInput'
+        labelClass='searchLabel' hint='Enter a search here' hintClass='searchHint' dataAutoId='testingID'
+        (userInput)='announce($event)'>
+    </app-search-field>
+</div>
+
+    <!--
 TICKET COMPONENT EXAMPLE
 <div class="ds-l-row ds-u-justify-content--center ds-u-align-items--center ds-u-padding-y--1">
     <div class="ds-l-lg-col--4 ds-l-md-col--6 ds-l-sm-col--12">
@@ -32,8 +40,8 @@ TICKET COMPONENT EXAMPLE
     </div>
 </div>
 -->
-    
-<!--
+
+    <!--
 BAR GRAPH COMPONENT EXAMPLE
 <app-bar-graph
     [data]="barData"
@@ -48,15 +56,15 @@ BAR GRAPH COMPONENT EXAMPLE
 </app-bar-graph>
 -->
 
-<!--
+    <!--
 CARD CLUSTER COMPONENT EXAMPLE
 <app-card-cluster 
     [cardArray]="cluster" 
     (passButton)="buttonClick($event)">
 </app-card-cluster>
 -->
-    
-<!--
+
+    <!--
  CIRCLE GRAPH COMPONENT EXAMPLE
     <br/>
 <app-circle-graph
@@ -72,8 +80,8 @@ CARD CLUSTER COMPONENT EXAMPLE
     (passButton)="buttonClick($event)">
 </app-circle-graph>
 -->
-    
- TABLE, SEARCH AND ACCORDION EXAMPLE
+
+    <!-- TABLE, SEARCH AND ACCORDION EXAMPLE
     <br/>
     <input type="text" (keyup.enter)="searchFunction($event)"/>
     <span>{{ totalRows }} results</span>
@@ -110,9 +118,9 @@ CARD CLUSTER COMPONENT EXAMPLE
                 No Results Found
             </div>
         </ng-container>
-    </app-accordion>
+    </app-accordion> -->
 
-<!--
+    <!--
     TABLE AND PAGINATION
     <br/>
     <app-table
@@ -125,5 +133,5 @@ CARD CLUSTER COMPONENT EXAMPLE
         (paginateNext)="announce($event)">
     </app-table>
 -->
-    
+
 </section>

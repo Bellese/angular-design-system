@@ -35,6 +35,7 @@ export class AppComponent implements OnInit {
     openAll;
     singleTableData;
     totalRows = 0;
+    searchValue: string;
 
     constructor(
     private appService: AppService,
@@ -67,12 +68,14 @@ export class AppComponent implements OnInit {
             this.totalRows = 0;
         }
     }
-    
+
     countTableRows(e) {
         this.totalRows += e;
     }
-    
+
     announce(e) {
         console.log(e);
+        //FIX THE RESET FUNCTION
+        this.searchValue = ' ';
     }
 }
