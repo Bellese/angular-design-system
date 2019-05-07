@@ -2,11 +2,24 @@
 
 SEARCH_FIELD EXAMPLE
 <div style='width: 460px;'>
-    <app-search-field searchValue='{{searchValue}}' placeHolder='Search' title='Search Field' id='tableSearch' inputClass='searchInput'
-        labelClass='searchLabel' hint='Enter a search here' hintClass='searchHint' dataAutoId='testingID'
-        (userInput)='announce($event)'>
+    <app-search-field 
+        [reset]='resetSearch' 
+        placeHolder='Search' 
+        title='Search Field' 
+        id='tableSearch' 
+        inputClass='searchInput'
+        labelClass='searchLabel' 
+        hint='Enter a search here' 
+        hintClass='searchHint' 
+        dataAutoId='testingID'
+        (userInput)='announce($event)' 
+        (changes)="resetSearch = $event">
     </app-search-field>
 </div>
+
+<button (click)="clear()">
+    reset
+</button>
 
     <!--
 TICKET COMPONENT EXAMPLE

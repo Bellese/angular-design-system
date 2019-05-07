@@ -658,3 +658,51 @@ Furthermore there is an option to add any content on the right side of the box. 
     <img src="../assets/images/performance.svg" alt="Place holder image">
 </app-ticket>
 ```
+
+### Search Component
+
+Required:
+
+*  `userInput`: This is a required output that will tell you what the user entered
+
+Optional:
+
+* `title`: This is label name for the component
+* `placeHolder`: This is text that is prepopulated in a field for user help
+* `id`: A unique identifier for the input field
+* `inputClass`: A custom class for the input field
+* `labelClass`: A custom class for label element
+* `hint`: A message above the search field to help guide the user
+* `hintClass`: A custom class for the hint div
+* `dataAutoId`: Use this id for testing purposes
+* `reset`: This is a boolean true or false, if true it will reset the field, false will do nothing
+* `changes`: This tracks changes for you, this will return false, until you send reset. Without this you can only reset once. 
+
+This component will span the width of the screen, you will need to put it in a grid layout to organize it on the page. See example below
+
+```
+<label class="ds-c-label" [ngClass]="labelClass" for="{{id}}">
+  <span class="ds-u-font-weight--bold">{{title}}</span>
+  <span *ngIf="hint" class="ds-c-field__hint" [ngClass]="hintClass" role="alert">{{hint}}</span>
+</label>
+<input 
+  placeholder="{{placeHolder}}"
+  class="ds-c-field" 
+  attr.data-auto-id="{{dataAutoId}}" 
+  tabindex="0" 
+  [ngClass]="inputClass" 
+  id="{{id}}" 
+  name="{{id}}" 
+  type="text" 
+  [(ngModel)]="searchValue" 
+  (keyup.enter)="callBackFunction(searchValue)" 
+  (focus)="prepareSearch($event)"/>
+<span
+  class="search-button pointer"
+  role="button"
+  tabindex="0"
+  aria-label="search button"
+  (click)="callBackFunction(searchValue)"
+  (keyup.enter)="callBackFunction(searchValue)">
+</span>
+```

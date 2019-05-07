@@ -35,6 +35,7 @@ export class AppComponent implements OnInit {
     openAll;
     singleTableData;
     totalRows = 0;
+    resetSearch: boolean;
     searchValue: string;
 
     constructor(
@@ -75,7 +76,10 @@ export class AppComponent implements OnInit {
 
     announce(e) {
         console.log(e);
-        //FIX THE RESET FUNCTION
-        this.searchValue = ' ';
+        this.searchValue = e;
+    }
+
+    clear() {
+        this.resetSearch = true;
     }
 }
