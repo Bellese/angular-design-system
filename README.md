@@ -668,6 +668,7 @@ Required:
 Optional:
 
 * `title`: This is label name for the component
+* `showReset`: Boolean value that shows a reset button in bottom right corner
 * `placeHolder`: This is text that is prepopulated in a field for user help
 * `id`: A unique identifier for the input field
 * `inputClass`: A custom class for the input field
@@ -681,28 +682,18 @@ Optional:
 This component will span the width of the screen, you will need to put it in a grid layout to organize it on the page. See example below
 
 ```
-<label class="ds-c-label" [ngClass]="labelClass" for="{{id}}">
-  <span class="ds-u-font-weight--bold">{{title}}</span>
-  <span *ngIf="hint" class="ds-c-field__hint" [ngClass]="hintClass" role="alert">{{hint}}</span>
-</label>
-<input 
-  placeholder="{{placeHolder}}"
-  class="ds-c-field" 
-  attr.data-auto-id="{{dataAutoId}}" 
-  tabindex="0" 
-  [ngClass]="inputClass" 
-  id="{{id}}" 
-  name="{{id}}" 
-  type="text" 
-  [(ngModel)]="searchValue" 
-  (keyup.enter)="callBackFunction(searchValue)" 
-  (focus)="prepareSearch($event)"/>
-<span
-  class="search-button pointer"
-  role="button"
-  tabindex="0"
-  aria-label="search button"
-  (click)="callBackFunction(searchValue)"
-  (keyup.enter)="callBackFunction(searchValue)">
-</span>
+<app-search-field 
+  [reset]='resetSearch'
+  showReset = true 
+  placeHolder='Search' 
+  title='Search Field' 
+  id='tableSearch' 
+  inputClass='searchInput'
+  labelClass='searchLabel' 
+  hint='Enter a search here' 
+  hintClass='searchHint' 
+  dataAutoId='testingID'
+  (userInput)='announce($event)' 
+  (changes)="resetSearch = $event">
+</app-search-field>
 ```

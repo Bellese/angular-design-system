@@ -22,3 +22,13 @@
   (click)="callBackFunction(searchValue)"
   (keyup.enter)="callBackFunction(searchValue)">
 </span>
+<div style="text-align: right">
+  <button 
+    *ngIf="showReset" 
+    type="button" 
+    class="ds-c-button ds-c-button--small ds-c-button--transparent"
+    (click)="searchValue = ''" 
+    (keyup.enter)="searchValue = ''">
+    reset
+  </button>
+</div>

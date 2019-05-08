@@ -7,6 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angu
 })
 export class SearchFieldComponent implements OnInit, OnChanges {
   searchValue;
+  @Input() showReset: boolean;
   @Input() reset: boolean;
   @Input() placeHolder: string;
   @Input() title: string;
