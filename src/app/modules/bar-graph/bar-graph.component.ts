@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
-import { AppTableModal } from '../table/table-modal/table-modal.component';
+import { AppTableModalComponent } from '../table/table-modal/table-modal.component';
 
 @Component({
   selector: 'app-bar-graph',
@@ -11,7 +11,7 @@ export class BarGraphComponent implements OnInit, AfterViewInit {
   chart;
   customColors;
   showModal = false;
-  comp = AppTableModal;
+  comp = AppTableModalComponent;
 
   @Input()
   view: any[];
