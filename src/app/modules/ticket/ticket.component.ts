@@ -6,10 +6,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     styleUrls: ['./ticket.component.css']
 })
 export class AppTicketComponent {
-    @Input() id;
-    @Input() title;
-    @Input() description;
-    @Input() ariaLabel;
+    @Input() id: string;
+    @Input() title: string;
+    @Input() description: string;
+    @Input() ariaLabel: string;
     @Input() dataAutoId: string;
     @Output() buttonClick = new EventEmitter<any>();
 

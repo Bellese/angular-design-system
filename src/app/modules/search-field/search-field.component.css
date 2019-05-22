@@ -6,7 +6,6 @@ input {
     padding: 18px;
     background-repeat: no-repeat;
     background-position: center;
-    /* border-left: 2px solid #212121; */
     background-image: url('../../../assets/images/search.svg');
     background-color: white;
     display: inline-block;

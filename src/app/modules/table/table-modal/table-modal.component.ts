@@ -1,6 +1,6 @@
-import { 
-    Component, 
-    Input, 
+import {
+    Component,
+    Input,
     Output,
     EventEmitter
 } from '@angular/core';
@@ -10,14 +10,14 @@ import {
   templateUrl: './table-modal.component.html',
   styleUrls: ['./table-modal.component.css']
 })
-export class AppTableModal {
-    
+export class AppTableModalComponent {
+
     @Input() modalTitle;
     @Input() modalData: Array<any>;
     @Input() modalCount: number;
 
     @Output() closeModal = new EventEmitter<any>();
-    
+
     onClose() {
         this.closeModal.emit(true);
     }

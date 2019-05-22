@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: '[app-table-data]',
@@ -6,7 +6,7 @@ import { Component, Input, OnChanges, Output, EventEmitter } from '@angular/core
   styleUrls: ['./table-data.component.css']
 })
 
-export class AppTableData {
+export class AppTableDataComponent {
     @Input() data;
     @Input() dataClass;
     @Input() index;
@@ -14,11 +14,11 @@ export class AppTableData {
     @Input() highlightSearch;
 
     @Output() callBack = new EventEmitter<any>();
-    
+
     buttonCallback(e) {
-        this.callBack.emit({ 
-            "event" : e,
-            "button": this.data.value.instanceRef
+        this.callBack.emit({
+            'event' : e,
+            'button': this.data.value.instanceRef
         });
     }
 }

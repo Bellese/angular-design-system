@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter, AfterViewChecked, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, Output, EventEmitter, SimpleChanges, OnInit, OnChanges } from '@angular/core';
 import { FilterPipe } from '../../../pipes/filter.pipe'
 
 @Component({
@@ -7,7 +7,7 @@ import { FilterPipe } from '../../../pipes/filter.pipe'
   styleUrls: ['./table.component.css']
 })
 
-export class AppTable {
+export class AppTableComponent implements OnInit, OnChanges {
     @Input() tableClass;
     @Input() index;
     @Input() headers;
@@ -15,32 +15,32 @@ export class AppTable {
     @Input() tableSummary;
     @Input() tableTitle;
     @Input() paginate;
-    @Input() searchText: string ="";
+    @Input() searchText = '';
     @Input() starRating;
     @Input() maxRows;
     @Input() total;
     @Input() linearScore;
     @Input() reportingPeriod;
-    @Input() highlightSearch: boolean = true;
+    @Input() highlightSearch = true;
     @Input() p: number;
     @Output() buttonClick = new EventEmitter<any>();
     @Output() tableRowsFiltered = new EventEmitter<any>();
     @Output() paginateNext = new EventEmitter<any>();
     @Output() sortServer = new EventEmitter<any>();
-    
+
     headerLength;
     headerEvent;
     selected;
     rowHeader = 'row Header';
-    asc: boolean = false;
+    asc = false;
     indexArray = [];
     displayRows;
-    sortCallback={};
-    
+    sortCallback = {};
+
     constructor(private filter: FilterPipe) {
     }
-    
-    //refactor to have one function that emits for pagination, sorting and searching in server. since they all have to move together. 
+
+    // refactor to have one function that emits for pagination, sorting and searching in server. since they all have to move together.
     mapHeader() {
         this.headers.map(x => {
             if (x.header.attr) {
@@ -50,16 +50,16 @@ export class AppTable {
                     this.asc = false;
                 }
                 this.selected = x.header.prop;
-                (!x.header.sortServer) ? this.headerEvent = {name: true, id: x.header.prop, asc: this.asc} : null;
+                if (!x.header.sortServer) { this.headerEvent = {name: true, id: x.header.prop, asc: this.asc}; }
             }
         });
     }
-    
+
     ngOnInit() {
         this.headerLength = this.headers.length;
         this.mapHeader();
     }
-    
+
     ngOnChanges(changes: SimpleChanges) {
         this.mapHeader();
         if (changes.searchText) {
@@ -74,25 +74,25 @@ export class AppTable {
     passPage(e) {
         this.p = e;
         this.paginateNext.emit({
-            page: this.p, 
+            page: this.p,
             sort: this.sortCallback
         });
     }
 
     passHeaderEvent(e) {
-        if (e.header === "sort") {
+        if (e.header === 'sort') {
             this.selected = e.e.target.id;
-            (!e.sortServer) ? this.headerEvent = e : false;
+            if (!e.sortServer) { this.headerEvent = e; }
             this.sortCallback = {
                 name: e.e.target.innerText,
                 target: this.selected,
                 asc: e.asc
-            }
-            
+            };
+
             this.sortServer.emit(this.sortCallback);
         }
     }
-     
+
     callBack(e) {
         this.buttonClick.emit(e);
     }

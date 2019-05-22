@@ -27,8 +27,8 @@ export class AppModalShellComponent {
     @Input() footerTemplate: TemplateRef<any>;
 
     findTab(e) {
-        (e.target.id === 'lastModalTab') ? document.getElementById('closeButton' + this.modalCount).focus() : false;
-        (e.target.id === 'firstModalTab') ? document.getElementById('cancelButton' + this.modalCount).focus() : false;
+        if (e.target.id === 'lastModalTab') { document.getElementById('closeButton' + this.modalCount).focus(); }
+        if (e.target.id === 'firstModalTab') { document.getElementById('cancelButton' + this.modalCount).focus(); }
     }
 
     onClose() {

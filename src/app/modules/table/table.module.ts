@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 // components
-import { AppTable } from './table/table.component';
-import { AppTableData } from './table-data/table-data.component';
-import { AppTableHeader } from './table-header/table-header.component';
-import { AppTableModal } from './table-modal/table-modal.component';
-import { AppTableRow } from './table-row/table-row.component';
+import { AppTableComponent } from './table/table.component';
+import { AppTableDataComponent } from './table-data/table-data.component';
+import { AppTableHeaderComponent } from './table-header/table-header.component';
+import { AppTableModalComponent } from './table-modal/table-modal.component';
+import { AppTableRowComponent } from './table-row/table-row.component';
 
 // component modules
 import { ButtonModule } from '../button/button.module';
@@ -44,21 +44,21 @@ import { FilterPipe } from '../../pipes/filter.pipe';
     ModalShellModule
   ],
   declarations: [
-    AppTable,
-    AppTableData,
-    AppTableHeader,
-    AppTableModal,
-    AppTableRow
+    AppTableComponent,
+    AppTableDataComponent,
+    AppTableHeaderComponent,
+    AppTableModalComponent,
+    AppTableRowComponent
   ],
   entryComponents: [
-    AppTableModal
+    AppTableModalComponent
   ],
   exports: [
-    AppTable,
-    AppTableData,
-    AppTableHeader,
-    AppTableModal,
-    AppTableRow
+    AppTableComponent,
+    AppTableDataComponent,
+    AppTableHeaderComponent,
+    AppTableModalComponent,
+    AppTableRowComponent
   ]
 })
 export class TableModule {

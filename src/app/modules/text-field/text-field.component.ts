@@ -6,18 +6,18 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./text-field.component.css']
 })
 
-export class AppTextField {
-    @Input() title;
-    @Input() id;
-    @Input() inputClass;
-    @Input() labelClass;
-    @Input() hint;
-    @Input() hintClass;
+export class AppTextFieldComponent {
+    @Input() title: string;
+    @Input() id: string;
+    @Input() inputClass: string;
+    @Input() labelClass: string;
+    @Input() hint: string;
+    @Input() hintClass: string;
     @Input() dataAutoId: string;
     @Output() userInput = new EventEmitter<any>();
-    
+
     constructor() { }
-    
+
     callBackFunction(e) {
         this.userInput.emit(e);
     }

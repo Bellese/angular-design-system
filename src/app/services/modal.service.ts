@@ -77,7 +77,8 @@ export class ModalService {
             const bodyRightMargin = document.getElementsByTagName('body')[0].style.marginRight;
 
             // Either there will be a margin tied to body or default is 8px, sccrollbar is 16px
-            const margin = bodyRightMargin ? ((parseInt(bodyRightMargin) - this.scrollBarWidth) * 2) / 2 + 'px' : (this.scrollBarWidth + 8) + 'px';
+            const margin =
+            bodyRightMargin ? ((parseInt(bodyRightMargin) - this.scrollBarWidth) * 2) / 2 + 'px' : (this.scrollBarWidth + 8) + 'px';
 
             document.getElementsByTagName('body')[0].style.marginRight = margin;
         }

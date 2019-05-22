@@ -1,11 +1,6 @@
-<span
-*ngIf="!hide"
-attr.data-auto-id="{{dataAutoId}}_spinner"
-class="ds-c-spinner
+<span *ngIf="!hide" attr.data-auto-id="{{dataAutoId}}_spinner" class="ds-c-spinner
 ds-u-fill--{{ inversed ? 'background-inverse' : null }}
 ds-c-spinner--{{ filled ?  'filled' : null }}
 ds-u-color--{{color}}
-ds-c-spinner--{{size}}" 
-[attr.aria-valuetext]="'Loading'" 
-role="progressbar">
+ds-c-spinner--{{size}}" [attr.aria-valuetext]="'Loading'" role="progressbar">
 </span>

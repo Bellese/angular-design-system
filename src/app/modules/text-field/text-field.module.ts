@@ -1,12 +1,12 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { AppTextField } from './text-field.component';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { AppTextFieldComponent } from './text-field.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [AppTextField],
-  exports: [AppTextField]
+  declarations: [AppTextFieldComponent],
+  exports: [AppTextFieldComponent]
 })
 export class TextFieldModule {}

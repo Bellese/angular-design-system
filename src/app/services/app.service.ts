@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class AppService {
-  configURL = "../assets/data/publicReportingData.json";
+  configURL = '../assets/data/publicReportingData.json';
 
   constructor(private http: HttpClient) {}
 
