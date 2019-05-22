@@ -14,13 +14,19 @@ import pieData from '../assets/data/pie-data.json';
 import barData from '../assets/data/bar-data.json';
 import cluster from '../assets/data/cluster-data.json';
 import singleTableData from '../assets/data/single-table-data.json';
-import { AppService } from './services/app.service';
+import { ModalService } from './services/modal.service';
+import { ExampleModalComponent } from './components/example-modal/example-modal.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: []
+  providers: [
+      ModalService
+  ],
+  entryComponents: [
+      ExampleModalComponent
+  ]
 })
 
 export class AppComponent implements OnInit {
@@ -42,13 +48,13 @@ export class AppComponent implements OnInit {
     searchValue: string;
     dropDown = ['option1', 'option2', 'option3'];
 
-    constructor(
-    private appService: AppService,
-    ) {}
+    constructor(private modalService: ModalService) {}
 
     buttonClick(e) {
         if (e.button) {
-            alert('Button with no modal pressed');
+            console.log(e);
+            this.modalService
+            .appendComponentToBody(ExampleModalComponent, e.event.target.id, 'Modal Example', e.button.array, 'cancelButton1');
         } else {
             console.log('Button pressed.');
         }

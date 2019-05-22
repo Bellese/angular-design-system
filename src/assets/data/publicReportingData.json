@@ -55,9 +55,10 @@
             "row_Header": {
               "value": "SEP-1",
               "el": "button",
+              "id": "modal1",
               "attr": "info disabled",
               "instanceRef": {
-                  "modal": "appTableModal",
+                  "modal": "ExampleModalComponent",
                   "array": [
                         {
                           "heading": "Description"
@@ -101,9 +102,10 @@
             "val1": {
               "value": "20.0000000000000000000000000000000000000000000000%",
               "el": "button",
+              "id": "modal2",
               "attr": "footnote",
               "instanceRef": {
-                  "modal": "appTableModal",
+                  "modal": "ExampleModalComponent",
                   "array": [
                     {
                       "heading": "Footnote(s)"
@@ -120,9 +122,10 @@
             "val2": {
               "value": "50",
               "el": "button",
+              "id": "modal3",
               "attr": "footnote",
               "instanceRef": {
-                  "modal": "appTableModal",
+                  "modal": "ExampleModalComponent",
                   "array": [
                     {
                       "heading": "Footnote(s)"
@@ -136,6 +139,7 @@
             "val3": {
               "value": "22.0%",
               "el": "button",
+              "id": "modal4",
               "attr": "footnote",
               "instanceRef": {
                   "modal": "AppSubmissionErrorModal",

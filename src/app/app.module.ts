@@ -32,9 +32,10 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { CardClusterModule } from './modules/card-cluster/card-cluster.module';
 import { TicketModule } from './modules/ticket/ticket.module';
 import { SearchFieldModule } from './modules/search-field/search-field.module';
+import { ExampleModalComponent } from './components/example-modal/example-modal.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ExampleModalComponent],
   imports: [
     FormsModule,
     BrowserModule,
@@ -67,6 +68,9 @@ import { SearchFieldModule } from './modules/search-field/search-field.module';
     SearchFieldModule
   ],
   providers: [AppService, FilterPipe],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    ExampleModalComponent
+  ]
 })
 export class AppModule {}

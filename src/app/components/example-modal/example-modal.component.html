@@ -1,0 +1,23 @@
+<ng-template #bodyTemplate let-modalBody="modalBody">
+  <ng-container *ngFor="let data of modalBody.modalData">
+      <h2 *ngIf="data.heading" class="ds-h2">
+          {{ data.heading }}
+      </h2>
+      <p *ngIf="data.paragraph" class="ds-text">
+          {{ data.paragraph }}
+      </p>
+      <h3 *ngIf="data.heading2" class="ds-h4">
+          {{ data.heading2 }}
+      </h3>
+      <hr *ngIf="data.hline"/>
+  </ng-container>
+</ng-template>
+
+<app-modal-shell #tableModal
+  [bodyTemplate]="bodyTemplate"
+  [modalData]="modalData"
+  [modalTitle]="modalTitle" 
+  [modalCount]="modalCount" 
+  [jawsBody]="true" 
+  (closeModal)="onClose()">
+</app-modal-shell>
