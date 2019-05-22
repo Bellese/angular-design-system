@@ -1,14 +1,13 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { AppPanel } from "./panel.component";
-import { Animations } from "../animations/animations";
-import { PlusModule } from "../plus/plus.module";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { AppPanelComponent } from './panel.component';
+import { PlusModule } from '../plus/plus.module';
 
-import { DirectiveModule } from '../../directives/directive.module'
+import { DirectiveModule } from '../../directives/directive.module';
 
 @NgModule({
   imports: [CommonModule, DirectiveModule, PlusModule],
-  declarations: [AppPanel],
-  exports: [AppPanel]
+  declarations: [AppPanelComponent],
+  exports: [AppPanelComponent]
 })
 export class PanelModule {}

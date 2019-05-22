@@ -1,7 +1,7 @@
-import { 
-    Component, 
-    Input, 
-    Output, 
+import {
+    Component,
+    Input,
+    Output,
     EventEmitter,
     TemplateRef
 } from '@angular/core';
@@ -11,7 +11,7 @@ import {
   templateUrl: './modal-shell.component.html',
   styleUrls: ['./modal-shell.component.css']
 })
-export class AppModalShell {
+export class AppModalShellComponent {
 
     @Input() modalTitle: any;
     @Input() modalClass: string;
@@ -21,31 +21,31 @@ export class AppModalShell {
     @Input() dataAutoId: string;
 
     @Output() closeModal = new EventEmitter<any>();
-     
+
     @Input() headerTemplate: TemplateRef<any>;
     @Input() bodyTemplate: TemplateRef<any>;
     @Input() footerTemplate: TemplateRef<any>;
 
     findTab(e) {
-        (e.target.id === "lastModalTab") ? document.getElementById("closeButton"+this.modalCount).focus() : false;
-        (e.target.id === "firstModalTab") ? document.getElementById("cancelButton"+this.modalCount).focus() : false;
+        (e.target.id === 'lastModalTab') ? document.getElementById('closeButton' + this.modalCount).focus() : false;
+        (e.target.id === 'firstModalTab') ? document.getElementById('cancelButton' + this.modalCount).focus() : false;
     }
-    
+
     onClose() {
         this.closeModal.emit(true);
     }
-     
+
     get getTitle() {
-        return { 
+        return {
             modalHeader: {
                 modalTitle: this.modalTitle,
                 modalCount: this.modalCount
             }
         };
     }
-     
+
     get getBody() {
-        return { 
+        return {
             modalBody: {
                 modalData: this.modalData
             }

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppBarGraph } from './bar-graph.component'
+import { BarGraphComponent } from './bar-graph.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { ModalModule } from '../modal/modal.module'
+import { ModalModule } from '../modal/modal.module';
 
 @NgModule({
   imports: [
@@ -10,9 +10,9 @@ import { ModalModule } from '../modal/modal.module'
     NgxChartsModule,
     ModalModule
   ],
-  declarations: [AppBarGraph],
+  declarations: [BarGraphComponent],
   exports: [
-    AppBarGraph,
+    BarGraphComponent,
     NgxChartsModule
   ]
 })

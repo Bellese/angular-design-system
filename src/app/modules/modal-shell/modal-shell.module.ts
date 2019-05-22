@@ -1,11 +1,11 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { ButtonModule } from "../button/button.module";
-import { AppModalShell } from "./modal-shell.component";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ButtonModule } from '../button/button.module';
+import { AppModalShellComponent } from './modal-shell.component';
 
 @NgModule({
   imports: [CommonModule, ButtonModule],
-  declarations: [AppModalShell],
-  exports: [AppModalShell]
+  declarations: [AppModalShellComponent],
+  exports: [AppModalShellComponent]
 })
 export class ModalShellModule {}

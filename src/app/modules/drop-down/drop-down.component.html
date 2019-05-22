@@ -4,11 +4,11 @@
     for="{{'dropdown-' + id}}">
         {{ labelName }}
     <span *ngIf="hintMessage" class="ds-c-field__hint ds-c-field__hint--inverse">{{ hintMessage }}</span>
-    <span *ngIf="errorMessage" class="ds-c-field__hint ds-u-color--error" id="undefined-message" role="alert">{{ errorMessage }}</span>
+    <span *ngIf="error" class="ds-c-field__hint ds-u-color--error" id="undefined-message" role="alert">{{ errorMessage }}</span>
 </label>
 <select 
         id="{{'dropdown-' + id}}" 
-        class="ds-c-field ds-c-field--{{width}}"
+        class="ds-c-field {{selectClass}}"
         [ngClass]="{'ds-c-field--error': error}"
         name="options"
         (change)="selectOption($event)"

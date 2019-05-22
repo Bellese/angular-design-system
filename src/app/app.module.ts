@@ -21,7 +21,6 @@ import { DirectiveModule } from './directives/directive.module';
 import { PagingModule } from './modules/paging/paging.module';
 import { BarGraphModule } from './modules/bar-graph/bar-graph.module';
 import { PlusModule } from './modules/plus/plus.module';
-import { CardModule } from './modules/card/card.module';
 import { DatePickerModule } from './modules/date-picker/date-picker.module';
 import { CircleGraphModule } from './modules/circle-graph/circle-graph.module';
 import { CheckBoxModule } from './modules/check-box/check-box.module';
@@ -53,7 +52,6 @@ import { SearchFieldModule } from './modules/search-field/search-field.module';
     FormsModule,
     NgxChartsModule,
     BarGraphModule,
-    CardModule,
     PlusModule,
     DatePickerModule,
     CircleGraphModule,

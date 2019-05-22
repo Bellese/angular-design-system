@@ -1,16 +1,16 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { AppPagination } from "./paging.component";
-import { NgxPaginationModule } from "ngx-pagination";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { AppPaginationComponent } from './paging.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
     CommonModule,
     NgxPaginationModule
   ],
-  declarations: [AppPagination],
+  declarations: [AppPaginationComponent],
   exports: [
-    AppPagination
+    AppPaginationComponent
   ]
 })
 export class PagingModule {}

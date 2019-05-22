@@ -1,7 +1,11 @@
-<div id="cardClusterComponent" attr.data-auto-id="{{dataAutoId}}" class="ds-l-row ds-u-justify-content--center ds-u-align-items--center ds-u-padding--1" (window:resize)="resize()" (window:load)="resize()">
-    
+<div id="cardClusterComponent" attr.data-auto-id="{{dataAutoId}}"
+    class="ds-l-row ds-u-justify-content--center ds-u-align-items--center ds-u-padding--1" (window:resize)="resize()"
+    (window:load)="resize()">
+
     <div *ngIf="cardArray.mainCard" class="ds-l-lg-col--3 ds-l-md-col--3 ds-l-sm-col--12">
-        <div role="button" tabindex="0" id="CardCluster0" [ngClass]="buttonClicked === 'CardCluster0' ? 'active': null" class="ds-u-margin-bottom--2 no-Margin-Bottom pointer card ds-u-padding-top--4 ds-u-padding-bottom--4 ds-u-padding-x--1" (click)="passAction($event)" (keyup.enter)="passAction($event)">
+        <div role="button" tabindex="0" id="CardCluster0" [ngClass]="buttonClicked === 'CardCluster0' ? 'active': null"
+            class="ds-u-margin-bottom--2 no-Margin-Bottom pointer card ds-u-padding-top--4 ds-u-padding-bottom--4 ds-u-padding-x--1"
+            (click)="passAction($event)" (keyup.enter)="passAction($event)">
             <div class="ds-u-font-size--title ds-u-color--black noPoint">
                 {{ cardArray.mainTitle }}
             </div>
@@ -14,11 +18,16 @@
         </div>
     </div>
 
-    <div [ngClass]="cardArray.mainCard ? 'ds-l-lg-col--9 ds-l-md-col--9': 'ds-l-lg-col--12 ds-l-md-col--12'" class="ds-l-sm-col--12" id="followCard">
+    <div [ngClass]="cardArray.mainCard ? 'ds-l-lg-col--9 ds-l-md-col--9': 'ds-l-lg-col--12 ds-l-md-col--12'"
+        class="ds-l-sm-col--12" id="followCard">
         <div class="ds-l-row">
-            <div *ngFor="let num of numArray; let x = index;" [ngClass]="'padding-L-0 ds-l-lg-col--' + num.sequence + ' ds-l-md-col--' + num.sequence + ' ds-l-sm-col--' + num.sequence2 + ' ds-l-col--' + num.sequence2">
-                <div id="{{'CardCluster'+(x+1)}}" [ngClass]="buttonClicked === 'CardCluster'+(x+1) ? 'active': null" class="{{'pointer card cardHeight ds-u-padding--1 ds-u-margin-bottom--2 ' + num.classButton}}" (click)="passAction($event)"  (keyup.enter)="passAction($event)" role="button"  tabindex="0">
-                    <div class="ds-u-font-size--h2 ds-u-color--black ds-u-font-weight--bold noPoint" [ngClass]="num.classValue">
+            <div *ngFor="let num of numArray; let x = index;"
+                [ngClass]="'padding-L-0 ds-l-lg-col--' + num.sequence + ' ds-l-md-col--' + num.sequence + ' ds-l-sm-col--' + num.sequence2 + ' ds-l-col--' + num.sequence2">
+                <div id="{{'CardCluster'+(x+1)}}" [ngClass]="buttonClicked === 'CardCluster'+(x+1) ? 'active': null"
+                    class="{{'pointer card cardHeight ds-u-padding--1 ds-u-margin-bottom--2 ' + num.classButton}}"
+                    (click)="passAction($event)" (keyup.enter)="passAction($event)" role="button" tabindex="0">
+                    <div class="ds-u-font-size--h2 ds-u-color--black ds-u-font-weight--bold noPoint"
+                        [ngClass]="num.classValue">
                         {{ !num.value && num.value !== 0 ? '&nbsp;' : num.value }}
                     </div>
                     <div class="ds-text ds-u-color--black noPoint" [ngClass]="num.className">

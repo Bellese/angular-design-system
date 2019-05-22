@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppTicket } from './ticket.component';
+import { AppTicketComponent } from './ticket.component';
 
 @NgModule({
-    declarations: [AppTicket],
+    declarations: [AppTicketComponent],
     imports: [CommonModule],
-    exports: [AppTicket]
+    exports: [AppTicketComponent]
 })
 export class TicketModule { }

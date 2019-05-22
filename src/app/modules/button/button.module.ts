@@ -1,12 +1,12 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { AppButton } from "./button.component";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { AppButtonComponent } from './button.component';
 
-import { DirectiveModule } from '../../directives/directive.module'
+import { DirectiveModule } from '../../directives/directive.module';
 
 @NgModule({
   imports: [CommonModule, DirectiveModule],
-  declarations: [AppButton],
-  exports: [AppButton]
+  declarations: [AppButtonComponent],
+  exports: [AppButtonComponent]
 })
 export class ButtonModule {}

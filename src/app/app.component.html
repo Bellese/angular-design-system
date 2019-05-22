@@ -1,6 +1,159 @@
 <section class="ds-l-container preview__grid">
 
-SEARCH_FIELD EXAMPLE
+<!-- ACCORDION COMPONENT EXAMPLE
+<app-accordion>
+    <app-panel 
+        (panelClick) = "announce($event)"  
+        title ='Accordion Example' 
+        extTitleClass = 'customizeExtra'
+        dataAutoId = 'dataID'
+        [extTitle] = true 
+        [expand] = false
+        [openAll] = false>
+        <span>
+            Additional Title
+        </span>
+        <div>
+            Content Structure
+        </div>
+    </app-panel>
+    <app-panel 
+        (panelClick) = "announce($event)"  
+        title ='Accordion Example' 
+        extTitleClass = 'customizeExtra'
+        dataAutoId = 'dataID'
+        [extTitle] = true  
+        [expand] = false
+        [openAll] = false>
+        <span>
+            Additional Title 2
+        </span>
+        <div>
+            Content Structure 2
+        </div>
+    </app-panel>
+</app-accordion> -->
+
+<!-- ALERT COMPONENT EXAMPLE
+<app-alert
+    variation = 'Warn'
+    heading = 'Alert missing Documents'
+    [hideIcon] = false
+    [hideClose] = false
+    dataAutoId = 'testingID'>
+        you need to add more document examples
+</app-alert> -->
+
+<!--         
+BAR GRAPH COMPONENT EXAMPLE
+<app-bar-graph
+    [data]="barData"
+    title='Bar Graph Example'
+    id=1
+    colorScheme = 'aqua'
+    [showXAxis] = true
+    [showYAxis] = true
+    [showXAxisLabel] = true
+    [showYAxisLabel] = true
+    xAxisLabel = 'x label'  
+    yAxisLabel = 'y label'
+    [animations] = true
+    [roundDomains] = false
+    [gradient] = false
+    [compareBars] = false
+    [tooltipDisabled] = true
+    [barPadding] = 20
+    [showGridLines] = true
+    [roundDomains] = true
+    [roundEdges] = true
+    dataAutoId = 'testingID'>
+</app-bar-graph> -->
+
+<!-- BUTTON COMPONENT EXAMPLE
+<app-button
+    ariaLabel = 'Button Example'
+    buttonType = 'ds-c-button--danger'
+    buttonID = 'Button1'
+    [ariaSort] = true
+    dataAutoId = 'testingID'
+    (callBack) = 'announce($event)'>
+        Example Button
+</app-button> -->
+    
+<!-- CARD CLUSTER COMPONENT EXAMPLE
+<app-card-cluster 
+    [cardArray]="cluster" 
+    (passButton)="buttonClick($event)">
+</app-card-cluster> -->
+
+<!-- CHECKBOX COMPONENT EXAMPLE
+<app-check-box
+    index = 0
+    value = 'checkboxExample'
+    groupName = 'checkboxtoendallcheckbox'
+    [showTitle] = true
+    labelClass = 'checkboxEx'
+    dataAutoId = 'testingID'>
+</app-check-box> -->
+
+    
+<!-- CIRCLE GRAPH COMPONENT EXAMPLE
+<app-circle-graph
+    [data]='pieData'
+    [animations]=true
+    [trimLabels]=true
+    [labels]=false
+    [doughnut]=true
+    arcWidth='.25'
+    [tooltipDisabled]=true
+    title='Error Free'
+    [hideGraph] = false
+    tableSummary='An example of a pie chart with a legend'
+    firstColumnName='Total Files'
+    (passButton)='buttonClick($event)'>
+</app-circle-graph> -->
+
+<!-- DATE-PICKER COMPONENT EXAMPLE
+<app-date-picker 
+    label = 'Date Example'
+    dataAutoId = 'testingID'>
+</app-date-picker> -->
+
+<!-- DROP DOWN COMPONENT EXAMPLE
+<app-drop-down
+    [options] = 'dropDown'
+    labelName = 'Drop down example'
+    selectClass = 'ds-c-field--medium'
+    [id] = 1
+    [defaultSelected] = 0
+    hintMessage = 'please choose a response'
+    errorMessage = 'please input correct response'
+    [error] = false
+    dataAutoId = 'testingID'
+    (selectedOption) = 'announce($event)'>
+</app-drop-down> -->
+
+<!-- LINE GRAPH COMPONENT EXAMPLE
+<app-line-graph
+    [data]= 'lineData'
+    [animations] = true
+    [gradient] = true
+    [gridLines] = true
+    [roundDomain] = true
+    [xAxis] = true
+    [yAxis] = true
+    [showXLabel] = true
+    [showYLabel] = true
+    xLabel = 'X Label'
+    yLabel = 'Y Label'
+    [autoScale] = true
+    [timeLine] = true
+    [toolTip] = true
+    dataAutoId = 'testingID'
+    (LineClick) = "announce($event)">
+</app-line-graph> -->
+
+<!-- SEARCH_FIELD COMPONENT EXAMPLE
 <div style='width: 460px;'>
     <app-search-field 
         [reset]='resetSearch'
@@ -17,13 +170,75 @@ SEARCH_FIELD EXAMPLE
         (changes)="resetSearch = $event">
     </app-search-field>
 </div>
-
-<button (click)="clear()">
+<button (key.up)="clear()" (click)="clear()">
     reset
-</button>
+</button> -->
 
-    <!--
-TICKET COMPONENT EXAMPLE
+<!-- SPINNER COMPONENT EXAMPLE
+<app-spinner
+    size = 'big'
+    color = 'success'
+    [filled] = true
+    [inversed] = true
+    [hide] = 'false'
+    dataAutoId = 'testingID'>
+</app-spinner> -->
+
+<!-- TABLE, SEARCH AND ACCORDION EXAMPLE
+<br/>
+<input type="text" (keyup.enter)="searchFunction($event)"/>
+<span>{{ totalRows }} results</span>
+<br/>
+<br/>
+<app-accordion>
+    <ng-container *ngFor="let dataObj of dataSet; let i = index">
+        <app-panel *ngIf="dataObj" 
+                    [title]="dataObj.measureGroupName"
+                    [openAll]="openAll">
+            <span> data data data<br/> data data data</span>
+            <div *ngFor="let data of dataObj.measureSets; let in = index">
+                <app-table
+                    [starRating]="3"
+                    [index]="i + '_' + in"
+                    [headers]="data ? data.tableHeaders: false" 
+                    [dataRows]="data.tableRows"
+                    [searchText]="searchText"
+                    [highlightSearch]="true"
+                    [paginate]="true"
+                    [maxRows]="4"
+                    [tableTitle]="data.tableHeading"
+                    [tableSummary]="data.tableSummary"
+                    [linearScore]="'Linear Score (1-100): 61'"
+                    [reportingPeriod]="'(Q1)2016-(Q2)2016'"
+                    (buttonClick)="buttonClick($event)"
+                    (paginateNext)="announce($event)"
+                    (sortServer)="announce($event)"
+                    (tableRowsFiltered)="countTableRows($event)">
+                </app-table>
+            </div>
+        </app-panel>
+        <div *ngIf="!dataObj" class="displayNone" role="alert">
+            No Results Found
+        </div>
+    </ng-container>
+</app-accordion> -->
+
+    
+<!-- TABLE AND PAGINATION
+<br/>
+<app-table
+    [headers]="singleTableData.tableHeaders" 
+    [dataRows]="singleTableData.tableRows"
+    [paginate]="true"
+    [total]="singleTableData.count"
+    [maxRows]=10
+    (buttonClick)="buttonClick($event)"
+    (paginateNext)="announce($event)">
+</app-table> -->
+
+
+    
+<!-- TICKET COMPONENT EXAMPLE
 <div class="ds-l-row ds-u-justify-content--center ds-u-align-items--center ds-u-padding-y--1">
     <div class="ds-l-lg-col--4 ds-l-md-col--6 ds-l-sm-col--12">
         <app-ticket
@@ -52,100 +267,6 @@ TICKET COMPONENT EXAMPLE
             <img src="../assets/images/performance.svg" width="50px" height="50px" alt="Place holder image">
         </app-ticket>
     </div>
-</div>
--->
-
-    <!--
-BAR GRAPH COMPONENT EXAMPLE
-<app-bar-graph
-    [data]="barData"
-    [title]="'Bar Graph Example'"
-    [colorScheme]="'aqua'"
-    [showXAxis]="true"
-    [showYAxis]="true"
-    [animations]="true"
-    [xAxisLabel]="'test'"
-    [yAxisLabel]="'test2'"
-    [roundDomains]="false">
-</app-bar-graph>
--->
-
-    <!--
-CARD CLUSTER COMPONENT EXAMPLE
-<app-card-cluster 
-    [cardArray]="cluster" 
-    (passButton)="buttonClick($event)">
-</app-card-cluster>
--->
-
-    <!--
- CIRCLE GRAPH COMPONENT EXAMPLE
-    <br/>
-<app-circle-graph
-    [data]="pieData"
-    [animations]="true"
-    [labels]="false"
-    [doughnut]="true"
-    [arcWidth]=".25"
-    [tooltipDisabled]="true"
-    [title]="'Error Free'"
-    [tableSummary]="'An example of a pie chart with a legend'"
-    [firstColumnName]="'Total Files'"
-    (passButton)="buttonClick($event)">
-</app-circle-graph>
--->
-
-    <!-- TABLE, SEARCH AND ACCORDION EXAMPLE
-    <br/>
-    <input type="text" (keyup.enter)="searchFunction($event)"/>
-    <span>{{ totalRows }} results</span>
-    <br/>
-    <br/>
-    <app-accordion>
-        <ng-container *ngFor="let dataObj of dataSet; let i = index">
-            <app-panel *ngIf="dataObj" 
-                       [title]="dataObj.measureGroupName"
-                       [openAll]="openAll">
-                <span> data data data<br/> data data data</span>
-                <div *ngFor="let data of dataObj.measureSets; let in = index">
-                    <app-table
-                        [starRating]="3"
-                        [index]="i + '_' + in"
-                        [headers]="data ? data.tableHeaders: false" 
-                        [dataRows]="data.tableRows"
-                        [searchText]="searchText"
-                        [highlightSearch]="true"
-                        [paginate]="true"
-                        [maxRows]="4"
-                        [tableTitle]="data.tableHeading"
-                        [tableSummary]="data.tableSummary"
-                        [linearScore]="'Linear Score (1-100): 61'"
-                        [reportingPeriod]="'(Q1)2016-(Q2)2016'"
-                        (buttonClick)="buttonClick($event)"
-                        (paginateNext)="announce($event)"
-                        (sortServer)="announce($event)"
-                        (tableRowsFiltered)="countTableRows($event)">
-                    </app-table>
-                </div>
-            </app-panel>
-            <div *ngIf="!dataObj" class="displayNone" role="alert">
-                No Results Found
-            </div>
-        </ng-container>
-    </app-accordion> -->
-
-    <!--
-    TABLE AND PAGINATION
-    <br/>
-    <app-table
-        [headers]="singleTableData.tableHeaders" 
-        [dataRows]="singleTableData.tableRows"
-        [paginate]="true"
-        [total]="singleTableData.count"
-        [maxRows]=10
-        (buttonClick)="buttonClick($event)"
-        (paginateNext)="announce($event)">
-    </app-table>
--->
+</div> -->
 
 </section>

@@ -1,5 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { NgModel } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-check-box',
@@ -7,17 +6,17 @@ import { NgModel } from '@angular/forms';
   styleUrls: ['./check-box.component.css']
 })
 
-export class AppCheckBox {
-    @Input() index;
-    @Input() value;
-    @Input() groupName;
-    @Input() showTitle: boolean = true;
-    @Input() labelClass;
+export class AppCheckBoxComponent implements OnInit {
+    @Input() index: string;
+    @Input() value: string;
+    @Input() groupName: string;
+    @Input() showTitle = true;
+    @Input() labelClass: string;
     @Input() dataAutoId: string;
-    
+
     constructor() { }
-    
+
     ngOnInit() {
-        (!this.index) ? this.index = 'main': false;
+        if (!this.index) { this.index = 'main'; }
     }
 }

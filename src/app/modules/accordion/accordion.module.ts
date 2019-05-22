@@ -1,12 +1,13 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { AppAccordion } from "./accordion.component";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { AppAccordionComponent } from './accordion.component';
 
-import { DirectiveModule } from '../../directives/directive.module'
+import { DirectiveModule } from '../../directives/directive.module';
 
 @NgModule({
   imports: [CommonModule, DirectiveModule],
-  declarations: [AppAccordion],
-  exports: [AppAccordion]
+  declarations: [AppAccordionComponent],
+  exports: [AppAccordionComponent]
 })
+
 export class AccordionModule {}

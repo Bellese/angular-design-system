@@ -1,32 +1,35 @@
 import {
   Component,
-  ViewChild,
-  ComponentFactoryResolver,
   OnInit
-} from "@angular/core";
+} from '@angular/core';
 
-import { AppModal } from "./modules/modal/modal.component";
-import * as cardData from "../assets/data/card-data.json";
-import * as chartData from "../assets/data/chart-data.json";
-import * as tableData from "../assets/data/table-data.json";
-import * as tableHeaderData from "../assets/data/table-header-data.json";
-import * as lineData from '../assets/data/line-data.json';
-import * as dataSet from '../assets/data/publicReportingData.json';
-import * as pieData from '../assets/data/pie-data.json';
-import * as barData from '../assets/data/bar-data.json';
-import * as cluster from '../assets/data/cluster-data.json';
-import * as singleTableData from '../assets/data/single-table-data.json';
+import modalData from '../assets/data/modalData.json';
+import cardData from '../assets/data/card-data.json';
+import chartData from '../assets/data/chart-data.json';
+import tableData from '../assets/data/table-data.json';
+import tableHeaderData from '../assets/data/table-header-data.json';
+import lineData from '../assets/data/line-data.json';
+import dataSet from '../assets/data/publicReportingData.json';
+import pieData from '../assets/data/pie-data.json';
+import barData from '../assets/data/bar-data.json';
+import cluster from '../assets/data/cluster-data.json';
+import singleTableData from '../assets/data/single-table-data.json';
 import { AppService } from './services/app.service';
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"],
-  providers: [],
-  entryComponents: [AppModal]
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  providers: []
 })
 
 export class AppComponent implements OnInit {
+    modalData;
+    cardData;
+    chartData;
+    tableData;
+    tableHeaderData;
+    lineData;
     dataSet;
     pieData;
     barData;
@@ -37,6 +40,7 @@ export class AppComponent implements OnInit {
     totalRows = 0;
     resetSearch: boolean;
     searchValue: string;
+    dropDown = ['option1', 'option2', 'option3'];
 
     constructor(
     private appService: AppService,
@@ -51,11 +55,17 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.dataSet = dataSet.default;
-        this.pieData = pieData.default;
-        this.cluster = cluster.default;
-        this.barData = barData.default;
-        this.singleTableData = singleTableData.default;
+        this.modalData = modalData;
+        this.cardData = cardData;
+        this.chartData = chartData;
+        this.tableData = tableData;
+        this.tableHeaderData = tableHeaderData;
+        this.lineData = lineData;
+        this.dataSet = dataSet;
+        this.pieData = pieData;
+        this.cluster = cluster;
+        this.barData = barData;
+        this.singleTableData = singleTableData;
     }
 
     searchFunction(e) {

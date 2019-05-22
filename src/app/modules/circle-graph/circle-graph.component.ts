@@ -1,19 +1,17 @@
-import { Component, Input, Output, OnInit, EventEmitter, AfterViewInit } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-circle-graph',
-  templateUrl: './circle-graph.component.html',
-  styleUrls: ['./circle-graph.component.css']
+    selector: 'app-circle-graph',
+    templateUrl: './circle-graph.component.html',
+    styleUrls: ['./circle-graph.component.css']
 })
 
-export class AppCircleGraph {
+export class AppCircleGraphComponent implements OnInit {
     view: any[];
-    
+
     @Input() data: any[];
     @Input() scheme: any = {
-        domain: ['#2E8540','#D7EAD3']
+        domain: ['#2E8540', '#D7EAD3']
     };
     @Input() customColors: object;
     @Input() animations: boolean;
@@ -25,73 +23,53 @@ export class AppCircleGraph {
     @Input() arcWidth: number;
     @Input() gradient: boolean;
     @Input() tooltipDisabled: object;
-    @Input() title;
-    @Input() tableSummary;
+    @Input() title: string;
+    @Input() tableSummary: string;
     @Input() dataAutoId: string;
+    @Input() hideGraph: boolean;
 
-    @Input() firstColumnName;
-    @Output() select;
-    @Output() activate;
-    @Output() deactivate;
+    @Input() firstColumnName: string;
     @Output() passButton = new EventEmitter<any>();
-    tooltipText;
-    tooltipTemplate;
-    labelFormatting;
-    totalValues: number = 0;
-    centerNum;
-    buttonClicked = "pieGraphCard0";
-    
-    ngOnInit(){
+
+    totalValues = 0;
+    centerNum: string;
+    buttonClicked = 'pieGraphCard0';
+
+    ngOnInit() {
         this.resize();
-        
+
         let rate;
-        
+
         (this.data).map(x => {
             this.totalValues += x.value;
-            
-            (x.attr && x.attr === 'rate')? rate = x.value : null;
+
+            if (x.attr && x.attr === 'rate') { rate = x.value; }
         });
-        
+
         this.centerNum = Math.floor(100 * (rate / this.totalValues)) + '%';
     }
-   
+
     passAction(e) {
         this.passButton.emit(e);
         this.buttonClicked = e.target.id;
     }
-    
+
     resize() {
-        let graphContainer = document.getElementsByClassName("circleGraphShell")[0].clientWidth;
-        this.view = [graphContainer, graphContainer - 50];
-        
-        this.setPosition(graphContainer);
+        if (!this.hideGraph) {
+            const graphContainer = document.getElementsByClassName('circleGraphShell')[0].clientWidth;
+            this.view = [graphContainer, graphContainer - 50];
+
+            this.setPosition(graphContainer);
+        }
     }
-    
+
     setPosition(height) {
-        let circle = document.querySelectorAll('.circleGraphShell')[0].getBoundingClientRect();
-        let text = document.getElementById('centerText').style;
-        let sub = document.getElementById('subText').style;
+        const circle = document.querySelectorAll('.circleGraphShell')[0].getBoundingClientRect();
+        const text = document.getElementById('centerText').style;
+        const sub = document.getElementById('subText').style;
 
         sub.width = circle.width + 'px';
         text.width = circle.width + 'px';
-        text.top = height/2 - 50 + 'px';
-    }
-    
-    labelFormat() {
-    }
-    
-    toolTipFormat() {
-    }
-    
-    onSelect(e) {
-//        console.log(e);
-    }
-    
-    onActivate(e) {
-//        console.log(e);
-    }
-        
-    onDeactivate(e) {
-//        console.log(e);
+        text.top = height / 2 - 50 + 'px';
     }
 }

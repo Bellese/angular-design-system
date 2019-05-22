@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppCardCluster } from './card-cluster.component';
+import { AppCardClusterComponent } from './card-cluster.component';
 
 @NgModule({
-    declarations: [AppCardCluster],
+    declarations: [AppCardClusterComponent],
     imports: [CommonModule],
-    exports: [AppCardCluster]
+    exports: [AppCardClusterComponent]
 })
 export class CardClusterModule {}

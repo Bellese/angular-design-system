@@ -1,29 +1,29 @@
-import { Component, Input, OnChanges} from "@angular/core";
+import { Component, Input, OnChanges} from '@angular/core';
 
 @Component({
-  selector: "app-plus",
-  templateUrl: "./plus.component.html",
-  styleUrls: ["./plus.component.css"]
+  selector: 'app-plus',
+  templateUrl: './plus.component.html',
+  styleUrls: ['./plus.component.css']
 })
-export class AppPlus {
-    @Input() expand;
-    @Input() clicked;
+export class AppPlusComponent implements OnChanges {
+    @Input() expand: boolean;
+    @Input() clicked: boolean;
 
-    svgPlusClass;
+    svgPlusClass: string;
 
     ngOnChanges() {
         if (this.clicked) {
-            (this.expand) ? this.expanded() : this.retracted();   
+            (this.expand) ? this.expanded() : this.retracted();
         } else {
-            this.svgPlusClass = "";
+            this.svgPlusClass = '';
         }
     }
 
     expanded() {
-        this.svgPlusClass = "expand";
+        this.svgPlusClass = 'expand';
     }
 
     retracted() {
-        this.svgPlusClass = "collapse";
+        this.svgPlusClass = 'collapse';
     }
 }

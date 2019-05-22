@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CardClusterComponent } from './card-cluster.component';
+import { AppCardClusterComponent } from './card-cluster.component';
 
-describe('CardClusterComponent', () => {
-  let component: CardClusterComponent;
-  let fixture: ComponentFixture<CardClusterComponent>;
+describe('AppCardClusterComponent', () => {
+  let component: AppCardClusterComponent;
+  let fixture: ComponentFixture<AppCardClusterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CardClusterComponent ]
+      declarations: [ AppCardClusterComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CardClusterComponent);
+    fixture = TestBed.createComponent(AppCardClusterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Animations } from '../animations/animations.js';
 
 @Component({
@@ -9,29 +9,29 @@ import { Animations } from '../animations/animations.js';
         Animations.animations
     ]
 })
-export class AppPanel {
+export class AppPanelComponent implements OnInit {
 
     @Output() panelClick = new EventEmitter<any>();
-    @Input() title;
-    @Input() extTitle;
-    @Input() extTitleClass;
-    @Input() expand: boolean = false;
-    @Input() openAll: boolean = false;
+    @Input() title: string;
+    @Input() extTitle = false;
+    @Input() extTitleClass: string;
+    @Input() expand = false;
+    @Input() openAll = false;
     @Input() dataAutoId: string;
 
     clicked;
-    
-    constructor() { 
+
+    constructor() {
     }
 
     ngOnInit() {
-        if (this.expand) this.clicked = true;   
+        if (this.expand) { this.clicked = true; }
     }
-    
+
     panelStateChange(e) {
         this.panelClick.emit(e);
         this.clicked = true;
-        this.expand =! this.expand;   
+        this.expand = !this.expand;
     }
 
 }

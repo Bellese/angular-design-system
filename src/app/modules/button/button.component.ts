@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, Output, OnChanges } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -6,23 +6,21 @@ import { Component, Input, EventEmitter, Output, OnChanges } from '@angular/core
   styleUrls: ['./button.component.css']
 })
 
-export class AppButton {
-    @Input() ariaLabel;
-    @Input() buttonType;
-    @Input() buttonID;
-    @Input() ariaSort;
+export class AppButtonComponent {
+    @Input() ariaLabel: string;
+    @Input() buttonType: string;
+    @Input() buttonID: string;
+    @Input() ariaSort: boolean;
     @Input() dataAutoId: string;
-    
     @Output() callBack = new EventEmitter<any>();
-    
+
     state = false;
-    
+
     callBackFunction(e) {
         this.state = !this.state;
-        
-        (e.key && e.key === "Enter") ? e = false : null;
-        
-        if(e) {
+        if (e.key && e.key === 'Enter') { e = false; }
+
+        if (e) {
             this.callBack.emit(e);
         }
     }

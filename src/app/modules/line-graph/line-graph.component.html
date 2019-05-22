@@ -15,7 +15,7 @@
                 (selectedOption)="setRangeFrom($event)"
                 [options] = "filterValues"
                 [labelName] = "'From ' + xLabel"
-                [width] = "'medium'"
+                selectClass = 'ds-c-field--medium'
                 [id] = "xLabel + '_1'"
                 [defaultSelected]="0"
                 [error]="errorMessage ? true : false">
@@ -26,7 +26,7 @@
                 (selectedOption)="setRangeTo($event)"
                 [options] = "filterValues"
                 [labelName] = "'To ' + xLabel"
-                [width] = "'medium'"
+                selectClass = 'ds-c-field--medium'
                 [id] = "xLabel + '_2'"
                 [defaultSelected]="filterValues.length - 1"
                 [error]="errorMessage ? true : false">
