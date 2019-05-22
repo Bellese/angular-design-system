@@ -14,12 +14,12 @@
         (change)="selectOption($event)"
         attr.data-auto-id="{{dataAutoId}}">
     <ng-container *ngFor="let option of options; let i = index">
-        <option *ngIf="i === defaultSelected; else notSelected" value="{{ option }}" selected>
-            {{ option }}
+        <option *ngIf="i === defaultSelected; else notSelected" value="{{ option.value }}" selected>
+            {{ option.content }}
         </option>
         <ng-template #notSelected>
-            <option value="{{ option }}">
-                {{ option }}
+            <option value="{{ option.value }}">
+                {{ option.content }}
             </option>
         </ng-template>
     </ng-container>

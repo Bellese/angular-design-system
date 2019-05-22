@@ -46,7 +46,20 @@ export class AppComponent implements OnInit {
     totalRows = 0;
     resetSearch: boolean;
     searchValue: string;
-    dropDown = ['option1', 'option2', 'option3'];
+    dropDown = [
+        {
+            content: 'option1',
+            value: 'op1'
+        },
+        {
+            content: 'option2',
+            value: 'op2'
+        },
+        {
+            content: 'option3',
+            value: 'op3'
+        }
+    ];
 
     constructor(private modalService: ModalService) {}
 
