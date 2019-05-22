@@ -72,4 +72,16 @@ export class AppCircleGraphComponent implements OnInit {
         text.width = circle.width + 'px';
         text.top = height / 2 - 50 + 'px';
     }
+
+    onSelect(e) {
+        console.log(e);
+    }
+
+    onActivate(e) {
+        console.log(e);
+    }
+
+    onDeactivate(e) {
+        console.log(e);
+    }
 }
