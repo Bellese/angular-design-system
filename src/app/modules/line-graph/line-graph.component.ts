@@ -86,12 +86,12 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
 
         for (let x = 0; x <= this.data[0].series.length; x++) {
             if (this.data[0].series[x]) {
-                this.filterValues.push(this.data[0].series[x].name);
+                this.filterValues.push({value : this.data[0].series[x].name, content: this.data[0].series[x].name});
             }
         }
 
-        this.rangeFrom = this.filterValues[0];
-        this.rangeTo = this.filterValues[this.filterValues.length - 1];
+        this.rangeFrom = this.filterValues[0].value;
+        this.rangeTo = this.filterValues[this.filterValues.length - 1].value;
 
         // use this function for the dots on the side START
             let flattenedData = this.data;
