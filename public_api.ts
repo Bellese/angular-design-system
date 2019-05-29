@@ -23,3 +23,5 @@ export * from './src/app/pipes/pipes.module';
 export * from './src/app/modules/card-cluster/card-cluster.module';
 export * from './src/app/modules/ticket/ticket.module';
 export * from './src/app/modules/search-field/search-field.module';
+export { AppTableModalComponent } from './src/app/modules/table/table-modal/table-modal.component';
+
