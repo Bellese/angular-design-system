@@ -128,10 +128,10 @@ Example Below:
 
 # Alert Component Example
 
-* `variation (string)` : Type of alert status, can be `error`, `warn`, or `success`
-* `heading (string)` : Status heading of the alert
-* `hideIcon (boolean)` :  Hide/show the alert status icon
-* `hideClose (boolean)` : Hide/show the close button
+* `variation (string)`: Type of alert status, can be `error`, `warn`, or `success`
+* `heading (string)`: Status heading of the alert
+* `hideIcon (boolean)`:  Hide/show the alert status icon
+* `hideClose (boolean)`: Hide/show the close button
 * `dataAutoId`: Use this for testing ID
 
 The content you want to put inside the alert will go directly between the tags of the app-alert
@@ -239,6 +239,7 @@ Expected format for `colorScheme` :
         Example Button
 </app-button>
 ```
+
 # Card Cluster Component Example
 
 Required:
@@ -286,19 +287,19 @@ Since it is built for error summary we needed to capture the center text of the 
 
 Required:
 
-* `data` – the data that’s passed to the graph
+* `data`: the data that’s passed to the graph
 
 Optional:
 
 * `animations`: True or false, will the graph have animations or not
 * `trimLabels`: Boolean, this will cut the labels off if they’re too long and turn them into ellipses
 * `labels`: this will allow for labels to show along the graph, Boolean
-* `doughnut` – Boolean, allows the graph to have a hole in the center
-* `arcWidth` – This is the thickness of the doughnut where 1 is full width and .1 is a tiny width
-* `toolTipDisabled` – Boolean, removes the ability to mouseover the graph and show labels
-* `title` – Text to go under the circle graph
-* `tableSummary` – Attribute in table to describe what the table legend is about
-* `firstColumnName` – the first column is named total, but if you want to specify what total you can pass a string. Ex: total files
+* `doughnut`: Boolean, allows the graph to have a hole in the center
+* `arcWidth`: This is the thickness of the doughnut where 1 is full width and .1 is a tiny width
+* `toolTipDisabled`: Boolean, removes the ability to mouseover the graph and show labels
+* `title`: Text to go under the circle graph
+* `tableSummary`: Attribute in table to describe what the table legend is about
+* `firstColumnName`: the first column is named total, but if you want to specify what total you can pass a string. Ex: total files
 * `passButton`: A callback to capture click event
 
 ```
@@ -373,6 +374,7 @@ chartData = [
   (selectedOption) = 'announce($event)'>
 </app-drop-down>
 ```
+
 # Line Graph Component Example
 
 The line graph was built from utilizing the [ngx-charts](https://swimlane.github.io/ngx-charts)
@@ -380,23 +382,23 @@ library
 
 Required:
 
-* `data` – the data to render the graph
-* `xLabel` – the x axis label
-* `yLabel` – the y axis label
+* `data`: the data to render the graph
+* `xLabel`: the x axis label
+* `yLabel`: the y axis label
 
 Optional:
 
-* `animations` – add animations or not
-* `gradient` – add gradient
-* `gridlines` – add gridlines or not
-* `roundDomain` – round the y axis to the next level
-* `xAxis` – show or hide x
-* `yAxis` – show or hide y
-* `showXLabel` – show or hide just the x label
-* `showYLabel` – show or hide just the y label
+* `animations`: add animations or not
+* `gradient`: add gradient
+* `gridlines`: add gridlines or not
+* `roundDomain`: round the y axis to the next level
+* `xAxis`: show or hide x
+* `yAxis`: show or hide y
+* `showXLabel`: show or hide just the x label
+* `showYLabel`: show or hide just the y label
 * `autoScale`: will auto scale the graph
 * `timeLine`: Will initiate a timeline piece below graph
-* `toolTip` – add a tooltip on mouseover
+* `toolTip`: add a tooltip on mouseover
 * `dataAutoId`: Use this for testing ID
 * `lineClick`: tracks the events from clicking on the lines
 
@@ -514,7 +516,6 @@ Spinner component sizes are `small` and `big`. Providing no size the spinner wil
 * `width` and `height` are defaulted to `30px`, but you can pass a custom width and height be sure to detail the value as px.
 
 ```
-//app.component.html
 <app-star-rating
   [width]="'10px'"
   [height]="'10px'"
@@ -527,9 +528,9 @@ Spinner component sizes are `small` and `big`. Providing no size the spinner wil
 
 The table is built with many features. Each table is built to call the needed components based on the data received. Every table requires 3 items to start:
 
-* `headers` : the column headers used in the table
-* `dataRows` : the table data used in each column
-* `tableSummary` : the 508 summary to explain the purpose and describe the table. _BE DETAILED_
+* `headers`: the column headers used in the table
+* `dataRows`: the table data used in each column
+* `tableSummary`: the 508 summary to explain the purpose and describe the table. _BE DETAILED_
 
 The table has been constructed to handle most cases for text overflow. We need to keep in mind that the column headers should utilize spaces or hyphens to wrap the text, the row headers should use the same format. The table data will turn into an ellipsis should the table shrink down and have text overflow. When buttons inside the data table shrink down the Asterix should still appear but there should be ellipsis where the words are. Keep in mind the Asterix is placed outside the button component so that it will always appear in a table.
 
@@ -622,8 +623,6 @@ Table data is where the JSON structure really comes into play. The data structur
 * `disabled`: use this to add the disabled attr to the element. true or false.
 
 ```
-//app.component.ts
-
 dataRows = [
     {
         val1: {
