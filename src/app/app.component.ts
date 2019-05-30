@@ -16,6 +16,7 @@ import cluster from '../assets/data/cluster-data.json';
 import singleTableData from '../assets/data/single-table-data.json';
 import { ModalService } from './services/modal.service';
 import { ExampleModalComponent } from './components/example-modal/example-modal.component';
+import { AppTableModalComponent } from './modules/table/table-modal/table-modal.component';
 
 @Component({
   selector: 'app-root',
@@ -67,7 +68,7 @@ export class AppComponent implements OnInit {
         if (e.button) {
             console.log(e);
             this.modalService
-            .appendComponentToBody(ExampleModalComponent, e.event.target.id, 'Modal Example', e.button.array, 'cancelButton1');
+            .appendComponentToBody(AppTableModalComponent, e.event.target.id, 'Modal Example', e.button.array, 'cancelButton1');
         } else {
             console.log('Button pressed.');
         }

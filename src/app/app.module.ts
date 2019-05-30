@@ -33,6 +33,7 @@ import { CardClusterModule } from './modules/card-cluster/card-cluster.module';
 import { TicketModule } from './modules/ticket/ticket.module';
 import { SearchFieldModule } from './modules/search-field/search-field.module';
 import { ExampleModalComponent } from './components/example-modal/example-modal.component';
+import { AppTableModalComponent } from './modules/table/table-modal/table-modal.component';
 
 @NgModule({
   declarations: [AppComponent, ExampleModalComponent],
@@ -70,7 +71,8 @@ import { ExampleModalComponent } from './components/example-modal/example-modal.
   providers: [AppService, FilterPipe],
   bootstrap: [AppComponent],
   entryComponents: [
-    ExampleModalComponent
+    ExampleModalComponent,
+    AppTableModalComponent
   ]
 })
 export class AppModule {}
