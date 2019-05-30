@@ -66,7 +66,7 @@ import { SearchFieldModule } from './modules/search-field/search-field.module';
 import { ExampleModalComponent } from './components/example-modal/example-modal.component';
 import { AppTableModalComponent } from './modules/table/table-modal/table-modal.component';
 ```
-### AppTableModalComponent Example
+# AppTableModalComponent Example
 
 This is exported so that you can use this generic modal layout and add it to your app module as an exported member under entry component
 
@@ -80,7 +80,7 @@ reference modal service parameters to use
 * `data`: data structure needed for component
 * `firstFocus`: used to set what gets focused on first when the modal opens
 
-### Accordion Component
+# Accordion Component
 
 When using accordion, use app-accordion to keep communicating with the other panels. For example if you open one panel the other will close. If you want the panels to open independent of each other dont wrap the panels in app-accordion.
 
@@ -94,7 +94,7 @@ There are no inputs.
 </app-accordion>
 ```
 
-## Panel Component
+# Panel Component
 
 * `panelClick`: Output - Use this output to decide what to do when panel opens
 * `title`: Use to name each accordion panel
@@ -126,7 +126,7 @@ Example Below:
 </app-panel>
 ```
 
-### Alert Component Example
+# Alert Component Example
 
 * `variation (string)` : Type of alert status, can be `error`, `warn`, or `success`
 * `heading (string)` : Status heading of the alert
@@ -146,7 +146,7 @@ The content you want to put inside the alert will go directly between the tags o
 </app-alert>
 ```
 
-### Bar Graph Component Example
+# Bar Graph Component Example
 
 The bar graph component utilizes the [ngx-charts](https://swimlane.github.io/ngx-charts) library.
 
@@ -221,7 +221,7 @@ Expected format for `colorScheme` :
 </div>
 ```
 
-### Button Component Example
+# Button Component Example
 
 * `ariaLabel`: Use this to further specify button to screen reader
 * `buttonType`: Use this to add classes to button. Pull classes from design.cms.gov
@@ -239,7 +239,7 @@ Expected format for `colorScheme` :
         Example Button
 </app-button>
 ```
-### Card Cluster Component Example
+# Card Cluster Component Example
 
 Required:
 * `cardArray`: The data for the card component
@@ -252,7 +252,7 @@ Required:
 </app-card-cluster>
 ```
 
-### Checkbox Component Example
+# Checkbox Component Example
 
 Required inputs:
 
@@ -276,7 +276,7 @@ Operating similarly to button, Checkbox is a reusable component, but there are c
 </app-check-box>
 ```
 
-### Circle Graph Component Example
+# Circle Graph Component Example
 
 The circle graph component utilizes the [ngx-charts](https://swimlane.github.io/ngx-charts) library.
 
@@ -334,7 +334,7 @@ chartData = [
 ]
 ```
 
-### Date-picker Component Example
+# Date-picker Component Example
 
 * `label`: label for the component
 * `dataAutoId`: Use this for testing ID
@@ -346,7 +346,7 @@ chartData = [
 </app-date-picker>
 ```
 
-### Dropdown Component Example
+# Dropdown Component Example
 
 * `options`: expects an array of options for the dropdown menu. 
 * `labelName`: can be provided, but is not required.
@@ -373,7 +373,7 @@ chartData = [
   (selectedOption) = 'announce($event)'>
 </app-drop-down>
 ```
-### Line Graph Component Example
+# Line Graph Component Example
 
 The line graph was built from utilizing the [ngx-charts](https://swimlane.github.io/ngx-charts)
 library
@@ -454,7 +454,7 @@ Optional:
 ]
 ```
 
-### Search Field Component Example
+# Search Field Component Example
 
 * `reset`: this is a boolean to pass back true, this is used for external reset buttons that you want to control the reset feature within the component
 * `showReset`: this is used in addition to the component as a built in reset button no styles
@@ -486,7 +486,7 @@ Optional:
 </app-search-field>
 ```
 
-### Spinner Component Example
+# Spinner Component Example
 
 Spinner component sizes are `small` and `big`. Providing no size the spinner will appear as its default size. Colors include `success`, `primary`, and `muted`.
 
@@ -507,7 +507,7 @@ Spinner component sizes are `small` and `big`. Providing no size the spinner wil
 </app-spinner> 
 ```
 
-### Star Rating Component Example
+# Star Rating Component Example
 
 * `starAmount`: is the amount of stars you want displayed, this is defaulted to `5` so unless you need more than `5` you will not need to pass anything for this input. 
 * `rating`: is the amount of stars that will be filled. For example, a starAmount of 5 with a rating of 2 is 2 out of 5 stars. 
@@ -523,31 +523,31 @@ Spinner component sizes are `small` and `big`. Providing no size the spinner wil
 </app-star-rating>
 ```
 
-### Data Table Component Example
+# Data Table Component Example
 
 The table is built with many features. Each table is built to call the needed components based on the data received. Every table requires 3 items to start:
 
-- `headers` : the column headers used in the table
-- `dataRows` : the table data used in each column
-- `tableSummary` : the 508 summary to explain the purpose and describe the table. _BE DETAILED_
+* `headers` : the column headers used in the table
+* `dataRows` : the table data used in each column
+* `tableSummary` : the 508 summary to explain the purpose and describe the table. _BE DETAILED_
 
 The table has been constructed to handle most cases for text overflow. We need to keep in mind that the column headers should utilize spaces or hyphens to wrap the text, the row headers should use the same format. The table data will turn into an ellipsis should the table shrink down and have text overflow. When buttons inside the data table shrink down the Asterix should still appear but there should be ellipsis where the words are. Keep in mind the Asterix is placed outside the button component so that it will always appear in a table.
 
-### Optional :
+Optional :
 
-- `tableTitle`: this input will allow a caption to show up within the table itself giving the table a name
-- `pagination`: this input will allow the option for pagination to work within the table, accepts `true` or `false`
-- `starRating` : this input is set to `false`. Use this input to put a star rating on the table. All you need to pass is `starRating` with a number, the table will build the rest.
-- `index` : index assigned to table
-- `maxRows`: For pagination - the maximum amount of rows on a page. Defaults to 9
-- `searchText`: Used to return the exact row that matches a string passed to it. The search returns true if the word contains the string you pass
--`starRating`: This is specific to HQR, a way to show table ratings
--`linearScore`: A string to represent the linear score
--`reportingPeriod`: A string to represent the reporting period in the table header
--`highlightSearch`: A boolean to allow text to be highlighted as the searchtext is queried.
--`paginateNext`: This will return the next pagination page(ex: 1, 2, 3...)
--`total`: This is used in server side pagination, this will set the total number of rows count. Works with paginateNext.
--`tableRowsFiltered`: This will return the total amount of rows in the table
+* `tableTitle`: this input will allow a caption to show up within the table itself giving the table a name
+* `pagination`: this input will allow the option for pagination to work within the table, accepts `true` or `false`
+* `starRating` : this input is set to `false`. Use this input to put a star rating on the table. All you need to pass is `starRating` with a number, the table will build the rest.
+* `index` : index assigned to table
+* `maxRows`: For pagination - the maximum amount of rows on a page. Defaults to 9
+* `searchText`: Used to return the exact row that matches a string passed to it. The search returns true if the word contains the string you pass
+* `starRating`: This is specific to HQR, a way to show table ratings
+* `linearScore`: A string to represent the linear score
+* `reportingPeriod`: A string to represent the reporting period in the table header
+* `highlightSearch`: A boolean to allow text to be highlighted as the searchtext is queried.
+* `paginateNext`: This will return the next pagination page(ex: 1, 2, 3...)
+* `total`: This is used in server side pagination, this will set the total number of rows count. Works with paginateNext.
+* `tableRowsFiltered`: This will return the total amount of rows in the table
 
 ```
 <app-table
@@ -572,7 +572,7 @@ The table has been constructed to handle most cases for text overflow. We need t
 
 ## Required Data Structure for Table :
 
-# Table Headers :
+### Table Headers :
 
 The data provided to `headers` in the table component has to include `header` and `prop`. These two keys are used to label the table header and to put the data in the right place by the prop. `prop` has to match the same `prop` used for the data elements. _If it doesn’t match the data will not show up._
 
@@ -610,7 +610,7 @@ headers = [
 ];
 ```
 
-# Table Data :
+### Table Data :
 
 Table data is where the JSON structure really comes into play. The data structure has to make sure that the key value pair is really the data prop followed by an object with three parameters:
 
@@ -650,7 +650,7 @@ dataRows = [
 ]
 ```
 
-# Row Header
+### Row Header
 
 In order to have headers that are displayed vertically within the table, set `row_Header` as the property that defines each row.
 
@@ -661,48 +661,39 @@ row_Header: {
 }
 ```
 
-### Modal Implementation
+# Modal Implementation
 
 The modal is essentially the button component that renders a modal component. But we are extending the option to add dynamic custom components within the modal. once you render the app-modal component with the requirements below everything should connect for you.
 
-*remember - when you import modalModule make sure you do it as modalModule.forRoot()
+remember - when you import modalModule make sure you do it as modalModule.forRoot()
 
 	Required:
-`Modal Title` – Title of the Modal
-
-`Modal Data` – The data to be sent to the modal body
-
-`Content` – The name of the modal button
-
-`Modal Component` – This will currently allow you to place a static component inside the modal, this component cannot receive data. When you use this you must import the component in the controller you are using to hold the modal component, then pass the export class name to the modal
+* `Modal Title`: Title of the Modal
+* `Modal Data`: The data to be sent to the modal body
+* `Content`: The name of the modal button
+* `Modal Component`: This will currently allow you to place a static component inside the modal, this component cannot receive data. When you use this you must import the component in the controller you are using to hold the modal component, then pass the export class name to the modal
 
 	Optional:
-`Modal Class` - This will change the width of the modal shell. This can be ds-c-dialog--narrow, ds-c-dialog--wide, ds-c-dialog--full    
+* `Modal Class`: This will change the width of the modal shell. This can be ds-c-dialog--narrow, ds-c-dialog--wide, ds-c-dialog--full    
+* `Modal ID`: The Id of the button that triggers the modal
+* `Button Class`: The style to apply to the modal button
+* `abbr`: In case you need to abbr the name of the button, mostly used inside the table
+* `firstfocus`: The first thing that should be focused on when modal opens, use when it should be something that is not the cancel button
 
-`Modal ID` – The Id of the button that triggers the modal
-
-`Button Class`—The style to apply to the modal button
-
-`abbr`—In case you need to abbr the name of the button, mostly used inside the table
-
-`firstfocus`—The first thing that should be focused on when modal opens, use when it should be something that is not the cancel button
-
-## Build your own modal
+# Build your own modal
 
 Modal Shell:
 Modal Shell is the easiest way to create your own unique modal. You’re going to need a few things to set this up. First make sure you followed the step above explaining how to modify app-root. Then we can start. You’re going to need to create a new component. Name it whatever you want. In the html you are going to start with <app-modal-shell>. Add the following inputs
 
-`modalTitle` = title of modal
-
-`modalCount` = allows for multiple modals
-
-add an output for `(closeModal)` = This will track when the modal closes.
+* `modalTitle`: title of modal
+* `modalCount`: allows for multiple modals
+* `(closeModal)`: This will track when the modal closes.
 
 After you have this setup you have options to build the modal
 
-`headerTemplate`: Modal header
-`bodyTemplate`: Modal Body
-`footerTemplate`: Modal Footer
+* `headerTemplate`: Modal header
+* `bodyTemplate`: Modal Body
+* `footerTemplate`: Modal Footer
 
 These templates can be referenced through Angular's template syntax.
  
