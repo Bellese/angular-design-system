@@ -33,7 +33,7 @@ export class AppCircleGraphComponent implements OnInit {
 
     totalValues = 0;
     centerNum: string;
-    buttonClicked = 'pieGraphCard0';
+    @Input() buttonClicked = 'pieGraphCard0';
 
     ngOnInit() {
         this.resize();

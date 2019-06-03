@@ -85,7 +85,8 @@ UNCOMMENT CODE ON THIS PAGE TO SEE EXAMPLES OF COMPONENTS
     
 <!-- CARD CLUSTER COMPONENT EXAMPLE
 <app-card-cluster 
-    [cardArray]="cluster" 
+    [cardArray]="cluster"
+    buttonClicked='CardCluster1'
     (passButton)="buttonClick($event)">
 </app-card-cluster> -->
 
@@ -113,6 +114,7 @@ UNCOMMENT CODE ON THIS PAGE TO SEE EXAMPLES OF COMPONENTS
     [hideGraph] = false
     tableSummary='An example of a pie chart with a legend'
     firstColumnName='Total Files'
+    buttonClicked='pieGraphCard1'
     (passButton)='buttonClick($event)'>
 </app-circle-graph> -->
 

@@ -246,9 +246,13 @@ Required:
 * `cardArray`: The data for the card component
 * `passButton`: The event passed back up to the component click
 
+Optional
+* `buttonClicked`: sets the initial button to be clicked default is big card
+
 ```
 <app-card-cluster 
-    [cardArray]="cluster" 
+    [cardArray]="cluster"
+    buttonClicked='CardCluster1'
     (passButton)="buttonClick($event)">
 </app-card-cluster>
 ```
@@ -300,6 +304,7 @@ Optional:
 * `title`: Text to go under the circle graph
 * `tableSummary`: Attribute in table to describe what the table legend is about
 * `firstColumnName`: the first column is named total, but if you want to specify what total you can pass a string. Ex: total files
+* `buttonClicked`: sets the initial button to be clicked default is big card
 * `passButton`: A callback to capture click event
 
 ```
@@ -315,6 +320,7 @@ Optional:
   [hideGraph] = false
   tableSummary='An example of a pie chart with a legend'
   firstColumnName='Total Files'
+  buttonClicked='pieGraphCard1'
   (passButton)='buttonClick($event)'>
 </app-circle-graph> 
 ```

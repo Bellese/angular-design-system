@@ -12,7 +12,7 @@ export class AppCardClusterComponent implements OnInit {
 
     @Output() passButton = new EventEmitter<any>();
 
-    buttonClicked = 'CardCluster0';
+    @Input() buttonClicked = 'CardCluster0';
     numArray1 = [];
     numArray = [];
     total = 0;
