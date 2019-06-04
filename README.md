@@ -17,22 +17,22 @@ File structure:
 
 ```
 ├── assets/
-    ├── css/
-        ├── images/
-        └── fonts/
-        └── dist/
+  ├── css/
+    ├── images/
+      └── fonts/
+      └── dist/
     ├── layout/
-         └── dist/
+      └── dist/
 ```
 
 Reference the styles in `.angular-cli.json`
 
 ```
-      "styles": [
-        "styles.css",
-        "assets/css/dist/index.css",
-        "assets/layout/dist/index.css"
-      ],
+"styles": [
+  "styles.css",
+  "assets/css/dist/index.css",
+  "assets/layout/dist/index.css"
+],
 ```
 
 ## Importing Components
@@ -88,9 +88,9 @@ There are no inputs.
 
 ``` 
 <app-accordion>
-    <app-panel></app-panel>
-    <app-panel></app-panel>
-    <app-panel></app-panel>
+  <app-panel></app-panel>
+  <app-panel></app-panel>
+  <app-panel></app-panel>
 </app-accordion>
 ```
 
@@ -118,10 +118,10 @@ Example Below:
   [expand] = false
   [openAll] = false>
   <span>
-      Additional Title
+    Additional Title
   </span>
   <div>
-      Content on panel open
+    Content on panel open
   </div>
 </app-panel>
 ```
@@ -138,11 +138,11 @@ The content you want to put inside the alert will go directly between the tags o
 
 ```
 <app-alert
-[heading]="'Status heading'"
-[variation]="'warn'"
-[hideIcon]="false"
-[hideClose]="false">
-  Content of the alert <-- Alert content goes here
+  [heading]="'Status heading'"
+  [variation]="'warn'"
+  [hideIcon]="false"
+  [hideClose]="false">
+    Content of the alert <-- Alert content goes here
 </app-alert>
 ```
 
@@ -190,9 +190,9 @@ Expected format for `data` :
 Expected format for `colorScheme` :
 
 ```
-  colorScheme = {
-    domain: ["#256D34", "#D6D7D9"]
-  }
+colorScheme = {
+  domain: ["#256D34", "#D6D7D9"]
+}
 ```
 
 ```
@@ -230,13 +230,13 @@ Expected format for `colorScheme` :
 
 ```
 <app-button
-    ariaLabel = 'Button Example'
-    buttonType = 'ds-c-button--danger'
-    buttonID = 'Button1'
-    [ariaSort] = true
-    dataAutoId = 'testingID'
-    (callBack) = 'announce($event)'>
-        Example Button
+  ariaLabel = 'Button Example'
+  buttonType = 'ds-c-button--danger'
+  buttonID = 'Button1'
+  [ariaSort] = true
+  dataAutoId = 'testingID'
+  (callBack) = 'announce($event)'>
+    Example Button
 </app-button>
 ```
 
@@ -252,10 +252,10 @@ Optional
 
 ```
 <app-card-cluster 
-    [cardArray]="cluster"
-    buttonClicked='CardCluster1'
-    dataAutoId = 'testingID'
-    (passButton)="buttonClick($event)">
+  [cardArray]="cluster"
+  buttonClicked='CardCluster1'
+  dataAutoId = 'testingID'
+  (passButton)="buttonClick($event)">
 </app-card-cluster>
 ```
 
@@ -263,41 +263,41 @@ Optional
 
 ```
 {
-    "mainCard": true,
-    "mainTitle": "STK-2",
-    "mainSub": "Episodes",
-    "cluster": [
-        {
-            "value": "vte",
-            "name": "IPP Not Met"
-        },
-        {
-            "value": "cbc",
-            "name": "IPP Met"
-        },
-        {
-            "value": 1,
-            "name": "Denominator"
-        },
-        {
-            "value": 16,
-            "name": "Denominator"
-        },
-        {
-            "value": 85,
-            "name": "Numerator"
-        },
-        {
-            "value": 3,
-            "name": "Den. Exceptions"
-        },
-        {
-            "classValue": "viewPerformanceIcon",
-            "classButton": "vpi",
-            "name": "View Performance",
-            "className": "vpi"
-        } 
-    ]   
+  "mainCard": true,
+  "mainTitle": "STK-2",
+  "mainSub": "Episodes",
+  "cluster": [
+    {
+      "value": "vte",
+      "name": "IPP Not Met"
+    },
+    {
+      "value": "cbc",
+      "name": "IPP Met"
+    },
+    {
+      "value": 1,
+      "name": "Denominator"
+    },
+    {
+      "value": 16,
+      "name": "Denominator"
+    },
+    {
+      "value": 85,
+      "name": "Numerator"
+    },
+    {
+      "value": 3,
+      "name": "Den. Exceptions"
+    },
+    {
+      "classValue": "viewPerformanceIcon",
+      "classButton": "vpi",
+      "name": "View Performance",
+      "className": "vpi"
+    } 
+  ]   
 }
 ```
 
@@ -394,8 +394,8 @@ chartData = [
 
 ```
 <app-date-picker 
-    label = 'Date Example'
-    dataAutoId = 'testingID'>
+  label = 'Date Example'
+  dataAutoId = 'testingID'>
 </app-date-picker>
 ```
 
@@ -679,28 +679,28 @@ Table data is where the JSON structure really comes into play. The data structur
 
 ```
 dataRows = [
-    {
-        val1: {
-            value: "100%",
-            el: "button",
-            attr: "",
-            instanceRef: {
-                key: value,
-                key: value
-            }
-        },
-        val2: {
-            value: "88%",
-            el: "link",
-            attr: "",
-            href: "./location"
-        },
-        val3: {
-            value: "1%",
-            el: "default",
-            attr: ""
-        }
+  {
+    val1: {
+      value: "100%",
+      el: "button",
+      attr: "",
+      instanceRef: {
+        key: value,
+        key: value
+      }
+    },
+    val2: {
+      value: "88%",
+      el: "link",
+      attr: "",
+      href: "./location"
+    },
+    val3: {
+      value: "1%",
+      el: "default",
+      attr: ""
     }
+  }
 ]
 ```
 
@@ -710,8 +710,8 @@ In order to have headers that are displayed vertically within the table, set `ro
 
 ```
 row_Header: {
-    value: "12%",
-    el: "default"
+  value: "12%",
+  el: "default"
 }
 ```
 
@@ -771,9 +771,9 @@ The pagination component utilizes the [ngx-pagination](http://michaelbromley.git
 
 ```
 <ul>
-    <li *ngFor="let item of list | paginate: { itemsPerPage: 3, currentPage: p}">
-        {{item}}
-    </li>
+  <li *ngFor="let item of list | paginate: { itemsPerPage: 3, currentPage: p}">
+    {{item}}
+  </li>
 </ul>
 <app-paging (currentPage)="p = $event"></app-paging>
 ```
