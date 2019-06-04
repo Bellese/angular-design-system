@@ -87,6 +87,7 @@ UNCOMMENT CODE ON THIS PAGE TO SEE EXAMPLES OF COMPONENTS
 <app-card-cluster 
     [cardArray]="cluster"
     buttonClicked='CardCluster1'
+    dataAutoId = 'testingID'
     (passButton)="buttonClick($event)">
 </app-card-cluster> -->
 
@@ -103,6 +104,7 @@ UNCOMMENT CODE ON THIS PAGE TO SEE EXAMPLES OF COMPONENTS
     
 <!-- CIRCLE GRAPH COMPONENT EXAMPLE
 <app-circle-graph
+    dataAutoId = 'testingID'
     [data]='pieData'
     [animations]=true
     [trimLabels]=true
@@ -191,10 +193,11 @@ UNCOMMENT CODE ON THIS PAGE TO SEE EXAMPLES OF COMPONENTS
 
 <!-- STAR RATING COMPONENT EXAMPLE
 <app-star-rating
-  [width]="'10px'"
-  [height]="'10px'"
-  [starAmount]="5"
-  [rating]="2">
+    dataAutoId = 'testingID'
+    [width]="'10px'"
+    [height]="'10px'"
+    [starAmount]="5"
+    [rating]="2">
 </app-star-rating> -->
 
 <!-- TABLE, SEARCH AND ACCORDION EXAMPLE
@@ -254,6 +257,7 @@ UNCOMMENT CODE ON THIS PAGE TO SEE EXAMPLES OF COMPONENTS
 <div class="ds-l-row ds-u-justify-content--center ds-u-align-items--center ds-u-padding-y--1">
     <div class="ds-l-lg-col--4 ds-l-md-col--6 ds-l-sm-col--12">
         <app-ticket
+            dataAutoId = 'testingID'
             [id]="'ticketComp'"
             [title]="'eCQM'"
             [description]="'Track status and validation of EHR patients.'"
@@ -263,6 +267,7 @@ UNCOMMENT CODE ON THIS PAGE TO SEE EXAMPLES OF COMPONENTS
     </div>
     <div class="ds-l-lg-col--4 ds-l-md-col--6 ds-l-sm-col--12">
         <app-ticket
+            dataAutoId = 'testingID'
             [id]="'ticketComp'"
             [title]="'eCQM'"
             [description]="'Track status and validation of EHR patients.'"
@@ -272,6 +277,7 @@ UNCOMMENT CODE ON THIS PAGE TO SEE EXAMPLES OF COMPONENTS
     </div>
     <div class="ds-l-lg-col--4 ds-l-md-col--6 ds-l-sm-col--12">
         <app-ticket
+            dataAutoId = 'testingID'
             [id]="'ticketComp'"
             [title]="'eCQM'"
             [description]="'Track status and validation of EHR patients. Track status'"

@@ -4,7 +4,6 @@ import {
 } from '@angular/core';
 
 import modalData from '../assets/data/modalData.json';
-import cardData from '../assets/data/card-data.json';
 import chartData from '../assets/data/chart-data.json';
 import tableData from '../assets/data/table-data.json';
 import tableHeaderData from '../assets/data/table-header-data.json';
@@ -32,7 +31,6 @@ import { AppTableModalComponent } from './modules/table/table-modal/table-modal.
 
 export class AppComponent implements OnInit {
     modalData;
-    cardData;
     chartData;
     tableData;
     tableHeaderData;
@@ -76,7 +74,6 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         this.modalData = modalData;
-        this.cardData = cardData;
         this.chartData = chartData;
         this.tableData = tableData;
         this.tableHeaderData = tableHeaderData;

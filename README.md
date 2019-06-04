@@ -248,13 +248,57 @@ Required:
 
 Optional
 * `buttonClicked`: sets the initial button to be clicked default is big card
+* `dataAutoId`: Use this for testing ID
 
 ```
 <app-card-cluster 
     [cardArray]="cluster"
     buttonClicked='CardCluster1'
+    dataAutoId = 'testingID'
     (passButton)="buttonClick($event)">
 </app-card-cluster>
+```
+
+## Expected Data Format
+
+```
+{
+    "mainCard": true,
+    "mainTitle": "STK-2",
+    "mainSub": "Episodes",
+    "cluster": [
+        {
+            "value": "vte",
+            "name": "IPP Not Met"
+        },
+        {
+            "value": "cbc",
+            "name": "IPP Met"
+        },
+        {
+            "value": 1,
+            "name": "Denominator"
+        },
+        {
+            "value": 16,
+            "name": "Denominator"
+        },
+        {
+            "value": 85,
+            "name": "Numerator"
+        },
+        {
+            "value": 3,
+            "name": "Den. Exceptions"
+        },
+        {
+            "classValue": "viewPerformanceIcon",
+            "classButton": "vpi",
+            "name": "View Performance",
+            "className": "vpi"
+        } 
+    ]   
+}
 ```
 
 # Checkbox Component Example
@@ -306,9 +350,11 @@ Optional:
 * `firstColumnName`: the first column is named total, but if you want to specify what total you can pass a string. Ex: total files
 * `buttonClicked`: sets the initial button to be clicked default is big card
 * `passButton`: A callback to capture click event
+* `dataAutoId`: Use this for testing ID
 
 ```
 <app-circle-graph
+  dataAutoId = 'testingID'
   [data]='pieData'
   [animations]=true
   [trimLabels]=true
@@ -503,6 +549,7 @@ Spinner component sizes are `small` and `big`. Providing no size the spinner wil
 * `filled`: a boolean for filled or not
 * `inversed`: a boolean for inversed or not
 * `hide`: a boolean to hide and show spinner used to trigger before and after promises
+* `dataAutoId`: Use this for testing ID
 
 ```
 <app-spinner
@@ -520,9 +567,11 @@ Spinner component sizes are `small` and `big`. Providing no size the spinner wil
 * `starAmount`: is the amount of stars you want displayed, this is defaulted to `5` so unless you need more than `5` you will not need to pass anything for this input. 
 * `rating`: is the amount of stars that will be filled. For example, a starAmount of 5 with a rating of 2 is 2 out of 5 stars. 
 * `width` and `height` are defaulted to `30px`, but you can pass a custom width and height be sure to detail the value as px.
+* `dataAutoId`: Use this for testing ID
 
 ```
 <app-star-rating
+  dataAutoId = 'testingID'
   [width]="'10px'"
   [height]="'10px'"
   [starAmount]="5"
@@ -736,6 +785,7 @@ The pagination component utilizes the [ngx-pagination](http://michaelbromley.git
 * `description`: Use this to put text beneath the title
 * `buttonClick`: this will be emitted out so you have control over the event
 * `ariaLabel` : This will be for adding an aria label.
+* `dataAutoId`: Use this for testing ID
 
 This component will span the width of the screen, you will need to put it in a grid layout to organize it on the page
 
@@ -743,6 +793,7 @@ Furthermore there is an option to add any content on the right side of the box. 
 
 ```
 <app-ticket
+  dataAutoId = 'testingID'
   [id]="'ticketComp'"
   [title]="'eCQM'"
   [description]="'Track status and validation of EHR patients.'"
