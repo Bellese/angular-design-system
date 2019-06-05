@@ -61,40 +61,52 @@
                   "modal": "ExampleModalComponent",
                   "array": [
                         {
-                          "heading": "Description"
+                          "heading": "Description",
+                          "class": "test Header"
                         },
                         {
-                          "paragraph": "Severe Sepsis and Septic Shock"
+                          "paragraph": "Severe Sepsis and Septic Shock",
+                          "class": "testparagraph"
                         },
                         {
-                          "heading": "Supplemental Information"
+                          "heading": "Supplemental Information",
+                          "class": "test 3 Header"
                         },
                         {
-                          "hline": true
+                          "hline": true,
+                          "class": "testline"
                         },
                         {
-                          "heading2":"Volume Category Reference"
+                          "heading2":"Volume Category Reference",
+                          "class": "test 3 Header2"
                         },
                         {
-                          "paragraph": "Low: #26 min. (5)"
+                          "paragraph": "Low: #26 min. (5)",
+                          "class": "test 5 6 paragraph"
                         },
                         {
-                          "paragraph": "Med: #43 min. (12)"
+                          "paragraph": "Med: #43 min. (12)",
+                          "class": "test 67 paragraph"
                         },
                         {
-                          "paragraph": "High: #72 min. (8)"
+                          "paragraph": "High: #72 min. (8)",
+                          "class": "test 89 paragraph"
                         },
                         {
-                          "heading2":"Supplemental Information Footnotes"
+                          "heading2":"Supplemental Information Footnotes",
+                          "class": "test 10 Header2"
                         },
                         {
-                          "paragraph": "( 5 ) - The number of cases/patients is too few to report a star rating."
+                          "paragraph": "( 5 ) - The number of cases/patients is too few to report a star rating.",
+                          "class": "test 55556 paragraph"
                         },
                         {
-                          "paragraph": "( 12 ) - Data submitted were based on a sample of cases/patients."
+                          "paragraph": "( 12 ) - Data submitted were based on a sample of cases/patients.",
+                          "class": "test 776565 paragraph"
                         },
                         {
-                          "paragraph": "( 8 ) - Results are based on a shorter time period than required."
+                          "paragraph": "( 8 ) - Results are based on a shorter time period than required.",
+                          "class": "test 32223 paragraph"
                         }
                   ]
               }

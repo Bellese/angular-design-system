@@ -80,6 +80,29 @@ reference modal service parameters to use
 * `data`: data structure needed for component
 * `firstFocus`: used to set what gets focused on first when the modal opens
 
+## Data Format
+
+```
+"array": [
+  {
+    "heading": "Description",
+    "class": "test Header"
+  },
+  {
+    "paragraph": "Severe Sepsis and Septic Shock",
+    "class": "testparagraph"
+  },
+  {
+    "heading2": "Supplemental Information",
+    "class": "test 3 Header"
+  },
+  {
+    "hline": true,
+    "class": "testline"
+  }
+]
+```
+
 # Accordion Component
 
 When using accordion, use app-accordion to keep communicating with the other panels. For example if you open one panel the other will close. If you want the panels to open independent of each other dont wrap the panels in app-accordion.
@@ -138,6 +161,7 @@ The content you want to put inside the alert will go directly between the tags o
 
 ```
 <app-alert
+  dataAutoId = 'dataID'
   [heading]="'Status heading'"
   [variation]="'warn'"
   [hideIcon]="false"

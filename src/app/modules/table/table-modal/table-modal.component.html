@@ -1,15 +1,15 @@
 <ng-template #bodyTemplate let-modalBody="modalBody">
     <ng-container *ngFor="let data of modalBody.modalData">
-        <h2 *ngIf="data.heading" class="ds-h2">
+        <h2 *ngIf="data.heading" [ngClass]="'ds-h2 ' + data.class">
             {{ data.heading }}
         </h2>
-        <p *ngIf="data.paragraph" class="ds-text">
+        <p *ngIf="data.paragraph" [ngClass]="'ds-text ' + data.class">
             {{ data.paragraph }}
         </p>
-        <h3 *ngIf="data.heading2" class="ds-h4">
+        <h3 *ngIf="data.heading2" [ngClass]="'ds-h4 ' + data.class">
             {{ data.heading2 }}
         </h3>
-        <hr *ngIf="data.hline"/>
+        <hr *ngIf="data.hline" [ngClass]="data.class"/>
     </ng-container>
 </ng-template>
 
