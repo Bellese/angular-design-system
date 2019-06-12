@@ -34,6 +34,7 @@ import { TicketModule } from './modules/ticket/ticket.module';
 import { SearchFieldModule } from './modules/search-field/search-field.module';
 import { ExampleModalComponent } from './components/example-modal/example-modal.component';
 import { AppTableModalComponent } from './modules/table/table-modal/table-modal.component';
+import { DownloadQueModule } from './modules/download-que/download-que.module';
 
 @NgModule({
   declarations: [AppComponent, ExampleModalComponent],
@@ -66,7 +67,8 @@ import { AppTableModalComponent } from './modules/table/table-modal/table-modal.
     PanelModule,
     CardClusterModule,
     TicketModule,
-    SearchFieldModule
+    SearchFieldModule,
+    DownloadQueModule
   ],
   providers: [AppService, FilterPipe],
   bootstrap: [AppComponent],
