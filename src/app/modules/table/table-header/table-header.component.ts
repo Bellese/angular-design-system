@@ -31,6 +31,7 @@ export class AppTableHeaderComponent {
     // sets previously selected headers to a default state of false
     setDefaultDirection() {
         this.asc = true;
+        return '';
     }
 
 }

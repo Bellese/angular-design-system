@@ -11,7 +11,7 @@
     "header": {
       "value": "Facility Rate",
       "prop": "val1",
-      "el": "default"
+      "el": "sort"
     }
   },
   {
