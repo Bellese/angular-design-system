@@ -1,5 +1,5 @@
-.ds-c-alert {
-    background-position: 16px !important;
+.ds-c-alert.ds-c-alert--close {
+    background-position: 16px 40px;
 }
 
 .close {
