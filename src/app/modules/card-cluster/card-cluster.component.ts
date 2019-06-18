@@ -41,10 +41,14 @@ export class AppCardClusterComponent implements OnInit {
         });
 
         // sequence 1 is for desktop layout
+
+        // If there are only 2 cards, display each one on it's own line
         if (this.cardArray.cluster.length === 2) {
             this.cardArray.cluster.map( x => {
                 this.numArray1.push(Object.assign({sequence: 12}, x));
             });
+
+        // if the card amount is a multiple of 3 or 4, distribute them evenly
         } else if (this.cardArray.cluster.length % 4 === 0 || this.cardArray.cluster.length % 3 === 0) {
             this.cardArray.cluster.map( x => {
                 if (this.cardArray.cluster.length % 3 === 0 && this.cardArray.cluster.length % 4 !== 0) {
