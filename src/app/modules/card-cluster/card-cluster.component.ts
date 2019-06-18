@@ -15,7 +15,8 @@ export class AppCardClusterComponent implements OnInit {
     @Input() buttonClicked = 'CardCluster0';
     numArray1 = [];
     numArray = [];
-    total = 0;
+    total: number = null;
+    mainCardWidth: number;
 
     constructor() { }
 
@@ -25,13 +26,26 @@ export class AppCardClusterComponent implements OnInit {
     }
 
     ngOnInit() {
+
+        // determine width of main card
+        // the main card will display as full width if there are no other cards, otherwise it will be 3 columns wide
+        if (this.cardArray.cluster.length === 0) {
+            this.mainCardWidth = 12;
+        } else {
+            this.mainCardWidth = 3;
+        }
+
         // total
         this.cardArray.cluster.map( x => {
             (x.value && typeof x.value === 'number') ? this.total += x.value : null;
         });
 
         // sequence 1 is for desktop layout
-        if (this.cardArray.cluster.length % 4 === 0 || this.cardArray.cluster.length % 3 === 0) {
+        if (this.cardArray.cluster.length === 2) {
+            this.cardArray.cluster.map( x => {
+                this.numArray1.push(Object.assign({sequence: 12}, x));
+            });
+        } else if (this.cardArray.cluster.length % 4 === 0 || this.cardArray.cluster.length % 3 === 0) {
             this.cardArray.cluster.map( x => {
                 if (this.cardArray.cluster.length % 3 === 0 && this.cardArray.cluster.length % 4 !== 0) {
                     this.numArray1.push(Object.assign({sequence: 4}, x));
