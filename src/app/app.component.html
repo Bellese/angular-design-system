@@ -74,16 +74,17 @@ ALERT COMPONENT EXAMPLE
     dataAutoId = 'testingID'>
 </app-bar-graph> -->
 
-<!-- BUTTON COMPONENT EXAMPLE
+BUTTON COMPONENT EXAMPLE
 <app-button
     ariaLabel = 'Button Example'
     buttonType = 'ds-c-button--danger'
     buttonID = 'Button1'
     [ariaSort] = true
     dataAutoId = 'testingID'
+    [disabled]='true'
     (callBack) = 'announce($event)'>
         Example Button
-</app-button> -->
+</app-button>
     
 <!-- CARD CLUSTER COMPONENT EXAMPLE
 <app-card-cluster 
@@ -245,9 +246,9 @@ DOWNLOAD-QUE COMPONENT EXAMPLE
         </div>
     </ng-container>
 </app-accordion> -->
-<!-- 
+
     
-TABLE AND PAGINATION
+<!-- TABLE AND PAGINATION
 <br/>
 <app-table
     [headers]="singleTableData.tableHeaders" 
