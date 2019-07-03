@@ -42,10 +42,17 @@ export class AppCardClusterComponent implements OnInit {
 
         // sequence 1 is for desktop layout
 
-        // If there are only 2 cards, display each one on it's own line
-        if (this.cardArray.cluster.length === 2) {
-            this.cardArray.cluster.map( x => {
-                this.numArray1.push(Object.assign({sequence: 12}, x));
+        // If there are less than 8 cards, distribute the cards evenly between two rows.
+        // If there is an odd number of cards, show the extra card in the top row
+        if (this.cardArray.cluster.length <= 8) {
+            this.cardArray.cluster.map( (x, ind) => {
+                let seq: number;
+                if ((ind + 1) <= Math.ceil(this.cardArray.cluster.length / 2)) {
+                    seq = 12 / Math.ceil(this.cardArray.cluster.length / 2);
+                } else {
+                    seq = 12 / Math.floor(this.cardArray.cluster.length / 2);
+                }
+                this.numArray1.push(Object.assign({sequence: seq}, x));
             });
 
         // if the card amount is a multiple of 3 or 4, distribute them evenly
@@ -57,6 +64,8 @@ export class AppCardClusterComponent implements OnInit {
                     this.numArray1.push(Object.assign({sequence: 3}, x));
                 }
             });
+
+        // For all other situations, show 4 cards per row
         } else {
             const rows = Math.floor(this.cardArray.cluster.length / 4);
             this.cardArray.cluster.map( (x, ind) => {
