@@ -32,7 +32,7 @@ export class AppCardClusterComponent implements OnInit {
         if (this.cardArray.cluster.length === 0) {
             this.mainCardWidth = 12;
         } else {
-            this.mainCardWidth = 3;
+            this.mainCardWidth = 4;
         }
 
         // total
