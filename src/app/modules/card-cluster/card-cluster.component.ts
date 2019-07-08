@@ -35,10 +35,16 @@ export class AppCardClusterComponent implements OnInit {
             this.mainCardWidth = 4;
         }
 
-        // total
-        this.cardArray.cluster.map( x => {
-            (x.value && typeof x.value === 'number') ? this.total += x.value : null;
-        });
+        // Main card total
+        if (this.cardArray.total !== null ) {
+            // Convert the total value to a string because angular ignores the value 0
+            this.total = this.cardArray.total.toString();
+        } else {
+            this.cardArray.cluster.map( x => {
+                (x.value && typeof x.value === 'number') ? this.total += x.value : null;
+            });
+        }
+
 
         // sequence 1 is for desktop layout
 
