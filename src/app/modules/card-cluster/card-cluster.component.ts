@@ -36,7 +36,7 @@ export class AppCardClusterComponent implements OnInit {
         }
 
         // Main card total
-        if (this.cardArray.total !== null ) {
+        if (this.cardArray.total !== null &&  this.cardArray.total !== undefined) {
             // Convert the total value to a string because angular ignores the value 0
             this.total = this.cardArray.total.toString();
         } else {
