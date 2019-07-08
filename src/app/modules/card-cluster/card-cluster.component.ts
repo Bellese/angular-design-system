@@ -35,10 +35,16 @@ export class AppCardClusterComponent implements OnInit {
             this.mainCardWidth = 4;
         }
 
-        // total
-        this.cardArray.cluster.map( x => {
-            (x.value && typeof x.value === 'number') ? this.total += x.value : null;
-        });
+        // Main card total
+        if (this.cardArray.total !== null &&  this.cardArray.total !== undefined) {
+            // Convert the total value to a string because angular ignores the value 0
+            this.total = this.cardArray.total.toString();
+        } else {
+            this.cardArray.cluster.map( x => {
+                (x.value && typeof x.value === 'number') ? this.total += x.value : null;
+            });
+        }
+
 
         // sequence 1 is for desktop layout
 
@@ -100,7 +106,7 @@ export class AppCardClusterComponent implements OnInit {
         setTimeout(() => {
             const graphContainer = window.outerWidth;
 
-            if (this.cardArray.mainCard && graphContainer >= 768) {
+            if (this.cardArray.mainCard && this.cardArray.cluster.length && graphContainer >= 768) {
                 const followHeight = document.getElementById('followCard').clientHeight - 86;
                 document.getElementById('CardCluster0').style.height = followHeight + 'px';
             } else if (this.cardArray.mainCard && graphContainer < 768) {
