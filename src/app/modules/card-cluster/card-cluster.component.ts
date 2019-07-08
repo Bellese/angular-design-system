@@ -104,7 +104,7 @@ export class AppCardClusterComponent implements OnInit {
 
     resize() {
         setTimeout(() => {
-            const graphContainer = window.outerWidth;
+            const graphContainer = window.innerWidth;
 
             if (this.cardArray.mainCard && this.cardArray.cluster.length && graphContainer >= 768) {
                 const followHeight = document.getElementById('followCard').clientHeight - 86;
