@@ -61,6 +61,8 @@
     "@angular/platform-browser-dynamic": "7.2.4",
     "@angular/router": "7.2.4",
     "@angular/tsc-wrapped": "^4.4.6",
+    "@storybook/addon-options": "^5.1.9",
+    "@storybook/addon-storysource": "^5.1.9",
     "@swimlane/ngx-charts": "^10.1.0",
     "ngx-pagination": "^3.1.1",
     "npm": "^6.0.1",
