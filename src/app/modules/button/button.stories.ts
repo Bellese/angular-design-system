@@ -1,5 +1,4 @@
 import { storiesOf } from '@storybook/angular';
-import { action } from '@storybook/addon-actions';
 
 import { AppButtonComponent } from './button.component';
 
