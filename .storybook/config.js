@@ -5,6 +5,7 @@ import { themes } from '@storybook/theming';
 const req = require.context('../src/', true, /\.stories\.ts$/);
 function loadStories() {
   req.keys().forEach(filename => req(filename));
+  document.body.className += ' ' + 'ds-base'
 }
 
 addParameters({
