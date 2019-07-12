@@ -1,14 +1,14 @@
-import { storiesOf } from '@storybook/angular';
-import { action } from '@storybook/addon-actions';
+import { storiesOf, moduleMetadata } from '@storybook/angular';
 
 import { AlertComponent } from './alert.component';
 
-
 storiesOf('Alert', module)
-    .add('Normal', () => ({
-        moduleMetadata: {
+    .addDecorator(
+        moduleMetadata({
             declarations: [AlertComponent],
-        },
+        }),
+    )
+    .add('Normal', () => ({
         template: `
             <app-alert
                 dataAutoId = 'dataID'
@@ -20,9 +20,6 @@ storiesOf('Alert', module)
         `,
     }))
     .add('With Close', () => ({
-        moduleMetadata: {
-            declarations: [AlertComponent],
-        },
         template: `
             <app-alert
                 dataAutoId = 'dataID'
@@ -34,9 +31,6 @@ storiesOf('Alert', module)
         `,
     }))
     .add('No Icon', () => ({
-        moduleMetadata: {
-            declarations: [AlertComponent],
-        },
         template: `
             <app-alert
                 dataAutoId = 'dataID'
@@ -48,9 +42,6 @@ storiesOf('Alert', module)
             </app-alert>
         `,
     })).add('No Header', () => ({
-        moduleMetadata: {
-            declarations: [AlertComponent],
-        },
         template: `
             <app-alert
                 dataAutoId = 'dataID'
@@ -61,9 +52,6 @@ storiesOf('Alert', module)
             </app-alert>
         `,
     })).add('Error', () => ({
-        moduleMetadata: {
-            declarations: [AlertComponent],
-        },
         template: `
             <app-alert
                 dataAutoId = 'dataID'

@@ -1,22 +1,17 @@
-import { storiesOf } from '@storybook/angular';
+import { storiesOf, moduleMetadata } from '@storybook/angular';
 
 import { AppCheckBoxComponent } from './check-box.component';
 
-const moduleMetadata = {
-    declarations: [AppCheckBoxComponent],
-};
+import { defaultProps } from '../../../../.storybook/helpers';
 
-function announce(e) {
-    console.log(e);
-}
-
-const props = {
-    announce: announce,
-};
 
 storiesOf('Check Box', module)
+    .addDecorator(
+        moduleMetadata({
+            declarations: [AppCheckBoxComponent],
+        }),
+    )
     .add('Normal', () => ({
-        moduleMetadata,
         template: `
             <app-check-box
                 index = 0
@@ -27,5 +22,5 @@ storiesOf('Check Box', module)
                 dataAutoId = 'testingID'>
             </app-check-box>
         `,
-        props
+        props: defaultProps
     }));

@@ -1,39 +1,37 @@
-import { storiesOf } from '@storybook/angular';
+import { storiesOf, moduleMetadata } from '@storybook/angular';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PipesModule } from '../../pipes/pipes.module';
 
 import { AppCircleGraphComponent } from './circle-graph.component';
+import { PipesModule } from '../../pipes/pipes.module';
 
-const moduleMetadata = {
-    declarations: [AppCircleGraphComponent],
-    imports: [NgxChartsModule, BrowserAnimationsModule, PipesModule],
-};
-
-function announce(e) {
-    console.log(e);
-}
+import { defaultProps } from '../../../../.storybook/helpers';
 
 const pieData = [
     {
-        "name": "Accepted Files",
-        "value": 1000,
-        "attr": "rate"
+        'name': 'Accepted Files',
+        'value': 1000,
+        'attr': 'rate'
     },
     {
-        "name": "Rejected Files",
-        "value": 233
+        'name': 'Rejected Files',
+        'value': 233
     }
 ];
 
 const props = {
-    announce: announce,
+    ...defaultProps,
     pieData: pieData,
 };
 
 storiesOf('Circle Graph', module)
+    .addDecorator(
+        moduleMetadata({
+            declarations: [AppCircleGraphComponent],
+            imports: [NgxChartsModule, BrowserAnimationsModule, PipesModule],
+        }),
+    )
     .add('Normal', () => ({
-        moduleMetadata,
         template: `
             <app-circle-graph
                 dataAutoId = 'testingID'
@@ -49,7 +47,7 @@ storiesOf('Circle Graph', module)
                 tableSummary='An example of a pie chart with a legend'
                 firstColumnName='Total Files'
                 buttonClicked='pieGraphCard1'
-                (passButton)='announce($event)'>
+                (passButton)='handleClick($event)'>
             </app-circle-graph>
         `,
         props

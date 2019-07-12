@@ -2,13 +2,7 @@ import { storiesOf, moduleMetadata } from '@storybook/angular';
 
 import { AppButtonComponent } from './button.component';
 
-function announce(e) {
-    console.log(e);
-}
-
-const props = {
-    announce: announce,
-};
+import { defaultProps } from '../../../../.storybook/helpers';
 
 storiesOf('Button', module)
     .addDecorator(
@@ -25,9 +19,9 @@ storiesOf('Button', module)
                 [ariaSort] = true
                 dataAutoId = 'testingID'
                 [disabled]='false'
-                (callBack) = 'announce($event)'>
+                (callBack) = 'handleClick($event)'>
                     Example Button
             </app-button>
         `,
-        props
+        props: defaultProps
     }));

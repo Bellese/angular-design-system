@@ -1,37 +1,42 @@
-import { storiesOf } from '@storybook/angular';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { storiesOf, moduleMetadata } from '@storybook/angular';
 import { CommonModule } from '@angular/common';
-import { ModalModule } from '../modal/modal.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { BarGraphComponent } from './bar-graph.component';
-//import barGraphData from '../../../assets/data/bar-data.json';
+import { ModalModule } from '../modal/modal.module';
+
+import { defaultProps } from '../../../../.storybook/helpers';
 
 const barGraphData = [
     {
-        "name": "STP-2",
-        "value": 100
+        'name': 'STP-2',
+        'value': 100
     },
     {
-        "name": "STP-3",
-        "value": 6
-    }
-]
-
-function announce(e) {
-    console.log(e);
-}
+        'name': 'STP-3',
+        'value': 6
+    },
+    {
+        'name': 'STP-4',
+        'value': 55
+    },
+];
 
 const props = {
-    announce: announce,
+    ...defaultProps,
     barGraphData: barGraphData
 };
 
 storiesOf('Bar Graph', module)
-    .add('Normal', () => ({
-        moduleMetadata: {
+    .addDecorator(
+        moduleMetadata({
             declarations: [BarGraphComponent],
             imports: [CommonModule, NgxChartsModule, ModalModule, BrowserAnimationsModule],
+        }),
+    )
+    .add('Normal', () => ({
+        moduleMetadata: {
         },
         template: `
             <app-bar-graph

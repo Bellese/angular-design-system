@@ -1,28 +1,24 @@
-import { storiesOf } from '@storybook/angular';
+import { storiesOf, moduleMetadata } from '@storybook/angular';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppAccordionComponent } from './accordion.component';
 import { AppPanelComponent } from '../panel/panel.component';
 import { AppPlusComponent } from '../plus/plus.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-function announce(e) {
-    console.log(e);
-}
-
-const props = {
-    announce: announce,
-};
+import { defaultProps } from '../../../../.storybook/helpers';
 
 storiesOf('Accordian', module)
-    .add('Normal', () => ({
-        moduleMetadata: {
+    .addDecorator(
+        moduleMetadata({
             declarations: [AppAccordionComponent, AppPanelComponent, AppPlusComponent],
             imports: [BrowserAnimationsModule],
-        },
+        }),
+    )
+    .add('Normal', () => ({
         template: `
             <app-accordion>
                 <app-panel
-                    (panelClick) = "announce($event)"
+                    (panelClick) = "handleClick($event)"
                     title ='Accordion Example'
                     extTitleClass = 'customizeExtra'
                     dataAutoId = 'dataID'
@@ -37,7 +33,7 @@ storiesOf('Accordian', module)
                     </div>
                 </app-panel>
                 <app-panel
-                    (panelClick) = "announce($event)"
+                    (panelClick) = "handleClick($event)"
                     title ='Accordion Example'
                     extTitleClass = 'customizeExtra'
                     dataAutoId = 'dataID'
@@ -53,6 +49,6 @@ storiesOf('Accordian', module)
                 </app-panel>
             </app-accordion>
         `,
-        props
+        props: defaultProps
     }));
 
