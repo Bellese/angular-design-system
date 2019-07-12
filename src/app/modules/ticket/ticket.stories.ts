@@ -1,31 +1,25 @@
-import { storiesOf } from '@storybook/angular';
+import { storiesOf , moduleMetadata} from '@storybook/angular';
 
 import { AppTicketComponent } from './ticket.component';
 
-const moduleMetadata = {
-    declarations: [AppTicketComponent],
-};
-
-function announce(e) {
-    console.log(e);
-}
-
-const props = {
-    announce: announce,
-};
+import { defaultProps } from '../../../../.storybook/helpers';
 
 storiesOf('Ticket', module)
+    .addDecorator(
+        moduleMetadata({
+            declarations: [AppTicketComponent],
+        }),
+    )
     .add('Normal', () => ({
-        moduleMetadata,
         template: `
             <app-ticket
                 dataAutoId = 'testingID'
                 [id]="'ticketComp'"
                 [title]="'eCQM'"
                 [description]="'Track status and validation of EHR patients.'"
-                (buttonClick)="announce($event)">
+                (buttonClick)="handleClick($event)">
                 <img src="../assets/images/performance.svg" width="50px" height="50px" alt="Place holder image">
             </app-ticket>
         `,
-        props
+        props: defaultProps
     }));

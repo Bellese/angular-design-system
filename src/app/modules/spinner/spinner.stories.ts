@@ -1,22 +1,14 @@
-import { storiesOf } from '@storybook/angular';
+import { storiesOf, moduleMetadata } from '@storybook/angular';
 
 import { SpinnerComponent } from './spinner.component';
 
-const moduleMetadata = {
-    declarations: [SpinnerComponent],
-};
-
-function announce(e) {
-    console.log(e);
-}
-
-const props = {
-    announce: announce,
-};
-
 storiesOf('Spinner', module)
+    .addDecorator(
+        moduleMetadata({
+            declarations: [SpinnerComponent],
+        }),
+    )
     .add('Normal', () => ({
-        moduleMetadata,
         template: `
             <app-spinner
                 size = 'big'
@@ -27,5 +19,4 @@ storiesOf('Spinner', module)
                 dataAutoId = 'testingID'>
             </app-spinner>
         `,
-        props
     }));

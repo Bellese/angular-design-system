@@ -1,23 +1,15 @@
-import { storiesOf } from '@storybook/angular';
+import { storiesOf, moduleMetadata } from '@storybook/angular';
 
 import { StarRatingComponent } from './star-rating.component';
 import { StarComponent } from '../star/star.component';
 
-const moduleMetadata = {
-    declarations: [StarComponent, StarRatingComponent],
-};
-
-function announce(e) {
-    console.log(e);
-}
-
-const props = {
-    announce: announce,
-};
-
 storiesOf('Star Rating', module)
+    .addDecorator(
+        moduleMetadata({
+            declarations: [StarComponent, StarRatingComponent],
+        }),
+    )
     .add('Normal', () => ({
-        moduleMetadata,
         template: `
             <app-star-rating
                 dataAutoId = 'testingID'
@@ -27,5 +19,4 @@ storiesOf('Star Rating', module)
                 [rating]="2">
             </app-star-rating>
         `,
-        props
     }));

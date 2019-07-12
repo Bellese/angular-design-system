@@ -1,25 +1,23 @@
-import { storiesOf } from '@storybook/angular';
+import { storiesOf, moduleMetadata } from '@storybook/angular';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppPaginationComponent } from './paging.component';
 
-const moduleMetadata = {
-    declarations: [AppPaginationComponent],
-    imports: [NgxPaginationModule],
-};
-
-function announce(e) {
-    console.log(e);
-}
+import { defaultProps } from '../../../../.storybook/helpers';
 
 const props = {
-    announce: announce,
+    ...defaultProps,
     list: [1, 2, 3, 4, 5, 6, 7, 8]
 };
 
 storiesOf('Paging', module)
+    .addDecorator(
+        moduleMetadata({
+            declarations: [AppPaginationComponent],
+            imports: [NgxPaginationModule],
+        }),
+    )
     .add('Normal', () => ({
-        moduleMetadata,
         template: `
             <ul>
                 <li *ngFor="let item of list | paginate: { itemsPerPage: 3, currentPage: p}">

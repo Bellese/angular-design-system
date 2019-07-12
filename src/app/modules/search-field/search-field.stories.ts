@@ -1,22 +1,16 @@
-import { storiesOf } from '@storybook/angular';
+import { storiesOf, moduleMetadata } from '@storybook/angular';
 
 import { SearchFieldComponent } from './search-field.component';
 
-const moduleMetadata = {
-    declarations: [SearchFieldComponent],
-};
-
-function announce(e) {
-    console.log(e);
-}
-
-const props = {
-    announce: announce,
-};
+import { defaultProps } from '../../../../.storybook/helpers';
 
 storiesOf('Search Field', module)
+    .addDecorator(
+        moduleMetadata({
+            declarations: [SearchFieldComponent],
+        }),
+    )
     .add('Normal', () => ({
-        moduleMetadata,
         template: `
             <app-search-field
                 [reset]='resetSearch'
@@ -29,9 +23,9 @@ storiesOf('Search Field', module)
                 hint='Enter a search here'
                 hintClass='searchHint'
                 dataAutoId='testingID'
-                (userInput)='announce($event)'
+                (userInput)='handleClick($event)'
                 (changes)="resetSearch = $event">
             </app-search-field>
         `,
-        props
+        props: defaultProps
     }));

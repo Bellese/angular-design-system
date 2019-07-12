@@ -1,38 +1,31 @@
-import { storiesOf } from '@storybook/angular';
+import { storiesOf, moduleMetadata } from '@storybook/angular';
 
 import { AppPlusComponent } from './plus.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-const moduleMetadata = {
-    declarations: [AppPlusComponent],
-    imports: [BrowserAnimationsModule],
-};
-
-function announce(e) {
-    console.log(e);
-}
-
-const props = {
-    announce: announce,
-};
-
 storiesOf('Plus', module)
+    .addDecorator(
+        moduleMetadata({
+            declarations: [AppPlusComponent],
+            imports: [BrowserAnimationsModule],
+        }),
+    )
     .add('Plus', () => ({
-        moduleMetadata,
         template: `
-            <div style='background-color: black; padding: 2em;'><app-plus
-                [expand] = false
-                [clicked] = false
-            ></app-plus></div>
+            <div class='on ds-u-fill--background-inverse ds-u-padding--2'>
+                <app-plus
+                    [expand] = false
+                    [clicked] = false >
+                </app-plus>
+            </div>
         `,
-        props
     })).add('Minus', () => ({
-        moduleMetadata,
         template: `
-            <div style='background-color: black; padding: 2em;'><app-plus
-                [expand] = true
-                [clicked] = true
-            ></app-plus></div>
+            <div class='on ds-u-fill--background-inverse ds-u-padding--2'>
+                <app-plus
+                    [expand] = true
+                    [clicked] = true >
+                </app-plus>
+            </div>
         `,
-        props
     }));

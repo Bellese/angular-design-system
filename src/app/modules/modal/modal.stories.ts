@@ -1,22 +1,13 @@
-import { storiesOf } from '@storybook/angular';
+import { storiesOf, moduleMetadata } from '@storybook/angular';
 import { CommonModule } from '@angular/common';
 
-import { AppButtonComponent } from '../button/button.component';
 import { AppModalComponent } from './modal.component';
 import { AppModalShellComponent } from '../modal-shell/modal-shell.component';
-import { ModalService } from '../../services/modal.service';
+import { AppButtonComponent } from '../button/button.component';
 import { AppTableModalComponent } from '../table/table-modal/table-modal.component';
+import { ModalService } from '../../services/modal.service';
 
-const moduleMetadata = {
-    declarations: [AppModalComponent, AppTableModalComponent, AppModalShellComponent, AppButtonComponent],
-    imports: [CommonModule],
-    providers: [ModalService],
-    entryComponents: [AppTableModalComponent],
-};
-
-function announce(e) {
-    console.log(e);
-}
+import { defaultProps } from '../../../../.storybook/helpers';
 
 const modalData = [
     {
@@ -55,17 +46,24 @@ const modalData = [
     {
         'paragraph': '( 8 ) - Results are based on a shorter time period than required.'
     }
-]
+];
 
 const props = {
-    announce: announce,
-    modalData: modalData,
+    ...defaultProps,
+    modalData,
     appTableModalComponent: AppTableModalComponent
 };
 
 storiesOf('Modal', module)
+    .addDecorator(
+        moduleMetadata({
+            declarations: [AppModalComponent, AppTableModalComponent, AppModalShellComponent, AppButtonComponent],
+            imports: [CommonModule],
+            providers: [ModalService],
+            entryComponents: [AppTableModalComponent],
+        }),
+    )
     .add('Normal', () => ({
-        moduleMetadata,
         template: `
             <app-modal
                 modalTitle='modalTitle'

@@ -1,54 +1,87 @@
-import { storiesOf } from '@storybook/angular';
-import { action } from '@storybook/addon-actions';
+import { storiesOf, moduleMetadata } from '@storybook/angular';
 
 import { AppDropDownComponent } from './drop-down.component';
-import dropDownData from '../../../assets/data/drop-down-data.json';
+
+import { defaultProps } from '../../../../.storybook/helpers';
+
+const dropDownData = [
+    {
+        'content': 'option1',
+        'value': 'op1'
+    },
+    {
+        'content': 'option2',
+        'value': 'op2'
+    },
+    {
+        'content': 'option3',
+        'value': 'op3'
+    }
+];
+
+const props = {
+    ...defaultProps,
+    dropDownData,
+};
 
 storiesOf('Drop Down', module)
+    .addDecorator(
+        moduleMetadata({
+            declarations: [AppDropDownComponent],
+        }),
+    )
     .add('Normal', () => ({
-        component: AppDropDownComponent,
-        props: {
-            options: dropDownData,
-            labelName: 'Drop down example',
-            id: 'DropDownExample',
-            dataAutoId: 'testingID',
-            selectClass: 'ds-c-field--medium',
-            selectedOption: action('The following value is emitted when the dropdown is changed'),
-        },
+        template: `
+            <app-drop-down
+                [options] = 'dropDownData'
+                labelName = 'Drop down example'
+                selectClass = 'ds-c-field--medium'
+                id = 'DropDownExample'
+                dataAutoId = 'testingID'
+                (selectedOption) = 'handleClick($event)'>
+            </app-drop-down>
+        `,
+        props,
     }))
     .add('Hint', () => ({
-        component: AppDropDownComponent,
-        props: {
-            options: dropDownData,
-            labelName: 'Drop down example',
-            id: 'DropDownExample',
-            dataAutoId: 'testingID',
-            selectClass: 'ds-c-field--medium',
-            hintMessage: 'Please choose a response',
-            selectedOption: action('The following value is emitted when the dropdown is changed'),
-        },
+        template: `
+            <app-drop-down
+                [options] = 'dropDownData'
+                labelName = 'Drop down example'
+                selectClass = 'ds-c-field--medium'
+                id = 'DropDownExample'
+                hintMessage = 'Please choose a response'
+                dataAutoId = 'testingID'
+                (selectedOption) = 'handleClick($event)'>
+            </app-drop-down>
+        `,
+        props,
     }))
     .add('Error', () => ({
-        component: AppDropDownComponent,
-        props: {
-            options: dropDownData,
-            labelName: 'Drop down example with Error',
-            id: 'DropDownExample',
-            dataAutoId: 'testingID',
-            selectClass: 'ds-c-field--medium',
-            error: true,
-            errorMessage: 'Please choose a correct response',
-            selectedOption: action('The following value is emitted when the dropdown is changed'),
-        },
+        template: `
+            <app-drop-down
+                [options] = 'dropDownData'
+                labelName = 'Drop down example'
+                selectClass = 'ds-c-field--medium'
+                id = 'DropDownExample'
+                errorMessage = 'Please input correct response'
+                [error] = true
+                dataAutoId = 'testingID'
+                (selectedOption) = 'handleClick($event)'>
+            </app-drop-down>
+        `,
+        props,
     })).add('Selected Option', () => ({
-        component: AppDropDownComponent,
-        props: {
-            options: dropDownData,
-            labelName: 'Drop down example with Error',
-            id: 'DropDownExample',
-            dataAutoId: 'testingID',
-            selectClass: 'ds-c-field--medium',
-            defaultSelected: 2,
-            selectedOption: action('The following value is emitted when the dropdown is changed'),
-        },
+        template: `
+            <app-drop-down
+                [options] = 'dropDownData'
+                labelName = 'Drop down example'
+                selectClass = 'ds-c-field--medium'
+                id = 'DropDownExample'
+                dataAutoId = 'testingID'
+                [defaultSelected] = 2
+                (selectedOption) = 'handleClick($event)'>
+            </app-drop-down>
+        `,
+        props,
     }));

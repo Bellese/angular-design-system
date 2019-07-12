@@ -1,4 +1,4 @@
-import { storiesOf } from '@storybook/angular';
+import { storiesOf, moduleMetadata } from '@storybook/angular';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { RouterModule } from '@angular/router';
 
@@ -13,26 +13,23 @@ import { StarRatingComponent } from '../../star/star-rating/star-rating.componen
 import { AppPaginationComponent } from '../../paging/paging.component';
 import { AppButtonComponent } from '../../button/button.component';
 import { AppCheckBoxComponent } from '../../check-box/check-box.component';
-
-// pipes modules
+import { ModalService } from '../../../services/modal.service';
 import { PipesModule } from '../../../pipes/pipes.module';
 import { FilterPipe } from '../../../pipes/filter.pipe';
 
-const moduleMetadata = {
-    declarations: [AppTableComponent, AppTableHeaderComponent, AppTableRowComponent, StarComponent, StarRatingComponent, AppPaginationComponent, AppButtonComponent, AppCheckBoxComponent, AppTableDataComponent],
-    imports: [NgxPaginationModule, PipesModule, RouterModule],
-    providers: [FilterPipe]
-};
+import { defaultProps } from '../../../../../.storybook/helpers';
 
 // TODO: Implement modal popups
-function buttonClick(e) {
-    if (e.button) {
-        console.log(e);
-        this.modalService
-        .appendComponentToBody(AppTableModalComponent, e.event.target.id, 'Modal Example', e.button.array, 'cancelButton1');
-    } else {
-        console.log('Button pressed.');
-    }
+function handleClickTable(event) {
+    defaultProps.handleClick(event);
+    // const modalService = new ModalService();
+    // modalService.appendComponentToBody(
+    //     AppTableModalComponent,
+    //     event.event.target.id,
+    //     'Modal Example',
+    //     event.button.array,
+    //     'cancelButton1'
+    // );
 }
 
 const tableData = {
@@ -1174,13 +1171,20 @@ const tableData = {
 };
 
 const props = {
-    buttonClick: buttonClick,
+    ...defaultProps,
+    handleClickTable: handleClickTable,
     tableData,
 };
 
 storiesOf('Table', module)
+    .addDecorator(
+        moduleMetadata({
+            declarations: [AppTableComponent, AppTableHeaderComponent, AppTableRowComponent, StarComponent, StarRatingComponent, AppPaginationComponent, AppButtonComponent, AppCheckBoxComponent, AppTableDataComponent],
+            imports: [NgxPaginationModule, PipesModule, RouterModule],
+            providers: [FilterPipe, ModalService]
+        }),
+    )
     .add('Normal', () => ({
-        moduleMetadata,
         template: `
             <app-table
                 [headers]="tableData.tableHeaders"
@@ -1188,8 +1192,8 @@ storiesOf('Table', module)
                 [paginate]="true"
                 [total]="tableData.count"
                 [maxRows]=10
-                (buttonClick)="buttonClick($event)"
-                (paginateNext)="announce($event)">
+                (buttonClick)="handleClickTable($event)"
+                (paginateNext)="handleClick($event)">
             </app-table>
         `,
         props

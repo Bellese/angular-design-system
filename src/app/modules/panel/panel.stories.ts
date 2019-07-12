@@ -1,29 +1,23 @@
-import { storiesOf } from '@storybook/angular';
+import { storiesOf, moduleMetadata } from '@storybook/angular';
 
 import { AppPanelComponent } from './panel.component';
 import { AppPlusComponent } from '../plus/plus.component';
 import { AppButtonComponent } from '../button/button.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-const moduleMetadata = {
-    declarations: [AppPanelComponent, AppButtonComponent, AppPlusComponent],
-    imports: [BrowserAnimationsModule],
-};
-
-function announce(e) {
-    console.log(e);
-}
-
-const props = {
-    announce: announce,
-};
+import { defaultProps } from '../../../../.storybook/helpers';
 
 storiesOf('Panel', module)
+    .addDecorator(
+        moduleMetadata({
+            declarations: [AppPanelComponent, AppButtonComponent, AppPlusComponent],
+            imports: [BrowserAnimationsModule],
+        }),
+    )
     .add('Normal', () => ({
-        moduleMetadata,
         template: `
             <app-panel
-                (panelClick) = "announce($event)"
+                (panelClick) = "handleClick($event)"
                 title ='Panel Example'
                 extTitleClass = 'customizeExtra'
                 dataAutoId = 'dataID'
@@ -39,7 +33,7 @@ storiesOf('Panel', module)
                 </div>
             </app-panel>
         `,
-        props
+        props: defaultProps
     }));
 
 

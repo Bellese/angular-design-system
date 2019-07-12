@@ -1,22 +1,16 @@
-import { storiesOf } from '@storybook/angular';
+import { storiesOf, moduleMetadata } from '@storybook/angular';
 
 import { AppTextFieldComponent } from './text-field.component';
 
-const moduleMetadata = {
-    declarations: [AppTextFieldComponent],
-};
-
-function announce(e) {
-    console.log(e);
-}
-
-const props = {
-    announce: announce,
-};
+import { defaultProps } from '../../../../.storybook/helpers';
 
 storiesOf('Text Field', module)
+    .addDecorator(
+        moduleMetadata({
+            declarations: [AppTextFieldComponent],
+        }),
+    )
     .add('Normal', () => ({
-        moduleMetadata,
         template: `
             <app-text-field
                 title = 'Text Field Title'
@@ -26,8 +20,8 @@ storiesOf('Text Field', module)
                 hint = 'Text Field Hint'
                 hintClass = 'ds-u-color--muted'
                 dataAutoId = 'testingID'
-                (userInput) = 'announce($event)'>
+                (userInput) = 'handleClick($event)'>
             </app-text-field>
         `,
-        props
+        props: defaultProps
     }));

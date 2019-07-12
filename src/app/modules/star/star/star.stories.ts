@@ -1,22 +1,14 @@
-import { storiesOf } from '@storybook/angular';
+import { storiesOf, moduleMetadata } from '@storybook/angular';
 
 import { StarComponent } from './star.component';
 
-const moduleMetadata = {
-    declarations: [StarComponent],
-};
-
-function announce(e) {
-    console.log(e);
-}
-
-const props = {
-    announce: announce,
-};
-
 storiesOf('Star', module)
+    .addDecorator(
+        moduleMetadata({
+            declarations: [StarComponent],
+        }),
+    )
     .add('Normal', () => ({
-        moduleMetadata,
         template: `
             <app-star
                 [fill] = 'true'
@@ -28,5 +20,4 @@ storiesOf('Star', module)
                 dataAutoId = 'testingID'>
             </app-star>
         `,
-        props
     }));
