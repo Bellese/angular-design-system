@@ -17,7 +17,7 @@ storiesOf('Panel', module)
     .add('Normal', () => ({
         template: `
             <app-panel
-                (panelClick) = "handleClick($event)"
+                (panelClick) = "handleEvent($event)"
                 title ='Panel Example'
                 extTitleClass = 'customizeExtra'
                 dataAutoId = 'dataID'

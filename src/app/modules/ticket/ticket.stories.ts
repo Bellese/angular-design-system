@@ -17,7 +17,7 @@ storiesOf('Ticket', module)
                 [id]="'ticketComp'"
                 [title]="'eCQM'"
                 [description]="'Track status and validation of EHR patients.'"
-                (buttonClick)="handleClick($event)">
+                (buttonClick)="handleEvent($event)">
                 <img src="../assets/images/performance.svg" width="50px" height="50px" alt="Place holder image">
             </app-ticket>
         `,

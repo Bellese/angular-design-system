@@ -37,7 +37,7 @@ var VerticalNavItemLabel = exports.VerticalNavItemLabel = function (_React$PureC
 
     var _this = _possibleConstructorReturn(this, (VerticalNavItemLabel.__proto__ || Object.getPrototypeOf(VerticalNavItemLabel)).call(this, props));
 
-    _this.handleClick = _this.handleClick.bind(_this);
+    _this.handleEvent = _this.handleEvent.bind(_this);
     _this.LabelComponent = _this.componentType();
     return _this;
   }
@@ -61,8 +61,8 @@ var VerticalNavItemLabel = exports.VerticalNavItemLabel = function (_React$PureC
       return 'div';
     }
   }, {
-    key: 'handleClick',
-    value: function handleClick(evt) {
+    key: 'handleEvent',
+    value: function handleEvent(evt) {
       this.props.onClick(evt);
     }
   }, {
@@ -89,7 +89,7 @@ var VerticalNavItemLabel = exports.VerticalNavItemLabel = function (_React$PureC
           'ds-c-vertical-nav__label--current': this.props.selected,
           'ds-c-vertical-nav__label--parent': this.props.hasSubnav
         }),
-        onClick: this.props.onClick ? this.handleClick : undefined
+        onClick: this.props.onClick ? this.handleEvent : undefined
       };
 
       if (this.LabelComponent === 'a') {

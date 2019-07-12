@@ -20,7 +20,7 @@ storiesOf('Text Field', module)
                 hint = 'Text Field Hint'
                 hintClass = 'ds-u-color--muted'
                 dataAutoId = 'testingID'
-                (userInput) = 'handleClick($event)'>
+                (userInput) = 'handleEvent($event)'>
             </app-text-field>
         `,
         props: defaultProps

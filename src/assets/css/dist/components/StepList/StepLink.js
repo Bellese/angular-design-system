@@ -33,8 +33,8 @@ var StepLink = exports.StepLink = function (_React$PureComponent) {
   }
 
   _createClass(StepLink, [{
-    key: 'handleClick',
-    value: function handleClick(event) {
+    key: 'handleEvent',
+    value: function handleEvent(event) {
       if (this.props.onClick) {
         event.preventDefault();
         this.props.onClick(this.props.href, this.props.stepId);
@@ -52,7 +52,7 @@ var StepLink = exports.StepLink = function (_React$PureComponent) {
           children = _props.children;
 
       var onClick = function onClick(event) {
-        return _this2.handleClick(event);
+        return _this2.handleEvent(event);
       };
       return _react2.default.createElement(
         'a',

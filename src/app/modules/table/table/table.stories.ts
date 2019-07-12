@@ -20,8 +20,8 @@ import { FilterPipe } from '../../../pipes/filter.pipe';
 import { defaultProps } from '../../../../../.storybook/helpers';
 
 // TODO: Implement modal popups
-function handleClickTable(event) {
-    defaultProps.handleClick(event);
+function handleEventTable(event) {
+    defaultProps.handleEvent(event);
     // const modalService = new ModalService();
     // modalService.appendComponentToBody(
     //     AppTableModalComponent,
@@ -1172,7 +1172,7 @@ const tableData = {
 
 const props = {
     ...defaultProps,
-    handleClickTable: handleClickTable,
+    handleEventTable: handleEventTable,
     tableData,
 };
 
@@ -1192,8 +1192,8 @@ storiesOf('Table', module)
                 [paginate]="true"
                 [total]="tableData.count"
                 [maxRows]=10
-                (buttonClick)="handleClickTable($event)"
-                (paginateNext)="handleClick($event)">
+                (buttonClick)="handleEventTable($event)"
+                (paginateNext)="handleEvent($event)">
             </app-table>
         `,
         props

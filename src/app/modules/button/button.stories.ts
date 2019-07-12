@@ -19,7 +19,7 @@ storiesOf('Button', module)
                 [ariaSort] = true
                 dataAutoId = 'testingID'
                 [disabled]='false'
-                (callBack) = 'handleClick($event)'>
+                (callBack) = 'handleEvent($event)'>
                     Example Button
             </app-button>
         `,

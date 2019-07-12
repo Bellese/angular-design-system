@@ -77,7 +77,7 @@ storiesOf('Card Cluster', module)
                 [cardArray]="cardClusterDataNormal"
                 buttonClicked='CardCluster0'
                 dataAutoId = 'testingID'
-                (passButton)="handleClick($event)">
+                (passButton)="handleEvent($event)">
             </app-card-cluster>
         `,
         props,
@@ -88,7 +88,7 @@ storiesOf('Card Cluster', module)
                 [cardArray]="cardClusterDataWithoutMain"
                 buttonClicked='CardCluster1'
                 dataAutoId = 'testingID'
-                (passButton)="handleClick($event)">
+                (passButton)="handleEvent($event)">
             </app-card-cluster>
         `,
         props,
@@ -99,7 +99,7 @@ storiesOf('Card Cluster', module)
                 [cardArray]="cardClusterDataWithoutMiniCards"
                 buttonClicked='CardCluster0'
                 dataAutoId = 'testingID'
-                (passButton)="handleClick($event)">
+                (passButton)="handleEvent($event)">
             </app-card-cluster>
         `,
         props,
@@ -109,7 +109,7 @@ storiesOf('Card Cluster', module)
                 [cardArray]="cardClusterDataNormal"
                 buttonClicked='CardCluster4'
                 dataAutoId = 'testingID'
-                (passButton)="handleClick($event)">
+                (passButton)="handleEvent($event)">
             </app-card-cluster>
         `,
         props,
@@ -119,7 +119,7 @@ storiesOf('Card Cluster', module)
                 [cardArray]="cardClusterDataSetTotal"
                 buttonClicked='CardCluster4'
                 dataAutoId = 'testingID'
-                (passButton)="handleClick($event)">
+                (passButton)="handleEvent($event)">
             </app-card-cluster>
         `,
         props,

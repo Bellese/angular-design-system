@@ -18,7 +18,7 @@ storiesOf('Accordian', module)
         template: `
             <app-accordion>
                 <app-panel
-                    (panelClick) = "handleClick($event)"
+                    (panelClick) = "handleEvent($event)"
                     title ='Accordion Example'
                     extTitleClass = 'customizeExtra'
                     dataAutoId = 'dataID'
@@ -33,7 +33,7 @@ storiesOf('Accordian', module)
                     </div>
                 </app-panel>
                 <app-panel
-                    (panelClick) = "handleClick($event)"
+                    (panelClick) = "handleEvent($event)"
                     title ='Accordion Example'
                     extTitleClass = 'customizeExtra'
                     dataAutoId = 'dataID'

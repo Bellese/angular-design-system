@@ -23,7 +23,7 @@ storiesOf('Search Field', module)
                 hint='Enter a search here'
                 hintClass='searchHint'
                 dataAutoId='testingID'
-                (userInput)='handleClick($event)'
+                (userInput)='handleEvent($event)'
                 (changes)="resetSearch = $event">
             </app-search-field>
         `,

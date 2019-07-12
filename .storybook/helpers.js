@@ -1,9 +1,9 @@
 
 
-export function handleClick(event) {
+export function handleEvent(event) {
     console.log('The following value is emitted:', event);
 }
 
 export const defaultProps = {
-    handleClick: handleClick,
+    handleEvent: handleEvent,
 }

@@ -47,7 +47,7 @@ storiesOf('Circle Graph', module)
                 tableSummary='An example of a pie chart with a legend'
                 firstColumnName='Total Files'
                 buttonClicked='pieGraphCard1'
-                (passButton)='handleClick($event)'>
+                (passButton)='handleEvent($event)'>
             </app-circle-graph>
         `,
         props

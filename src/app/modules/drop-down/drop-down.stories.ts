@@ -38,7 +38,7 @@ storiesOf('Drop Down', module)
                 selectClass = 'ds-c-field--medium'
                 id = 'DropDownExample'
                 dataAutoId = 'testingID'
-                (selectedOption) = 'handleClick($event)'>
+                (selectedOption) = 'handleEvent($event)'>
             </app-drop-down>
         `,
         props,
@@ -52,7 +52,7 @@ storiesOf('Drop Down', module)
                 id = 'DropDownExample'
                 hintMessage = 'Please choose a response'
                 dataAutoId = 'testingID'
-                (selectedOption) = 'handleClick($event)'>
+                (selectedOption) = 'handleEvent($event)'>
             </app-drop-down>
         `,
         props,
@@ -67,7 +67,7 @@ storiesOf('Drop Down', module)
                 errorMessage = 'Please input correct response'
                 [error] = true
                 dataAutoId = 'testingID'
-                (selectedOption) = 'handleClick($event)'>
+                (selectedOption) = 'handleEvent($event)'>
             </app-drop-down>
         `,
         props,
@@ -80,7 +80,7 @@ storiesOf('Drop Down', module)
                 id = 'DropDownExample'
                 dataAutoId = 'testingID'
                 [defaultSelected] = 2
-                (selectedOption) = 'handleClick($event)'>
+                (selectedOption) = 'handleEvent($event)'>
             </app-drop-down>
         `,
         props,
