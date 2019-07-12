@@ -15,7 +15,7 @@ export class AppCardClusterComponent implements OnInit {
     @Input() buttonClicked = 'CardCluster0';
     numArray1 = [];
     numArray = [];
-    total: number = null;
+    total: string = null;
     mainCardWidth: number;
 
     constructor() { }
@@ -36,15 +36,20 @@ export class AppCardClusterComponent implements OnInit {
         }
 
         // Main card total
+        let cardsTotal: number = null;
         if (this.cardArray.total !== null &&  this.cardArray.total !== undefined) {
-            // Convert the total value to a string because angular ignores the value 0
-            this.total = this.cardArray.total.toString();
+            cardsTotal = this.cardArray.total;
         } else {
-            this.cardArray.cluster.map( x => {
-                (x.value && typeof x.value === 'number') ? this.total += x.value : null;
+            this.cardArray.cluster.map( card => {
+                if ((card.value || card.value === 0) && typeof card.value === 'number') {
+                    cardsTotal += card.value;
+                }
             });
         }
-
+        // Convert the total value to a string because angular ignores the numerical value of 0
+        if (cardsTotal !== null) {
+            this.total = cardsTotal.toString();
+        }
 
         // sequence 1 is for desktop layout
 
