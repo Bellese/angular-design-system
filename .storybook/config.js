@@ -1,5 +1,6 @@
 import { addParameters, configure } from '@storybook/angular';
 import { themes } from '@storybook/theming';
+import '@storybook/addon-console';
 
 // automatically import all files ending in *.stories.ts
 const req = require.context('../src/', true, /\.stories\.ts$/);
@@ -15,5 +16,7 @@ addParameters({
     theme: themes.normal,
   },
 });
+
+addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 
 configure(loadStories, module);
