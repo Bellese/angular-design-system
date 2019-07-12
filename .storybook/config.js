@@ -17,6 +17,4 @@ addParameters({
   },
 });
 
-addDecorator((storyFn, context) => withConsole()(storyFn)(context));
-
 configure(loadStories, module);
