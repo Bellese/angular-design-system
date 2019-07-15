@@ -78,7 +78,7 @@ var VerticalNavItem = exports.VerticalNavItem = function (_React$PureComponent) 
         return this.handleToggleClick();
       }
 
-      return this.handleEvent(evt);
+      return this.handleClick(evt);
     }
 
     /**
@@ -87,8 +87,8 @@ var VerticalNavItem = exports.VerticalNavItem = function (_React$PureComponent) 
      */
 
   }, {
-    key: 'handleEvent',
-    value: function handleEvent(evt) {
+    key: 'handleClick',
+    value: function handleClick(evt) {
       if (this.props.onClick) {
         this.props.onClick(evt, this.id, this.props.url);
       }

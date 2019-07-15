@@ -36,15 +36,15 @@ var Tab = exports.Tab = function (_React$PureComponent) {
     var _this = _possibleConstructorReturn(this, (Tab.__proto__ || Object.getPrototypeOf(Tab)).call(this, props));
 
     _this.focus = _this.focus.bind(_this);
-    _this.handleEvent = _this.handleEvent.bind(_this);
+    _this.handleClick = _this.handleClick.bind(_this);
     _this.handleKeyDown = _this.handleKeyDown.bind(_this);
     _this.href = _this.props.href || '#' + _this.props.panelId;
     return _this;
   }
 
   _createClass(Tab, [{
-    key: 'handleEvent',
-    value: function handleEvent(evt) {
+    key: 'handleClick',
+    value: function handleClick(evt) {
       if (this.props.onClick) {
         this.props.onClick(evt, this.props.panelId, this.props.id, this.href);
       }
@@ -76,7 +76,7 @@ var Tab = exports.Tab = function (_React$PureComponent) {
           className: classes,
           href: this.href,
           id: this.props.id,
-          onClick: this.handleEvent,
+          onClick: this.handleClick,
           onKeyDown: this.handleKeyDown,
           role: 'tab',
           ref: function ref(tab) {

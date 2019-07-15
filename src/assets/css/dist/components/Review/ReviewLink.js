@@ -33,8 +33,8 @@ var ReviewLink = exports.ReviewLink = function (_React$PureComponent) {
   }
 
   _createClass(ReviewLink, [{
-    key: 'handleEvent',
-    value: function handleEvent(event) {
+    key: 'handleClick',
+    value: function handleClick(event) {
       if (this.props.onClick) {
         this.props.onClick(event, this.props.href);
       }
@@ -51,7 +51,7 @@ var ReviewLink = exports.ReviewLink = function (_React$PureComponent) {
           ariaLabel = _props.ariaLabel;
 
       var onClick = function onClick(event) {
-        return _this2.handleEvent(event);
+        return _this2.handleClick(event);
       };
       return _react2.default.createElement(
         'div',

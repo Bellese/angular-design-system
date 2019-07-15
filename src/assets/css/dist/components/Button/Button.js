@@ -76,7 +76,7 @@ var Button = exports.Button = function (_React$PureComponent) {
       }, props);
 
       if (this.props.onClick) {
-        attrs.onClick = this.handleEvent.bind(this);
+        attrs.onClick = this.handleClick.bind(this);
       }
 
       return attrs;
@@ -100,8 +100,8 @@ var Button = exports.Button = function (_React$PureComponent) {
       return (0, _classnames2.default)('ds-c-button', disabledClass, !disabledClass && variationClass, this.props.size && 'ds-c-button--' + this.props.size, this.props.className);
     }
   }, {
-    key: 'handleEvent',
-    value: function handleEvent(e) {
+    key: 'handleClick',
+    value: function handleClick(e) {
       if (!this.props.disabled) {
         this.props.onClick(e);
       }
