@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { Animations } from '../animations/animations.js';
+import { Animations } from '../animations/animations';
 
 @Component({
     selector: 'app-panel',

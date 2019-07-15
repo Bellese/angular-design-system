@@ -13,6 +13,7 @@ import pieData from '../assets/data/pie-data.json';
 import barData from '../assets/data/bar-data.json';
 import cluster from '../assets/data/cluster-data.json';
 import singleTableData from '../assets/data/single-table-data.json';
+import dropDownData from '../assets/data/drop-down-data.json';
 import { ModalService } from './services/modal.service';
 import { ExampleModalComponent } from './components/example-modal/example-modal.component';
 import { AppTableModalComponent } from './modules/table/table-modal/table-modal.component';
