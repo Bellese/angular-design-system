@@ -69,7 +69,7 @@ const props = {
     lineGraphData
 }
 
-storiesOf('Line Graph', module)
+storiesOf('Components|Line Graph', module)
     .addDecorator(
         moduleMetadata({
             declarations: [AppLineGraphComponent],

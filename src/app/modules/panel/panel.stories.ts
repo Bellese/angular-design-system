@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { defaultProps } from '../../../../.storybook/helpers';
 
-storiesOf('Panel', module)
+storiesOf('Components|Panel', module)
     .addDecorator(
         moduleMetadata({
             declarations: [AppPanelComponent, AppButtonComponent, AppPlusComponent],

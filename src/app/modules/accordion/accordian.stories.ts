@@ -7,7 +7,7 @@ import { AppPlusComponent } from '../plus/plus.component';
 
 import { defaultProps } from '../../../../.storybook/helpers';
 
-storiesOf('Accordian', module)
+storiesOf('Components|Accordian', module)
     .addDecorator(
         moduleMetadata({
             declarations: [AppAccordionComponent, AppPanelComponent, AppPlusComponent],

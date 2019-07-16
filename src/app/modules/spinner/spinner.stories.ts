@@ -2,7 +2,7 @@ import { storiesOf, moduleMetadata } from '@storybook/angular';
 
 import { SpinnerComponent } from './spinner.component';
 
-storiesOf('Spinner', module)
+storiesOf('Components|Spinner', module)
     .addDecorator(
         moduleMetadata({
             declarations: [SpinnerComponent],

@@ -24,7 +24,7 @@ const props = {
     pieData: pieData,
 };
 
-storiesOf('Circle Graph', module)
+storiesOf('Components|Circle Graph', module)
     .addDecorator(
         moduleMetadata({
             declarations: [AppCircleGraphComponent],

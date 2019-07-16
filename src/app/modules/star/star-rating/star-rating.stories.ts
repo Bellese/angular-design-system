@@ -3,7 +3,7 @@ import { storiesOf, moduleMetadata } from '@storybook/angular';
 import { StarRatingComponent } from './star-rating.component';
 import { StarComponent } from '../star/star.component';
 
-storiesOf('Star Rating', module)
+storiesOf('Components|Star Rating', module)
     .addDecorator(
         moduleMetadata({
             declarations: [StarComponent, StarRatingComponent],

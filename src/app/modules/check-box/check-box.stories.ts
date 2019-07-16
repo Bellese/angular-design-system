@@ -5,7 +5,7 @@ import { AppCheckBoxComponent } from './check-box.component';
 import { defaultProps } from '../../../../.storybook/helpers';
 
 
-storiesOf('Check Box', module)
+storiesOf('Components|Check Box', module)
     .addDecorator(
         moduleMetadata({
             declarations: [AppCheckBoxComponent],

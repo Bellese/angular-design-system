@@ -28,7 +28,7 @@ const props = {
     barGraphData: barGraphData
 };
 
-storiesOf('Bar Graph', module)
+storiesOf('Components|Bar Graph', module)
     .addDecorator(
         moduleMetadata({
             declarations: [BarGraphComponent],

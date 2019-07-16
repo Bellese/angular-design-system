@@ -65,7 +65,7 @@ const cardClusterDataWithoutMiniCards = {
      cardClusterDataSetTotal
  };
 
-storiesOf('Card Cluster', module)
+storiesOf('Components|Card Cluster', module)
     .addDecorator(
         moduleMetadata({
             declarations: [AppCardClusterComponent],

@@ -24,7 +24,7 @@ const props = {
     dropDownData,
 };
 
-storiesOf('Drop Down', module)
+storiesOf('Components|Drop Down', module)
     .addDecorator(
         moduleMetadata({
             declarations: [AppDropDownComponent],

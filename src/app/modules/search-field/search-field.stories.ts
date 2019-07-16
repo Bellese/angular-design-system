@@ -4,7 +4,7 @@ import { SearchFieldComponent } from './search-field.component';
 
 import { defaultProps } from '../../../../.storybook/helpers';
 
-storiesOf('Search Field', module)
+storiesOf('Components|Search Field', module)
     .addDecorator(
         moduleMetadata({
             declarations: [SearchFieldComponent],

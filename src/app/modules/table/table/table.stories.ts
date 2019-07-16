@@ -1176,7 +1176,7 @@ const props = {
     tableData,
 };
 
-storiesOf('Table', module)
+storiesOf('Components|Table', module)
     .addDecorator(
         moduleMetadata({
             declarations: [AppTableComponent, AppTableHeaderComponent, AppTableRowComponent, StarComponent, StarRatingComponent, AppPaginationComponent, AppButtonComponent, AppCheckBoxComponent, AppTableDataComponent],

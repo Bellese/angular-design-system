@@ -4,7 +4,7 @@ import { AppButtonComponent } from './button.component';
 
 import { defaultProps } from '../../../../.storybook/helpers';
 
-storiesOf('Button', module)
+storiesOf('Components|Button', module)
     .addDecorator(
         moduleMetadata({
             declarations: [AppButtonComponent],

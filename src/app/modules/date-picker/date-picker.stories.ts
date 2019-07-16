@@ -2,7 +2,7 @@ import { storiesOf, moduleMetadata } from '@storybook/angular';
 
 import { AppDatepickerComponent } from './date-picker.component';
 
-storiesOf('Date Picker', module)
+storiesOf('Components|Date Picker', module)
     .addDecorator(
         moduleMetadata({
             declarations: [AppDatepickerComponent],

@@ -4,7 +4,7 @@ import { AppTicketComponent } from './ticket.component';
 
 import { defaultProps } from '../../../../.storybook/helpers';
 
-storiesOf('Ticket', module)
+storiesOf('Components|Ticket', module)
     .addDecorator(
         moduleMetadata({
             declarations: [AppTicketComponent],

@@ -3,7 +3,7 @@ import { storiesOf, moduleMetadata } from '@storybook/angular';
 import { AppPlusComponent } from './plus.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-storiesOf('Plus', module)
+storiesOf('Components|Plus', module)
     .addDecorator(
         moduleMetadata({
             declarations: [AppPlusComponent],

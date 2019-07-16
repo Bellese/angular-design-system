@@ -4,7 +4,7 @@ import { AppTextFieldComponent } from './text-field.component';
 
 import { defaultProps } from '../../../../.storybook/helpers';
 
-storiesOf('Text Field', module)
+storiesOf('Components|Text Field', module)
     .addDecorator(
         moduleMetadata({
             declarations: [AppTextFieldComponent],

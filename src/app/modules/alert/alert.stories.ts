@@ -2,7 +2,7 @@ import { storiesOf, moduleMetadata } from '@storybook/angular';
 
 import { AlertComponent } from './alert.component';
 
-storiesOf('Alert', module)
+storiesOf('Components|Alert', module)
     .addDecorator(
         moduleMetadata({
             declarations: [AlertComponent],

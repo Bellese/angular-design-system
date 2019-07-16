@@ -10,7 +10,7 @@ const props = {
     list: [1, 2, 3, 4, 5, 6, 7, 8]
 };
 
-storiesOf('Paging', module)
+storiesOf('Components|Paging', module)
     .addDecorator(
         moduleMetadata({
             declarations: [AppPaginationComponent],
