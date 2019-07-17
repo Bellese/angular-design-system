@@ -30,6 +30,11 @@ storiesOf('Components|Drop Down', module)
             declarations: [AppDropDownComponent],
         }),
     )
+    .add('Intro', () => ({
+        template: `
+            The drop down component takes the following parameters:
+        `,
+    }))
     .add('Normal', () => ({
         template: `
             <app-drop-down

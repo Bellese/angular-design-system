@@ -10,6 +10,11 @@ storiesOf('Components|Ticket', module)
             declarations: [AppTicketComponent],
         }),
     )
+    .add('Intro', () => ({
+        template: `
+            The ticket component takes the following parameters:
+        `,
+    }))
     .add('Normal', () => ({
         template: `
             <app-ticket

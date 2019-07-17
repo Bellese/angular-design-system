@@ -15,30 +15,23 @@ import { Component, Output, EventEmitter } from '@angular/core';
                 npm i @cmsgov/design-system-core
                 npm i @cmsgov/design-system-layout
             </pre>
-            <h1>Step 3 - Setup</h1>
-            <p>
-                Once you have downloaded both packages, copy the design system's "fonts", "images", and "dist" directories
-                ("dist" is located inside of the "design-system-core" "design-system-layout" directories) inside of "@cms/gov"
-                in your application's "node_modules".
-            </p>
-            <p>Paste these directories into your Angular application's "assets" folder.</p>
-            <p>File structure:</p>
+            <h1>Step 3 - SCSS File</h1>
+            <p>Add the following lines to your SCSS file</p>
             <pre>
-                ├── assets/
-                    ├── css/
-                        ├── images/
-                            └── fonts/
-                            └── dist/
-                        ├── layout/
-                            └── dist/
+                @import '@cmsgov/design-system-support/src/settings/index';
+                $font-path:   '/assets/fonts';
+                $image-path:  '/assets/images';
+                @import '@cmsgov/design-system-core/src/index.scss';
+                @import '@cmsgov/design-system-layout/src/index.scss';
             </pre>
-            <p>Reference the styles in ".angular-cli.json"</p>
+            <h1>Step 4 - tsconfig.json</h1>
+            <p>Add the following line to the compilerOptions section of your tsconfig.json file</p>
             <pre>
-                "styles": [
-                    "styles.css",
-                    "assets/css/dist/index.css",
-                    "assets/layout/dist/index.css"
-                ],
+                "paths": &#123;
+                    "@angular/*":[
+                        "node_modules/@angular/*"
+                    ]
+                &#125;
             </pre>
         </main>
     `,

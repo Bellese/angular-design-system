@@ -10,6 +10,11 @@ storiesOf('Components|Text Field', module)
             declarations: [AppTextFieldComponent],
         }),
     )
+    .add('Intro', () => ({
+        template: `
+            The text field component takes the following parameters:
+        `,
+    }))
     .add('Normal', () => ({
         template: `
             <app-text-field

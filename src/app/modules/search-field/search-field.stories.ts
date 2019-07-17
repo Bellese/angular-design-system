@@ -10,6 +10,11 @@ storiesOf('Components|Search Field', module)
             declarations: [SearchFieldComponent],
         }),
     )
+    .add('Intro', () => ({
+        template: `
+            The search field component takes the following parameters:
+        `,
+    }))
     .add('Normal', () => ({
         template: `
             <app-search-field

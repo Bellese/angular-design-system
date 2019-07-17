@@ -11,6 +11,11 @@ storiesOf('Components|Check Box', module)
             declarations: [AppCheckBoxComponent],
         }),
     )
+    .add('Intro', () => ({
+        template: `
+            The check box component takes the following parameters:
+        `,
+    }))
     .add('Normal', () => ({
         template: `
             <app-check-box

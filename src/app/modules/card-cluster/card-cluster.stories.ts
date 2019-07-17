@@ -71,6 +71,11 @@ storiesOf('Components|Card Cluster', module)
             declarations: [AppCardClusterComponent],
         }),
     )
+    .add('Intro', () => ({
+        template: `
+            The card cluster component takes the following parameters:
+        `,
+    }))
     .add('Normal', () => ({
         template: `
             <app-card-cluster

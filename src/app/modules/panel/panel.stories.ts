@@ -14,6 +14,11 @@ storiesOf('Components|Panel', module)
             imports: [BrowserAnimationsModule],
         }),
     )
+    .add('Intro', () => ({
+        template: `
+            The panel component takes the following parameters:
+        `,
+    }))
     .add('Normal', () => ({
         template: `
             <app-panel

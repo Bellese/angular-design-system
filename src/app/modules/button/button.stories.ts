@@ -10,6 +10,11 @@ storiesOf('Components|Button', module)
             declarations: [AppButtonComponent],
         }),
     )
+    .add('Intro', () => ({
+        template: `
+            The button component takes the following parameters:
+        `,
+    }))
     .add('Normal', () => ({
         template: `
             <app-button

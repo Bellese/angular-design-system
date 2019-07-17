@@ -9,6 +9,11 @@ storiesOf('Components|Star Rating', module)
             declarations: [StarComponent, StarRatingComponent],
         }),
     )
+    .add('Intro', () => ({
+        template: `
+            The star rating graph component takes the following parameters:
+        `,
+    }))
     .add('Normal', () => ({
         template: `
             <app-star-rating

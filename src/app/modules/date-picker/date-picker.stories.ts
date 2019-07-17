@@ -8,6 +8,11 @@ storiesOf('Components|Date Picker', module)
             declarations: [AppDatepickerComponent],
         }),
     )
+    .add('Intro', () => ({
+        template: `
+            The date picker component takes the following parameters:
+        `,
+    }))
     .add('Normal', () => ({
         template: `
             <app-date-picker 

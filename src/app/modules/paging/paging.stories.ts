@@ -17,6 +17,11 @@ storiesOf('Components|Paging', module)
             imports: [NgxPaginationModule],
         }),
     )
+    .add('Intro', () => ({
+        template: `
+            The paging component takes the following parameters:
+        `,
+    }))
     .add('Normal', () => ({
         template: `
             <ul>

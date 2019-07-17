@@ -10,6 +10,11 @@ storiesOf('Components|Plus', module)
             imports: [BrowserAnimationsModule],
         }),
     )
+    .add('Intro', () => ({
+        template: `
+            The plus component takes the following parameters:
+        `,
+    }))
     .add('Plus', () => ({
         template: `
             <div class='on ds-u-fill--background-inverse ds-u-padding--2'>

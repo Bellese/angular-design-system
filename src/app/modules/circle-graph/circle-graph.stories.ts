@@ -31,6 +31,11 @@ storiesOf('Components|Circle Graph', module)
             imports: [NgxChartsModule, BrowserAnimationsModule, PipesModule],
         }),
     )
+    .add('Intro', () => ({
+        template: `
+            The circle graph component takes the following parameters:
+        `,
+    }))
     .add('Normal', () => ({
         template: `
             <app-circle-graph

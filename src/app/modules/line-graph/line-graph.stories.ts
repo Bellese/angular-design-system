@@ -76,6 +76,11 @@ storiesOf('Components|Line Graph', module)
             imports: [CommonModule, NgxChartsModule, ModalModule, DropdownModule, BrowserAnimationsModule, PipesModule],
         }),
     )
+    .add('Intro', () => ({
+        template: `
+            The line graph component takes the following parameters:
+        `,
+    }))
     .add('Normal', () => ({
         template: `
             <app-line-graph

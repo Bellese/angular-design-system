@@ -8,6 +8,11 @@ storiesOf('Components|Spinner', module)
             declarations: [SpinnerComponent],
         }),
     )
+    .add('Intro', () => ({
+        template: `
+            The spinner component takes the following parameters:
+        `,
+    }))
     .add('Normal', () => ({
         template: `
             <app-spinner

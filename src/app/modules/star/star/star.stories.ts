@@ -8,6 +8,11 @@ storiesOf('Components|Star', module)
             declarations: [StarComponent],
         }),
     )
+    .add('Intro', () => ({
+        template: `
+            The star component takes the following parameters:
+        `,
+    }))
     .add('Normal', () => ({
         template: `
             <app-star

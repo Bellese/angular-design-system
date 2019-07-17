@@ -63,6 +63,11 @@ storiesOf('Components|Modal', module)
             entryComponents: [AppTableModalComponent],
         }),
     )
+    .add('Intro', () => ({
+        template: `
+            The modal component takes the following parameters:
+        `,
+    }))
     .add('Normal', () => ({
         template: `
             <app-modal

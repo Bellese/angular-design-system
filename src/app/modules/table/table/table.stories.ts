@@ -1184,6 +1184,11 @@ storiesOf('Components|Table', module)
             providers: [FilterPipe, ModalService]
         }),
     )
+    .add('Intro', () => ({
+      template: `
+          The table component takes the following parameters:
+      `,
+    }))
     .add('Normal', () => ({
         template: `
             <app-table
