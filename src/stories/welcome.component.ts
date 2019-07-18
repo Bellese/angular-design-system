@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-storybook-welcome-component',
@@ -26,6 +26,4 @@ import { Component, Output, EventEmitter } from '@angular/core';
     styles: [],
 })
 export default class WelcomeComponent {
-    @Output()
-    showApp = new EventEmitter<any>();
 }

@@ -5,7 +5,10 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BarGraphComponent } from './bar-graph.component';
 import { ModalModule } from '../modal/modal.module';
 
-import ParameterComponent from '../../../stories/parameters.component';
+import ComponentIntroComponent from '../../../stories/component-intro.component';
+import ParametersComponent from '../../../stories/parameters.component';
+import ImportsComponent from '../../../stories/imports.component';
+import NgModuleComponent from '../../../stories/ngmodule.component';
 import { defaultProps } from '../../../../.storybook/helpers';
 
 const barGraphData = [
@@ -31,25 +34,36 @@ const props = {
 storiesOf('Components|Bar Graph', module)
     .addDecorator(
         moduleMetadata({
-            declarations: [BarGraphComponent, ParameterComponent],
+            declarations: [BarGraphComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
             imports: [NgxChartsModule, ModalModule, BrowserAnimationsModule],
         }),
     )
     .add('Intro', () => ({
         template: `
-            <h1>Import</h1>
-            <pre>
-                import &#123; BarGraphModule &#125; from '@bellese/angular-design-system';
-                import &#123; ModalModule &#125; from '@bellese/angular-design-system';
-                import &#123; NgxChartsModule &#125; from '@swimlane/ngx-charts';
-                import &#123; BrowserAnimationsModule &#125; from '@angular/platform-browser/animations';
-            </pre>
-            <h1>NgModule</h1>
-            <p>Add <code>BarGraphModule</code>, <code>ModalModule</code>, <code>NgxChartsModule</code>, <code>BrowserAnimationsModule</code> to the <code>imports</code> section of your NgModule definition
-            <h1>Parameters</h1>
-            <app-storybook-parameter-component [parameters]="parameters"></app-storybook-parameter-component>
+            <app-storybook-compoennt-intro-component
+                [imports]="imports"
+                [parameters]="parameters"
+                [notes]="notes"
+            ></app-storybook-compoennt-intro-component>
         `,
         props: {
+            imports: [
+                {
+                    modules: ['BarGraphModule', 'ModalModule'],
+                    file: '@bellese/angular-design-system',
+                    ngmodule: 'imports',
+                },
+                {
+                    modules: ['NgxChartsModule'],
+                    file: '@swimlane/ngx-charts',
+                    ngmodule: 'imports',
+                },
+                {
+                    modules: ['BrowserAnimationsModule'],
+                    file: '@angular/platform-browser/animations',
+                    ngmodule: 'imports',
+                },
+            ],
             parameters: [
                 {
                     name: 'data',
@@ -68,7 +82,7 @@ storiesOf('Components|Bar Graph', module)
                 },
                 {
                     name: 'colorScheme',
-                    type: '????',
+                    type: 'string',
                     value: 'The color scheme of the chart.',
                 },
                 {
@@ -146,6 +160,10 @@ storiesOf('Components|Bar Graph', module)
                     type: 'string',
                     value: 'Use this for testing ID',
                 },
+            ],
+            notes: [
+                // tslint:disable-next-line: max-line-length
+                'The bar graph component utilizes the <a href="https://swimlane.github.io/ngx-charts" target="_blank">ngx-charts</a> library.',
             ]
         }
     }))

@@ -24,7 +24,6 @@ export class AppCircleGraphComponent implements OnInit {
     @Input() gradient: boolean;
     @Input() tooltipDisabled: object;
     @Input() title: string;
-    @Input() tableSummary: string;
     @Input() dataAutoId: string;
     @Input() hideGraph: boolean;
 

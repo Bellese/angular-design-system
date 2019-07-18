@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-storybook-installation-component',
@@ -38,6 +38,4 @@ import { Component, Output, EventEmitter } from '@angular/core';
     styles: [],
 })
 export default class InstallationComponent {
-    @Output()
-    showApp = new EventEmitter<any>();
 }

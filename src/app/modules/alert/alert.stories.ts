@@ -2,26 +2,33 @@ import { storiesOf, moduleMetadata } from '@storybook/angular';
 
 import { AlertComponent } from './alert.component';
 
-import ParameterComponent from '../../../stories/parameters.component';
+import ComponentIntroComponent from '../../../stories/component-intro.component';
+import ParametersComponent from '../../../stories/parameters.component';
+import ImportsComponent from '../../../stories/imports.component';
+import NgModuleComponent from '../../../stories/ngmodule.component';
 
 storiesOf('Components|Alert', module)
     .addDecorator(
         moduleMetadata({
-            declarations: [AlertComponent, ParameterComponent],
+            declarations: [AlertComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
         }),
     )
     .add('Intro', () => ({
         template: `
-            <h1>Import</h1>
-            <pre>
-                import &#123; AlertModule &#125; from '@bellese/angular-design-system';
-            </pre>
-            <h1>NgModule</h1>
-            <p>Add <code>AlertModule</code> to the <code>imports</code> section of your NgModule definition
-            <h1>Parameters</h1>
-            <app-storybook-parameter-component [parameters]="parameters"></app-storybook-parameter-component>
+            <app-storybook-compoennt-intro-component
+                [imports]="imports"
+                [parameters]="parameters"
+                [notes]="notes"
+            ></app-storybook-compoennt-intro-component>
         `,
         props: {
+            imports: [
+                {
+                    modules: ['AlertModule'],
+                    file: '@bellese/angular-design-system',
+                    ngmodule: 'imports',
+                },
+            ],
             parameters: [
                 {
                     name: 'variation',
@@ -48,7 +55,10 @@ storiesOf('Components|Alert', module)
                     type: 'string',
                     value: 'Use this for testing ID',
                 },
-            ]
+            ],
+            notes: [
+                'The content you want to put inside the alert will go directly between the tags of the app-alert'
+            ],
         }
     }))
     .add('Normal', () => ({
