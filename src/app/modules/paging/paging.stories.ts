@@ -46,7 +46,7 @@ storiesOf('Components|Paging', module)
                 {
                     name: 'currentPage',
                     type: 'function',
-                    value: 'Bind this to te currentPage value in the paginate pipe. ex: p = $event',
+                    value: 'Bind this to the currentPage value in the paginate pipe. ex: p = $event',
                 },
                 {
                     name: 'id',
