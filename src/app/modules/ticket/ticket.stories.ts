@@ -4,12 +4,17 @@ import { AppTicketComponent } from './ticket.component';
 
 import { defaultProps } from '../../../../.storybook/helpers';
 
-storiesOf('Ticket', module)
+storiesOf('Components|Ticket', module)
     .addDecorator(
         moduleMetadata({
             declarations: [AppTicketComponent],
         }),
     )
+    .add('Intro', () => ({
+        template: `
+            The ticket component takes the following parameters:
+        `,
+    }))
     .add('Normal', () => ({
         template: `
             <app-ticket

@@ -7,6 +7,10 @@ import { AppButtonComponent } from '../button/button.component';
 import { AppTableModalComponent } from '../table/table-modal/table-modal.component';
 import { ModalService } from '../../services/modal.service';
 
+import ComponentIntroComponent from '../../../stories/component-intro.component';
+import ParametersComponent from '../../../stories/parameters.component';
+import ImportsComponent from '../../../stories/imports.component';
+import NgModuleComponent from '../../../stories/ngmodule.component';
 import { defaultProps } from '../../../../.storybook/helpers';
 
 const modalData = [
@@ -54,15 +58,102 @@ const props = {
     appTableModalComponent: AppTableModalComponent
 };
 
-storiesOf('Modal', module)
+storiesOf('Components|Modal', module)
     .addDecorator(
         moduleMetadata({
-            declarations: [AppModalComponent, AppTableModalComponent, AppModalShellComponent, AppButtonComponent],
+            declarations: [AppModalComponent, AppTableModalComponent, AppModalShellComponent, AppButtonComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
             imports: [CommonModule],
             providers: [ModalService],
             entryComponents: [AppTableModalComponent],
         }),
     )
+    .add('Intro', () => ({
+        template: `
+            <app-storybook-component-intro-component
+                [imports]="imports"
+                [parameters]="parameters"
+                [notes]="notes"
+            ></app-storybook-component-intro-component>
+        `,
+        props: {
+            imports: [
+                {
+                    modules: ['ModalModule'],
+                    file: '@bellese/angular-design-system',
+                    ngmodule: 'imports'
+                },
+                {
+                    modules: ['ModalShellModule'],
+                    file: '@bellese/angular-design-system',
+                    ngmodule: 'imports'
+                },
+                {
+                    modules: ['ModalService'],
+                    file: '@bellese/angular-design-system',
+                    ngmodule: 'providers'
+                },
+                {
+                    modules: ['AppTableModalComponent'],
+                    file: '@bellese/angular-design-system',
+                    ngmodule: 'entryComponents'
+                },
+            ],
+            parameters: [
+                {
+                    name: 'modalTitle',
+                    type: 'string',
+                    value: 'The title of the modal',
+                },
+                {
+                    name: 'modalTitle',
+                    type: 'any',
+                    value: 'The data to be sent to the modal body',
+                },
+                {
+                    name: 'modalComponent',
+                    type: 'any',
+                    // tslint:disable-next-line: max-line-length
+                    value: 'This will currently allow you to place a static component inside the modal, this component cannot receive data. When you use this you must import the component in the controller you are using to hold the modal component, then pass the export class name to the modal',
+                },
+                {
+                    name: 'firstFocus',
+                    type: 'string',
+                    // tslint:disable-next-line: max-line-length
+                    value: 'The first thing that should be focused on when modal opens, use when it should be something that is not the cancel button',
+                },
+                {
+                    name: 'content',
+                    type: 'string',
+                    value: 'The name of the modal button',
+                },
+                {
+                    name: 'buttonClass',
+                    type: 'string',
+                    // tslint:disable-next-line: max-line-length
+                    value: 'Use this to add classes to button. Pull classes from <a href="https://design.cms.gov" target="_blank">CMS Design System</a>',
+                },
+                {
+                    name: 'abbr',
+                    type: 'string',
+                    value: 'In case you need to abbr the name of the button, mostly used inside the table',
+                },
+                {
+                    name: 'ID',
+                    type: 'string',
+                    value: 'Use this to add unique ID to button',
+                },
+                {
+                    name: 'dataAutoId',
+                    type: 'string',
+                    value: 'Use this for testing ID',
+                },
+            ],
+            notes: [
+                // TODO: Finish NgModule setup
+                'There may be some additional NgModule setup needed, I am having difficulties getting this component to work.'
+            ]
+        }
+    }))
     .add('Normal', () => ({
         template: `
             <app-modal

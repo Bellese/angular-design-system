@@ -1,12 +1,16 @@
-import { addParameters, configure } from '@storybook/angular';
+import { addParameters, addDecorator, configure } from '@storybook/angular';
 import { themes } from '@storybook/theming';
 import '@storybook/addon-console';
 
-// automatically import all files ending in *.stories.ts
-const req = require.context('../src/', true, /\.stories\.ts$/);
 function loadStories() {
+  // automatically import all files ending in *.stories.ts
+  let req = require.context('../src/stories', true, /\.stories\.ts$/);
   req.keys().forEach(filename => req(filename));
-  document.body.className += ' ' + 'ds-base';
+
+  // automatically import all files ending in *.stories.ts
+  req = require.context('../src/app', true, /\.stories\.ts$/);
+  req.keys().forEach(filename => req(filename));
+  document.body.className += ' ' + 'ds-base ds-l-container';
 }
 
 addParameters({

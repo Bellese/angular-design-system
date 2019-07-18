@@ -3,12 +3,17 @@ import { storiesOf, moduleMetadata } from '@storybook/angular';
 import { StarRatingComponent } from './star-rating.component';
 import { StarComponent } from '../star/star.component';
 
-storiesOf('Star Rating', module)
+storiesOf('Components|Star Rating', module)
     .addDecorator(
         moduleMetadata({
             declarations: [StarComponent, StarRatingComponent],
         }),
     )
+    .add('Intro', () => ({
+        template: `
+            The star rating graph component takes the following parameters:
+        `,
+    }))
     .add('Normal', () => ({
         template: `
             <app-star-rating

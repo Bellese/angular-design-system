@@ -1176,7 +1176,7 @@ const props = {
     tableData,
 };
 
-storiesOf('Table', module)
+storiesOf('Components|Table', module)
     .addDecorator(
         moduleMetadata({
             declarations: [AppTableComponent, AppTableHeaderComponent, AppTableRowComponent, StarComponent, StarRatingComponent, AppPaginationComponent, AppButtonComponent, AppCheckBoxComponent, AppTableDataComponent],
@@ -1184,6 +1184,11 @@ storiesOf('Table', module)
             providers: [FilterPipe, ModalService]
         }),
     )
+    .add('Intro', () => ({
+      template: `
+          The table component takes the following parameters:
+      `,
+    }))
     .add('Normal', () => ({
         template: `
             <app-table

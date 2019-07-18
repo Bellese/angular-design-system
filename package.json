@@ -15,7 +15,7 @@
       "type": "git",
       "url": "https://github.com/Bellese/angular-design-system.git"
     },
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 -s ./src/assets",
     "build-storybook": "build-storybook -c .storybook -o docs"
   },
   "private": false,
