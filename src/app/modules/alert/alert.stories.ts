@@ -15,11 +15,11 @@ storiesOf('Components|Alert', module)
     )
     .add('Intro', () => ({
         template: `
-            <app-storybook-compoennt-intro-component
+            <app-storybook-component-intro-component
                 [imports]="imports"
                 [parameters]="parameters"
                 [notes]="notes"
-            ></app-storybook-compoennt-intro-component>
+            ></app-storybook-component-intro-component>
         `,
         props: {
             imports: [

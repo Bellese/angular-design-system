@@ -37,17 +37,22 @@ storiesOf('Components|Circle Graph', module)
     )
     .add('Intro', () => ({
         template: `
-            <app-storybook-compoennt-intro-component
+            <app-storybook-component-intro-component
                 [imports]="imports"
                 [parameters]="parameters"
                 [notes]="notes"
-            ></app-storybook-compoennt-intro-component>
+            ></app-storybook-component-intro-component>
         `,
         props: {
             imports: [
                 {
                     modules: ['CircleGraphModule'],
                     file: '@bellese/angular-design-system',
+                    ngmodule: 'imports',
+                },
+                {
+                    modules: ['BrowserAnimationsModule'],
+                    file: '@angular/platform-browser/animations',
                     ngmodule: 'imports',
                 },
             ],

@@ -15,10 +15,10 @@ storiesOf('Components|Date Picker', module)
     )
     .add('Intro', () => ({
         template: `
-            <app-storybook-compoennt-intro-component
+            <app-storybook-component-intro-component
                 [imports]="imports"
                 [parameters]="parameters"
-            ></app-storybook-compoennt-intro-component>
+            ></app-storybook-component-intro-component>
         `,
         props: {
             imports: [

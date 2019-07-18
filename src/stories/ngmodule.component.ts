@@ -8,10 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
         <pre>
 @NgModule(&#123;
     ...,
-    <span *ngFor="let ngModuleSection of ngModuleDefinitionKeys()">{{ ngModuleSection }}: [
+    <span *ngFor="let ngModuleSection of ngModuleDefinitionKeys(); let isLast = last">{{ ngModuleSection }}: [
         ...,
-        <span *ngFor="let module of ngModuleDefinition[ngModuleSection]; let isLast = last">{{ module }},
-    <span *ngIf="isLast">],</span>    </span></span>
+        <span *ngFor="let module of ngModuleDefinition[ngModuleSection]; let isLastInner = last">{{ module }},
+    <span *ngIf="isLastInner">],</span>    </span><span *ngIf="!isLast">
+    </span></span>
 &#125;)</pre>
     `,
     styles: [],

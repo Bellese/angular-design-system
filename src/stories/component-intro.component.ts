@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'app-storybook-compoennt-intro-component',
+    selector: 'app-storybook-component-intro-component',
     template: `
         <h1>Import</h1>
         <app-storybook-imports-component [imports]="imports"></app-storybook-imports-component>
