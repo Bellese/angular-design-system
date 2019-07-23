@@ -33,26 +33,3 @@ Now when you are ready to add this to a page, just go to your new page controlle
 From here you are all set. 
 
 The modal is built the way it is because we have to come up with a way to destroy the modal after it has been enabled, if we dont we run into memory leak issues. This will cause the modal to take on values from a previous implementation. This will become a bigger issue if/when we start adding forms to modals.
-
-### Ticket Component
-
-* `title`: Use to name each accordion panel
-* `id`: Use this to give the button an id
-* `description`: Use this to put text beneath the title
-* `buttonClick`: this will be emitted out so you have control over the event
-* `ariaLabel` : This will be for adding an aria label.
-* `dataAutoId`: Use this for testing ID
-
-
-
-```
-<app-ticket
-  dataAutoId = 'testingID'
-  [id]="'ticketComp'"
-  [title]="'eCQM'"
-  [description]="'Track status and validation of EHR patients.'"
-  [ariaLabel]="'place holder for aria label'"
-  (buttonClick)="announce($event)">
-  <img src="../assets/images/performance.svg" alt="Place holder image">
-</app-ticket>
-```
