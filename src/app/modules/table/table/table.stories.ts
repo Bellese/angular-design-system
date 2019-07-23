@@ -1211,12 +1211,17 @@ storiesOf('Components|Table', module)
         ></app-storybook-component-intro-component>
       `,
       props: {
-          // TODO: figure out what needs to be imported
           imports: [
               {
                   modules: ['TableModule'],
                   file: '@bellese/angular-design-system',
                   ngmodule: 'imports',
+                  forRoot: true,
+              },
+              {
+                  modules: ['ModalService'],
+                  file: '@bellese/angular-design-system',
+                  ngmodule: 'providers'
               },
           ],
           parameters: [

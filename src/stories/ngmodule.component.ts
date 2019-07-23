@@ -4,8 +4,10 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
     selector: 'app-storybook-ngmodule-component',
     template: `
-        <p>Make the following changes to your NgModule definition:</p>
-        <pre>
+        <p *ngIf="ngModuleDefinitionKeys().length === 0; else imports">This component does not require any imports</p>
+        <ng-template #imports>
+            <p>Make the following changes to your NgModule definition:</p>
+            <pre>
 @NgModule(&#123;
     ...,
     <span *ngFor="let ngModuleSection of ngModuleDefinitionKeys(); let isLast = last">{{ ngModuleSection }}: [
@@ -14,6 +16,7 @@ import { Component, Input, OnInit } from '@angular/core';
     <span *ngIf="isLastInner">],</span>    </span><span *ngIf="!isLast">
     </span></span>
 &#125;)</pre>
+        </ng-template>
     `,
     styles: [],
 })
@@ -26,10 +29,15 @@ export default class NgModuleComponent implements OnInit {
         this.ngModuleDefinition = {};
         for (const importModule of this.imports) {
             const ngModuleSection = importModule.ngmodule;
-            if (this.ngModuleDefinition[ngModuleSection] === undefined) {
-                this.ngModuleDefinition[ngModuleSection] = importModule.modules;
-            } else {
-                this.ngModuleDefinition[ngModuleSection] = this.ngModuleDefinition[ngModuleSection].concat(importModule.modules);
+            if (ngModuleSection) {
+                if (this.ngModuleDefinition[ngModuleSection] === undefined) {
+                    if (importModule.forRoot) {
+                        importModule.modules = importModule.modules.map(module => module = `${module}.forRoot()`);
+                    }
+                    this.ngModuleDefinition[ngModuleSection] = importModule.modules;
+                } else {
+                    this.ngModuleDefinition[ngModuleSection] = this.ngModuleDefinition[ngModuleSection].concat(importModule.modules);
+                }
             }
         }
     }

@@ -53,13 +53,13 @@ storiesOf('Components|Star Rating', module)
                     name: 'height',
                     type: 'string',
                     // tslint:disable-next-line: max-line-length
-                    value: 'This is the height of each star that\'s shown. Default value is "30px".  Make sure you specify px at the end of the value that you pass into this comoonent',
+                    value: 'This is the height of each star that\'s shown. Default value is "30px".  Make sure you specify px at the end of the value that you pass into this component',
                 },
                 {
                     name: 'width',
                     type: 'string',
                     // tslint:disable-next-line: max-line-length
-                    value: 'This is the width of each star that\'s shown. Default value is "30px".  Make sure you specify px at the end of the value that you pass into this comoonent',
+                    value: 'This is the width of each star that\'s shown. Default value is "30px".  Make sure you specify px at the end of the value that you pass into this component',
                 },
             ],
         }

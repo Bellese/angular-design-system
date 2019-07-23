@@ -80,7 +80,8 @@ storiesOf('Components|Modal', module)
                 {
                     modules: ['ModalModule'],
                     file: '@bellese/angular-design-system',
-                    ngmodule: 'imports'
+                    ngmodule: 'imports',
+                    forRoot: true,
                 },
                 {
                     modules: ['ModalShellModule'],
@@ -149,8 +150,8 @@ storiesOf('Components|Modal', module)
                 },
             ],
             notes: [
-                // TODO: Finish NgModule setup
-                'There may be some additional NgModule setup needed, I am having difficulties getting this component to work.'
+                'The modal is essentially the button component that renders a modal component. But we are extending the option to add dynamic custom components within the modal. once you render the app-modal component with the requirements below everything should connect for you.',
+                'Remember - when you import modalModule make sure you do it as modalModule.forRoot()',
             ]
         }
     }))

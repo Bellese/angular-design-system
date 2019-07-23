@@ -153,6 +153,20 @@ storiesOf('Components|Circle Graph', module)
                 'Since we currently see this graph only being used for the error summary page we built it specific to this use case. As such, some of the layout is presented to satisfy this requirement,but you should still be able to build a normal circle graph with no extra frills beyond what is given. The layout stays as is.',
                 // tslint:disable-next-line: max-line-length
                 'Since it is built for error summary we needed to capture the center text of the circle graph. In order to do this we are taking the total getting the percent of accepted out of this. The capture the accepted you must pass an extra key of “attr” in the object, this key must equal “rate” from here the application will grab the value of the object with attr = rate and divide it over the total. We went this route in case you want to get a different rate instead of accepted, now you can choose by giving the attr of rate.',
+                'Expected \'data\' format:',
+                `<pre>
+chartData = [
+  {
+    "name": "Facility",
+    "value": 458,
+    "attr": "rate" // Should have for this component and what its used for
+  },
+  {
+    "name": "National",
+    "value": 101
+  }
+]
+                </pre>`
             ]
         }
     }))

@@ -19,6 +19,7 @@ storiesOf('Components|Ticket', module)
             <app-storybook-component-intro-component
                 [imports]="imports"
                 [parameters]="parameters"
+                [notes]="notes"
             ></app-storybook-component-intro-component>
         `,
         props: {
@@ -62,11 +63,11 @@ storiesOf('Components|Ticket', module)
                     value: 'A javascript function that will be called when the ticket is clicked. It takes one argument, which is a click event.',
                 },
             ],
+            notes: [
+                'This component will span the width of the screen, you will need to put it in a grid layout to organize it on the page',
+                'Furthermore there is an option to add any content on the right side of the box. You will see that in the example.',
+            ]
         },
-        notes: [
-            'This component will span the width of the screen, you will need to put it in a grid layout to organize it on the page',
-            'Furthermore there is an option to add any content on the right side of the box. You will see that in the example.',
-        ]
     }))
     .add('Normal', () => ({
         template: `

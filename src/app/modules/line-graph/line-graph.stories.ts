@@ -109,7 +109,6 @@ storiesOf('Components|Line Graph', module)
                 {
                     name: 'data',
                     type: 'array',
-                    // TODO: define array structure
                     value: 'The data for the line graph',
                 },
                 {
@@ -207,6 +206,37 @@ storiesOf('Components|Line Graph', module)
             notes: [
                 // tslint:disable-next-line: max-line-length
                 'The line graph component utilizes the <a href="https://swimlane.github.io/ngx-charts" target="_blank">ngx-charts</a> library.',
+                'Expected \'data\' format:',
+                `<pre>
+[
+    {
+        "name": "A",
+        "series": [
+            {
+                "name": "2010",
+                "value": 7300000
+            },
+            {
+                "name": "2011",
+                "value": 8940000
+            }
+        ]
+    },
+    {
+        "name": "B",
+        "series": [
+            {
+                "name": "2010",
+                "value": 7870000
+            },
+            {
+                "name": "2011",
+                "value": 8270000
+            }
+        ]
+    }
+]
+                </pre>`
             ]
         }
     }))
