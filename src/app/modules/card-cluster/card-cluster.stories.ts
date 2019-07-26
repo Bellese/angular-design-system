@@ -80,6 +80,7 @@ storiesOf('Components|Card Cluster', module)
             <app-storybook-component-intro-component
                 [imports]="imports"
                 [parameters]="parameters"
+                [notes]="notes"
             ></app-storybook-component-intro-component>
         `,
         props: {
@@ -115,6 +116,49 @@ storiesOf('Components|Card Cluster', module)
                     value: 'Use this for testing ID',
                 },
             ],
+            notes: [
+                'Expected format for \'CardArray\':',
+                `<pre>
+{
+  "mainCard": true,
+  "mainTitle": "STK-2",
+  "mainSub": "Episodes",
+  "total": 400 // This is optional.  If total is left off, the total will be calculated by adding up the values in the cluster array.
+  "cluster": [
+    {
+      "value": "vte",
+      "name": "IPP Not Met"
+    },
+    {
+      "value": "cbc",
+      "name": "IPP Met"
+    },
+    {
+      "value": 1,
+      "name": "Denominator"
+    },
+    {
+      "value": 16,
+      "name": "Denominator"
+    },
+    {
+      "value": 85,
+      "name": "Numerator"
+    },
+    {
+      "value": 3,
+      "name": "Den. Exceptions"
+    },
+    {
+      "classValue": "viewPerformanceIcon",
+      "classButton": "vpi",
+      "name": "View Performance",
+      "className": "vpi"
+    } 
+  ]   
+}
+                </pre>`
+            ]
         }
     }))
     .add('Normal', () => ({

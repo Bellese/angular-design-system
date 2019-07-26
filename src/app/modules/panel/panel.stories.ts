@@ -80,7 +80,7 @@ storiesOf('Components|Panel', module)
                 },
             ],
             notes: [
-                'Additionally you can you templating to add more content to the panels for example if you want to add extra content to be right aligned just wrap that content in a span tag. And if you want content to show when you open the panel just add that content to a div tag.',
+                'Additionally you can use templating to add more content to the panels.  For example if you want to add extra content to be right aligned just wrap that content in a span tag. And if you want content to show when you open the panel just add that content to a div tag.',
                 `Example:<pre>
 &lt;app-panel
     (panelClick) = "announce($event)"

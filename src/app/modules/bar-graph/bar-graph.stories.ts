@@ -159,6 +159,25 @@ storiesOf('Components|Bar Graph', module)
             notes: [
                 // tslint:disable-next-line: max-line-length
                 'The bar graph component utilizes the <a href="https://swimlane.github.io/ngx-charts" target="_blank">ngx-charts</a> library.',
+                `Expected format for 'data' :
+                <pre>
+[
+    {
+        "name": "Facility",
+        "value": 2
+    },
+    {
+        "name": "National",
+        "value": 4
+    }
+]
+                </pre>`,
+                `Expected format for 'colorScheme' :
+                <pre>
+colorScheme = {
+    domain: ["#256D34", "#D6D7D9"]
+}
+                </pre>`
             ]
         }
     }))
