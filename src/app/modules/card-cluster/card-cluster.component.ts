@@ -105,6 +105,8 @@ export class AppCardClusterComponent implements OnInit {
                 }
             });
         }
+
+        this.resize();
     }
 
     resize() {
