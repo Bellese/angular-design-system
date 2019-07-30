@@ -31,10 +31,12 @@ export default class NgModuleComponent implements OnInit {
             const ngModuleSection = importModule.ngmodule;
             if (ngModuleSection) {
                 if (this.ngModuleDefinition[ngModuleSection] === undefined) {
+                    // Make a copy of the import modules list so that the imports component does not show forRoot()
+                    let importModuleCopy = importModule.modules;
                     if (importModule.forRoot) {
-                        importModule.modules = importModule.modules.map(module => module = `${module}.forRoot()`);
+                        importModuleCopy = importModule.modules.map(module => module = `${module}.forRoot()`);
                     }
-                    this.ngModuleDefinition[ngModuleSection] = importModule.modules;
+                    this.ngModuleDefinition[ngModuleSection] = importModuleCopy;
                 } else {
                     this.ngModuleDefinition[ngModuleSection] = this.ngModuleDefinition[ngModuleSection].concat(importModule.modules);
                 }
