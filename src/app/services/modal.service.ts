@@ -105,7 +105,7 @@ export class ModalService {
         }, 250);
     }
 
-    appendComponentToBody(component: any, id: any, title: any, data: Array<any>, firstFocus) {
+    appendComponentToBody(component: any, id: any, title: any, data: any, firstFocus) {
         // first create and append a div to hook the modal onto
         if (!document.getElementById('unique-modal-host')) {
             const modalHost = document.createElement('div');
