@@ -9,11 +9,12 @@ export class TabsComponent implements OnInit {
   
   @Input parentAriaLabel: string;
   
+  @Input childLabel: string;
   @Input childAriaLabel: string;
   @Input routerPrefix: string = "/";
-  @Input childrouterLink: string;
+  @Input childRouterLink: string = routerPrefix + childLabel.toLowerCase();
   @Input childAttrAriaPrefix: string = "rla";
   @Input childAttrAriaSuffix: string = ".isActive";
-  @Input childAriaSelected: string;
+  @Input childAriaSelected: string = childAttrAriaPrefix + childLabel + childAttrAriaSuffix;
   
 }
