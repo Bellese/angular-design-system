@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-tabs',
-  templateUrl: './tabs.component.html',
-  styleUrls: ['./tabs.component.scss']
+  selector: 'app-tab',
+  templateUrl: './tab.component.html',
+  styleUrls: ['./tab.component.scss']
 })
-export class AppTabsComponent implements OnInit {
+export class AppTabComponent implements OnInit {
   
   @Input parentAriaLabel: string;
   
