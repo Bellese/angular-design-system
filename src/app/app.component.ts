@@ -61,6 +61,15 @@ export class AppComponent implements OnInit {
         }
     ];
 
+    tabs = [
+        {
+            title: 'tab1'
+        },
+        {
+            title: 'tab2'
+        }
+    ];
+    
     constructor(private modalService: ModalService) {}
 
     buttonClick(e) {
