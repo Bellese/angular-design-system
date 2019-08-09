@@ -8,10 +8,6 @@ import { AppTabComponent } from '../tab/tab.component';
 })
 export class AppTabsComponent implements AfterContentInit, DoCheck {
 
-    public tabTitle: string = "";
-    public tabDesc: string = "";
-    public generalDesc: string = "Manually upload, or drag and drop files into the table to be processed.";
-
     @Input() tabsData: any[];
 
     @ViewChildren(AppTabComponent) tabs: QueryList<AppTabComponent>;
@@ -41,8 +37,6 @@ export class AppTabsComponent implements AfterContentInit, DoCheck {
         this.tabs.toArray().forEach ( t => {
             if (t !== tab) {
                 t.selected = false;
-                this.tabTitle = tab.title;
-                this.tabDesc = tab.description;
             }
         });
     }

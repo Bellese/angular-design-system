@@ -16,8 +16,9 @@ export class AppTabComponent {
     @Input() title: string;
     @Input() ariaLabel: string;
     @Input() dataAutoId: string;
-    @Input() description: string;
+   // @Input() description: string;
     @Input() disabled: boolean;
+    @Input() visible: boolean;
     @Input() selected: boolean;
     @Output() onClick = new EventEmitter<any>();
 
