@@ -1,13 +1,23 @@
 <div class="ds-c-tabs__item--preamble" role="tablist">
     <app-tab
-        *ngFor="let tab of tabs"
+        *ngFor="let tab of tabsData"
         [title]="tab.title"
         [id]="tab.id"
-        [href]="tab.href"        
         [ariaLabel]="tab.ariaLabel"       
         [dataAutoId]="tab.dataAutoId"        
         [disabled]="tab.disabled"  
-        [selected]="tab.selected"      
-        >
+        [selected]="tab.selected"
+        (onClick)="tab.onClick($event)">
     </app-tab>
+    <br/>
+    <div>
+        <br/>
+        <h1 class="ds-u-font-size--h4 ds-u-font-weight--semibold ds-u-margin--0" 
+            style="margin-bottom: 2px;">{{tabTitle}}</h1>
+        <br/>
+        <p style="margin:2px; padding-right: 60px;" 
+            class="ds-u-valign--top">{{tabDesc}}</p>
+        <p style="margin:2px; padding-right: 60px;" 
+            class="ds-u-valign--top">{{generalDesc}}</p>
+    </div>
 </div>

@@ -63,13 +63,25 @@ export class AppComponent implements OnInit {
 
     tabs = [
         {
-            title: 'tab1'
+            title: 'tab1',
+            ariaLabel: 'tab1 hello',
+            description: 'Files acceptable are whatever you want to upload.',
+            onClick: this.announce
         },
         {
-            title: 'tab2'
+            title: 'tab2',
+            ariaLabel: 'tab1 yellow',
+            description: 'Files acceptable are TXT, TSV, CSV.',
+            onClick: this.announce
+        },
+        {
+            title: 'tab3',
+            ariaLabel: 'tab3 mellow',
+            description: 'Files acceptable are cat and dog pictures.',
+            onClick: this.announce
         }
     ];
-    
+
     constructor(private modalService: ModalService) {}
 
     buttonClick(e) {
