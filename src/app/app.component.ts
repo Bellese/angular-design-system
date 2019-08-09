@@ -66,19 +66,19 @@ export class AppComponent implements OnInit {
             title: 'tab1',
             ariaLabel: 'tab1 hello',
             description: 'Files acceptable are whatever you want to upload.',
-            onClick: this.tabSelected
+            onClick: this.tabSelected.bind(this)
         },
         {
             title: 'tab2',
             ariaLabel: 'tab1 yellow',
             description: 'Files acceptable are TXT, TSV, CSV.',
-            onClick: this.tabSelected
+            onClick: this.tabSelected.bind(this)
         },
         {
             title: 'tab3',
             ariaLabel: 'tab3 mellow',
             description: 'Files acceptable are cat and dog pictures.',
-            onClick: this.tabSelected
+            onClick: this.tabSelected.bind(this)
         }
     ];
 
@@ -108,6 +108,7 @@ export class AppComponent implements OnInit {
         this.cluster = cluster;
         this.barData = barData;
         this.singleTableData = singleTableData;
+        console.log(this.tabTitle);
     }
 
     searchFunction(e) {
@@ -136,9 +137,7 @@ export class AppComponent implements OnInit {
     }
 
     tabSelected(e) {
-        console.log(e);
-        console.log(this.tabTitle);
-        this.tabTitle = e.target.textContent;
-        console.log(this.tabTitle);
+        this.tabTitle = e.target.innerText;
+        this.tabDesc = this.tabs.filter((tab) => tab.title === e.target.innerText)[0].description
     }
 }
