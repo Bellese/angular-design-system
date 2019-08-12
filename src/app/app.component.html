@@ -260,6 +260,19 @@ TABLE AND PAGINATION
     (paginateNext)="announce($event)">
 </app-table>
 
+TAB
+<br/>
+<app-tabs
+    [tabsData]="tabs">
+</app-tabs>
+<div>
+    <br>
+    <h1 class="ds-u-font-size--h4 ds-u-font-weight--semibold ds-u-margin--0" style="margin-bottom: 2px;">{{ tabTitle }}</h1>
+    <br>
+    <p style="margin:2px; padding-right: 60px;" class="ds-u-valign--top">{{ tabDesc }}</p>        
+    <p style="margin:2px; padding-right: 60px;" class="ds-u-valign--top">Manually upload, or drag and drop files into the table to be processed.</p>
+</div>
+<br/>
     
 <!-- TICKET COMPONENT EXAMPLE
 <div class="ds-l-row ds-u-justify-content--center ds-u-align-items--center ds-u-padding-y--1">

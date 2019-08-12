@@ -1,0 +1,12 @@
+<div class="ds-c-tabs__item--preamble" role="tablist">
+    <app-tab
+        *ngFor="let tab of tabsData"
+        [title]="tab.title"
+        [id]="tab.id"
+        [ariaLabel]="tab.ariaLabel"       
+        [dataAutoId]="tab.dataAutoId"        
+        [disabled]="tab.disabled"  
+        [selected]="tab.selected"
+        (onClick)="tab.onClick($event)">
+    </app-tab>
+</div>
