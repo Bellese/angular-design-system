@@ -18,23 +18,29 @@
         </div>
     </div>
 
-    <div *ngIf="numArray.length" [ngClass]="cardArray.mainCard ? 'ds-l-lg-col--8 ds-l-md-col--12': 'ds-l-lg-col--12 ds-l-md-col--12'"
-        class="ds-l-sm-col--12" id="followCard">
+    <div *ngIf="cardArray.cluster.length" 
+        [ngClass]="cardArray.mainCard ? 'ds-l-lg-col--8': 'ds-l-lg-col--12'"
+        class="ds-l-md-col--12 ds-l-sm-col--12" 
+        id="followCard"
+    >
         <div class="ds-l-row">
-            <div *ngFor="let num of numArray; let x = index;"
-                [ngClass]="'padding-L-0 ds-l-lg-col--' + num.sequence + ' ds-l-md-col--' + num.sequence + ' ds-l-sm-col--' + num.sequence2 + ' ds-l-col--' + num.sequence2">
-                <div id="{{'CardCluster'+(x+1)}}" [ngClass]="buttonClicked === 'CardCluster'+(x+1) ? 'active': null"
-                    class="{{'pointer card cardHeight ds-u-padding--1 ds-u-margin-bottom--2 ' + num.classButton}}"
-                    (click)="passAction($event)" (keyup.enter)="passAction($event)" role="button" tabindex="0">
-                    <div class="ds-u-font-size--h3 ds-u-color--black ds-u-font-weight--bold noPoint"
-                        [ngClass]="num.classValue">
-                        {{ !num.value && num.value !== 0 ? '&nbsp;' : num.value }}
-                    </div>
-                    <div class="ds-text ds-u-color--black noPoint" [ngClass]="num.className">
-                        {{ !num.name && num.name !== 0 ? '&nbsp;' : num.name }}
+            <ng-container *ngFor="let card of cardArray.cluster; let x = index;">
+                <div class="ds-l-col" [ngClass]="(x + 1 ) % 2 === 0 ? 'padding-L-0' : ''">
+                    <div id="{{'CardCluster'+(x+1)}}" [ngClass]="buttonClicked === 'CardCluster'+(x+1) ? 'active': null"
+                        class="{{'pointer card cardHeight ds-u-padding--1 ds-u-margin-bottom--2 ' + card.classButton}}"
+                        (click)="passAction($event)" (keyup.enter)="passAction($event)" role="button" tabindex="0">
+                        <div class="ds-u-font-size--h3 ds-u-color--black ds-u-font-weight--bold noPoint"
+                            [ngClass]="card.classValue">
+                            {{ !card.value && card.value !== 0 ? '&nbsp;' : card.value }}
+                        </div>
+                        <div class="ds-text ds-u-color--black noPoint" [ngClass]="card.className">
+                            {{ !card.name && card.name !== 0 ? '&nbsp;' : card.name }}
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class='ds-l-col--12 ds-u-display--none ds-u-lg-display--block' *ngIf="(x + 1) % cardArray.rowMaxItems == 0"></div>
+                <div class='ds-l-col--12 ds-u-display--block ds-u-lg-display--none' *ngIf="(x + 1) % 2 == 0"></div>
+            </ng-container>
         </div>
     </div>
 </div>
