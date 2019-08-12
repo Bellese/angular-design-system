@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppTabPanelComponent } from './tab-panel.component';
+import { AppTabsComponent } from './tabs.component';
 
-describe('AppTabPanelComponent', () => {
-  let component: AppTabPanelComponent;
-  let fixture: ComponentFixture<AppTabPanelComponent>;
+describe('AppTabsComponent', () => {
+  let component: AppTabsComponent;
+  let fixture: ComponentFixture<AppTabsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppTabPanelComponent ]
+      declarations: [ AppTabsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AppTabPanelComponent);
+    fixture = TestBed.createComponent(AppTabsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
