@@ -35,6 +35,7 @@ import { SearchFieldModule } from './modules/search-field/search-field.module';
 import { ExampleModalComponent } from './components/example-modal/example-modal.component';
 import { AppTableModalComponent } from './modules/table/table-modal/table-modal.component';
 import { DownloadQueModule } from './modules/download-que/download-que.module';
+import { TabsModule } from './modules/tabs/tabs.module';
 
 @NgModule({
   declarations: [AppComponent, ExampleModalComponent],
@@ -68,7 +69,8 @@ import { DownloadQueModule } from './modules/download-que/download-que.module';
     CardClusterModule,
     TicketModule,
     SearchFieldModule,
-    DownloadQueModule
+    DownloadQueModule,
+    TabsModule
   ],
   providers: [AppService, FilterPipe],
   bootstrap: [AppComponent],
