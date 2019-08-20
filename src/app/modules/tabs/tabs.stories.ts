@@ -1,31 +1,27 @@
 import { storiesOf , moduleMetadata} from '@storybook/angular';
 
 import { AppTabsComponent } from './tabs.component';
-import { AppTabComponent } from '../tab/tab.component';
 
-import ComponentIntroComponent from '../../../../stories/component-intro.component';
-import ParametersComponent from '../../../../stories/parameters.component';
-import ImportsComponent from '../../../../stories/imports.component';
-import NgModuleComponent from '../../../../stories/ngmodule.component';
-import { defaultProps, handleEvent } from '../../../../../.storybook/helpers';
+import ComponentIntroComponent from '../../../stories/component-intro.component';
+import ParametersComponent from '../../../stories/parameters.component';
+import ImportsComponent from '../../../stories/imports.component';
+import NgModuleComponent from '../../../stories/ngmodule.component';
+import { defaultProps, handleEvent } from '../../../../.storybook/helpers';
 
 const tabs = [
-                {
-                    title: 'tab1',
-                    ariaLabel: 'tab1 hello',
-                    onClick: ($event) => handleEvent($event)
-                },
-                {
-                    title: 'tab2',
-                    ariaLabel: 'tab1 yellow',
-                    onClick: ($event) => handleEvent($event)
-                },
-                {
-                    title: 'tab3',
-                    ariaLabel: 'tab3 mellow',
-                    onClick: ($event) => handleEvent($event)
-                }
-            ];
+    {
+        title: 'tab1',
+        ariaLabel: 'tab1 hello',
+    },
+    {
+        title: 'tab2',
+        ariaLabel: 'tab1 yellow',
+    },
+    {
+        title: 'tab3',
+        ariaLabel: 'tab3 mellow',
+    }
+];
 
 const props = {
     ...defaultProps,
@@ -35,7 +31,7 @@ const props = {
 storiesOf('Components|Tabs', module)
     .addDecorator(
         moduleMetadata({
-            declarations: [AppTabsComponent, AppTabComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
+            declarations: [AppTabsComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
         }),
     )
     .add('Intro', () => ({
@@ -62,7 +58,7 @@ storiesOf('Components|Tabs', module)
                 }
             ],
             notes: [
-                'Expected format for \'tabsData\'',
+                'Expected format for \'tabs\'',
                 `<pre>
 [
     {
