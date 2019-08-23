@@ -55,26 +55,44 @@ storiesOf('Components|Tabs', module)
                     name: 'tabsData',
                     type: 'array',
                     value: 'An array of objects that represents tabs',
-                }
+                },
+                {
+                    name: 'defaultSelectedId',
+                    type: 'string',
+                    // tslint:disable-next-line: max-line-length
+                    value: 'The ID of the tab that should be selected by default.  If nothing is passed on, the first tab is selected by default.',
+                },
+                {
+                    name: 'tablistClassName',
+                    type: 'string',
+                    // tslint:disable-next-line: max-line-length
+                    value: 'Use this to add classes to tab container. Pull classes from <a href="https://design.cms.gov" target="_blank">CMS Design System</a>',
+                },
+                {
+                    name: 'onChange',
+                    type: 'array',
+                    // tslint:disable-next-line: max-line-length
+                    value: 'A javascript function that will be called when a tab is clicked. It takes one argument, which is a click event.',
+                },
             ],
             notes: [
                 'Expected format for \'tabs\'',
                 `<pre>
 [
     {
+        id: 'tab1'.
         title: 'tab1',
         ariaLabel: 'tab1 hello',
-        onClick: this.tabSelected.bind(this)
     },
     {
+        id: 'tab1'.
         title: 'tab2',
         ariaLabel: 'tab1 yellow',
-        onClick: this.tabSelected.bind(this)
     },
     {
+        id: 'tab3',
         title: 'tab3',
         ariaLabel: 'tab3 mellow',
-        onClick: this.tabSelected.bind(this)
     }
 ];
                 </pre>`,
@@ -83,8 +101,10 @@ storiesOf('Components|Tabs', module)
     }))
     .add('Normal', () => ({
         template: `
-            <app-tabs 
-                [tabsData]="tabs">
+            <app-tabs
+                [tabs]="tabs"
+                defaultSelectedId="tab2"
+                (onChange)="handleEvent($event)">
             </app-tabs>
         `,
         props
