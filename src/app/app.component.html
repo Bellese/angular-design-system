@@ -1,6 +1,6 @@
 <section class="ds-l-container preview__grid">
 
-UNCOMMENT CODE ON THIS PAGE TO SEE EXAMPLES OF COMPONENTS
+<!-- UNCOMMENT CODE ON THIS PAGE TO SEE EXAMPLES OF COMPONENTS
 <br>
 <br>
 
@@ -36,7 +36,7 @@ ACCORDION COMPONENT EXAMPLE
             Content Structure 2
         </div>
     </app-panel>
-</app-accordion>
+</app-accordion> -->
 
 <!-- ALERT COMPONENT EXAMPLE
 <app-alert
@@ -86,13 +86,13 @@ ACCORDION COMPONENT EXAMPLE
         Example Button
 </app-button> -->
     
-CARD CLUSTER COMPONENT EXAMPLE
+<!-- CARD CLUSTER COMPONENT EXAMPLE
 <app-card-cluster 
     [cardArray]="cluster"
     buttonClicked='CardCluster1'
     dataAutoId = 'testingID'
     (passButton)="buttonClick($event)">
-</app-card-cluster>
+</app-card-cluster> -->
 
 <!-- CHECKBOX COMPONENT EXAMPLE
 <app-check-box
@@ -247,7 +247,7 @@ CARD CLUSTER COMPONENT EXAMPLE
     </ng-container>
 </app-accordion> -->
 
-    
+<!--     
 TABLE AND PAGINATION
 <br/>
 <app-table
@@ -258,22 +258,17 @@ TABLE AND PAGINATION
     [maxRows]=10
     (buttonClick)="buttonClick($event)"
     (paginateNext)="announce($event)">
-</app-table>
+</app-table> -->
 
 TAB
 <br/>
 <app-tabs
-    [tabsData]="tabs">
+    [tabs]="tabs"
+    tablistClassName="myTabs"
+    defaultSelectedId="tab3"
+    (onChange)="announce($event)">
 </app-tabs>
-<div>
-    <br>
-    <h1 class="ds-u-font-size--h4 ds-u-font-weight--semibold ds-u-margin--0" style="margin-bottom: 2px;">{{ tabTitle }}</h1>
-    <br>
-    <p style="margin:2px; padding-right: 60px;" class="ds-u-valign--top">{{ tabDesc }}</p>        
-    <p style="margin:2px; padding-right: 60px;" class="ds-u-valign--top">Manually upload, or drag and drop files into the table to be processed.</p>
-</div>
-<br/>
-    
+
 <!-- TICKET COMPONENT EXAMPLE
 <div class="ds-l-row ds-u-justify-content--center ds-u-align-items--center ds-u-padding-y--1">
     <div class="ds-l-lg-col--4 ds-l-md-col--6 ds-l-sm-col--12">

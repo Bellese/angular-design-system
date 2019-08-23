@@ -64,21 +64,21 @@ export class AppComponent implements OnInit {
     tabs = [
         {
             title: 'tab1',
+            id: 'tab1',
             ariaLabel: 'tab1 hello',
             description: 'Files acceptable are whatever you want to upload.',
-            onClick: this.tabSelected.bind(this)
         },
         {
             title: 'tab2',
             ariaLabel: 'tab1 yellow',
             description: 'Files acceptable are TXT, TSV, CSV.',
-            onClick: this.tabSelected.bind(this)
         },
         {
             title: 'tab3',
+            id: 'tab3',
             ariaLabel: 'tab3 mellow',
             description: 'Files acceptable are cat and dog pictures.',
-            onClick: this.tabSelected.bind(this)
+            disabled: true,
         }
     ];
 
