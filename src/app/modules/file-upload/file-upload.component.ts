@@ -10,7 +10,7 @@ export class FileUploadComponent implements OnInit {
   @Input() label: string;
   @Input() ariaLabel: string;
 
-  @Output() onFileUploaded = new EventEmitter<any>();
+  @Output() onFileUpload = new EventEmitter<any>();
 
   defaults = {
     label: 'Drag files here to upload',
@@ -24,7 +24,7 @@ export class FileUploadComponent implements OnInit {
 
   uploadFile(event) {
     for (const file of event) {
-      this.onFileUploaded.emit(file);
+      this.onFileUpload.emit(file);
     }
   }
 }
