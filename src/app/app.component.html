@@ -260,14 +260,14 @@ TABLE AND PAGINATION
     (paginateNext)="announce($event)">
 </app-table> -->
 
-TAB
+<!-- TAB
 <br/>
 <app-tabs
     [tabs]="tabs"
     tablistClassName="myTabs"
     defaultSelectedId="tab3"
     (onChange)="announce($event)">
-</app-tabs>
+</app-tabs> -->
 
 <!-- TICKET COMPONENT EXAMPLE
 <div class="ds-l-row ds-u-justify-content--center ds-u-align-items--center ds-u-padding-y--1">
@@ -302,5 +302,7 @@ TAB
         </app-ticket>
     </div>
 </div> -->
+
+<app-file-upload (onFileUploaded)="announce($event)"></app-file-upload>
 
 </section>
