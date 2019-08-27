@@ -52,7 +52,7 @@ storiesOf('Components|Tabs', module)
             ],
             parameters: [
                 {
-                    name: 'tabsData',
+                    name: 'tabs',
                     type: 'array',
                     value: 'An array of objects that represents tabs',
                 },
