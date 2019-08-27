@@ -25,6 +25,7 @@ storiesOf('Components|File Upload', module)
             <app-storybook-component-intro-component
                 [imports]="imports"
                 [parameters]="parameters"
+                [notes]="notes"
             ></app-storybook-component-intro-component>
         `,
         props: {
@@ -37,15 +38,10 @@ storiesOf('Components|File Upload', module)
             ],
             parameters: [
                 {
-                    name: 'label',
-                    type: 'string',
+                    name: 'fileUploadModel',
+                    type: 'FileUploadModel',
                     // TODO: document structure of the objects
-                    value: 'Use this to override the words that display in the component.',
-                },
-                {
-                    name: 'ariaLabel',
-                    type: 'string',
-                    value: 'Use this to override the words read by the screen reader',
+                    value: 'Use this to override the component\'s default settings.',
                 },
                 {
                     name: 'onFileUpload',
@@ -53,6 +49,19 @@ storiesOf('Components|File Upload', module)
                     // tslint:disable-next-line: max-line-length
                     value: 'A javascript function that will be called when the a file is uploaded. It takes one argument, which is a javascript file object.',
                 },
+            ],
+            notes: [
+                'Expected format for \'fileUploadModel\':',
+                `<pre>
+fileUploadModelDefaults: FileUploadModel = {
+    id: 'file_upload',
+    dataAutoId: 'file_upload',
+    label: 'Drag files here to upload',
+    ariaLabel: 'Activate enter key to upload files',
+    className: 'ds-u-fill--gray-lightest',
+    height: 'auto'
+};
+                </pre>`
             ]
         }
     }))

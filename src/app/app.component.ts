@@ -18,6 +18,8 @@ import { ModalService } from './services/modal.service';
 import { ExampleModalComponent } from './components/example-modal/example-modal.component';
 import { AppTableModalComponent } from './modules/table/table-modal/table-modal.component';
 
+import { FileUploadModel } from './modules/file-upload/file-upload.model';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -84,6 +86,14 @@ export class AppComponent implements OnInit {
 
     tabTitle: string = 'not clicked';
     tabDesc: string = '';
+
+    fileUploadModel: FileUploadModel  = {
+        label: 'Drag and Drop',
+        id: 'drag_drop',
+        dataAutoId: 'drag-drop-auto',
+        height: 250,
+        className: 'ds-u-fill--primary-alt-lightest'
+    };
 
     constructor(private modalService: ModalService) {}
 
