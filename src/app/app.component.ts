@@ -93,7 +93,6 @@ export class AppComponent implements OnInit {
         id: 'drag_drop',
         dataAutoId: 'drag-drop-auto',
         height: 250,
-        className: 'ds-u-fill--primary-alt-lightest'
     });
 
     constructor(private modalService: ModalService) {}
