@@ -9,7 +9,17 @@ import NgModuleComponent from '../../../stories/ngmodule.component';
 import { defaultProps } from '../../../../.storybook/helpers';
 
 import { DirectiveModule } from '../../directives/directive.module';
+import { FileUploadModel } from './file-upload.model';
 
+const fileUploadModel = new FileUploadModel({
+    height: 300,
+    className: 'ds-u-fill--primary-alt-lightest',
+});
+
+const props = {
+    ...defaultProps,
+    fileUploadModel,
+};
 
 storiesOf('Components|File Upload', module)
     .addDecorator(
@@ -53,14 +63,14 @@ storiesOf('Components|File Upload', module)
             notes: [
                 'Expected format for \'fileUploadModel\':',
                 `<pre>
-fileUploadModelDefaults: FileUploadModel = {
+fileUploadModel = new FileUploadModel({
     id: 'file_upload',
     dataAutoId: 'file_upload',
     label: 'Drag files here to upload',
     ariaLabel: 'Activate enter key to upload files',
     className: 'ds-u-fill--gray-lightest',
     height: 'auto'
-};
+});
                 </pre>`
             ]
         }
@@ -72,4 +82,13 @@ fileUploadModelDefaults: FileUploadModel = {
             </app-file-upload>
         `,
         props: defaultProps
+    }))
+    .add('Overridden Parameters', () => ({
+        template: `
+            <app-file-upload
+                [fileUploadModel] = "fileUploadModel"
+                (onFileUpload) = 'handleEvent($event)'>
+            </app-file-upload>
+        `,
+        props
     }));

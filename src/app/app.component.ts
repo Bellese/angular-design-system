@@ -87,13 +87,14 @@ export class AppComponent implements OnInit {
     tabTitle: string = 'not clicked';
     tabDesc: string = '';
 
-    fileUploadModel: FileUploadModel  = {
+    fileUploadModel = new FileUploadModel({
         label: 'Drag and Drop',
+        ariaLabel: 'Drag and Drop',
         id: 'drag_drop',
         dataAutoId: 'drag-drop-auto',
         height: 250,
         className: 'ds-u-fill--primary-alt-lightest'
-    };
+    });
 
     constructor(private modalService: ModalService) {}
 

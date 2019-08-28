@@ -303,6 +303,6 @@ TICKET COMPONENT EXAMPLE
     </div>
 </div>
 
-<app-file-upload (onFileUpload)="announce($event)"></app-file-upload>
+<app-file-upload [fileUploadModel]="fileUploadModel" (onFileUpload)="announce($event)"></app-file-upload>
 
 </section>

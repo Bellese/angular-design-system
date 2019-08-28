@@ -1,11 +1,29 @@
 export class FileUploadModel {
 
-    id?: string;
-    label?: string;
-    ariaLabel?: string;
-    className?: string;
-    height?: number | string;
-    dataAutoId?: string;
+    id ?: string;
+    label ?: string;
+    ariaLabel ?: string;
+    className ?: string;
+    height ?: number | string;
+    dataAutoId ?: string;
 
-    constructor() {}
+    constructor(options?) {
+        // Set defaults if they are not set when the object is created
+        const defaults = {
+            id: 'file_upload',
+            label: 'Drag files here to upload',
+            ariaLabel:  'Activate enter key to upload files',
+            className: 'ds-u-fill--gray-lightest',
+            height: 'auto',
+            dataAutoId: 'file_upload',
+        };
+
+        // Merge defaults with parameters that are passed into the object
+        const fileUploadModelValues = Object.assign(defaults, options);
+
+        // Set the values in this object based on the defaults and parameters that are passed in
+        for (const key of Object.keys(fileUploadModelValues)) {
+            this[key] = fileUploadModelValues[key];
+        }
+     }
 }
