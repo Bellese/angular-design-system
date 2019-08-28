@@ -14,6 +14,7 @@ import { FileUploadModel } from './file-upload.model';
 const fileUploadModel = new FileUploadModel({
     height: 300,
     className: 'ds-u-fill--primary-alt-lightest',
+    classNameActive: 'ds-u-fill--primary-alt-light',
 });
 
 const props = {
@@ -68,7 +69,8 @@ fileUploadModel = new FileUploadModel({
     dataAutoId: 'file_upload',
     label: 'Drag files here to upload',
     ariaLabel: 'Activate enter key to upload files',
-    className: 'ds-u-fill--gray-lightest',
+    className: 'ds-u-fill--white',
+    classNameActive: 'ds-u-fill--primary-alt-lightest',
     height: 'auto'
 });
                 </pre>`

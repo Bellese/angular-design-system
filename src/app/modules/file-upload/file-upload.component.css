@@ -5,9 +5,5 @@
 .file-upload-container-inner {
     width: 100%;
     box-sizing: content-box;
-    border: 3px dashed #979797;
-}
-
-.file-upload-container-outer:hover {
-    opacity: 0.6;
+    border: 2px dashed #979797;
 }
