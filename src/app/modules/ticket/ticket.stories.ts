@@ -81,4 +81,44 @@ storiesOf('Components|Ticket', module)
             </app-ticket>
         `,
         props: defaultProps
+    }))
+    .add('Multiple', () => ({
+        template: `
+            <div class="ds-l-row">
+                <div class="ticket-wrapper ds-u-margin-y--1 ds-l-col--12 ds-l-sm-col--6 ds-l-lg-col--4">
+                    <app-ticket
+                        id="ticketPR"
+                        title="Public Reporting"
+                        ariaLabel="Public Reporting"
+                        description="Preview of Hospital Compare data prior to public display"
+                        dataAutoId="ticketPR"
+                        (buttonClick)="handleEvent($event)">
+                        <img src="../assets/images/performance.svg" width="50px" height="50px" alt="Place holder image">
+                    </app-ticket>
+                </div>
+                <div class="ticket-wrapper ds-u-margin-y--1 ds-l-col--12 ds-l-sm-col--6 ds-l-lg-col--4">
+                    <app-ticket
+                        id="ticketECQM"
+                        title="eCQM"
+                        ariaLabel="eCQM"
+                        description="Track STatus and validation of EHR patient files"
+                        dataAutoId="ticketECQM"
+                        (buttonClick)="handleEvent($event)">
+                        <img src="../assets/images/performance.svg" width="50px" height="50px" alt="Place holder image">
+                    </app-ticket>
+                </div>
+                <div class="ticket-wrapper ds-u-margin-y--1 ds-l-col--12 ds-l-sm-col--6 ds-l-lg-col--4">
+                    <app-ticket
+                        id="ticketPC"
+                        title="Program Credit Report"
+                        ariaLabel="Program Credit Report"
+                        description="Review how your uploaded data applies toward program credit"
+                        dataAutoId="ticketPC"
+                        (buttonClick)="handleEvent($event)">
+                        <img src="../assets/images/performance.svg" width="50px" height="50px" alt="Place holder image">
+                    </app-ticket>
+                </div>
+            </div>
+        `,
+        props: defaultProps
     }));

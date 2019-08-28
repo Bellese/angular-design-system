@@ -20,8 +20,7 @@
 
 
 .cardHeight {
-    height: 76px;
-    overflow: hidden;
+    height: 100%;
 }
 
 .ds-l-row {
