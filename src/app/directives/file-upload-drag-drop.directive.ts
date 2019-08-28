@@ -9,7 +9,7 @@ export class FileUploadDragDropDirective {
 
   @Output() onFileDropped = new EventEmitter<any>();
 
-  @HostBinding('style.opacity') private opacity = '1';
+  @HostBinding('style.opacity') opacity = '1';
 
   // Dragover listener
   @HostListener('dragover', ['$event']) onDragOver(event) {
