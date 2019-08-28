@@ -4,6 +4,7 @@ export class FileUploadModel {
     label ?: string;
     ariaLabel ?: string;
     className ?: string;
+    classNameActive ?: string;
     height ?: number | string;
     dataAutoId ?: string;
 
@@ -13,7 +14,8 @@ export class FileUploadModel {
             id: 'file_upload',
             label: 'Drag files here to upload',
             ariaLabel:  'Activate enter key to upload files',
-            className: 'ds-u-fill--gray-lightest',
+            className: 'ds-u-fill--white',
+            classNameActive: 'ds-u-fill--primary-alt-lightest',
             height: 'auto',
             dataAutoId: 'file_upload',
         };
