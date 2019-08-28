@@ -36,6 +36,7 @@ import { ExampleModalComponent } from './components/example-modal/example-modal.
 import { AppTableModalComponent } from './modules/table/table-modal/table-modal.component';
 import { DownloadQueModule } from './modules/download-que/download-que.module';
 import { TabsModule } from './modules/tabs/tabs.module';
+import { FileUploadModule } from './modules/file-upload/file-upload.module';
 
 @NgModule({
   declarations: [AppComponent, ExampleModalComponent],
@@ -70,7 +71,8 @@ import { TabsModule } from './modules/tabs/tabs.module';
     TicketModule,
     SearchFieldModule,
     DownloadQueModule,
-    TabsModule
+    TabsModule,
+    FileUploadModule
   ],
   providers: [AppService, FilterPipe],
   bootstrap: [AppComponent],

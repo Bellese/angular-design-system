@@ -26,9 +26,11 @@ export * from './src/app/modules/ticket/ticket.module';
 export * from './src/app/modules/search-field/search-field.module';
 export * from './src/app/modules/download-que/download-que.module';
 export * from './src/app/modules/tabs/tabs.module';
+export * from './src/app/modules/file-upload/file-upload.module';
 
 // Components
 export { AppTableModalComponent } from './src/app/modules/table/table-modal/table-modal.component';
 
 // Models
 export { TabModel } from './src/app/modules/tabs/tabs.model';
+export { FileUploadModel } from './src/app/modules/file-upload/file-upload.model';
