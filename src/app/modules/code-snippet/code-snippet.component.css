@@ -1,0 +1,7 @@
+.code-snippet-content {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    white-space: pre;
+    overflow: auto;
+    outline: #d6d7d9 solid 1px;
+    border-left: 20px solid #f1f1f1;
+}

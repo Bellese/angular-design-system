@@ -19,6 +19,7 @@ import { ExampleModalComponent } from './components/example-modal/example-modal.
 import { AppTableModalComponent } from './modules/table/table-modal/table-modal.component';
 
 import { FileUploadModel } from './modules/file-upload/file-upload.model';
+import { CodeSnippetModel } from './modules/code-snippet/code-snippet.model.js';
 
 @Component({
   selector: 'app-root',
@@ -84,6 +85,16 @@ export class AppComponent implements OnInit {
         }
     ];
 
+    codeSnippetModel = new CodeSnippetModel({
+        label: 'XXXPath',
+        content: [
+            'line1',
+            '  - line 2',
+            '     - line 3',
+        ],
+        copyContent: 'copy override',
+    });
+
     tabTitle: string = 'not clicked';
     tabDesc: string = '';
 
@@ -118,7 +129,7 @@ export class AppComponent implements OnInit {
         this.cluster = cluster;
         this.barData = barData;
         this.singleTableData = singleTableData;
-        console.log(this.tabTitle);
+        // console.log(this.tabTitle);
     }
 
     searchFunction(e) {
