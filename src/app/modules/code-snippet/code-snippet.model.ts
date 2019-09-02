@@ -17,7 +17,7 @@ export class CodeSnippetModel {
 }
 
 export class CodeSnippetContentItemModel {
-    isHighlighted = false;
+    className: string;
     lineNumber: number;
     content: string;
 

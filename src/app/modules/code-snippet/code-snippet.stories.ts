@@ -1,0 +1,128 @@
+import { storiesOf, moduleMetadata } from '@storybook/angular';
+
+import { CodeSnippetComponent } from './code-snippet.component';
+import { AppButtonComponent } from '../button/button.component';
+
+import ComponentIntroComponent from '../../../stories/component-intro.component';
+import ParametersComponent from '../../../stories/parameters.component';
+import ImportsComponent from '../../../stories/imports.component';
+import NgModuleComponent from '../../../stories/ngmodule.component';
+import { defaultProps } from '../../../../.storybook/helpers';
+
+import { DirectiveModule } from '../../directives/directive.module';
+import { CodeSnippetModel, CodeSnippetContentItemModel } from './code-snippet.model';
+
+const codeSnippetModel = new CodeSnippetModel({
+    label: 'XPath',
+    contentItems: [
+        new CodeSnippetContentItemModel({content: '|- ClinicalDocument'}),
+        new CodeSnippetContentItemModel({content: ' |- component[1]'}),
+        new CodeSnippetContentItemModel({content: '  |- structuredBody[1]'}),
+        new CodeSnippetContentItemModel({content: '   |- component[3]'}),
+        new CodeSnippetContentItemModel({content: '    |- section[1]'}),
+        new CodeSnippetContentItemModel({content: '     |- entry[3]'}),
+        new CodeSnippetContentItemModel({content: '      |- act[1]'}),
+        new CodeSnippetContentItemModel({content: '       |- entryRelationship[1]'}),
+        new CodeSnippetContentItemModel({content: '        |- substanceAdministration[1]', lineNumber: 450, className: 'ds-u-fill--error-lightest ds-u-color--error-dark'}),
+    ],
+    copyContent: `/ClinicalDocument/component[1]/structuredBody[1]/component[3]/section[1]/entry[3]/act[1]/entryRelationship[1]/substanceAdministration[1]['line 450 column 75']`,
+});
+
+const codeSnippetModelFile = new CodeSnippetModel({
+    label: 'File Name',
+    contentItems: [
+        new CodeSnippetContentItemModel({content: 'ReallyReallyIncrediblyInsanelyLongVeryVeryVeryLongReallyReallyIncrediblyInsanelyLongVeryVeryVeryLongFilename.zip'}),
+    ],
+    copyLinkDisplay: false,
+});
+
+const props = {
+    ...defaultProps,
+    codeSnippetModel,
+    codeSnippetModelFile,
+};
+
+storiesOf('Components|Code Snippet', module)
+    .addDecorator(
+        moduleMetadata({
+            imports: [
+                DirectiveModule
+            ],
+            declarations: [CodeSnippetComponent, AppButtonComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
+        }),
+    )
+    .add('Intro', () => ({
+        template: `
+            <app-storybook-component-intro-component
+                [imports]="imports"
+                [parameters]="parameters"
+                [notes]="notes"
+            ></app-storybook-component-intro-component>
+        `,
+        props: {
+            imports: [
+                {
+                    modules: ['CodeSnippetModule'],
+                    file: '@bellese/angular-design-system',
+                    ngmodule: 'imports',
+                },
+            ],
+            parameters: [
+                {
+                    name: 'codeSnippetModel',
+                    type: 'CodeSnippetModel',
+                    // TODO: document structure of the objects
+                    value: 'Use this to override the component\'s default settings.',
+                },
+            ],
+            notes: [
+                'Expected format for \'codeSnippetModel\':',
+                `<pre>
+codeSnippetModel = new CodeSnippetModel({
+    id: 'code_snippet',
+    label: 'XPath',
+    contentItems: [
+        new CodeSnippetContentItemModel({content: '|- ClinicalDocument'}),
+        new CodeSnippetContentItemModel({content: ' |- component[1]'}),
+        new CodeSnippetContentItemModel({content: '  |- structuredBody[1]'}),
+        new CodeSnippetContentItemModel({content: '   |- component[3]'}),
+        new CodeSnippetContentItemModel({content: '    |- section[1]'}),
+        new CodeSnippetContentItemModel({content: '     |- entry[3]'}),
+        new CodeSnippetContentItemModel({content: '      |- act[1]'}),
+        new CodeSnippetContentItemModel({content: '       |- entryRelationship[1]'}),
+        new CodeSnippetContentItemModel({content: '        |- substanceAdministration[1]', lineNumber: 450, className: 'ds-u-fill--error-lightest ds-u-color--error-dark'}),
+    ],
+    copyLinkDisplay: true,
+    copyLinkLabel: 'Copy to Clipboard',
+    copyLinkAriaLabel: 'Activate enter key to copy to clipboard',
+    copyContent: "/ClinicalDocument/component[1]/structuredBody[1]/component[3]/section[1]/entry[3]/act[1]/entryRelationship[1]/substanceAdministration[1]['line 450 column 75']",
+    dataAutoId = 'code_snippet';
+});
+                </pre>`,
+                'Expected format for \'codeSnippetContentItemModel\':',
+                `<pre>
+codeSnippetContentItemModel = new CodeSnippetContentItemModel({
+    className: 'ds-u-fill--error-lightest ds-u-color--error-dark',
+    lineNumber: 450,
+    content: '        |- substanceAdministration[1]';
+});
+                </pre>`
+            ]
+        }
+    }))
+    .add('XPath', () => ({
+        template: `
+            <app-code-snippet
+                [codeSnippetModel] = 'codeSnippetModel'>
+            </app-code-snippet>
+        `,
+        props: props
+    }))
+    .add('Filename', () => ({
+        template: `
+            <app-code-snippet
+                [codeSnippetModel] = 'codeSnippetModelFile'>
+            </app-code-snippet>
+        `,
+        props: props
+    }));
