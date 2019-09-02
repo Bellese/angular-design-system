@@ -35,3 +35,4 @@ export { AppTableModalComponent } from './src/app/modules/table/table-modal/tabl
 // Models
 export { TabModel } from './src/app/modules/tabs/tabs.model';
 export { FileUploadModel } from './src/app/modules/file-upload/file-upload.model';
+export { CodeSnippetModel, CodeSnippetContentItemModel } from './src/app/modules/code-snippet/code-snippet.model';
