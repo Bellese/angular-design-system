@@ -19,6 +19,7 @@ import { ExampleModalComponent } from './components/example-modal/example-modal.
 import { AppTableModalComponent } from './modules/table/table-modal/table-modal.component';
 
 import { FileUploadModel } from './modules/file-upload/file-upload.model';
+import { CodeSnippetModel, CodeSnippetContentItemModel } from './modules/code-snippet/code-snippet.model.js';
 
 @Component({
   selector: 'app-root',
@@ -84,6 +85,22 @@ export class AppComponent implements OnInit {
         }
     ];
 
+    codeSnippetModel = new CodeSnippetModel({
+        label: 'XPath',
+        copyLinkLabel: 'Copy!!',
+        contentItems: [
+            new CodeSnippetContentItemModel({content: 'line1'}),
+            new CodeSnippetContentItemModel({content: '  - line 2'}),
+            new CodeSnippetContentItemModel({
+                content: '     - line 3',
+                className: 'ds-u-fill--error-lightest ds-u-color--error-dark',
+                lineNumber: 150
+            }),
+            new CodeSnippetContentItemModel({content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'}),
+        ],
+        // copyContent: 'copy override',
+    });
+
     tabTitle: string = 'not clicked';
     tabDesc: string = '';
 
@@ -118,7 +135,7 @@ export class AppComponent implements OnInit {
         this.cluster = cluster;
         this.barData = barData;
         this.singleTableData = singleTableData;
-        console.log(this.tabTitle);
+        // console.log(this.tabTitle);
     }
 
     searchFunction(e) {
