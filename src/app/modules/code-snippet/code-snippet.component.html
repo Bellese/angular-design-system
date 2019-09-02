@@ -20,13 +20,13 @@
         </div>
   </div>
   <div class='code-snippet-contents ds-u-border--1 ds-u-leading--lead'>
-        <ng-container *ngFor="let content of codeSnippetModel.contents">
-            <div class="code-snippet-line-number" [ngClass]="content.className">
+        <ng-container *ngFor="let contentItem of codeSnippetModel.contentItems">
+            <div class="code-snippet-line-number" [ngClass]="contentItem.className">
                 <div class="code-snippet-line-number-darken ds-u-padding-x--1">
-                    {{ content.lineNumber || '&nbsp;' }}
+                    {{ contentItem.lineNumber || '&nbsp;' }}
                 </div>
             </div>
-            <div class="code-snippet-content ds-u-padding-x--1" [ngClass]="content.className">{{ content.content }}</div>
+            <div class="code-snippet-content ds-u-padding-x--1" [ngClass]="contentItem.className">{{ contentItem.content }}</div>
         </ng-container>
     </div>
 </div>
