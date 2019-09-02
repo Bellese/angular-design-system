@@ -1,7 +1,14 @@
-.code-snippet-content {
+.code-snippet-contents {
     font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    display: grid;
+    grid-template-columns: [line-number] auto [content] 1fr;
+}
+
+.code-snippet-line-number-darken {
+   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.code-snippet-content {
     white-space: pre;
     overflow: auto;
-    outline: #d6d7d9 solid 1px;
-    border-left: 20px solid #f1f1f1;
 }

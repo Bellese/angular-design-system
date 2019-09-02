@@ -22,8 +22,8 @@ export class CodeSnippetComponent implements OnInit {
   ngOnInit() {
     if (!this.codeSnippetModel.copyContent) {
       this.codeSnippetModel.copyContent = '';
-      for (const contentItem of this.codeSnippetModel.content) {
-        this.codeSnippetModel.copyContent += ` ${contentItem}`;
+      for (const content of this.codeSnippetModel.contents) {
+        this.codeSnippetModel.copyContent += ` ${content.content}`;
       }
     }
   }

@@ -4,10 +4,10 @@
     class='code-snippet ds-l-container' 
 >
     <div class='ds-l-row'>
-        <div class='ds-l-col--6'>
-            <h3 class='ds-u-margin-bottom--1 ds-u-margin-top--1'>{{ codeSnippetModel.label }}</h3>
+        <div class='ds-l-col--12 ds-l-md-col--6'>
+            <h3 class='ds-u-margin-bottom--0 ds-u-md-margin-bottom--1 ds-u-margin-top--1'>{{ codeSnippetModel.label }}</h3>
         </div>
-        <div class='ds-l-col--6 ds-u-text-align--right'>
+        <div class='ds-l-col--12 ds-l-md-col--6 ds-u-md-text-align--right ds-u-margin-bottom--1 ds-u-md-margin-bottom--0'>
             <app-button 
               *ngIf="codeSnippetModel.copyLinkDisplay"
               buttonType = 'ds-c-button ds-c-button--transparent ds-u-padding--0 ds-u-margin-top--1'
@@ -19,9 +19,14 @@
             </app-button>    
         </div>
   </div>
-  <div class='code-snippet-content ds-u-padding--1'>
-      <div *ngFor="let contentItem of codeSnippetModel.content">
-          {{ contentItem }}
-      </div>
-  </div>
+  <div class='code-snippet-contents ds-u-border--1 ds-u-leading--lead'>
+        <ng-container *ngFor="let content of codeSnippetModel.contents">
+            <div class="code-snippet-line-number" [ngClass]="content.className">
+                <div class="code-snippet-line-number-darken ds-u-padding-x--1">
+                    {{ content.lineNumber || '&nbsp;' }}
+                </div>
+            </div>
+            <div class="code-snippet-content ds-u-padding-x--1" [ngClass]="content.className">{{ content.content }}</div>
+        </ng-container>
+    </div>
 </div>

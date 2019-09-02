@@ -2,7 +2,7 @@ export class CodeSnippetModel {
 
     id ?: string;
     label: string;
-    content: string[];
+    contents: CodeSnippetContentItem[];
     copyLinkDisplay ?: boolean;
     copyLinkLabel ?: string;
     copyLinkAriaLabel ?: string;
@@ -20,11 +20,24 @@ export class CodeSnippetModel {
         };
 
         // Merge defaults with parameters that are passed into the object
-        const fileUploadModelValues = Object.assign(defaults, options);
+        const values = Object.assign(defaults, options);
 
         // Set the values in this object based on the defaults and parameters that are passed in
-        for (const key of Object.keys(fileUploadModelValues)) {
-            this[key] = fileUploadModelValues[key];
+        for (const key of Object.keys(values)) {
+            this[key] = values[key];
+        }
+     }
+}
+
+export class CodeSnippetContentItem {
+    isHighlighted = false;
+    lineNumber: number;
+    content: string;
+
+    constructor(options?) {
+        // Set the values in this object based on the defaults and parameters that are passed in
+        for (const key of Object.keys(options)) {
+            this[key] = options[key];
         }
      }
 }
