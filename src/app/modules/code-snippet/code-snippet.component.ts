@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 // Models
 import { CodeSnippetModel } from './code-snippet.model';
@@ -11,7 +11,7 @@ import { ClipboardService } from 'ngx-clipboard'
   templateUrl: './code-snippet.component.html',
   styleUrls: ['./code-snippet.component.css']
 })
-export class CodeSnippetComponent implements OnInit {
+export class CodeSnippetComponent {
 
   @Input() codeSnippetModel: CodeSnippetModel;
 
@@ -19,17 +19,16 @@ export class CodeSnippetComponent implements OnInit {
     private clipboardService: ClipboardService
   ) { }
 
-  ngOnInit() {
-    if (!this.codeSnippetModel.copyContent) {
-      this.codeSnippetModel.copyContent = '';
-      for (const contentItem of this.codeSnippetModel.contentItems) {
-        this.codeSnippetModel.copyContent += ` ${contentItem.content}`;
-      }
-    }
-  }
-
   onCopyContent() {
-    this.clipboardService.copyFromContent(this.codeSnippetModel.copyContent);
+    let copyContent = '';
+    if (!this.codeSnippetModel.copyContent) {
+      for (const contentItem of this.codeSnippetModel.contentItems) {
+        copyContent += ` ${contentItem.content}`;
+      }
+    } else {
+      copyContent = this.codeSnippetModel.copyContent;
+    }
+    this.clipboardService.copyFromContent(copyContent);
   }
 
 }
