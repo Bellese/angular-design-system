@@ -303,10 +303,16 @@ TABLE AND PAGINATION
     </div>
 </div> -->
 
-<!-- File Upload Component
-<app-file-upload [fileUploadModel]="fileUploadModel" (onFileUpload)="announce($event)"></app-file-upload> -->
+File Upload Component
+<app-file-upload [fileUploadModel]="fileUploadModel" (onFileUpload)="announce($event)" #uploader></app-file-upload>
 
-Code Snippet
-<app-code-snippet [codeSnippetModel]="codeSnippetModel"></app-code-snippet>
+<!-- Code Snippet
+<app-code-snippet [codeSnippetModel]="codeSnippetModel" #uploader></app-code-snippet> -->
+
+<app-button
+    (click)="uploadFile($event)"
+>
+    Upload
+</app-button>
 
 </section>
