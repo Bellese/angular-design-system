@@ -1,24 +1,33 @@
-<div class="ds-l-row ds-u-align-items--center ds-u-justify-content--center ds-h2 pointer panel" 
-     (click)="panelStateChange($event)" 
-     (keyup.enter)="panelStateChange($event)" 
-     tabindex="0" 
-     role="button" 
-     [attr.aria-expanded]="expand || openAll"
-     attr.data-auto-id="{{dataAutoId}}">
-    <div class="ds-l-col--auto plusIcon">
-        <app-plus 
-            [expand]="expand || openAll" 
-            [clicked]="clicked || openAll">
-        </app-plus>
+<div class="ds-u-margin-bottom--3">
+    <div 
+        class="ds-l-row ds-u-align-items--center ds-u-justify-content--center ds-h2 pointer panel ds-u-padding--2 ds-u-margin--0" 
+        [ngClass]="titleClass"
+        (click)="panelStateChange($event)" 
+        (keyup.enter)="panelStateChange($event)" 
+        tabindex="0" 
+        role="button" 
+        [attr.aria-expanded]="expand || openAll"
+        attr.data-auto-id="{{dataAutoId}}"
+    >
+        <div class="ds-l-col--auto plusIcon">
+            <app-plus 
+                [expand]="expand || openAll" 
+                [clicked]="clicked || openAll">
+            </app-plus>
+        </div>
+        <div class="ds-l-col title">
+            {{ title }}
+        </div>
+        <div *ngIf="extTitle" [ngClass]="extTitleClass" class="extTitle ds-l-col ds-u-text-align--right">
+            <ng-content select="span"></ng-content>
+        </div>
     </div>
-    <div class="ds-l-col title">
-        {{ title }}
-    </div>
-    <div *ngIf="extTitle" [ngClass]="extTitleClass" class="extTitle ds-l-col ds-u-text-align--right">
-        <ng-content select="span"></ng-content>
-    </div>
-</div>
 
-<div *ngIf="expand || openAll" [@fadeInTrigger]="expand">
-    <ng-content select="div"></ng-content>
+    <div 
+        *ngIf="expand || openAll" 
+        [@fadeInTrigger]="expand" 
+        [ngClass]="expandedClass"
+    >
+        <ng-content select="div"></ng-content>
+    </div>
 </div>
