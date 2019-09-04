@@ -165,10 +165,3 @@ th button.ds-c-button {
 mark {
     pointer-events: none;
 }
-
-.panel {
-    color: white;
-    background-color: blue;
-    padding: 20px 50px !important;
-    margin-bottom: 20px !important;
-}
