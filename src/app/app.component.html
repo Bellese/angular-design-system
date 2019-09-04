@@ -2,9 +2,9 @@
 
 <!-- UNCOMMENT CODE ON THIS PAGE TO SEE EXAMPLES OF COMPONENTS
 <br>
-<br>
+<br> -->
 
-ACCORDION COMPONENT EXAMPLE
+<p>ACCORDION COMPONENT EXAMPLE</p>
 <app-accordion>
     <app-panel
         (panelClick) = "announce($event)"  
@@ -12,7 +12,8 @@ ACCORDION COMPONENT EXAMPLE
         extTitleClass = 'customizeExtra'
         dataAutoId = 'dataID'
         [extTitle] = true 
-        [expand] = false
+        [expand] = true
+        expandedClass = 'ds-u-fill--gray-lightest ds-u-border-top--0 ds-u-border--1 ds-u-border--dark ds-u-padding--2'
         [openAll] = false>
         <span>
             Additional Title
@@ -36,7 +37,23 @@ ACCORDION COMPONENT EXAMPLE
             Content Structure 2
         </div>
     </app-panel>
-</app-accordion> -->
+    <app-panel 
+        (panelClick) = "announce($event)"  
+        title ='Accordion Example' 
+        titleClass='ds-u-fill--success'
+        extTitleClass = 'customizeExtra'
+        dataAutoId = 'dataID'
+        [extTitle] = true  
+        [expand] = true
+        expandedClass = 'ds-u-padding-x--0'
+        [openAll] = false>
+        <div>
+                <div class='ds-u-fill--gray-lightest'>hey</div>
+                <div class='ds-u-fill--white'>hey</div>
+                <div class='ds-u-fill--gray-lightest'>hey</div>
+        </div>
+    </app-panel>
+</app-accordion>
 
 <!-- ALERT COMPONENT EXAMPLE
 <app-alert
@@ -306,7 +323,7 @@ TABLE AND PAGINATION
 <!-- File Upload Component
 <app-file-upload [fileUploadModel]="fileUploadModel" (onFileUpload)="announce($event)"></app-file-upload> -->
 
-Code Snippet
-<app-code-snippet [codeSnippetModel]="codeSnippetModel"></app-code-snippet>
+<!-- Code Snippet
+<app-code-snippet [codeSnippetModel]="codeSnippetModel"></app-code-snippet> -->
 
 </section>
