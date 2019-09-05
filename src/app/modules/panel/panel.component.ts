@@ -17,7 +17,7 @@ export class AppPanelComponent implements OnInit {
     @Input() extTitle = false;
     @Input() extTitleClass: string;
     @Input() expand = false;
-    @Input() expandedClass = 'ds-u-border-top--0 ds-u-border--1 ds-u-padding--2';
+    @Input() expandedClass = 'ds-u-padding--2';
     @Input() openAll = false;
     @Input() dataAutoId: string;
 
