@@ -1,6 +1,8 @@
 import {
   Component,
-  OnInit
+  OnInit,
+  ViewChild,
+  ElementRef
 } from '@angular/core';
 
 import modalData from '../assets/data/modalData.json';
@@ -20,6 +22,7 @@ import { AppTableModalComponent } from './modules/table/table-modal/table-modal.
 
 import { FileUploadModel } from './modules/file-upload/file-upload.model';
 import { CodeSnippetModel, CodeSnippetContentItemModel } from './modules/code-snippet/code-snippet.model.js';
+import { FileUploadComponent } from './modules/file-upload/file-upload.component.js';
 
 @Component({
   selector: 'app-root',
@@ -112,6 +115,8 @@ export class AppComponent implements OnInit {
         height: 250,
     });
 
+    @ViewChild('uploader') uploader: FileUploadComponent;
+
     constructor(private modalService: ModalService) {}
 
     buttonClick(e) {
@@ -166,5 +171,10 @@ export class AppComponent implements OnInit {
     tabSelected(e) {
         this.tabTitle = e.target.innerText;
         this.tabDesc = this.tabs.filter((tab) => tab.title === e.target.innerText)[0].description
+    }
+
+    uploadFile($event) {
+        console.log($event);
+        console.log(this.uploader.promptUpload());
     }
 }
