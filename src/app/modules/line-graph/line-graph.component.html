@@ -75,11 +75,13 @@
                 <ng-template #seriesTooltipTemplate let-model="model">
                     <div class="seriesToolTip">
                         <ul>
-                            <li *ngFor="let mod of model; let i = index">
-                                <div class="square" [ngStyle]="{'background':mod.color}"></div>
-                                <span style="display: inline-block; font-size: 1.25em;"> {{ mod.series }}</span>
-                                <span style="display: inline-block; font-size:1.25em; font-weight: bold"> : {{ mod.value | graphToolTip }}</span>
-                            </li>
+                            <ng-container *ngFor="let mod of model; let i = index">
+                                <li *ngIf="mod.series !== 'TIMELINE_PLACEHOLDER'">
+                                    <div class="square" [ngStyle]="{'background':mod.color}"></div>
+                                    <span style="display: inline-block; font-size: 1.25em;">{{ mod.series }}</span>
+                                    <span style="display: inline-block; font-size:1.25em; font-weight: bold"> : {{ mod.value | graphToolTip }}</span>
+                                </li>
+                            </ng-container>
                         </ul>
                     </div>
                 </ng-template>

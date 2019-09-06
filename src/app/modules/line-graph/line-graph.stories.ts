@@ -70,7 +70,7 @@ const lineGraphData = [
 
 const lineGraphDataMissingValues = [
     {
-        'name': 'Placeholder',
+        'name': 'TIMELINE_PLACEHOLDER',
         'series': [
             {
                 'name': 'Q1 2018',
@@ -162,7 +162,7 @@ const lineGraphDataMissingValues = [
 
 const lineGraphDataSingleDataPoints = [
     {
-        'name': 'Placeholder',
+        'name': 'TIMELINE_PLACEHOLDER',
         'series': [
             {
                 'name': 'Q1 2018',
@@ -402,7 +402,15 @@ storiesOf('Components|Line Graph', module)
         ]
     }
 ]
-                </pre>`
+                </pre>`,
+                'If you would like to manually set the x axis values, you can create a series using all of your desired values and the smallest value of any other series.  See "Skipping X Axis Values" for an example.  You should also name that series "TIMELINE_PLACEHOLDER" in order for it to be removed form the series tooltip.',
+                'In order to hide that series from the graph, you can use the following CSS:',
+                `<pre>
+::ng-deep svg > g > g[clip-path] > g:first-child {
+    display: none;
+}
+                </pre>`,
+
             ]
         }
     }))
@@ -448,7 +456,16 @@ storiesOf('Components|Line Graph', module)
                 [tooltipDisabled] = false
                 dataAutoId = 'testingID'
                 (LineClick) = "HANDLECLICK($event)">
+                <ng-template #seriesTooltipTemplate let-model="model">
+                    This is vertical line tooltip template
+                    <pre>{{model|json}}</pre>
+                </ng-template>
             </app-line-graph>
+            <style>
+                ::ng-deep svg > g > g[clip-path] > g:first-child {
+                    display: none;
+                }
+            </style>
         `,
         props
     }))
@@ -472,6 +489,11 @@ storiesOf('Components|Line Graph', module)
                 dataAutoId = 'testingID'
                 (LineClick) = "HANDLECLICK($event)">
             </app-line-graph>
+            <style>
+                ::ng-deep svg > g > g[clip-path] > g:first-child {
+                    display: none;
+                }
+            </style>
         `,
         props
     }));
