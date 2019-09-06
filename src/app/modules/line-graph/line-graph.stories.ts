@@ -68,23 +68,6 @@ const lineGraphData = [
     }
 ];
 
-const lineGraphDataMissingValuesXAxis = ['Q1', 'Q2', 'Q3', 'Q4'];
-const lineGraphDataMissingValuesReferenceLines = [
-    {
-        'name': 'Q1',
-        'value': false
-    },
-    {
-        'name': 'Q2',
-        'value': false
-    },
-    {
-        'name': 'Q3',
-        'value': false
-    }
-]
-
-
 const lineGraphDataMissingValues = [
     {
         'name': 'Placeholder',
@@ -144,7 +127,7 @@ const lineGraphDataMissingValues = [
                 'value': 5300
             },
             {
-                'name': 'Q3 2018',
+                'name': 'Q4 2018',
                 'value': 3000
             },
         ]
@@ -170,30 +153,17 @@ const lineGraphDataMissingValues = [
         'name': 'One Dot',
         'series': [
             {
-                'name': 'Q2 2019',
-                'value': 4800
+                'name': 'Q1 2019',
+                'value': 5800
             },
         ]
     }
 ];
 
-function test() {
-    return 'test';
-}
-
-// const dateTickFormatting = val => {
-//     console.log("HI");
-//     if (val instanceof Date) {
-//         return (<Date>val).toLocaleString('de-DE');
-//     }
-// };
-
 const props = {
     ...defaultProps,
     lineGraphData,
     lineGraphDataMissingValues,
-    lineGraphDataMissingValuesXAxis,
-    lineGraphDataMissingValuesReferenceLines,
 };
 
 storiesOf('Components|Line Graph', module)
