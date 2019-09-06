@@ -147,6 +147,9 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
         }
     }
 
+    // updateSingleDataPointPaths parses through all path dom elements and finds paths that have only one x/y data point
+    // Since paths with that criteria do not display, we have to "smudge" the path and add a second data point near the
+    // first one in order for it to show.
     updateSingleDataPointPaths() {
         const paths = document.querySelectorAll('path');
         let pathCounter = 0;
@@ -159,27 +162,24 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
                     const startY = parseInt(pathDataParts[1].replace('Z', ''), 10) - 1;
                     const endX = startX + 2;
                     const endY = startY + 2;
+
                     pathDataParts[0] = `M${startX}`;
                     pathDataParts[1] = `${startY}`;
                     pathDataParts.push(`${endX}`);
                     pathDataParts.push(`${endY}Z`);
+
                     const pathDataNew = pathDataParts.join(',');
-                    this.setSingleDataPointPaths(pathCounter, pathDataNew);
+                    const lineClass = document.querySelectorAll('path')[pathCounter].getAttribute('class');
+
+                    document.querySelectorAll('path')[pathCounter].setAttribute('d', pathDataNew);
+                    document.querySelectorAll('path')[pathCounter].setAttribute('stroke-linecap', 'round');
+                    document.querySelectorAll('path')[pathCounter].setAttribute('class', `${lineClass} lineDot`);
+
+                    window.dispatchEvent(new Event('resize'));
                 }
             }
             pathCounter++;
         });
-    }
-
-    setSingleDataPointPaths(pathCounter, pathDataNew) {
-        setTimeout(() => {
-            console.log('set this');
-            document.querySelectorAll('path')[pathCounter].setAttribute('d', pathDataNew);
-            document.querySelectorAll('path')[pathCounter].setAttribute('stroke-linecap', 'round');
-            const lineClass = document.querySelectorAll('path')[pathCounter].getAttribute('class');
-            document.querySelectorAll('path')[pathCounter].setAttribute('class', `${lineClass} lineDot`);
-            window.dispatchEvent(new Event('resize'));
-        }, 0);
     }
 
     moveDot(num) {
