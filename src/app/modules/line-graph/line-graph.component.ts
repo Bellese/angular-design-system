@@ -21,6 +21,7 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
     @Input() gradient: boolean;
     @Input() gridLines: boolean;
     @Input() roundDomain: boolean;
+    @Input() xAxisValues: string[];
     @Input() xAxis: boolean;
     @Input() yAxis: boolean;
     @Input() showXLabel: string;
@@ -31,7 +32,7 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
     @Input() yAxisTickFormatting;
     @Input() autoScale: boolean;
     @Input() timeLine: boolean;
-    @Input() toolTip: boolean;
+    @Input() tooltipDisabled: boolean;
     @Input() dataAutoId: string;
     @Output() LineClick = new EventEmitter<object>();
 
@@ -82,7 +83,22 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
 
         this.resize();
 
-        this.shadowData = this.data;
+        this.shadowData = [];
+        if (this.xAxisValues) {
+            const xAxisValuesSeries = [];
+            for (const xAxisValue of this.xAxisValues) {
+                xAxisValuesSeries.push({
+                    name: xAxisValue,
+                    value: false,
+                });
+            }
+            this.shadowData.push({
+                name: 'Placeholder',
+                series: xAxisValuesSeries
+            });
+        }
+
+        this.shadowData = this.shadowData.concat(this.data);
 
         for (let x = 0; x <= this.data[0].series.length; x++) {
             if (this.data[0].series[x]) {
@@ -143,7 +159,50 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
     ngAfterViewInit() {
         if (document.getElementsByClassName('tooltip-anchor')[0]) {
             document.getElementsByClassName('tooltip-anchor')[0].setAttribute('width', '4');
+
+            // Array.prototype.forEach.call(paths, function (path) {
+            //     console.log(path.getAttribute('d'));
+            // });
+            this.updatePaths();
         }
+    }
+
+    updatePaths() {
+        const paths = document.querySelectorAll('path');
+        let pathCounter = 0;
+        Array.from(paths).forEach((path) => {
+            const pathData = path.getAttribute('d');
+            if (pathData) {
+                const pathDataParts = pathData.split(',');
+                if (pathDataParts.length === 2) {
+                    const startX = parseInt(pathDataParts[0].replace('M', ''), 10) - 1;
+                    const startY = parseInt(pathDataParts[1].replace('Z', ''), 10) - 1;
+                    const endX = startX + 2;
+                    const endY = startY + 2;
+                    pathDataParts[0] = `M${startX}`;
+                    pathDataParts[1] = `${startY}`;
+                    pathDataParts.push(`${endX}`);
+                    pathDataParts.push(`${endY}Z`);
+                    const pathDataNew = pathDataParts.join(',');
+                    this.setPathData(pathCounter, pathDataNew);
+                    // path.setAttribute('d', pathDataNew);
+                    // console.log('end', path);
+                    // console.log(path.getAttribute('d'))
+                }
+            }
+            pathCounter++;
+        });
+    }
+
+    setPathData(pathCounter, pathDataNew) {
+        setTimeout(() => {
+            console.log('set this');
+            document.querySelectorAll('path')[pathCounter].setAttribute('d', pathDataNew);
+            document.querySelectorAll('path')[pathCounter].setAttribute('stroke-linecap', 'round');
+            const lineClass = document.querySelectorAll('path')[pathCounter].getAttribute('class');
+            document.querySelectorAll('path')[pathCounter].setAttribute('class', `${lineClass} lineDot`);
+            window.dispatchEvent(new Event('resize'));
+        }, 0);
     }
 
     moveDot(num) {
