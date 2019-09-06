@@ -21,7 +21,6 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
     @Input() gradient: boolean;
     @Input() gridLines: boolean;
     @Input() roundDomain: boolean;
-    @Input() xAxisValues: string[];
     @Input() xAxis: boolean;
     @Input() yAxis: boolean;
     @Input() showXLabel: string;
@@ -83,22 +82,7 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
 
         this.resize();
 
-        this.shadowData = [];
-        if (this.xAxisValues) {
-            const xAxisValuesSeries = [];
-            for (const xAxisValue of this.xAxisValues) {
-                xAxisValuesSeries.push({
-                    name: xAxisValue,
-                    value: false,
-                });
-            }
-            this.shadowData.push({
-                name: 'Placeholder',
-                series: xAxisValuesSeries
-            });
-        }
-
-        this.shadowData = this.shadowData.concat(this.data);
+        this.shadowData = this.data;
 
         for (let x = 0; x <= this.data[0].series.length; x++) {
             if (this.data[0].series[x]) {
@@ -159,15 +143,11 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
     ngAfterViewInit() {
         if (document.getElementsByClassName('tooltip-anchor')[0]) {
             document.getElementsByClassName('tooltip-anchor')[0].setAttribute('width', '4');
-
-            // Array.prototype.forEach.call(paths, function (path) {
-            //     console.log(path.getAttribute('d'));
-            // });
-            this.updatePaths();
+            this.updateSingleDataPointPaths();
         }
     }
 
-    updatePaths() {
+    updateSingleDataPointPaths() {
         const paths = document.querySelectorAll('path');
         let pathCounter = 0;
         Array.from(paths).forEach((path) => {
@@ -184,17 +164,14 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
                     pathDataParts.push(`${endX}`);
                     pathDataParts.push(`${endY}Z`);
                     const pathDataNew = pathDataParts.join(',');
-                    this.setPathData(pathCounter, pathDataNew);
-                    // path.setAttribute('d', pathDataNew);
-                    // console.log('end', path);
-                    // console.log(path.getAttribute('d'))
+                    this.setSingleDataPointPaths(pathCounter, pathDataNew);
                 }
             }
             pathCounter++;
         });
     }
 
-    setPathData(pathCounter, pathDataNew) {
+    setSingleDataPointPaths(pathCounter, pathDataNew) {
         setTimeout(() => {
             console.log('set this');
             document.querySelectorAll('path')[pathCounter].setAttribute('d', pathDataNew);
