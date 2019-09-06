@@ -160,10 +160,87 @@ const lineGraphDataMissingValues = [
     }
 ];
 
+const lineGraphDataSingleDataPoints = [
+    {
+        'name': 'Placeholder',
+        'series': [
+            {
+                'name': 'Q1 2018',
+                'value': 3000
+            },
+            {
+                'name': 'Q2 2018',
+                'value': 3000
+            },
+            {
+                'name': 'Q3 2018',
+                'value': 3000
+            },
+            {
+                'name': 'Q4 2018',
+                'value': 3000
+            },
+            {
+                'name': 'Q1 2019',
+                'value': 3000
+            },
+            {
+                'name': 'Q2 2019',
+                'value': 3000
+            },
+            {
+                'name': 'Q3 2019',
+                'value': 3000
+            },
+            {
+                'name': 'Q4 2019',
+                'value': 3000
+            },
+        ]
+    },
+    {
+        'name': 'Strata-1',
+        'series': [
+            {
+                'name': 'Q1 2018',
+                'value': 4300
+            },
+        ]
+    },
+    {
+        'name': 'Strata-2',
+        'series': [
+            {
+                'name': 'Q4 2018',
+                'value': 3000
+            },
+        ]
+    },
+    {
+        'name': 'Strata-3',
+        'series': [
+            {
+                'name': 'Q2 2019',
+                'value': 4900
+            }
+        ]
+    },
+    {
+        'name': 'One Dot',
+        'series': [
+            {
+                'name': 'Q4 2018',
+                'value': 5800
+            },
+        ]
+    }
+];
+
 const props = {
     ...defaultProps,
     lineGraphData,
     lineGraphDataMissingValues,
+    lineGraphDataSingleDataPoints,
 };
 
 storiesOf('Components|Line Graph', module)
@@ -356,6 +433,29 @@ storiesOf('Components|Line Graph', module)
         template: `
             <app-line-graph
                 [data]= 'lineGraphDataMissingValues'
+                [animations] = true
+                [gradient] = true
+                [gridLines] = true
+                [roundDomain] = true
+                [xAxis] = true
+                [yAxis] = true
+                [showXLabel] = true
+                [showYLabel] = true
+                xLabel = 'X Label'
+                yLabel = 'Y Label'
+                [autoScale] = true
+                [timeLine] = true
+                [tooltipDisabled] = false
+                dataAutoId = 'testingID'
+                (LineClick) = "HANDLECLICK($event)">
+            </app-line-graph>
+        `,
+        props
+    }))
+    .add('Single Data Points', () => ({
+        template: `
+            <app-line-graph
+                [data]= 'lineGraphDataSingleDataPoints'
                 [animations] = true
                 [gradient] = true
                 [gridLines] = true
