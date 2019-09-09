@@ -86,9 +86,9 @@
                                     <span style="display: inline-block; font-size:1.25em; font-weight: bold"> : {{ mod.value | graphToolTip }}</span>
                                 </li>
                             </ng-container>
-                            <ng-container *ngIf="model.length === 1 && model[0].series === TIMELINE_PLACEHOLDER">
-                                <span style="display: inline-block; font-size: 1.25em;">There is no data available</span>
-                            </ng-container>
+                            <span style="display: inline-block; font-size: 1.25em;" *ngIf="model.length === 1 && model[0].series === TIMELINE_PLACEHOLDER">
+                                There is no data available
+                            </span>
                         </ul>
                     </div>
                 </ng-template>
