@@ -36,6 +36,10 @@ span[id^="marker_"] {
     stroke-width: 3px;
 }
 
+:host ::ng-deep .line.lineDot {
+    stroke-width: 5px;
+}
+
 .xAxisLabel {
     color: #212121;
     font-size: 18px;
@@ -172,4 +176,8 @@ ul {
     outline: 0;
     -webkit-appearance: none;
     -moz-appearance: none;
+}
+
+::ng-deep .remove-placeholder svg > g > g[clip-path] > g:first-child {
+    display: none;
 }

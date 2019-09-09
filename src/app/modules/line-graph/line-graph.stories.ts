@@ -68,10 +68,109 @@ const lineGraphData = [
     }
 ];
 
+const lineGraphDataXAxisValues = ['Q1 2018', 'Q2 2018', 'Q3 2018', 'Q4 2018', 'Q1 2019', 'Q2 2019', 'Q3 2019', 'Q4 2019'];
+
+const lineGraphDataMissingValues = [
+    {
+        'name': 'Strata-1',
+        'series': [
+            {
+                'name': 'Q1 2018',
+                'value': 4300
+            },
+            {
+                'name': 'Q3 2018',
+                'value': 5940
+            }
+        ]
+    },
+    {
+        'name': 'Strata-2',
+        'series': [
+            {
+                'name': 'Q1 2018',
+                'value': 5300
+            },
+            {
+                'name': 'Q4 2018',
+                'value': 3000
+            },
+        ]
+    },
+    {
+        'name': 'Strata-3',
+        'series': [
+            {
+                'name': 'Q2 2018',
+                'value': 6000
+            },
+            {
+                'name': 'Q3 2018',
+                'value': 3940
+            },
+            {
+                'name': 'Q2 2019',
+                'value': 4900
+            }
+        ]
+    },
+    {
+        'name': 'One Dot',
+        'series': [
+            {
+                'name': 'Q1 2019',
+                'value': 5800
+            },
+        ]
+    }
+];
+
+const lineGraphDataSingleDataPoints = [
+    {
+        'name': 'Strata-1',
+        'series': [
+            {
+                'name': 'Q1 2018',
+                'value': 4300
+            },
+        ]
+    },
+    {
+        'name': 'Strata-2',
+        'series': [
+            {
+                'name': 'Q4 2018',
+                'value': 3000
+            },
+        ]
+    },
+    {
+        'name': 'Strata-3',
+        'series': [
+            {
+                'name': 'Q2 2019',
+                'value': 4900
+            }
+        ]
+    },
+    {
+        'name': 'One Dot',
+        'series': [
+            {
+                'name': 'Q4 2018',
+                'value': 5800
+            },
+        ]
+    }
+];
+
 const props = {
     ...defaultProps,
-    lineGraphData
-}
+    lineGraphData,
+    lineGraphDataXAxisValues,
+    lineGraphDataMissingValues,
+    lineGraphDataSingleDataPoints,
+};
 
 storiesOf('Components|Line Graph', module)
     .addDecorator(
@@ -101,15 +200,16 @@ storiesOf('Components|Line Graph', module)
                     ngmodule: 'imports',
                 },
             ],
-            // @Input() toolTip: boolean;
-            // @Input() dataAutoId: string;
-            // @Output() LineClick = new EventEmitter<object>();
-
             parameters: [
                 {
                     name: 'data',
                     type: 'array',
                     value: 'The data for the line graph',
+                },
+                {
+                    name: 'xAxisValues',
+                    type: 'array',
+                    value: 'If you would like to specify the values that are shown on the X Axis, you can pass those values in through this parameter.  This is very useful if your dataset does not completely and consistently fill the X Axis.',
                 },
                 {
                     name: 'colorScheme',
@@ -187,9 +287,9 @@ storiesOf('Components|Line Graph', module)
                     value: 'Display a timeline control under the chart. Only available if a the x scale is linear or time',
                 },
                 {
-                    name: 'tooltip',
+                    name: 'tooltipDisabled',
                     type: 'boolean',
-                    value: 'Add a tooltip on mouseover',
+                    value: 'Disable tooltips and line hover state on mouseover',
                 },
                 {
                     name: 'LineClick',
@@ -236,7 +336,7 @@ storiesOf('Components|Line Graph', module)
         ]
     }
 ]
-                </pre>`
+                </pre>`,
             ]
         }
     }))
@@ -256,7 +356,59 @@ storiesOf('Components|Line Graph', module)
                 yLabel = 'Y Label'
                 [autoScale] = true
                 [timeLine] = true
-                [toolTip] = true
+                [tooltipDisabled] = false
+                dataAutoId = 'testingID'
+                (LineClick) = "HANDLECLICK($event)">
+            </app-line-graph>
+        `,
+        props
+    }))
+    .add('Skipping X Axis Values', () => ({
+        template: `
+            <app-line-graph
+                [data]= 'lineGraphDataMissingValues'
+                [xAxisValues] = lineGraphDataXAxisValues
+                [animations] = true
+                [gradient] = true
+                [gridLines] = true
+                [roundDomain] = true
+                [xAxis] = true
+                [yAxis] = true
+                [showXLabel] = true
+                [showYLabel] = true
+                xLabel = 'X Label'
+                yLabel = 'Y Label'
+                [autoScale] = true
+                [timeLine] = true
+                [tooltipDisabled] = false
+                dataAutoId = 'testingID'
+                (LineClick) = "HANDLECLICK($event)">
+                <ng-template #seriesTooltipTemplate let-model="model">
+                    This is vertical line tooltip template
+                    <pre>{{model|json}}</pre>
+                </ng-template>
+            </app-line-graph>
+        `,
+        props
+    }))
+    .add('Single Data Points', () => ({
+        template: `
+            <app-line-graph
+                [data]= 'lineGraphDataSingleDataPoints'
+                [xAxisValues] = lineGraphDataXAxisValues
+                [animations] = true
+                [gradient] = true
+                [gridLines] = true
+                [roundDomain] = true
+                [xAxis] = true
+                [yAxis] = true
+                [showXLabel] = true
+                [showYLabel] = true
+                xLabel = 'X Label'
+                yLabel = 'Y Label'
+                [autoScale] = true
+                [timeLine] = true
+                [tooltipDisabled] = false
                 dataAutoId = 'testingID'
                 (LineClick) = "HANDLECLICK($event)">
             </app-line-graph>

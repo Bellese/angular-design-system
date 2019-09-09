@@ -13,6 +13,8 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
     rangeTo;
 
     @Input() data: any[];
+    @Input() xAxisValues: string[];
+
     @Input() colorScheme: any = {
         domain: ['#6DB6FF', '#DB6D00', '#009292', '#666666']
     };
@@ -31,7 +33,7 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
     @Input() yAxisTickFormatting;
     @Input() autoScale: boolean;
     @Input() timeLine: boolean;
-    @Input() toolTip: boolean;
+    @Input() tooltipDisabled: boolean;
     @Input() dataAutoId: string;
     @Output() LineClick = new EventEmitter<object>();
 
@@ -48,11 +50,13 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
     changeLegend;
     alert;
 
+    TIMELINE_PLACEHOLDER = 'TIMELINE_PLACEHOLDER';
+
     ngOnInit() {
 
-    if (typeof SVGElement.prototype.contains === 'undefined') {
-    SVGElement.prototype.contains = HTMLDivElement.prototype.contains;
-    }
+        if (typeof SVGElement.prototype.contains === 'undefined') {
+            SVGElement.prototype.contains = HTMLDivElement.prototype.contains;
+        }
 
         (function (window) {
             try {
@@ -82,7 +86,45 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
 
         this.resize();
 
-        this.shadowData = this.data;
+        this.shadowData = [];
+
+        // If xAxisValues is passed in, generate a new series and add it to the graph as the first line.
+        if (this.xAxisValues) {
+
+            // Find the smallest value from all other data series, and use that as the value for this new
+            // series in order to not skew the chart
+            let smallestValue;
+            for (const series of this.data) {
+                for (const seriesData of series.series) {
+                    if (!this.xAxisValues.includes(seriesData.name)) {
+                        console.warn(`The series ${series.name} has a datapoint for ${seriesData.name} but that was not included in the xAxisValues array.  This may cause unexpected issues and should be fixed.`)
+                    }
+
+                    if (!smallestValue || smallestValue > seriesData.value) {
+                        smallestValue = seriesData.value;
+                    }
+                }
+            }
+
+            // Create the new series using the smallest value
+            const xAxisValuesSeries = [];
+            for (const xAxisValue of this.xAxisValues) {
+                xAxisValuesSeries.push({
+                    name: xAxisValue,
+                    value: smallestValue,
+                });
+            }
+
+            // The graph has been configured to hide any series named 'TIMELINE_PLACEHOLDER' from the tooltip
+            this.shadowData.push({
+                name: this.TIMELINE_PLACEHOLDER,
+                series: xAxisValuesSeries
+            });
+        }
+
+        // ShadowData is now either an empty array or a newly generated series
+        // Append the rest of the data to this array
+        this.shadowData = this.shadowData.concat(this.data);
 
         for (let x = 0; x <= this.data[0].series.length; x++) {
             if (this.data[0].series[x]) {
@@ -143,7 +185,43 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
     ngAfterViewInit() {
         if (document.getElementsByClassName('tooltip-anchor')[0]) {
             document.getElementsByClassName('tooltip-anchor')[0].setAttribute('width', '4');
+            this.updateSingleDataPointPaths();
         }
+    }
+
+    // updateSingleDataPointPaths parses through all path dom elements and finds paths that have only one x/y data point
+    // Since paths with that criteria do not display, we have to "smudge" the path and add a second data point near the
+    // first one in order for it to show.
+    updateSingleDataPointPaths() {
+        const paths = document.querySelectorAll('path');
+        let pathCounter = 0;
+        Array.from(paths).forEach((path) => {
+            const pathData = path.getAttribute('d');
+            if (pathData) {
+                const pathDataParts = pathData.split(',');
+                if (pathDataParts.length === 2) {
+                    const startX = parseInt(pathDataParts[0].replace('M', ''), 10) - 1;
+                    const startY = parseInt(pathDataParts[1].replace('Z', ''), 10) - 1;
+                    const endX = startX + 2;
+                    const endY = startY + 2;
+
+                    pathDataParts[0] = `M${startX}`;
+                    pathDataParts[1] = `${startY}`;
+                    pathDataParts.push(`${endX}`);
+                    pathDataParts.push(`${endY}Z`);
+
+                    const pathDataNew = pathDataParts.join(',');
+                    const lineClass = document.querySelectorAll('path')[pathCounter].getAttribute('class');
+
+                    document.querySelectorAll('path')[pathCounter].setAttribute('d', pathDataNew);
+                    document.querySelectorAll('path')[pathCounter].setAttribute('stroke-linecap', 'round');
+                    document.querySelectorAll('path')[pathCounter].setAttribute('class', `${lineClass} lineDot`);
+
+                }
+            }
+            pathCounter++;
+        });
+        window.dispatchEvent(new Event('resize'));
     }
 
     moveDot(num) {
@@ -167,8 +245,11 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
 
                 const target = document.getElementById('marker_' + x);
 
+                if (target) {
                     target.style.left = left + 'px';
                     target.style.width = width + 'px';
+                }
+
             }
         }
         , 200);
