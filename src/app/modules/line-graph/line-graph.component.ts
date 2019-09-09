@@ -221,7 +221,7 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
             }
             pathCounter++;
         });
-        window.dispatchEvent(new Event('resize'));
+        this.resize();
     }
 
     moveDot(num) {
