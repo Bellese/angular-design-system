@@ -217,11 +217,11 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
                     document.querySelectorAll('path')[pathCounter].setAttribute('stroke-linecap', 'round');
                     document.querySelectorAll('path')[pathCounter].setAttribute('class', `${lineClass} lineDot`);
 
-                    window.dispatchEvent(new Event('resize'));
                 }
             }
             pathCounter++;
         });
+        window.dispatchEvent(new Event('resize'));
     }
 
     moveDot(num) {
