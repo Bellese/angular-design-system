@@ -68,44 +68,9 @@ const lineGraphData = [
     }
 ];
 
+const lineGraphDataXAxisValues = ['Q1 2018', 'Q2 2018', 'Q3 2018', 'Q4 2018', 'Q1 2019', 'Q2 2019', 'Q3 2019', 'Q4 2019'];
+
 const lineGraphDataMissingValues = [
-    {
-        'name': 'TIMELINE_PLACEHOLDER',
-        'series': [
-            {
-                'name': 'Q1 2018',
-                'value': 3000
-            },
-            {
-                'name': 'Q2 2018',
-                'value': 3000
-            },
-            {
-                'name': 'Q3 2018',
-                'value': 3000
-            },
-            {
-                'name': 'Q4 2018',
-                'value': 3000
-            },
-            {
-                'name': 'Q1 2019',
-                'value': 3000
-            },
-            {
-                'name': 'Q2 2019',
-                'value': 3000
-            },
-            {
-                'name': 'Q3 2019',
-                'value': 3000
-            },
-            {
-                'name': 'Q4 2019',
-                'value': 3000
-            },
-        ]
-    },
     {
         'name': 'Strata-1',
         'series': [
@@ -162,43 +127,6 @@ const lineGraphDataMissingValues = [
 
 const lineGraphDataSingleDataPoints = [
     {
-        'name': 'TIMELINE_PLACEHOLDER',
-        'series': [
-            {
-                'name': 'Q1 2018',
-                'value': 3000
-            },
-            {
-                'name': 'Q2 2018',
-                'value': 3000
-            },
-            {
-                'name': 'Q3 2018',
-                'value': 3000
-            },
-            {
-                'name': 'Q4 2018',
-                'value': 3000
-            },
-            {
-                'name': 'Q1 2019',
-                'value': 3000
-            },
-            {
-                'name': 'Q2 2019',
-                'value': 3000
-            },
-            {
-                'name': 'Q3 2019',
-                'value': 3000
-            },
-            {
-                'name': 'Q4 2019',
-                'value': 3000
-            },
-        ]
-    },
-    {
         'name': 'Strata-1',
         'series': [
             {
@@ -239,6 +167,7 @@ const lineGraphDataSingleDataPoints = [
 const props = {
     ...defaultProps,
     lineGraphData,
+    lineGraphDataXAxisValues,
     lineGraphDataMissingValues,
     lineGraphDataSingleDataPoints,
 };
@@ -276,6 +205,11 @@ storiesOf('Components|Line Graph', module)
                     name: 'data',
                     type: 'array',
                     value: 'The data for the line graph',
+                },
+                {
+                    name: 'xAxisValues',
+                    type: 'array',
+                    value: 'If you would like to specify the values that are shown on the X Axis, you can pass those values in through this parameter.  This is very useful if your dataset does not completely and consistently fill the X Axis.',
                 },
                 {
                     name: 'colorScheme',
@@ -403,14 +337,6 @@ storiesOf('Components|Line Graph', module)
     }
 ]
                 </pre>`,
-                'If you would like to manually set the x axis values, you can create a series using all of your desired values and the smallest value of any other series.  See "Skipping X Axis Values" for an example.  You should also name that series "TIMELINE_PLACEHOLDER" in order for it to be removed form the series tooltip.',
-                'In order to hide that series from the graph, you can use the following CSS:',
-                `<pre>
-::ng-deep svg > g > g[clip-path] > g:first-child {
-    display: none;
-}
-                </pre>`,
-
             ]
         }
     }))
@@ -441,6 +367,7 @@ storiesOf('Components|Line Graph', module)
         template: `
             <app-line-graph
                 [data]= 'lineGraphDataMissingValues'
+                [xAxisValues] = lineGraphDataXAxisValues
                 [animations] = true
                 [gradient] = true
                 [gridLines] = true
@@ -461,11 +388,6 @@ storiesOf('Components|Line Graph', module)
                     <pre>{{model|json}}</pre>
                 </ng-template>
             </app-line-graph>
-            <style>
-                ::ng-deep svg > g > g[clip-path] > g:first-child {
-                    display: none;
-                }
-            </style>
         `,
         props
     }))
@@ -473,6 +395,7 @@ storiesOf('Components|Line Graph', module)
         template: `
             <app-line-graph
                 [data]= 'lineGraphDataSingleDataPoints'
+                [xAxisValues] = lineGraphDataXAxisValues
                 [animations] = true
                 [gradient] = true
                 [gridLines] = true
@@ -489,11 +412,6 @@ storiesOf('Components|Line Graph', module)
                 dataAutoId = 'testingID'
                 (LineClick) = "HANDLECLICK($event)">
             </app-line-graph>
-            <style>
-                ::ng-deep svg > g > g[clip-path] > g:first-child {
-                    display: none;
-                }
-            </style>
         `,
         props
     }));

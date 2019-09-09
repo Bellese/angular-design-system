@@ -177,3 +177,7 @@ ul {
     -webkit-appearance: none;
     -moz-appearance: none;
 }
+
+::ng-deep .remove-placeholder svg > g > g[clip-path] > g:first-child {
+    display: none;
+}

@@ -38,7 +38,11 @@
     
     <div tabindex="0" class="focus-trap-hidden" id="firstModalTab" (focus)="findTab($event)" aria-hidden="true"></div>
 
-    <div class="ds-l-form-row ds-u-justify-content-center ds-u-align-items--center" style="overflow: hidden;">
+    <div 
+        class="ds-l-form-row ds-u-justify-content-center ds-u-align-items--center" 
+        style="overflow: hidden;"
+        [ngClass]="{'remove-placeholder': xAxisValues && xAxisValues.length}"
+    >
         <div class="ds-l-col--11 lineShell" [attr.aria-hidden]="true">
             <ngx-charts-line-chart
                 [attr.aria-hidden]="true"
@@ -76,7 +80,7 @@
                     <div class="seriesToolTip">
                         <ul>
                             <ng-container *ngFor="let mod of model; let i = index">
-                                <li *ngIf="mod.series !== 'TIMELINE_PLACEHOLDER'">
+                                <li *ngIf="mod.series !== TIMELINE_PLACEHOLDER">
                                     <div class="square" [ngStyle]="{'background':mod.color}"></div>
                                     <span style="display: inline-block; font-size: 1.25em;">{{ mod.series }}</span>
                                     <span style="display: inline-block; font-size:1.25em; font-weight: bold"> : {{ mod.value | graphToolTip }}</span>
