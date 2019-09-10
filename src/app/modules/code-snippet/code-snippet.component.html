@@ -23,7 +23,12 @@
         <ng-container *ngFor="let contentItem of codeSnippetModel.contentItems">
             <div class="code-snippet-line-number" [ngClass]="contentItem.className ? contentItem.className : 'ds-u-color--base ds-u-fill--white'">
                 <div class="code-snippet-line-number-darken ds-u-padding-x--1">
-                    {{ contentItem.lineNumber || '&nbsp;' }}
+                    <div *ngIf="contentItem.lineNumber || !contentItem.icon">
+                        {{ contentItem.lineNumber || '&nbsp;' }}
+                    </div>
+                    <div *ngIf="contentItem.icon && !contentItem.lineNumber" class="codeSnippetIcon">
+                        <fa-icon [icon]="contentItem.icon"></fa-icon>
+                    </div>
                 </div>
             </div>
             <div class="code-snippet-content ds-u-padding-x--1" [ngClass]="contentItem.className ? contentItem.className : 'ds-u-color--base ds-u-fill--white'">{{ contentItem.content }}</div>
