@@ -13,9 +13,11 @@ export class AppPanelComponent implements OnInit {
 
     @Output() panelClick = new EventEmitter<any>();
     @Input() title: string;
+    @Input() titleClass = 'ds-u-fill--primary-darkest ds-u-color--white';
     @Input() extTitle = false;
     @Input() extTitleClass: string;
     @Input() expand = false;
+    @Input() expandedClass = 'ds-u-padding--2';
     @Input() openAll = false;
     @Input() dataAutoId: string;
 

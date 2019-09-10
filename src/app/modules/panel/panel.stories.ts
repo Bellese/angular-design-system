@@ -46,6 +46,11 @@ storiesOf('Components|Panel', module)
                     value: 'Use to name each accordion panel',
                 },
                 {
+                    name: 'titleClass',
+                    type: 'string',
+                    value: 'Use to override the default class for a panel title bar.  If you use this parameter, most default styles will be removed.  The defaults are: \'ds-u-fill--primary-darker ds-u-color--white\'',
+                },
+                {
                     name: 'extTitle',
                     type: 'string',
                     value: 'Use to add supplimental information to each panel. Goes to the right of the main title and inline with it',
@@ -60,6 +65,11 @@ storiesOf('Components|Panel', module)
                     type: 'boolean',
                     // tslint:disable-next-line: max-line-length
                     value: 'Use this only to set a main panel to open on load. For example if I want the first panel to be set to open I will add expand=true to panel',
+                },
+                {
+                    name: 'expandedClass',
+                    type: 'string',
+                    value: 'Use to override the default class for panel once it\'s expanded.  If you use this parameter, most default styles will be removed.  The defaults are: \'ds-u-border-top--0 ds-u-border--1 ds-u-padding--2\'',
                 },
                 {
                     name: 'openAll',
