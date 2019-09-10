@@ -12,6 +12,9 @@ import { defaultProps } from '../../../../.storybook/helpers';
 import { DirectiveModule } from '../../directives/directive.module';
 import { CodeSnippetModel, CodeSnippetContentItemModel } from './code-snippet.model';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
+
 const codeSnippetModel = new CodeSnippetModel({
     label: 'XPath',
     contentItems: [
@@ -28,6 +31,22 @@ const codeSnippetModel = new CodeSnippetModel({
     copyContent: `/ClinicalDocument/component[1]/structuredBody[1]/component[3]/section[1]/entry[3]/act[1]/entryRelationship[1]/substanceAdministration[1]['line 450 column 75']`,
 });
 
+const codeSnippetIconModel = new CodeSnippetModel({
+    label: 'XPath',
+    contentItems: [
+        new CodeSnippetContentItemModel({content: '|- ClinicalDocument'}),
+        new CodeSnippetContentItemModel({content: ' |- component[1]'}),
+        new CodeSnippetContentItemModel({content: '  |- structuredBody[1]'}),
+        new CodeSnippetContentItemModel({content: '   |- component[3]'}),
+        new CodeSnippetContentItemModel({content: '    |- section[1]'}),
+        new CodeSnippetContentItemModel({content: '     |- entry[3]'}),
+        new CodeSnippetContentItemModel({content: '      |- act[1]'}),
+        new CodeSnippetContentItemModel({content: '       |- entryRelationship[1]'}),
+        new CodeSnippetContentItemModel({content: '        |- substanceAdministration[1]', icon: faExclamationCircle, className: 'ds-u-fill--error-lightest ds-u-color--error-dark'}),
+    ],
+    copyContent: `/ClinicalDocument/component[1]/structuredBody[1]/component[3]/section[1]/entry[3]/act[1]/entryRelationship[1]/substanceAdministration[1]['line 450 column 75']`,
+});
+
 const codeSnippetModelFile = new CodeSnippetModel({
     label: 'File Name',
     contentItems: [
@@ -40,13 +59,15 @@ const props = {
     ...defaultProps,
     codeSnippetModel,
     codeSnippetModelFile,
+    codeSnippetIconModel,
 };
 
 storiesOf('Components|Code Snippet', module)
     .addDecorator(
         moduleMetadata({
             imports: [
-                DirectiveModule
+                DirectiveModule,
+                FontAwesomeModule
             ],
             declarations: [CodeSnippetComponent, AppButtonComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
         }),
@@ -104,9 +125,15 @@ codeSnippetModel = new CodeSnippetModel({
 codeSnippetContentItemModel = new CodeSnippetContentItemModel({
     className: 'ds-u-fill--error-lightest ds-u-color--error-dark',
     lineNumber: 450,
+    icon: faExclamationCircle,
     content: '        |- substanceAdministration[1]';
 });
-                </pre>`
+                </pre>`,
+                'When using the icon option, you must first import the specifc font awesome icon. Example:',
+                `<pre>
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
+                </pre>`,
+                'If both lineNumber and icon are specified, lineNumber will take precendence.  '
             ]
         }
     }))
@@ -114,6 +141,14 @@ codeSnippetContentItemModel = new CodeSnippetContentItemModel({
         template: `
             <app-code-snippet
                 [codeSnippetModel] = 'codeSnippetModel'>
+            </app-code-snippet>
+        `,
+        props: props
+    }))
+    .add('XPath with icon', () => ({
+        template: `
+            <app-code-snippet
+                [codeSnippetModel] = 'codeSnippetIconModel'>
             </app-code-snippet>
         `,
         props: props
