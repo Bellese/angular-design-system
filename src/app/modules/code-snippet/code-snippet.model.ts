@@ -1,3 +1,5 @@
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+
 export class CodeSnippetModel {
     id = 'code_snippet';
     label: string;
@@ -19,6 +21,7 @@ export class CodeSnippetModel {
 export class CodeSnippetContentItemModel {
     className: string;
     lineNumber: number;
+    icon: IconDefinition;
     content: string;
 
     constructor(options?) {
