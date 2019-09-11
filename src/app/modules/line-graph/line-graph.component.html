@@ -104,12 +104,12 @@
             <svg height="15" width="20" aria-hidden="true" style="pointer-events: none;">
                 <circle 
                     aria-hidden="true"
-                  cx="10" 
-                  cy="10" 
-                  [attr.r]="focusDot === i ? 4 : 3" 
-                  stroke="#D6D7D9" 
-                  stroke-width="1" 
-                  [attr.fill]="focusDot === i ? '#212121' : '#D6D7D9'" />
+                    cx="10" 
+                    cy="10" 
+                    [attr.r]="focusDot === i ? 4 : 3" 
+                    stroke="#D6D7D9" 
+                    stroke-width="1" 
+                    [attr.fill]="focusDot === i ? '#212121' : '#D6D7D9'" />
             </svg>
         </span>
     </div>
@@ -140,6 +140,9 @@
             
             <ng-template #changeBack>
                 <div class="ds-l-row ds-u-justify-content-center ds-u-align-items--center">
+                    <div *ngIf="legendDataArray[ focusDot + rFI].description.length === 0" class='ds-l-col'>
+                        There is no data available
+                    </div>
                     <div *ngFor="let data of legendDataArray[ focusDot + rFI].description ; let i = index" class="{{updateWidthClass}}">
                         <div class="square" [ngStyle]="{'background':data.color}"></div>
                         <span class="series"> {{ data.name }} : </span>

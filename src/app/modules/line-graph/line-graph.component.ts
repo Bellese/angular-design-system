@@ -39,13 +39,14 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
 
     current;
     shadowData;
+    shadowDataCopy; // Used to reset the filter
     errorMessage: string;
     openInfoArea = false;
     focusDot = 0;
     flattenedDataArray = [];
     legendDataArray = [];
-    rFI = 0;
-    rTI;
+    rFI = null;
+    rTI = null;
     updateWidthClass;
     changeLegend;
     alert;
@@ -126,9 +127,11 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
         // Append the rest of the data to this array
         this.shadowData = this.shadowData.concat(this.data);
 
-        for (let x = 0; x <= this.data[0].series.length; x++) {
-            if (this.data[0].series[x]) {
-                this.filterValues.push({value : this.data[0].series[x].name, content: this.data[0].series[x].name});
+        this.shadowDataCopy = this.shadowData.slice();
+
+        for (let x = 0; x <= this.shadowData[0].series.length; x++) {
+            if (this.shadowData[0].series[x]) {
+                this.filterValues.push({value : this.shadowData[0].series[x].name, content: this.shadowData[0].series[x].name});
             }
         }
 
@@ -136,49 +139,49 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
         this.rangeTo = this.filterValues[this.filterValues.length - 1].value;
 
         // use this function for the dots on the side START
-            let flattenedData = this.data;
+        let flattenedData = this.data;
 
-                flattenedData = flattenedData.map((x, ind) => {
-                    return x.series.map(y => {
-                        const val = (y.value === '') ? 'N/A' : y.value;
-                        return {
-                            name: y.name,
-                            series: x.name,
-                            value: val,
-                            color: this.colorScheme.domain[ind]
-                        };
-                    });
-                });
+        flattenedData = flattenedData.map((x, ind) => {
+            return x.series.map(y => {
+                const val = (y.value === '') ? 'N/A' : y.value;
+                return {
+                    name: y.name,
+                    series: x.name,
+                    value: val,
+                    color: this.colorScheme.domain[ind]
+                };
+            });
+        });
 
-                flattenedData = flattenedData.reduce((acc, val) => acc.concat(val), []);
+        flattenedData = flattenedData.reduce((acc, val) => acc.concat(val), []);
 
-            for (let x = 0; x < this.data[0].series.length; x++) {
-                const verticalTarget = this.data[0].series[x].name;
-                let label = '';
+        for (let x = 0; x < this.data[0].series.length; x++) {
+            const verticalTarget = this.data[0].series[x].name;
+            let label = '';
 
-                flattenedData.map(y => {
-                   if (verticalTarget === y.name) {
-                       label += y.series.concat('-' + y.value + ' ');
-                   }
-                });
+            flattenedData.map(y => {
+                if (verticalTarget === y.name) {
+                    label += y.series.concat('-' + y.value + ' ');
+                }
+            });
 
-                this.flattenedDataArray.push(verticalTarget + ':' + label);
-            }
+            this.flattenedDataArray.push(verticalTarget + ':' + label);
+        }
         // use this function for the dots on the side END
 
         // use this function for the legend START
-            for (let x = 0; x < this.data[0].series.length; x++) {
-                const verticalTarget = this.data[0].series[x].name;
-                const label = [];
+        for (let x = 0; x < this.shadowData[0].series.length; x++) {
+            const verticalTarget = this.shadowData[0].series[x].name;
+            const label = [];
 
-                flattenedData.map(y => {
-                   if (verticalTarget === y.name) {
-                       label.push({ 'name' : y.series, 'value': y.value, 'color': y.color});
-                   }
-                });
+            flattenedData.map(y => {
+                if (verticalTarget === y.name) {
+                    label.push({ 'name' : y.series, 'value': y.value, 'color': y.color});
+                }
+            });
 
-                this.legendDataArray.push({ 'series' : verticalTarget, 'description' : label });
-            }
+            this.legendDataArray.push({ 'series' : verticalTarget, 'description' : label });
+        }
         // use this function for the legend END
     }
 
@@ -193,6 +196,14 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
     // Since paths with that criteria do not display, we have to "smudge" the path and add a second data point near the
     // first one in order for it to show.
     updateSingleDataPointPaths() {
+        const lineDotClass = 'lineDot';
+
+        // Remove the lineDot class from all elements
+        const allLineDots = document.querySelectorAll(`.${lineDotClass}`);
+        [].forEach.call(allLineDots, function(el: Element) {
+            el.classList.remove(lineDotClass);
+        });
+
         const paths = document.querySelectorAll('path');
         let pathCounter = 0;
         Array.from(paths).forEach((path) => {
@@ -286,26 +297,48 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
     }
 
     setNewRange(rF, rT) {
+        // Reset Range
+        this.rFI = null;
+        this.rTI = null;
+
         this.errorMessage = '';
 
-        this.data.map(x => {
+        this.shadowDataCopy.map(x => {
             x.series.map((y, ind, arr) => {
-                if (y.name === rF) { this.rFI = ind; }
-                if (y.name === rT) { this.rTI = ind; }
+                // Set values if they are the first ones found
+                if (y.name === rF && this.rFI === null) {
+                    this.rFI = ind;
+                }
+                if (y.name === rT && this.rTI === null) {
+                    this.rTI = ind;
+                }
             });
         });
 
         if (this.rFI < this.rTI) {
-            this.shadowData = this.data.map(x => {
+            this.shadowData = this.shadowDataCopy.map(x => {
                 return {
                     name: x.name,
-                    series: x.series.filter((y, ind) => {
-                                return (ind >= this.rFI && ind <= this.rTI);
-                            })
+                    series: x.series.filter((y) => {
+                        // get index of curent data point in relation to the first line
+                        // assumption: the first series contains all datapoints
+                        let index;
+                        this.shadowDataCopy[0].series.some((line, i) => {
+                            if (line.name === y.name) {
+                                return index = i;
+                            }
+                        });
+
+                        // only return data points in this series that are between the selected datapoints in relation to the first serires
+                        return (index >= this.rFI && index <= this.rTI);
+                    })
                 };
             });
 
             this.focusDot = 0;
+            setTimeout(() => {
+                this.updateSingleDataPointPaths();
+            }, 0);
         } else {
             this.errorMessage = 'Incorrect range detected';
         }
