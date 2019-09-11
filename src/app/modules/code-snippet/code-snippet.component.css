@@ -12,3 +12,7 @@
     white-space: pre;
     overflow: auto;
 }
+
+.codeSnippetIcon {
+    padding-top: 3px;
+}
