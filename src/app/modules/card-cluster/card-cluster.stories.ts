@@ -12,10 +12,12 @@ const cardClusterDataNormal = {
     'mainCard': true,
     'mainTitle': 'STK-2',
     'mainSub': 'Episodes',
+    'ariaLabel': 'Activate enter button to view all items',
     'cluster': [
         {
             'value': 'vte',
-            'name': 'IPP Not Met'
+            'name': 'IPP Not Met',
+            'ariaLabel': 'Activate enter to view all items for the IPP Not Met category'
         },
         {
             'value': 'cbc',
@@ -124,10 +126,12 @@ storiesOf('Components|Card Cluster', module)
   "mainTitle": "STK-2",
   "mainSub": "Episodes",
   "total": 400 // This is optional.  If total is left off, the total will be calculated by adding up the values in the cluster array.
+  'ariaLabel': 'Activate enter button to view all items', // This is optional.  If ariaLabel is left off, the mainTitle value will be used
   "cluster": [
     {
       "value": "vte",
-      "name": "IPP Not Met"
+      "name": "IPP Not Met",
+      "ariaLabel": "Activate enter to view all items for the IPP Not Met category" // This is optional.  If ariaLabel is left off, the name will be used
     },
     {
       "value": "cbc",
@@ -154,8 +158,8 @@ storiesOf('Components|Card Cluster', module)
       "classButton": "vpi",
       "name": "View Performance",
       "className": "vpi"
-    } 
-  ]   
+    }
+  ]
 }
                 </pre>`
             ]
