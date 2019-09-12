@@ -37,7 +37,7 @@ span[id^="marker_"] {
 }
 
 :host ::ng-deep .line.lineDot {
-    stroke-width: 5px;
+    stroke-width: 7px;
 }
 
 .xAxisLabel {
@@ -179,5 +179,19 @@ ul {
 }
 
 ::ng-deep .remove-placeholder svg > g > g[clip-path] > g:first-child {
+    display: none;
+}
+
+/*******************
+ *
+ * hide specific elements of the line chart that are related to the placeholder data
+ *
+ ******************/
+
+::ng-deep .remove-placeholder svg > g > g[clip-path] > g:first-child {
+    display: none;
+}
+
+::ng-deep .remove-placeholder svg > g > g[clip-path] > g:last-child > g:nth-child(2) {
     display: none;
 }
