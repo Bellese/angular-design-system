@@ -5,7 +5,8 @@
     <div *ngIf="cardArray.mainCard" class="ds-l-lg-col--{{ mainCardWidth }} ds-l-md-col--12 ds-l-sm-col--12">
         <div role="button" tabindex="0" id="CardCluster0" [ngClass]="buttonClicked === 'CardCluster0' ? 'active': null"
             class="ds-u-margin-bottom--2 no-Margin-Bottom pointer card ds-u-padding-top--4 ds-u-padding-bottom--4 ds-u-padding-x--2"
-            (click)="passAction($event)" (keyup.enter)="passAction($event)">
+            (click)="passAction($event)" (keyup.enter)="passAction($event)"
+            [attr.aria-label]="cardArray.ariaLabel || cardArray.mainTitle">
             <div class="ds-u-font-size--h1 ds-u-color--black noPoint">
                 {{ cardArray.mainTitle || '&nbsp;'  }}
             </div>
@@ -28,7 +29,8 @@
                 <div class="ds-l-col" [ngClass]="(x + 1 ) % 2 === 0 ? 'padding-L-0' : ''">
                     <div id="{{'CardCluster'+(x+1)}}" [ngClass]="buttonClicked === 'CardCluster'+(x+1) ? 'active': null"
                         class="{{'pointer card cardHeight ds-u-padding--1 ds-u-margin-bottom--2 ' + card.classButton}}"
-                        (click)="passAction($event)" (keyup.enter)="passAction($event)" role="button" tabindex="0">
+                        (click)="passAction($event)" (keyup.enter)="passAction($event)" role="button" tabindex="0"
+                        [attr.aria-label]="card.ariaLabel || card.name">
                         <div class="ds-u-font-size--h3 ds-u-color--black ds-u-font-weight--bold noPoint"
                             [ngClass]="card.classValue">
                             {{ !card.value && card.value !== 0 ? '&nbsp;' : card.value }}
