@@ -2,19 +2,21 @@
     pointer-events: none;
 }
 
-.active {
-    border-top: 6px solid #4C2C92 !important;
-    box-shadow: 0px 4px 9px #d9d9d9 !important;
-}
-
 .card {
-    border-top: 6px solid #A5E9FF;
+    border-top: 4px solid #009ec8;
+    padding-top: 4px;
     box-shadow: 0px 4px 6px #F1F1F1;
     transition: all 200ms cubic-bezier(.25,.8,.25,1);
 }
 
-.card:hover {
-    border-top: 6px solid #00A6D2;
+.card.active {
+    padding-top: 0;
+    border-top: 8px solid #4C2C92 !important;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16), 0 10px 10px rgba(0, 0, 0, 0.23);
+}
+
+.card:hover:not(.active) {
+    border-top: 4px solid #006a86;
     box-shadow: 0px 4px 9px #d9d9d9;
 }
 
@@ -23,8 +25,22 @@
     overflow: hidden;
 }
 
+.cardHeight.active  {
+    height: 72px;
+}
+
 .ds-text {
     margin-top: 0;
+}
+
+.cardClusterContent {
+    padding-top: 4px;
+    pointer-events: none;
+    transition: all 200ms cubic-bezier(.25,.8,.25,1);
+}
+
+.active .cardClusterContent {
+    padding-top: 0;
 }
 
 @media only screen and (max-width: 768px) {

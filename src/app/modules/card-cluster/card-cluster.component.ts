@@ -74,9 +74,9 @@ export class AppCardClusterComponent implements OnInit {
 
             if (this.cardArray.mainCard && this.cardArray.cluster.length && graphContainer >= 1024) {
                 const followHeight = document.getElementById('followCard').clientHeight - 86;
-                document.getElementById('CardCluster0').style.height = followHeight + 'px';
+                document.querySelector('#CardCluster0 .cardClusterContent').setAttribute('style', `height: ${followHeight.toString()}px;`);
             } else if (this.cardArray.mainCard && graphContainer < 1024) {
-                document.getElementById('CardCluster0').style.height = 'auto';
+                document.querySelector('#CardCluster0 .cardClusterContent').setAttribute('style', 'height: auto;');
             }
         }, 250);
     }
