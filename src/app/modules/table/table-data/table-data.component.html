@@ -1,17 +1,27 @@
+
+
 <div *ngIf="data.value.el === 'default'"
-     [id]="data.value.id"
-     class="{{data.key + ' ' + dataClass}}"
+    [id]="data.value.id"
+    class="{{data.key + ' ' + dataClass}}"
     [ngClass]="data.value.attr ? data.value.attr : false"
-     [attr.title]="!data.value.title ? data.value.value : data.value.title"
-     [innerHtml]="data.value.abbr ? data.value.abbr : data.value.value | highlightSearch: searchText: highlightSearch">
+    [attr.title]="!data.value.title ? data.value.value : data.value.title"
+>
+    <fa-icon *ngIf="data.value.icon" [icon]="data.value.icon"></fa-icon>
+    {{ tableCellText() | highlightSearch: searchText: highlightSearch }}
 </div>
 
 <div *ngIf="data.value.el === 'link'"
-     [id]="data.value.id"
-     class="{{data.key + ' ' + dataClass}}"
-     [ngClass]="data.value.attr ? data.value.attr : false"
-     [attr.title]="!data.value.title ? data.value.value : data.value.title">
-     <a [routerLink]="data.value.href" [attr.aria-label]="data.value.ariaLabel ? data.value.ariaLabel : false" [innerHtml]="data.value.abbr ? data.value.abbr : data.value.value | highlightSearch: searchText: highlightSearch">
+    [id]="data.value.id"
+    class="{{data.key + ' ' + dataClass}}"
+    [ngClass]="data.value.attr ? data.value.attr : false"
+    [attr.title]="!data.value.title ? data.value.value : data.value.title"
+>   
+    <a 
+        [routerLink]="data.value.href"
+        [attr.aria-label]="data.value.ariaLabel ? data.value.ariaLabel : false"
+    >
+        <fa-icon *ngIf="data.value.icon" [icon]="data.value.icon"></fa-icon>
+        {{ tableCellText() | highlightSearch: searchText: highlightSearch }}
     </a>
 </div>
 
@@ -33,11 +43,13 @@
     [id]="data.value.id"
     [disabled]="data.value.disabled ? data.value.disabled: false"
     [attr.title]="!data.value.title ? data.value.value : data.value.title"
-    [attr.aria-label]="data.value.ariaLabel ? data.value.ariaLabel : false"
+    [attr.aria-label]="data.value.ariaLabel ? data.value.ariaLabel : tableCellText()"
     type="button"
     (click)="buttonCallback($event)" 
     (keyup.enter)="buttonCallback($event)" 
     class="ds-c-button pointer {{data.key + ' ' + dataClass}}"
     [ngClass]="'tableCell ' + data.value.attr + ' ' + dataClass"
-    [innerHtml]="data.value.abbr ? data.value.abbr : data.value.value | highlightSearch: searchText: highlightSearch">
+>
+    <fa-icon *ngIf="data.value.icon" [icon]="data.value.icon"></fa-icon>
+    {{ tableCellText() | highlightSearch: searchText: highlightSearch }}
 </button>

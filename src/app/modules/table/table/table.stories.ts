@@ -23,6 +23,10 @@ import ImportsComponent from '../../../../stories/imports.component';
 import NgModuleComponent from '../../../../stories/ngmodule.component';
 import { defaultProps } from '../../../../../.storybook/helpers';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
+
+
 // TODO: Implement modal popups
 function handleEventTable(event) {
     defaultProps.handleEvent(event);
@@ -151,6 +155,7 @@ const tableData = {
         },
         'val2': {
           'value': '50',
+          'icon': faUsers,
           'el': 'button',
           'attr': 'footnote',
           'instanceRef': {
@@ -333,6 +338,7 @@ const tableData = {
         },
         'val2': {
           'value': '50',
+          'icon': faUsers,
           'el': 'button',
           'attr': 'footnote',
           'instanceRef': {
@@ -514,6 +520,7 @@ const tableData = {
         },
         'val2': {
           'value': '50',
+          'icon': faUsers,
           'el': 'button',
           'attr': 'footnote',
           'instanceRef': {
@@ -695,6 +702,7 @@ const tableData = {
         },
         'val2': {
           'value': '50',
+          'icon': faUsers,
           'el': 'button',
           'attr': 'footnote',
           'instanceRef': {
@@ -876,6 +884,7 @@ const tableData = {
         },
         'val2': {
           'value': '50',
+          'icon': faUsers,
           'el': 'button',
           'attr': 'footnote',
           'instanceRef': {
@@ -1057,6 +1066,7 @@ const tableData = {
         },
         'val2': {
           'value': '50',
+          'icon': faUsers,
           'el': 'button',
           'attr': 'footnote',
           'instanceRef': {
@@ -1198,7 +1208,7 @@ storiesOf('Components|Table', module)
               NgModuleComponent,
               ComponentIntroComponent
             ],
-            imports: [NgxPaginationModule, PipesModule, RouterModule],
+            imports: [NgxPaginationModule, PipesModule, RouterModule, FontAwesomeModule],
             providers: [FilterPipe, ModalService]
         }),
     )
