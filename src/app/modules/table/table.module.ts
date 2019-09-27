@@ -17,6 +17,7 @@ import { ModalShellModule } from '../modal-shell/modal-shell.module';
 import { PagingModule } from '../paging/paging.module';
 import { StarModule } from '../star/star.module';
 import { TextFieldModule } from '../text-field/text-field.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 // external
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -41,7 +42,8 @@ import { FilterPipe } from '../../pipes/filter.pipe';
     TextFieldModule,
     PipesModule,
     ModalModule,
-    ModalShellModule
+    ModalShellModule,
+    FontAwesomeModule
   ],
   declarations: [
     AppTableComponent,
