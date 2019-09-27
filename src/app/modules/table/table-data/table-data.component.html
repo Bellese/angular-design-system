@@ -18,7 +18,7 @@
 >   
     <a 
         [routerLink]="data.value.href"
-        [attr.aria-label]="data.value.ariaLabel ? data.value.ariaLabel : false"
+        [attr.aria-label]="data.value.ariaLabel ? data.value.ariaLabel : tableCellText()"
     >
         <fa-icon *ngIf="data.value.icon" [icon]="data.value.icon"></fa-icon>
         {{ tableCellText() | highlightSearch: searchText: highlightSearch }}
