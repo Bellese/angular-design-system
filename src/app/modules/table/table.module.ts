@@ -11,7 +11,7 @@ import { AppTableRowComponent } from './table-row/table-row.component';
 
 // component modules
 import { ButtonModule } from '../button/button.module';
-import { CheckBoxModule } from '../check-box/check-box.module';
+import { ChoiceModule } from '../choice/choice.module';
 import { ModalModule } from '../modal/modal.module';
 import { ModalShellModule } from '../modal-shell/modal-shell.module';
 import { PagingModule } from '../paging/paging.module';
@@ -35,7 +35,7 @@ import { FilterPipe } from '../../pipes/filter.pipe';
     NgxPaginationModule,
     RouterModule,
     ButtonModule,
-    CheckBoxModule,
+    ChoiceModule,
     DirectiveModule,
     PagingModule,
     StarModule,

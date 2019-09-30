@@ -12,7 +12,7 @@ import { StarComponent } from '../../star/star/star.component';
 import { StarRatingComponent } from '../../star/star-rating/star-rating.component';
 import { AppPaginationComponent } from '../../paging/paging.component';
 import { AppButtonComponent } from '../../button/button.component';
-import { AppCheckBoxComponent } from '../../check-box/check-box.component';
+import { AppChoiceComponent } from '../../choice/choice.component';
 import { ModalService } from '../../../services/modal.service';
 import { PipesModule } from '../../../pipes/pipes.module';
 import { FilterPipe } from '../../../pipes/filter.pipe';
@@ -1201,7 +1201,7 @@ storiesOf('Components|Table', module)
               StarRatingComponent,
               AppPaginationComponent,
               AppButtonComponent,
-              AppCheckBoxComponent,
+              AppChoiceComponent,
               AppTableDataComponent,
               ParametersComponent,
               ImportsComponent,
