@@ -68,7 +68,7 @@ storiesOf('Components|Choice', module)
                     value: 'Use this to check the input by default',
                 },
                 {
-                    name: 'change',
+                    name: 'choiceChange',
                     type: 'function',
                     // tslint:disable-next-line: max-line-length
                     value: 'A javascript function that will be called when the checkbox is checked. It takes one argument, which is a click event.',
