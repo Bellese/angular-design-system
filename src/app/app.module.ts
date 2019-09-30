@@ -23,7 +23,7 @@ import { BarGraphModule } from './modules/bar-graph/bar-graph.module';
 import { PlusModule } from './modules/plus/plus.module';
 import { DatePickerModule } from './modules/date-picker/date-picker.module';
 import { CircleGraphModule } from './modules/circle-graph/circle-graph.module';
-import { CheckBoxModule } from './modules/check-box/check-box.module';
+import { ChoiceModule } from './modules/choice/choice.module';
 import { LineGraphModule } from './modules/line-graph/line-graph.module';
 import { DropdownModule } from './modules/drop-down/drop-down.module';
 import { AlertModule } from './modules/alert/alert.module';
@@ -61,7 +61,7 @@ import { CodeSnippetModule } from './modules/code-snippet/code-snippet.module';
     PlusModule,
     DatePickerModule,
     CircleGraphModule,
-    CheckBoxModule,
+    ChoiceModule,
     LineGraphModule,
     DropdownModule,
     AlertModule,

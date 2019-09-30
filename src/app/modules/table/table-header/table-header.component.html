@@ -13,12 +13,12 @@
     <div *ngIf="header.header.el === 'checkbox'" 
          class="{{'header_'+header.header.prop}} headerElement pointer" 
          title="{{header.header.value}}">
-       <app-check-box
+       <app-choice
             [value]="header.header.value"
             [groupName]="header.header.attr"
             [showTitle]="true"
             [labelClass]="'bold'">
-        </app-check-box>
+        </app-choice>
     </div>
     
     <div *ngIf="header.header.el === 'default'" 

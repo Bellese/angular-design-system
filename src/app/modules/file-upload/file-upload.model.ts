@@ -21,7 +21,10 @@ export class FileUploadModel {
         };
 
         // Merge defaults with parameters that are passed into the object
-        const fileUploadModelValues = Object.assign(defaults, options);
+        const fileUploadModelValues = {
+            ...defaults,
+            ...options,
+        };
 
         // Set the values in this object based on the defaults and parameters that are passed in
         for (const key of Object.keys(fileUploadModelValues)) {

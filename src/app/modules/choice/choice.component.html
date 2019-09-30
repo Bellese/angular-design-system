@@ -1,0 +1,13 @@
+<input 
+    [type]="inputType" 
+    class="ds-c-choice ds-c-choice--small" 
+    id="{{ value +'-'+ index }}" 
+    name="{{ groupName }}" 
+    value="{{ value }}"
+    [checked]="isChecked"
+    attr.data-auto-id="{{dataAutoId}}" 
+    (change)="onChange($event)"
+/>
+<label for="{{ value +'-'+ index }}">
+    <span *ngIf="showTitle" class="{{labelClass}}">{{ value }}</span>
+</label>

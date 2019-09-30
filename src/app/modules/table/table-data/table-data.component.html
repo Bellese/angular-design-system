@@ -30,12 +30,12 @@
      class="{{data.key + ' ' + dataClass}}"
      [ngClass]="data.value.attr ? data.value.attr : false"
      [attr.title]="!data.value.title ? data.value.value : data.value.title">
-    <app-check-box
+    <app-choice
         [value]="data.value.value"
         [groupName]="data.value.attr"
         [showTitle]="false"
         [index]="index">
-    </app-check-box>
+    </app-choice>
 </div>
 -->
 

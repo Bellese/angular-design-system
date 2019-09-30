@@ -9,7 +9,7 @@ export * from './src/app/modules/plus/plus.module';
 export * from './src/app/modules/bar-graph/bar-graph.module';
 export * from './src/app/modules/button/button.module';
 export * from './src/app/modules/alert/alert.module';
-export * from './src/app/modules/check-box/check-box.module';
+export * from './src/app/modules/choice/choice.module';
 export * from './src/app/modules/circle-graph/circle-graph.module';
 export * from './src/app/modules/date-picker/date-picker.module';
 export * from './src/app/modules/line-graph/line-graph.module';
