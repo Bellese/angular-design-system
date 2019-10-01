@@ -115,6 +115,8 @@ export class AppComponent implements OnInit {
         height: 250,
     });
 
+    appTableModalComponent = AppTableModalComponent;
+
     @ViewChild('uploader') uploader: FileUploadComponent;
 
     constructor(private modalService: ModalService) {}
@@ -141,6 +143,11 @@ export class AppComponent implements OnInit {
         this.barData = barData;
         this.singleTableData = singleTableData;
         // console.log(this.tabTitle);
+        this.modalService.modalDestroyed.subscribe({
+            next: (id) => {
+                console.log(`The #${id} modal has just closed`);
+            }
+        })
     }
 
     searchFunction(e) {
