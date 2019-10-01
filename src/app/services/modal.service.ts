@@ -160,7 +160,7 @@ export class ModalService {
             .subscribe(x => {
                 this.appRef.detachView(componentRef.hostView);
                 componentRef.destroy();
-
+                this.modalDestroyed.emit(id);
                 this.removeModalSettings(id);
             });
     }

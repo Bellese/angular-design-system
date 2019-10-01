@@ -3,7 +3,7 @@
 <!-- UNCOMMENT CODE ON THIS PAGE TO SEE EXAMPLES OF COMPONENTS
 <br>
 <br> -->
-
+<!-- 
 <p>ACCORDION COMPONENT EXAMPLE</p>
 <app-accordion>
     <app-panel
@@ -53,7 +53,7 @@
                 <div class='ds-u-fill--gray-lightest'>hey</div>
         </div>
     </app-panel>
-</app-accordion>
+</app-accordion> -->
 
 <!-- ALERT COMPONENT EXAMPLE
 <app-alert
@@ -320,17 +320,27 @@ TABLE AND PAGINATION
     </div>
 </div> -->
 
-File Upload Component
+<!-- File Upload Component
 <app-file-upload [fileUploadModel]="fileUploadModel" (onFileUpload)="announce($event)" #uploader></app-file-upload>
 
 <app-button
     (click)="uploadFile($event)"
 >
     Upload
-</app-button>
+</app-button> -->
 
   
 <!-- Code Snippet
 <app-code-snippet [codeSnippetModel]="codeSnippetModel" #uploader></app-code-snippet> -->
+
+Modal Component<br />
+<app-modal
+    id='modalExample'
+    modalTitle='modalTitle'
+    [modalData]='modalData'
+    content='Open Modal'
+    [modalComponent]='appTableModalComponent'
+>
+</app-modal>
 
 </section>
