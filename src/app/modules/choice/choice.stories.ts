@@ -33,6 +33,12 @@ storiesOf('Components|Choice', module)
             ],
             parameters: [
                 {
+                    name: 'inputType',
+                    type: 'string',
+                    // tslint:disable-next-line: max-line-length
+                    value: 'Use this to set the type of the input in this component.  You can use either checkbox or radio.  The default value is checkbox.',
+                },
+                {
                     name: 'index',
                     type: 'string',
                     value: 'This will allow you find the unique input within the whole group',
