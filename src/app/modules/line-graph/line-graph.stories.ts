@@ -13,6 +13,7 @@ import ParametersComponent from '../../../stories/parameters.component';
 import ImportsComponent from '../../../stories/imports.component';
 import NgModuleComponent from '../../../stories/ngmodule.component';
 import { defaultProps } from '../../../../.storybook/helpers';
+import { LineGraphModel } from './line-graph.model';
 
 const lineGraphData = [
     {
@@ -164,12 +165,31 @@ const lineGraphDataSingleDataPoints = [
     }
 ];
 
+const lineGraphModel = new LineGraphModel({
+    data: lineGraphData,
+    xLabel: 'X Label',
+    yLabel: 'Y Label'
+});
+
+const lineGraphModelMissingValues = new LineGraphModel({
+    data: lineGraphDataMissingValues,
+    xAxisValues: lineGraphDataXAxisValues,
+    xLabel: 'X Label',
+    yLabel: 'Y Label'
+});
+
+const lineGraphModelSingleDataPoints = new LineGraphModel({
+    data: lineGraphDataSingleDataPoints,
+    xAxisValues: lineGraphDataXAxisValues,
+    xLabel: 'X Label',
+    yLabel: 'Y Label'
+});
+
 const props = {
     ...defaultProps,
-    lineGraphData,
-    lineGraphDataXAxisValues,
-    lineGraphDataMissingValues,
-    lineGraphDataSingleDataPoints,
+    lineGraphModel,
+    lineGraphModelMissingValues,
+    lineGraphModelSingleDataPoints
 };
 
 storiesOf('Components|Line Graph', module)
@@ -343,21 +363,7 @@ storiesOf('Components|Line Graph', module)
     .add('Normal', () => ({
         template: `
             <app-line-graph
-                [data]= 'lineGraphData'
-                [animations] = true
-                [gradient] = true
-                [gridLines] = true
-                [roundDomain] = true
-                [xAxis] = true
-                [yAxis] = true
-                [showXLabel] = true
-                [showYLabel] = true
-                xLabel = 'X Label'
-                yLabel = 'Y Label'
-                [autoScale] = true
-                [timeLine] = true
-                [tooltipDisabled] = false
-                dataAutoId = 'testingID'
+                [lineGraphModel]= 'lineGraphModel'
                 (LineClick) = "HANDLECLICK($event)">
             </app-line-graph>
         `,
@@ -366,27 +372,8 @@ storiesOf('Components|Line Graph', module)
     .add('Skipping X Axis Values', () => ({
         template: `
             <app-line-graph
-                [data]= 'lineGraphDataMissingValues'
-                [xAxisValues] = lineGraphDataXAxisValues
-                [animations] = true
-                [gradient] = true
-                [gridLines] = true
-                [roundDomain] = true
-                [xAxis] = true
-                [yAxis] = true
-                [showXLabel] = true
-                [showYLabel] = true
-                xLabel = 'X Label'
-                yLabel = 'Y Label'
-                [autoScale] = true
-                [timeLine] = true
-                [tooltipDisabled] = false
-                dataAutoId = 'testingID'
+                [lineGraphModel]= 'lineGraphModelMissingValues'
                 (LineClick) = "HANDLECLICK($event)">
-                <ng-template #seriesTooltipTemplate let-model="model">
-                    This is vertical line tooltip template
-                    <pre>{{model|json}}</pre>
-                </ng-template>
             </app-line-graph>
         `,
         props
@@ -394,24 +381,9 @@ storiesOf('Components|Line Graph', module)
     .add('Single Data Points', () => ({
         template: `
             <app-line-graph
-                [data]= 'lineGraphDataSingleDataPoints'
-                [xAxisValues] = lineGraphDataXAxisValues
-                [animations] = true
-                [gradient] = true
-                [gridLines] = true
-                [roundDomain] = true
-                [xAxis] = true
-                [yAxis] = true
-                [showXLabel] = true
-                [showYLabel] = true
-                xLabel = 'X Label'
-                yLabel = 'Y Label'
-                [autoScale] = true
-                [timeLine] = true
-                [tooltipDisabled] = false
-                dataAutoId = 'testingID'
-                (LineClick) = "HANDLECLICK($event)">
-            </app-line-graph>
+            [lineGraphModel]= 'lineGraphModelSingleDataPoints'
+            (LineClick) = "HANDLECLICK($event)">
+        </app-line-graph>
         `,
         props
     }));
