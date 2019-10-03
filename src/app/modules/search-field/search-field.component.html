@@ -2,7 +2,7 @@
   <span class="ds-u-font-weight--bold">{{title}}</span>
   <span *ngIf="hint" class="ds-c-field__hint" [ngClass]="hintClass" role="alert">{{hint}}</span>
 </label>
-<input placeholder="{{placeHolder}}" class="ds-c-field" attr.data-auto-id="{{dataAutoId}}" tabindex="0"
+<input placeholder="{{placeHolder}}" class="ds-c-field ds-u-padding-right--5" attr.data-auto-id="{{dataAutoId}}" tabindex="0"
   [ngClass]="inputClass" id="{{id}}" name="{{id}}" type="text" [(ngModel)]="searchValue"
   (keyup.enter)="callBackFunction(searchValue)" (focus)="prepareSearch($event)" />
 <span class="search-button pointer" role="button" tabindex="0" aria-label="search button"
