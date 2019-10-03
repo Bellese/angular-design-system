@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AppTableModalComponent } from '../table/table-modal/table-modal.component';
 
 @Component({
@@ -6,7 +6,7 @@ import { AppTableModalComponent } from '../table/table-modal/table-modal.compone
   templateUrl: './bar-graph.component.html',
   styleUrls: ['./bar-graph.component.css']
 })
-export class BarGraphComponent implements OnInit, AfterViewInit {
+export class BarGraphComponent implements OnInit {
   bars;
   chart;
   customColors;
