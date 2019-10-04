@@ -12,7 +12,7 @@ export class LineGraphModel {
     gridLines = true;
     autoScale = true;
     roundDomain = true;
-    timeLine = true;
+    timeline = false;
     tooltipDisabled = false;
     xAxis = true;
     yAxis = true;

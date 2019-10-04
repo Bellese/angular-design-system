@@ -3,7 +3,10 @@
     padding: 8px;
     text-align: center;
     margin-top: 16px;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+}
+
+.infoLogo {
+    color: #0071bc;
 }
 
 span[id^="marker_"] {

@@ -1,5 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit, AfterViewInit } from '@angular/core';
 import { LineGraphModel } from './line-graph.model';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'; 
+
 
 @Component({
   selector: 'app-line-graph',
@@ -30,6 +32,7 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
     updateWidthClass;
     changeLegend;
     alert;
+    faInfoCircle = faInfoCircle;
 
     TIMELINE_PLACEHOLDER = 'TIMELINE_PLACEHOLDER';
 
@@ -243,7 +246,7 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
 
             }
         }
-        , 200);
+        , 1000);
     }
 
     highlight(e) {
