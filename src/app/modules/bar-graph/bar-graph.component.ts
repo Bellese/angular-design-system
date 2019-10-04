@@ -17,44 +17,6 @@ export class BarGraphComponent implements OnInit {
 
   @Input() barGraphModel: BarGraphModel;
 
-  // @Input()
-  // data;
-  // @Input()
-  // title: string;
-  // @Input()
-  // id = 0;
-  // @Input()
-  // colorScheme;
-  // @Input()
-  // showXAxis: boolean;
-  // @Input()
-  // showYAxis: boolean;
-  // @Input()
-  // showXAxisLabel: string;
-  // @Input()
-  // gradient = false;
-  // @Input()
-  // compareBars = false;
-  // @Input()
-  // tooltipDisabled = true;
-  // @Input()
-  // barPadding = '20';
-  // @Input()
-  // showYAxisLabel: string;
-  // @Input()
-  // animations = true;
-  // @Input()
-  // xAxisLabel: string;
-  // @Input()
-  // yAxisLabel: string;
-  // @Input()
-  // showGridLines: boolean;
-  // @Input()
-  // roundDomains: boolean;
-  // @Input()
-  // roundEdges: boolean;
-  // @Input()
-  // dataAutoId: string;
 
   ngOnInit() {
     if (this.barGraphModel.compareBars) { this.handleColor(); }
