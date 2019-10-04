@@ -10,6 +10,7 @@ import ParametersComponent from '../../../stories/parameters.component';
 import ImportsComponent from '../../../stories/imports.component';
 import NgModuleComponent from '../../../stories/ngmodule.component';
 import { defaultProps } from '../../../../.storybook/helpers';
+import { BarGraphModel } from './bar-graph.model';
 
 const barGraphData = [
     {
@@ -26,9 +27,13 @@ const barGraphData = [
     },
 ];
 
+const barGraphModel = new BarGraphModel({
+    data: barGraphData,
+});
+
 const props = {
     ...defaultProps,
-    barGraphData: barGraphData
+    barGraphModel: barGraphModel
 };
 
 storiesOf('Components|Bar Graph', module)
@@ -185,27 +190,7 @@ colorScheme = {
         moduleMetadata: {
         },
         template: `
-            <app-bar-graph
-                [data]="barGraphData"
-                title='Bar Graph Example'
-                id=1
-                colorScheme = 'aqua'
-                [showXAxis] = true
-                [showYAxis] = true
-                [showXAxisLabel] = true
-                [showYAxisLabel] = true
-                xAxisLabel = 'x label'
-                yAxisLabel = 'y label'
-                [animations] = true
-                [roundDomains] = false
-                [gradient] = false
-                [compareBars] = false
-                [tooltipDisabled] = false
-                [barPadding] = 20
-                [showGridLines] = true
-                [roundEdges] = true
-                dataAutoId = 'testingID'>
-            </app-bar-graph>
+            <app-bar-graph [barGraphModel]='barGraphModel'></app-bar-graph>
         `,
         props
     }));
