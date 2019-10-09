@@ -9,6 +9,15 @@ import { Component, Input } from '@angular/core';
                 <li *ngFor="let parameter of parameters">
                     <strong>{{ parameter.name }}</strong>&nbsp;<em>({{ parameter.type }})</em>:
                     <span [innerHTML]="parameter.value"></span>
+                    <div *ngIf="parameter.properties">
+                        <em>Properties:</em>
+                        <ul>
+                            <li *ngFor="let property of parameter.properties">
+                                <strong>{{ property.name }}</strong>&nbsp;<em>({{ property.type }})</em>:
+                                <span [innerHTML]="property.value"></span>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </ng-template>

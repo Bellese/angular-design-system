@@ -19,7 +19,7 @@ const barGraphData = [
     },
     {
         'name': 'STP-3',
-        'value': 6
+        'value': -6
     },
     {
         'name': 'STP-4',
@@ -68,103 +68,105 @@ storiesOf('Components|Bar Graph', module)
                 {
                     name: 'barGraphModel',
                     type: 'BarGraphModel',
-                    value: 'Use this to override the component\'s default settings. See options for this data structure below.',
-                },
-                {
-                    name: 'barGraphModel.data',
-                    type: 'array',
-                    value: 'The data for the bar graph. A property of the barGraphModel argument.',
-                },
-                {
-                    name: 'barGraphModel.title',
-                    type: 'string',
-                    value: 'Heading for bar chart. A property of the barGraphModel argument.',
-                },
-                {
-                    name: 'barGraphModel.id',
-                    type: 'number',
-                    value: 'Unique id for using multiple charts on a single page. A property of the barGraphModel argument.',
-                },
-                {
-                    name: 'barGraphModel.colorScheme',
-                    type: 'string',
-                    value: 'The color scheme of the chart. A property of the barGraphModel argument.',
-                },
-                {
-                    name: 'barGraphModel.showXAxis',
-                    type: 'boolean',
-                    value: 'Will show/hide xAxis names and values. A property of the barGraphModel argument.',
-                },
-                {
-                    name: 'barGraphModel.showYAxis',
-                    type: 'boolean',
-                    value: 'Will show/hide yAxis names and values. A property of the barGraphModel argument.',
-                },
-                {
-                    name: 'barGraphModel.showXAxisLabel',
-                    type: 'boolean',
-                    value: 'Will show/hide xAxix label. A property of the barGraphModel argument.',
-                },
-                {
-                    name: 'barGraphModel.showYAxisLabel',
-                    type: 'boolean',
-                    value: 'Will show/hide xAxix label. A property of the barGraphModel argument.',
-                },
-                {
-                    name: 'barGraphModel.xAxisLabel',
-                    type: 'string',
-                    value: 'Label for xAxis. A property of the barGraphModel argument.',
-                },
-                {
-                    name: 'barGraphModel.yAxisLabel',
-                    type: 'string',
-                    value: 'Label for yAxis. A property of the barGraphModel argument.',
-                },
-                {
-                    name: 'barGraphModel.animations',
-                    type: 'boolean',
-                    value: 'Enable/disable animations for graph. A property of the barGraphModel argument.',
-                },
-                {
-                    name: 'barGraphModel.roundDomains',
-                    type: 'boolean',
-                    value: 'Enable/disable rounding axis. A property of the barGraphModel argument.',
-                },
-                {
-                    name: 'barGraphModel.gradient',
-                    type: 'boolean',
-                    value: 'Enable/disable gradient background. A property of the barGraphModel argument.',
-                },
-                {
-                    name: 'barGraphModel.compareBars',
-                    type: 'boolean',
-                    value: 'For comparing two bars. When true, if the first bar value is less than the second bar, the bar will be red. A property of the barGraphModel argument.',
-                },
-                {
-                    name: 'barGraphModel.tooltipDisabled',
-                    type: 'boolean',
-                    value: 'Enable/disable tooltips. A property of the barGraphModel argument.',
-                },
-                {
-                    name: 'barGraphModel.barPadding',
-                    type: 'number',
-                    value: 'padding between the bars in bar graph. A property of the barGraphModel argument.',
-                },
-                {
-                    name: 'barGraphModel.showGridLines',
-                    type: 'boolean',
-                    value: 'Will show/hide graph grid lines. A property of the barGraphModel argument.',
-                },
-                {
-                    name: 'barGraphModel.roundEdges',
-                    type: 'boolean',
-                    value: 'Will make the edges of bars round/square. A property of the barGraphModel argument.',
-                },
-                {
-                    name: 'barGraphModel.dataAutoId',
-                    type: 'string',
-                    value: 'Use this for testing ID. A property of the barGraphModel argument.',
-                },
+                    value: 'Use this to override the component\'s default settings',
+                    properties: [
+                        {
+                            name: 'data',
+                            type: 'array',
+                            value: 'The data for the bar graph',
+                        },
+                        {
+                            name: 'title',
+                            type: 'string',
+                            value: 'Heading for bar chart',
+                        },
+                        {
+                            name: 'id',
+                            type: 'number',
+                            value: 'Unique id for using multiple charts on a single page',
+                        },
+                        {
+                            name: 'colorScheme',
+                            type: 'string',
+                            value: 'The color scheme of the chart',
+                        },
+                        {
+                            name: 'showXAxis',
+                            type: 'boolean',
+                            value: 'Will show/hide xAxis names and values',
+                        },
+                        {
+                            name: 'showYAxis',
+                            type: 'boolean',
+                            value: 'Will show/hide yAxis names and values',
+                        },
+                        {
+                            name: 'showXAxisLabel',
+                            type: 'boolean',
+                            value: 'Will show/hide xAxix label',
+                        },
+                        {
+                            name: 'showYAxisLabel',
+                            type: 'boolean',
+                            value: 'Will show/hide xAxix label',
+                        },
+                        {
+                            name: 'xAxisLabel',
+                            type: 'string',
+                            value: 'Label for xAxis',
+                        },
+                        {
+                            name: 'yAxisLabel',
+                            type: 'string',
+                            value: 'Label for yAxis',
+                        },
+                        {
+                            name: 'animations',
+                            type: 'boolean',
+                            value: 'Enable/disable animations for graph',
+                        },
+                        {
+                            name: 'roundDomains',
+                            type: 'boolean',
+                            value: 'Enable/disable rounding axis',
+                        },
+                        {
+                            name: 'gradient',
+                            type: 'boolean',
+                            value: 'Enable/disable gradient background',
+                        },
+                        {
+                            name: 'compareBars',
+                            type: 'boolean',
+                            value: 'For comparing two bars. When true, if the first bar value is less than the second bar, the bar will be red',
+                        },
+                        {
+                            name: 'tooltipDisabled',
+                            type: 'boolean',
+                            value: 'Enable/disable tooltips',
+                        },
+                        {
+                            name: 'barPadding',
+                            type: 'number',
+                            value: 'padding between the bars in bar graph',
+                        },
+                        {
+                            name: 'showGridLines',
+                            type: 'boolean',
+                            value: 'Will show/hide graph grid lines',
+                        },
+                        {
+                            name: 'roundEdges',
+                            type: 'boolean',
+                            value: 'Will make the edges of bars round/square',
+                        },
+                        {
+                            name: 'dataAutoId',
+                            type: 'string',
+                            value: 'Use this for testing ID',
+                        }
+                    ]
+                }
             ],
             notes: [
                 // tslint:disable-next-line: max-line-length
