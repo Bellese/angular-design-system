@@ -226,108 +226,110 @@ storiesOf('Components|Line Graph', module)
                     name: 'lineGraphModel',
                     type: 'LineGraphModel',
                     value: 'Use this to override the component\'s default settings. See options for this data structure below.',
-                },
-                {
-                    name: 'lineGraphModel.data',
-                    type: 'array',
-                    value: 'The data for the line graph. A property of the lineGraphModel argument.',
-                },
-                {
-                    name: 'lineGraphModel.xAxisValues',
-                    type: 'array',
-                    value: 'If you would like to specify the values that are shown on the X Axis, you can pass those values in through this parameter.  This is very useful if your dataset does not completely and consistently fill the X Axis. A property of the lineGraphModel argument.',
-                },
-                {
-                    name: 'lineGraphModel.colorScheme',
-                    type: 'object',
-                    value: 'The color scheme of the graph. A property of the lineGraphModel argument.',
-                },
-                {
-                    name: 'lineGraphModel.animations',
-                    type: 'boolean',
-                    value: 'Enable/disable animations for graph. A property of the lineGraphModel argument.',
-                },
-                {
-                    name: 'lineGraphModel.gradient',
-                    type: 'boolean',
-                    value: 'Enable/disable gradient background. A property of the lineGraphModel argument.',
-                },
-                {
-                    name: 'lineGraphModel.gridLines',
-                    type: 'boolean',
-                    value: 'Will show/hide graph grid lines. A property of the lineGraphModel argument.',
-                },
-                {
-                    name: 'lineGraphModel.roundDomains',
-                    type: 'boolean',
-                    value: 'Enable/disable rounding axis. A property of the lineGraphModel argument.',
-                },
-                {
-                    name: 'lineGraphModel.xAxis',
-                    type: 'boolean',
-                    value: 'Will show/hide xAxis names and values. A property of the lineGraphModel argument.',
-                },
-                {
-                    name: 'lineGraphModel.yAxis',
-                    type: 'boolean',
-                    value: 'Will show/hide yAxis names and values. A property of the lineGraphModel argument.',
-                },
-                {
-                    name: 'lineGraphModel.showXLabel',
-                    type: 'boolean',
-                    value: 'Will show/hide xAxix label. A property of the lineGraphModel argument.',
-                },
-                {
-                    name: 'lineGraphModel.showYLabel',
-                    type: 'boolean',
-                    value: 'Will show/hide xAxix label. A property of the lineGraphModel argument.',
-                },
-                {
-                    name: 'lineGraphModel.xLabel',
-                    type: 'string',
-                    value: 'Label for xAxis. A property of the lineGraphModel argument.',
-                },
-                {
-                    name: 'lineGraphModel.yLabel',
-                    type: 'string',
-                    value: 'Label for yAxis. A property of the lineGraphModel argument.',
-                },
-                {
-                    name: 'lineGraphModel.xAxisTickFormatting',
-                    type: 'function',
-                    value: 'A function to format the values that display on the x axis. A property of the lineGraphModel argument.',
-                },
-                {
-                    name: 'lineGraphModel.yAxisTickFormatting',
-                    type: 'function',
-                    value: 'A function to format the values that display on the y axis. A property of the lineGraphModel argument.',
-                },
-                {
-                    name: 'lineGraphModel.autoScale',
-                    type: 'boolean',
-                    value: 'Set the minimum value of the y axis to the minimum value in the data, instead of 0. A property of the lineGraphModel argument.',
-                },
-                {
-                    name: 'lineGraphModel.timeline',
-                    type: 'boolean',
-                    value: 'Display a timeline control under the chart. Only available if a the x scale is linear or time. A property of the lineGraphModel argument.',
-                },
-                {
-                    name: 'lineGraphModel.tooltipDisabled',
-                    type: 'boolean',
-                    value: 'Disable tooltips and line hover state on mouseover. A property of the lineGraphModel argument.',
-                },
-                {
-                    name: 'lineGraphModel.dataAutoId',
-                    type: 'string',
-                    value: 'Use this for testing ID. A property of the lineGraphModel argument.',
-                },
-                {
-                    name: 'LineClick',
-                    type: 'function',
-                    // tslint:disable-next-line: max-line-length
-                    value: 'A javascript function that will be called when a line is clicked. It takes one argument, which is a click event.',
-                },
+                    properties: [
+                        {
+                            name: 'data',
+                            type: 'array',
+                            value: 'The data for the line graph',
+                        },
+                        {
+                            name: 'xAxisValues',
+                            type: 'array',
+                            value: 'If you would like to specify the values that are shown on the X Axis, you can pass those values in through this parameter.  This is very useful if your dataset does not completely and consistently fill the X Axis',
+                        },
+                        {
+                            name: 'colorScheme',
+                            type: 'object',
+                            value: 'The color scheme of the graph',
+                        },
+                        {
+                            name: 'animations',
+                            type: 'boolean',
+                            value: 'Enable/disable animations for graph',
+                        },
+                        {
+                            name: 'gradient',
+                            type: 'boolean',
+                            value: 'Enable/disable gradient background',
+                        },
+                        {
+                            name: 'gridLines',
+                            type: 'boolean',
+                            value: 'Will show/hide graph grid lines',
+                        },
+                        {
+                            name: 'roundDomains',
+                            type: 'boolean',
+                            value: 'Enable/disable rounding axis',
+                        },
+                        {
+                            name: 'xAxis',
+                            type: 'boolean',
+                            value: 'Will show/hide xAxis names and values',
+                        },
+                        {
+                            name: 'yAxis',
+                            type: 'boolean',
+                            value: 'Will show/hide yAxis names and values',
+                        },
+                        {
+                            name: 'showXLabel',
+                            type: 'boolean',
+                            value: 'Will show/hide xAxix label',
+                        },
+                        {
+                            name: 'showYLabel',
+                            type: 'boolean',
+                            value: 'Will show/hide xAxix label',
+                        },
+                        {
+                            name: 'xLabel',
+                            type: 'string',
+                            value: 'Label for xAxis',
+                        },
+                        {
+                            name: 'yLabel',
+                            type: 'string',
+                            value: 'Label for yAxis',
+                        },
+                        {
+                            name: 'xAxisTickFormatting',
+                            type: 'function',
+                            value: 'A function to format the values that display on the x axis',
+                        },
+                        {
+                            name: 'yAxisTickFormatting',
+                            type: 'function',
+                            value: 'A function to format the values that display on the y axis',
+                        },
+                        {
+                            name: 'autoScale',
+                            type: 'boolean',
+                            value: 'Set the minimum value of the y axis to the minimum value in the data, instead of 0',
+                        },
+                        {
+                            name: 'timeline',
+                            type: 'boolean',
+                            value: 'Display a timeline control under the chart. Only available if a the x scale is linear or time',
+                        },
+                        {
+                            name: 'tooltipDisabled',
+                            type: 'boolean',
+                            value: 'Disable tooltips and line hover state on mouseover',
+                        },
+                        {
+                            name: 'dataAutoId',
+                            type: 'string',
+                            value: 'Use this for testing ID',
+                        },
+                        {
+                            name: 'LineClick',
+                            type: 'function',
+                            // tslint:disable-next-line: max-line-length
+                            value: 'A javascript function that will be called when a line is clicked. It takes one argument, which is a click event.',
+                        },
+                    ]
+                }
             ],
             notes: [
                 // tslint:disable-next-line: max-line-length
