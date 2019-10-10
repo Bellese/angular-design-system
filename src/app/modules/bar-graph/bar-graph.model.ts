@@ -26,8 +26,10 @@ export class BarGraphModel {
 
     constructor(options?) {
         // Set the values in this object based on the defaults and parameters that are passed in
-        for (const key of Object.keys(options)) {
-            this[key] = options[key];
+        if (options) {
+            for (const key of Object.keys(options)) {
+                this[key] = options[key];
+            }
         }
      }
 }

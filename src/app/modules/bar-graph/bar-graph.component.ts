@@ -19,6 +19,9 @@ export class BarGraphComponent implements OnInit {
 
 
   ngOnInit() {
+    if (!this.barGraphModel) {
+      this.barGraphModel = new BarGraphModel();
+    }
     if (this.barGraphModel.compareBars) { this.handleColor(); }
     this.resize();
   }

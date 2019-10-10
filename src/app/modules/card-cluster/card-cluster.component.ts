@@ -27,6 +27,12 @@ export class AppCardClusterComponent implements OnInit {
 
     ngOnInit() {
 
+        if (!this.cardArray) {
+            this.cardArray = {
+                'cluster': []
+            };
+        }
+
         // determine width of main card
         // the main card will display as full width if there are no other cards, otherwise it will be 3 columns wide
         if (this.cardArray.cluster.length === 0) {

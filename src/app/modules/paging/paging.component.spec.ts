@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppPaginationComponent } from './paging.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 describe('PagingComponent', () => {
   let component: AppPaginationComponent;
@@ -8,6 +9,7 @@ describe('PagingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [NgxPaginationModule],
       declarations: [ AppPaginationComponent ]
     })
     .compileComponents();

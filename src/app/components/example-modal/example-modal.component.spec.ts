@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ExampleModalComponent } from './example-modal.component';
+import { ModalModule, ModalShellModule } from '../../../../public_api';
 
 describe('ExampleModalComponent', () => {
   let component: ExampleModalComponent;
@@ -8,6 +9,10 @@ describe('ExampleModalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        ModalModule.forRoot(),
+        ModalShellModule
+      ],
       declarations: [ ExampleModalComponent ]
     })
     .compileComponents();

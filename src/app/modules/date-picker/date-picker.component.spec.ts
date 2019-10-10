@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppDatepickerComponent } from './date-picker.component';
 
@@ -8,6 +9,7 @@ describe('DatepickerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ FormsModule, ReactiveFormsModule],
       declarations: [ AppDatepickerComponent ]
     })
     .compileComponents();

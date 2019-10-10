@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StarRatingComponent } from './star-rating.component';
+import { StarComponent } from '../star/star.component';
 
 describe('StarRatingComponent', () => {
   let component: StarRatingComponent;
@@ -8,7 +9,7 @@ describe('StarRatingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StarRatingComponent ]
+      declarations: [ StarComponent, StarRatingComponent ]
     })
     .compileComponents();
   }));
