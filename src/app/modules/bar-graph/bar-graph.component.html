@@ -22,7 +22,7 @@
         [results]="barGraphModel.data"
         [yAxis]="barGraphModel.showYAxis"
         [xAxis]="barGraphModel.showXAxis" 
-        [showYAxisLabel]="barGraphModel.showYAxisLabel" 
+        [showYAxisLabel]="barGraphModel.xAxisLabel !== ''" 
         [xAxisLabel]="barGraphModel.xAxisLabel" 
         [yAxisLabel]="barGraphModel.yAxisLabel" 
         [animations]="barGraphModel.animations"
@@ -31,7 +31,7 @@
         [gradient]="barGraphModel.gradient" 
         [roundEdges]="barGraphModel.roundEdges"
         [tooltipDisabled]="barGraphModel.tooltipDisabled"
-        [customColors]="barGraphModel.customColors"
+        [customColors]="customColors"
         [barPadding]="barGraphModel.barPadding"
     >
     </ngx-charts-bar-vertical>
@@ -67,6 +67,6 @@
         </ng-template>
     </span>
 </div>
-<div id="nameContainer" aria-hidden="true" *ngIf="showXAxisLabel" class="x-axis-label">
+<div id="nameContainer" aria-hidden="true" *ngIf="barGraphModel.xAxisLabel !== ''" class="x-axis-label">
     {{barGraphModel.xAxisLabel}}
 </div>
