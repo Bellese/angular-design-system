@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CodeSnippetComponent } from './code-snippet.component';
+import { ButtonModule } from '../../../../public_api';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 describe('CodeSnippetComponent', () => {
   let component: CodeSnippetComponent;
@@ -8,6 +10,7 @@ describe('CodeSnippetComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ButtonModule, FontAwesomeModule],
       declarations: [ CodeSnippetComponent ]
     })
     .compileComponents();

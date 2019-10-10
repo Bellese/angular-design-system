@@ -22,6 +22,10 @@ export class AppTabsComponent implements OnInit {
      * ngOnInit is used to select a default tab when the component loads
      */
     ngOnInit() {
+        if (!this.tabs) {
+            this.tabs = [];
+        }
+
         // selecting a tab requires all tabs to have an ID
         // if a tab does not have an ID, assign an incremental value
         this.tabs.map((tab, index) => {
@@ -50,7 +54,9 @@ export class AppTabsComponent implements OnInit {
 
         // If a valid id was not passed in, or the id was not found in the list, set id as the first tab's id
         if (!id || this.tabs.filter(tab => tab.id === id).length === 0) {
-            id = this.tabs[0].id;
+            if (this.tabs.length) {
+                id = this.tabs[0].id;
+            }
         }
 
         // select the tab that matches the id
