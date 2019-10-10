@@ -1,4 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit, AfterViewInit } from '@angular/core';
+import { LineGraphModel } from './line-graph.model';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'; 
+
 
 @Component({
   selector: 'app-line-graph',
@@ -12,29 +15,8 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
     rangeFrom;
     rangeTo;
 
-    @Input() data: any[];
-    @Input() xAxisValues: string[];
+    @Input() lineGraphModel: LineGraphModel;
 
-    @Input() colorScheme: any = {
-        domain: ['#6DB6FF', '#DB6D00', '#009292', '#666666']
-    };
-
-    @Input() animations: boolean;
-    @Input() gradient: boolean;
-    @Input() gridLines: boolean;
-    @Input() roundDomain: boolean;
-    @Input() xAxis: boolean;
-    @Input() yAxis: boolean;
-    @Input() showXLabel: string;
-    @Input() showYLabel: string;
-    @Input() xLabel: string;
-    @Input() yLabel: string;
-    @Input() xAxisTickFormatting;
-    @Input() yAxisTickFormatting;
-    @Input() autoScale: boolean;
-    @Input() timeLine: boolean;
-    @Input() tooltipDisabled: boolean;
-    @Input() dataAutoId: string;
     @Output() LineClick = new EventEmitter<object>();
 
     current;
@@ -50,6 +32,7 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
     updateWidthClass;
     changeLegend;
     alert;
+    faInfoCircle = faInfoCircle;
 
     TIMELINE_PLACEHOLDER = 'TIMELINE_PLACEHOLDER';
 
@@ -90,14 +73,14 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
         this.shadowData = [];
 
         // If xAxisValues is passed in, generate a new series and add it to the graph as the first line.
-        if (this.xAxisValues) {
+        if (this.lineGraphModel.xAxisValues) {
 
             // Find the smallest value from all other data series, and use that as the value for this new
             // series in order to not skew the chart
             let smallestValue;
-            for (const series of this.data) {
+            for (const series of this.lineGraphModel.data) {
                 for (const seriesData of series.series) {
-                    if (!this.xAxisValues.includes(seriesData.name)) {
+                    if (!this.lineGraphModel.xAxisValues.includes(seriesData.name)) {
                         console.warn(`The series ${series.name} has a datapoint for ${seriesData.name} but that was not included in the xAxisValues array.  This may cause unexpected issues and should be fixed.`)
                     }
 
@@ -109,7 +92,7 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
 
             // Create the new series using the smallest value
             const xAxisValuesSeries = [];
-            for (const xAxisValue of this.xAxisValues) {
+            for (const xAxisValue of this.lineGraphModel.xAxisValues) {
                 xAxisValuesSeries.push({
                     name: xAxisValue,
                     value: smallestValue,
@@ -125,7 +108,7 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
 
         // ShadowData is now either an empty array or a newly generated series
         // Append the rest of the data to this array
-        this.shadowData = this.shadowData.concat(this.data);
+        this.shadowData = this.shadowData.concat(this.lineGraphModel.data);
 
         this.shadowDataCopy = this.shadowData.slice();
 
@@ -139,7 +122,7 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
         this.rangeTo = this.filterValues[this.filterValues.length - 1].value;
 
         // use this function for the dots on the side START
-        let flattenedData = this.data;
+        let flattenedData: any = this.lineGraphModel.data;
 
         flattenedData = flattenedData.map((x, ind) => {
             return x.series.map(y => {
@@ -148,15 +131,15 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
                     name: y.name,
                     series: x.name,
                     value: val,
-                    color: this.colorScheme.domain[ind]
+                    color: this.lineGraphModel.colorScheme.domain[ind]
                 };
             });
         });
 
         flattenedData = flattenedData.reduce((acc, val) => acc.concat(val), []);
 
-        for (let x = 0; x < this.data[0].series.length; x++) {
-            const verticalTarget = this.data[0].series[x].name;
+        for (let x = 0; x < this.lineGraphModel.data[0].series.length; x++) {
+            const verticalTarget = this.lineGraphModel.data[0].series[x].name;
             let label = '';
 
             flattenedData.map(y => {
@@ -240,7 +223,7 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
     }
 
     findTab(e) {
-        if (e.target.id === 'lastModalTab') { document.getElementById('dropdown-' + this.xLabel + '_2').focus(); }
+        if (e.target.id === 'lastModalTab') { document.getElementById('dropdown-' + this.lineGraphModel.xLabel + '_2').focus(); }
         if (e.target.id === 'firstModalTab') { document.getElementById('marker_0').focus(); }
     }
 
@@ -263,7 +246,7 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
 
             }
         }
-        , 200);
+        , 1000);
     }
 
     highlight(e) {
@@ -286,11 +269,11 @@ export class AppLineGraphComponent implements OnInit, AfterViewInit {
         if (graphContainer < 544) {
             this.updateWidthClass = 'ds-l-col--12';
             this.changeLegend = true;
-            this.yAxis = false;
+            this.lineGraphModel.yAxis = false;
         } else {
             this.updateWidthClass = 'ds-l-col';
             this.changeLegend = false;
-            this.yAxis = true;
+            this.lineGraphModel.yAxis = true;
         }
 
         this.setPosition();

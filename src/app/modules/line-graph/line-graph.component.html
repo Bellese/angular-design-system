@@ -1,11 +1,11 @@
-<div class="mainGraphClass" (window:load)="resize()" (window:resize)="resize()" id="strictLineGraph" attr.data-auto-id="{{dataAutoId}}">
+<div class="mainGraphClass" (window:load)="resize()" (window:resize)="resize()" id="strictLineGraph" attr.data-auto-id="{{lineGraphModel.dataAutoId}}">
     
     <div class="ds-l-form-row">
-        <div class="ds-l-col--auto info pointer" role="button" [attr.aria-label]="'activate enter key to hear instructions for using the interactive line graph, you may need to use down arrow after you activate enter key if you are using Internet Explorer'" tabindex="0" (click)="openInfo($event)" (keyup.enter)="openInfo($event)">
-            &nbsp;
+        <div class="ds-l-col--auto infoLogo pointer" role="button" [attr.aria-label]="'activate enter key to hear instructions for using the interactive line graph, you may need to use down arrow after you activate enter key if you are using Internet Explorer'" tabindex="0" (click)="openInfo($event)" (keyup.enter)="openInfo($event)">
+            <fa-icon [icon]="faInfoCircle"></fa-icon>
         </div>
         <div *ngIf="openInfoArea" class="ds-l-col" id="openArea" role="alert">
-            Interactive Line Graph used to reflect {{yLabel}} over {{xLabel}}. You can use the dropdown range selector to view specific ranges of {{xLabel}}. You can also use tab to move down the x-axis.
+            Interactive Line Graph used to reflect {{lineGraphModel.yLabel}} over {{lineGraphModel.xLabel}}. You can use the dropdown range selector to view specific ranges of {{lineGraphModel.xLabel}}. You can also use tab to move down the x-axis.
         </div>
     </div>
     
@@ -14,9 +14,9 @@
             <app-drop-down
                 (selectedOption)="setRangeFrom($event)"
                 [options] = "filterValues"
-                [labelName] = "'From ' + xLabel"
+                [labelName] = "'From ' + lineGraphModel.xLabel"
                 selectClass = 'ds-c-field--medium'
-                [id] = "xLabel + '_1'"
+                [id] = "lineGraphModel.xLabel + '_1'"
                 [defaultSelected]="0"
                 [error]="errorMessage ? true : false">
             </app-drop-down>
@@ -25,9 +25,9 @@
             <app-drop-down
                 (selectedOption)="setRangeTo($event)"
                 [options] = "filterValues"
-                [labelName] = "'To ' + xLabel"
+                [labelName] = "'To ' + lineGraphModel.xLabel"
                 selectClass = 'ds-c-field--medium'
-                [id] = "xLabel + '_2'"
+                [id] = "lineGraphModel/xLabel + '_2'"
                 [defaultSelected]="filterValues.length - 1"
                 [error]="errorMessage ? true : false">
             </app-drop-down>
@@ -41,29 +41,29 @@
     <div 
         class="ds-l-form-row ds-u-justify-content-center ds-u-align-items--center" 
         style="overflow: hidden;"
-        [ngClass]="{'remove-placeholder': xAxisValues && xAxisValues.length}"
+        [ngClass]="{'remove-placeholder': lineGraphModel.xAxisValues && lineGraphModel.xAxisValues.length}"
     >
         <div class="ds-l-col--11 lineShell" [attr.aria-hidden]="true">
             <ngx-charts-line-chart
                 [attr.aria-hidden]="true"
                 [view]="view"
                 [results]="shadowData"
-                [scheme]="colorScheme"
-                [animations]="animations"
-                [gradient]="gradient"
-                [showGridLines]="gridLines"
-                [roundDomains]="roundDomain"
-                [xAxis]="xAxis"
-                [yAxis]="yAxis"
-                [showXAxisLabel]="showXLabel"
-                [showYAxisLabel]="showYLabel"
-                [xAxisLabel]="xLabel"
-                [yAxisLabel]="yLabel"
-                [xAxisTickFormatting]="xAxisTickFormatting"
-                [yAxisTickFormatting]="yAxisTickFormatting"
-                [autoScale]="autoScale"
-                [timeline]="timeLine"
-                [tooltipDisabled] = "tooltipDisabled"
+                [scheme]="lineGraphModel.colorScheme"
+                [animations]="lineGraphModel.animations"
+                [gradient]="lineGraphModel.gradient"
+                [showGridLines]="lineGraphModel.gridLines"
+                [roundDomains]="lineGraphModel.roundDomain"
+                [xAxis]="lineGraphModel.xAxis"
+                [yAxis]="lineGraphModel.yAxis"
+                [showXAxisLabel]="lineGraphModel.xLabel !== ''"
+                [showYAxisLabel]="lineGraphModel.yLabel !== ''"
+                [xAxisLabel]="lineGraphModel.xLabel"
+                [yAxisLabel]="lineGraphModel.yLabel"
+                [xAxisTickFormatting]="lineGraphModel.xAxisTickFormatting"
+                [yAxisTickFormatting]="lineGraphModel.yAxisTickFormatting"
+                [autoScale]="lineGraphModel.autoScale"
+                [timeline]="lineGraphModel.timeline"
+                [tooltipDisabled] = "lineGraphModel.tooltipDisabled"
                 (select)="onSelect($event)">
                 <ng-template #tooltipTemplate let-model="model">
                     <div>
@@ -102,26 +102,55 @@
     <div id="dotsContainer" style="position:relative">
          <span *ngFor="let data of shadowData[0].series; let i = index" [id]="'marker_' + i" tabindex="0"  (focus)="highlight(i)" class="pointer" [attr.aria-label]="flattenedDataArray[ i + rFI]" [attr.role]="focusDot === i ? alert : null">
             <svg height="15" width="20" aria-hidden="true" style="pointer-events: none;">
-                <circle 
-                    aria-hidden="true"
-                    cx="10" 
-                    cy="10" 
-                    [attr.r]="focusDot === i ? 4 : 3" 
-                    stroke="#D6D7D9" 
-                    stroke-width="1" 
-                    [attr.fill]="focusDot === i ? '#212121' : '#D6D7D9'" />
+                <polygon aria-hidden="true" points="0,20 10,5  20,20" [attr.r]="focusDot === i ? 4 : 3"  [attr.fill]="focusDot === i ? '#212121' : '#FFFFFF'"></polygon>
             </svg>
         </span>
     </div>
     
     <div class="ds-l-form-row ds-u-justify-content-center ds-u-align-items--center">
-        <div class="ds-l-col--12 legendContainer">
+        <div class="ds-l-col--12 legendContainer ds-u-padding--0 ds-u-padding-bottom--3">
             
-            <div class="ds-l-row ds-u-justify-content-center ds-u-align-items--center">
-                <div class="ds-l-col">
-                    <div class="xAxisLabel">{{ xLabel }} : {{ legendDataArray[ focusDot + rFI].series }} </div>
-                    <div class="yAxisLabel">{{  yLabel }}</div>
+            <div class="ds-l-row ds-u-justify-content-center ds-u-align-items--center ds-u-fill--gray-lightest ds-u-margin-bottom--3">
+                <div class="ds-l-col--4 noSelect">
+                    <span *ngIf="focusDot !== 0; else start" tabindex="0" class="arrowSelector pointer" (click)="moveDot(-1)" (keyup.enter)="moveDot(-1)" [attr.aria-label]="'activate to move left through points on graph'" role="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 26 26" class="leftArrowLegend">
+                            <path fill="#000" fill-rule="nonzero" d="M14.5022482 20.7706835L25.368705 9.89253597C25.7895683 9.48920863 26 8.99235612 26 8.39028777c0-.60206835-.2104317-1.09892086-.631295-1.5022482l-1.2508992-1.26843525C23.7086331 5.21043165 23.2059353 5 22.6155576 5c-.5786871 0-1.0872303.20458633-1.5197842.61960432L13 13.7270683 4.89253597 5.61960432C4.4833633 5.21043165 3.98066547 5 3.39028777 5c-.57868705 0-1.08723022.20458633-1.51978417.61960432L.61960432 6.88803957C.21043166 7.29721223 0 7.79991007 0 8.39028777c0 .5903777.20458633 1.09307554.61960432 1.5022482L11.4802158 20.7706835c.432554.4091726.9410971.6196043 1.5197842.6196043.5903777 0 1.0930755-.2045864 1.5022482-.6196043z"/>
+                        </svg>
+                    </span>
+                    <ng-template #start>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 26 26" class="leftArrowLegend">
+                                <path fill="#ddd" fill-rule="nonzero" d="M14.5022482 20.7706835L25.368705 9.89253597C25.7895683 9.48920863 26 8.99235612 26 8.39028777c0-.60206835-.2104317-1.09892086-.631295-1.5022482l-1.2508992-1.26843525C23.7086331 5.21043165 23.2059353 5 22.6155576 5c-.5786871 0-1.0872303.20458633-1.5197842.61960432L13 13.7270683 4.89253597 5.61960432C4.4833633 5.21043165 3.98066547 5 3.39028777 5c-.57868705 0-1.08723022.20458633-1.51978417.61960432L.61960432 6.88803957C.21043166 7.29721223 0 7.79991007 0 8.39028777c0 .5903777.20458633 1.09307554.61960432 1.5022482L11.4802158 20.7706835c.432554.4091726.9410971.6196043 1.5197842.6196043.5903777 0 1.0930755-.2045864 1.5022482-.6196043z"/>
+                            </svg>
+                        </span>
+                    </ng-template>                
                 </div>
+
+                <div class="ds-l-col--4">
+                    <div class="xAxisLabel">
+                        <span *ngIf="lineGraphModel.xLabel">
+                            {{ lineGraphModel.xLabel }} : 
+                        </span>
+                        {{ legendDataArray[ focusDot + rFI].series }}
+                    </div>
+                    <div class="yAxisLabel" *ngIf="lineGraphModel.yLabel">{{  lineGraphModel.yLabel }}</div>
+                </div>
+
+                <div class="ds-l-col--4 noSelect">
+                    <span *ngIf="focusDot !== shadowData[0].series.length - 1; else end" tabindex="0" class="arrowSelector pointer" (click)="moveDot(1)" (keyup.enter)="moveDot(1)" [attr.aria-label]="'activate to move right through points on graph'" role="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 26 26" class="rightArrowLegend">
+                            <path fill="#000" fill-rule="nonzero" d="M14.5022482 20.7706835L25.368705 9.89253597C25.7895683 9.48920863 26 8.99235612 26 8.39028777c0-.60206835-.2104317-1.09892086-.631295-1.5022482l-1.2508992-1.26843525C23.7086331 5.21043165 23.2059353 5 22.6155576 5c-.5786871 0-1.0872303.20458633-1.5197842.61960432L13 13.7270683 4.89253597 5.61960432C4.4833633 5.21043165 3.98066547 5 3.39028777 5c-.57868705 0-1.08723022.20458633-1.51978417.61960432L.61960432 6.88803957C.21043166 7.29721223 0 7.79991007 0 8.39028777c0 .5903777.20458633 1.09307554.61960432 1.5022482L11.4802158 20.7706835c.432554.4091726.9410971.6196043 1.5197842.6196043.5903777 0 1.0930755-.2045864 1.5022482-.6196043z"/>
+                        </svg>
+                    </span>
+                    <ng-template #end>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 26 26" class="rightArrowLegend">
+                            <path fill="#ddd" fill-rule="nonzero" d="M14.5022482 20.7706835L25.368705 9.89253597C25.7895683 9.48920863 26 8.99235612 26 8.39028777c0-.60206835-.2104317-1.09892086-.631295-1.5022482l-1.2508992-1.26843525C23.7086331 5.21043165 23.2059353 5 22.6155576 5c-.5786871 0-1.0872303.20458633-1.5197842.61960432L13 13.7270683 4.89253597 5.61960432C4.4833633 5.21043165 3.98066547 5 3.39028777 5c-.57868705 0-1.08723022.20458633-1.51978417.61960432L.61960432 6.88803957C.21043166 7.29721223 0 7.79991007 0 8.39028777c0 .5903777.20458633 1.09307554.61960432 1.5022482L11.4802158 20.7706835c.432554.4091726.9410971.6196043 1.5197842.6196043.5903777 0 1.0930755-.2045864 1.5022482-.6196043z"/>
+                        </svg>
+                    </span>
+                    </ng-template>
+                </div>
+
             </div>
 
             <div *ngIf="changeLegend; else changeBack" class="ds-l-row ds-u-justify-content-center ds-u-align-items--center">
@@ -151,42 +180,6 @@
                 </div>
             </ng-template>
 
-        </div>
-    </div>
-    
-    <div class="ds-l-form-row ds-u-justify-content-center ds-u-align-items--center">
-        <div class="ds-l-col--2 noSelect" style="text-align: right;">
-            <span *ngIf="focusDot !== 0; else start" tabindex="0" class="arrowSelector pointer" (click)="moveDot(-1)" (keyup.enter)="moveDot(-1)" [attr.aria-label]="'activate to move left through points on graph'" role="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 26 26" class="leftArrowLegend">
-                  <path fill="#000" fill-rule="nonzero" d="M14.5022482 20.7706835L25.368705 9.89253597C25.7895683 9.48920863 26 8.99235612 26 8.39028777c0-.60206835-.2104317-1.09892086-.631295-1.5022482l-1.2508992-1.26843525C23.7086331 5.21043165 23.2059353 5 22.6155576 5c-.5786871 0-1.0872303.20458633-1.5197842.61960432L13 13.7270683 4.89253597 5.61960432C4.4833633 5.21043165 3.98066547 5 3.39028777 5c-.57868705 0-1.08723022.20458633-1.51978417.61960432L.61960432 6.88803957C.21043166 7.29721223 0 7.79991007 0 8.39028777c0 .5903777.20458633 1.09307554.61960432 1.5022482L11.4802158 20.7706835c.432554.4091726.9410971.6196043 1.5197842.6196043.5903777 0 1.0930755-.2045864 1.5022482-.6196043z"/>
-                </svg>
-            </span>
-            <ng-template #start>
-            <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 26 26" class="leftArrowLegend">
-                  <path fill="#ddd" fill-rule="nonzero" d="M14.5022482 20.7706835L25.368705 9.89253597C25.7895683 9.48920863 26 8.99235612 26 8.39028777c0-.60206835-.2104317-1.09892086-.631295-1.5022482l-1.2508992-1.26843525C23.7086331 5.21043165 23.2059353 5 22.6155576 5c-.5786871 0-1.0872303.20458633-1.5197842.61960432L13 13.7270683 4.89253597 5.61960432C4.4833633 5.21043165 3.98066547 5 3.39028777 5c-.57868705 0-1.08723022.20458633-1.51978417.61960432L.61960432 6.88803957C.21043166 7.29721223 0 7.79991007 0 8.39028777c0 .5903777.20458633 1.09307554.61960432 1.5022482L11.4802158 20.7706835c.432554.4091726.9410971.6196043 1.5197842.6196043.5903777 0 1.0930755-.2045864 1.5022482-.6196043z"/>
-                </svg>
-            </span>
-            </ng-template>
-        </div>
-        
-        <div class="ds-l-col--8" style="text-align: center">
-            Use arrows to swap view
-        </div>
-    
-        <div class="ds-l-col--2 alignRight noSelect" style="text-align: left;">
-             <span *ngIf="focusDot !== shadowData[0].series.length - 1; else end" tabindex="0" class="arrowSelector pointer" (click)="moveDot(1)" (keyup.enter)="moveDot(1)" [attr.aria-label]="'activate to move right through points on graph'" role="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 26 26" class="rightArrowLegend">
-                  <path fill="#000" fill-rule="nonzero" d="M14.5022482 20.7706835L25.368705 9.89253597C25.7895683 9.48920863 26 8.99235612 26 8.39028777c0-.60206835-.2104317-1.09892086-.631295-1.5022482l-1.2508992-1.26843525C23.7086331 5.21043165 23.2059353 5 22.6155576 5c-.5786871 0-1.0872303.20458633-1.5197842.61960432L13 13.7270683 4.89253597 5.61960432C4.4833633 5.21043165 3.98066547 5 3.39028777 5c-.57868705 0-1.08723022.20458633-1.51978417.61960432L.61960432 6.88803957C.21043166 7.29721223 0 7.79991007 0 8.39028777c0 .5903777.20458633 1.09307554.61960432 1.5022482L11.4802158 20.7706835c.432554.4091726.9410971.6196043 1.5197842.6196043.5903777 0 1.0930755-.2045864 1.5022482-.6196043z"/>
-                </svg>
-            </span>
-            <ng-template #end>
-            <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 26 26" class="rightArrowLegend">
-                  <path fill="#ddd" fill-rule="nonzero" d="M14.5022482 20.7706835L25.368705 9.89253597C25.7895683 9.48920863 26 8.99235612 26 8.39028777c0-.60206835-.2104317-1.09892086-.631295-1.5022482l-1.2508992-1.26843525C23.7086331 5.21043165 23.2059353 5 22.6155576 5c-.5786871 0-1.0872303.20458633-1.5197842.61960432L13 13.7270683 4.89253597 5.61960432C4.4833633 5.21043165 3.98066547 5 3.39028777 5c-.57868705 0-1.08723022.20458633-1.51978417.61960432L.61960432 6.88803957C.21043166 7.29721223 0 7.79991007 0 8.39028777c0 .5903777.20458633 1.09307554.61960432 1.5022482L11.4802158 20.7706835c.432554.4091726.9410971.6196043 1.5197842.6196043.5903777 0 1.0930755-.2045864 1.5022482-.6196043z"/>
-                </svg>
-            </span>
-            </ng-template>
         </div>
     </div>
 
