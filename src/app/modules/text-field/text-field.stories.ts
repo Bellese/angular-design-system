@@ -46,6 +46,11 @@ storiesOf('Components|Text Field', module)
                     value: 'A class for the input field itself',
                 },
                 {
+                    name: 'inputType',
+                    type: 'string',
+                    value: 'A type for the input element.  Default: text',
+                },
+                {
                     name: 'labelClass',
                     type: 'string',
                     value: 'A class for the label',
@@ -79,6 +84,22 @@ storiesOf('Components|Text Field', module)
                 title = 'Text Field Title'
                 id = 'text-field'
                 inputClass = 'ds-c-field--medium'
+                labelClass = 'ds-u-color--base'
+                hint = 'Text Field Hint'
+                hintClass = 'ds-u-color--muted'
+                dataAutoId = 'testingID'
+                (userInput) = 'handleEvent($event)'>
+            </app-text-field>
+        `,
+        props: defaultProps
+    }))
+    .add('Password', () => ({
+        template: `
+            <app-text-field
+                title = 'Text Field Title'
+                id = 'text-field'
+                inputClass = 'ds-c-field--medium'
+                inputType = 'password'
                 labelClass = 'ds-u-color--base'
                 hint = 'Text Field Hint'
                 hintClass = 'ds-u-color--muted'

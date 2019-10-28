@@ -10,6 +10,7 @@ export class AppTextFieldComponent {
     @Input() title: string;
     @Input() id: string;
     @Input() inputClass: string;
+    @Input() inputType = 'text';
     @Input() labelClass: string;
     @Input() hint: string;
     @Input() hintClass: string;
