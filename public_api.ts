@@ -36,5 +36,5 @@ export { AppTableModalComponent } from './src/app/modules/table/table-modal/tabl
 export { TabModel } from './src/app/modules/tabs/tabs.model';
 export { FileUploadModel } from './src/app/modules/file-upload/file-upload.model';
 export { CodeSnippetModel, CodeSnippetContentItemModel } from './src/app/modules/code-snippet/code-snippet.model';
-export { BarGraphDataModel } from './src/app/modules/bar-graph/bar-graph.model';
-export { LineGraphDataModel } from './src/app/modules/line-graph/line-graph.model';
+export { BarGraphModel } from './src/app/modules/bar-graph/bar-graph.model';
+export { LineGraphModel } from './src/app/modules/line-graph/line-graph.model';
