@@ -37,4 +37,6 @@ export class BarGraphModel {
 export class BarGraphDataModel {
     name: string;
     value: string;
+    modal?: any;
+    modalTitle?: string;
 }
