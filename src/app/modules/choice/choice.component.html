@@ -1,6 +1,8 @@
+{{ choiceSize[size]}}
+
 <input 
     [type]="inputType" 
-    class="ds-c-choice ds-c-choice--small" 
+    class="ds-c-choice {{ choiceSize[size] }} {{ inputClass }}" 
     id="{{ value +'-'+ index }}" 
     name="{{ groupName }}" 
     value="{{ value }}"
@@ -9,5 +11,5 @@
     (change)="onChange($event)"
 />
 <label for="{{ value +'-'+ index }}">
-    <span *ngIf="showTitle" class="{{labelClass}}">{{ value }}</span>
+    <span *ngIf="showTitle" class="{{labelClass}}">{{ label ? label : value }}</span>
 </label>

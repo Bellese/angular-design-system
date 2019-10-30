@@ -9,14 +9,19 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 export class AppChoiceComponent implements OnInit {
     @Input() inputType = 'checkbox';
     @Input() index = 'main';
+    @Input() size: string;
+    @Input() label: string;
     @Input() value: string;
     @Input() groupName: string;
     @Input() showTitle = true;
     @Input() labelClass: string;
+    @Input() inputClass: string;
     @Input() isChecked: boolean;
     @Input() dataAutoId: string;
 
     @Output() choiceChange = new EventEmitter<any>();
+
+    choiceSize = ChoiceSize;
 
     constructor() { }
 
@@ -27,4 +32,9 @@ export class AppChoiceComponent implements OnInit {
       this.choiceChange.emit($event);
     }
 
+}
+
+enum ChoiceSize {
+  'small' = 'ds-c-choice--small',
+  'medium' = '',
 }
