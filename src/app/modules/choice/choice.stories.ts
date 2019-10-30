@@ -44,6 +44,11 @@ storiesOf('Components|Choice', module)
                     value: 'This will allow you find the unique input within the whole group',
                 },
                 {
+                    name: 'label',
+                    type: 'string',
+                    value: 'Label is the label that shows next to the checkbox.  If none is provided, value is shown.',
+                },
+                {
                     name: 'value',
                     type: 'string',
                     value: 'Value is what the input represents when clicked, and is read by screen readers',
@@ -62,6 +67,11 @@ storiesOf('Components|Choice', module)
                     name: 'labelClass',
                     type: 'string',
                     value: 'Class to style the label',
+                },
+                {
+                    name: 'inputClass',
+                    type: 'string',
+                    value: 'Class to style the input',
                 },
                 {
                     name: 'dataAutoId',
@@ -91,9 +101,11 @@ storiesOf('Components|Choice', module)
                 index = 0
                 value = 'choiceExample'
                 groupName = 'choicetoendallchoice'
+                size = 'small'
                 [isChecked] = 'false'
                 [showTitle] = true
                 labelClass = 'choiceEx'
+                inputClass = 'choiceInputClass'
                 dataAutoId = 'testingID'
                 (choiceChange) = 'handleEvent($event)'
             >
@@ -104,7 +116,8 @@ storiesOf('Components|Choice', module)
         template: `
             <app-choice
                 index = 0
-                value = 'Option 1'
+                label = 'Option 1'
+                value = '1'
                 groupName = 'choicetoendallchoice'
                 [isChecked] = 'true'
                 [showTitle] = true
@@ -115,7 +128,8 @@ storiesOf('Components|Choice', module)
             </app-choice>
             <app-choice
                 index = 1
-                value = 'Option 2'
+                label = 'Option 2'
+                value = '2'
                 groupName = 'choicetoendallchoice'
                 [isChecked] = 'true'
                 [showTitle] = true
@@ -126,7 +140,8 @@ storiesOf('Components|Choice', module)
             </app-choice>
             <app-choice
                 index = 2
-                value = 'Option 3'
+                label = 'Option 3'
+                value = '3'
                 groupName = 'choicetoendallchoice'
                 [isChecked] = 'false'
                 [showTitle] = true
