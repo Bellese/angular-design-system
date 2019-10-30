@@ -54,6 +54,11 @@ storiesOf('Components|Choice', module)
                     value: 'Value is what the input represents when clicked, and is read by screen readers',
                 },
                 {
+                    name: 'size',
+                    type: 'string',
+                    value: 'Allows you to set the size of the checkbox.  Options are small and medium.  The default value is medium.'
+                },
+                {
                     name: 'groupName',
                     type: 'string',
                     value: 'The name that each input will fall under, to help you scope this group',
