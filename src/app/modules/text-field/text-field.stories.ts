@@ -66,6 +66,11 @@ storiesOf('Components|Text Field', module)
                     value: 'A class for the hint',
                 },
                 {
+                    name: 'errorMessage',
+                    type: 'string',
+                    value: 'A value used to display an error above the text field. If set, the input will be styled with an error class.',
+                },
+                {
                     name: 'dataAutoId',
                     type: 'string',
                     value: 'Use this for testing ID',
@@ -103,6 +108,21 @@ storiesOf('Components|Text Field', module)
                 labelClass = 'ds-u-color--base'
                 hint = 'Text Field Hint'
                 hintClass = 'ds-u-color--muted'
+                dataAutoId = 'testingID'
+                (userInput) = 'handleEvent($event)'>
+            </app-text-field>
+        `,
+        props: defaultProps
+    }))
+    .add('Error', () => ({
+        template: `
+            <app-text-field
+                title = 'Text Field Title'
+                id = 'text-field'
+                inputClass = 'ds-c-field--medium'
+                inputType = 'text'
+                labelClass = 'ds-u-color--base'
+                errorMessage = 'This is an error message'
                 dataAutoId = 'testingID'
                 (userInput) = 'handleEvent($event)'>
             </app-text-field>
