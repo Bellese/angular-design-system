@@ -8,6 +8,7 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
 export class AppDropDownComponent {
     @Input() options;
     @Input() labelName: string;
+    @Input() labelClass: string;
     @Input() selectClass: string;
     @Input() id = 1;
     @Input() defaultSelected = 0;

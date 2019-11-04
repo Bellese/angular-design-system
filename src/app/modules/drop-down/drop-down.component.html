@@ -1,5 +1,5 @@
 <label
-    *ngIf="labelName" 
+    *ngIf="labelName" [ngClass]="labelClass"
     class="ds-c-label ds-u-margin-top--0 ds-u-sans" 
     for="{{'dropdown-' + id}}">
         {{ labelName }}
