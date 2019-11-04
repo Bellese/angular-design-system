@@ -12,6 +12,7 @@ export class AppDropDownComponent {
     @Input() selectClass: string;
     @Input() id = 1;
     @Input() defaultSelected = 0;
+    @Input() defaultSelectedValue = '';
     @Input() hintMessage: string;
     @Input() errorMessage: string;
     @Input() error: boolean;
