@@ -59,7 +59,7 @@ storiesOf('Components|Drop Down', module)
                 {
                     name: 'labelName',
                     type: 'string',
-                    value: 'The value that shows in the dropdown\ss label',
+                    value: 'The value that shows in the dropdown\'s label',
                 },
                 {
                     name: 'selectClass',
