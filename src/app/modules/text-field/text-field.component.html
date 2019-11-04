@@ -5,4 +5,4 @@
         {{ errorMessage }}
     </span>
 </label>
-<input class="ds-c-field" attr.data-auto-id="{{dataAutoId}}" tabindex="0" [ngClass]="inputClass + ' ' + (errorMessage ? 'ds-c-field--error' : '')" id="{{id}}" name="{{id}}" [type]="inputType" (keyup)="callBackFunction($event)" (change)="callBackFunction($event)" value="{{value}}">
+<input class="ds-c-field" attr.data-auto-id="{{dataAutoId}}" tabindex="0" [ngClass]="inputClass + ' ' + (errorMessage ? 'ds-c-field--error' : '')" id="{{id}}" name="{{id}}" [type]="inputType" (keyup)="callBackFunction($event)" (change)="callBackFunction($event)" value="{{defaultValue}}">

@@ -9,7 +9,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class AppTextFieldComponent {
     @Input() title: string;
     @Input() id: string;
-    @Input() value: string;
+    @Input() defaultValue: string;
     @Input() inputClass: string;
     @Input() inputType = 'text';
     @Input() labelClass: string;
