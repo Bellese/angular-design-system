@@ -52,14 +52,31 @@ storiesOf('Components|Drop Down', module)
             parameters: [
                 {
                     name: 'options',
-                    type: 'array',
+                    type: 'array of objects',
                     // TODO: document structure of the objects
                     value: 'An array of javascript objects that have content and value properties, used to populate the dropdown options',
+                    properties:  [
+                        {
+                            name: 'content',
+                            type: 'string',
+                            value: 'The string shown in the dropdown label'
+                        },
+                        {
+                            name: 'value',
+                            type: 'string',
+                            value: 'The value of the each item in the dropdown'
+                        }
+                    ]
                 },
                 {
                     name: 'labelName',
                     type: 'string',
                     value: 'The value that shows in the dropdown\'s label',
+                },
+                {
+                    name: 'labelClass',
+                    type: 'string',
+                    value: 'The CSS class that applies to the label',
                 },
                 {
                     name: 'selectClass',
@@ -75,7 +92,12 @@ storiesOf('Components|Drop Down', module)
                 {
                     name: 'defaultSelected',
                     type: 'number',
-                    value: 'Use this to select an option by default when the component loads.  Use your desired option\'s index from the options array',
+                    value: 'Use this to select an option index by default when the component loads.  Use your desired option\'s index from the options array (Deprecated)',
+                },
+                {
+                    name: 'defaultSelectedValue',
+                    type: 'string',
+                    value: 'Use this to select an option (by value) by default when the component loads.  Use your desired option\'s index from the options array',
                 },
                 {
                     name: 'hintMessage',

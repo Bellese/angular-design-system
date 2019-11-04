@@ -41,6 +41,11 @@ storiesOf('Components|Text Field', module)
                     value: 'Used as a unique id for this field',
                 },
                 {
+                    name: 'defaultValue',
+                    type: 'string',
+                    value: 'The string that appears in the textbox upon load',
+                },
+                {
                     name: 'inputClass',
                     type: 'string',
                     value: 'A class for the input field itself',
