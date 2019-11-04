@@ -44,7 +44,7 @@ storiesOf('Components|Drop Down', module)
         props: {
             imports: [
                 {
-                    modules: ['DropDownModule'],
+                    modules: ['DropdownModule'],
                     file: '@bellese/angular-design-system',
                     ngmodule: 'imports',
                 },
