@@ -2,7 +2,7 @@
     *ngIf="labelName" [ngClass]="labelClass"
     class="ds-c-label ds-u-margin-top--0 ds-u-sans" 
     for="{{'dropdown-' + id}}">
-        {{ labelName }}
+    <span class="ds-u-font-weight--bold">{{labelName}}</span>
     <span *ngIf="hintMessage" class="ds-c-field__hint ds-c-field__hint--inverse">{{ hintMessage }}</span>
     <span *ngIf="error" class="ds-c-field__hint ds-u-color--error" id="undefined-message" role="alert">{{ errorMessage }}</span>
 </label>

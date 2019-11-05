@@ -8,6 +8,6 @@
     attr.data-auto-id="{{dataAutoId}}" 
     (change)="onChange($event)"
 />
-<label for="{{ value +'-'+ index }}">
-    <span *ngIf="showTitle" class="{{labelClass}}">{{ label ? label : value }}</span>
+<label for="{{ value +'-'+ index }}" class="{{labelClass}}">
+    <span *ngIf="showTitle" >{{ label ? label : value }}</span>
 </label>
