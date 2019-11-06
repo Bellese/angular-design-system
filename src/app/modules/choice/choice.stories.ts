@@ -94,6 +94,11 @@ storiesOf('Components|Choice', module)
                     // tslint:disable-next-line: max-line-length
                     value: 'A javascript function that will be called when the checkbox is checked. It takes one argument, which is a click event.',
                 },
+                {
+                    name: 'errorMessage',
+                    type: 'string',
+                    value: 'An error message to display in the component',
+                },
             ],
             notes: [
                 'The choice component can be used to display a checkbox or radio box.'
