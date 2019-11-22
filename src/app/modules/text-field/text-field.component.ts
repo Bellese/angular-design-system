@@ -7,6 +7,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 
 export class AppTextFieldComponent {
+    @Input() ariaLabel: string;
     @Input() title: string;
     @Input() id: string;
     @Input() defaultValue: string;

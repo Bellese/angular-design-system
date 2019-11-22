@@ -36,6 +36,11 @@ storiesOf('Components|Text Field', module)
                     value: 'Used as the label for the input field',
                 },
                 {
+                    name: 'ariaLabel',
+                    type: 'string',
+                    value: 'Use this to further specify button to the screen reader',
+                },
+                {
                     name: 'id',
                     type: 'string',
                     value: 'Used as a unique id for this field',
@@ -92,6 +97,7 @@ storiesOf('Components|Text Field', module)
         template: `
             <app-text-field
                 title = 'Text Field Title'
+                ariaLabel = 'Text Field Aria Label'
                 id = 'text-field'
                 inputClass = 'ds-c-field--medium'
                 labelClass = 'ds-u-color--base'

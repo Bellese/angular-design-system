@@ -10,6 +10,7 @@ export class AppDropDownComponent {
     @Input() labelName: string;
     @Input() labelClass: string;
     @Input() selectClass: string;
+    @Input() ariaLabel: string;
     @Input() id = 1;
     @Input() defaultSelected = 0;
     @Input() defaultSelectedValue = '';

@@ -11,6 +11,7 @@
         class="ds-c-field {{selectClass}}"
         [ngClass]="{'ds-c-field--error': error}"
         name="options"
+        attr.aria-label="{{ ariaLabel || labelName }}"
         (change)="selectOption($event)"
         attr.data-auto-id="{{dataAutoId}}">
     <ng-container *ngFor="let option of options; let i = index">

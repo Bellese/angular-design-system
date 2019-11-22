@@ -85,6 +85,11 @@ storiesOf('Components|Drop Down', module)
                     value: 'Use this to add classes to drop down. Pull classes from <a href="https://design.cms.gov" target="_blank">CMS Design System</a>',
                 },
                 {
+                    name: 'ariaLabel',
+                    type: 'string',
+                    value: 'Use this to further specify button to the screen reader',
+                },
+                {
                     name: 'id',
                     type: 'string',
                     value: 'Use this to add unique ID to dropdown',
@@ -134,6 +139,7 @@ storiesOf('Components|Drop Down', module)
                 [options] = 'dropDownData'
                 labelName = 'Drop down example'
                 selectClass = 'ds-c-field--medium'
+                ariaLabel = 'Drop Down Aria Label'
                 id = 'DropDownExample'
                 dataAutoId = 'testingID'
                 (selectedOption) = 'handleEvent($event)'>
