@@ -11,6 +11,7 @@ export class AppChoiceComponent implements OnInit {
     @Input() index = 'main';
     @Input() size: string;
     @Input() label: string;
+    @Input() ariaLabel: string;
     @Input() value: string;
     @Input() groupName: string;
     @Input() showTitle = true;

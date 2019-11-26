@@ -54,6 +54,11 @@ storiesOf('Components|Choice', module)
                     value: 'Value is what the input represents when clicked, and is read by screen readers',
                 },
                 {
+                    name: 'ariaLabel',
+                    type: 'string',
+                    value: 'Use this to further specify button to the screen reader',
+                },
+                {
                     name: 'size',
                     type: 'string',
                     value: 'Allows you to set the size of the checkbox.  Options are small and medium.  The default value is medium.'
@@ -109,7 +114,8 @@ storiesOf('Components|Choice', module)
         template: `
             <app-choice
                 index = 0
-                value = 'choiceExample'
+                value = 'I agree to the terms and conditions'
+                ariaLabel = 'Check the checkbox to agree to the terms and conditions's
                 groupName = 'choicetoendallchoice'
                 size = 'small'
                 [isChecked] = 'false'

@@ -7,8 +7,9 @@
     [checked]="isChecked"
     attr.data-auto-id="{{dataAutoId}}" 
     (change)="onChange($event)"
+    attr.aria-label="{{ ariaLabel }}"
 />
-<label for="{{ value +'-'+ index }}" class="{{labelClass}}">
+<label for="{{ value +'-'+ index }}" class="{{labelClass}}" id="{{ value +'-'+ index + '-label' }}">
     <span *ngIf="showTitle" >{{ label ? label : value }}</span>
     <span *ngIf="errorMessage" class="ds-c-field__hint ds-u-color--error" id="{{ value +'-'+ index }}-error" role="alert">{{ errorMessage }}</span>
 </label>
