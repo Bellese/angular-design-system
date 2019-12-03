@@ -115,7 +115,7 @@ storiesOf('Components|Choice', module)
             <app-choice
                 index = 0
                 value = 'I agree to the terms and conditions'
-                ariaLabel = 'Check the checkbox to agree to the terms and conditions's
+                ariaLabel = 'Check the checkbox to agree to the terms and conditions'
                 groupName = 'choicetoendallchoice'
                 size = 'small'
                 [isChecked] = 'false'
