@@ -81,6 +81,11 @@ storiesOf('Components|Text Field', module)
                     value: 'A value used to display an error above the text field. If set, the input will be styled with an error class.',
                 },
                 {
+                    name: 'placeholder',
+                    type: 'string',
+                    value: 'A value to show as the a placeholder for the text field.',
+                },
+                {
                     name: 'dataAutoId',
                     type: 'string',
                     value: 'Use this for testing ID',
@@ -103,6 +108,7 @@ storiesOf('Components|Text Field', module)
                 labelClass = 'ds-u-color--base'
                 hint = 'Text Field Hint'
                 hintClass = 'ds-u-color--muted'
+                placeholder = 'Placeholder Text'
                 dataAutoId = 'testingID'
                 (userInput) = 'handleEvent($event)'>
             </app-text-field>
