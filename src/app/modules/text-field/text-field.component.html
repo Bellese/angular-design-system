@@ -12,6 +12,7 @@
     id="{{id}}" 
     name="{{id}}" 
     [type]="inputType" 
+    [placeholder]="placeholder || ''"
     (keyup)="callBackFunction($event)" 
     (change)="callBackFunction($event)" 
     value="{{defaultValue}}"
