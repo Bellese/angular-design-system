@@ -1,7 +1,8 @@
 <div class="ds-c-tabs {{ tablistClassName }}" role="tablist">
-    <div 
+    <a
         *ngFor="let tab of tabs"
         role="tab"
+        href="javascript:void(0)"
         [id]="tab.id" 
         class="ds-c-tabs__item {{ tab.className }}" 
         [attr.aria-label]="tab.ariaLabel" 
@@ -13,5 +14,5 @@
         (keyup.enter)="passAction($event)" 
     >
         {{tab.title}}
-    </div>
+    </a>
 </div>
