@@ -28,7 +28,12 @@ export class AppModalShellComponent {
 
     findTab(e) {
         if (e.target.id === 'lastModalTab') { document.getElementById('closeButton' + this.modalCount).focus(); }
-        if (e.target.id === 'firstModalTab') { document.getElementById('cancelButton' + this.modalCount).focus(); }
+        if (e.target.id === 'firstModalTab') {
+            const buttons = document.querySelectorAll('.ds-c-dialog__actions button');
+            if (buttons.length) {
+                (buttons[buttons.length - 1] as HTMLElement).focus();
+            }
+        }
     }
 
     onClose() {
