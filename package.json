@@ -1,6 +1,6 @@
 {
   "name": "@bellese/angular-design-system",
-  "version": "2.6.17",
+  "version": "2.6.21",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -42,9 +42,9 @@
     "codelyzer": "^4.3.0",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
-    "karma": "^4.1.0",
-    "karma-chrome-launcher": "~2.2.0",
-    "karma-coverage-istanbul-reporter": "^1.2.1",
+    "karma": "^4.4.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage-istanbul-reporter": "^2.1.1",
     "karma-jasmine": "^1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
     "ng-packagr": "^4.7.0",
