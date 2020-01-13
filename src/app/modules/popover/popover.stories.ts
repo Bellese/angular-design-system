@@ -68,6 +68,60 @@ storiesOf('Components|Popover', module)
                     type: 'PopoverModel',
                     // TODO: document structure of the objects
                     value: 'Use this to override the component\'s default settings.',
+                    properties: [
+                        {
+                            name: 'id',
+                            type: 'string',
+                            value: 'The id for the popover component',
+                        },
+                        {
+                            name: 'ariaLabel',
+                            type: 'string',
+                            value: 'Use this to further specify the popover component to the screen reader',
+                        },
+                        {
+                            name: 'label',
+                            type: 'string',
+                            value: 'This is the word or phrase that will show in the popover button.',
+                        },
+                        {
+                            name: 'dataAutoId',
+                            type: 'string',
+                            value: 'Use this for testing ID',
+                        },
+                        {
+                            name: 'items',
+                            type: 'array of PopoverItemModels',
+                            value: 'Use this to further specify the popover component to the screen reader',
+                            properties: [
+                                {
+                                    name: 'id',
+                                    type: 'string',
+                                    value: 'The id for the popover component',
+                                },
+                                {
+                                    name: 'ariaLabel',
+                                    type: 'string',
+                                    value: 'Use this to further specify the popover component to the screen reader',
+                                },
+                                {
+                                    name: 'label',
+                                    type: 'string',
+                                    value: 'This is the word or phrase that will show in the popover button.',
+                                },
+                                {
+                                    name: 'dataAutoId',
+                                    type: 'string',
+                                    value: 'Use this for testing ID',
+                                },
+                                {
+                                    name: 'url',
+                                    type: 'string',
+                                    value: 'The URL of the page that the user will see when they click this item.  Currently the component only supports full page redirects to a url, but more options can be added as needed.',
+                                },
+                            ]
+                        },
+                    ]
                 },
             ],
             notes: []

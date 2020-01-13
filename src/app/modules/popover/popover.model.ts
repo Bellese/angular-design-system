@@ -17,8 +17,8 @@ export class PopoverItemModel {
 
 export class PopoverModel {
     id = 'popover';
-    ariaLabel = 'Activate enter key to open popover'
     label = 'Open Popover';
+    ariaLabel = 'Activate enter key to open popover'
     dataAutoId = 'popover';
     items: PopoverItemModel[] = [];
 

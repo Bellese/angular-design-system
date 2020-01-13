@@ -15,6 +15,15 @@ import { Component, Input } from '@angular/core';
                             <li *ngFor="let property of parameter.properties">
                                 <strong>{{ property.name }}</strong>&nbsp;<em>({{ property.type }})</em>:
                                 <span [innerHTML]="property.value"></span>
+                                <div *ngIf="parameter.properties">
+                                    <em>Properties:</em>
+                                    <ul>
+                                        <li *ngFor="let subproperty of property.properties">
+                                            <strong>{{ subproperty.name }}</strong>&nbsp;<em>({{ subproperty.type }})</em>:
+                                            <span [innerHTML]="subproperty.value"></span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                         </ul>
                     </div>

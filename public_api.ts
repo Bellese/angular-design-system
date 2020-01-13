@@ -39,3 +39,4 @@ export { FileUploadModel } from './src/app/modules/file-upload/file-upload.model
 export { CodeSnippetModel, CodeSnippetContentItemModel } from './src/app/modules/code-snippet/code-snippet.model';
 export { BarGraphModel, BarGraphDataModel } from './src/app/modules/bar-graph/bar-graph.model';
 export { LineGraphModel, LineGraphDataModel } from './src/app/modules/line-graph/line-graph.model';
+export { PopoverModel, PopoverItemModel } from './src/app/modules/popover/popover.model';
