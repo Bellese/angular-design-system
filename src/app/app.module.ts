@@ -38,6 +38,7 @@ import { DownloadQueModule } from './modules/download-que/download-que.module';
 import { TabsModule } from './modules/tabs/tabs.module';
 import { FileUploadModule } from './modules/file-upload/file-upload.module';
 import { CodeSnippetModule } from './modules/code-snippet/code-snippet.module';
+import { PopoverModule } from './modules/popover/popover.module';
 
 @NgModule({
   declarations: [AppComponent, ExampleModalComponent],
@@ -74,7 +75,8 @@ import { CodeSnippetModule } from './modules/code-snippet/code-snippet.module';
     DownloadQueModule,
     TabsModule,
     FileUploadModule,
-    CodeSnippetModule
+    CodeSnippetModule,
+    PopoverModule,
   ],
   providers: [AppService, FilterPipe],
   bootstrap: [AppComponent],

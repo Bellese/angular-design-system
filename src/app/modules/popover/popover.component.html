@@ -1,0 +1,35 @@
+<app-button 
+  [buttonID]="popoverModel.id" 
+  [dataAutoId]="popoverModel.dataAutoId ? popoverModel.dataAutoId : popoverModel.id"
+  [ariaLabel]="popoverModel.ariaLabel ? popoverModel.ariaLabel : popoverModel.label" 
+  buttonType="ds-c-button ds-c-button--transparent ds-u-padding--0 ds-u-padding-x--1 ds-u-font-weight--normal hqr-hide ds-u-color--base" 
+  [mdePopoverTriggerFor]="menuPopover"
+  mdePopoverTriggerOn="click"
+  mdePopoverPositionX="before"
+  #popoverTrigger="mdePopoverTrigger"
+  mdePopoverArrowOffsetX="16"
+  (opened)="isOpened()"
+  (closed)="isClosed()"
+>
+  {{ popoverModel.label }}
+  <fa-icon [icon]="isOpen ? faChevronUp : faChevronDown"></fa-icon>
+</app-button>
+
+<mde-popover
+  #menuPopover="mdePopover" 
+  [mdePopoverOverlapTrigger]="false"
+>
+  <div class="mde-popover-content-inner ds-u-display--inline-block ds-u-padding--1 ds-u-fill--white">
+    <div *ngFor="let item of popoverModel.items">
+      <app-button 
+        [buttonID]="item.id"
+        [ariaLabel]="item.ariaLabel ? item.ariaLabel : item.label" 
+        [dataAutoId]="item.dataAutoId ? item.dataAutoId : itemid"
+        buttonType="ds-c-button ds-c-button--transparent ds-u-padding--0 ds-u-font-weight--normal hqr-hide ds-u-color--base" 
+        (click)="gotoURL(item.url)"
+      >
+        {{ item.label }}
+      </app-button>
+    </div>
+  </div>
+</mde-popover>

@@ -13,7 +13,8 @@
     "tsickle",
     "ngx-clipboard",
     "@fortawesome/fontawesome-svg-core",
-    "@fortawesome/free-solid-svg-icons"
+    "@fortawesome/free-solid-svg-icons",
+    "@material-extended/mde"
   ],
   "lib": {
     "entryFile": "public_api.ts"
