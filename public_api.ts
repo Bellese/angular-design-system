@@ -28,6 +28,7 @@ export * from './src/app/modules/download-que/download-que.module';
 export * from './src/app/modules/tabs/tabs.module';
 export * from './src/app/modules/file-upload/file-upload.module';
 export * from './src/app/modules/code-snippet/code-snippet.module';
+export * from './src/app/modules/popover/popover.module';
 
 // Components
 export { AppTableModalComponent } from './src/app/modules/table/table-modal/table-modal.component';
