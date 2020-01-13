@@ -4,6 +4,7 @@ export class PopoverItemModel {
     ariaLabel: string;
     dataAutoId: string;
     url: string;
+    onClick: any;
 
     constructor(options?) {
         // Set the values in this object based on the defaults and parameters that are passed in

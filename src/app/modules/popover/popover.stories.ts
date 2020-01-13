@@ -19,12 +19,17 @@ const popoverModel = new PopoverModel({
     items: [
         new PopoverItemModel({
             label: 'Menu Item 1',
+            onClick: () => {
+                console.log("INLINE FUNCTION CALL")
+            }
         }),
         new PopoverItemModel({
             label: 'Menu Item 2',
+            url: 'https://www.google.com'
         }),
         new PopoverItemModel({
             label: 'Menu Item 3',
+            onClick: defaultProps.handleEvent,
         })
     ]
 });
