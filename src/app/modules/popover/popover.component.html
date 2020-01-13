@@ -24,9 +24,9 @@
       <app-button 
         [buttonID]="item.id"
         [ariaLabel]="item.ariaLabel ? item.ariaLabel : item.label" 
-        [dataAutoId]="item.dataAutoId ? item.dataAutoId : itemid"
+        [dataAutoId]="item.dataAutoId ? item.dataAutoId : item.dataAutoId"
         buttonType="ds-c-button ds-c-button--transparent ds-u-padding--0 ds-u-font-weight--normal hqr-hide ds-u-color--base" 
-        (click)="gotoURL(item.url)"
+        (click)="gotoUrl(item.url)"
       >
         {{ item.label }}
       </app-button>

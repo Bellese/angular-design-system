@@ -31,7 +31,10 @@ export class PopoverComponent implements OnInit {
 
   isClosed() {
     this.isOpen = false;
+  }
 
+  gotoUrl(url) {
+    window.location.href = url;
   }
 
 }

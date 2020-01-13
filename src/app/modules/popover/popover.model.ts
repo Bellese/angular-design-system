@@ -1,7 +1,7 @@
 export class PopoverItemModel {
     id: string;
     label: string;
-    arialLabel: string;
+    ariaLabel: string;
     dataAutoId: string;
     url: string;
 
