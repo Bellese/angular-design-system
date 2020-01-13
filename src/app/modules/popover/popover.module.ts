@@ -12,7 +12,7 @@ import { MdePopoverModule } from '@material-extended/mde';
 import { PopoverComponent } from './popover.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [PopoverComponent],
   imports: [
     CommonModule,
     ButtonModule,
