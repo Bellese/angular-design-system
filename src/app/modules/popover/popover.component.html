@@ -2,7 +2,7 @@
   [buttonID]="popoverModel.id" 
   [dataAutoId]="popoverModel.dataAutoId ? popoverModel.dataAutoId : popoverModel.id"
   [ariaLabel]="popoverModel.ariaLabel ? popoverModel.ariaLabel : popoverModel.label" 
-  buttonType="ds-c-button ds-c-button--transparent ds-u-padding--0 ds-u-padding-x--1 ds-u-font-weight--normal hqr-hide ds-u-color--base" 
+  buttonType="ds-c-button ds-c-button--transparent ds-u-padding--0 ds-u-padding-x--1 ds-u-text-decoration--none hqr-hide ds-u-color--base" 
   [mdePopoverTriggerFor]="menuPopover"
   mdePopoverTriggerOn="click"
   mdePopoverPositionX="before"
@@ -12,7 +12,7 @@
   (closed)="isClosed()"
 >
   {{ popoverModel.label }}
-  <fa-icon [icon]="isOpen ? faChevronUp : faChevronDown"></fa-icon>
+  <fa-icon [icon]="isOpen ? faChevronUp : faChevronDown" class="ds-u-padding-left--1"></fa-icon>
 </app-button>
 
 <mde-popover
@@ -25,7 +25,7 @@
         [buttonID]="item.id"
         [ariaLabel]="item.ariaLabel ? item.ariaLabel : item.label" 
         [dataAutoId]="item.dataAutoId ? item.dataAutoId : item.dataAutoId"
-        buttonType="ds-c-button ds-c-button--transparent ds-u-padding--0 ds-u-font-weight--normal hqr-hide ds-u-color--base" 
+        buttonType="ds-c-button ds-c-button--transparent ds-u-padding--1 ds-u-padding-y--2 ds-u-font-weight--normal hqr-hide ds-u-color--base" 
         (click)="gotoUrl(item.url)"
       >
         {{ item.label }}
