@@ -71,7 +71,6 @@ storiesOf('Components|Popover', module)
                 {
                     name: 'popoverModel',
                     type: 'PopoverModel',
-                    // TODO: document structure of the objects
                     value: 'Use this to override the component\'s default settings.',
                     properties: [
                         {

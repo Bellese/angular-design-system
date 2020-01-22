@@ -1,15 +1,22 @@
 import { storiesOf, moduleMetadata } from '@storybook/angular';
 
+// Components
 import { FileUploadComponent } from './file-upload.component';
-
 import ComponentIntroComponent from '../../../stories/component-intro.component';
 import ParametersComponent from '../../../stories/parameters.component';
 import ImportsComponent from '../../../stories/imports.component';
 import NgModuleComponent from '../../../stories/ngmodule.component';
-import { defaultProps } from '../../../../.storybook/helpers';
 
+// Modules
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ButtonModule } from '../button/button.module';
 import { DirectiveModule } from '../../directives/directive.module';
+
+// Models
 import { FileUploadModel } from './file-upload.model';
+
+// Misc.
+import { defaultProps } from '../../../../.storybook/helpers';
 
 const fileUploadModel = new FileUploadModel({
     height: 300,
@@ -26,7 +33,7 @@ storiesOf('Components|File Upload', module)
     .addDecorator(
         moduleMetadata({
             imports: [
-                DirectiveModule
+                DirectiveModule, ButtonModule, FontAwesomeModule
             ],
             declarations: [FileUploadComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
         }),
@@ -53,6 +60,73 @@ storiesOf('Components|File Upload', module)
                     type: 'FileUploadModel',
                     // TODO: document structure of the objects
                     value: 'Use this to override the component\'s default settings.',
+                    properties: [
+                        {
+                            name: 'id',
+                            type: 'string',
+                            value: 'The id for the file upload component',
+                        },
+                        {
+                            name: 'icon',
+                            type: 'IconDefinition',
+                            value: 'The icon that shows at the top of the file upload component. Default: faCloudUploadAlt',
+                        },
+                        {
+                            name: 'label',
+                            type: 'string',
+                            value: 'The label that shows inside of the file upload component. Default: Drag files here to upload',
+                        },
+                        {
+                            name: 'ariaLabel',
+                            type: 'string',
+                            value: 'The screen reader text for the file upload component. Default: Activate enter key to upload files',
+                        },
+                        {
+                            name: 'orLabel',
+                            type: 'string',
+                            value: 'The text that shows between the label and the button. Default:',
+                        },
+                        {
+                            name: 'buttonIcon',
+                            type: 'IconDefinition',
+                            value: 'The icon that shows inside of the button. Default: faCloudUploadAlt',
+                        },
+                        {
+                            name: 'buttonLabel',
+                            type: 'string',
+                            value: 'The label that shows inside of the button. Default: Selects Files',
+                        },
+                        {
+                            name: 'buttonType',
+                            type: 'string',
+                            value: 'The class to apply to the button.  Classes can be found at https://design.cms.gov.  Default: ds-c-button ds-c-button--primary',
+                        },
+                        {
+                            name: 'buttonAriaLabel',
+                            type: 'string',
+                            value: 'The screen reader text for the button. Default: Activate enter key to upload files',
+                        },
+                        {
+                            name: 'className',
+                            type: 'string',
+                            value: 'The class to apply to the file upload component.  Classes can be found at https://design.cms.gov.  Default: ds-u-fill--white',
+                        },
+                        {
+                            name: 'classNameActive',
+                            type: 'string',
+                            value: 'The class to apply to the file upload component when a file is being dragged onto the component.  Classes can be found at https://design.cms.gov.  Default: ds-u-fill--primary-alt-lightest',
+                        },
+                        {
+                            name: 'height',
+                            type: 'number | string',
+                            value: 'The height of the component.  Default: auto',
+                        },
+                        {
+                            name: 'dataAutoId',
+                            type: 'string',
+                            value: 'Use this for testing ID',
+                        },
+                    ]
                 },
                 {
                     name: 'onFileUpload',
@@ -61,20 +135,7 @@ storiesOf('Components|File Upload', module)
                     value: 'A javascript function that will be called when the a file is uploaded. It takes one argument, which is a javascript file object.',
                 },
             ],
-            notes: [
-                'Expected format for \'fileUploadModel\':',
-                `<pre>
-fileUploadModel = new FileUploadModel({
-    id: 'file_upload',
-    dataAutoId: 'file_upload',
-    label: 'Drag files here to upload',
-    ariaLabel: 'Activate enter key to upload files',
-    className: 'ds-u-fill--white',
-    classNameActive: 'ds-u-fill--primary-alt-lightest',
-    height: 'auto'
-});
-                </pre>`
-            ]
+            notes: []
         }
     }))
     .add('Normal', () => ({
