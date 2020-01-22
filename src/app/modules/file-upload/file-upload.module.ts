@@ -1,17 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FileUploadComponent } from './file-upload.component';
 
-// directives modules
+// modules
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ButtonModule } from '../button/button.module';
 import { DirectiveModule } from '../../directives/directive.module';
+
+// components
+import { FileUploadComponent } from './file-upload.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    DirectiveModule
+    DirectiveModule,
+    ButtonModule,
+    FontAwesomeModule
   ],
   declarations: [
-    FileUploadComponent
+    FileUploadComponent,
   ],
   exports: [
     FileUploadComponent
