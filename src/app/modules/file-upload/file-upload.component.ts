@@ -23,6 +23,7 @@ export class FileUploadComponent implements OnInit {
     for (const file of event) {
       this.onFileUpload.emit(file);
     }
+    this.fileInput.nativeElement.value = '';
   }
 
   promptUpload() {
