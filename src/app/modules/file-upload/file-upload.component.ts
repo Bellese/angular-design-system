@@ -20,9 +20,11 @@ export class FileUploadComponent implements OnInit {
   }
 
   uploadFile(event) {
+    const files = [];
     for (const file of event) {
-      this.onFileUpload.emit(file);
+      files.push(file);
     }
+    this.onFileUpload.emit(files);
     this.fileInput.nativeElement.value = '';
   }
 
