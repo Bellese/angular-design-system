@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { CardClusterModel } from './card-cluster.models';
 
     @Component({
         selector: 'app-card-cluster',
@@ -7,12 +8,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
     })
 export class AppCardClusterComponent implements OnInit {
 
-    @Input() cardArray;
-    @Input() dataAutoId: string;
+    @Input() cardArray: CardClusterModel;
+
+    // The following inputs have been deprecated and moved into the CardClusterModel object
+    @Input() buttonClicked = 'CardCluster0'; // DEPRECATED
+    @Input() dataAutoId: string; // DEPRECATED
 
     @Output() passButton = new EventEmitter<any>();
 
-    @Input() buttonClicked = 'CardCluster0';
     numArray1 = [];
     numArray = [];
     total: string = null;
@@ -22,15 +25,31 @@ export class AppCardClusterComponent implements OnInit {
 
     passAction(e) {
         this.passButton.emit(e);
-        this.buttonClicked = e.target.id;
+        // this.buttonClicked = e.target.id;
+        this.buttonClicked = null;
+        this.cardArray.buttonClicked = e.target.id;
     }
 
     ngOnInit() {
 
         if (!this.cardArray) {
-            this.cardArray = {
-                'cluster': []
-            };
+            this.cardArray = new CardClusterModel();
+        }
+
+        // TODO: remove this code once this.buttonClicked is fully removed
+        if (this.buttonClicked) {
+            if (!this.cardArray.buttonClicked) {
+                this.cardArray.buttonClicked = this.buttonClicked;
+            }
+            this.buttonClicked = null;
+        }
+
+        // TODO: remove this code once this.dataAutoId is fully removed
+        if (this.dataAutoId) {
+            if (!this.cardArray.dataAutoId) {
+                this.cardArray.dataAutoId = this.dataAutoId;
+            }
+            this.dataAutoId = null;
         }
 
         // determine width of main card
@@ -42,13 +61,20 @@ export class AppCardClusterComponent implements OnInit {
         }
 
         // Main card total
-        let cardsTotal: number = null;
+        let cardsTotal: string | number = null;
         if (this.cardArray.total !== null &&  this.cardArray.total !== undefined) {
             cardsTotal = this.cardArray.total;
         } else {
             this.cardArray.cluster.map( card => {
                 if ((card.value || card.value === 0) && typeof card.value === 'number') {
-                    cardsTotal += card.value;
+                    // if CardsTotal is not set, but numbers exist as values in the clusters,
+                    // change cardsTotal to 0 so that it can be used as a running total
+                    if (cardsTotal === null) {
+                        cardsTotal = 0;
+                    }
+                    if (typeof cardsTotal === 'number') {
+                        cardsTotal += card.value;
+                    }
                 }
             });
         }
@@ -59,7 +85,7 @@ export class AppCardClusterComponent implements OnInit {
         }
 
         // If the amount of items per row is sent into the component, set the defaults
-        if (!this.cardArray.hasOwnProperty('rowMaxItems')) {
+        if (!this.cardArray.rowMaxItems) {
             // if there are more than 8 mini-cards in the cluster, show 4 items per row
             if (this.cardArray.cluster.length > 8) {
                 this.cardArray.rowMaxItems = 4;
