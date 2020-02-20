@@ -20,6 +20,7 @@ export class AppChoiceComponent implements OnInit {
     @Input() errorMessage: string;
     @Input() isChecked: boolean;
     @Input() dataAutoId: string;
+    @Input() tabIndex: number;
 
     @Output() choiceChange = new EventEmitter<any>();
 

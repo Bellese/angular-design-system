@@ -9,6 +9,7 @@
     attr.data-auto-id="{{dataAutoId}}" 
     (change)="onChange($event)"
     attr.aria-label="{{ ariaLabel }}"
+    [attr.tabindex]="tabIndex ? tabIndex : null"
 />
 <label for="{{ value +'-'+ index }}" class="{{labelClass}}" id="{{ value +'-'+ index + '-label' }}">
     <span *ngIf="showTitle" >{{ label ? label : value }}</span>

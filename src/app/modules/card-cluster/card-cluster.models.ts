@@ -3,20 +3,24 @@ import { AngularDesignSystemModel } from '../../models/angular-design-system.mod
 
 export class CardClusterClusterModel extends AngularDesignSystemModel {
     value: string | number;
-    name: string;
-    ariaLabel: string;
+    name?: string;
+    nameIcon?: IconDefinition;
+    valueIcon?: IconDefinition;
+    ariaLabel?: string;
     classValue?: string;
-    classButton: string;
-    className: string;
+    classButton?: string;
+    className?: string;
 
     constructor(options?) {
-        super(options);
+        super();
+        this.setOptions(options);
     }
 }
 
 export class CardClusterModel extends AngularDesignSystemModel {
     mainCard = true;
     mainTitle?: string;
+    mainTitleIcon?: IconDefinition;
     mainSub?: string;
     total?: number | string;
     ariaLabel?: string;
@@ -27,6 +31,7 @@ export class CardClusterModel extends AngularDesignSystemModel {
     cluster: CardClusterClusterModel[];
 
     constructor(options?) {
-        super(options);
+        super();
+        this.setOptions(options);
     }
 }

@@ -9,6 +9,8 @@ import NgModuleComponent from '../../../stories/ngmodule.component';
 import { defaultProps } from '../../../../.storybook/helpers';
 import { CardClusterModel } from './card-cluster.models';
 import { AppChoiceComponent } from '../choice/choice.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faEye, faUserShield } from '@fortawesome/free-solid-svg-icons';
 
 const cardClusterDataNormal = new CardClusterModel({
     'mainCard': true,
@@ -73,10 +75,32 @@ const cardClusterDataWithoutMiniCards = {
  };
 
 
- const cardClusterShowRadioButtons = {
+const cardClusterDataShowRadioButtons = {
     ...cardClusterDataNormal,
     showRadioButton: true
 };
+
+const cardClusterDataShowRadioButtonsAndIcons = new CardClusterModel({
+    mainCard: false,
+    showRadioButton: true,
+    rowMaxItems: 2,
+    cluster: [
+        {
+            value: 'Basic User',
+            name: 'A Basic User is an Organization Role with Read/Write Access to the Organization(s) in their system.',
+            valueIcon: faEye,
+            ariaLabel: 'Activate enter to select Basic User',
+            classButton: 'ds-u-padding--2'
+        },
+        {
+            value: 'Security Administrator',
+            name: 'A Security Administrator is a person who manages User Roles & Permissions for their Organization.',
+            valueIcon: faUserShield,
+            ariaLabel: 'Activate enter to select Security Administrator',
+            classButton: 'ds-u-padding--2'
+        },
+    ]
+});
 
  const props = {
      ...defaultProps,
@@ -85,13 +109,24 @@ const cardClusterDataWithoutMiniCards = {
      cardClusterDataWithoutMiniCards,
      cardClusterDataSelectedCard,
      cardClusterDataSetTotal,
-     cardClusterShowRadioButtons
+     cardClusterDataShowRadioButtons,
+     cardClusterDataShowRadioButtonsAndIcons
  };
 
 storiesOf('Components|Card Cluster', module)
     .addDecorator(
         moduleMetadata({
-            declarations: [AppCardClusterComponent, AppChoiceComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
+            imports: [
+                FontAwesomeModule
+            ],
+            declarations: [
+                AppCardClusterComponent,
+                AppChoiceComponent,
+                ParametersComponent,
+                ImportsComponent,
+                NgModuleComponent,
+                ComponentIntroComponent
+            ],
         }),
     )
     .add('Intro', () => ({
@@ -262,7 +297,15 @@ storiesOf('Components|Card Cluster', module)
     })).add('Show Radio Buttons', () => ({
         template: `
             <app-card-cluster
-                [cardArray]="cardClusterShowRadioButtons"
+                [cardArray]="cardClusterDataShowRadioButtons"
+                (passButton)="handleEvent($event)">
+            </app-card-cluster>
+        `,
+        props,
+    })).add('Show Radio Buttons and Icons', () => ({
+        template: `
+            <app-card-cluster
+                [cardArray]="cardClusterDataShowRadioButtonsAndIcons"
                 (passButton)="handleEvent($event)">
             </app-card-cluster>
         `,
