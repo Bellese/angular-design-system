@@ -148,7 +148,7 @@ storiesOf('Components|Card Cluster', module)
             parameters: [
                 {
                     name: 'cardArray',
-                    type: 'object',
+                    type: 'CardClusterModel',
                     value: 'A javascript object that contains all information needed to display the card cluster.',
                     properties: [
                         {
@@ -161,6 +161,12 @@ storiesOf('Components|Card Cluster', module)
                             type: 'string',
                             optional: true,
                             value: 'The title to show in the main card'
+                        },
+                        {
+                            name: 'mainTitleIcon',
+                            type: 'IconDefinition',
+                            optional: true,
+                            value: 'A FontAwesome icon to show with the main title'
                         },
                         {
                             name: 'mainSub',
@@ -218,6 +224,18 @@ storiesOf('Components|Card Cluster', module)
                                     name: 'value',
                                     type: 'number | string',
                                     value: 'The value to show in the card inside the cluster'
+                                },
+                                {
+                                    name: 'nameIcon',
+                                    type: 'IconDefinition',
+                                    optional: true,
+                                    value: 'A FontAwesome icon to show with the card\'s name'
+                                },
+                                {
+                                    name: 'valueIcon',
+                                    type: 'IconDefinition',
+                                    optional: true,
+                                    value: 'A FontAwesome icon to show with the card\'s value'
                                 },
                                 {
                                     name: 'ariaLabel',

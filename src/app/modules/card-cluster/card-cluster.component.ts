@@ -25,8 +25,6 @@ export class AppCardClusterComponent implements OnInit {
 
     passAction(e) {
         this.passButton.emit(e);
-        // this.buttonClicked = e.target.id;
-        this.buttonClicked = null;
         this.cardArray.buttonClicked = e.target.id;
     }
 
