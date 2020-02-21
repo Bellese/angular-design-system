@@ -21,12 +21,7 @@
 }
 
 .cardHeight {
-    height: 76px;
-    overflow: hidden;
-}
-
-.cardHeight.active  {
-    height: 72px;
+    box-sizing: border-box;
 }
 
 .ds-text {

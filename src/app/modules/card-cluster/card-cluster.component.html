@@ -54,8 +54,8 @@
                         role="button" tabindex="0"
                         [attr.aria-label]="card.ariaLabel || card.name"
                     >    
-                        <div class='cardClusterContent ds-l-row'>
-                            <div *ngIf="cardArray.showRadioButton" class='ds-l-col--auto ds-u-padding-right--0'>
+                        <div class='cardClusterContent ds-l-row ds-u-margin-x--0'>
+                            <div *ngIf="cardArray.showRadioButton" class='ds-l-col--auto ds-u-padding-x--0'>
                                 <app-choice
                                     [index]="x"
                                     inputType="radio"
@@ -67,7 +67,7 @@
                                     tabIndex="-1">
                                 </app-choice>
                             </div>
-                            <div class='ds-l-col' [ngClass]="{'ds-u-padding-left--0': cardArray.showRadioButton}">
+                            <div class='ds-l-col' [ngClass]="{'ds-u-padding-x--0': cardArray.showRadioButton}">
                                 <div class="ds-u-font-size--h3 ds-u-color--black ds-u-font-weight--bold noPoint"
                                     [ngClass]="card.classValue">
                                     <fa-icon [icon]="card.valueIcon" *ngIf="card.valueIcon"></fa-icon>
