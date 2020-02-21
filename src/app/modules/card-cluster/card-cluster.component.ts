@@ -100,8 +100,25 @@ export class AppCardClusterComponent implements OnInit {
 
     resize() {
         setTimeout(() => {
-            const graphContainer = window.innerWidth;
+            // Iterate through all cards to find the maximum height
+            const cards: any = document.getElementsByClassName('cardHeight');
+            let maxHeight = 0;
+            for (const card of cards) {
+                // reset height
+                card.setAttribute('style', `height: auto;`);
+                // check height of card after it has been reset and store the value of the tallest card in the cluster
+                const elementHeight = card.offsetHeight;
+                if (elementHeight > maxHeight) {
+                    maxHeight = elementHeight;
+                }
+            }
 
+            // Iterate through all cards again to set a consistent height based on the maximum height of the cards
+            for (const card of cards) {
+                card.setAttribute('style', `height: ${maxHeight.toString()}px;`);
+            }
+
+            const graphContainer = window.innerWidth;
             if (this.cardArray.mainCard && this.cardArray.cluster.length && graphContainer >= 1024) {
                 const followHeight = document.getElementById('followCard').clientHeight - 86;
                 document.querySelector('#CardCluster0 .cardClusterContent').setAttribute('style', `height: ${followHeight.toString()}px;`);
