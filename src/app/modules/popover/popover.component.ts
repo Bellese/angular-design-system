@@ -5,7 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { PopoverModel, PopoverItemModel } from './popover.model';
 
 // Misdc
-import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'; 
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-popover',
@@ -16,8 +16,8 @@ export class PopoverComponent implements OnInit {
 
   @Input() popoverModel: PopoverModel;
 
-  faChevronDown = faChevronDown
-  faChevronUp = faChevronUp
+  faChevronDown = faChevronDown;
+  faChevronUp = faChevronUp;
   isOpen = false;
 
   constructor() { }
@@ -39,7 +39,7 @@ export class PopoverComponent implements OnInit {
     } else if (item.onClick) {
       item.onClick(item);
     } else {
-      console.warn("The click handler for this item was not configured correctly.");
+      console.warn('The click handler for this item was not configured correctly.');
     }
   }
 
