@@ -1,4 +1,6 @@
-export class PopoverItemModel {
+import { AngularDesignSystemModel } from '../../models/angular-design-system.models';
+
+export class PopoverItemModel extends AngularDesignSystemModel {
     id: string;
     label: string;
     ariaLabel: string;
@@ -7,28 +9,34 @@ export class PopoverItemModel {
     onClick: any;
 
     constructor(options?) {
-        // Set the values in this object based on the defaults and parameters that are passed in
-        if (options) {
-            for (const key of Object.keys(options)) {
-                this[key] = options[key];
-            }
-        }
-     }
+        super();
+        this.setOptions(options);
+    }
 }
 
-export class PopoverModel {
+export enum mdePopoverPositionXEnum {
+    BEFORE = 'before',
+    AFTER = 'after',
+}
+
+
+export enum mdePopoverPositionYEnum {
+    ABOVE = 'above',
+    BELOW = 'below',
+}
+
+export class PopoverModel extends AngularDesignSystemModel {
     id = 'popover';
     label = 'Open Popover';
-    ariaLabel = 'Activate enter key to open popover'
+    ariaLabel = 'Activate enter key to open popover';
+    showArrow = true;
+    mdePopoverPositionX ? = mdePopoverPositionXEnum.BEFORE;
+    mdePopoverPositionY ? = mdePopoverPositionYEnum.BELOW;
     dataAutoId = 'popover';
     items: PopoverItemModel[] = [];
 
     constructor(options?) {
-        // Set the values in this object based on the defaults and parameters that are passed in
-        if (options) {
-            for (const key of Object.keys(options)) {
-                this[key] = options[key];
-            }
-        }
-     }
+        super();
+        this.setOptions(options);
+    }
 }

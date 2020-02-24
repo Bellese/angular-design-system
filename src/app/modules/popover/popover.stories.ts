@@ -10,17 +10,20 @@ import { defaultProps } from '../../../../.storybook/helpers';
 
 import { DirectiveModule } from '../../directives/directive.module';
 import { PopoverComponent } from './popover.component';
-import { PopoverModel, PopoverItemModel } from './popover.model';
+import { PopoverModel, PopoverItemModel, mdePopoverPositionXEnum, mdePopoverPositionYEnum } from './popover.model';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MdePopoverModule } from '@material-extended/mde';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
+
 
 const popoverModel = new PopoverModel({
     items: [
         new PopoverItemModel({
             label: 'Menu Item 1',
             onClick: () => {
-                console.log("INLINE FUNCTION CALL")
+                console.log('INLINE FUNCTION CALL');
             }
         }),
         new PopoverItemModel({
@@ -34,9 +37,19 @@ const popoverModel = new PopoverModel({
     ]
 });
 
+const popoverModelUtility = {
+    ...popoverModel,
+    showArrow: false,
+    label: null,
+    mdePopoverPositionX: mdePopoverPositionXEnum.AFTER,
+    mdePopoverPositionY: mdePopoverPositionYEnum.ABOVE
+};
+
 const props = {
     ...defaultProps,
     popoverModel,
+    popoverModelUtility,
+    faEllipsisV
 };
 
 storiesOf('Components|Popover', module)
@@ -48,7 +61,14 @@ storiesOf('Components|Popover', module)
                 BrowserAnimationsModule,
                 MdePopoverModule
             ],
-            declarations: [PopoverComponent, AppButtonComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
+            declarations: [
+                PopoverComponent,
+                AppButtonComponent,
+                ParametersComponent,
+                ImportsComponent,
+                NgModuleComponent,
+                ComponentIntroComponent
+            ],
         }),
     )
     .add('Intro', () => ({
@@ -86,7 +106,25 @@ storiesOf('Components|Popover', module)
                         {
                             name: 'label',
                             type: 'string',
-                            value: 'This is the word or phrase that will show in the popover button.',
+                            value: 'This is the word or phrase that will show in the popover button. If a null value is specified, the elements inside of the component will be used as ng-content.',
+                        },
+                        {
+                            name: 'showArrow',
+                            type: 'boolean',
+                            value: 'Hide or show the expand/collapse arrow.  Default value is true',
+
+                        },
+                        {
+                            name: 'mdePopoverPositionX',
+                            type: 'mdePopoverPositionXEnum',
+                            value: 'Display the popover menu to the before or after of the button that is used to trigger the popover menu.  Available options are mdePopoverPositionXEnum.BEFORE or mdePopoverPositionXEnum.AFTER.  Default value is mdePopoverPositionXEnum.BEFORE. This value may be ignored if there is no space on the screen to position the menu as specified.',
+
+                        },
+                        {
+                            name: 'mdePopoverPositionY',
+                            type: 'mdePopoverPositionYEnum',
+                            value: 'Display the popover menu to the above or below of the button that is used to trigger the popover menu.  Available options are mdePopoverPositionYEnum.ABOVE or mdePopoverPositionYEnum.BELOW.  Default value is mdePopoverPositionYEnum.BELOW. This value may be ignored if there is no space on the screen to position the menu as specified.',
+
                         },
                         {
                             name: 'dataAutoId',
@@ -133,32 +171,16 @@ storiesOf('Components|Popover', module)
     }))
     .add('Normal', () => ({
         template: `
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
             <app-popover
                 [popoverModel] = 'popoverModel'>
+            </app-popover>
+        `,
+        props: props
+    }))
+    .add('Utility Menu', () => ({
+        template: `
+            <app-popover [popoverModel] = 'popoverModelUtility'>
+                <fa-icon [icon]="faEllipsisV"></fa-icon>
             </app-popover>
         `,
         props: props

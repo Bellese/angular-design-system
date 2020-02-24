@@ -5,14 +5,16 @@
   buttonType="ds-c-button ds-c-button--transparent ds-u-padding--0 ds-u-padding-x--1 ds-u-text-decoration--none hqr-hide ds-u-color--base" 
   [mdePopoverTriggerFor]="menuPopover"
   mdePopoverTriggerOn="click"
-  mdePopoverPositionX="before"
+  [mdePopoverPositionX]="popoverModel.mdePopoverPositionX"
+  [mdePopoverPositionY]="popoverModel.mdePopoverPositionY"
   #popoverTrigger="mdePopoverTrigger"
   mdePopoverArrowOffsetX="16"
   (opened)="isOpened()"
   (closed)="isClosed()"
 >
   {{ popoverModel.label }}
-  <fa-icon [icon]="isOpen ? faChevronUp : faChevronDown" class="ds-u-padding-left--1"></fa-icon>
+  <ng-content *ngIf="!popoverModel.label"></ng-content>
+  <fa-icon [icon]="isOpen ? faChevronUp : faChevronDown" class="ds-u-padding-left--1" *ngIf="popoverModel.showArrow"></fa-icon>
 </app-button>
 
 <mde-popover
