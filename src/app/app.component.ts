@@ -16,23 +16,24 @@ import barData from '../assets/data/bar-data.json';
 import cluster from '../assets/data/cluster-data.json';
 import singleTableData from '../assets/data/single-table-data.json';
 import dropDownData from '../assets/data/drop-down-data.json';
-import { ModalService } from './services/modal.service';
+import { ModalService } from './services/modal/modal.service';
 import { ExampleModalComponent } from './components/example-modal/example-modal.component';
 import { AppTableModalComponent } from './modules/table/table-modal/table-modal.component';
 
 import { FileUploadModel } from './modules/file-upload/file-upload.model';
 import { CodeSnippetModel, CodeSnippetContentItemModel } from './modules/code-snippet/code-snippet.model.js';
 import { FileUploadComponent } from './modules/file-upload/file-upload.component.js';
+import { ToastService } from './modules/toast/service/toast.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   providers: [
-      ModalService
+      ModalService,
   ],
   entryComponents: [
-      ExampleModalComponent
+      ExampleModalComponent,
   ]
 })
 
@@ -119,7 +120,10 @@ export class AppComponent implements OnInit {
 
     @ViewChild('uploader') uploader: FileUploadComponent;
 
-    constructor(private modalService: ModalService) {}
+    constructor(
+        private modalService: ModalService,
+        private toastService: ToastService,
+    ) {}
 
     buttonClick(e) {
         if (e.button) {
@@ -183,5 +187,13 @@ export class AppComponent implements OnInit {
     uploadFile($event) {
         console.log($event);
         console.log(this.uploader.promptUpload());
+    }
+
+    showToast(message, title, variation) {
+        this.toastService.showToast(
+            message,
+            title,
+            variation
+        );
     }
 }

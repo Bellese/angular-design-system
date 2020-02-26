@@ -39,6 +39,7 @@ import { TabsModule } from './modules/tabs/tabs.module';
 import { FileUploadModule } from './modules/file-upload/file-upload.module';
 import { CodeSnippetModule } from './modules/code-snippet/code-snippet.module';
 import { PopoverModule } from './modules/popover/popover.module';
+import { ToastModule } from './modules/toast/toast.module';
 
 @NgModule({
   declarations: [AppComponent, ExampleModalComponent],
@@ -77,12 +78,13 @@ import { PopoverModule } from './modules/popover/popover.module';
     FileUploadModule,
     CodeSnippetModule,
     PopoverModule,
+    ToastModule,
   ],
   providers: [AppService, FilterPipe],
   bootstrap: [AppComponent],
   entryComponents: [
     ExampleModalComponent,
-    AppTableModalComponent
+    AppTableModalComponent,
   ]
 })
 export class AppModule {}

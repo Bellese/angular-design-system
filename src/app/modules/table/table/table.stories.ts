@@ -13,7 +13,7 @@ import { StarRatingComponent } from '../../star/star-rating/star-rating.componen
 import { AppPaginationComponent } from '../../paging/paging.component';
 import { AppButtonComponent } from '../../button/button.component';
 import { AppChoiceComponent } from '../../choice/choice.component';
-import { ModalService } from '../../../services/modal.service';
+import { ModalService } from '../../../services/modal/modal.service';
 import { PipesModule } from '../../../pipes/pipes.module';
 import { FilterPipe } from '../../../pipes/filter.pipe';
 

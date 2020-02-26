@@ -1,0 +1,13 @@
+<div class="row" [style.display]="state.value === 'inactive' ? 'none' : ''">
+    <app-alert
+        [hideClose]="true"
+        [heading]="title"
+        [variation]="variation"
+    >{{ message }}</app-alert>
+</div>
+
+<div class="sr-only" role="alert">
+    <span>{{ variation }} alert has appeared.</span>
+    <span *ngIf="title">{{ title }}</span>
+    <span *ngIf="message">{{ message }}</span>
+</div>

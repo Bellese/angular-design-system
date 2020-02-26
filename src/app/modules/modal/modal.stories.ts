@@ -5,7 +5,7 @@ import { AppModalComponent } from './modal.component';
 import { AppModalShellComponent } from '../modal-shell/modal-shell.component';
 import { AppButtonComponent } from '../button/button.component';
 import { AppTableModalComponent } from '../table/table-modal/table-modal.component';
-import { ModalService } from '../../services/modal.service';
+import { ModalService } from '../../services/modal/modal.service';
 
 import ComponentIntroComponent from '../../../stories/component-intro.component';
 import ParametersComponent from '../../../stories/parameters.component';
