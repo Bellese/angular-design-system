@@ -1,17 +1,14 @@
 import { storiesOf, moduleMetadata } from '@storybook/angular';
 
-import ComponentIntroComponent from '../../../stories/component-intro.component'
-import ParametersComponent from '../../../stories/parameters.component';
-import ImportsComponent from '../../../stories/imports.component';
-import NgModuleComponent from '../../../stories/ngmodule.component';
-import { ButtonModule } from '../../modules/button/button.module';
-import { defaultProps } from '../../../../.storybook/helpers';
+import ComponentIntroComponent from '../../../../stories/component-intro.component'
+import ParametersComponent from '../../../../stories/parameters.component';
+import ImportsComponent from '../../../../stories/imports.component';
+import NgModuleComponent from '../../../../stories/ngmodule.component';
+import { ButtonModule } from '../../button/button.module';
+import { defaultProps } from '../../../../../.storybook/helpers';
 
 const props = {
     ...defaultProps,
-    showToast: () => {
-        alert("HI");
-    }
 };
 
 storiesOf('Services|Toast Service', module)

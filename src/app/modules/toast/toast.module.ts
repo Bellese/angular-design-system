@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
-import { ToastService } from '../../services/toast/toast.service';
+import { ToastService } from './service/toast.service';
 import { AlertModule } from '../alert/alert.module';
-import { ToastComponent } from './toast.component';
+import { ToastComponent } from './component/toast.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +23,5 @@ import { ToastComponent } from './toast.component';
   entryComponents: [
     ToastComponent,
   ],
-  exports: [
-    ToastService,
-  ]
 })
 export class ToastModule { }

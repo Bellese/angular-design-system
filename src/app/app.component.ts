@@ -23,7 +23,7 @@ import { AppTableModalComponent } from './modules/table/table-modal/table-modal.
 import { FileUploadModel } from './modules/file-upload/file-upload.model';
 import { CodeSnippetModel, CodeSnippetContentItemModel } from './modules/code-snippet/code-snippet.model.js';
 import { FileUploadComponent } from './modules/file-upload/file-upload.component.js';
-import { ToastService } from './services/toast/toast.service';
+import { ToastService } from './modules/toast/service/toast.service';
 
 @Component({
   selector: 'app-root',

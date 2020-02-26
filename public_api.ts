@@ -30,7 +30,7 @@ export * from './src/app/modules/toast/toast.module';
 
 // Services
 export * from './src/app/services/modal/modal.service';
-export * from './src/app/services/toast/toast.service';
+export * from './src/app/modules/toast/service/toast.service';
 
 // Pipes
 export * from './src/app/pipes/pipes.module';
