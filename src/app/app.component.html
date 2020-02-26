@@ -334,14 +334,21 @@ TABLE AND PAGINATION
 <!-- Code Snippet
 <app-code-snippet [codeSnippetModel]="codeSnippetModel" #uploader></app-code-snippet> -->
 
-Modal Component<br />
-<app-modal
+<!-- Modal Component<br /> -->
+<!-- <app-modal
     id='modalExample'
     modalTitle='modalTitle'
     [modalData]='modalData'
     content='Open Modal'
     [modalComponent]='appTableModalComponent'
 >
-</app-modal>
+</app-modal> -->
+
+Toast Component / Service<br />
+<app-button (click)="showToast('Error Message', 'Error Title', 'error')">Show Error Toast</app-button><br />
+<app-button (click)="showToast('Success Message', 'Success Title', 'success')">Show Success Toast</app-button><br />
+<app-button (click)="showToast('Warn Message', 'Warn Title', 'warn')">Show Warn Toast</app-button><br />
+<app-button (click)="showToast('Normal Message', 'Normal Title', null)">Show Normal Toast</app-button><br />
+
 
 </section>

@@ -1,0 +1,7 @@
+<div class="row" [style.display]="state.value === 'inactive' ? 'none' : ''">
+    <app-alert
+        [hideClose]="true"
+        [heading]="title"
+        [variation]="variation"
+    >{{ message }}</app-alert>
+</div>
