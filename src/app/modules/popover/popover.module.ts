@@ -10,6 +10,7 @@ import { MdePopoverModule } from '@material-extended/mde';
 
 // Components
 import { PopoverComponent } from './popover.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [PopoverComponent],
@@ -17,7 +18,8 @@ import { PopoverComponent } from './popover.component';
     CommonModule,
     ButtonModule,
     FontAwesomeModule,
-    MdePopoverModule
+    MdePopoverModule,
+    BrowserAnimationsModule
   ],
   exports: [
     PopoverComponent,

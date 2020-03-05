@@ -104,9 +104,14 @@ storiesOf('Components|Popover', module)
                             value: 'Use this to further specify the popover component to the screen reader',
                         },
                         {
+                            name: 'icon',
+                            type: 'IconDefinition',
+                            value: 'This is a FontAwesome icon that can show before the label.  If no icon or label is specified, the elements inside of the component will be used as ng-content.',
+                        },
+                        {
                             name: 'label',
                             type: 'string',
-                            value: 'This is the word or phrase that will show in the popover button. If a null value is specified, the elements inside of the component will be used as ng-content.',
+                            value: 'This is the word or phrase that will show in the popover button. If no icon or label is specified, the elements inside of the component will be used as ng-content.',
                         },
                         {
                             name: 'showArrow',

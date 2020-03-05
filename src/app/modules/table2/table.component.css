@@ -1,0 +1,39 @@
+/* .table-background {
+    overflow-x: auto;
+    margin-bottom:25px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width:500px;
+    table-layout: fixed;
+}
+
+th {
+    background-color: #f1f1f1;
+    vertical-align: middle;
+    height:55px;
+    font-size: 16px;
+    text-align: left;
+    padding-left: 24px;
+    padding-right: 24px;
+    max-width: 100%;
+}
+
+tbody tr:hover {
+    background:#f1f1f1;
+}
+
+.noResults {
+    text-align:center;
+    padding:20px; 
+    font-weight: bold; 
+    font-size: 16px;
+}
+
+@media only screen and (max-width: 768px) {
+    table {
+        table-layout: auto;
+    }
+} */

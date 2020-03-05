@@ -1,4 +1,5 @@
 import { AngularDesignSystemModel } from '../../models/angular-design-system.models';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 export class PopoverItemModel extends AngularDesignSystemModel {
     id: string;
@@ -27,6 +28,7 @@ export enum mdePopoverPositionYEnum {
 
 export class PopoverModel extends AngularDesignSystemModel {
     id = 'popover';
+    icon: IconDefinition = null;
     label = 'Open Popover';
     ariaLabel = 'Activate enter key to open popover';
     showArrow = true;

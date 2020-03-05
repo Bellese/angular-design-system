@@ -57,15 +57,15 @@ storiesOf('Components|Button', module)
                     value: 'Use this for testing ID',
                 },
                 {
+                    name: 'disabled',
+                    type: 'boolean',
+                    value: 'Use this to disable the button',
+                },
+                {
                     name: 'callBack',
                     type: 'function',
                     // tslint:disable-next-line: max-line-length
                     value: 'A javascript function that will be called when the button is clicked. It takes one argument, which is a click event.',
-                },
-                {
-                    name: 'dataAutoId',
-                    type: 'string',
-                    value: 'Use this for testing ID',
                 },
             ]
         }
