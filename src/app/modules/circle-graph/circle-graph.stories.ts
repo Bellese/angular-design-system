@@ -1,15 +1,13 @@
+// Storybook
 import { storiesOf, moduleMetadata } from '@storybook/angular';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { AppCircleGraphComponent } from './circle-graph.component';
-import { PipesModule } from '../../pipes/pipes.module';
-
-import ComponentIntroComponent from '../../../stories/component-intro.component';
-import ParametersComponent from '../../../stories/parameters.component';
-import ImportsComponent from '../../../stories/imports.component';
-import NgModuleComponent from '../../../stories/ngmodule.component';
+import { StoriesModule } from '../../../stories/stories.module';
 import { defaultProps } from '../../../../.storybook/helpers';
+
+// Modules
+import { CircleGraphModule } from './circle-graph.module';
+
+// Misc.
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const pieData = [
     {
@@ -31,8 +29,11 @@ const props = {
 storiesOf('Components|Circle Graph', module)
     .addDecorator(
         moduleMetadata({
-            declarations: [AppCircleGraphComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
-            imports: [NgxChartsModule, BrowserAnimationsModule, PipesModule],
+            imports: [
+                StoriesModule,
+                CircleGraphModule,
+                BrowserAnimationsModule,
+            ],
         }),
     )
     .add('Intro', () => ({

@@ -1,33 +1,18 @@
+// Storybook
 import { storiesOf, moduleMetadata } from '@storybook/angular';
-import { NgxPaginationModule } from 'ngx-pagination';
-
-import { Table2Module } from './table.module';
-
-// import { AppTableHeaderComponent } from './table-header/table-header.component';
-// import { AppTableRowComponent } from './table-row/table-row.component';
-// import { AppTableDataComponent } from './table-data/table-data.component';
-
-// import { AppPaginationComponent } from '../paging/paging.component';
-// import { AppButtonComponent } from '../button/button.component';
-// import { AppChoiceComponent } from '../choice/choice.component';
-// import { ModalService } from '../../services/modal/modal.service';
-// import { PipesModule } from '../../pipes/pipes.module';
-// import { FilterPipe } from '../../pipes/filter.pipe';
-
-import ComponentIntroComponent from '../../../stories/component-intro.component';
-import ParametersComponent from '../../../stories/parameters.component';
-import ImportsComponent from '../../../stories/imports.component';
-import NgModuleComponent from '../../../stories/ngmodule.component';
+import { StoriesModule } from '../../../stories/stories.module';
 import { defaultProps } from '../../../../.storybook/helpers';
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+// Modules
+import { Table2Module } from './table.module';
+
+// Models
+import { TableModel, TableHeaderModel, TableHeaderTypeEnum, TableRowModel, TableCellModel, TableCellTypeEnum, TablePaginationModel } from './table.models';
+import { PopoverModel, PopoverItemModel, mdePopoverPositionXEnum, mdePopoverPositionYEnum } from '../popover/popover.model';
+
+// Misc
 import { faCircle, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
-import { PagingModule } from '../paging/paging.module';
-import { TableModel, TableHeaderModel, TableHeaderTypeEnum, TableRowModel, TableCellModel, TableCellTypeEnum, TablePaginationModel } from './table.models';
-import { ButtonModule } from '../button/button.module';
-import { ChoiceModule } from '../choice/choice.module';
-import { PopoverModel, PopoverItemModel, mdePopoverPositionXEnum, mdePopoverPositionYEnum } from '../popover/popover.model';
 
 const popoverModel: PopoverModel = new PopoverModel({
   items: [
@@ -49,6 +34,7 @@ const popoverModel: PopoverModel = new PopoverModel({
 
 const tableModel: TableModel = new TableModel({
   id: 'storiesTable',
+  rowHeaderColumnKey: 'label',
   headers: [
     new TableHeaderModel({
       label: 'Select All',
@@ -63,11 +49,16 @@ const tableModel: TableModel = new TableModel({
     new TableHeaderModel({
       label: 'Date',
       columnKey: 'date',
+      isRowHeader: true
     }),
     new TableHeaderModel({
       label: 'User',
       columnKey: 'user',
       type: TableHeaderTypeEnum.SORT
+    }),
+    new TableHeaderModel({
+      label: 'Long Text Long Text',
+      columnKey: 'longText',
     }),
     new TableHeaderModel({
       label: 'Status',
@@ -92,15 +83,19 @@ const tableModel: TableModel = new TableModel({
         new TableCellModel({
           label: 'Row 1',
           type: TableCellTypeEnum.BUTTON,
+          class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
           onClick: defaultProps.handleEvent,
         }),
         new TableCellModel({
-          label: '1/1/2000'
+          label: '1/1/2000',
         }),
         new TableCellModel({
           label: 'Jim',
           icon: faUser,
           iconClass: 'ds-u-color--primary',
+        }),
+        new TableCellModel({
+          label: 'abcdefghijklmnopqrstuvwxyz1234567890',
         }),
         new TableCellModel({
           label: 'Active',
@@ -125,6 +120,7 @@ const tableModel: TableModel = new TableModel({
         new TableCellModel({
           label: 'Row 2',
           type: TableCellTypeEnum.BUTTON,
+          class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
           onClick: defaultProps.handleEvent,
         }),
         new TableCellModel({
@@ -134,6 +130,9 @@ const tableModel: TableModel = new TableModel({
           label: 'Pam',
           icon: faUser,
           iconClass: 'ds-u-color--primary',
+        }),
+        new TableCellModel({
+          label: 'abcdefghijklmnopqrstuvwxyz1234567890',
         }),
         new TableCellModel({
           label: 'Suspended',
@@ -158,6 +157,7 @@ const tableModel: TableModel = new TableModel({
         new TableCellModel({
           label: 'Row 3',
           type: TableCellTypeEnum.BUTTON,
+          class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
           onClick: defaultProps.handleEvent,
         }),
         new TableCellModel({
@@ -167,6 +167,9 @@ const tableModel: TableModel = new TableModel({
           label: 'Dwight',
           icon: faUser,
           iconClass: 'ds-u-color--primary',
+        }),
+        new TableCellModel({
+          label: 'abcdefghijklmnopqrstuvwxyz1234567890',
         }),
         new TableCellModel({
           label: 'Active',
@@ -191,6 +194,7 @@ const tableModel: TableModel = new TableModel({
         new TableCellModel({
           label: 'Row 4',
           type: TableCellTypeEnum.BUTTON,
+          class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
           onClick: defaultProps.handleEvent,
         }),
         new TableCellModel({
@@ -200,6 +204,9 @@ const tableModel: TableModel = new TableModel({
           label: 'Jim',
           icon: faUser,
           iconClass: 'ds-u-color--primary',
+        }),
+        new TableCellModel({
+          label: 'abcdefghijklmnopqrstuvwxyz1234567890',
         }),
         new TableCellModel({
           label: 'Inactive',
@@ -224,6 +231,7 @@ const tableModel: TableModel = new TableModel({
         new TableCellModel({
           label: 'Row 5',
           type: TableCellTypeEnum.BUTTON,
+          class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
           onClick: defaultProps.handleEvent,
         }),
         new TableCellModel({
@@ -233,6 +241,9 @@ const tableModel: TableModel = new TableModel({
           label: 'Stanley',
           icon: faUser,
           iconClass: 'ds-u-color--primary',
+        }),
+        new TableCellModel({
+          label: 'abcdefghijklmnopqrstuvwxyz1234567890',
         }),
         new TableCellModel({
           label: 'Inactive',
@@ -255,28 +266,31 @@ const tableModel: TableModel = new TableModel({
   })
 });
 
+const tableModelNoRecords = {
+  ...tableModel,
+  rows: [],
+  totalRows: 0,
+};
+
+const tableModelLoading = {
+  ...tableModel,
+  isLoading: true,
+};
+
 const props = {
     ...defaultProps,
     tableModel,
+    tableModelNoRecords,
+    tableModelLoading,
 };
 
 storiesOf('Components|Table', module)
     .addDecorator(
         moduleMetadata({
-            declarations: [
-              ParametersComponent,
-              ImportsComponent,
-              NgModuleComponent,
-              ComponentIntroComponent
-            ],
             imports: [
+              StoriesModule,
               Table2Module,
-              PagingModule,
-              ButtonModule,
-              ChoiceModule,
-              FontAwesomeModule
             ],
-            // providers: [FilterPipe, ModalService]
         }),
     )
     .add('Intro', () => ({
@@ -300,6 +314,178 @@ storiesOf('Components|Table', module)
                   name: 'tableModel',
                   type: 'TableModel',
                   value: 'An objects that defines how the table displays',
+                  properties: [
+                    {
+                      name: 'id',
+                      type: 'string',
+                      value: 'A unique identifier for the table',
+                    },
+                    {
+                      name: 'headers',
+                      type: 'TableHeaderModel[]',
+                      value: 'Use this to set the table headers.',
+                      properties: [
+                        {
+                          name: 'columnKey',
+                          type: 'string',
+                          value: 'An identifier that should be shared between all cells and headers in one column.  This is very important for checkbox columns.  This doubles as a css class that you can use to style the header.',
+                        },
+                        {
+                          name: 'label',
+                          type: 'string',
+                          value: 'The label that is shown inside of the header'
+                        },
+                        {
+                          name: 'type',
+                          type: 'TableHeaderTypeEnum',
+                          options: TableHeaderTypeEnum,
+                          default: 'TableHeaderTypeEnum.DEFAULT',
+                          value: 'The type of header. Current supported options are sort, checkbox, or default'
+                        },
+                        {
+                          name: 'isRowHeader',
+                          type: 'boolean',
+                          default: 'false',
+                          value: 'Set this to true to change all corresponding table cells into row headers.  This is important for 508 compliance.'
+                        },
+                        {
+                          name: 'sort',
+                          type: 'TableHeaderSortEnum',
+                          default: 'TableHeaderSortEnum.NONE',
+                          value: 'Specify if the column is sorted.  Current supported options are asc, desc, or none.'
+                        },
+                        {
+                          name: 'isChecked',
+                          type: 'boolean',
+                          default: false,
+                          value: 'Specify if a checkbox is checked.'
+                        },
+                      ]
+                    },
+                    {
+                      name: 'rows',
+                      type: 'TableRowModel[]',
+                      value: 'Use this to set the table rows.',
+                      properties: [
+                        {
+                          name: 'columnKey',
+                          type: 'string',
+                          value: 'An identifier that should be shared between all cells and headers in one column.  This is very important for checkbox columns.  This doubles as a css class that you can use to style the cell.',
+                        },
+                        {
+                          name: 'label',
+                          type: 'string',
+                          value: 'The content that is shown inside of the cell'
+                        },
+                        {
+                          name: 'ariaLabel',
+                          type: 'string',
+                          value: 'Screen reader text for the cell',
+
+                        },
+                        {
+                          name: 'type',
+                          type: 'TableCellTypeEnum',
+                          value: 'The type of cell to show',
+                          options: TableCellTypeEnum,
+                          default: 'TableCellTypeEnum.DEFAULT'
+                        },
+                        {
+                          name: 'class',
+                          type: 'string',
+                          value: 'A class for the table cell'
+                        },
+                        {
+                          name: 'icon',
+                          type: 'IconDefinition',
+                          value: 'An icon to display in the cell before the label'
+                        },
+                        {
+                          name: 'iconClass',
+                          type: 'string',
+                          value: 'A class for the icon'
+                        },
+                        {
+                          name: 'buttonDisabled',
+                          type: 'boolean',
+                          value: 'For button cells only, use this field to disable the button',
+                          default: false,
+                        },
+                        {
+                          name: 'buttonOnClick',
+                          value: 'For button cells only, a function that is called when the button is clicked',
+                          type: 'function',
+                        },
+                        {
+                          name: 'checkboxValue',
+                          value: 'For checkbox cells only, a value for the checkbox to emit',
+                          type: 'string',
+                        },
+                        {
+                          name: 'isChecked',
+                          value: 'For checkbox cells only, use this to check or uncheck a checkbox',
+                          type: 'boolean',
+                        },
+                        {
+                          name: 'popoverModel',
+                          value: 'For popover cells only, use this to configure the popover component. See the popover section for more info.',
+                          type: 'PopoverModel',
+                        },
+                      ]
+                    },
+                    {
+                      name: 'totalRows',
+                      type: 'number',
+                      value: 'The total number of rows that display in the table across all pages',
+                      default: '10',
+                    },
+                    {
+                      name: 'summary',
+                      type: 'string',
+                      value: 'the 508 summary to explain the purpose and describe the table. BE DETAILED',
+                    },
+                    {
+                      name: 'class',
+                      type: 'number',
+                      value: 'A class for the table'
+                    },
+                    {
+                      name: 'pagination',
+                      type: 'TablePaginationModel',
+                      value: 'Use this to set up the pageination component.',
+                      properties: [
+                        {
+                          name: 'isEnabled',
+                          type: 'boolean',
+                          value: 'Show or hide the pagination component.',
+                          deafult: 'true',
+                        },
+                        {
+                          name: 'perPage',
+                          type: 'number',
+                          value: 'The amount of items to show on one page.',
+                          default: '10',
+                        },
+                        {
+                          name: 'currentPage',
+                          type: 'number',
+                          value: 'The current page that is being displayed',
+                          default: '1',
+                        },
+                      ]
+                    },
+                    {
+                      name: 'isLoading',
+                      type: 'boolean',
+                      value: 'Show or hide the loading spinner for the table',
+                      default: 'false',
+                    },
+                    {
+                      name: 'rowHeaderColumnKey',
+                      value: 'The columnKey value of the column to use for the row header.  This is needed for 508 compliance.',
+                      type: 'string',
+                    },
+                  ]
               },
           ],
           notes: [
@@ -308,7 +494,7 @@ storiesOf('Components|Table', module)
           ]
         }
       }))
-    .add('Normal', () => ({
+      .add('Normal', () => ({
         template: `
             <app-table-2
                 [tableModel]="tableModel"
@@ -317,4 +503,24 @@ storiesOf('Components|Table', module)
             </app-table-2>
         `,
         props
+    }))
+    .add('No Records', () => ({
+      template: `
+          <app-table-2
+              [tableModel]="tableModelNoRecords"
+              (paginationClick)="handleEvent($event)"
+              (sortClick)="handleEvent($event)">
+          </app-table-2>
+      `,
+      props
+    }))
+    .add('Loading', () => ({
+      template: `
+          <app-table-2
+              [tableModel]="tableModelLoading"
+              (paginationClick)="handleEvent($event)"
+              (sortClick)="handleEvent($event)">
+          </app-table-2>
+      `,
+      props
     }));

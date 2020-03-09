@@ -1,17 +1,18 @@
+// Storybook
 import { storiesOf, moduleMetadata } from '@storybook/angular';
-
-import { AppTextFieldComponent } from './text-field.component';
-
-import ComponentIntroComponent from '../../../stories/component-intro.component';
-import ParametersComponent from '../../../stories/parameters.component';
-import ImportsComponent from '../../../stories/imports.component';
-import NgModuleComponent from '../../../stories/ngmodule.component';
+import { StoriesModule } from '../../../stories/stories.module';
 import { defaultProps } from '../../../../.storybook/helpers';
+
+// Modules
+import { TextFieldModule } from './text-field.module';
 
 storiesOf('Components|Text Field', module)
     .addDecorator(
         moduleMetadata({
-            declarations: [AppTextFieldComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
+            imports: [
+                StoriesModule,
+                TextFieldModule,
+            ]
         }),
     )
     .add('Intro', () => ({

@@ -1,31 +1,19 @@
+// Storybook
 import { storiesOf, moduleMetadata } from '@storybook/angular';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { RouterModule } from '@angular/router';
-
-
-import { AppTableComponent } from './table.component';
-import { AppTableHeaderComponent } from '../table-header/table-header.component';
-import { AppTableRowComponent } from '../table-row/table-row.component';
-import { AppTableDataComponent } from '../table-data/table-data.component';
-import { AppTableModalComponent } from '../table-modal/table-modal.component';
-import { StarComponent } from '../../star/star/star.component';
-import { StarRatingComponent } from '../../star/star-rating/star-rating.component';
-import { AppPaginationComponent } from '../../paging/paging.component';
-import { AppButtonComponent } from '../../button/button.component';
-import { AppChoiceComponent } from '../../choice/choice.component';
-import { ModalService } from '../../../services/modal/modal.service';
-import { PipesModule } from '../../../pipes/pipes.module';
-import { FilterPipe } from '../../../pipes/filter.pipe';
-
-import ComponentIntroComponent from '../../../../stories/component-intro.component';
-import ParametersComponent from '../../../../stories/parameters.component';
-import ImportsComponent from '../../../../stories/imports.component';
-import NgModuleComponent from '../../../../stories/ngmodule.component';
+import { StoriesModule } from '../../../../stories/stories.module';
 import { defaultProps } from '../../../../../.storybook/helpers';
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faUsers } from '@fortawesome/free-solid-svg-icons';
+// Modules
+import { TableModule } from '../table.module';
 
+// Services
+import { ModalService } from '../../../services/modal/modal.service';
+
+// Pipes
+import { FilterPipe } from '../../../pipes/filter.pipe';
+
+// Misc
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
 
 // TODO: Implement modal popups
 function handleEventTable(event) {
@@ -1190,25 +1178,13 @@ const props = {
     tableData,
 };
 
-storiesOf('Deprecated|Components|Table', module)
+storiesOf('Deprecated|Components - Table', module)
     .addDecorator(
         moduleMetadata({
-            declarations: [
-              AppTableComponent,
-              AppTableHeaderComponent,
-              AppTableRowComponent,
-              StarComponent,
-              StarRatingComponent,
-              AppPaginationComponent,
-              AppButtonComponent,
-              AppChoiceComponent,
-              AppTableDataComponent,
-              ParametersComponent,
-              ImportsComponent,
-              NgModuleComponent,
-              ComponentIntroComponent
+            imports: [
+              StoriesModule,
+              TableModule,
             ],
-            imports: [NgxPaginationModule, PipesModule, RouterModule, FontAwesomeModule],
             providers: [FilterPipe, ModalService]
         }),
     )
@@ -1229,9 +1205,9 @@ storiesOf('Deprecated|Components|Table', module)
                   forRoot: true,
               },
               {
-                  modules: ['ModalService'],
-                  file: '@bellese/angular-design-system',
-                  ngmodule: 'providers'
+                modules: ['FilterPipe', 'ModalService'],
+                file: '@bellese/angular-design-system',
+                ngmodule: 'providers'
               },
           ],
           parameters: [

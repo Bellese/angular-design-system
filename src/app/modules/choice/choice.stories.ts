@@ -1,18 +1,18 @@
+// Storybook
 import { storiesOf, moduleMetadata } from '@storybook/angular';
-
-import { AppChoiceComponent } from './choice.component';
-
-import ComponentIntroComponent from '../../../stories/component-intro.component';
-import ParametersComponent from '../../../stories/parameters.component';
-import ImportsComponent from '../../../stories/imports.component';
-import NgModuleComponent from '../../../stories/ngmodule.component';
+import { StoriesModule } from '../../../stories/stories.module';
 import { defaultProps } from '../../../../.storybook/helpers';
 
+// Modules
+import { ChoiceModule } from './choice.module';
 
 storiesOf('Components|Choice', module)
     .addDecorator(
         moduleMetadata({
-            declarations: [AppChoiceComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
+            imports: [
+                StoriesModule,
+                ChoiceModule
+            ]
         }),
     )
     .add('Intro', () => ({

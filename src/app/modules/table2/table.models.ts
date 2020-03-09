@@ -22,6 +22,7 @@ export class TableHeaderModel extends AngularDesignSystemModel {
     columnKey: string;
     label: string;
     type: TableHeaderTypeEnum = TableHeaderTypeEnum.DEFAULT;
+    isRowHeader = false;
 
     // Sort Properties
     sort?: TableHeaderSortEnum = TableHeaderSortEnum.NONE;
@@ -29,7 +30,7 @@ export class TableHeaderModel extends AngularDesignSystemModel {
     // Checkbox Properties
     isChecked ? = false;
 
-    constructor(options: any) {
+    constructor(options?: any) {
         super();
         this.setOptions(options);
     }
@@ -59,19 +60,17 @@ export class TableCellModel extends AngularDesignSystemModel {
     iconClass ? = '';
 
     // Button Properties
-    disabled ? = false;
-    onClick ?: any;
+    buttonDisabled ? = false;
+    buttonOnClick ?: any;
 
     // Checkbox Properties
-    value: string;
+    checkboxValue: string;
     isChecked ? = false;
 
     // Popover Properties
     popoverModel: PopoverModel;
 
-    instanceRef ?: any;
-
-    constructor(options: any) {
+    constructor(options?: any) {
         super();
         this.setOptions(options);
     }
@@ -88,7 +87,7 @@ export class TableCellModel extends AngularDesignSystemModel {
 export class TableRowModel extends AngularDesignSystemModel {
     cells: TableCellModel[] = [];
 
-    constructor(options: any) {
+    constructor(options?: any) {
         super();
         this.setOptions(options);
     }
@@ -104,7 +103,7 @@ export class TablePaginationModel extends AngularDesignSystemModel {
     perPage = 10;
     currentPage = 1;
 
-    constructor(options: any) {
+    constructor(options?: any) {
         super();
         this.setOptions(options);
     }
@@ -122,13 +121,18 @@ export class TableModel extends AngularDesignSystemModel {
     totalRows: number;
     summary: string;
     class?: string;
-    maxRows = 10;
-    pagination: TablePaginationModel;
-    isLoading: boolean;
+    pagination: TablePaginationModel = new TablePaginationModel({});
+    isLoading = false;
+    rowHeaderColumnKey ?: string;
 
-    constructor(options: any) {
+    // This will get set automatically, do not set this by hand
+    _rowHeaderIndex: number;
+
+    constructor(options?: any) {
         super();
         this.setOptions(options);
+
+        this._rowHeaderIndex = this.headers.findIndex(header => header.isRowHeader);
     }
 
     toggleSort(columnKey: string): void {

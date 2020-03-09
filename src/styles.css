@@ -26,146 +26,6 @@
     overflow: hidden;
 }
 
-tbody th {
-    min-width:75px;
-    word-break:break-word;
-}
-
-/* You can add themes to trickle down to components, but these themes names must be placed or the styles will apply everywhere */
-/*publicReportingTheme*/
-
-thead th, tbody th{
-    background-color: transparent!important;
-}
-
-tbody tr:last-of-type th, tbody tr:last-of-type td {
-    border-bottom: none;
-    margin-bottom: 0
-}
-
-.success {
-    background-image: url(./assets/images/success.svg);
-    background-repeat: no-repeat;
-    padding: 6px 0px 6px 50px !important;
-    background-size: 50px 50px;
-    text-align: justify;
-    margin-left: -10px;
-    font-weight: normal;
-}
-
-.progress {
-    background-image: url(./assets/images/processing.svg);
-    background-repeat: no-repeat;
-    padding: 4px 0px 4px 40px !important;
-    background-size: 30px 30px;
-    text-align: justify;
-}
-
-.error {
-    background-image: url(./assets/images/error.svg);
-    background-repeat: no-repeat;
-    padding: 4px 0px 6px 40px !important;
-    background-size: 30px 30px;
-    text-align: justify;
-}
-
-.downloadIcon {
-    width:25px;
-    height:auto;
-    margin-right: 10px;
-}
-
-.viewPerformanceIcon {
-    background-image: url('./assets/images/performance.svg');
-    background-repeat: no-repeat;
-    background-position: left top;
-    background-size: 40px;
-}
-
-.footnote {
-    font-weight: normal;
-    background-image: url('./assets/images/asterisk.svg');
-    background-repeat: no-repeat;
-    padding-right: 10px !important;
-    background-position: right top;
-    background-size: 7px;
-}
-
-.info {
-    background-image: url('./assets/images/info.svg');
-    background-repeat: no-repeat;
-    padding-left: 25px !important;
-    background-position: left;
-    background-size: 25px;
-}
-
-.ascending {
-    background-image: url('./assets/images/up-arrow.svg') !important;
-    background-size: 25px !important;
-}
-
-.descending {
-    background-image: url('./assets/images/down-arrow.svg')!important;
-    background-size: 25px !important;
-}
-
-.arrow {
-    background-repeat: no-repeat;
-    background-position: right;
-    padding-right: 25px !important;
-}
-
-.leftArrow {
-    background-image: url('./assets/images/up-arrow.svg') !important;
-    background-size: 25px !important;
-}
-
-.rightArrow {
-    background-image: url('./assets/images/up-arrow.svg') !important;
-    background-size: 25px !important;
-}
-
-.buttonCell {
-    padding: 2px;
-}
-
-.columnCell {
-    white-space: nowrap; 
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
-}
-
-.tableCell {
-    border: none;
-    padding: 4px 0px;
-    color:black;
-}
-
-.tableCell:hover {
-    color: #0071bc;
-}
-
-button.tableCell {
-    color: black !important;
-    background-color: transparent!important;
-    border: none !important;
-    text-align: left !important;
-}
-
-td button.tableCell.ds-c-button{
-    font-weight: normal;
-    padding-left: 0px;
-}
-
-th button.ds-c-button {
-    padding-left: 0px;
-}
-
-mark {
-    pointer-events: none;
-}
-
 .sr-only {
     position: absolute;
     width: 1px;
@@ -175,4 +35,150 @@ mark {
     overflow: hidden;
     clip: rect(0,0,0,0);
     border: 0;
+}
+
+/********
+ * Deprecated Table Styles
+ ********/
+
+/*********
+ * You can add themes to trickle down to components, but these themes names must be placed or the styles will apply everywhere
+ * eg: publicReportingTheme
+ ********/
+
+.table-deprecated thead th, tbody th {
+    background-color: transparent!important;
+}
+
+.table-deprecated tbody th {
+    min-width:75px;
+    word-break:break-word;
+}
+
+.table-deprecated tbody tr:last-of-type th, .table-deprecated tbody tr:last-of-type td {
+    border-bottom: none;
+    margin-bottom: 0
+}
+
+.table-deprecated .success {
+    background-image: url(./assets/images/success.svg);
+    background-repeat: no-repeat;
+    padding: 6px 0px 6px 50px !important;
+    background-size: 50px 50px;
+    text-align: justify;
+    margin-left: -10px;
+    font-weight: normal;
+}
+
+.table-deprecated .progress {
+    background-image: url(./assets/images/processing.svg);
+    background-repeat: no-repeat;
+    padding: 4px 0px 4px 40px !important;
+    background-size: 30px 30px;
+    text-align: justify;
+}
+
+.table-deprecated .error {
+    background-image: url(./assets/images/error.svg);
+    background-repeat: no-repeat;
+    padding: 4px 0px 6px 40px !important;
+    background-size: 30px 30px;
+    text-align: justify;
+}
+
+.table-deprecated .downloadIcon {
+    width:25px;
+    height:auto;
+    margin-right: 10px;
+}
+
+.table-deprecated .viewPerformanceIcon {
+    background-image: url('./assets/images/performance.svg');
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 40px;
+}
+
+.table-deprecated .footnote {
+    font-weight: normal;
+    background-image: url('./assets/images/asterisk.svg');
+    background-repeat: no-repeat;
+    padding-right: 10px !important;
+    background-position: right top;
+    background-size: 7px;
+}
+
+.table-deprecated .info {
+    background-image: url('./assets/images/info.svg');
+    background-repeat: no-repeat;
+    padding-left: 25px !important;
+    background-position: left;
+    background-size: 25px;
+}
+
+.table-deprecated .ascending {
+    background-image: url('./assets/images/up-arrow.svg') !important;
+    background-size: 25px !important;
+}
+
+.table-deprecated .descending {
+    background-image: url('./assets/images/down-arrow.svg')!important;
+    background-size: 25px !important;
+}
+
+.table-deprecated .arrow {
+    background-repeat: no-repeat;
+    background-position: right;
+    padding-right: 25px !important;
+}
+
+.table-deprecated .leftArrow {
+    background-image: url('./assets/images/up-arrow.svg') !important;
+    background-size: 25px !important;
+}
+
+.table-deprecated .rightArrow {
+    background-image: url('./assets/images/up-arrow.svg') !important;
+    background-size: 25px !important;
+}
+
+.table-deprecated .buttonCell {
+    padding: 2px;
+}
+
+.table-deprecated .columnCell {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.table-deprecated .tableCell {
+    border: none;
+    padding: 4px 0px;
+    color:black;
+}
+
+.table-deprecated .tableCell:hover {
+    color: #0071bc;
+}
+
+.table-deprecated button.tableCell {
+    color: black !important;
+    background-color: transparent!important;
+    border: none !important;
+    text-align: left !important;
+}
+
+.table-deprecated td button.tableCell.ds-c-button{
+    font-weight: normal;
+    padding-left: 0px;
+}
+
+.table-deprecated th button.ds-c-button {
+    padding-left: 0px;
+}
+
+.table-deprecated mark {
+    pointer-events: none;
 }

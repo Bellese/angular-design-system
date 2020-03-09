@@ -1,16 +1,9 @@
+// Storybook
 import { storiesOf, moduleMetadata } from '@storybook/angular';
-
-// Components
-import { FileUploadComponent } from './file-upload.component';
-import ComponentIntroComponent from '../../../stories/component-intro.component';
-import ParametersComponent from '../../../stories/parameters.component';
-import ImportsComponent from '../../../stories/imports.component';
-import NgModuleComponent from '../../../stories/ngmodule.component';
+import { StoriesModule } from '../../../stories/stories.module';
 
 // Modules
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ButtonModule } from '../button/button.module';
-import { DirectiveModule } from '../../directives/directive.module';
+import { FileUploadModule } from './file-upload.module';
 
 // Models
 import { FileUploadModel } from './file-upload.model';
@@ -33,9 +26,9 @@ storiesOf('Components|File Upload', module)
     .addDecorator(
         moduleMetadata({
             imports: [
-                DirectiveModule, ButtonModule, FontAwesomeModule
+                StoriesModule,
+                FileUploadModule,
             ],
-            declarations: [FileUploadComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
         }),
     )
     .add('Intro', () => ({

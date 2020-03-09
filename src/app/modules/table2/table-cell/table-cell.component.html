@@ -11,9 +11,9 @@
         <ng-container *ngSwitchCase="TableCellTypeEnum.BUTTON">
             <app-button
                 (callback)="buttonClickEvent($event)"
-                [disabled]="tableCellModel.disabled"
+                [disabled]="tableCellModel.buttonDisabled"
                 [ariaLabel]="tableCellModel.ariaLabel ? tableCellModel.ariaLabel : tableCellModel.label"
-                buttonType="ds-c-button"
+                [buttonType]="'ds-c-button ' + tableCellModel.class"
                 [ngClass]="cellClass()"
             >
                 <ng-container *ngTemplateOutlet="cellContent"></ng-container>
@@ -23,7 +23,7 @@
         <ng-container *ngSwitchCase="TableCellTypeEnum.CHECKBOX">
             <app-choice
                 [label]="tableCellModel.label"
-                [value]="tableCellModel.value"
+                [value]="tableCellModel.checkboxValue"
                 [showTitle]="false"
                 [isChecked]="tableCellModel.isChecked"
                 (choiceChange)="checkboxClickEvent($event)"

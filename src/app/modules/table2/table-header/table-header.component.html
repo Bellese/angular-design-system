@@ -5,7 +5,7 @@
             [ariaLabel]="'Activate to sort'"
             [buttonID]="'header_' + tableHeaderModel.columnKey"
             (callBack)="headerClickEvent($event)"
-            buttonType="ds-u-padding--0"
+            buttonType="ds-u-padding--0 ds-u-border--0 ds-u-color--base"
         >
             {{ tableHeaderModel.label }}
             <fa-icon 
@@ -37,18 +37,6 @@
     <!-- [ariaLabel]="header.header.prop === selected ? (header.header.value + ': ' + handleDirection()) : header.header.value + ': ' + 'activate to sort'"
     [ariaSort]="header.header.prop === selected ? handleDirection() : setDefaultDirection()"
     [buttonType]="(header.header.prop === selected) ? handleDirection() + ' ' + 'header_'+header.header.prop : setDefaultDirection() + ' pointer arrow ' + 'header_'+header.header.prop" -->
-
-    
-    <!-- <div *ngIf="tableHeaderModel.type === 'checkbox'" 
-         class="{{'header_'+header.header.prop}} headerElement pointer" 
-         title="{{header.header.value}}">
-       <app-choice
-            [value]="header.header.value"
-            [groupName]="header.header.attr"
-            [showTitle]="true"
-            [labelClass]="'bold'">
-        </app-choice>
-    </div> -->
 
 
 </ng-container>

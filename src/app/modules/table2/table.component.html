@@ -11,23 +11,32 @@
     [ngClass]="tableModel.class"
     [id]="tableModel.id"
 >
+    <caption *ngIf="tableModel.summary" class="tableHeading sr-only">
+        {{ tableModel.summary }}
+    </caption>
     <thead *ngIf="tableModel.headers.length" class="tableHeading">
         <tr>
-            <th *ngFor="let header of tableModel.headers;" scope="col" >
+            <th *ngFor="let header of tableModel.headers;" scope="col" [ngClass]="header.type">
                 <app-table-header-2 [tableHeaderModel]="header" (headerClick)="headerClick($event)"></app-table-header-2>
             </th>
         </tr>
     </thead>
     <tbody *ngIf="!tableModel.isLoading">
-        <!-- <ng-container *ngFor="let row of tableModel.rows | sorting: headerEvent | paginate: { itemsPerPage: maxRows, currentPage: p, id: index, totalItems: total }; let x = index;"> -->
-        <tr *ngFor="let row of tableModel.rows | paginate: { itemsPerPage: tableModel.pagination.perPage, currentPage: tableModel.pagination.currentPage, totalItems: tableModel.totalRows, id: tableModel.id } ; let index = index">
-            <td *ngFor="let cell of row.cells">
-                <app-table-cell-2 [tableCellModel]="cell" (cellClick)="cellClick($event)"></app-table-cell-2>
-            </td>
+        <tr *ngFor="let row of tableModel.rows | paginate: { itemsPerPage: tableModel.pagination.perPage, currentPage: tableModel.pagination.currentPage, totalItems: tableModel.totalRows, id: tableModel.id } ; let rowIndex = index">
+            <ng-container *ngFor="let cell of row.cells; let cellIndex = index">
+                <ng-template #cellComponent>
+                    <app-table-cell-2 [tableCellModel]="cell" (cellClick)="cellClick($event)"></app-table-cell-2>
+                </ng-template>
+                <th scope="row" [ngClass]="cell.type" *ngIf="cellIndex === tableModel._rowHeaderIndex">
+                    <ng-container *ngTemplateOutlet="cellComponent"></ng-container>
+                </th>
+                <td [ngClass]="cell.type" *ngIf="cellIndex !== tableModel._rowHeaderIndex">
+                    <ng-container *ngTemplateOutlet="cellComponent"></ng-container>
+                </td>
+            </ng-container>
         </tr>
-        <!-- </ng-container> -->
         <tr *ngIf="!tableModel.rows.length" class="noResults" role="alert">
-            <td [attr.colspan]="tableModel.headers.length" class="noResults">No Results Found</td>
+            <td [attr.colspan]="tableModel.headers.length" class="ds-u-text-align--center ds-u-font-weight--bold">No Results Found</td>
         </tr>
     </tbody>
 </table>
@@ -36,22 +45,20 @@
 
 <div class="ds-l-row" *ngIf="this.tableModel.isLoading">
     <div class="ds-l-col ds-u-text-align--center ds-u-margin-top--2">
-      <app-spinner
-        [dataAutoId]="'data-table-page-spinner'"
-        [inversed]="false"
-        [filled]="false"
-        [color]="'muted'"
-        [size]="'big'">
-      </app-spinner>
-      <div aria-atomic="true" aria-live="assertive" class="sr-only" role="alert">
-        The data table is loading.
-      </div>
-  
+        <app-spinner
+            [dataAutoId]="'data-table-page-spinner'"
+            [inversed]="false"
+            [filled]="false"
+            [color]="'muted'"
+            [size]="'big'">
+        </app-spinner>
+        <div aria-atomic="true" aria-live="assertive" class="sr-only" role="alert">
+            The data table is loading.
+        </div>
     </div>
-  </div>
-  
+</div>
 
-<app-paging *ngIf="tableModel.pagination.isEnabled"
+<app-paging *ngIf="tableModel.pagination.isEnabled && !this.tableModel.isLoading && tableModel.rows.length"
     [id]="tableModel.id"
     [dataRows]="tableModel.rows" 
     (currentPage)="paginationClickEvent($event)">

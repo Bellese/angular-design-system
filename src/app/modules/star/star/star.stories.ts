@@ -1,16 +1,17 @@
+// Storybook
 import { storiesOf, moduleMetadata } from '@storybook/angular';
+import { StoriesModule } from '../../../../stories/stories.module';
 
-import { StarComponent } from './star.component';
-
-import ComponentIntroComponent from '../../../../stories/component-intro.component';
-import ParametersComponent from '../../../../stories/parameters.component';
-import ImportsComponent from '../../../../stories/imports.component';
-import NgModuleComponent from '../../../../stories/ngmodule.component';
+// Modules
+import { StarModule } from '../star.module';
 
 storiesOf('Components|Star', module)
     .addDecorator(
         moduleMetadata({
-            declarations: [StarComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
+            imports: [
+                StoriesModule,
+                StarModule,
+            ]
         }),
     )
     .add('Intro', () => ({

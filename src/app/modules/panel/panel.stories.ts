@@ -1,21 +1,22 @@
+// Storybook
 import { storiesOf, moduleMetadata } from '@storybook/angular';
-
-import { AppPanelComponent } from './panel.component';
-import { AppPlusComponent } from '../plus/plus.component';
-import { AppButtonComponent } from '../button/button.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import ComponentIntroComponent from '../../../stories/component-intro.component';
-import ParametersComponent from '../../../stories/parameters.component';
-import ImportsComponent from '../../../stories/imports.component';
-import NgModuleComponent from '../../../stories/ngmodule.component';
+import { StoriesModule } from '../../../stories/stories.module';
 import { defaultProps } from '../../../../.storybook/helpers';
+
+// Modules
+import { PanelModule } from './panel.module';
+
+// Misc
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 storiesOf('Components|Panel', module)
     .addDecorator(
         moduleMetadata({
-            declarations: [AppPanelComponent, AppButtonComponent, AppPlusComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
-            imports: [BrowserAnimationsModule],
+            imports: [
+                StoriesModule,
+                PanelModule,
+                BrowserAnimationsModule
+            ],
         }),
     )
     .add('Intro', () => ({

@@ -1,16 +1,16 @@
+// Storybook
 import { storiesOf, moduleMetadata } from '@storybook/angular';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
-
-import { BarGraphComponent } from './bar-graph.component';
-import { ModalModule } from '../modal/modal.module';
-
-import ComponentIntroComponent from '../../../stories/component-intro.component';
-import ParametersComponent from '../../../stories/parameters.component';
-import ImportsComponent from '../../../stories/imports.component';
-import NgModuleComponent from '../../../stories/ngmodule.component';
+import { StoriesModule } from '../../../stories/stories.module';
 import { defaultProps } from '../../../../.storybook/helpers';
+
+// Modules
+import { BarGraphModule } from './bar-graph.module';
+
+// Models
 import { BarGraphModel } from './bar-graph.model';
+
+// Misc
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const barGraphData = [
     {
@@ -39,8 +39,11 @@ const props = {
 storiesOf('Components|Bar Graph', module)
     .addDecorator(
         moduleMetadata({
-            declarations: [BarGraphComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
-            imports: [NgxChartsModule, ModalModule, BrowserAnimationsModule],
+            imports: [
+                StoriesModule,
+                BarGraphModule,
+                BrowserAnimationsModule,
+            ],
         }),
     )
     .add('Intro', () => ({

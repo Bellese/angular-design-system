@@ -1,12 +1,10 @@
+// Storybook
 import { storiesOf, moduleMetadata } from '@storybook/angular';
-
-import { AppDropDownComponent } from './drop-down.component';
-
-import ComponentIntroComponent from '../../../stories/component-intro.component';
-import ParametersComponent from '../../../stories/parameters.component';
-import ImportsComponent from '../../../stories/imports.component';
-import NgModuleComponent from '../../../stories/ngmodule.component';
+import { StoriesModule } from '../../../stories/stories.module';
 import { defaultProps } from '../../../../.storybook/helpers';
+
+// Modules
+import { DropdownModule } from './drop-down.module';
 
 const dropDownData = [
     {
@@ -31,7 +29,10 @@ const props = {
 storiesOf('Components|Drop Down', module)
     .addDecorator(
         moduleMetadata({
-            declarations: [AppDropDownComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
+            imports: [
+                StoriesModule,
+                DropdownModule,
+            ]
         }),
     )
     .add('Intro', () => ({

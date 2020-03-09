@@ -34,8 +34,8 @@ export class TableCellComponent {
     }
 
     buttonClickEvent($event) {
-        if (this.tableCellModel.onClick) {
-            this.tableCellModel.onClick($event);
+        if (this.tableCellModel.buttonOnClick) {
+            this.tableCellModel.buttonOnClick($event);
         } else {
             console.warn('The button\'s click event was not configured.');
         }
