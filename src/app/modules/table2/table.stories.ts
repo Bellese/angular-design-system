@@ -76,7 +76,7 @@ const tableModel: TableModel = new TableModel({
         new TableCellModel({
           label: 'Row 1',
           ariaLabel: 'Activate spacebar to select row 1',
-          value: '1',
+          checkboxValue: '1',
           type: TableCellTypeEnum.CHECKBOX,
           columnKey: 'checkbox',
         }),
@@ -113,7 +113,7 @@ const tableModel: TableModel = new TableModel({
         new TableCellModel({
           label: 'Row 2',
           ariaLabel: 'Activate spacebar to select row 2',
-          value: '2',
+          checkboxValue: '2',
           type: TableCellTypeEnum.CHECKBOX,
           columnKey: 'checkbox',
         }),
@@ -150,7 +150,7 @@ const tableModel: TableModel = new TableModel({
         new TableCellModel({
           label: 'Row 3',
           ariaLabel: 'Activate spacebar to select row 3',
-          value: '3',
+          checkboxValue: '3',
           type: TableCellTypeEnum.CHECKBOX,
           columnKey: 'checkbox',
         }),
@@ -187,7 +187,7 @@ const tableModel: TableModel = new TableModel({
         new TableCellModel({
           label: 'Row 4',
           ariaLabel: 'Activate spacebar to select row 4',
-          value: '4',
+          checkboxValue: '4',
           type: TableCellTypeEnum.CHECKBOX,
           columnKey: 'checkbox',
         }),
@@ -224,7 +224,7 @@ const tableModel: TableModel = new TableModel({
         new TableCellModel({
           label: 'Row 5',
           ariaLabel: 'Activate spacebar to select row 5',
-          value: '5',
+          checkboxValue: '5',
           type: TableCellTypeEnum.CHECKBOX,
           columnKey: 'checkbox',
         }),
