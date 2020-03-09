@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
         <h1>NgModule</h1>
         <app-storybook-ngmodule-component [imports]="imports"></app-storybook-ngmodule-component>
         <h1>Parameters</h1>
-        <app-storybook-parameter-component [parameters]="parameters"></app-storybook-parameter-component>
+        <app-storybook-parameter-list-component [parameters]="parameters"></app-storybook-parameter-list-component>
         <div *ngIf="notes.length">
             <h1>Notes</h1>
             <p *ngFor="let note of notes" [innerHTML]="note"></p>
