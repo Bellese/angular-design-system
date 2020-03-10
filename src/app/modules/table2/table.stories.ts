@@ -7,7 +7,7 @@ import { defaultProps } from '../../../../.storybook/helpers';
 import { Table2Module } from './table.module';
 
 // Models
-import { TableModel, TableHeaderModel, TableHeaderTypeEnum, TableRowModel, TableCellModel, TableCellTypeEnum, TablePaginationModel } from './table.models';
+import { TableModel, TableHeaderModel, TableHeaderTypeEnum, TableRowModel, TableCellModel, TableCellTypeEnum, TablePaginationModel, TableHeaderSortEnum } from './table.models';
 import { PopoverModel, PopoverItemModel, mdePopoverPositionXEnum, mdePopoverPositionYEnum } from '../popover/popover.model';
 
 // Misc
@@ -351,6 +351,7 @@ storiesOf('Components|Table', module)
                         {
                           name: 'sort',
                           type: 'TableHeaderSortEnum',
+                          options: TableHeaderSortEnum,
                           default: 'TableHeaderSortEnum.NONE',
                           value: 'Specify if the column is sorted.  Current supported options are asc, desc, or none.'
                         },
