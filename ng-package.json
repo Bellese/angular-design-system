@@ -15,7 +15,8 @@
     "@fortawesome/fontawesome-svg-core",
     "@fortawesome/free-regular-svg-icons",
     "@fortawesome/free-solid-svg-icons",
-    "@material-extended/mde"
+    "@material-extended/mde",
+    "ngx-toastr"
   ],
   "lib": {
     "entryFile": "public_api.ts"
