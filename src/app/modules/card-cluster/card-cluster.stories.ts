@@ -1,15 +1,15 @@
+// Storybook
 import { storiesOf, moduleMetadata } from '@storybook/angular';
-
-import { AppCardClusterComponent } from './card-cluster.component';
-
-import ComponentIntroComponent from '../../../stories/component-intro.component';
-import ParametersComponent from '../../../stories/parameters.component';
-import ImportsComponent from '../../../stories/imports.component';
-import NgModuleComponent from '../../../stories/ngmodule.component';
+import { StoriesModule } from '../../../stories/stories.module';
 import { defaultProps } from '../../../../.storybook/helpers';
+
+// Modules
+import { CardClusterModule } from './card-cluster.module';
+
+// Models
 import { CardClusterModel } from './card-cluster.models';
-import { AppChoiceComponent } from '../choice/choice.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+// Missc
 import { faEye, faUserShield } from '@fortawesome/free-solid-svg-icons';
 
 const cardClusterDataNormal = new CardClusterModel({
@@ -117,16 +117,10 @@ storiesOf('Components|Card Cluster', module)
     .addDecorator(
         moduleMetadata({
             imports: [
-                FontAwesomeModule
+                StoriesModule,
+                CardClusterModule
             ],
-            declarations: [
-                AppCardClusterComponent,
-                AppChoiceComponent,
-                ParametersComponent,
-                ImportsComponent,
-                NgModuleComponent,
-                ComponentIntroComponent
-            ],
+            declarations: [],
         }),
     )
     .add('Intro', () => ({

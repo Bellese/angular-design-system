@@ -1,20 +1,16 @@
+// Storybook
 import { storiesOf, moduleMetadata } from '@storybook/angular';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
-import { AppLineGraphComponent } from './line-graph.component';
-import { ModalModule } from '../modal/modal.module';
-import { DropdownModule } from '../drop-down/drop-down.module';
-import { PipesModule } from '../../pipes/pipes.module';
-
-import ComponentIntroComponent from '../../../stories/component-intro.component';
-import ParametersComponent from '../../../stories/parameters.component';
-import ImportsComponent from '../../../stories/imports.component';
-import NgModuleComponent from '../../../stories/ngmodule.component';
 import { defaultProps } from '../../../../.storybook/helpers';
+import { StoriesModule } from '../../../stories/stories.module';
+
+// Modules
+import { LineGraphModule } from './line-graph.module';
+
+// Models
 import { LineGraphModel } from './line-graph.model';
+
+// Misc
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const lineGraphData = [
     {
@@ -196,8 +192,11 @@ const props = {
 storiesOf('Components|Line Graph', module)
     .addDecorator(
         moduleMetadata({
-            declarations: [AppLineGraphComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
-            imports: [CommonModule, NgxChartsModule, ModalModule, DropdownModule, BrowserAnimationsModule, PipesModule, FontAwesomeModule],
+            imports: [
+                StoriesModule,
+                LineGraphModule,
+                BrowserAnimationsModule
+            ]
         }),
     )
     .add('Intro', () => ({

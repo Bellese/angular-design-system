@@ -27,6 +27,8 @@ export * from './src/app/modules/file-upload/file-upload.module';
 export * from './src/app/modules/code-snippet/code-snippet.module';
 export * from './src/app/modules/popover/popover.module';
 export * from './src/app/modules/toast/toast.module';
+export * from './src/app/modules/table2/table.module';
+
 
 // Services
 export * from './src/app/services/modal/modal.service';
@@ -48,3 +50,5 @@ export { CodeSnippetModel, CodeSnippetContentItemModel } from './src/app/modules
 export { BarGraphModel, BarGraphDataModel } from './src/app/modules/bar-graph/bar-graph.model';
 export { LineGraphModel, LineGraphDataModel } from './src/app/modules/line-graph/line-graph.model';
 export { PopoverModel, PopoverItemModel } from './src/app/modules/popover/popover.model';
+export * from './src/app/modules/table2/table.models';
+

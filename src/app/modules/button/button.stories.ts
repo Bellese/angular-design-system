@@ -1,17 +1,19 @@
+// Storybook
 import { storiesOf, moduleMetadata } from '@storybook/angular';
-
-import { AppButtonComponent } from './button.component';
-
-import ComponentIntroComponent from '../../../stories/component-intro.component';
-import ParametersComponent from '../../../stories/parameters.component';
-import ImportsComponent from '../../../stories/imports.component';
-import NgModuleComponent from '../../../stories/ngmodule.component';
+import { StoriesModule } from '../../../stories/stories.module';
 import { defaultProps } from '../../../../.storybook/helpers';
+
+// Modules
+import { ButtonModule } from './button.module';
 
 storiesOf('Components|Button', module)
     .addDecorator(
         moduleMetadata({
-            declarations: [AppButtonComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
+            imports: [
+                StoriesModule,
+                ButtonModule
+            ],
+            declarations: [],
         }),
     )
     .add('Intro', () => ({
@@ -57,15 +59,15 @@ storiesOf('Components|Button', module)
                     value: 'Use this for testing ID',
                 },
                 {
+                    name: 'disabled',
+                    type: 'boolean',
+                    value: 'Use this to disable the button',
+                },
+                {
                     name: 'callBack',
                     type: 'function',
                     // tslint:disable-next-line: max-line-length
                     value: 'A javascript function that will be called when the button is clicked. It takes one argument, which is a click event.',
-                },
-                {
-                    name: 'dataAutoId',
-                    type: 'string',
-                    value: 'Use this for testing ID',
                 },
             ]
         }

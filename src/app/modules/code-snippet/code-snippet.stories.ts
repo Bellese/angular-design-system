@@ -1,18 +1,15 @@
+// Storybook
 import { storiesOf, moduleMetadata } from '@storybook/angular';
-
-import { CodeSnippetComponent } from './code-snippet.component';
-import { AppButtonComponent } from '../button/button.component';
-
-import ComponentIntroComponent from '../../../stories/component-intro.component';
-import ParametersComponent from '../../../stories/parameters.component';
-import ImportsComponent from '../../../stories/imports.component';
-import NgModuleComponent from '../../../stories/ngmodule.component';
+import { StoriesModule } from '../../../stories/stories.module';
 import { defaultProps } from '../../../../.storybook/helpers';
 
-import { DirectiveModule } from '../../directives/directive.module';
+// Modules
+import { CodeSnippetModule } from './code-snippet.module';
+
+// Models
 import { CodeSnippetModel, CodeSnippetContentItemModel } from './code-snippet.model';
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+// Misc
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 
 const codeSnippetModel = new CodeSnippetModel({
@@ -66,10 +63,9 @@ storiesOf('Components|Code Snippet', module)
     .addDecorator(
         moduleMetadata({
             imports: [
-                DirectiveModule,
-                FontAwesomeModule
+                StoriesModule,
+                CodeSnippetModule
             ],
-            declarations: [CodeSnippetComponent, AppButtonComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
         }),
     )
     .add('Intro', () => ({

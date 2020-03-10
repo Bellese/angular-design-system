@@ -1,17 +1,17 @@
+// Storybook
 import { storiesOf, moduleMetadata } from '@storybook/angular';
-import { CommonModule } from '@angular/common';
-
-import { AppModalComponent } from './modal.component';
-import { AppModalShellComponent } from '../modal-shell/modal-shell.component';
-import { AppButtonComponent } from '../button/button.component';
-import { AppTableModalComponent } from '../table/table-modal/table-modal.component';
-import { ModalService } from '../../services/modal/modal.service';
-
-import ComponentIntroComponent from '../../../stories/component-intro.component';
-import ParametersComponent from '../../../stories/parameters.component';
-import ImportsComponent from '../../../stories/imports.component';
-import NgModuleComponent from '../../../stories/ngmodule.component';
+import { StoriesModule } from '../../../stories/stories.module';
 import { defaultProps } from '../../../../.storybook/helpers';
+
+// Modules
+import { ModalModule } from './modal.module';
+import { ModalShellModule } from '../modal-shell/modal-shell.module';
+
+// Components
+import { AppTableModalComponent } from '../table/table-modal/table-modal.component';
+
+// Services
+import { ModalService } from '../../services/modal/modal.service';
 
 const modalData = [
     {
@@ -61,9 +61,13 @@ const props = {
 storiesOf('Components|Modal', module)
     .addDecorator(
         moduleMetadata({
-            declarations: [AppModalComponent, AppTableModalComponent, AppModalShellComponent, AppButtonComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
-            imports: [CommonModule],
+            imports: [
+                StoriesModule,
+                ModalModule,
+                ModalShellModule
+            ],
             providers: [ModalService],
+            declarations: [AppTableModalComponent],
             entryComponents: [AppTableModalComponent],
         }),
     )

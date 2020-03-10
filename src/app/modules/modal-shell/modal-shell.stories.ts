@@ -1,25 +1,17 @@
+// Storybook
 import { storiesOf , moduleMetadata} from '@storybook/angular';
+import { StoriesModule } from '../../../stories/stories.module';
 
-import { AppModalShellComponent } from './modal-shell.component';
-import { AppButtonComponent } from '../button/button.component';
-
-import ComponentIntroComponent from '../../../stories/component-intro.component';
-import ParametersComponent from '../../../stories/parameters.component';
-import ImportsComponent from '../../../stories/imports.component';
-import NgModuleComponent from '../../../stories/ngmodule.component';
-import { defaultProps } from '../../../../.storybook/helpers';
+// Modules
+import { ModalShellModule } from './modal-shell.module';
 
 storiesOf('Components|Modal Shell', module)
     .addDecorator(
         moduleMetadata({
-            declarations: [
-                AppModalShellComponent,
-                AppButtonComponent,
-                ParametersComponent,
-                ImportsComponent,
-                NgModuleComponent,
-                ComponentIntroComponent
-            ],
+            imports: [
+                StoriesModule,
+                ModalShellModule,
+            ]
         }),
     )
     .add('Intro', () => ({
@@ -33,7 +25,7 @@ storiesOf('Components|Modal Shell', module)
         props: {
             imports: [
                 {
-                    modules: ['AppModalShellComponent'],
+                    modules: ['ModalShellModule'],
                     file: '@bellese/angular-design-system',
                     ngmodule: 'imports',
                 },

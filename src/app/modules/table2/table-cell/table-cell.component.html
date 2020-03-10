@@ -1,0 +1,72 @@
+<ng-template #cellContent>
+    <fa-icon *ngIf="tableCellModel.icon" [icon]="tableCellModel.icon" [ngClass]="tableCellModel.iconClass"></fa-icon>
+    {{ tableCellModel.label }}
+</ng-template>
+
+<div
+    [ngClass]="cellClass()"
+    [title]="tableCellModel.label"
+>
+    <ng-container [ngSwitch]="tableCellModel.type">
+        <ng-container *ngSwitchCase="TableCellTypeEnum.BUTTON">
+            <app-button
+                (callback)="buttonClickEvent($event)"
+                [disabled]="tableCellModel.buttonDisabled"
+                [ariaLabel]="tableCellModel.ariaLabel ? tableCellModel.ariaLabel : tableCellModel.label"
+                [buttonType]="'ds-c-button ' + tableCellModel.class"
+                [ngClass]="cellClass()"
+            >
+                <ng-container *ngTemplateOutlet="cellContent"></ng-container>
+            </app-button>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="TableCellTypeEnum.CHECKBOX">
+            <app-choice
+                [label]="tableCellModel.label"
+                [value]="tableCellModel.checkboxValue"
+                [showTitle]="false"
+                [isChecked]="tableCellModel.isChecked"
+                (choiceChange)="checkboxClickEvent($event)"
+                size="small"
+            >
+            </app-choice>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="TableCellTypeEnum.POPOVER">
+            <app-popover [popoverModel]="tableCellModel.popoverModel"></app-popover>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="TableCellTypeEnum.DEFAULT">
+            <ng-container *ngTemplateOutlet="cellContent"></ng-container>
+        </ng-container>
+    </ng-container>
+</div>
+
+<!--
+<div *ngIf="tableCellModel.type === TableCellTypeEnum.CHECKBOX"
+     class="{{data.key + ' ' + dataClass}}"
+     [ngClass]="data.value.attr ? data.value.attr : false"
+     [attr.title]="!data.value.title ? data.value.value : data.value.title">
+    <app-choice
+        [value]="data.value.value"
+        [groupName]="data.value.attr"
+        [showTitle]="false"
+        [index]="index">
+    </app-choice>
+</div>
+-->
+
+<!-- <div *ngIf="tableCellModel.type === TableCellTypeEnum.BUTTON"
+    [id]="data.value.id"
+    [disabled]="data.value.disabled ? data.value.disabled: false"
+    [attr.title]="!data.value.title ? data.value.value : data.value.title"
+    [attr.aria-label]="data.value.ariaLabel ? data.value.ariaLabel : tableCellText()"
+    type="button"
+    (click)="buttonCallback($event)" 
+    (keyup.enter)="buttonCallback($event)" 
+    class="ds-c-button pointer {{data.key + ' ' + dataClass}}"
+    [ngClass]="'tableCell ' + data.value.attr + ' ' + dataClass"
+>
+    <fa-icon *ngIf="data.value.icon" [icon]="data.value.icon"></fa-icon>
+    {{ tableCellModel.label }}
+</button> -->

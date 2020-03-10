@@ -1,21 +1,24 @@
+// Storybook
 import { storiesOf, moduleMetadata } from '@storybook/angular';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { AppAccordionComponent } from './accordion.component';
-import { AppPanelComponent } from '../panel/panel.component';
-import { AppPlusComponent } from '../plus/plus.component';
-
-import ComponentIntroComponent from '../../../stories/component-intro.component';
-import ParametersComponent from '../../../stories/parameters.component';
-import ImportsComponent from '../../../stories/imports.component';
-import NgModuleComponent from '../../../stories/ngmodule.component';
+import { StoriesModule } from '../../../stories/stories.module';
 import { defaultProps } from '../../../../.storybook/helpers';
+
+// Modules
+import { AccordionModule } from './accordion.module';
+import { PanelModule } from '../panel/panel.module';
+
+// Misc
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 storiesOf('Components|Accordian', module)
     .addDecorator(
         moduleMetadata({
-            declarations: [AppAccordionComponent, AppPanelComponent, AppPlusComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
-            imports: [BrowserAnimationsModule],
+            imports: [
+                StoriesModule,
+                AccordionModule,
+                PanelModule,
+                BrowserAnimationsModule,
+            ],
         }),
     )
     .add('Intro', () => ({

@@ -67,6 +67,7 @@
     "@angular/tsc-wrapped": "^4.4.6",
     "@fortawesome/angular-fontawesome": "^0.3.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
+    "@fortawesome/free-regular-svg-icons": "^5.12.1",
     "@fortawesome/free-solid-svg-icons": "^5.10.2",
     "@material-extended/mde": "^2.3.1",
     "@swimlane/ngx-charts": "^10.1.0",

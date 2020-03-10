@@ -1,27 +1,17 @@
+// Storybook
 import { storiesOf, moduleMetadata } from '@storybook/angular';
-
-import ComponentIntroComponent from '../../../../stories/component-intro.component'
-import ParametersComponent from '../../../../stories/parameters.component';
-import ImportsComponent from '../../../../stories/imports.component';
-import NgModuleComponent from '../../../../stories/ngmodule.component';
-import { ButtonModule } from '../../button/button.module';
+import { StoriesModule } from '../../../../stories/stories.module';
 import { defaultProps } from '../../../../../.storybook/helpers';
 
-const props = {
-    ...defaultProps,
-};
+// Modules
+import { ToastModule } from '../toast.module';
 
 storiesOf('Services|Toast Service', module)
     .addDecorator(
         moduleMetadata({
             imports: [
-                ButtonModule,
-            ],
-            declarations: [
-                ParametersComponent,
-                ImportsComponent,
-                NgModuleComponent,
-                ComponentIntroComponent
+                StoriesModule,
+                ToastModule,
             ],
         }),
     )

@@ -10,6 +10,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
   ],
   declarations: [AppPaginationComponent],
   exports: [
+    NgxPaginationModule,
     AppPaginationComponent
   ]
 })

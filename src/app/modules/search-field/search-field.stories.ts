@@ -1,17 +1,18 @@
+// Storybook
 import { storiesOf, moduleMetadata } from '@storybook/angular';
-
-import { SearchFieldComponent } from './search-field.component';
-
-import ComponentIntroComponent from '../../../stories/component-intro.component';
-import ParametersComponent from '../../../stories/parameters.component';
-import ImportsComponent from '../../../stories/imports.component';
-import NgModuleComponent from '../../../stories/ngmodule.component';
 import { defaultProps } from '../../../../.storybook/helpers';
+import { StoriesModule } from '../../../stories/stories.module';
+
+// Modules
+import { SearchFieldModule } from './search-field.module';
 
 storiesOf('Components|Search Field', module)
     .addDecorator(
         moduleMetadata({
-            declarations: [SearchFieldComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
+            imports: [
+                StoriesModule,
+                SearchFieldModule,
+            ]
         }),
     )
     .add('Intro', () => ({

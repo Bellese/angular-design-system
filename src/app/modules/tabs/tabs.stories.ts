@@ -1,12 +1,10 @@
+// Storybook
 import { storiesOf , moduleMetadata} from '@storybook/angular';
+import { StoriesModule } from '../../../stories/stories.module';
+import { defaultProps } from '../../../../.storybook/helpers';
 
-import { AppTabsComponent } from './tabs.component';
-
-import ComponentIntroComponent from '../../../stories/component-intro.component';
-import ParametersComponent from '../../../stories/parameters.component';
-import ImportsComponent from '../../../stories/imports.component';
-import NgModuleComponent from '../../../stories/ngmodule.component';
-import { defaultProps, handleEvent } from '../../../../.storybook/helpers';
+// Modules
+import { TabsModule } from './tabs.module';
 
 const tabs = [
     {
@@ -31,7 +29,10 @@ const props = {
 storiesOf('Components|Tabs', module)
     .addDecorator(
         moduleMetadata({
-            declarations: [AppTabsComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
+            imports: [
+                StoriesModule,
+                TabsModule
+            ]
         }),
     )
     .add('Intro', () => ({

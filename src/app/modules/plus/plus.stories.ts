@@ -1,18 +1,20 @@
+// Storybook
 import { storiesOf, moduleMetadata } from '@storybook/angular';
+import { StoriesModule } from '../../../stories/stories.module';
 
-import { AppPlusComponent } from './plus.component';
+// Modules
+import { PlusModule } from './plus.module';
+
+// Misc
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import ComponentIntroComponent from '../../../stories/component-intro.component';
-import ParametersComponent from '../../../stories/parameters.component';
-import ImportsComponent from '../../../stories/imports.component';
-import NgModuleComponent from '../../../stories/ngmodule.component';
 
 storiesOf('Components|Plus', module)
     .addDecorator(
         moduleMetadata({
-            declarations: [AppPlusComponent, ParametersComponent, ImportsComponent, NgModuleComponent, ComponentIntroComponent],
-            imports: [BrowserAnimationsModule],
+            imports: [
+                StoriesModule,
+                PlusModule,
+                BrowserAnimationsModule],
         }),
     )
     .add('Intro', () => ({

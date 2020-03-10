@@ -1,0 +1,60 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+th {
+    background-color: transparent;
+}
+
+thead th {
+    border-bottom: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+td, th {
+    border-top: 0;
+    padding-top: 1em;
+    padding-bottom: 1em;
+
+}
+
+tbody tr:last-of-type td,
+tbody tr:last-of-type th {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+td {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    table {
+        table-layout: auto;
+    }
+}
+
+tbody tr:hover {
+    background:#f1f1f1;
+}
+
+tbody tr td {
+    background-color: transparent;
+}
+
+th.checkbox,
+td.checkbox {
+    width: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+tbody th[scope=row] {
+    font-weight: normal;
+}
