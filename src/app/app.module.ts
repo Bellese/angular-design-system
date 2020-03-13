@@ -13,6 +13,7 @@ import { PanelModule } from './modules/panel/panel.module';
 import { StarModule } from './modules/star/star.module';
 import { SpinnerModule } from './modules/spinner/spinner.module';
 import { TableModule } from './modules/table/table.module';
+import { Table2Module } from './modules/table2/table.module';
 import { TextFieldModule } from './modules/text-field/text-field.module';
 import { ModalModule } from './modules/modal/modal.module';
 import { ModalShellModule } from './modules/modal-shell/modal-shell.module';
@@ -79,6 +80,7 @@ import { ToastModule } from './modules/toast/toast.module';
     CodeSnippetModule,
     PopoverModule,
     ToastModule,
+    Table2Module,
   ],
   providers: [AppService, FilterPipe],
   bootstrap: [AppComponent],

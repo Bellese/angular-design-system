@@ -344,11 +344,22 @@ TABLE AND PAGINATION
 >
 </app-modal> -->
 
-Toast Component / Service<br />
+<!-- Toast Component / Service<br />
 <app-button (click)="showToast('Error Message', 'Error Title', 'error')">Show Error Toast</app-button><br />
 <app-button (click)="showToast('Success Message', 'Success Title', 'success')">Show Success Toast</app-button><br />
 <app-button (click)="showToast('Warn Message', 'Warn Title', 'warn')">Show Warn Toast</app-button><br />
 <app-button (click)="showToast('Normal Message', 'Normal Title', null)">Show Normal Toast</app-button><br />
 
 
-</section>
+</section> -->
+
+<app-table-2
+#tableComponent
+[tableModel]="tableModel">
+</app-table-2>
+
+<div>
+{{ table2Component.getSelectedCheckboxValues('checkbox').length }} items selected
+</div>
+
+<button (click)="table2Component.getSelectedCheckboxValues('checkbox')">asdf</button>
