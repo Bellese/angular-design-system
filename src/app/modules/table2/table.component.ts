@@ -44,4 +44,8 @@ export class TableComponent {
         this.tableModel.pagination.currentPage = $event;
         this.paginationClick.emit($event);
     }
+
+    getSelectedCheckboxValues(columnKey) {
+        return this.tableModel.getSelectedCheckboxValues(columnKey);
+    }
 }

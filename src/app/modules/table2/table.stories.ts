@@ -90,7 +90,7 @@ const tableModel: TableModel = new TableModel({
           label: '1/1/2000',
         }),
         new TableCellModel({
-          label: 'Jim',
+          label: 'Jim <span class="ds-c-badge ds-c-badge--alert">New</span>',
           icon: faUser,
           iconClass: 'ds-u-color--primary',
         }),
@@ -498,10 +498,14 @@ storiesOf('Components|Table', module)
       .add('Normal', () => ({
         template: `
             <app-table-2
+                #tableComponent
                 [tableModel]="tableModel"
                 (paginationClick)="handleEvent($event)"
                 (sortClick)="handleEvent($event)">
             </app-table-2>
+            <div>
+              {{ tableComponent.getSelectedCheckboxValues('checkbox').length }} items selected
+            </div>
         `,
         props
     }))

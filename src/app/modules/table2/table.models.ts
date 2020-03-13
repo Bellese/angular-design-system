@@ -166,4 +166,16 @@ export class TableModel extends AngularDesignSystemModel {
     unselectHeaderCheckbox(columnKey: string): void {
         this.headers.filter(header => header.columnKey === columnKey).map(header => { header.isChecked = false; });
     }
+
+    public getSelectedCheckboxValues(columnKey: string): string[] {
+        const checkedValues: string[] = [];
+        for (const row of this.rows) {
+            for (const cell of row.cells.filter(currentCell => currentCell.columnKey === columnKey)) {
+                if (cell.isChecked) {
+                    checkedValues.push(cell.checkboxValue);
+                }
+            }
+        }
+        return checkedValues;
+    }
 }

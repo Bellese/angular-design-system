@@ -1,6 +1,6 @@
 <ng-template #cellContent>
-    <fa-icon *ngIf="tableCellModel.icon" [icon]="tableCellModel.icon" [ngClass]="tableCellModel.iconClass"></fa-icon>
-    {{ tableCellModel.label }}
+    <fa-icon *ngIf="tableCellModel.icon" [icon]="tableCellModel.icon" class="ds-u-padding-right--1" [ngClass]="tableCellModel.iconClass"></fa-icon>
+    <span [innerHTML]="tableCellModel.label"></span>
 </ng-template>
 
 <div
