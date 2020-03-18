@@ -20,6 +20,7 @@ export class AppPanelComponent implements OnInit {
     @Input() expandedClass = 'ds-u-padding--2';
     @Input() openAll = false;
     @Input() dataAutoId: string;
+    @Input() plusClass: string;
 
     clicked;
 

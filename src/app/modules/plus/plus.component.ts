@@ -8,6 +8,7 @@ import { Component, Input, OnChanges} from '@angular/core';
 export class AppPlusComponent implements OnChanges {
     @Input() expand: boolean;
     @Input() clicked: boolean;
+    @Input() plusClass: string;
 
     svgPlusClass: string;
 
