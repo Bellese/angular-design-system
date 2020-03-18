@@ -53,8 +53,8 @@ storiesOf('Components|Panel', module)
                 },
                 {
                     name: 'extTitle',
-                    type: 'string',
-                    value: 'Use to add supplimental information to each panel. Goes to the right of the main title and inline with it',
+                    type: 'boolean',
+                    value: 'Use to enable supplimental information to each panel. Goes to the right of the main title and inline with it',
                 },
                 {
                     name: 'extTitleClass',
@@ -83,6 +83,11 @@ storiesOf('Components|Panel', module)
                     type: 'function',
                     // tslint:disable-next-line: max-line-length
                     value: 'A javascript function that will be called when the panel is clicked. It takes one argument, which is a click event',
+                },
+                {
+                    name: 'plusClass',
+                    type: 'string',
+                    value: 'Use this to add a class to the plus component.  This is a good way to change the color of the component'
                 },
                 {
                     name: 'dataAutoId',

@@ -43,6 +43,11 @@ storiesOf('Components|Plus', module)
                     type: 'boolean',
                     value: 'Set this to true to change the plus to a minus',
                 },
+                {
+                    name: 'plusClass',
+                    type: 'string',
+                    value: 'Use this to add a class to the plus component.  This is a good way to change the color of the component'
+                }
             ],
         }
     }))
@@ -63,5 +68,13 @@ storiesOf('Components|Plus', module)
                     [clicked] = true >
                 </app-plus>
             </div>
+        `,
+    })).add('Set Color', () => ({
+        template: `
+            <app-plus
+                [expand]='false'
+                [clicked]='false'
+                plusClass="ds-u-fill--primary">
+            </app-plus>
         `,
     }));

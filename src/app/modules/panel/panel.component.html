@@ -1,6 +1,6 @@
 <div class="ds-u-margin-bottom--3">
     <div 
-        class="ds-l-row ds-u-align-items--center ds-u-justify-content--center ds-u-font-size--h4 ds-u-md-font-size--h3 pointer panel ds-u-padding--2 ds-u-margin--0" 
+        class="ds-l-row ds-u-align-items--top ds-u-justify-content--center ds-u-font-size--h4 ds-u-md-font-size--h3 pointer panel ds-u-padding--2 ds-u-margin--0" 
         [ngClass]="titleClass"
         (click)="panelStateChange($event)" 
         (keyup.enter)="panelStateChange($event)" 
@@ -12,13 +12,17 @@
         <div class="ds-l-col--auto plusIcon">
             <app-plus 
                 [expand]="expand || openAll" 
-                [clicked]="clicked || openAll">
+                [clicked]="clicked || openAll"
+                [plusClass]="plusClass">
             </app-plus>
         </div>
+
         <div class="ds-l-col title">
-            {{ title }}
+            <ng-container *ngIf="title else titleComplex">{{ title }}</ng-container>
+            <ng-template #titleComplex><ng-content select="ng-container"></ng-content></ng-template>
         </div>
-        <div *ngIf="extTitle" [ngClass]="extTitleClass" class="extTitle ds-l-col ds-u-text-align--right">
+
+        <div *ngIf="extTitle" [ngClass]="extTitleClass" class="extTitle ds-l-col--auto ds-u-text-align--right">
             <ng-content select="span"></ng-content>
         </div>
     </div>
