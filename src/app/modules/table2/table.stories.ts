@@ -13,6 +13,7 @@ import { PopoverModel, PopoverItemModel, mdePopoverPositionXEnum, mdePopoverPosi
 // Misc
 import { faCircle, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const popoverModel: PopoverModel = new PopoverModel({
   items: [
@@ -290,6 +291,7 @@ storiesOf('Components|Table', module)
             imports: [
               StoriesModule,
               Table2Module,
+              BrowserAnimationsModule
             ],
         }),
     )
@@ -308,6 +310,11 @@ storiesOf('Components|Table', module)
                   file: '@bellese/angular-design-system',
                   ngmodule: 'imports',
               },
+              {
+                modules: ['BrowserAnimationsModule'],
+                file: '@angular/platform-browser/animations',
+                ngmodule: 'imports',
+            },
           ],
           parameters: [
               {

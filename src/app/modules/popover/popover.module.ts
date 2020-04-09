@@ -19,7 +19,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ButtonModule,
     FontAwesomeModule,
     MdePopoverModule,
-    BrowserAnimationsModule
   ],
   exports: [
     PopoverComponent,
