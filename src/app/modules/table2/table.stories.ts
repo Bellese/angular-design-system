@@ -85,7 +85,7 @@ const tableModel: TableModel = new TableModel({
           label: 'Row 1',
           type: TableCellTypeEnum.BUTTON,
           class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
-          onClick: defaultProps.handleEvent,
+          buttonOnClick: ($event) => { console.log('Inline Function - ', $event); },
         }),
         new TableCellModel({
           label: '1/1/2000',
@@ -122,7 +122,7 @@ const tableModel: TableModel = new TableModel({
           label: 'Row 2',
           type: TableCellTypeEnum.BUTTON,
           class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
-          onClick: defaultProps.handleEvent,
+          buttonOnClick: defaultProps.handleEvent,
         }),
         new TableCellModel({
           label: '2/2/2002'
@@ -159,7 +159,7 @@ const tableModel: TableModel = new TableModel({
           label: 'Row 3',
           type: TableCellTypeEnum.BUTTON,
           class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
-          onClick: defaultProps.handleEvent,
+          buttonOnClick: defaultProps.handleEvent,
         }),
         new TableCellModel({
           label: '2/1/2004'
@@ -196,7 +196,7 @@ const tableModel: TableModel = new TableModel({
           label: 'Row 4',
           type: TableCellTypeEnum.BUTTON,
           class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
-          onClick: defaultProps.handleEvent,
+          buttonOnClick: defaultProps.handleEvent,
         }),
         new TableCellModel({
           label: '1/5/2010'
@@ -233,7 +233,7 @@ const tableModel: TableModel = new TableModel({
           label: 'Row 5',
           type: TableCellTypeEnum.BUTTON,
           class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
-          onClick: defaultProps.handleEvent,
+          buttonOnClick: defaultProps.handleEvent,
         }),
         new TableCellModel({
           label: '2/5/2010'
