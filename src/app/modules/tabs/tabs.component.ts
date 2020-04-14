@@ -41,6 +41,7 @@ export class AppTabsComponent implements OnInit {
     passAction(e) {
         this.selectTab(e.srcElement.id);
         this.onChange.emit(e);
+        return false;
     }
 
     /*
@@ -64,6 +65,10 @@ export class AppTabsComponent implements OnInit {
             .filter(tab => tab.id === id) // find all tabs that match the id parameter
             .map(tab => tab.selected = true); // set all found tabs to selected
 
+    }
+
+    generateLink(tab: TabModel) {
+        return tab.link ? tab.link : "javascript:void(0)";
     }
 
 }

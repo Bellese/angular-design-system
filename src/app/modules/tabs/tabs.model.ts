@@ -8,6 +8,7 @@ export class TabModel {
     disabled?: boolean;
     visible?: boolean;
     selected?: boolean;
+    link?: string;
 
     constructor() {}
 }

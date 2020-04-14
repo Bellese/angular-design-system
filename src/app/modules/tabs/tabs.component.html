@@ -1,7 +1,7 @@
 <div class="ds-c-tabs {{ tablistClassName }}" role="tablist">
     <a
         *ngFor="let tab of tabs"
-        href="javascript:void(0)"
+        href="{{ generateLink(tab) }}"
         [id]="tab.id" 
         class="ds-c-tabs__item {{ tab.className }}" 
         [attr.aria-label]="tab.ariaLabel" 
