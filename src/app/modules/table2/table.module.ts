@@ -1,5 +1,5 @@
 // Angular
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Components
@@ -38,4 +38,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
     TableComponent,
   ]
 })
-export class Table2Module { }
+
+export class Table2Module {
+  static forRoot(): ModuleWithProviders {
+      return {
+          ngModule: Table2Module,
+      };
+  }
+}

@@ -10,7 +10,7 @@
     <ng-container [ngSwitch]="tableCellModel.type">
         <ng-container *ngSwitchCase="TableCellTypeEnum.BUTTON">
             <app-button
-                (callback)="buttonClickEvent($event)"
+                (callBack)="buttonClickEvent($event)"
                 [disabled]="tableCellModel.buttonDisabled"
                 [ariaLabel]="tableCellModel.ariaLabel ? tableCellModel.ariaLabel : tableCellModel.label"
                 [buttonType]="'ds-c-button ' + tableCellModel.class"

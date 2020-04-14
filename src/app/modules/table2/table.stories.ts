@@ -13,6 +13,7 @@ import { PopoverModel, PopoverItemModel, mdePopoverPositionXEnum, mdePopoverPosi
 // Misc
 import { faCircle, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const popoverModel: PopoverModel = new PopoverModel({
   items: [
@@ -84,7 +85,7 @@ const tableModel: TableModel = new TableModel({
           label: 'Row 1',
           type: TableCellTypeEnum.BUTTON,
           class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
-          onClick: defaultProps.handleEvent,
+          buttonOnClick: ($event) => { console.log('Inline Function - ', $event); },
         }),
         new TableCellModel({
           label: '1/1/2000',
@@ -121,7 +122,7 @@ const tableModel: TableModel = new TableModel({
           label: 'Row 2',
           type: TableCellTypeEnum.BUTTON,
           class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
-          onClick: defaultProps.handleEvent,
+          buttonOnClick: defaultProps.handleEvent,
         }),
         new TableCellModel({
           label: '2/2/2002'
@@ -158,7 +159,7 @@ const tableModel: TableModel = new TableModel({
           label: 'Row 3',
           type: TableCellTypeEnum.BUTTON,
           class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
-          onClick: defaultProps.handleEvent,
+          buttonOnClick: defaultProps.handleEvent,
         }),
         new TableCellModel({
           label: '2/1/2004'
@@ -195,7 +196,7 @@ const tableModel: TableModel = new TableModel({
           label: 'Row 4',
           type: TableCellTypeEnum.BUTTON,
           class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
-          onClick: defaultProps.handleEvent,
+          buttonOnClick: defaultProps.handleEvent,
         }),
         new TableCellModel({
           label: '1/5/2010'
@@ -232,7 +233,7 @@ const tableModel: TableModel = new TableModel({
           label: 'Row 5',
           type: TableCellTypeEnum.BUTTON,
           class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
-          onClick: defaultProps.handleEvent,
+          buttonOnClick: defaultProps.handleEvent,
         }),
         new TableCellModel({
           label: '2/5/2010'
@@ -290,6 +291,7 @@ storiesOf('Components|Table', module)
             imports: [
               StoriesModule,
               Table2Module,
+              BrowserAnimationsModule
             ],
         }),
     )
@@ -308,6 +310,11 @@ storiesOf('Components|Table', module)
                   file: '@bellese/angular-design-system',
                   ngmodule: 'imports',
               },
+              {
+                modules: ['BrowserAnimationsModule'],
+                file: '@angular/platform-browser/animations',
+                ngmodule: 'imports',
+            },
           ],
           parameters: [
               {
