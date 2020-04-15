@@ -1,14 +1,23 @@
-<div *ngIf="!hide" class="ds-c-alert ds-c-alert--{{variation}} ds-c-alert--{{hideIcon ? 'hide-icon' : null}} ds-c-alert--{{hideClose ? 'hide-close' : 'close'}}"
-  attr.data-auto-id="{{dataAutoId}}">
+<div
+  *ngIf="!hide"
+  class="ds-c-alert ds-c-alert--{{ variation }} ds-c-alert--{{
+    hideIcon ? 'hide-icon' : null
+  }} ds-c-alert--{{ hideClose ? 'hide-close' : 'close' }}"
+  attr.data-auto-id="{{ dataAutoId }}"
+>
   <div class="close">
-    <button *ngIf="!hideClose" (click)="hide = true" class="ds-c-button ds-c-button--transparent ds-c-dialog__close">
+    <button
+      *ngIf="!hideClose"
+      (click)="hide = true"
+      class="ds-c-button ds-c-button--transparent ds-c-dialog__close"
+    >
       Close
     </button>
   </div>
   <div class="ds-c-alert__body">
-    <h3 class="ds-c-alert__heading" *ngIf="heading">
+    <div class="ds-c-alert__heading" *ngIf="heading">
       {{heading}}
-    </h3>
+    </div>
     <div class="ds-c-alert__text">
       <ng-content></ng-content>
     </div>
