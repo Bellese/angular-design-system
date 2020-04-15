@@ -14,8 +14,8 @@
     class="file-upload-container-inner ds-u-margin--3 ds-u-padding--7 ds-u-display--flex ds-u-justify-content--center ds-u-align-items--center"
     [ngStyle]="{'height.px': fileUploadModel.height }"
   >
-    <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)" multiple>
-    <div class="ds-u-text-align--center">
+    <input id="fileInputId" hidden type="file" #fileInput (change)="uploadFile($event.target.files)" multiple>
+    <label for="fileInputId" class="ds-u-text-align--center">
       <div class='ds-u-font-size--display ds-u-color--primary'>
         <fa-icon [icon]='fileUploadModel.icon'></fa-icon>
       </div>
@@ -35,6 +35,6 @@
           {{ fileUploadModel.buttonLabel }}
         </app-button>
       </div>
-    </div>
+    </label>
   </div>
 </a>
