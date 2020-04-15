@@ -84,19 +84,22 @@ storiesOf('Components|Tabs', module)
                 `<pre>
 [
     {
-        id: 'tab1'.
+        id: 'tab1',
         title: 'tab1',
         ariaLabel: 'tab1 hello',
+        link: 'tab1',
     },
     {
-        id: 'tab1'.
+        id: 'tab2',
         title: 'tab2',
         ariaLabel: 'tab1 yellow',
+        link: 'tab2',
     },
     {
         id: 'tab3',
         title: 'tab3',
         ariaLabel: 'tab3 mellow',
+        link: 'tab3',
     }
 ];
                 </pre>`,
