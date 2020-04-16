@@ -26,7 +26,7 @@ storiesOf('Services|Toast Service', module)
         props: {
             imports: [
                 {
-                    modules: ['ToastModule'],
+                    modules: ['ToastModule.forRoot()'],
                     file: '@bellese/angular-design-system',
                     ngmodule: 'imports',
                 },
@@ -56,7 +56,13 @@ storiesOf('Services|Toast Service', module)
             notes: [
                 'I was unable to set up a example of this service in action using storybook, but it is very easy to set use.',
                 `<ol>
-                    <li>Import the ToastModule into your NgModule object.</li>
+                    <li>
+                        Add the following line to all styles sections of your angular.json file.
+                        <ul>
+                            <li><code>node_modules/ngx-toastr/toastr.css</code></li>
+                        </ul>
+                    </li>
+                    <li>Import <code>ToastModule.forRoot()</code> into your root level NgModule object.</li>
                     <li>
                         Import the ToastService into your component file.
                         <ul>
