@@ -122,6 +122,7 @@ export class TableModel extends AngularDesignSystemModel {
     totalRows: number;
     summary: string;
     class?: string;
+    headerClass?: string;
     pagination: TablePaginationModel = new TablePaginationModel({});
     isLoading = false;
     rowHeaderColumnKey ?: string;
