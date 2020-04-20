@@ -195,7 +195,8 @@ const tableModel: TableModel = new TableModel({
         new TableCellModel({
           label: 'Row 4',
           type: TableCellTypeEnum.BUTTON,
-          class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
+          // class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
+          buttonClass: "ds-c-button--primary",
           buttonOnClick: defaultProps.handleEvent,
         }),
         new TableCellModel({
@@ -423,6 +424,11 @@ storiesOf('Components|Table', module)
                           name: 'buttonOnClick',
                           value: 'For button cells only, a function that is called when the button is clicked',
                           type: 'function',
+                        },
+                        {
+                          name: 'buttonClass',
+                          value: 'A class for the button',
+                          type: 'string',
                         },
                         {
                           name: 'checkboxValue',

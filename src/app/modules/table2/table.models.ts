@@ -62,6 +62,7 @@ export class TableCellModel extends AngularDesignSystemModel {
     // Button Properties
     buttonDisabled ? = false;
     buttonOnClick ?: any;
+    buttonClass ?: string;
 
     // Checkbox Properties
     checkboxValue: string;
