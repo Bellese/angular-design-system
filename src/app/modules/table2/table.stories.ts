@@ -99,7 +99,7 @@ const tableModel: TableModel = new TableModel({
         new TableCellModel({
           label: "Row 1",
           type: TableCellTypeEnum.BUTTON,
-          class: "ds-u-padding--0 ds-u-border--0 ds-u-color--base",
+          buttonClass: "ds-u-padding--0 ds-u-border--0 ds-u-color--base",
           buttonOnClick: $event => {
             console.log("Inline Function - ", $event);
           }
@@ -138,7 +138,7 @@ const tableModel: TableModel = new TableModel({
         new TableCellModel({
           label: "Row 2",
           type: TableCellTypeEnum.BUTTON,
-          class: "ds-u-padding--0 ds-u-border--0 ds-u-color--base",
+          buttonClass: "ds-u-padding--0 ds-u-border--0 ds-u-color--base",
           buttonOnClick: defaultProps.handleEvent
         }),
         new TableCellModel({
@@ -175,7 +175,7 @@ const tableModel: TableModel = new TableModel({
         new TableCellModel({
           label: "Row 3",
           type: TableCellTypeEnum.BUTTON,
-          class: "ds-u-padding--0 ds-u-border--0 ds-u-color--base",
+          buttonClass: "ds-u-padding--0 ds-u-border--0 ds-u-color--base",
           buttonOnClick: defaultProps.handleEvent
         }),
         new TableCellModel({
@@ -212,7 +212,7 @@ const tableModel: TableModel = new TableModel({
         new TableCellModel({
           label: "Row 4",
           type: TableCellTypeEnum.BUTTON,
-          class: "ds-u-padding--0 ds-u-border--0 ds-u-color--base",
+          buttonClass: "ds-u-padding--0 ds-u-border--0 ds-u-color--base",
           buttonOnClick: defaultProps.handleEvent
         }),
         new TableCellModel({
@@ -249,7 +249,7 @@ const tableModel: TableModel = new TableModel({
         new TableCellModel({
           label: "Row 5",
           type: TableCellTypeEnum.BUTTON,
-          class: "ds-u-padding--0 ds-u-border--0 ds-u-color--base",
+          buttonClass: "ds-u-padding--0 ds-u-border--0 ds-u-color--base",
           buttonOnClick: defaultProps.handleEvent
         }),
         new TableCellModel({
