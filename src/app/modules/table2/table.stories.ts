@@ -195,8 +195,7 @@ const tableModel: TableModel = new TableModel({
         new TableCellModel({
           label: 'Row 4',
           type: TableCellTypeEnum.BUTTON,
-          // class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
-          buttonClass: "ds-c-button--primary",
+          class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
           buttonOnClick: defaultProps.handleEvent,
         }),
         new TableCellModel({
