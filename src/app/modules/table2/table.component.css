@@ -16,9 +16,7 @@ thead th {
 
 td, th {
     border-top: 0;
-    padding-top: 1em;
-    padding-bottom: 1em;
-
+    padding: 1em;
 }
 
 tbody tr:last-of-type td,

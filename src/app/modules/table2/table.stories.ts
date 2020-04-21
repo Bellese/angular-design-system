@@ -74,7 +74,8 @@ const tableModel: TableModel = new TableModel({
     }),
     new TableHeaderModel({
       label: "Long Text Long Text",
-      columnKey: "longText"
+      columnKey: "longText",
+      headerWidth: "20%"
     }),
     new TableHeaderModel({
       label: "Status",
@@ -83,7 +84,7 @@ const tableModel: TableModel = new TableModel({
     }),
     new TableHeaderModel({
       label: "Action",
-      columnKey: "action"
+      columnKey: "action",
     })
   ],
   rows: [
@@ -384,6 +385,11 @@ storiesOf("Components|Table", module)
                   type: "boolean",
                   default: false,
                   value: "Specify if a checkbox is checked."
+                },
+                {
+                  name: "headerWidth",
+                  type: "string",
+                  value: "Specify a width for the header cell."
                 }
               ]
             },
