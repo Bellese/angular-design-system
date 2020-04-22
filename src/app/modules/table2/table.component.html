@@ -14,9 +14,9 @@
     <caption *ngIf="tableModel.summary" class="tableHeading sr-only">
         {{ tableModel.summary }}
     </caption>
-    <thead *ngIf="tableModel.headers.length" class="tableHeading">
+    <thead *ngIf="tableModel.headers.length" class="tableHeading " [ngClass]="tableModel.headerClass">
         <tr>
-            <th *ngFor="let header of tableModel.headers;" scope="col" [ngClass]="header.type">
+            <th *ngFor="let header of tableModel.headers;" scope="col" [ngClass]="header.type" [style.width]="header.headerWidth">
                 <app-table-header-2 [tableHeaderModel]="header" (headerClick)="headerClick($event)"></app-table-header-2>
             </th>
         </tr>

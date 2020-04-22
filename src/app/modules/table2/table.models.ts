@@ -23,6 +23,7 @@ export class TableHeaderModel extends AngularDesignSystemModel {
     label: string;
     type: TableHeaderTypeEnum = TableHeaderTypeEnum.DEFAULT;
     isRowHeader = false;
+    headerWidth? : string;
 
     // Sort Properties
     sort?: TableHeaderSortEnum = TableHeaderSortEnum.NONE;
@@ -62,6 +63,7 @@ export class TableCellModel extends AngularDesignSystemModel {
     // Button Properties
     buttonDisabled ? = false;
     buttonOnClick ?: any;
+    buttonClass ?: string;
 
     // Checkbox Properties
     checkboxValue: string;
@@ -121,6 +123,7 @@ export class TableModel extends AngularDesignSystemModel {
     totalRows: number;
     summary: string;
     class?: string;
+    headerClass?: string;
     pagination: TablePaginationModel = new TablePaginationModel({});
     isLoading = false;
     rowHeaderColumnKey ?: string;
