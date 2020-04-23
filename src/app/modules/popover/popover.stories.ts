@@ -10,7 +10,7 @@ import { PopoverModule } from './popover.module';
 import { PopoverModel, PopoverItemModel, mdePopoverPositionXEnum, mdePopoverPositionYEnum } from './popover.model';
 
 // Misc
-import { faEllipsisV, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
