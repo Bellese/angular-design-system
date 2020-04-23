@@ -10,7 +10,7 @@ import { PopoverModule } from './popover.module';
 import { PopoverModel, PopoverItemModel, mdePopoverPositionXEnum, mdePopoverPositionYEnum } from './popover.model';
 
 // Misc
-import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisV, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -157,6 +157,11 @@ storiesOf('Components|Popover', module)
                                     name: 'url',
                                     type: 'string',
                                     value: 'The URL of the page that the user will see when they click this item.  Currently the component only supports full page redirects to a url, but more options can be added as needed.',
+                                },
+                                {
+                                    name: 'icon',
+                                    type: 'IconDefinition',
+                                    value: 'This is a FontAwesome icon that can show after the item label.',
                                 },
                             ]
                         },
