@@ -158,6 +158,11 @@ storiesOf('Components|Popover', module)
                                     type: 'string',
                                     value: 'The URL of the page that the user will see when they click this item.  Currently the component only supports full page redirects to a url, but more options can be added as needed.',
                                 },
+                                {
+                                    name: 'icon',
+                                    type: 'IconDefinition',
+                                    value: 'This is a FontAwesome icon that can show after the item label.',
+                                },
                             ]
                         },
                     ]
