@@ -23,7 +23,7 @@
   [mdePopoverOverlapTrigger]="false"
 >
   <div class="mde-popover-content-inner ds-u-display--inline-block ds-u-padding--1 ds-u-fill--white">
-    <div *ngFor="let item of popoverModel.items" class="ds-u-display--flex ds-u-justify-content--between">
+    <div *ngFor="let item of popoverModel.items" class="ds-u-display--flex ds-u-justify-content--between" [style.cursor]="'pointer'">
       <app-button 
         [buttonID]="item.id"
         [ariaLabel]="item.ariaLabel ? item.ariaLabel : item.label" 
