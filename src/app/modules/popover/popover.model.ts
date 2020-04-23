@@ -8,6 +8,7 @@ export class PopoverItemModel extends AngularDesignSystemModel {
     dataAutoId: string;
     url: string;
     onClick: any;
+    icon?: IconDefinition;
 
     constructor(options?) {
         super();

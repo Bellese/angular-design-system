@@ -33,7 +33,7 @@ const popoverModel: PopoverModel = new PopoverModel({
   items: [
     new PopoverItemModel({
       label: "Menu Item 1",
-      onClick: defaultProps.handleEvent
+      onClick: defaultProps.handleEvent,
     }),
     new PopoverItemModel({
       label: "Menu Item 2",
