@@ -5,10 +5,9 @@
     "baseUrl": "./",
     "types": []
   },
-  "exclude": [
-    "test.ts",
-    "**/*.spec.ts",
-    "**/*.stories.ts"
+  "files": [
+    "main.ts",
+    "polyfills.ts"
   ],
   "include": [
     "polyfills.ts",

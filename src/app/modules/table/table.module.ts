@@ -64,7 +64,7 @@ import { FilterPipe } from '../../pipes/filter.pipe';
   ]
 })
 export class TableModule {
-    static forRoot(): ModuleWithProviders {
+    static forRoot(): ModuleWithProviders<TableModule> {
         return {
             ngModule: TableModule,
             providers: [ FilterPipe ]

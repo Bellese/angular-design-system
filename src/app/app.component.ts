@@ -123,7 +123,7 @@ export class AppComponent implements OnInit {
 
     appTableModalComponent = AppTableModalComponent;
 
-    @ViewChild('uploader', { static: false }) uploader: FileUploadComponent;
+    @ViewChild('uploader') uploader: FileUploadComponent;
 
     popoverModel: PopoverModel = new PopoverModel({
         items: [

@@ -21,7 +21,7 @@ import { ToastComponent } from './component/toast.component';
 })
 
 export class ToastModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<ToastModule> {
       return {
           ngModule: ToastModule,
           providers: [ ToastService ]
