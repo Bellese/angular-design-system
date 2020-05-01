@@ -123,7 +123,7 @@ export class AppComponent implements OnInit {
 
     appTableModalComponent = AppTableModalComponent;
 
-    @ViewChild('uploader') uploader: FileUploadComponent;
+    @ViewChild('uploader', { static: false }) uploader: FileUploadComponent;
 
     popoverModel: PopoverModel = new PopoverModel({
         items: [
@@ -372,7 +372,7 @@ export class AppComponent implements OnInit {
       });
 
       
-      @ViewChild('tableComponent') table2Component: TableComponent;
+      @ViewChild('tableComponent', { static: true }) table2Component: TableComponent;
 
     constructor(
         private modalService: ModalService,
