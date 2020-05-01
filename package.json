@@ -24,7 +24,7 @@
     "@angular/cli": "^9.1.4",
     "@angular/compiler-cli": "9.1.4",
     "@angular/language-service": "9.1.4",
-    "@babel/core": "^7.9.0",
+    "@babel/core": "^7.9.6",
     "@cmsgov/design-system-core": "^3.7.0",
     "@cmsgov/design-system-layout": "^3.7.0",
     "@storybook/addon-actions": "^5.3.18",
