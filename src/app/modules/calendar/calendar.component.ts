@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
 
@@ -7,15 +7,22 @@ import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css']
 })
-export class CalendarComponent implements OnInit {
+export class CalendarComponent {
   @Input() label: string;
   @Input() dataAutoId: string;
+
+  startDate: Date;
+  endDate: Date;
 
   faCalendarAlt = faCalendarAlt;
 
   constructor() { }
 
-  ngOnInit() {
+  input(date) {
+    console.log(date)
+    console.log(this.startDate);
+    console.log(this.endDate)
   }
+
 
 }
