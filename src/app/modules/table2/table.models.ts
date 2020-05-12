@@ -127,6 +127,7 @@ export class TableModel extends AngularDesignSystemModel {
     pagination: TablePaginationModel = new TablePaginationModel({});
     isLoading = false;
     rowHeaderColumnKey ?: string;
+    showTable = true;
 
     // This will get set automatically, do not set this by hand
     _rowHeaderIndex: number;
