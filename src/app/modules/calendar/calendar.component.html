@@ -1,6 +1,50 @@
-<mat-form-field>
-  <mat-label>Choose a date</mat-label>
-  <input matInput [matDatepicker]="picker">
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
+<div class="ds-l-form-row">
+  <div class="ds-l-col--auto">
+    <label
+      class="ds-c-label ds-u-font-weight--bold ds-u-margin-top--1"
+      for="month"
+    >
+      Start Date
+    </label>
+    <input [matDatepicker]="startDate" class="datepicker-input" />
+    <mat-datepicker-toggle matSuffix [for]="startDate" class="date-toggle">
+      <fa-icon
+        [icon]="faCalendarAlt"
+        class="ds-u-color--primary"
+        style="font-size: 1.4rem;"
+        matDatepickerToggleIcon
+      ></fa-icon>
+    </mat-datepicker-toggle>
+    <mat-datepicker #startDate></mat-datepicker>
+  </div>
+  <div class="ds-l-col--auto">
+    <label
+      class="ds-c-label ds-u-font-weight--bold ds-u-margin-top--1"
+      for="day"
+    >
+      End Date
+    </label>
+    <input matInput [matDatepicker]="endDate" class="datepicker-input" />
+    <mat-datepicker-toggle matSuffix [for]="endDate" class="date-toggle">
+      <fa-icon
+        [icon]="faCalendarAlt"
+        class="ds-u-color--primary"
+        style="font-size: 1.4rem;"
+        matDatepickerToggleIcon
+      ></fa-icon>
+    </mat-datepicker-toggle>
+    <mat-datepicker #endDate></mat-datepicker>
+  </div>
+  <!-- <div class="ds-l-col--auto">
+      <label class="ds-c-label ds-u-font-weight--normal ds-u-margin-top--1" for="year">
+          Year
+      </label>
+      <input
+          [ngClass]="{'ds-c-field--error': selectedInput === 'year' && !valid}"
+          [(ngModel)]="currentYear"
+          class="ds-c-field ds-c-field--year" 
+          type="number" 
+          id="year"
+          name="year">
+  </div> -->
+</div>
