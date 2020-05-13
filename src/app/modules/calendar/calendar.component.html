@@ -1,4 +1,9 @@
-<form #f="ngForm" (input)="input(f)" attr.data-auto-id="{{ dataAutoId }}">
+<form #f="ngForm" (input)="validateDate(f)" attr.data-auto-id="{{ dataAutoId }}">
+  <legend class="ds-c-label--error">
+    <span *ngIf="!valid" class="ds-c-field__hint ds-u-color--error">
+      {{ errorMessage }}
+    </span>
+  </legend>
   <div class="ds-l-form-row">
     <div class="ds-l-col--auto">
       <label
@@ -13,8 +18,14 @@
         placeholder="DD/MM/YYYY"
         name="startDate1"
         [(ngModel)]="startDate"
+        id="startDate"
+        (dateInput)="validateDate(f)"
       />
-      <mat-datepicker-toggle matSuffix [for]="startDatePicker" class="date-toggle">
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="startDatePicker"
+        class="date-toggle"
+      >
         <fa-icon
           [icon]="faCalendarAlt"
           class="ds-u-color--primary"
@@ -24,6 +35,7 @@
       </mat-datepicker-toggle>
       <mat-datepicker #startDatePicker></mat-datepicker>
     </div>
+    <span class="toSpan">to</span>
     <div class="ds-l-col--auto">
       <label
         class="ds-c-label ds-u-font-weight--bold ds-u-margin-top--1"
@@ -38,8 +50,14 @@
         placeholder="DD/MM/YYYY"
         name="endDate"
         [(ngModel)]="endDate"
+        id="endDate"
+        (dateInput)="validateDate(f)"
       />
-      <mat-datepicker-toggle matSuffix [for]="endDatePicker" class="date-toggle">
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="endDatePicker"
+        class="date-toggle"
+      >
         <fa-icon
           [icon]="faCalendarAlt"
           class="ds-u-color--primary"

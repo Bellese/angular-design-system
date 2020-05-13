@@ -9,9 +9,13 @@
   font-size: 16px;
   line-height: 22px;
 }
-
 .date-toggle {
   position: relative;
   right: 45px;
   bottom: 2px;
+}
+.toSpan {
+    position: relative;
+    top: 40px;
+    right: 20px;
 }
