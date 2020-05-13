@@ -1,9 +1,35 @@
 // Storybook
 import { storiesOf, moduleMetadata } from "@storybook/angular";
 import { StoriesModule } from "../../../stories/stories.module";
+import { defaultProps } from "../../../../.storybook/helpers";
 
 // Modules
 import { CalendarModule } from "./calendar.module";
+
+// Models
+import { CalendarModel } from "./calendar.model";
+
+const calendarModel = new CalendarModel({
+  id: "calendar",
+  date: "10/10/2018",
+  endDate: "10/12/2019"
+});
+const calendarNoBox = new CalendarModel({
+  id: "calendar",
+  isCheckBox: false
+});
+const calendarModelNoRange = new CalendarModel({
+  id: "calendar",
+  label: "Pick your date",
+  isDateRange: false
+});
+
+const props = {
+  ...defaultProps,
+  calendarModel,
+  calendarNoBox,
+  calendarModelNoRange
+};
 
 storiesOf("Components|Calendar", module)
   .addDecorator(
@@ -28,9 +54,51 @@ storiesOf("Components|Calendar", module)
       ],
       parameters: [
         {
-          name: "dataAutoId",
-          type: "string",
-          value: "Use this for testing ID"
+          name: "calendarModel",
+          type: "CalendarModel",
+          value: "Use this to override the component's default settings.",
+          properties: [
+            {
+              name: "id",
+              type: "string",
+              value: "Use this for ID"
+            },
+            {
+              name: "label",
+              type: "string",
+              value: "Use this for label of first date"
+            },
+            {
+              name: "labelSecond",
+              type: "string",
+              value: "Use this for label of second date"
+            },
+            {
+              name: "isDateRange",
+              type: "boolean",
+              value: "Use this to decide if second date is needed"
+            },
+            {
+              name: "isCheckBox",
+              type: "string",
+              value: "Use this to decide if checkbox is needed"
+            },
+            {
+              name: "date",
+              type: "Date",
+              value: "Use this for initial date"
+            },
+            {
+              name: "endDate",
+              type: "string",
+              value: "Use this for initial endDate"
+            },
+            {
+              name: "dataAutoId",
+              type: "string",
+              value: "Use this for testing ID"
+            }
+          ]
         }
       ]
     }
@@ -38,7 +106,24 @@ storiesOf("Components|Calendar", module)
   .add("Normal", () => ({
     template: `
             <app-calendar 
-                dataAutoId = 'testingID'>
+                [calendarModel] = 'calendarModel'>
             </app-calendar>
-        `
+        `,
+    props
+  }))
+  .add("No Checkbox", () => ({
+    template: `
+            <app-calendar 
+                [calendarModel] = 'calendarNoBox'>
+            </app-calendar>
+        `,
+    props
+  }))
+  .add("No DateRange", () => ({
+    template: `
+            <app-calendar 
+                [calendarModel] = 'calendarModelNoRange'>
+            </app-calendar>
+        `,
+    props
   }));

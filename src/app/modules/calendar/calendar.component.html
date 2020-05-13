@@ -1,4 +1,4 @@
-<form #f="ngForm" (input)="validateDate(f)" attr.data-auto-id="{{ dataAutoId }}">
+<form #f="ngForm" (input)="validateDate()" attr.data-auto-id="{{ dataAutoId }}">
   <legend class="ds-c-label--error">
     <span *ngIf="!valid" class="ds-c-field__hint ds-u-color--error">
       {{ errorMessage }}
@@ -8,22 +8,22 @@
     <div class="ds-l-col--auto">
       <label
         class="ds-c-label ds-u-font-weight--bold ds-u-margin-top--1"
-        for="startDate"
+        for="date"
       >
-        Start Date
+        {{ calendarModel.label }}
       </label>
       <input
-        [matDatepicker]="startDatePicker"
+        [matDatepicker]="datePicker"
         class="datepicker-input"
         placeholder="DD/MM/YYYY"
-        name="startDate1"
-        [(ngModel)]="startDate"
-        id="startDate"
-        (dateInput)="validateDate(f)"
+        name="date"
+        [(ngModel)]="date"
+        id="{{ calendarModel.id + 'date' }}"
+        (dateInput)="validateDate()"
       />
       <mat-datepicker-toggle
         matSuffix
-        [for]="startDatePicker"
+        [for]="datePicker"
         class="date-toggle"
       >
         <fa-icon
@@ -33,39 +33,53 @@
           matDatepickerToggleIcon
         ></fa-icon>
       </mat-datepicker-toggle>
-      <mat-datepicker #startDatePicker></mat-datepicker>
+      <mat-datepicker #datePicker></mat-datepicker>
     </div>
-    <span class="toSpan">to</span>
-    <div class="ds-l-col--auto">
-      <label
-        class="ds-c-label ds-u-font-weight--bold ds-u-margin-top--1"
-        for="endDate"
-      >
-        End Date
-      </label>
-      <input
-        matInput
-        [matDatepicker]="endDatePicker"
-        class="datepicker-input"
-        placeholder="DD/MM/YYYY"
-        name="endDate"
-        [(ngModel)]="endDate"
-        id="endDate"
-        (dateInput)="validateDate(f)"
-      />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="endDatePicker"
-        class="date-toggle"
-      >
-        <fa-icon
-          [icon]="faCalendarAlt"
-          class="ds-u-color--primary"
-          style="font-size: 1.4rem;"
-          matDatepickerToggleIcon
-        ></fa-icon>
-      </mat-datepicker-toggle>
-      <mat-datepicker #endDatePicker></mat-datepicker>
-    </div>
+    <ng-container *ngIf="showEndDate && calendarModel.isDateRange">
+      <span class="toSpan">to</span>
+      <div class="ds-l-col--auto">
+        <label
+          class="ds-c-label ds-u-font-weight--bold ds-u-margin-top--1"
+          for="endDate"
+        >
+          {{ calendarModel.labelSecond }}
+        </label>
+        <input
+          matInput
+          [matDatepicker]="endDatePicker"
+          class="datepicker-input"
+          placeholder="DD/MM/YYYY"
+          name="endDate"
+          [(ngModel)]="endDate"
+          id="{{ calendarModel.id + 'endDate' }}"
+          (dateInput)="validateDate()"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="endDatePicker"
+          class="date-toggle"
+        >
+          <fa-icon
+            [icon]="faCalendarAlt"
+            class="ds-u-color--primary"
+            style="font-size: 1.4rem;"
+            matDatepickerToggleIcon
+          ></fa-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #endDatePicker></mat-datepicker>
+      </div>
+    </ng-container>
   </div>
 </form>
+<app-choice
+  *ngIf="calendarModel.isDateRange && calendarModel.isCheckBox"
+  index="0"
+  value="Do not include an end date"
+  ariaLabel="Check the checkbox to not include an end date"
+  size="small"
+  [isChecked]="false"
+  [showTitle]="true"
+  dataAutoId="endDateChoiceID"
+  (choiceChange)="handleCheckbox($event)"
+>
+</app-choice>
