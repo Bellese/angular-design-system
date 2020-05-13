@@ -8,7 +8,6 @@ import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
   styleUrls: ["./calendar.component.css"]
 })
 export class CalendarComponent {
-  @Input() label: string;
   @Input() dataAutoId: string;
 
   startDate: Date;
