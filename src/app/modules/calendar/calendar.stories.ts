@@ -11,8 +11,8 @@ import { CalendarModel } from "./calendar.model";
 
 const calendarModel = new CalendarModel({
   id: "calendar",
-  date: "10/10/2018",
-  endDate: "10/12/2019"
+  date: new Date("10/10/2018"),
+  endDate: new Date("10/12/2019")
 });
 const calendarNoBox = new CalendarModel({
   id: "calendar",

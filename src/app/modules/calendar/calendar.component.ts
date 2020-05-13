@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from "@angular/core";
-import { CalendarModel } from "./calendar.model";
-
+import { Component, Input, OnInit, Output } from "@angular/core";
 import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
+import { EventEmitter } from "protractor";
+
+// Models
+import { CalendarModel } from "./calendar.model";
 
 @Component({
   selector: "app-calendar",
