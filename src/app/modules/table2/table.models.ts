@@ -22,8 +22,9 @@ export class TableHeaderModel extends AngularDesignSystemModel {
     columnKey: string;
     label: string;
     type: TableHeaderTypeEnum = TableHeaderTypeEnum.DEFAULT;
+    class = '';
     isRowHeader = false;
-    headerWidth? : string;
+    headerWidth?: string;
 
     // Sort Properties
     sort?: TableHeaderSortEnum = TableHeaderSortEnum.NONE;
