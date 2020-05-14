@@ -9,6 +9,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChoiceModule } from '../choice/choice.module';
+import { TextFieldModule } from '../text-field/text-field.module';
 
 @NgModule({
   declarations: [CalendarComponent],
@@ -16,13 +17,13 @@ import { ChoiceModule } from '../choice/choice.module';
     CommonModule,
     FormsModule,
     BrowserModule,
-    ReactiveFormsModule,
     MatDatepickerModule,
     MatInputModule,
     MatNativeDateModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
-    ChoiceModule
+    ChoiceModule,
+    TextFieldModule
   ],
   exports: [CalendarComponent]
 })

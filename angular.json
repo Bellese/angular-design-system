@@ -21,7 +21,7 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "src/custom-theme.scss",
+              "src/material-theme.scss",
               "src/styles.css",
               "src/assets/css/dist/index.css",
               "src/assets/layout/dist/index.css",

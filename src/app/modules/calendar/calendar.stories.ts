@@ -64,12 +64,12 @@ storiesOf("Components|Calendar", module)
               value: "Use this for ID"
             },
             {
-              name: "label",
+              name: "dateLabel",
               type: "string",
               value: "Use this for label of first date"
             },
             {
-              name: "labelSecond",
+              name: "endDateLabel",
               type: "string",
               value: "Use this for label of second date"
             },

@@ -43,6 +43,10 @@ export class CalendarComponent implements OnInit {
       this.valid = true;
       this.errorMessage = "";
     }
+    if (this.date.getTime() >= this.endDate.getTime() && this.showEndDate) {
+      this.valid = false;
+      this.errorMessage = "Start date is after or same as end date"
+    }
 
     if (this.valid)
       this.selectedDates.emit({ date: this.date, endDate: this.endDate });
