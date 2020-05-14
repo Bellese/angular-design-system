@@ -97,6 +97,18 @@ storiesOf("Components|Calendar", module)
               name: "dataAutoId",
               type: "string",
               value: "Use this for testing ID"
+            },
+            {
+              name: "ariaLabelDate",
+              type: "string",
+              value:
+                "Use this to further specify button to the screen reader for date input"
+            },
+            {
+              name: "ariaLabelEndDate",
+              type: "string",
+              value:
+                "Use this to further specify button to the screen reader for end date input"
             }
           ]
         }

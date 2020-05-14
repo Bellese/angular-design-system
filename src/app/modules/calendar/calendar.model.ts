@@ -9,6 +9,8 @@ export class CalendarModel extends AngularDesignSystemModel{
     dataAutoId: string = "calendarPicker";
     date: Date;
     endDate: Date;
+    ariaLabelDate: string = "Date input";
+    ariaLabelEndDate: string = 'End Date input';
 
     constructor(options?) {
         super();

@@ -16,9 +16,9 @@
       class="datepicker-input"
       placeholder="DD/MM/YYYY"
       name="date"
-      [(ngModel)]="calendarModel.date"
       id="{{ calendarModel.id + 'date' }}"
-      (dateInput)="validateDate()"
+      (dateInput)="validateDate($event)"
+      attr.aria-label="{{calendarModel.ariaLabelDate}}"
     />
     <mat-datepicker-toggle matSuffix [for]="datePicker" class="date-toggle">
       <fa-icon
@@ -45,9 +45,9 @@
         class="datepicker-input"
         placeholder="DD/MM/YYYY"
         name="endDate"
-        [(ngModel)]="calendarModel.endDate"
         id="{{ calendarModel.id + 'endDate' }}"
-        (dateInput)="validateDate()"
+        (dateInput)="validateDate($event)"
+        attr.aria-label="{{calendarModel.ariaLabelEndDate}}"
       />
       <mat-datepicker-toggle
         matSuffix
