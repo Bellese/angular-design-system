@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
 
 // Models
@@ -9,12 +9,10 @@ import { CalendarModel } from "./calendar.model";
   templateUrl: "./calendar.component.html",
   styleUrls: ["./calendar.component.css"]
 })
-export class CalendarComponent implements OnInit {
+export class CalendarComponent {
   @Input() calendarModel: CalendarModel;
   @Output() selectedDates = new EventEmitter<any>();
 
-  date: Date;
-  endDate: Date;
   showEndDate: boolean = true;
   valid: boolean = true;
   errorMessage: string;
@@ -23,17 +21,12 @@ export class CalendarComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {
-    if (this.calendarModel.date) this.date = this.calendarModel.date;
-    if (this.calendarModel.endDate) this.endDate = this.calendarModel.endDate;
-  }
-
   validateDate() {
-    if (this.date === null) {
+    if (this.calendarModel.date === null) {
       this.valid = false;
       this.errorMessage = "Date is not a valid date";
     } else if (
-      this.endDate === null &&
+      this.calendarModel.endDate === null &&
       this.showEndDate &&
       this.calendarModel.isDateRange
     ) {
@@ -43,13 +36,20 @@ export class CalendarComponent implements OnInit {
       this.valid = true;
       this.errorMessage = "";
     }
-    if (this.date.getTime() >= this.endDate.getTime() && this.showEndDate) {
+    if (
+      this.calendarModel.date.getTime() >=
+        this.calendarModel.endDate.getTime() &&
+      this.showEndDate
+    ) {
       this.valid = false;
-      this.errorMessage = "Start date is after or same as end date"
+      this.errorMessage = "Start date is after or same as end date";
     }
 
     if (this.valid)
-      this.selectedDates.emit({ date: this.date, endDate: this.endDate });
+      this.selectedDates.emit({
+        date: this.calendarModel.date,
+        endDate: this.calendarModel.endDate
+      });
   }
 
   handleCheckbox(event) {
