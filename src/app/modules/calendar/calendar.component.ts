@@ -1,6 +1,5 @@
-import { Component, Input, OnInit, Output } from "@angular/core";
+import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
 import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
-import { EventEmitter } from "protractor";
 
 // Models
 import { CalendarModel } from "./calendar.model";
@@ -12,12 +11,12 @@ import { CalendarModel } from "./calendar.model";
 })
 export class CalendarComponent implements OnInit {
   @Input() calendarModel: CalendarModel;
+  @Output() selectedDates = new EventEmitter<any>();
 
   date: Date;
   endDate: Date;
   showEndDate: boolean = true;
   valid: boolean = true;
-  selectedInput;
   errorMessage: string;
 
   faCalendarAlt = faCalendarAlt;
@@ -44,6 +43,9 @@ export class CalendarComponent implements OnInit {
       this.valid = true;
       this.errorMessage = "";
     }
+
+    if (this.valid)
+      this.selectedDates.emit({ date: this.date, endDate: this.endDate });
   }
 
   handleCheckbox(event) {

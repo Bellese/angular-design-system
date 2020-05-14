@@ -106,7 +106,8 @@ storiesOf("Components|Calendar", module)
   .add("Normal", () => ({
     template: `
             <app-calendar 
-                [calendarModel] = 'calendarModel'>
+                [calendarModel] = 'calendarModel'
+                (selectedDates) = 'handleEvent($event)'>
             </app-calendar>
         `,
     props
@@ -114,7 +115,8 @@ storiesOf("Components|Calendar", module)
   .add("No Checkbox", () => ({
     template: `
             <app-calendar 
-                [calendarModel] = 'calendarNoBox'>
+                [calendarModel] = 'calendarNoBox'
+                (selectedDates) = 'handleEvent($event)'>
             </app-calendar>
         `,
     props
@@ -122,7 +124,8 @@ storiesOf("Components|Calendar", module)
   .add("No DateRange", () => ({
     template: `
             <app-calendar 
-                [calendarModel] = 'calendarModelNoRange'>
+                [calendarModel] = 'calendarModelNoRange'
+                (selectedDates) = 'handleEvent($event)'>
             </app-calendar>
         `,
     props
