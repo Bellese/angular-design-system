@@ -22,10 +22,12 @@ export class CalendarComponent {
   constructor() {}
 
   validateDate(event) {
-    if (event && event.targetElement.name === "date")
+    if (event && event.targetElement.name === "date") {
       this.calendarModel.date = event.value;
-    if (event && event.targetElement.name === "endDate")
+    }
+    if (event && event.targetElement.name === "endDate") {
       this.calendarModel.endDate = event.value;
+    }
     if (this.calendarModel.date === null) {
       this.valid = false;
       this.errorMessage = "Date is not a valid date";
@@ -53,6 +55,8 @@ export class CalendarComponent {
 
     if (this.valid)
       this.selectedDates.emit({
+        dateId: `${this.calendarModel.id}date`,
+        endDateId: `${this.calendarModel.id}endDate`,
         date: this.calendarModel.date,
         endDate: this.calendarModel.endDate
       });
