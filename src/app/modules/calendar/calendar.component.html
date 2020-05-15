@@ -19,6 +19,7 @@
       id="{{ calendarModel.id + 'Date' }}"
       (dateInput)="validateDate($event)"
       attr.aria-label="{{calendarModel.ariaLabelDate}}"
+      [value]="calendarModel.date"
     />
     <mat-datepicker-toggle matSuffix [for]="datePicker" class="date-toggle">
       <fa-icon
@@ -48,6 +49,7 @@
         id="{{ calendarModel.id + 'EndDate' }}"
         (dateInput)="validateDate($event)"
         attr.aria-label="{{calendarModel.ariaLabelEndDate}}"
+        [value]="calendarModel.endDate"
       />
       <mat-datepicker-toggle
         matSuffix
