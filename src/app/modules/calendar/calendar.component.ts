@@ -55,8 +55,8 @@ export class CalendarComponent {
 
     if (this.valid)
       this.selectedDates.emit({
-        dateId: `${this.calendarModel.id}date`,
-        endDateId: `${this.calendarModel.id}endDate`,
+        dateId: `${this.calendarModel.id}Date`,
+        endDateId: `${this.calendarModel.id}EndDate`,
         date: this.calendarModel.date,
         endDate: this.calendarModel.endDate
       });
