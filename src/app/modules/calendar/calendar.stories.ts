@@ -12,23 +12,24 @@ import { CalendarModel } from "./calendar.model";
 const calendarModel = new CalendarModel({
   id: "calendar",
   date: new Date("10/10/2018"),
-  endDate: new Date("10/12/2019")
+  endDate: new Date("10/12/2019"),
+  isCheckBox: true,
+  isDateRange: true
 });
 const calendarNoBox = new CalendarModel({
   id: "calendar",
-  isCheckBox: false
+  isDateRange: true
 });
 const calendarModelNoRange = new CalendarModel({
   id: "calendar",
-  label: "Pick your date",
-  isDateRange: false
+  dateLabel: "Pick your date",
 });
 
 const props = {
   ...defaultProps,
-  calendarModel,
+  calendarModelNoRange,
   calendarNoBox,
-  calendarModelNoRange
+  calendarModel,
 };
 
 storiesOf("Components|Calendar", module)
@@ -118,13 +119,13 @@ storiesOf("Components|Calendar", module)
   .add("Normal", () => ({
     template: `
             <app-calendar 
-                [calendarModel] = 'calendarModel'
+                [calendarModel] = 'calendarModelNoRange'
                 (selectedDates) = 'handleEvent($event)'>
             </app-calendar>
         `,
     props
   }))
-  .add("No Checkbox", () => ({
+  .add("Date Range", () => ({
     template: `
             <app-calendar 
                 [calendarModel] = 'calendarNoBox'
@@ -133,10 +134,10 @@ storiesOf("Components|Calendar", module)
         `,
     props
   }))
-  .add("No DateRange", () => ({
+  .add("DateRange with Checkbox", () => ({
     template: `
             <app-calendar 
-                [calendarModel] = 'calendarModelNoRange'
+                [calendarModel] = 'calendarModel'
                 (selectedDates) = 'handleEvent($event)'>
             </app-calendar>
         `,
