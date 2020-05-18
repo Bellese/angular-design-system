@@ -4,8 +4,8 @@ export class CalendarModel extends AngularDesignSystemModel{
     id: string = '';
     dateLabel: string = "Start Date";
     endDateLabel: string = "End Date";
-    isDateRange: boolean = true;
-    isCheckBox: boolean = true;
+    isDateRange: boolean = false;
+    isCheckBox: boolean = false;
     dataAutoId: string = "calendarPicker";
     date: Date;
     endDate: Date;
