@@ -23,7 +23,8 @@
                         [header]="header"
                         [selected]="selected"
                         (onHeaderClick)="passHeaderEvent($event)"
-                    scope="col">
+                    scope="col"
+                    tabindex="0">
                 </th>
             </tr>
         </thead>
@@ -41,7 +42,7 @@
                         (onCallBack)="callBack($event)">
                 </tr>
                 <tr *ngIf="!dataRow" class="noResults" role="alert">
-                    <td [attr.colspan]="headerLength" class="noResults">No Results Found</td>
+                    <td [attr.colspan]="headerLength" class="noResults" tabindex="0">No Results Found</td>
                 </tr>
             </ng-container>
         </tbody>
