@@ -45,7 +45,12 @@ export class TableComponent {
         this.paginationClick.emit($event);
     }
 
-    getSelectedCheckboxValues(columnKey) {
-        return this.tableModel.getSelectedCheckboxValues(columnKey);
+    getSelectedCheckboxValues(columnKey): string[] | boolean {
+        const checkboxHeader = this.tableModel.headers.filter(header => header.columnKey === columnKey)[0];
+        if (checkboxHeader.isChecked) {
+            return true;
+        } else {
+            return this.tableModel.getSelectedCheckboxValues(columnKey);
+        }
     }
 }

@@ -21,6 +21,10 @@ export class AppDropDownComponent {
     @Output() selectedOption = new EventEmitter<any>();
 
     selectOption(e) {
-        this.selectedOption.emit(e.target.value);
+        const selectedValue = e.target.value;
+        this.defaultSelectedValue = selectedValue;
+        this.defaultSelected = this.options.findIndex(option => option.value === selectedValue);
+
+        this.selectedOption.emit(selectedValue);
     }
 }

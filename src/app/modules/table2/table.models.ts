@@ -22,8 +22,9 @@ export class TableHeaderModel extends AngularDesignSystemModel {
     columnKey: string;
     label: string;
     type: TableHeaderTypeEnum = TableHeaderTypeEnum.DEFAULT;
+    class = '';
     isRowHeader = false;
-    headerWidth? : string;
+    headerWidth?: string;
 
     // Sort Properties
     sort?: TableHeaderSortEnum = TableHeaderSortEnum.NONE;
@@ -127,6 +128,7 @@ export class TableModel extends AngularDesignSystemModel {
     pagination: TablePaginationModel = new TablePaginationModel({});
     isLoading = false;
     rowHeaderColumnKey ?: string;
+    showTable = true;
 
     // This will get set automatically, do not set this by hand
     _rowHeaderIndex: number;

@@ -8,7 +8,8 @@
             <h3 class='ds-u-margin-bottom--0 ds-u-md-margin-bottom--1 ds-u-margin-top--1'>{{ codeSnippetModel.label }}</h3>
         </div>
         <div class='ds-l-col--12 ds-l-md-col--6 ds-u-md-text-align--right ds-u-margin-bottom--1 ds-u-md-margin-bottom--0'>
-            <app-button 
+            <app-button
+              id="copyButton"
               *ngIf="codeSnippetModel.copyLinkDisplay"
               buttonType = 'ds-c-button ds-c-button--transparent ds-u-padding--0 ds-u-margin-top--1'
               [ariaLabel]="codeSnippetModel.copyLinkAriaLabel"

@@ -41,6 +41,7 @@ import { FileUploadModule } from './modules/file-upload/file-upload.module';
 import { CodeSnippetModule } from './modules/code-snippet/code-snippet.module';
 import { PopoverModule } from './modules/popover/popover.module';
 import { ToastModule } from './modules/toast/toast.module';
+import { CalendarModule } from './modules/calendar/calendar.module';
 
 @NgModule({
   declarations: [AppComponent, ExampleModalComponent],
@@ -81,6 +82,7 @@ import { ToastModule } from './modules/toast/toast.module';
     PopoverModule,
     ToastModule,
     Table2Module,
+    CalendarModule,
   ],
   providers: [AppService, FilterPipe],
   bootstrap: [AppComponent],

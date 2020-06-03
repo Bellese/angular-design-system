@@ -3,7 +3,7 @@
 </div>
   
 <table 
-    *ngIf="tableModel"
+    *ngIf="tableModel && tableModel.showTable && tableModel.rows.length && !tableModel.isLoading"
     summary="{{ tableModel.summary }}" 
     role="grid" 
     [attr.aria-label]="tableModel.summary" 
@@ -16,12 +16,12 @@
     </caption>
     <thead *ngIf="tableModel.headers.length" class="tableHeading " [ngClass]="tableModel.headerClass">
         <tr>
-            <th *ngFor="let header of tableModel.headers;" scope="col" [ngClass]="header.type" [style.width]="header.headerWidth">
+            <th *ngFor="let header of tableModel.headers;" scope="col" [ngClass]="[header.type, header.class]" [style.width]="header.headerWidth">
                 <app-table-header-2 [tableHeaderModel]="header" (headerClick)="headerClick($event)"></app-table-header-2>
             </th>
         </tr>
     </thead>
-    <tbody *ngIf="!tableModel.isLoading">
+    <tbody>
         <tr *ngFor="let row of tableModel.rows | paginate: { itemsPerPage: tableModel.pagination.perPage, currentPage: tableModel.pagination.currentPage, totalItems: tableModel.totalRows, id: tableModel.id } ; let rowIndex = index">
             <ng-container *ngFor="let cell of row.cells; let cellIndex = index">
                 <ng-template #cellComponent>
@@ -35,15 +35,19 @@
                 </td>
             </ng-container>
         </tr>
-        <tr *ngIf="!tableModel.rows.length" class="noResults" role="alert">
-            <td [attr.colspan]="tableModel.headers.length" class="ds-u-text-align--center ds-u-font-weight--bold">No Results Found</td>
-        </tr>
     </tbody>
 </table>
 
-<div *ngIf="tableModel.isLoading"></div>
+<ng-container *ngIf="!tableModel.rows.length && !tableModel.isLoading && tableModel.showTable">
+    <div #noResults>
+        <ng-content  select="[noResults]"></ng-content>
+    </div>
+    <div *ngIf="noResults.nativeElement && noResults.nativeElement.childNodes && noResults.nativeElement.childNodes.length == 0">
+        No Results Found
+    </div>
+</ng-container>
 
-<div class="ds-l-row" *ngIf="this.tableModel.isLoading">
+<div class="ds-l-row" *ngIf="tableModel.isLoading">
     <div class="ds-l-col ds-u-text-align--center ds-u-margin-top--2">
         <app-spinner
             [dataAutoId]="'data-table-page-spinner'"
@@ -52,13 +56,15 @@
             [color]="'muted'"
             [size]="'big'">
         </app-spinner>
-        <div aria-atomic="true" aria-live="assertive" class="sr-only" role="alert">
-            The data table is loading.
-        </div>
+    </div>
+</div>
+<div aria-atomic="true" aria-live="assertive" class="sr-only" role="alert">
+    <div *ngIf="tableModel.isLoading">
+        The data table is loading.
     </div>
 </div>
 
-<app-paging *ngIf="tableModel.pagination.isEnabled && !this.tableModel.isLoading && tableModel.rows.length"
+<app-paging *ngIf="tableModel && tableModel.showTable && tableModel.pagination.isEnabled && !this.tableModel.isLoading && tableModel.rows.length"
     [id]="tableModel.id"
     [dataRows]="tableModel.rows" 
     (currentPage)="paginationClickEvent($event)">

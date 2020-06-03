@@ -35,6 +35,10 @@ export class CodeSnippetComponent implements OnInit {
       copyContent = this.codeSnippetModel.copyContent;
     }
     this.clipboardService.copyFromContent(copyContent);
+    document
+      .getElementById("copyButton")
+      .getElementsByTagName("button")[0]
+      .focus();
   }
 
 }

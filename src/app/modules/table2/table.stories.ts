@@ -390,7 +390,12 @@ storiesOf("Components|Table", module)
                   name: "headerWidth",
                   type: "string",
                   value: "Specify a width for the header cell."
-                }
+                },
+                {
+                  name: "class",
+                  type: "string",
+                  value: "Specify a class for the header cell."
+                },
               ]
             },
             {
