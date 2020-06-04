@@ -57,6 +57,11 @@ storiesOf('Components|Paging', module)
                     type: 'string',
                     value: 'Use this for testing ID',
                 },
+                {
+                    name: 'screenReaderLabel',
+                    type: 'string',
+                    value: 'label for screen reader',
+                },
             ],
             notes: [
                 'The pagination component utilizes the <a href="http://michaelbromley.github.io/ngx-pagination/#/" target="_blank">ngx-pagination</a> library. In order to paginate a list, a <code>paginate</code> pipe must be added to your list items. You can also configure <code>itemsPerPage</code> to display the amount of list items you\'d like per page.',

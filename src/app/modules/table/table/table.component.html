@@ -51,5 +51,6 @@
 <app-paging *ngIf = "paginate"
     [id]="index"
     [dataRows]="dataRows" 
-    (currentPage)="passPage($event)">
+    (currentPage)="passPage($event)"
+    [screenReaderLabel]="paginateLabel">
 </app-paging>

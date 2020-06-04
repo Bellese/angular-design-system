@@ -1247,6 +1247,11 @@ storiesOf('Deprecated|Components - Table', module)
                   value: 'this input will allow the option for pagination to work within the table,',
               },
               {
+                name: 'paginateLabel',
+                type: 'string',
+                value: 'this input will add a custom paginate label for screenreaders,',
+              },
+              {
                   name: 'searchText',
                   type: 'string',
                   value: 'Used to return the exact row that matches a string passed to it. The search returns true if the word contains the string you pass',
