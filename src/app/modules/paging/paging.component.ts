@@ -10,7 +10,7 @@ export class AppPaginationComponent {
   @Input() dataRows;
   @Input() id;
   @Input() dataAutoId: string;
-  @Input() screenReaderLabel: string = "page link";
+  @Input() screenReaderLabel: string = "Table page link";
 
   p = 1;
 
