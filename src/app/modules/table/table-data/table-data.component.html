@@ -5,6 +5,7 @@
     class="{{data.key + ' ' + dataClass}}"
     [ngClass]="data.value.attr ? data.value.attr : false"
     [attr.title]="!data.value.title ? data.value.value : data.value.title"
+    tabindex="0"
 >
     <fa-icon *ngIf="data.value.icon" [icon]="data.value.icon"></fa-icon>
     {{ tableCellText() | highlightSearch: searchText: highlightSearch }}
