@@ -51,7 +51,7 @@ export { CodeSnippetModel, CodeSnippetContentItemModel } from './src/app/modules
 export { BarGraphModel, BarGraphDataModel } from './src/app/modules/bar-graph/bar-graph.model';
 export { LineGraphModel, LineGraphDataModel } from './src/app/modules/line-graph/line-graph.model';
 export { PopoverModel, PopoverItemModel, mdePopoverPositionXEnum, mdePopoverPositionYEnum } from './src/app/modules/popover/popover.model';
-export { CardClusterModel } from './src/app/modules/card-cluster/card-cluster.models';
+export { CardClusterModel, CardClusterClusterModel } from './src/app/modules/card-cluster/card-cluster.models';
 export { CalendarModel } from './src/app/modules/calendar/calendar.model';
 export * from './src/app/modules/table2/table.models';
 

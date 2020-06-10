@@ -10,6 +10,7 @@ export class CardClusterClusterModel extends AngularDesignSystemModel {
     classValue?: string;
     classButton?: string;
     className?: string;
+    disabled = false;
 
     constructor(options?) {
         super();

@@ -19,6 +19,7 @@ export class AppTextFieldComponent {
     @Input() errorMessage: string;
     @Input() dataAutoId: string;
     @Input() placeholder: string;
+    @Input() disabled: boolean;
     @Output() userInput = new EventEmitter<any>();
 
     constructor() { }

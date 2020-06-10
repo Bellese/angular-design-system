@@ -94,6 +94,11 @@ storiesOf('Components|Choice', module)
                     value: 'Use this to check the input by default',
                 },
                 {
+                    name: 'disabled',
+                    type: 'boolean',
+                    value: 'Use this to disable the input',
+                },
+                {
                     name: 'choiceChange',
                     type: 'function',
                     // tslint:disable-next-line: max-line-length
@@ -203,6 +208,36 @@ storiesOf('Components|Choice', module)
                 [showTitle] = true
                 labelClass = 'choiceEx'
                 dataAutoId = 'testingID'
+                (choiceChange) = 'handleEvent($event)'
+            >
+            </app-choice>
+        `,
+        props: defaultProps
+    })).add('Disabled', () => ({
+        template: `
+            <app-choice
+                index = 0
+                inputType = 'radio'
+                value = 'Option 1'
+                groupName = 'choicetoendallchoice'
+                [isChecked] = 'true'
+                [showTitle] = true
+                labelClass = 'choiceEx'
+                dataAutoId = 'testingID'
+                [disabled] = 'true'
+                (choiceChange) = 'handleEvent($event)'
+            >
+            </app-choice>
+            <app-choice
+                index = 1
+                inputType = 'checkbox'
+                value = 'Option 2'
+                groupName = 'choicetoendallchoice'
+                [isChecked] = 'false'
+                [showTitle] = true
+                labelClass = 'choiceEx'
+                dataAutoId = 'testingID'
+                [disabled] = 'true'
                 (choiceChange) = 'handleEvent($event)'
             >
             </app-choice>
