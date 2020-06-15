@@ -14,7 +14,11 @@ const calendarModel = new CalendarModel({
   date: new Date("10/10/2018"),
   endDate: new Date("10/12/2019"),
   isCheckBox: true,
-  isDateRange: true
+  isDateRange: true,
+  minDate: new Date("06/10/2020"),
+  maxDate: new Date("06/20/2020"),
+  minEndDate: new Date("06/10/2020"),
+  maxEndDate: new Date("06/20/2020")
 });
 const calendarNoBox = new CalendarModel({
   id: "calendar",
@@ -22,7 +26,7 @@ const calendarNoBox = new CalendarModel({
 });
 const calendarModelNoRange = new CalendarModel({
   id: "calendar",
-  dateLabel: "Pick your date",
+  dateLabel: "Pick your date"
 });
 
 const props = {
@@ -110,7 +114,31 @@ storiesOf("Components|Calendar", module)
               type: "string",
               value:
                 "Use this to further specify button to the screen reader for end date input"
-            }
+            },
+            {
+              name: "minDate",
+              type: "Date",
+              value:
+                "Use this to set a minimum acceptable date"
+            },
+            {
+              name: "maxDate",
+              type: "Date",
+              value:
+                "Use this to set a maximum acceptable date"
+            },
+            {
+              name: "minEndDate",
+              type: "Date",
+              value:
+                "Use this to set a minimum acceptable date for the end date"
+            },
+            {
+              name: "maxEndDate",
+              type: "Date",
+              value:
+                "Use this to set a maximum acceptable date for the end date"
+            },
           ]
         }
       ]

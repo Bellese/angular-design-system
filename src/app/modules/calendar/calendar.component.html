@@ -20,6 +20,8 @@
       (dateInput)="validateDate($event)"
       attr.aria-label="{{calendarModel.ariaLabelDate}}"
       [value]="calendarModel.date"
+      [min]="calendarModel.minDate"
+      [max]="calendarModel.maxDate"
     />
     <mat-datepicker-toggle matSuffix [for]="datePicker" class="date-toggle">
       <fa-icon
@@ -50,6 +52,8 @@
         (dateInput)="validateDate($event)"
         attr.aria-label="{{calendarModel.ariaLabelEndDate}}"
         [value]="calendarModel.endDate"
+        [min]="calendarModel.minEndDate"
+        [max]="calendarModel.maxEndDate"
       />
       <mat-datepicker-toggle
         matSuffix
