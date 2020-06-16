@@ -123,7 +123,7 @@ const tableModel: TableModel = new TableModel({
         }),
         new TableCellModel({
           type: TableCellTypeEnum.POPOVER,
-          popoverModel: popoverModel
+          popoverModel: popoverModel,
         })
       ]
     }),
@@ -296,11 +296,25 @@ const tableModelLoading = {
   isLoading: true
 };
 
+const tableModelHighlightedRow = JSON.parse(JSON.stringify(tableModel));
+tableModelHighlightedRow.rows[3].class = 'ds-u-fill--primary-alt-lightest';
+
+const tableModelColspan = JSON.parse(JSON.stringify(tableModel));
+tableModelColspan.headers[1].colspan = 2;
+tableModelColspan.headers[1].label = 'Label with a colspan of 2';
+tableModelColspan.headers.shift();
+tableModelColspan.rows.map(row => {
+  row.cells[4].colspan = 2;
+  row.cells.splice(5, 1);
+});
+
 const props = {
   ...defaultProps,
   tableModel,
   tableModelNoRecords,
-  tableModelLoading
+  tableModelLoading,
+  tableModelHighlightedRow,
+  tableModelColspan,
 };
 
 storiesOf("Components|Table", module)
@@ -396,6 +410,11 @@ storiesOf("Components|Table", module)
                   type: "string",
                   value: "Specify a class for the header cell."
                 },
+                {
+                  name: "colspan",
+                  type: "number",
+                  value: "Specify a colspan for the header cell."
+                },
               ]
             },
             {
@@ -404,79 +423,96 @@ storiesOf("Components|Table", module)
               value: "Use this to set the table rows.",
               properties: [
                 {
-                  name: "columnKey",
-                  type: "string",
-                  value:
-                    "An identifier that should be shared between all cells and headers in one column.  This is very important for checkbox columns.  This doubles as a css class that you can use to style the cell."
-                },
-                {
-                  name: "label",
-                  type: "string",
-                  value: "The content that is shown inside of the cell"
-                },
-                {
-                  name: "ariaLabel",
-                  type: "string",
-                  value: "Screen reader text for the cell"
-                },
-                {
-                  name: "type",
-                  type: "TableCellTypeEnum",
-                  value: "The type of cell to show",
-                  options: TableCellTypeEnum,
-                  default: "TableCellTypeEnum.DEFAULT"
-                },
-                {
                   name: "class",
                   type: "string",
-                  value: "A class for the table cell"
+                  value: "A class for the table cell.",
                 },
                 {
-                  name: "icon",
-                  type: "IconDefinition",
-                  value: "An icon to display in the cell before the label"
+                  name: "cells",
+                  type: "TableCellModel[]",
+                  value: "Use this to set the table cells.",
+                  properties: [
+                    {
+                      name: "columnKey",
+                      type: "string",
+                      value:
+                        "An identifier that should be shared between all cells and headers in one column.  This is very important for checkbox columns.  This doubles as a css class that you can use to style the cell."
+                    },
+                    {
+                      name: "label",
+                      type: "string",
+                      value: "The content that is shown inside of the cell"
+                    },
+                    {
+                      name: "ariaLabel",
+                      type: "string",
+                      value: "Screen reader text for the cell"
+                    },
+                    {
+                      name: "type",
+                      type: "TableCellTypeEnum",
+                      value: "The type of cell to show",
+                      options: TableCellTypeEnum,
+                      default: "TableCellTypeEnum.DEFAULT"
+                    },
+                    {
+                      name: "class",
+                      type: "string",
+                      value: "A class for the table cell"
+                    },
+                    {
+                      name: "colspan",
+                      type: "number",
+                      value: "Specify a colspan for the table cell."
+                    },
+                    {
+                      name: "icon",
+                      type: "IconDefinition",
+                      value: "An icon to display in the cell before the label"
+                    },
+                    {
+                      name: "iconClass",
+                      type: "string",
+                      value: "A class for the icon"
+                    },
+                    {
+                      name: "buttonDisabled",
+                      type: "boolean",
+                      value:
+                        "For button cells only, use this field to disable the button",
+                      default: false
+                    },
+                    {
+                      name: "buttonOnClick",
+                      value:
+                        "For button cells only, a function that is called when the button is clicked",
+                      type: "function"
+                    },
+                    {
+                      name: "buttonClass",
+                      value: "A class for the button",
+                      type: "string"
+                    },
+                    {
+                      name: "checkboxValue",
+                      value:
+                        "For checkbox cells only, a value for the checkbox to emit",
+                      type: "string"
+                    },
+                    {
+                      name: "isChecked",
+                      value:
+                        "For checkbox cells only, use this to check or uncheck a checkbox",
+                      type: "boolean"
+                    },
+                    {
+                      name: "popoverModel",
+                      value:
+                        "For popover cells only, use this to configure the popover component. See the popover section for more info.",
+                      type: "PopoverModel"
+                    }
+                  ]
                 },
-                {
-                  name: "iconClass",
-                  type: "string",
-                  value: "A class for the icon"
-                },
-                {
-                  name: "buttonDisabled",
-                  type: "boolean",
-                  value:
-                    "For button cells only, use this field to disable the button",
-                  default: false
-                },
-                {
-                  name: "buttonOnClick",
-                  value:
-                    "For button cells only, a function that is called when the button is clicked",
-                  type: "function"
-                },
-                {
-                  name: "buttonClass",
-                  value: "A class for the button",
-                  type: "string"
-                },
-                {
-                  name: "checkboxValue",
-                  value:
-                    "For checkbox cells only, a value for the checkbox to emit",
-                  type: "string"
-                },
-                {
-                  name: "isChecked",
-                  value:
-                    "For checkbox cells only, use this to check or uncheck a checkbox",
-                  type: "boolean"
-                },
-                {
-                  name: "popoverModel",
-                  value:
-                    "For popover cells only, use this to configure the popover component. See the popover section for more info.",
-                  type: "PopoverModel"
-                }
               ]
             },
             {
@@ -581,4 +617,25 @@ storiesOf("Components|Table", module)
           </app-table-2>
       `,
     props
+  }))
+  .add("Highlighted Row", () => ({
+    template: `
+          <app-table-2
+              [tableModel]="tableModelHighlightedRow"
+              (paginationClick)="handleEvent($event)"
+              (sortClick)="handleEvent($event)">
+          </app-table-2>
+      `,
+    props
+  }))
+  .add("Colspan", () => ({
+    template: `
+          <app-table-2
+              [tableModel]="tableModelColspan"
+              (paginationClick)="handleEvent($event)"
+              (sortClick)="handleEvent($event)">
+          </app-table-2>
+      `,
+    props
   }));
+
