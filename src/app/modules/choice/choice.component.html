@@ -10,6 +10,7 @@
     (change)="onChange($event)"
     attr.aria-label="{{ ariaLabel }}"
     [attr.tabindex]="tabIndex ? tabIndex : null"
+    [disabled]="disabled"
 />
 <label for="{{ value +'-'+ index }}" class="{{labelClass}}" id="{{ value +'-'+ index + '-label' }}">
     <span *ngIf="showTitle" >{{ label ? label : value }}</span>

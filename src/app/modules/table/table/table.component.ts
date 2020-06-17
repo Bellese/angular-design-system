@@ -15,6 +15,7 @@ export class AppTableComponent implements OnInit, OnChanges {
     @Input() tableSummary;
     @Input() tableTitle;
     @Input() paginate;
+    @Input() paginateLabel = "Table page link";
     @Input() searchText = '';
     @Input() starRating;
     @Input() maxRows;

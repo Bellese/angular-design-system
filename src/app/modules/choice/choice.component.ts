@@ -19,6 +19,7 @@ export class AppChoiceComponent implements OnInit {
     @Input() inputClass: string;
     @Input() errorMessage: string;
     @Input() isChecked: boolean;
+    @Input() disabled: boolean;
     @Input() dataAutoId: string;
     @Input() tabIndex: number;
 

@@ -48,10 +48,12 @@
             <ng-container *ngFor="let card of cardArray.cluster; let x = index;">
                 <div class="ds-l-col" [ngClass]="(x + 1 ) % 2 === 0 ? 'padding-L-0' : ''">
                     <div 
-                        id="{{'CardCluster'+(x+1)}}" [ngClass]="cardArray.buttonClicked === 'CardCluster'+(x+1) ? 'active': null"
+                        id="{{'CardCluster'+(x+1)}}"
+                        [ngClass]="{'active': cardArray.buttonClicked === 'CardCluster'+(x+1), 'disabled': card.disabled}"
                         class="{{'pointer card cardHeight ds-u-padding--1 ds-u-margin-bottom--2 ' + card.classButton}}"
                         (click)="passAction($event)" (keyup.enter)="passAction($event)"
-                        role="button" tabindex="0"
+                        role="button"
+                        [attr.tabindex]="card.disabled ? null : 0"
                         [attr.aria-label]="card.ariaLabel || card.name"
                     >    
                         <div class='cardClusterContent ds-l-row ds-u-margin-x--0'>
@@ -64,16 +66,17 @@
                                     groupName="cardClusterCheckbox"
                                     [isChecked]="cardArray.buttonClicked === 'CardCluster'+(x+1)"
                                     [showTitle]="false"
+                                    [disabled]="card.disabled"
                                     tabIndex="-1">
                                 </app-choice>
                             </div>
                             <div class='ds-l-col' [ngClass]="{'ds-u-padding-x--0': cardArray.showRadioButton}">
-                                <div class="ds-u-font-size--h3 ds-u-color--black ds-u-font-weight--bold noPoint"
+                                <div class="ds-u-font-size--h3 ds-u-font-weight--bold noPoint"
                                     [ngClass]="card.classValue">
                                     <fa-icon [icon]="card.valueIcon" *ngIf="card.valueIcon"></fa-icon>
                                     {{ !card.value ? '&nbsp;' : card.value }}
                                 </div>
-                                <div class="ds-text ds-u-color--black noPoint" [ngClass]="card.className">
+                                <div class="ds-text noPoint" [ngClass]="card.className">
                                     <fa-icon [icon]="card.nameIcon" *ngIf="card.nameIcon"></fa-icon>
                                     {{ !card.name ? '&nbsp;' : card.name }}
                                 </div>

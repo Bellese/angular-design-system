@@ -16,21 +16,21 @@
     </caption>
     <thead *ngIf="tableModel.headers.length" class="tableHeading " [ngClass]="tableModel.headerClass">
         <tr>
-            <th *ngFor="let header of tableModel.headers;" scope="col" [ngClass]="[header.type, header.class]" [style.width]="header.headerWidth">
+            <th *ngFor="let header of tableModel.headers;" scope="col" [ngClass]="[header.type, header.class]" [style.width]="header.headerWidth" [attr.colspan]="header.colspan">
                 <app-table-header-2 [tableHeaderModel]="header" (headerClick)="headerClick($event)"></app-table-header-2>
             </th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let row of tableModel.rows | paginate: { itemsPerPage: tableModel.pagination.perPage, currentPage: tableModel.pagination.currentPage, totalItems: tableModel.totalRows, id: tableModel.id } ; let rowIndex = index">
+        <tr *ngFor="let row of tableModel.rows | paginate: { itemsPerPage: tableModel.pagination.perPage, currentPage: tableModel.pagination.currentPage, totalItems: tableModel.totalRows, id: tableModel.id } ; let rowIndex = index" [attr.class]="row.class">
             <ng-container *ngFor="let cell of row.cells; let cellIndex = index">
                 <ng-template #cellComponent>
                     <app-table-cell-2 [tableCellModel]="cell" (cellClick)="cellClick($event)"></app-table-cell-2>
                 </ng-template>
-                <th scope="row" [ngClass]="cell.type" *ngIf="cellIndex === tableModel._rowHeaderIndex">
+                <th scope="row" [ngClass]="cell.type" *ngIf="cellIndex === tableModel._rowHeaderIndex" [attr.colspan]="cell.colspan">
                     <ng-container *ngTemplateOutlet="cellComponent"></ng-container>
                 </th>
-                <td [ngClass]="cell.type" *ngIf="cellIndex !== tableModel._rowHeaderIndex">
+                <td [ngClass]="cell.type" *ngIf="cellIndex !== tableModel._rowHeaderIndex"  [attr.colspan]="cell.colspan">
                     <ng-container *ngTemplateOutlet="cellComponent"></ng-container>
                 </td>
             </ng-container>

@@ -23,6 +23,7 @@ export class TableHeaderModel extends AngularDesignSystemModel {
     label: string;
     type: TableHeaderTypeEnum = TableHeaderTypeEnum.DEFAULT;
     class = '';
+    colspan: number;
     isRowHeader = false;
     headerWidth?: string;
 
@@ -56,6 +57,7 @@ export class TableCellModel extends AngularDesignSystemModel {
     ariaLabel ?: string;
     type ?: TableCellTypeEnum = TableCellTypeEnum.DEFAULT;
     class ? = '';
+    colspan: number;
 
     // Icon Properties
     icon ?: IconDefinition;
@@ -89,6 +91,7 @@ export class TableCellModel extends AngularDesignSystemModel {
 
 export class TableRowModel extends AngularDesignSystemModel {
     cells: TableCellModel[] = [];
+    class: String;
 
     constructor(options?: any) {
         super();

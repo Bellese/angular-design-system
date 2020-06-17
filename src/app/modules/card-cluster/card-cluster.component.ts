@@ -24,8 +24,10 @@ export class AppCardClusterComponent implements OnInit {
     constructor() { }
 
     passAction(e) {
-        this.passButton.emit(e);
-        this.cardArray.buttonClicked = e.target.id;
+        if (!e.target.classList.contains('disabled')) {
+            this.passButton.emit(e);
+            this.cardArray.buttonClicked = e.target.id;
+        }
     }
 
     ngOnInit() {

@@ -23,8 +23,7 @@
                         [header]="header"
                         [selected]="selected"
                         (onHeaderClick)="passHeaderEvent($event)"
-                    scope="col"
-                    tabindex="0">
+                    scope="col">
                 </th>
             </tr>
         </thead>
@@ -51,5 +50,6 @@
 <app-paging *ngIf = "paginate"
     [id]="index"
     [dataRows]="dataRows" 
-    (currentPage)="passPage($event)">
+    (currentPage)="passPage($event)"
+    [screenReaderLabel]="paginateLabel">
 </app-paging>

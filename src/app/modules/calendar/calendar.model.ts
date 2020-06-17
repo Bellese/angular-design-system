@@ -11,6 +11,10 @@ export class CalendarModel extends AngularDesignSystemModel{
     endDate: Date;
     ariaLabelDate: string = "Date input";
     ariaLabelEndDate: string = 'End Date input';
+    minDate: Date | undefined = undefined;
+    maxDate: Date | undefined = undefined;
+    minEndDate: Date | undefined = undefined;
+    maxEndDate: Date | undefined = undefined;
 
     constructor(options?) {
         super();

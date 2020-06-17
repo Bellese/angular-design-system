@@ -102,6 +102,11 @@ const cardClusterDataShowRadioButtonsAndIcons = new CardClusterModel({
     ]
 });
 
+const cardClusterDataDisabledCards = cardClusterDataShowRadioButtons;
+cardClusterDataDisabledCards.cluster[2].disabled = true;
+cardClusterDataDisabledCards.cluster[3].disabled = true;
+
+
  const props = {
      ...defaultProps,
      cardClusterDataNormal,
@@ -110,7 +115,8 @@ const cardClusterDataShowRadioButtonsAndIcons = new CardClusterModel({
      cardClusterDataSelectedCard,
      cardClusterDataSetTotal,
      cardClusterDataShowRadioButtons,
-     cardClusterDataShowRadioButtonsAndIcons
+     cardClusterDataShowRadioButtonsAndIcons,
+     cardClusterDataDisabledCards
  };
 
 storiesOf('Components|Card Cluster', module)
@@ -256,6 +262,12 @@ storiesOf('Components|Card Cluster', module)
                                     type: 'string',
                                     value: 'A class to apply to the element that contains the card\'s name'
                                 },
+                                {
+                                    name: 'disabled',
+                                    default: false,
+                                    type: 'boolean',
+                                    value: 'If set to false, this card will display as disabled and will not be clickable'
+                                },
                             ]
                         },
                     ]
@@ -322,4 +334,13 @@ storiesOf('Components|Card Cluster', module)
             </app-card-cluster>
         `,
         props,
+    })).add('Disabled Cards', () => ({
+        template: `
+            <app-card-cluster
+                [cardArray]="cardClusterDataDisabledCards"
+                (passButton)="handleEvent($event)">
+            </app-card-cluster>
+        `,
+        props,
     }));
+
