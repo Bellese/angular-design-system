@@ -8,9 +8,9 @@ import { Component, Input, OnChanges} from '@angular/core';
 export class AppPlusComponent implements OnChanges {
     @Input() expand: boolean;
     @Input() clicked: boolean;
-    @Input() plusClass: string;
+    @Input() plusClass = '';
 
-    svgPlusClass: string;
+    svgPlusClass = '';
 
     ngOnChanges() {
         if (this.clicked) {
