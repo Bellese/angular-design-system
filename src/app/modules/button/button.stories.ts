@@ -80,6 +80,7 @@ storiesOf('Components|Button', module)
                 buttonID = 'Button1'
                 [ariaSort] = true
                 dataAutoId = 'testingID'
+                tabLevel= '2'
                 (callBack) = 'handleEvent($event)'>
                     Example Button
             </app-button>
