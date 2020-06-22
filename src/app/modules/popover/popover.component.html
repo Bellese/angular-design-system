@@ -11,6 +11,7 @@
   mdePopoverArrowOffsetX="16"
   (opened)="isOpened()"
   (closed)="isClosed()"
+  tabLevel="1"
 >
   <fa-icon [icon]="popoverModel.icon" *ngIf="popoverModel.icon" class="ds-u-padding-right--1"></fa-icon>
   {{ popoverModel.label }}
@@ -30,6 +31,7 @@
         [dataAutoId]="item.dataAutoId ? item.dataAutoId : item.dataAutoId"
         buttonType="ds-c-button ds-c-button--transparent ds-u-padding--1 ds-u-padding-y--2 ds-u-font-weight--normal ds-u-text-decoration--none hqr-hide ds-u-color--base" 
         (click)="handleClick(item)"
+        tabLevel="1"
       >
         {{ item.label }}
       </app-button>
