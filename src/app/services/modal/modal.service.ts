@@ -1,19 +1,10 @@
-import {
-    Injectable,
-    Injector,
-    Inject,
-    ComponentFactoryResolver,
-    EmbeddedViewRef,
-    ApplicationRef,
-    EventEmitter,
-    Output,
-    TemplateRef
-} from '@angular/core';
+import { Injectable, Injector, Inject, ComponentFactoryResolver, EmbeddedViewRef, ApplicationRef, EventEmitter, Output, TemplateRef, Directive } from '@angular/core';
 
 import {
     DOCUMENT
 } from '@angular/common';
 
+@Directive()
 @Injectable()
 
 export class ModalService {

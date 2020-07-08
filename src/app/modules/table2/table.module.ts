@@ -40,7 +40,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 })
 
 export class Table2Module {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<Table2Module> {
       return {
           ngModule: Table2Module,
       };
