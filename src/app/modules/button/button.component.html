@@ -8,6 +8,7 @@
     class="ds-c-button pointer"
     [ngClass]="buttonType"
     [disabled]="disabled"
-    attr.data-auto-id="{{dataAutoId}}">
+    attr.data-auto-id="{{dataAutoId}}"
+    tabindex="{{tabLevel}}">
         <ng-content></ng-content>
 </button>

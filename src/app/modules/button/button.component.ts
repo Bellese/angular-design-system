@@ -13,6 +13,7 @@ export class AppButtonComponent {
     @Input() ariaSort: boolean;
     @Input() dataAutoId: string;
     @Input() disabled: boolean;
+    @Input() tabLevel: string = "0";
     @Output() callBack = new EventEmitter<any>();
 
     state = false;

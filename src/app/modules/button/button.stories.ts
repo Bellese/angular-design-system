@@ -59,6 +59,11 @@ storiesOf('Components|Button', module)
                     value: 'Use this for testing ID',
                 },
                 {
+                    name: 'tabLevel',
+                    type: 'string',
+                    value: "Use this to set a tabindex for the button component"
+                },
+                {
                     name: 'disabled',
                     type: 'boolean',
                     value: 'Use this to disable the button',
@@ -80,6 +85,7 @@ storiesOf('Components|Button', module)
                 buttonID = 'Button1'
                 [ariaSort] = true
                 dataAutoId = 'testingID'
+                tabLevel= '2'
                 (callBack) = 'handleEvent($event)'>
                     Example Button
             </app-button>
