@@ -11,7 +11,7 @@ export class FileUploadComponent implements OnInit {
   @Input() fileUploadModel: FileUploadModel;
   @Output() onFileUpload = new EventEmitter<any>();
 
-  @ViewChild('fileInput', { static: true }) fileInput: ElementRef;
+  @ViewChild('fileInput') fileInput: ElementRef;
 
   ngOnInit() {
     if (!this.fileUploadModel) {

@@ -372,7 +372,7 @@ export class AppComponent implements OnInit {
       });
 
       
-      @ViewChild('tableComponent', { static: true }) table2Component: TableComponent;
+      @ViewChild('tableComponent') table2Component: TableComponent;
 
     constructor(
         private modalService: ModalService,
