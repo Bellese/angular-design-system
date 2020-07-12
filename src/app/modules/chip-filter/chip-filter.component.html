@@ -1,0 +1,13 @@
+<ul>
+  <ng-template ngFor [ngForOf]="tags" let-tag let-index="index">
+    <li>
+      {{tag}}
+      <button type="button" (click)="remove(index)">x</button>
+    </li>
+  </ng-template>
+</ul>
+
+<input type="text"
+       [(ngModel)]="newTag"
+       (keydown)="onInputKeyDown($event)"
+       placeholder="type some text and press Enter" />
