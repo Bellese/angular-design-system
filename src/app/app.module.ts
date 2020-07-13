@@ -27,8 +27,6 @@ import {CircleGraphModule} from './modules/circle-graph/circle-graph.module';
 import {ChoiceModule} from './modules/choice/choice.module';
 import {LineGraphModule} from './modules/line-graph/line-graph.module';
 import {DropdownModule} from './modules/drop-down/drop-down.module';
-import {IanModule} from './modules/ian/ian.module';
-import {ReactiveFormElementsModule} from './modules/reactive-form-elements/reactive-form-elements.module';
 import {ChipFilterModule} from './modules/chip-filter/chip-filter.module';
 import {AlertModule} from './modules/alert/alert.module';
 import {AppService} from './services/app.service';
@@ -71,8 +69,6 @@ import {CalendarModule} from './modules/calendar/calendar.module';
     ChoiceModule,
     LineGraphModule,
     DropdownModule,
-    IanModule,
-    ReactiveFormElementsModule,
     ChipFilterModule,
     AlertModule,
     ModalShellModule,
