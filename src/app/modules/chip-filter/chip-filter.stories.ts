@@ -21,11 +21,14 @@ const props = {
     singleSelection: false,
     idField: 'item_id',
     textField: 'item_text',
-    selectAllText: 'Select All',
-    unSelectAllText: 'UnSelect All',
+    selectAllText: 'Select All Providers',
+    unSelectAllText: 'UnSelect All Providers',
     label: 'Search Providers',
     itemsShowLimit: 3,
     allowSearchFilter: true
+  },
+  logjam: (e) => {
+    console.log(e);
   }
 };
 
@@ -47,8 +50,10 @@ storiesOf('Components|Chip Filter', module)
               [labelName]="'Provider(s)'"
               [(ngModel)]="selectedItems"
               [settings]="dropdownSettings"
-              (onSelect)="onItemSelect($event)"
-              (onSelectAll)="onSelectAll($event)">
+              (onDeSelect)="logjam($event)"
+              (onDeSelectAll)="logjam($event)"
+              (onSelect)="logjam($event)"
+              (onSelectAll)="logjam($event)">
             </app-chip-filter>
         `,
     props,

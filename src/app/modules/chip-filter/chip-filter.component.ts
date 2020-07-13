@@ -45,8 +45,8 @@ export class AppChipFilterComponent implements ControlValueAccessor {
     textField: 'text',
     disabledField: 'isDisabled',
     enableCheckAll: true,
-    selectAllText: 'Select All',
-    unSelectAllText: 'UnSelect All',
+    selectAllText: 'Select All Providers',
+    unSelectAllText: 'UnSelect All Providers',
     allowSearchFilter: false,
     limitSelection: -1,
     clearSearchFilter: true,
@@ -230,26 +230,13 @@ export class AppChipFilterComponent implements ControlValueAccessor {
 
   isAllItemsSelected(): boolean {
     // get disabld item count
-    let filteredItems = this.listFilterPipe.transform(this._data, this.filter);
+    const filteredItems = this.listFilterPipe.transform(this._data, this.filter);
     const itemDisabledCount = filteredItems.filter(item => item.isDisabled).length;
     // take disabled items into consideration when checking
     if ((!this.data || this.data.length === 0) && this._settings.allowRemoteDataSearch) {
       return false;
     }
     return filteredItems.length === this.selectedItems.length + itemDisabledCount;
-  }
-
-  showButton(): boolean {
-    if (!this._settings.singleSelection) {
-      if (this._settings.limitSelection > 0) {
-        return false;
-      }
-      // this._settings.enableCheckAll = this._settings.limitSelection === -1 ? true : false;
-      return true; // !this._settings.singleSelection && this._settings.enableCheckAll && this._data.length > 0;
-    } else {
-      // should be disabled in single selection mode
-      return false;
-    }
   }
 
   itemShowRemaining(): number {

@@ -7,6 +7,7 @@ import {ClickOutsideDirective} from './click-outside.directive';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import {MatInputModule} from '@angular/material/input';
     MatChipsModule,
     MatIconModule,
     MatInputModule,
+    FontAwesomeModule
   ],
   declarations: [
     AppChipFilterComponent,
