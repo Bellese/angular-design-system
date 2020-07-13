@@ -10,11 +10,11 @@ import {ChipFilterModule} from './chip-filter.module';
 const props = {
   ...defaultProps,
   dropdownList: [
-    {item_id: 1, item_text: 'Mumbai'},
-    {item_id: 2, item_text: 'Bangaluru'},
-    {item_id: 3, item_text: 'Pune'},
-    {item_id: 4, item_text: 'Navsari'},
-    {item_id: 5, item_text: 'New Delhi'}
+    {item_id: 1, item_text: 'Provider Name 1'},
+    {item_id: 2, item_text: 'Provider Name 2213123123'},
+    {item_id: 3, item_text: 'Provider Name 452345243543254'},
+    {item_id: 4, item_text: 'Provider Name 14325234523454235'},
+    {item_id: 5, item_text: 'Provider Name 1e2q423q45'}
   ],
   selectedItems: [],
   dropdownSettings: {

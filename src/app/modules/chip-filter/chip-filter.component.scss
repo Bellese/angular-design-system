@@ -17,6 +17,16 @@ app-chip-filter, .app-chip-filter {
     margin: 0 auto;
   }
 
+  mat-chip {
+    border: 1px solid #999999 !important;
+    max-width: 30%;
+    span {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+
   //hide mat chip if shown limit is exceeded
   mat-chip.mat-chip[hidden] {
     display: none !important;
@@ -185,7 +195,7 @@ app-chip-filter, .app-chip-filter {
     width: 14px;
     height: 14px;
     margin-top: -9px;
-    border: 2px solid $base-color;
+    border: 2px solid #212121;
     text-align: center;
     transition: all 0.4s ease;
   }
@@ -222,6 +232,7 @@ app-chip-filter, .app-chip-filter {
   input[type='checkbox']:disabled:checked
   + div:before {
     background-color: #cccccc;
+    background-color: #cccccc;
   }
 
   .multiselect-item-checkbox input[type='checkbox'] + div:after {
@@ -247,6 +258,7 @@ app-chip-filter, .app-chip-filter {
   .multiselect-item-checkbox input[type='checkbox']:checked + div:before {
     animation: borderscale 200ms ease-in;
     background: $base-color;
+    border: 2px solid $base-color;
   }
 
   .multiselect-item-checkbox input[type='checkbox']:checked + div:after {

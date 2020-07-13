@@ -12,10 +12,10 @@
     <div tabindex="-1" class="dropdown-btn" (click)="toggleDropdown($event)">
       <span class="placeholder" *ngIf="selectedItems.length == 0">{{_placeholder}}</span>
       <mat-chip-list>
-        <mat-chip selected color="primary"
+        <mat-chip selected color="secondary"
                   *ngFor="let item of selectedItems;trackBy: trackByFn;let k = index"
                   [hidden]="k > _settings.itemsShowLimit-1">
-            {{item.text}}
+          <span>{{item.text}}</span>
         </mat-chip>
       </mat-chip-list>
       <div class="counter">
