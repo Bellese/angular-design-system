@@ -61,8 +61,8 @@ app-chip-filter, .app-chip-filter {
 .dropdown-list {
   position: absolute;
   padding-top: 6px;
-  width: 100%;
-  z-index: 9999;
+  width: inherit;
+  z-index: 1;
   border: 1px solid #ccc;
   border-radius: 3px;
   background: #fff;
@@ -92,6 +92,10 @@ app-chip-filter, .app-chip-filter {
       outline: none;
     }
   }
+}
+
+.multiselect-dropdown {
+  width: 100%;
 }
 
 .multiselect-item-checkbox input[type='checkbox'] {

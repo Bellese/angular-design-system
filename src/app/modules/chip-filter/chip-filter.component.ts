@@ -48,6 +48,13 @@ export class AppChipFilterComponent implements ControlValueAccessor {
     allowRemoteDataSearch: false
   };
 
+  @Input() hintMessage: string;
+  @Input() errorMessage: string;
+  @Input() error: boolean;
+  @Input() labelName: string;
+  @Input() labelClass: string;
+  @Input() id = 1;
+
   @Input()
   public set placeholder(value: string) {
     if (value) {

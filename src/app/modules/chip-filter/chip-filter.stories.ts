@@ -6,6 +6,7 @@ import {defaultProps} from '../../../../.storybook/helpers';
 // Modules
 import {ChipFilterModule} from './chip-filter.module';
 
+
 const props = {
   ...defaultProps,
   dropdownList: [
@@ -39,6 +40,7 @@ storiesOf('Components|Chip Filter', module)
   .add('Default', () => ({
     template: `
             <app-chip-filter
+              style="width: 50vw; display: block; position: relative; margin: 0 auto; padding-top: 4rem"
               [placeholder]="'custom placeholder'"
               [data]="dropdownList"
               [(ngModel)]="selectedItems"
