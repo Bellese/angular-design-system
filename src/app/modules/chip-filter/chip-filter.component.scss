@@ -11,7 +11,7 @@ app-chip-filter, .app-chip-filter {
   font-family: inherit;
 
   mat-chip-list {
-    width: 90% !important;
+    width: 80% !important;
     display: inline-block;
     text-align: center;
     margin: 0 auto;
@@ -23,9 +23,9 @@ app-chip-filter, .app-chip-filter {
   }
 
   .counter {
-    width: 10% !important;
+    width: 20% !important;
     display: inline-block;
-    text-align: center;
+    text-align: right;
     margin: 0 auto;
     .arrow {
       background-color: #fff;
@@ -42,12 +42,13 @@ app-chip-filter, .app-chip-filter {
     justify-content: space-between;
     display: flex;
     align-items: center;
+    min-height: 32px;
     &:focus {
       outline: none;
     }
 
     .placeholder {
-      width: 90%;
+      width: 80%;
     }
 
     .selected-item {
@@ -135,6 +136,12 @@ app-chip-filter, .app-chip-filter {
   .multiselect-dropdown {
     width: 100%;
     max-width: inherit;
+    min-height: 42px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .multiselect-item-checkbox input[type='checkbox'] {
