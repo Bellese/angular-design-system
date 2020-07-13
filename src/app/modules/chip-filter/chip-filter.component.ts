@@ -1,4 +1,14 @@
-import {Component, HostListener, forwardRef, Input, Output, EventEmitter, ChangeDetectionStrategy, ChangeDetectorRef} from '@angular/core';
+import {
+  Component,
+  HostListener,
+  forwardRef,
+  Input,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  ViewEncapsulation
+} from '@angular/core';
 import {NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/forms';
 import {ListItem, IDropdownSettings} from './chip-filter.model';
 import {ChipFilterPipe} from './chip-filter.pipe';
@@ -8,6 +18,7 @@ export const DROPDOWN_CONTROL_VALUE_ACCESSOR: any = {
   useExisting: forwardRef(() => AppChipFilterComponent),
   multi: true
 };
+
 const noop = () => {
 };
 
@@ -16,7 +27,8 @@ const noop = () => {
   templateUrl: './chip-filter.component.html',
   styleUrls: ['./chip-filter.component.scss'],
   providers: [DROPDOWN_CONTROL_VALUE_ACCESSOR],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class AppChipFilterComponent implements ControlValueAccessor {
   public _settings: IDropdownSettings;
@@ -53,7 +65,7 @@ export class AppChipFilterComponent implements ControlValueAccessor {
   @Input() error: boolean;
   @Input() labelName: string;
   @Input() labelClass: string;
-  @Input() id = 1;
+  @Input() disabled = false;
 
   @Input()
   public set placeholder(value: string) {
@@ -64,8 +76,6 @@ export class AppChipFilterComponent implements ControlValueAccessor {
     }
   }
 
-  @Input()
-  disabled = false;
 
   @Input()
   public set settings(value: IDropdownSettings) {

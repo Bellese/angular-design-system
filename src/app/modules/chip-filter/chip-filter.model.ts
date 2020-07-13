@@ -1,4 +1,4 @@
-export interface IDropdownSettings {
+export class IDropdownSettings {
   singleSelection?: boolean;
   idField?: string;
   textField?: string;

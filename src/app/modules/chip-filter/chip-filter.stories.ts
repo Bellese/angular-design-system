@@ -23,6 +23,7 @@ const props = {
     textField: 'item_text',
     selectAllText: 'Select All',
     unSelectAllText: 'UnSelect All',
+    label: 'Search Providers',
     itemsShowLimit: 3,
     allowSearchFilter: true
   }
@@ -41,8 +42,9 @@ storiesOf('Components|Chip Filter', module)
     template: `
             <app-chip-filter
               style="width: 50vw; display: block; position: relative; margin: 0 auto; padding-top: 4rem"
-              [placeholder]="'custom placeholder'"
+              [placeholder]="'Search Provider(s)'"
               [data]="dropdownList"
+              [labelName]="'Provider(s)'"
               [(ngModel)]="selectedItems"
               [settings]="dropdownSettings"
               (onSelect)="onItemSelect($event)"

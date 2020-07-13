@@ -54,4 +54,4 @@ export { PopoverModel, PopoverItemModel, mdePopoverPositionXEnum, mdePopoverPosi
 export { CardClusterModel, CardClusterClusterModel } from './src/app/modules/card-cluster/card-cluster.models';
 export { CalendarModel } from './src/app/modules/calendar/calendar.model';
 export * from './src/app/modules/table2/table.models';
-
+export * from './src/app/modules/chip-filter/chip-filter.model';
