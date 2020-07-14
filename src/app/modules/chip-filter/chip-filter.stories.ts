@@ -27,6 +27,26 @@ const props = {
     itemsShowLimit: 3,
     allowSearchFilter: true
   },
+  dropdownSettings2: {
+    singleSelection: false,
+    idField: 'item_id',
+    textField: 'item_text',
+    selectAllText: 'Select All Providers',
+    unSelectAllText: 'UnSelect All Providers',
+    label: 'Search Providers',
+    itemsShowLimit: 3,
+    allowSearchFilter: false
+  },
+  dropdownSettings3: {
+    singleSelection: false,
+    idField: 'item_id',
+    textField: 'item_text',
+    selectAllText: 'Select All Providers',
+    unSelectAllText: 'UnSelect All Providers',
+    label: 'Search Providers',
+    itemsShowLimit: 2,
+    allowSearchFilter: false
+  },
   logjam: (e) => {
     console.log(e);
   }
@@ -162,6 +182,61 @@ storiesOf('Components|Chip Filter', module)
               [labelName]="'Provider(s)'"
               [(ngModel)]="selectedItems"
               [settings]="dropdownSettings"
+              (onDeSelect)="logjam($event)"
+              (onDeSelectAll)="logjam($event)"
+              (onSelect)="logjam($event)"
+              (onSelectAll)="logjam($event)">
+            </app-chip-filter>
+        `,
+    props,
+  }))
+  .add('Hide Search Filter', () => ({
+    template: `
+            <app-chip-filter
+              style="width: 50vw; display: block; position: relative; margin: 0 auto; padding-top: 4rem"
+              [placeholder]="'Search Provider(s)'"
+              [searchPlaceholder]="'Search by Provider Name or ID'"
+              [data]="dropdownList"
+              [labelName]="'Provider(s)'"
+              [(ngModel)]="selectedItems"
+              [settings]="dropdownSettings2"
+              (onDeSelect)="logjam($event)"
+              (onDeSelectAll)="logjam($event)"
+              (onSelect)="logjam($event)"
+              (onSelectAll)="logjam($event)">
+            </app-chip-filter>
+        `,
+    props,
+  }))
+  .add('Disable Dropdown', () => ({
+    template: `
+            <app-chip-filter
+              style="width: 50vw; display: block; position: relative; margin: 0 auto; padding-top: 4rem"
+              [placeholder]="'Search Provider(s)'"
+              [searchPlaceholder]="'Search by Provider Name or ID'"
+              [data]="dropdownList"
+              [disabled]="true"
+              [labelName]="'Provider(s)'"
+              [(ngModel)]="selectedItems"
+              [settings]="dropdownSettings2"
+              (onDeSelect)="logjam($event)"
+              (onDeSelectAll)="logjam($event)"
+              (onSelect)="logjam($event)"
+              (onSelectAll)="logjam($event)">
+            </app-chip-filter>
+        `,
+    props,
+  }))
+  .add('Limit Chips Shown (itemShowLimit)', () => ({
+    template: `
+            <app-chip-filter
+              style="width: 50vw; display: block; position: relative; margin: 0 auto; padding-top: 4rem"
+              [placeholder]="'Search Provider(s)'"
+              [searchPlaceholder]="'Search by Provider Name or ID'"
+              [data]="dropdownList"
+              [labelName]="'Provider(s)'"
+              [(ngModel)]="selectedItems"
+              [settings]="dropdownSettings3"
               (onDeSelect)="logjam($event)"
               (onDeSelectAll)="logjam($event)"
               (onSelect)="logjam($event)"
