@@ -43,4 +43,12 @@ export class PopoverComponent implements OnInit {
     }
   }
 
+  tabLeave(e, index, item) {
+    if (e.key === "Tab") {
+      if (index === this.popoverModel.items.length - 1) {
+        document.getElementById(this.popoverModel.id).focus();
+      }
+    }
+  }
+
 }
