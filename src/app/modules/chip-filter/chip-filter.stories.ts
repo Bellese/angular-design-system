@@ -157,6 +157,7 @@ storiesOf('Components|Chip Filter', module)
             <app-chip-filter
               style="width: 50vw; display: block; position: relative; margin: 0 auto; padding-top: 4rem"
               [placeholder]="'Search Provider(s)'"
+              [searchPlaceholder]="'Search by Provider Name or ID'"
               [data]="dropdownList"
               [labelName]="'Provider(s)'"
               [(ngModel)]="selectedItems"

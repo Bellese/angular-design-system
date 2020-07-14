@@ -34,11 +34,10 @@ const noop = () => {
 export class AppChipFilterComponent implements ControlValueAccessor {
   public _settings: IDropdownSettings;
   public _data: Array<ListItem> = [];
+  private _sourceDataType = null;
+  private _sourceDataFields: Array<String> = [];
   public selectedItems: Array<ListItem> = [];
   public icon = faTimes;
-  public _placeholder = 'Select';
-  private _sourceDataType = null; // to keep note of the source data type. could be array of string/number/object
-  private _sourceDataFields: Array<String> = []; // store source data fields names
   public filter: ListItem = new ListItem(this.data);
   public defaultSettings: IDropdownSettings = {
     singleSelection: false,
@@ -67,15 +66,8 @@ export class AppChipFilterComponent implements ControlValueAccessor {
   @Input() labelName: string;
   @Input() labelClass: string;
   @Input() disabled = false;
-
-  @Input()
-  public set placeholder(value: string) {
-    if (value) {
-      this._placeholder = value;
-    } else {
-      this._placeholder = 'Select';
-    }
-  }
+  @Input() placeholder = 'Select';
+  @Input() searchPlaceholder = 'Search';
 
 
   @Input()
