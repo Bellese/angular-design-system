@@ -17,11 +17,11 @@
                   (removed)="removeSelected(item)"
                   [hidden]="k > _settings.itemsShowLimit-1">
           <span>{{item.text}}</span>
-          <mat-icon matChipRemove>cancel</mat-icon>
+          <fa-icon [icon]="icon" matChipRemove></fa-icon>
         </mat-chip>
       </mat-chip-list>
       <div class="counter">
-        <span style="padding-right: 6px;" *ngIf="itemShowRemaining()>0">+{{itemShowRemaining()}} Other</span>
+        <span *ngIf="itemShowRemaining()>0">+{{itemShowRemaining()}} <span id="other">Other</span></span>
         <span class="arrow"></span>
       </div>
     </div>

@@ -12,6 +12,7 @@ import {
 import {NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/forms';
 import {ListItem, IDropdownSettings} from './chip-filter.model';
 import {ChipFilterPipe} from './chip-filter.pipe';
+import {faTimes} from '@fortawesome/free-solid-svg-icons';
 
 export const DROPDOWN_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -34,12 +35,12 @@ export class AppChipFilterComponent implements ControlValueAccessor {
   public _settings: IDropdownSettings;
   public _data: Array<ListItem> = [];
   public selectedItems: Array<ListItem> = [];
-  public isDropdownOpen = true;
-  _placeholder = 'Select';
+  public icon = faTimes;
+  public _placeholder = 'Select';
   private _sourceDataType = null; // to keep note of the source data type. could be array of string/number/object
   private _sourceDataFields: Array<String> = []; // store source data fields names
-  filter: ListItem = new ListItem(this.data);
-  defaultSettings: IDropdownSettings = {
+  public filter: ListItem = new ListItem(this.data);
+  public defaultSettings: IDropdownSettings = {
     singleSelection: false,
     idField: 'id',
     textField: 'text',
@@ -126,11 +127,11 @@ export class AppChipFilterComponent implements ControlValueAccessor {
   private onTouchedCallback: () => void = noop;
   private onChangeCallback: (_: any) => void = noop;
 
-  onFilterTextChange($event) {
-    this.onFilterChange.emit($event);
+  constructor(private cdr: ChangeDetectorRef, private listFilterPipe: ChipFilterPipe) {
   }
 
-  constructor(private cdr: ChangeDetectorRef, private listFilterPipe: ChipFilterPipe) {
+  onFilterTextChange($event) {
+    this.onFilterChange.emit($event);
   }
 
   onItemClick($event: any, item: ListItem) {
@@ -278,7 +279,7 @@ export class AppChipFilterComponent implements ControlValueAccessor {
     return selected;
   }
 
-  objectify(val: ListItem) {
+  private objectify(val: ListItem) {
     if (this._sourceDataType === 'object') {
       const obj = {};
       obj[this._settings.idField] = val.id;
@@ -330,7 +331,7 @@ export class AppChipFilterComponent implements ControlValueAccessor {
     this.onChangeCallback(this.emittedValue(this.selectedItems));
   }
 
-  getFields(inputData) {
+  private getFields(inputData) {
     const fields = [];
     if (typeof inputData !== 'object') {
       return fields;

@@ -5,7 +5,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ChipFilterPipe} from './chip-filter.pipe';
 import {ClickOutsideDirective} from './click-outside.directive';
 import {MatChipsModule} from '@angular/material/chips';
-import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
@@ -16,7 +15,6 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     FormsModule,
     ReactiveFormsModule,
     MatChipsModule,
-    MatIconModule,
     MatInputModule,
     FontAwesomeModule
   ],
@@ -29,7 +27,6 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
   exports: [
     AppChipFilterComponent,
     MatChipsModule,
-    MatIconModule,
     MatInputModule,
   ]
 })
