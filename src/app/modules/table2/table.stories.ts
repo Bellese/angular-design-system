@@ -123,7 +123,7 @@ const tableModel: TableModel = new TableModel({
         }),
         new TableCellModel({
           type: TableCellTypeEnum.POPOVER,
-          popoverModel: popoverModel,
+          popoverModel: {...popoverModel, id: `popover1`},
         })
       ]
     }),
@@ -160,7 +160,7 @@ const tableModel: TableModel = new TableModel({
         }),
         new TableCellModel({
           type: TableCellTypeEnum.POPOVER,
-          popoverModel: popoverModel
+          popoverModel: {...popoverModel, id: `popover2`},
         })
       ]
     }),
@@ -197,7 +197,7 @@ const tableModel: TableModel = new TableModel({
         }),
         new TableCellModel({
           type: TableCellTypeEnum.POPOVER,
-          popoverModel: popoverModel
+          popoverModel: {...popoverModel, id: `popover3`},
         })
       ]
     }),
@@ -234,7 +234,7 @@ const tableModel: TableModel = new TableModel({
         }),
         new TableCellModel({
           type: TableCellTypeEnum.POPOVER,
-          popoverModel: popoverModel
+          popoverModel: {...popoverModel, id: `popover4`},
         })
       ]
     }),
@@ -271,7 +271,7 @@ const tableModel: TableModel = new TableModel({
         }),
         new TableCellModel({
           type: TableCellTypeEnum.POPOVER,
-          popoverModel: popoverModel
+          popoverModel: {...popoverModel, id: `popover5`},
         })
       ]
     })
