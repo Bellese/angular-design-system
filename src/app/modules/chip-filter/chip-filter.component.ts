@@ -140,6 +140,7 @@ export class AppChipFilterComponent implements ControlValueAccessor {
     }
 
     const found = this.isSelected(item);
+    // tslint:disable-next-line:max-line-length
     const allowAdd = this._settings.limitSelection === -1 || (this._settings.limitSelection > 0 && this.selectedItems.length < this._settings.limitSelection);
     if (!found) {
       if (allowAdd) {
@@ -170,7 +171,7 @@ export class AppChipFilterComponent implements ControlValueAccessor {
             ];
           }
         } catch (e) {
-          // console.error(e.body.msg);
+          console.log(e);
         }
       } else {
         const _data = value.map((item: any) =>
