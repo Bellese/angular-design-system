@@ -48,6 +48,7 @@ export class AppChipFilterComponent implements ControlValueAccessor {
     selectAllText: 'Select All Providers',
     unSelectAllText: 'UnSelect All Providers',
     allowSearchFilter: false,
+    error: null,
     limitSelection: -1,
     clearSearchFilter: true,
     maxHeight: 197,
@@ -57,18 +58,15 @@ export class AppChipFilterComponent implements ControlValueAccessor {
     closeDropDownOnSelection: false,
     showSelectedItemsAtTop: false,
     defaultOpen: false,
-    allowRemoteDataSearch: false
+    allowRemoteDataSearch: false,
+    hintMessage: null,
+    errorMessage: null,
+    labelName: null,
+    placeholder: 'Select',
+    searchPlaceholder: 'Search',
   };
 
-  @Input() hintMessage: string;
-  @Input() errorMessage: string;
-  @Input() error: boolean;
-  @Input() labelName: string;
-  @Input() labelClass: string;
   @Input() disabled = false;
-  @Input() placeholder = 'Select';
-  @Input() searchPlaceholder = 'Search';
-
 
   @Input()
   public set settings(value: IDropdownSettings) {

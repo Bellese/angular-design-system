@@ -19,13 +19,16 @@ const props = {
   selectedItems: [],
   dropdownSettings: {
     singleSelection: false,
+    placeholder: 'Search Provider(s)',
+    searchPlaceholder: 'Search by Provider Name or ID',
     idField: 'item_id',
     textField: 'item_text',
     selectAllText: 'Select All Providers',
     unSelectAllText: 'UnSelect All Providers',
     label: 'Search Providers',
     itemsShowLimit: 3,
-    allowSearchFilter: true
+    allowSearchFilter: true,
+    labelName: 'Provider(s)'
   },
   dropdownSettings2: {
     singleSelection: false,
@@ -175,11 +178,8 @@ storiesOf('Components|Chip Filter', module)
   .add('Normal', () => ({
     template: `
             <app-chip-filter
-              style="width: 50vw; display: block; position: relative; margin: 0 auto; padding-top: 4rem"
-              [placeholder]="'Search Provider(s)'"
-              [searchPlaceholder]="'Search by Provider Name or ID'"
+              style="width: 50vw; display: block; position: relative; margin: 0 auto; padding-top: 4rem;"
               [data]="dropdownList"
-              [labelName]="'Provider(s)'"
               [(ngModel)]="selectedItems"
               [settings]="dropdownSettings"
               (onDeSelect)="logjam($event)"
@@ -194,10 +194,7 @@ storiesOf('Components|Chip Filter', module)
     template: `
             <app-chip-filter
               style="width: 50vw; display: block; position: relative; margin: 0 auto; padding-top: 4rem"
-              [placeholder]="'Search Provider(s)'"
-              [searchPlaceholder]="'Search by Provider Name or ID'"
               [data]="dropdownList"
-              [labelName]="'Provider(s)'"
               [(ngModel)]="selectedItems"
               [settings]="dropdownSettings2"
               (onDeSelect)="logjam($event)"
@@ -212,11 +209,8 @@ storiesOf('Components|Chip Filter', module)
     template: `
             <app-chip-filter
               style="width: 50vw; display: block; position: relative; margin: 0 auto; padding-top: 4rem"
-              [placeholder]="'Search Provider(s)'"
-              [searchPlaceholder]="'Search by Provider Name or ID'"
               [data]="dropdownList"
               [disabled]="true"
-              [labelName]="'Provider(s)'"
               [(ngModel)]="selectedItems"
               [settings]="dropdownSettings2"
               (onDeSelect)="logjam($event)"

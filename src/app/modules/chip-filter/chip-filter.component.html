@@ -1,16 +1,16 @@
 <label
-  *ngIf="labelName" [ngClass]="labelClass"
+  *ngIf="_settings.labelName" [ngClass]="_settings.labelClass"
   class="ds-c-label ds-u-margin-top--0 ds-u-sans">
-  <span class="ds-u-font-weight--bold">{{labelName}}</span>
-  <span *ngIf="hintMessage" class="ds-c-field__hint ds-c-field__hint--inverse">{{ hintMessage }}</span>
-  <span *ngIf="error" class="ds-c-field__hint ds-u-color--error" id="undefined-message"
-        role="alert">{{ errorMessage }}</span>
+  <span class="ds-u-font-weight--bold">{{_settings.labelName}}</span>
+  <span *ngIf="_settings.hintMessage" class="ds-c-field__hint ds-c-field__hint--inverse">{{ _settings.hintMessage }}</span>
+  <span *ngIf="_settings.error" class="ds-c-field__hint ds-u-color--error" id="undefined-message"
+        role="alert">{{ _settings.errorMessage }}</span>
 </label>
 
 <div tabindex="=0" (blur)="onTouched()" class="multiselect-dropdown ds-c-field" (clickOutside)="closeDropdown()">
   <div [class.disabled]="disabled" id="chip-container">
     <div tabindex="-1" class="dropdown-btn" (click)="toggleDropdown($event)">
-      <span class="placeholder" *ngIf="selectedItems.length == 0">{{placeholder}}</span>
+      <span class="placeholder" *ngIf="selectedItems.length == 0">{{_settings.placeholder}}</span>
       <mat-chip-list>
         <mat-chip selected color="secondary"
                   *ngFor="let item of selectedItems;trackBy: trackByFn;let k = index"
@@ -39,7 +39,7 @@
       <li class="filter-textbox"
           *ngIf="(_data.length>0 || _settings.allowRemoteDataSearch) && _settings.allowSearchFilter">
         <input type="text" aria-label="multiselect-search" [readOnly]="disabled"
-               [placeholder]="searchPlaceholder" [(ngModel)]="filter.text"
+               [placeholder]="_settings.searchPlaceholder" [(ngModel)]="filter.text"
                (ngModelChange)="onFilterTextChange($event)">
       </li>
     </ul>

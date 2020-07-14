@@ -7,7 +7,14 @@ export class IDropdownSettings {
   selectAllText?: string;
   unSelectAllText?: string;
   allowSearchFilter?: boolean;
+  error?: any;
   clearSearchFilter?: boolean;
+  hintMessage?: string;
+  errorMessage?: string;
+  labelName?: string;
+  searchPlaceholder?: string;
+  disabled?: boolean;
+  placeholder?: string;
   maxHeight?: number;
   itemsShowLimit?: number;
   limitSelection?: number;
