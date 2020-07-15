@@ -12,6 +12,7 @@ export class IDropdownSettings {
   hintMessage?: string;
   errorMessage?: string;
   labelName?: string;
+  labelClass?: string;
   searchPlaceholder?: string;
   disabled?: boolean;
   placeholder?: string;
