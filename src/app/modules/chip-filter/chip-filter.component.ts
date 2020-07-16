@@ -32,8 +32,8 @@ const noop = () => {
   encapsulation: ViewEncapsulation.None
 })
 export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnChanges {
-  private _sourceDataType = null;
-  private _sourceDataFields: Array<String> = [];
+  public _sourceDataType = null;
+  public _sourceDataFields: Array<String> = [];
   public selectedItems: Array<ListItem> = [];
   public icon = faTimes;
   public filter: ListItem;
@@ -87,8 +87,8 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   @Output('onDeSelectAll')
   onDeSelectAll: EventEmitter<Array<ListItem>> = new EventEmitter<Array<any>>();
 
-  private onTouchedCallback: () => void = noop;
-  private onChangeCallback: (_: any) => void = noop;
+  onTouchedCallback: () => void = noop;
+  onChangeCallback: (_: any) => void = noop;
 
   constructor(private cdr: ChangeDetectorRef, private listFilterPipe: ChipFilterPipe) {
   }
@@ -101,13 +101,13 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
     this.setComponent();
   }
 
-  private setComponent(): void {
+  setComponent(): void {
     this.settings = this.setSettings(this.settings);
     this.setData(this.data);
     this.filter = new ListItem(this.data);
   }
 
-  private setData(value: Array<any>): void {
+  setData(value: Array<any>): void {
     const firstItem = value[0];
     this._sourceDataType = typeof firstItem;
     this._sourceDataFields = this.getFields(firstItem);
@@ -122,7 +122,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
     );
   }
 
-  private setSettings(value: IDropdownSettings): IDropdownSettings {
+  setSettings(value: IDropdownSettings): IDropdownSettings {
     if (value) {
       return Object.assign(this.defaultSettings, value);
     } else {
@@ -332,7 +332,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
     this.onChangeCallback(this.emittedValue(this.selectedItems));
   }
 
-  private getFields(inputData) {
+  getFields(inputData) {
     const fields = [];
     if (typeof inputData !== 'object') {
       return fields;
