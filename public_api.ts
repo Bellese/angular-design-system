@@ -29,7 +29,7 @@ export * from './src/app/modules/popover/popover.module';
 export * from './src/app/modules/toast/toast.module';
 export * from './src/app/modules/table2/table.module';
 export * from './src/app/modules/calendar/calendar.module';
-
+export * from './src/app/modules/chip-filter/chip-filter.module';
 
 // Services
 export * from './src/app/services/modal/modal.service';
@@ -54,4 +54,4 @@ export { PopoverModel, PopoverItemModel, mdePopoverPositionXEnum, mdePopoverPosi
 export { CardClusterModel, CardClusterClusterModel } from './src/app/modules/card-cluster/card-cluster.models';
 export { CalendarModel } from './src/app/modules/calendar/calendar.model';
 export * from './src/app/modules/table2/table.models';
-
+export * from './src/app/modules/chip-filter/chip-filter.model';
