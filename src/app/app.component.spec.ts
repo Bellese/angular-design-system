@@ -8,6 +8,8 @@ import { StarModule, SpinnerModule, TableModule, TextFieldModule, ModalModule, B
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { ToastrService } from 'ngx-toastr';
+import { of } from 'rxjs';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -46,6 +48,11 @@ describe('AppComponent', () => {
         TabsModule,
         FileUploadModule,
         CodeSnippetModule
+      ],
+      providers: [
+        {
+          provide: ToastrService, useValue: {success: () => of()}
+        }
       ],
       declarations: [
         AppComponent,
