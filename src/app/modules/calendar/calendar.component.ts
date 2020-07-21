@@ -22,12 +22,12 @@ export class CalendarComponent {
   constructor() {}
 
   validateDate(event) {
-    let date: Moment = moment(event.value);
+    let date: Moment = event && moment(event.value);
     let isEndDate: boolean = event && event.targetElement.name === "endDate";
 
     this.errorMessage = this.checkDate(date, isEndDate);
 
-    if (!this.errorMessage) {
+    if (!this.errorMessage && event) {
       isEndDate
         ? (this.calendarModel.endDate = event.value)
         : (this.calendarModel.date = event.value);
@@ -83,7 +83,7 @@ export class CalendarComponent {
   }
 
   checkDate(date: Moment, endDate: boolean) {
-    if (!date.isValid()) {
+    if (date && !date.isValid()) {
       return !endDate
         ? "Date is not a valid date"
         : "End Date is not a valid date";
@@ -93,6 +93,6 @@ export class CalendarComponent {
 
   handleCheckbox(event) {
     this.showEndDate = !event.target.checked;
-    this.validateDate(null);
+    if (!this.showEndDate) this.calendarModel.endDate = null;
   }
 }
