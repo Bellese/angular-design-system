@@ -11,14 +11,14 @@ import { CalendarModel } from "./calendar.model";
 
 const calendarModel = new CalendarModel({
   id: "calendar",
-  date: new Date("10/10/2018"),
-  endDate: new Date("10/12/2019"),
+  date: new Date("07/21/2020"),
+  endDate: new Date("08/21/2020"),
   isCheckBox: true,
   isDateRange: true,
-  minDate: new Date("06/10/2020"),
-  maxDate: new Date("06/20/2020"),
-  minEndDate: new Date("06/10/2020"),
-  maxEndDate: new Date("06/20/2020")
+  minDate: new Date("07/21/2020"),
+  maxDate: new Date("08/21/2020"),
+  minEndDate: new Date("08/21/2020"),
+  maxEndDate: new Date("09/21/2020")
 });
 const calendarNoBox = new CalendarModel({
   id: "calendar",

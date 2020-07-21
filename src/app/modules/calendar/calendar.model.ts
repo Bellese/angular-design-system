@@ -1,4 +1,5 @@
 import { AngularDesignSystemModel } from '../../models/angular-design-system.models';
+import { Moment } from "moment";
 
 export class CalendarModel extends AngularDesignSystemModel{
     id: string = '';
