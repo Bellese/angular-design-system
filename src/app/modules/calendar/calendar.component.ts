@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
+import moment, { Moment } from "moment";
 
 // Models
 import { CalendarModel } from "./calendar.model";
@@ -14,7 +15,6 @@ export class CalendarComponent {
   @Output() selectedDates = new EventEmitter<any>();
 
   showEndDate: boolean = true;
-  valid: boolean = true;
   errorMessage: string;
 
   faCalendarAlt = faCalendarAlt;
@@ -22,38 +22,58 @@ export class CalendarComponent {
   constructor() {}
 
   validateDate(event) {
-    if (event && event.targetElement.name === "date") {
-      this.calendarModel.date = event.value;
+    let date: Moment = event && moment(event.value);
+    let isEndDate: boolean = event && event.targetElement.name === "endDate";
+
+    this.errorMessage = this.checkDate(date, isEndDate);
+
+    if (!this.errorMessage && event) {
+      isEndDate
+        ? (this.calendarModel.endDate = event.value)
+        : (this.calendarModel.date = event.value);
     }
-    if (event && event.targetElement.name === "endDate") {
-      this.calendarModel.endDate = event.value;
-    }
-    if (this.calendarModel.date === null) {
-      this.valid = false;
-      this.errorMessage = "Date is not a valid date";
-    } else if (
-      this.calendarModel.endDate === null &&
-      this.showEndDate &&
-      this.calendarModel.isDateRange
+    if (
+      this.calendarModel.minDate &&
+      moment(this.calendarModel.date).isBefore(this.calendarModel.minDate)
     ) {
-      this.valid = false;
-      this.errorMessage = "End date is not a valid date";
-    } else {
-      this.valid = true;
-      this.errorMessage = "";
+      this.errorMessage = `Start date must be on or after ${moment(
+        this.calendarModel.minDate
+      ).format("MM-DD-YYYY")}`;
+    }
+    if (
+      this.calendarModel.maxDate &&
+      moment(this.calendarModel.date).isAfter(this.calendarModel.maxDate)
+    ) {
+      this.errorMessage = `Start date must be on or before ${moment(
+        this.calendarModel.maxDate
+      ).format("MM-DD-YYYY")}`;
+    }
+    if (
+      this.calendarModel.minEndDate &&
+      moment(this.calendarModel.endDate).isBefore(this.calendarModel.minEndDate)
+    ) {
+      this.errorMessage = `End date must be on or after ${moment(
+        this.calendarModel.minEndDate
+      ).format("MM-DD-YYYY")}`;
+    }
+    if (
+      this.calendarModel.maxEndDate &&
+      moment(this.calendarModel.endDate).isAfter(this.calendarModel.maxEndDate)
+    ) {
+      this.errorMessage = `End date must be on before ${moment(
+        this.calendarModel.maxEndDate
+      ).format("MM-DD-YYYY")}`;
     }
     if (
       this.calendarModel.date &&
       this.calendarModel.endDate &&
-      this.calendarModel.date.getTime() >=
-        this.calendarModel.endDate.getTime() &&
-      this.showEndDate
+      this.showEndDate &&
+      moment(this.calendarModel.date).isAfter(this.calendarModel.endDate)
     ) {
-      this.valid = false;
-      this.errorMessage = "Start date is after or same as end date";
+      this.errorMessage = "Start date is after end date";
     }
 
-    if (this.valid)
+    if (!this.errorMessage)
       this.selectedDates.emit({
         dateId: `${this.calendarModel.id}Date`,
         endDateId: `${this.calendarModel.id}EndDate`,
@@ -62,8 +82,17 @@ export class CalendarComponent {
       });
   }
 
+  checkDate(date: Moment, endDate: boolean) {
+    if (date && !date.isValid()) {
+      return !endDate
+        ? "Date is not a valid date"
+        : "End Date is not a valid date";
+    }
+    return null;
+  }
+
   handleCheckbox(event) {
     this.showEndDate = !event.target.checked;
-    this.validateDate(null);
+    if (!this.showEndDate) this.calendarModel.endDate = null;
   }
 }
