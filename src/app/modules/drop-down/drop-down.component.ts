@@ -22,7 +22,6 @@ export class AppDropDownComponent {
     @Output() selectedOption = new EventEmitter<any>();
 
     selectOption(e) {
-      console.log(this.disabled);
         const selectedValue = e.target.value;
         this.defaultSelectedValue = selectedValue;
         this.defaultSelected = this.options.findIndex(option => option.value === selectedValue);

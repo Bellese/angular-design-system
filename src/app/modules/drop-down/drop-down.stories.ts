@@ -143,7 +143,6 @@ storiesOf('Components|Drop Down', module)
         template: `
             <app-drop-down
                 [options] = 'dropDownData'
-                [disabled]='"true"'
                 labelName = 'Drop down example'
                 selectClass = 'ds-c-field--medium'
                 ariaLabel = 'Drop Down Aria Label'
@@ -195,4 +194,19 @@ storiesOf('Components|Drop Down', module)
             </app-drop-down>
         `,
         props,
-    }));
+    }))
+    .add('Disabled', () => ({
+      template: `
+          <app-drop-down
+              [options] = 'dropDownData'
+              [disabled]='"true"'
+              labelName = 'Drop down example'
+              selectClass = 'ds-c-field--medium'
+              ariaLabel = 'Drop Down Aria Label'
+              id = 'DropDownExample'
+              dataAutoId = 'testingID'
+              (selectedOption) = 'handleEvent($event)'>
+          </app-drop-down>
+      `,
+      props,
+  }));
