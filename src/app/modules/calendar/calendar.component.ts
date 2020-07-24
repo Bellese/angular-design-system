@@ -1,9 +1,9 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
-import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
-import moment, { Moment } from "moment";
+import * as moment from 'moment';
 
 // Models
 import { CalendarModel } from "./calendar.model";
+import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
 
 @Component({
   selector: "app-calendar",
@@ -22,7 +22,7 @@ export class CalendarComponent {
   constructor() {}
 
   validateDate(event) {
-    let date: Moment = event && moment(event.value);
+    let date: moment.Moment = event && (moment as any).default(event.value);
     let isEndDate: boolean = event && event.targetElement.name === "endDate";
 
     this.errorMessage = this.checkDate(date, isEndDate);
@@ -34,33 +34,33 @@ export class CalendarComponent {
     }
     if (
       this.calendarModel.minDate &&
-      moment(this.calendarModel.date).isBefore(this.calendarModel.minDate)
+      (moment as any).default(this.calendarModel.date).isBefore(this.calendarModel.minDate)
     ) {
-      this.errorMessage = `Start date must be on or after ${moment(
+      this.errorMessage = `Start date must be on or after ${(moment as any).default(
         this.calendarModel.minDate
       ).format("MM-DD-YYYY")}`;
     }
     if (
       this.calendarModel.maxDate &&
-      moment(this.calendarModel.date).isAfter(this.calendarModel.maxDate)
+      (moment as any).default(this.calendarModel.date).isAfter(this.calendarModel.maxDate)
     ) {
-      this.errorMessage = `Start date must be on or before ${moment(
+      this.errorMessage = `Start date must be on or before ${(moment as any).default(
         this.calendarModel.maxDate
       ).format("MM-DD-YYYY")}`;
     }
     if (
       this.calendarModel.minEndDate &&
-      moment(this.calendarModel.endDate).isBefore(this.calendarModel.minEndDate)
+      (moment as any).default(this.calendarModel.endDate).isBefore(this.calendarModel.minEndDate)
     ) {
-      this.errorMessage = `End date must be on or after ${moment(
+      this.errorMessage = `End date must be on or after ${(moment as any).default(
         this.calendarModel.minEndDate
       ).format("MM-DD-YYYY")}`;
     }
     if (
       this.calendarModel.maxEndDate &&
-      moment(this.calendarModel.endDate).isAfter(this.calendarModel.maxEndDate)
+      (moment as any).default(this.calendarModel.endDate).isAfter(this.calendarModel.maxEndDate)
     ) {
-      this.errorMessage = `End date must be on before ${moment(
+      this.errorMessage = `End date must be on before ${(moment as any).default(
         this.calendarModel.maxEndDate
       ).format("MM-DD-YYYY")}`;
     }
@@ -68,7 +68,7 @@ export class CalendarComponent {
       this.calendarModel.date &&
       this.calendarModel.endDate &&
       this.showEndDate &&
-      moment(this.calendarModel.date).isAfter(this.calendarModel.endDate)
+      (moment as any).default(this.calendarModel.date).isAfter(this.calendarModel.endDate)
     ) {
       this.errorMessage = "Start date is after end date";
     }
@@ -82,7 +82,7 @@ export class CalendarComponent {
       });
   }
 
-  checkDate(date: Moment, endDate: boolean) {
+  checkDate(date: moment.Moment, endDate: boolean) {
     if (date && !date.isValid()) {
       return !endDate
         ? "Date is not a valid date"

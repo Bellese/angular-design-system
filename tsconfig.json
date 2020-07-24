@@ -11,14 +11,9 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
+    "typeRoots": ["node_modules/@types"],
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": [
-      "es2017",
-      "dom"
-    ]
+    "lib": ["es2017", "dom"]
   }
 }
