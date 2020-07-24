@@ -7,8 +7,8 @@
         role="alert">{{ settings?.errorMessage }}</span>
 </label>
 
-<div tabindex="=0" (blur)="onTouched()" class="multiselect-dropdown ds-c-field" (clickOutside)="closeDropdown()">
-  <div [class.disabled]="disabled" id="chip-container">
+<div tabindex="=0" (blur)="onTouched()" class="multiselect-dropdown ds-c-field" [class.disabled]="disabled" (clickOutside)="closeDropdown()">
+  <div id="chip-container">
     <div tabindex="-1" class="dropdown-btn" (click)="toggleDropdown($event)">
       <span class="placeholder" *ngIf="selectedItems.length == 0">{{settings.placeholder}}</span>
       <mat-chip-list>
@@ -23,7 +23,7 @@
       </mat-chip-list>
       <div class="counter">
         <span *ngIf="itemShowRemaining()>0">+{{itemShowRemaining()}} <span id="other">Other</span></span>
-        <span class="arrow"></span>
+        <span class="arrow" [class.disabled]="disabled"></span>
       </div>
     </div>
   </div>
