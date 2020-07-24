@@ -104,9 +104,9 @@ app-chip-filter, .app-chip-filter {
   }
 
   .disabled {
-    & > span {
-      background-color: $disable-background-color;
-    }
+    pointer-events: none;
+    cursor: default;
+    background-color: $disable-background-color !important;
   }
 
   .dropdown-list {
