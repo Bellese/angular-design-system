@@ -18,6 +18,7 @@ export class AppDropDownComponent {
     @Input() errorMessage: string;
     @Input() error: boolean;
     @Input() dataAutoId: string;
+    @Input() disabled: boolean;
     @Output() selectedOption = new EventEmitter<any>();
 
     selectOption(e) {

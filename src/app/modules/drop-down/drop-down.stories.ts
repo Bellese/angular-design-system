@@ -126,6 +126,11 @@ storiesOf('Components|Drop Down', module)
                     value: 'Use this for testing ID',
                 },
                 {
+                  name: 'disabled',
+                  type: 'boolean',
+                  value: 'Use this to disable the dropdown if needed.',
+                },
+                {
                     name: 'selectedOption',
                     type: 'function',
                     // tslint:disable-next-line: max-line-length
@@ -189,4 +194,19 @@ storiesOf('Components|Drop Down', module)
             </app-drop-down>
         `,
         props,
-    }));
+    }))
+    .add('Disabled', () => ({
+      template: `
+          <app-drop-down
+              [options] = 'dropDownData'
+              [disabled]='"true"'
+              labelName = 'Drop down example'
+              selectClass = 'ds-c-field--medium'
+              ariaLabel = 'Drop Down Aria Label'
+              id = 'DropDownExample'
+              dataAutoId = 'testingID'
+              (selectedOption) = 'handleEvent($event)'>
+          </app-drop-down>
+      `,
+      props,
+  }));
