@@ -1,3 +1,7 @@
 select::-ms-expand {
     display: none;
 }
+
+.disabled {
+  border: 2px solid #212121;
+}

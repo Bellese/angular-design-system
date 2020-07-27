@@ -9,7 +9,7 @@
 <select
         id="{{'dropdown-' + id}}"
         class="ds-c-field {{selectClass}} ds-u-margin-bottom--0 ds-u-display--inline-block"
-        [ngClass]="{'ds-c-field--error': error}"
+        [ngClass]="{'ds-c-field--error': error, 'disabled': disabled}"
         [disabled]='disabled'
         name="options"
         attr.aria-label="{{ ariaLabel || labelName }}"
