@@ -17,7 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 const popoverModel = new PopoverModel({
     items: [
         new PopoverItemModel({
-            label: 'Menu Item 1',
+            label: 'Item',
             onClick: () => {
                 console.log('INLINE FUNCTION CALL');
             }
