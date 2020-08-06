@@ -2,14 +2,23 @@
     box-shadow: 0px 0px 4px 0px rgba(78, 78, 78, 0.5);
 }
 
+.mde-popover-content-inner app-button {
+  width: 100%;
+}
+
+.mde-popover-content-inner app-button button {
+  text-align: left;
+  width: 100%;
+}
+
 /* ::ng-deep.mde-popover-direction-arrow {
     right: 8px !important;
 } */
 
 /*****************************
- * The following styles were copied over by hand because I could not get the 
+ * The following styles were copied over by hand because I could not get the
  * following command to work:
- * @import '~@angular/cdk/overlay-prebuilt.css'; 
+ * @import '~@angular/cdk/overlay-prebuilt.css';
  *****************************/
 
 ::ng-deep.cdk-global-overlay-wrapper,::ng-deep.cdk-overlay-container{pointer-events:none;top:0;left:0;height:100%;width:100%}
@@ -24,3 +33,4 @@
 ::ng-deep.cdk-overlay-transparent-backdrop,.cdk-overlay-transparent-backdrop.cdk-overlay-backdrop-showing{opacity:0}
 ::ng-deep.cdk-overlay-connected-position-bounding-box{position:absolute;z-index:1000;display:flex;flex-direction:column;min-width:1px;min-height:1px}
 ::ng-deep.cdk-global-scrollblock{position:fixed;width:100%;overflow-y:scroll}
+
