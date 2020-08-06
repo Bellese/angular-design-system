@@ -1,5 +1,5 @@
 // Angular
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, ViewEncapsulation} from '@angular/core';
 
 // Models
 import { PopoverModel, PopoverItemModel } from './popover.model';
@@ -10,7 +10,8 @@ import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-popover',
   templateUrl: './popover.component.html',
-  styleUrls: ['./popover.component.css']
+  styleUrls: ['./popover.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class PopoverComponent implements OnInit {
 

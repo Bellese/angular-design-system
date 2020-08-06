@@ -11,8 +11,9 @@
   mdePopoverArrowOffsetX="16"
   (opened)="isOpened()"
   (closed)="isClosed()"
+  class="ds-u-padding-left--1"
 >
-  <fa-icon [icon]="popoverModel.icon" *ngIf="popoverModel.icon" class="ds-u-padding-right--1"></fa-icon>
+  <fa-icon [icon]="popoverModel.icon" *ngIf="popoverModel.icon"></fa-icon>
   {{ popoverModel.label }}
   <ng-content *ngIf="!popoverModel.label && !popoverModel.icon"></ng-content>
   <fa-icon [icon]="isOpen ? faChevronUp : faChevronDown" class="ds-u-padding-left--1" *ngIf="popoverModel.showArrow"></fa-icon>
@@ -23,7 +24,7 @@
   [mdePopoverOverlapTrigger]="false"
   id="mdePopoverId"
 >
-  <div class="mde-popover-content-inner ds-u-display--inline-block ds-u-padding--1 ds-u-fill--white">
+  <div class="mde-popover-content-inner ds-u-display--inline-block ds-u-padding--1 ds-u-fill--white" id="mde--popover--container">
     <div *ngFor="let item of popoverModel.items; let i = index" class="ds-u-display--flex ds-u-justify-content--between" [style.cursor]="'pointer'">
       <app-button
         [buttonID]="item.id"
