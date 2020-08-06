@@ -63,8 +63,8 @@
     [attr.title]="!data.value.title ? data.value.value : data.value.title"
     [attr.aria-label]="data.value.ariaLabel ? data.value.ariaLabel : tableCellText()"
     type="button"
-    (click)="buttonCallback($event)" 
-    (keyup.enter)="buttonCallback($event)" 
+    (click)="buttonCallback($event)"
+    (keyup.enter)="buttonCallback($event)"
     class="ds-c-button pointer {{data.key + ' ' + dataClass}}"
     [ngClass]="'tableCell ' + data.value.attr + ' ' + dataClass"
 >
