@@ -7,7 +7,7 @@
 }
 
 .mde-popover-content-inner app-button button {
-  text-align: center;
+  text-align: left;
   width: 100%;
 }
 
