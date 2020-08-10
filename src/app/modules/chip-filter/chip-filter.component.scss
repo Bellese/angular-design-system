@@ -1,9 +1,10 @@
 @import '~@angular/material/theming';
 
 $base-color: #337ab7;
-$disable-background-color: #eceeef;
+$disable-background-color: #d6d7d9;
 
-app-chip-filter, .app-chip-filter {
+app-chip-filter,
+.app-chip-filter {
   position: relative;
   width: 100%;
   font-size: inherit;
@@ -55,7 +56,6 @@ app-chip-filter, .app-chip-filter {
     }
   }
 
-
   .dropdown-btn {
     justify-content: space-between;
     display: flex;
@@ -101,6 +101,15 @@ app-chip-filter, .app-chip-filter {
       border-left: 10px solid transparent;
       border-right: 10px solid transparent;
     }
+  }
+
+  .multiselect-dropdown.disabled {
+    border: 2px solid #212121;
+    opacity: 0.7;
+  }
+
+  .arrow.disabled {
+    opacity: 1;
   }
 
   .disabled {
@@ -229,17 +238,15 @@ app-chip-filter, .app-chip-filter {
   }
 
   .multiselect-item-checkbox
-  input[type='checkbox']:disabled:focus
-  + div:before
-  .multiselect-item-checkbox
-  input[type='checkbox']:disabled:hover
-  + div:before {
+    input[type='checkbox']:disabled:focus
+    + div:before
+    .multiselect-item-checkbox
+    input[type='checkbox']:disabled:hover
+    + div:before {
     background-color: inherit;
   }
 
-  .multiselect-item-checkbox
-  input[type='checkbox']:disabled:checked
-  + div:before {
+  .multiselect-item-checkbox input[type='checkbox']:disabled:checked + div:before {
     background-color: #cccccc;
     background-color: #cccccc;
   }
@@ -285,5 +292,4 @@ app-chip-filter, .app-chip-filter {
       display: none;
     }
   }
-
 }
