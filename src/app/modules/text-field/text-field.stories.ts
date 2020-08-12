@@ -6,7 +6,7 @@ import { defaultProps } from '../../../../.storybook/helpers';
 // Modules
 import { TextFieldModule } from './text-field.module';
 
-storiesOf('Components|Text Field', module)
+storiesOf('Components/Text Field', module)
   .addDecorator(
     moduleMetadata({
       imports: [StoriesModule, TextFieldModule],

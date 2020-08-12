@@ -8,7 +8,7 @@ import { PlusModule } from './plus.module';
 // Misc
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-storiesOf('Components|Plus', module)
+storiesOf('Components/Plus', module)
     .addDecorator(
         moduleMetadata({
             imports: [

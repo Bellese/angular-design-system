@@ -189,7 +189,7 @@ const props = {
     lineGraphModelSingleDataPoints
 };
 
-storiesOf('Components|Line Graph', module)
+storiesOf('Components/Line Graph', module)
     .addDecorator(
         moduleMetadata({
             imports: [

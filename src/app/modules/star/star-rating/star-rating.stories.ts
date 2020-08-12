@@ -5,7 +5,7 @@ import { StoriesModule } from '../../../../stories/stories.module';
 // Modules
 import { StarModule } from '../star.module';
 
-storiesOf('Components|Star Rating', module)
+storiesOf('Components/Star Rating', module)
     .addDecorator(
         moduleMetadata({
             imports: [

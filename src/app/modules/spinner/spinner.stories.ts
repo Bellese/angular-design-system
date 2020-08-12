@@ -5,7 +5,7 @@ import { StoriesModule } from '../../../stories/stories.module';
 // Modules
 import { SpinnerModule } from './spinner.module';
 
-storiesOf('Components|Spinner', module)
+storiesOf('Components/Spinner', module)
     .addDecorator(
         moduleMetadata({
             imports: [

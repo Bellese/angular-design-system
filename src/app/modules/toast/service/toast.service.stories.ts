@@ -6,7 +6,7 @@ import { defaultProps } from '../../../../../.storybook/helpers';
 // Modules
 import { ToastModule } from '../toast.module';
 
-storiesOf('Services|Toast Service', module)
+storiesOf('Services/Toast Service', module)
     .addDecorator(
         moduleMetadata({
             imports: [

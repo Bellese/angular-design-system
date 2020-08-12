@@ -26,7 +26,7 @@ const props = {
     pieData: pieData,
 };
 
-storiesOf('Components|Circle Graph', module)
+storiesOf('Components/Circle Graph', module)
     .addDecorator(
         moduleMetadata({
             imports: [

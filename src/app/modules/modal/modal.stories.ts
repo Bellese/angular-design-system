@@ -58,7 +58,7 @@ const props = {
     appTableModalComponent: AppTableModalComponent
 };
 
-storiesOf('Components|Modal', module)
+storiesOf('Components/Modal', module)
     .addDecorator(
         moduleMetadata({
             imports: [

@@ -6,7 +6,7 @@ import { defaultProps } from '../../../../.storybook/helpers';
 // Modules
 import { ButtonModule } from './button.module';
 
-storiesOf('Components|Button', module)
+storiesOf('Components/Button', module)
     .addDecorator(
         moduleMetadata({
             imports: [

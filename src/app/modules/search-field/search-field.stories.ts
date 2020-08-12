@@ -6,7 +6,7 @@ import { StoriesModule } from '../../../stories/stories.module';
 // Modules
 import { SearchFieldModule } from './search-field.module';
 
-storiesOf('Components|Search Field', module)
+storiesOf('Components/Search Field', module)
     .addDecorator(
         moduleMetadata({
             imports: [

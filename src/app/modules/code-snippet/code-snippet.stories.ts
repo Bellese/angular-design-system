@@ -59,7 +59,7 @@ const props = {
     codeSnippetIconModel,
 };
 
-storiesOf('Components|Code Snippet', module)
+storiesOf('Components/Code Snippet', module)
     .addDecorator(
         moduleMetadata({
             imports: [

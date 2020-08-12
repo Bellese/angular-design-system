@@ -6,7 +6,7 @@ import { defaultProps } from '../../../../.storybook/helpers';
 // Modules
 import { TicketModule } from './ticket.module';
 
-storiesOf('Components|Ticket', module)
+storiesOf('Components/Ticket', module)
     .addDecorator(
         moduleMetadata({
             imports: [

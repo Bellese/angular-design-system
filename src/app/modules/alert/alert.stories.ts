@@ -5,7 +5,7 @@ import { StoriesModule } from '../../../stories/stories.module';
 // Modules
 import { AlertModule } from './alert.module';
 
-storiesOf('Components|Alert', module)
+storiesOf('Components/Alert', module)
     .addDecorator(
         moduleMetadata({
             imports: [

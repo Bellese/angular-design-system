@@ -5,7 +5,7 @@ import { StoriesModule } from '../../../stories/stories.module';
 // Modules
 import { DatePickerModule } from './date-picker.module';
 
-storiesOf('Components|Date Picker', module)
+storiesOf('Components/Date Picker', module)
     .addDecorator(
         moduleMetadata({
             imports: [

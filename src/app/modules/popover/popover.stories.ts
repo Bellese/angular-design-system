@@ -48,7 +48,7 @@ const props = {
     faEllipsisV
 };
 
-storiesOf('Components|Popover', module)
+storiesOf('Components/Popover', module)
     .addDecorator(
         moduleMetadata({
             imports: [
