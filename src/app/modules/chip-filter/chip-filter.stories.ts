@@ -55,7 +55,7 @@ const props = {
   }
 };
 
-storiesOf('Components|Chip Filter', module)
+storiesOf('Components/Chip Filter', module)
   .addDecorator(
     moduleMetadata({
       imports: [

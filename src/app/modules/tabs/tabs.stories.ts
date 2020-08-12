@@ -29,7 +29,7 @@ const props = {
     tabs
 }
 
-storiesOf('Components|Tabs', module)
+storiesOf('Components/Tabs', module)
     .addDecorator(
         moduleMetadata({
             imports: [

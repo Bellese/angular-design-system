@@ -22,7 +22,7 @@ const props = {
     fileUploadModel,
 };
 
-storiesOf('Components|File Upload', module)
+storiesOf('Components/File Upload', module)
     .addDecorator(
         moduleMetadata({
             imports: [

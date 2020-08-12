@@ -8,7 +8,7 @@ import { ModalModule } from '../../modules/modal/modal.module';
 // Services
 import { ModalService } from './modal.service';
 
-storiesOf('Services|Modal Service', module)
+storiesOf('Services/Modal Service', module)
     .addDecorator(
         moduleMetadata({
             imports: [

@@ -1178,7 +1178,7 @@ const props = {
     tableData,
 };
 
-storiesOf('Deprecated|Components - Table', module)
+storiesOf('Deprecated/Components - Table', module)
     .addDecorator(
         moduleMetadata({
             imports: [

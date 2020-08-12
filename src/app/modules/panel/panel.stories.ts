@@ -9,7 +9,7 @@ import { PanelModule } from './panel.module';
 // Misc
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-storiesOf('Components|Panel', module)
+storiesOf('Components/Panel', module)
     .addDecorator(
         moduleMetadata({
             imports: [

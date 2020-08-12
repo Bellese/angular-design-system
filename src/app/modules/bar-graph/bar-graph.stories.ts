@@ -36,7 +36,7 @@ const props = {
     barGraphModel: barGraphModel
 };
 
-storiesOf('Components|Bar Graph', module)
+storiesOf('Components/Bar Graph', module)
     .addDecorator(
         moduleMetadata({
             imports: [

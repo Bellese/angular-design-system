@@ -19,7 +19,7 @@ const props = {
     faCheck
 };
 
-storiesOf('Components|Accordian', module)
+storiesOf('Components/Accordian', module)
     .addDecorator(
         moduleMetadata({
             imports: [
