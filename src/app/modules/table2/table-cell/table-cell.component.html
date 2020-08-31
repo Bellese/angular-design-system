@@ -1,46 +1,50 @@
 <ng-template #cellContent>
-    <fa-icon *ngIf="tableCellModel.icon" [icon]="tableCellModel.icon" class="ds-u-padding-right--1" [ngClass]="tableCellModel.iconClass"></fa-icon>
-    <span [innerHTML]="tableCellModel.label"></span>
+  <fa-icon
+    *ngIf="tableCellModel.icon"
+    [icon]="tableCellModel.icon"
+    class="ds-u-padding-right--1"
+    [ngClass]="tableCellModel.iconClass"
+  ></fa-icon>
+  <span [innerHTML]="tableCellModel.label"></span>
 </ng-template>
 
-<div
-    [ngClass]="cellClass()"
-    [title]="tableCellModel.label"
->
-    <ng-container [ngSwitch]="tableCellModel.type">
-        <ng-container *ngSwitchCase="TableCellTypeEnum.BUTTON">
-            <app-button
-                (callBack)="buttonClickEvent($event)"
-                [disabled]="tableCellModel.buttonDisabled"
-                [ariaLabel]="tableCellModel.ariaLabel ? tableCellModel.ariaLabel : tableCellModel.label"
-                [buttonType]="'ds-c-button ' + tableCellModel.buttonClass"
-            >
-                <ng-container *ngTemplateOutlet="cellContent"></ng-container>
-            </app-button>
-        </ng-container>
-
-        <ng-container *ngSwitchCase="TableCellTypeEnum.CHECKBOX">
-            <app-choice
-                [label]="tableCellModel.label"
-                [value]="tableCellModel.checkboxValue"
-                [showTitle]="false"
-                [isChecked]="tableCellModel.isChecked"
-                (choiceChange)="checkboxClickEvent($event)"
-                size="small"
-            >
-            </app-choice>
-        </ng-container>
-
-        <ng-container *ngSwitchCase="TableCellTypeEnum.POPOVER">
-            <app-popover [popoverModel]="tableCellModel.popoverModel"></app-popover>
-        </ng-container>
-
-        <ng-container *ngSwitchCase="TableCellTypeEnum.DEFAULT">
-            <div tabindex="0">
-                <ng-container *ngTemplateOutlet="cellContent"></ng-container>
-            </div>
-        </ng-container>
+<div [ngClass]="cellClass()" [title]="tableCellModel.label">
+  <ng-container [ngSwitch]="tableCellModel.type">
+    <ng-container *ngSwitchCase="TableCellTypeEnum.BUTTON">
+      <app-button
+        (callBack)="buttonClickEvent($event)"
+        [disabled]="tableCellModel.buttonDisabled"
+        [ariaLabel]="tableCellModel.ariaLabel ? tableCellModel.ariaLabel : tableCellModel.label"
+        [buttonType]="'ds-c-button ' + tableCellModel.buttonClass"
+      >
+        <ng-container *ngTemplateOutlet="cellContent"></ng-container>
+      </app-button>
     </ng-container>
+
+    <ng-container *ngSwitchCase="TableCellTypeEnum.CHECKBOX">
+      <app-choice
+        [label]="tableCellModel.label"
+        [ariaLabel]="tableCellModel.ariaLabel"
+        [labelClass]="'sr-only'"
+        [value]="tableCellModel.checkboxValue"
+        [showTitle]="true"
+        [isChecked]="tableCellModel.isChecked"
+        (choiceChange)="checkboxClickEvent($event)"
+        size="small"
+      >
+      </app-choice>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="TableCellTypeEnum.POPOVER">
+      <app-popover [popoverModel]="tableCellModel.popoverModel"></app-popover>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="TableCellTypeEnum.DEFAULT">
+      <div tabindex="0">
+        <ng-container *ngTemplateOutlet="cellContent"></ng-container>
+      </div>
+    </ng-container>
+  </ng-container>
 </div>
 
 <!--
