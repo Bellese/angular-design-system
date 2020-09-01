@@ -1,16 +1,39 @@
-<label class="ds-c-label" [ngClass]="labelClass" for="{{id}}">
-  <span class="ds-u-font-weight--bold">{{title}}</span>
-  <span *ngIf="hint" class="ds-c-field__hint" [ngClass]="hintClass" role="alert">{{hint}}</span>
+<label class="ds-c-label" [ngClass]="labelClass" for="{{ id }}">
+  <span class="ds-u-font-weight--bold">{{ title }}</span>
+  <span aria-atomic="true" aria-live="assertive">
+    <span *ngIf="hint" class="ds-c-field__hint" [ngClass]="hintClass">{{ hint }}</span>
+  </span>
 </label>
-<input placeholder="{{placeHolder}}" class="ds-c-field ds-u-padding-right--5" attr.data-auto-id="{{dataAutoId}}" tabindex="0"
-  [ngClass]="inputClass" id="{{id}}" name="{{id}}" type="text" [(ngModel)]="searchValue"
-  (keyup.enter)="callBackFunction(searchValue)" (focus)="prepareSearch($event)" />
-<span class="search-button pointer" role="button" tabindex="0" aria-label="search button"
-  (click)="callBackFunction(searchValue)" (keyup.enter)="callBackFunction(searchValue)">
+<input
+  placeholder="{{ placeHolder }}"
+  class="ds-c-field ds-u-padding-right--5"
+  attr.data-auto-id="{{ dataAutoId }}"
+  tabindex="0"
+  [ngClass]="inputClass"
+  id="{{ id }}"
+  name="{{ id }}"
+  type="text"
+  [(ngModel)]="searchValue"
+  (keyup.enter)="callBackFunction(searchValue)"
+  (focus)="prepareSearch($event)"
+/>
+<span
+  class="search-button pointer"
+  role="button"
+  tabindex="0"
+  aria-label="search button"
+  (click)="callBackFunction(searchValue)"
+  (keyup.enter)="callBackFunction(searchValue)"
+>
 </span>
-<div style="text-align: right">
-  <button *ngIf="showReset" type="button" class="ds-c-button ds-c-button--small ds-c-button--transparent"
-    (click)="searchValue = ''" (keyup.enter)="searchValue = ''">
+<div style="text-align: right;">
+  <button
+    *ngIf="showReset"
+    type="button"
+    class="ds-c-button ds-c-button--small ds-c-button--transparent"
+    (click)="searchValue = ''"
+    (keyup.enter)="searchValue = ''"
+  >
     reset
   </button>
 </div>
