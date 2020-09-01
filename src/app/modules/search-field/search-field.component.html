@@ -1,7 +1,7 @@
 <label class="ds-c-label" [ngClass]="labelClass" for="{{ id }}">
   <span class="ds-u-font-weight--bold">{{ title }}</span>
   <span aria-atomic="true" aria-live="assertive">
-    <span *ngIf="hint" class="ds-c-field__hint" [ngClass]="hintClass">{{ hint }}</span>
+    <span *ngIf="hint" class="ds-c-field__hint" [ngClass]="hintClass" [innerHTML]="hint"></span>
   </span>
 </label>
 <input
