@@ -5,40 +5,38 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
   templateUrl: './choice.component.html',
   styleUrls: ['./choice.component.css']
 })
-
 export class AppChoiceComponent implements OnInit {
-    @Input() inputType = 'checkbox';
-    @Input() index = 'main';
-    @Input() size: string;
-    @Input() label: string;
-    @Input() ariaLabel: string;
-    @Input() value: string;
-    @Input() groupName: string;
-    @Input() showTitle = true;
-    @Input() labelClass: string;
-    @Input() inputClass: string;
-    @Input() errorMessage: string;
-    @Input() isChecked: boolean;
-    @Input() disabled: boolean;
-    @Input() dataAutoId: string;
-    @Input() tabIndex: number;
+  @Input() inputType = 'checkbox';
+  @Input() index = 'main';
+  @Input() size: string;
+  @Input() label: string;
+  @Input() ariaLabel: string;
+  @Input() value: string;
+  @Input() groupName: string;
+  @Input() showTitle = true;
+  @Input() labelClass: string;
+  @Input() inputClass: string;
+  @Input() errorMessage: string;
+  @Input() isChecked: boolean;
+  @Input() disabled: boolean;
+  @Input() dataAutoId: string;
+  @Input() tabIndex: number;
+  @Input() labelTextClass: string;
 
-    @Output() choiceChange = new EventEmitter<any>();
+  @Output() choiceChange = new EventEmitter<any>();
 
-    choiceSize = ChoiceSize;
+  choiceSize = ChoiceSize;
 
-    constructor() { }
+  constructor() {}
 
-    ngOnInit() {
-    }
+  ngOnInit() {}
 
-    onChange($event) {
-      this.choiceChange.emit($event);
-    }
-
+  onChange($event) {
+    this.choiceChange.emit($event);
+  }
 }
 
 enum ChoiceSize {
   'small' = 'ds-c-choice--small',
-  'medium' = '',
+  'medium' = ''
 }
