@@ -1,17 +1,19 @@
-<div *ngIf="errorMessage" class="ds-c-field__hint ds-u-color--error ds-u-margin-y--2" role="alert">{{ errorMessage }}</div>
-<input 
-    [type]="inputType" 
-    class="ds-c-choice {{ choiceSize[size] }} {{ inputClass }}" 
-    id="{{ value +'-'+ index }}" 
-    name="{{ groupName }}" 
-    [attr.value]="value"
-    [checked]="isChecked"
-    attr.data-auto-id="{{dataAutoId}}" 
-    (change)="onChange($event)"
-    attr.aria-label="{{ ariaLabel }}"
-    [attr.tabindex]="tabIndex ? tabIndex : null"
-    [disabled]="disabled"
+<div *ngIf="errorMessage" class="ds-c-field__hint ds-u-color--error ds-u-margin-y--2" role="alert">
+  {{ errorMessage }}
+</div>
+<input
+  [type]="inputType"
+  class="ds-c-choice {{ choiceSize[size] }} {{ inputClass }}"
+  id="{{ value + '-' + index }}"
+  name="{{ groupName }}"
+  [attr.value]="value"
+  [checked]="isChecked"
+  attr.data-auto-id="{{ dataAutoId }}"
+  (change)="onChange($event)"
+  attr.aria-label="{{ ariaLabel }}"
+  [attr.tabindex]="tabIndex ? tabIndex : null"
+  [disabled]="disabled"
 />
-<label for="{{ value +'-'+ index }}" class="{{labelClass}}" id="{{ value +'-'+ index + '-label' }}">
-    <span *ngIf="showTitle" >{{ label ? label : value }}</span>
+<label for="{{ value + '-' + index }}" class="{{ labelClass }}" id="{{ value + '-' + index + '-label' }}">
+  <span *ngIf="showTitle" class="{{ labelTextClass }}">{{ label ? label : value }}</span>
 </label>
