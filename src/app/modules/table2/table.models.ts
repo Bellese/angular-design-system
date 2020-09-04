@@ -141,7 +141,6 @@ export class TableModel extends AngularDesignSystemModel {
     this.setOptions(options);
 
     this._rowHeaderIndex = this.headers.findIndex((header) => header.isRowHeader);
-    console.log(this._rowHeaderIndex);
   }
 
   toggleSort(columnKey: string): void {
