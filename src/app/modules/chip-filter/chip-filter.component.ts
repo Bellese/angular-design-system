@@ -334,7 +334,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   }
 
   toggleSelectAll() {
-    if (this.disabled) {
+    if (this.disabled || this.loading) {
       return false;
     }
     if (!this.isAllItemsSelected()) {

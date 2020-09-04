@@ -1,23 +1,26 @@
 // Storybook
-import {storiesOf, moduleMetadata} from '@storybook/angular';
-import {StoriesModule} from '../../../stories/stories.module';
-import {defaultProps} from '../../../../.storybook/helpers';
+import { storiesOf, moduleMetadata } from '@storybook/angular';
+import { StoriesModule } from '../../../stories/stories.module';
+import { defaultProps } from '../../../../.storybook/helpers';
 
 // Modules
-import {ChipFilterModule} from './chip-filter.module';
-import {dropdownList, parameters, settingsProps} from './story.const';
+import { ChipFilterModule } from './chip-filter.module';
+import { dropdownList, settingsProps, dropdownSettings, dropdownSettings2, dropdownSettings3 } from './story.const';
 
 const props = {
   ...defaultProps,
   dropdownList,
   selectedItems: [],
   loading: false,
+  dropdownSettings,
+  dropdownSettings2,
+  dropdownSettings3,
   logjam: (e) => {
     console.log(e);
   },
   bottomScrolled: (e) => {
     console.log('Set loading as true until the server responds with more of the list.');
-  }
+  },
 };
 
 storiesOf('Components/Chip Filter', module)
@@ -51,7 +54,7 @@ storiesOf('Components/Chip Filter', module)
         {
           name: 'settings',
           type: 'IDropdownSettings',
-          value: 'Use this to override the dropdown component\'s default settings.',
+          value: "Use this to override the dropdown component's default settings.",
           properties: settingsProps,
         },
         {
@@ -59,7 +62,7 @@ storiesOf('Components/Chip Filter', module)
           type: 'Array<{id: number, text: string}>',
           value: 'Populate dropdown list with data.',
         },
-      ];
+      ],
       notes: [],
     },
   }))
@@ -116,7 +119,7 @@ storiesOf('Components/Chip Filter', module)
               [data]="dropdownList"
               [loading]="true"
               [(ngModel)]="selectedItems"
-              [settings]="dropdownSettings2"
+              [settings]="dropdownSettings"
               (onDeSelect)="logjam($event)"
               (onDeSelectAll)="logjam($event)"
               (onSelect)="logjam($event)"
@@ -132,7 +135,7 @@ storiesOf('Components/Chip Filter', module)
               [data]="dropdownList"
               [loading]="loading"
               [(ngModel)]="selectedItems"apper
-              [settings]="dropdownSettings2"
+              [settings]="dropdownSettings"
               (onDeSelect)="logjam($event)"
               (onDeSelectAll)="logjam($event)"
               (onScrolledToBottom)="bottomScrolled($event)"

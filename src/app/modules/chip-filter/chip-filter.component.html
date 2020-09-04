@@ -54,7 +54,7 @@
           type="checkbox"
           aria-label="multiselect-select-all"
           [checked]="isAllItemsSelected()"
-          [disabled]="disabled || isLimitSelectionReached()"
+          [disabled]="disabled || isLimitSelectionReached() || loading"
         />
         <div>{{ !isAllItemsSelected() ? settings.selectAllText : settings.unSelectAllText }}</div>
       </li>
@@ -65,7 +65,7 @@
         <input
           type="text"
           aria-label="multiselect-search"
-          [readOnly]="disabled"
+          [readOnly]="disabled || loading"
           [placeholder]="settings.searchPlaceholder"
           [(ngModel)]="filter.text"
           (ngModelChange)="onFilterTextChange($event)"
@@ -73,7 +73,7 @@
       </li>
     </ul>
     <ul class="item2" [style.maxHeight]="settings.maxHeight + 'px'" (scroll)="onScroll($event)">
-      <div class="spinner--container"  [style.height]="settings.maxHeight - 38 + 'px'" *ngIf="loading">
+      <div class="spinner--container"  [style.height]="settings.maxHeight + 'px'" *ngIf="loading">
         <app-spinner
           [dataAutoId]="'data-table-page-spinner'"
           [inversed]="false"
@@ -92,7 +92,7 @@
           type="checkbox"
           aria-label="multiselect-item"
           [checked]="isSelected(item)"
-          [disabled]="disabled || (isLimitSelectionReached() && !isSelected(item)) || item.isDisabled"
+          [disabled]="disabled || (isLimitSelectionReached() && !isSelected(item)) || item.isDisabled || loading"
         />
         <div>{{ item.text }}</div>
       </li>
