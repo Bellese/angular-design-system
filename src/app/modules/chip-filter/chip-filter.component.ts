@@ -66,6 +66,9 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
     searchPlaceholder: 'Search',
   };
 
+  onTouchedCallback: () => void = noop;
+  onChangeCallback: (_: any) => void = noop;
+
   @Input() disabled = false;
 
   @Input() settings: IDropdownSettings;
@@ -76,6 +79,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
 
   @Output('onFilterChange')
   onFilterChange: EventEmitter<ListItem> = new EventEmitter<any>();
+
   @Output('onDropDownClose')
   onDropDownClose: EventEmitter<ListItem> = new EventEmitter<any>();
 
@@ -91,8 +95,15 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   @Output('onDeSelectAll')
   onDeSelectAll: EventEmitter<ListItem[]> = new EventEmitter<any[]>();
 
-  onTouchedCallback: () => void = noop;
-  onChangeCallback: (_: any) => void = noop;
+  @Output('onScrolledToBottom')
+  onScrolledToBottom: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  @HostListener('scroll', ['$event'])
+  onScroll(event: any) {
+    if (event.target.offsetHeight + event.target.scrollTop >= event.target.scrollHeight) {
+      this.onScrolledToBottom.emit(true);
+    }
+  }
 
   constructor(private cdr: ChangeDetectorRef, private listFilterPipe: ChipFilterPipe) {}
 

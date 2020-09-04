@@ -72,7 +72,7 @@
         />
       </li>
     </ul>
-    <ul class="item2" [style.maxHeight]="settings.maxHeight + 'px'">
+    <ul class="item2" [style.maxHeight]="settings.maxHeight + 'px'" (scroll)="onScroll($event)">
       <div class="spinner--container"  [style.height]="settings.maxHeight - 38 + 'px'" *ngIf="loading">
         <app-spinner
           [dataAutoId]="'data-table-page-spinner'"
