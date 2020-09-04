@@ -35,7 +35,7 @@ const noop = () => {};
 })
 export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnChanges {
   public _sourceDataType = null;
-  public _sourceDataFields: Array<String> = [];
+  public _sourceDataFields: string[] = [];
   public selectedItems: ListItem[] = [];
   public icon = faTimes;
   public filter: ListItem;

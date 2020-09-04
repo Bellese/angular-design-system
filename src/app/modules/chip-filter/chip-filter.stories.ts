@@ -16,10 +16,7 @@ const props = {
     console.log(e);
   },
   bottomScrolled: (e) => {
-    this.loading = true;
-    setTimeout(() => {
-      this.loading = false;
-    }, 1000);
+    console.log('Set loading as true until the server responds with more of the list.');
   }
 };
 
