@@ -33,7 +33,11 @@
   </ng-container>
 
   <ng-container *ngSwitchCase="TableHeaderTypeEnum.DEFAULT">
-    <div [class]="'header_' + tableHeaderModel.columnKey" [title]="tableHeaderModel.label" tabindex="0">
+    <div
+      [ngClass]="['header_' + tableHeaderModel.columnKey, tableHeaderModel.class]"
+      [title]="tableHeaderModel.label"
+      tabindex="0"
+    >
       {{ tableHeaderModel.label }}
     </div>
   </ng-container>
