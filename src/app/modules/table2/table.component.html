@@ -24,6 +24,7 @@
         [ngClass]="[header.type, header.class]"
         [style.width]="header.headerWidth"
         [attr.colspan]="header.colspan"
+        [title]="header.label"
       >
         <app-table-header-2 [tableHeaderModel]="header" (headerClick)="headerClick($event)"></app-table-header-2>
       </th>
@@ -53,10 +54,16 @@
           [ngClass]="cell.type"
           *ngIf="cellIndex === tableModel._rowHeaderIndex"
           [attr.colspan]="cell.colspan"
+          [title]="cell.label"
         >
           <ng-container *ngTemplateOutlet="cellComponent"></ng-container>
         </th>
-        <td [ngClass]="cell.type" *ngIf="cellIndex !== tableModel._rowHeaderIndex" [attr.colspan]="cell.colspan">
+        <td
+          [ngClass]="cell.type"
+          *ngIf="cellIndex !== tableModel._rowHeaderIndex"
+          [attr.colspan]="cell.colspan"
+          [title]="cell.label"
+        >
           <ng-container *ngTemplateOutlet="cellComponent"></ng-container>
         </td>
       </ng-container>
@@ -90,9 +97,7 @@
   </div>
 </div>
 <div aria-atomic="true" aria-live="assertive" class="sr-only">
-  <div *ngIf="tableModel.isLoading">
-    The data table is loading.
-  </div>
+  <div *ngIf="tableModel.isLoading">The data table is loading.</div>
 </div>
 
 <app-paging
