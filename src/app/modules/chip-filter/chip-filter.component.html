@@ -2,10 +2,10 @@
   <span class="ds-u-font-weight--bold">{{ settings?.labelName }}</span>
   <span *ngIf="settings.hintMessage" class="ds-c-field__hint ds-c-field__hint--inverse">{{
     settings?.hintMessage
-  }}</span>
+    }}</span>
   <span *ngIf="settings.error" class="ds-c-field__hint ds-u-color--error" id="undefined-message" role="alert">{{
     settings?.errorMessage
-  }}</span>
+    }}</span>
 </label>
 
 <div
@@ -73,6 +73,16 @@
       </li>
     </ul>
     <ul class="item2" [style.maxHeight]="settings.maxHeight + 'px'">
+      <div class="spinner--container"  [style.height]="settings.maxHeight - 38 + 'px'" *ngIf="loading">
+        <app-spinner
+          [dataAutoId]="'data-table-page-spinner'"
+          [inversed]="false"
+          [filled]="false"
+          [color]="'muted'"
+          [size]="'big'"
+        >
+        </app-spinner>
+      </div>
       <li
         *ngFor="let item of data | chipSelectFilter: filter; let i = index"
         (click)="onItemClick($event, item)"

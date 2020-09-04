@@ -1,20 +1,19 @@
 // Storybook
-import {storiesOf, moduleMetadata} from '@storybook/angular';
-import {StoriesModule} from '../../../stories/stories.module';
-import {defaultProps} from '../../../../.storybook/helpers';
+import { storiesOf, moduleMetadata } from '@storybook/angular';
+import { StoriesModule } from '../../../stories/stories.module';
+import { defaultProps } from '../../../../.storybook/helpers';
 
 // Modules
-import {ChipFilterModule} from './chip-filter.module';
-
+import { ChipFilterModule } from './chip-filter.module';
 
 const props = {
   ...defaultProps,
   dropdownList: [
-    {id: 1, text: 'Provider Name 1'},
-    {id: 2, text: 'Provider Name 2213123123'},
-    {id: 3, text: 'Provider Name 452345243543254'},
-    {id: 4, text: 'Provider Name 14325234523454235'},
-    {id: 5, text: 'Provider Name 1e2q423q45'}
+    { id: 1, text: 'Provider Name 1' },
+    { id: 2, text: 'Provider Name 2213123123' },
+    { id: 3, text: 'Provider Name 452345243543254' },
+    { id: 4, text: 'Provider Name 14325234523454235' },
+    { id: 5, text: 'Provider Name 1e2q423q45' },
   ],
   selectedItems: [],
   dropdownSettings: {
@@ -28,7 +27,7 @@ const props = {
     label: 'Search Providers',
     itemsShowLimit: 3,
     allowSearchFilter: true,
-    labelName: 'Provider(s)'
+    labelName: 'Provider(s)',
   },
   dropdownSettings2: {
     singleSelection: false,
@@ -38,7 +37,7 @@ const props = {
     unSelectAllText: 'UnSelect All Providers',
     label: 'Search Providers',
     itemsShowLimit: 3,
-    allowSearchFilter: false
+    allowSearchFilter: false,
   },
   dropdownSettings3: {
     singleSelection: false,
@@ -48,21 +47,18 @@ const props = {
     unSelectAllText: 'UnSelect All Providers',
     label: 'Search Providers',
     itemsShowLimit: 2,
-    allowSearchFilter: false
+    allowSearchFilter: false,
   },
   logjam: (e) => {
     console.log(e);
-  }
+  },
 };
 
 storiesOf('Components/Chip Filter', module)
   .addDecorator(
     moduleMetadata({
-      imports: [
-        StoriesModule,
-        ChipFilterModule,
-      ]
-    }),
+      imports: [StoriesModule, ChipFilterModule],
+    })
   )
   .add('Intro', () => ({
     template: `
@@ -78,7 +74,7 @@ storiesOf('Components/Chip Filter', module)
           modules: ['ChipFilterModule'],
           file: '@bellese/angular-design-system',
           ngmodule: 'imports',
-        }
+        },
       ],
       parameters: [
         {
@@ -89,7 +85,7 @@ storiesOf('Components/Chip Filter', module)
         {
           name: 'settings',
           type: 'IDropdownSettings',
-          value: 'Use this to override the dropdown component\'s default settings.',
+          value: "Use this to override the dropdown component's default settings.",
           properties: [
             {
               name: 'idField',
@@ -115,19 +111,16 @@ storiesOf('Components/Chip Filter', module)
               name: 'itemsShowLimit',
               type: 'number',
               value: 'Hide or show number of results.',
-
             },
             {
               name: 'maxHeight',
               type: 'number',
               value: 'Max height of dropdown.',
-
             },
             {
               name: 'enableCheckAll',
               type: 'boolean',
               value: 'Display check all.',
-
             },
             {
               name: 'closeDropDownOnSelection',
@@ -137,7 +130,7 @@ storiesOf('Components/Chip Filter', module)
             {
               name: 'labelName',
               type: 'string',
-              value: 'The value that shows in the dropdown\'s label',
+              value: "The value that shows in the dropdown's label",
             },
             {
               name: 'labelClass',
@@ -164,17 +157,17 @@ storiesOf('Components/Chip Filter', module)
               name: 'placeholder',
               type: 'string',
               value: 'Dropdown search placeholder.',
-            }
-          ]
+            },
+          ],
         },
         {
           name: 'data',
           type: 'Array<{id: number, text: string}>',
           value: 'Populate dropdown list with data.',
-        }
+        },
       ],
-      notes: []
-    }
+      notes: [],
+    },
   }))
   .add('Normal', () => ({
     template: `
@@ -212,6 +205,22 @@ storiesOf('Components/Chip Filter', module)
               style="width: 50vw; display: block; position: relative; margin: 0 auto; padding-top: 4rem"
               [data]="dropdownList"
               [disabled]="true"
+              [(ngModel)]="selectedItems"
+              [settings]="dropdownSettings2"
+              (onDeSelect)="logjam($event)"
+              (onDeSelectAll)="logjam($event)"
+              (onSelect)="logjam($event)"
+              (onSelectAll)="logjam($event)">
+            </app-chip-filter>
+        `,
+    props,
+  }))
+  .add('Search Items Loading', () => ({
+    template: `
+            <app-chip-filter
+              style="width: 50vw; display: block; position: relative; margin: 0 auto; padding-top: 4rem"
+              [data]="dropdownList"
+              [loading]="true"
               [(ngModel)]="selectedItems"
               [settings]="dropdownSettings2"
               (onDeSelect)="logjam($event)"
