@@ -49,7 +49,6 @@ const popoverModel: PopoverModel = new PopoverModel({
 
 const tableModel: TableModel = new TableModel({
   id: 'storiesTable',
-  rowHeaderColumnKey: 'label',
   headerClass: 'ds-u-fill--gray-lightest',
   headers: [
     new TableHeaderModel({
@@ -560,11 +559,6 @@ storiesOf('Components/Table', module)
               type: 'boolean',
               value: 'Show or hide the loading spinner for the table',
               default: 'false',
-            },
-            {
-              name: 'rowHeaderColumnKey',
-              value: 'The columnKey value of the column to use for the row header.  This is needed for 508 compliance.',
-              type: 'string',
             },
           ],
         },
