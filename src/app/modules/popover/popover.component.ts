@@ -49,7 +49,7 @@ export class PopoverComponent implements OnInit {
     if(e.shiftKey && e.keyCode == 9 && index === 0) {
       document.getElementById(this.popoverModel.id).focus();
     }
-    if (e.key === "Tab") {
+    if (e.key === "Tab" && !e.shiftKey) {
       if (index === this.popoverModel.items.length - 1) {
         document.getElementById(this.popoverModel.id).focus();
       }
