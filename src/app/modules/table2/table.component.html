@@ -5,7 +5,6 @@
 <table
   *ngIf="tableModel && tableModel.showTable && tableModel.rows.length && !tableModel.isLoading"
   summary="{{ tableModel.summary }}"
-  role="grid"
   [attr.aria-label]="tableModel.summary"
   class="table-background ds-c-table ds-c-table--borderless"
   [ngClass]="tableModel.class"
