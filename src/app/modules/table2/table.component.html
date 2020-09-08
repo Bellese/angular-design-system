@@ -21,7 +21,7 @@
       <th
         *ngFor="let header of tableModel.headers"
         scope="col"
-        [ngClass]="[header.type, header.class]"
+        [ngClass]="[header.type]"
         [style.width]="header.headerWidth"
         [attr.colspan]="header.colspan"
         [title]="header.label"
