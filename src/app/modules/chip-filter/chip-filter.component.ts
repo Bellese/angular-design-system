@@ -127,6 +127,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
     this.settings = this.setSettings(this.settings);
     this.setData(this.data);
     this.filter = new ListItem(this.data);
+    this.filter.text = this.settings.searchText;
   }
 
   setData(value: any[]): void {
