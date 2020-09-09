@@ -16,6 +16,8 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { ListItem, IDropdownSettings } from './chip-filter.model';
 import { ChipFilterPipe } from './chip-filter.pipe';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { Subject } from 'rxjs/internal/Subject';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 export const DROPDOWN_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -69,6 +71,8 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   onTouchedCallback: () => void = noop;
   onChangeCallback: (_: any) => void = noop;
 
+  private searchQueryChanged: Subject<string> = new Subject<string>();
+
   @Input() disabled = false;
 
   @Input() settings: IDropdownSettings;
@@ -78,7 +82,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   @Input() loading = false;
 
   @Output('onFilterChange')
-  onFilterChange: EventEmitter<ListItem> = new EventEmitter<any>();
+  onFilterChange: EventEmitter<any> = new EventEmitter<any>();
 
   @Output('onDropDownClose')
   onDropDownClose: EventEmitter<ListItem> = new EventEmitter<any>();
@@ -105,7 +109,11 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
     }
   }
 
-  constructor(private cdr: ChangeDetectorRef, private listFilterPipe: ChipFilterPipe) {}
+  constructor(private cdr: ChangeDetectorRef, private listFilterPipe: ChipFilterPipe) {
+    this.searchQueryChanged.pipe(debounceTime(1000), distinctUntilChanged()).subscribe((data) => {
+      this.onFilterChange.emit(data);
+    });
+  }
 
   ngOnInit() {
     this.setComponent();
@@ -145,7 +153,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   }
 
   onFilterTextChange($event) {
-    this.onFilterChange.emit($event);
+    this.searchQueryChanged.next($event);
   }
 
   onItemClick($event: any, item: ListItem) {
