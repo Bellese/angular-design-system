@@ -67,7 +67,7 @@
           aria-label="multiselect-search"
           [readOnly]="disabled || loading"
           [placeholder]="settings.searchPlaceholder"
-          [(ngModel)]="searchText"
+          [(ngModel)]="filter.text"
           (ngModelChange)="onFilterTextChange($event)"
         />
       </li>

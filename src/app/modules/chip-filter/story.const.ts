@@ -117,7 +117,6 @@ export const dropdownSettings = {
   searchPlaceholder: 'Search by Provider Name or ID',
   idField: 'id',
   textField: 'test',
-  searchText: null,
   selectAllText: 'Select All Providers',
   unSelectAllText: 'UnSelect All Providers',
   label: 'Search Providers',

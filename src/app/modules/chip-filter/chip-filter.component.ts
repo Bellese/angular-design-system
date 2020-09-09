@@ -40,7 +40,6 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   public _sourceDataFields: string[] = [];
   public selectedItems: ListItem[] = [];
   public icon = faTimes;
-  public searchText = '';
   public filter: ListItem;
   public defaultSettings: IDropdownSettings = {
     singleSelection: false,
@@ -128,7 +127,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
     this.settings = this.setSettings(this.settings);
     this.setData(this.data);
     this.filter = new ListItem(this.data);
-    this.searchText = this.settings.searchText;
+    this.filter.text = this.settings.searchText;
   }
 
   setData(value: any[]): void {
@@ -339,7 +338,6 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
     // clear search text
     if (this.settings.clearSearchFilter) {
       this.filter.text = '';
-      this.searchText = null;
     }
     this.onDropDownClose.emit();
   }
