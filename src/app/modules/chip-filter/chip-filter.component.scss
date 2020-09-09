@@ -281,6 +281,17 @@ app-chip-filter,
     transform: rotate(-45deg) scale(1);
   }
 
+  .spinner--container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   @keyframes borderscale {
     50% {
       box-shadow: 0 0 0 2px $base-color;
