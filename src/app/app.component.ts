@@ -1,9 +1,4 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  ElementRef
-} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 import modalData from '../assets/data/modalData.json';
 import chartData from '../assets/data/chart-data.json';
@@ -24,9 +19,22 @@ import { FileUploadModel } from './modules/file-upload/file-upload.model';
 import { CodeSnippetModel, CodeSnippetContentItemModel } from './modules/code-snippet/code-snippet.model.js';
 import { FileUploadComponent } from './modules/file-upload/file-upload.component.js';
 import { ToastService } from './modules/toast/service/toast.service';
-import { TableModel, TableHeaderModel, TableCellTypeEnum, TableHeaderTypeEnum, TableRowModel, TableCellModel, TablePaginationModel } from './modules/table2/table.models.js';
+import {
+  TableModel,
+  TableHeaderModel,
+  TableCellTypeEnum,
+  TableHeaderTypeEnum,
+  TableRowModel,
+  TableCellModel,
+  TablePaginationModel,
+} from './modules/table2/table.models.js';
 import { faUser, faCircle } from '@fortawesome/free-regular-svg-icons';
-import { PopoverModel, PopoverItemModel, mdePopoverPositionXEnum, mdePopoverPositionYEnum } from './modules/popover/popover.model.js';
+import {
+  PopoverModel,
+  PopoverItemModel,
+  mdePopoverPositionXEnum,
+  mdePopoverPositionYEnum,
+} from './modules/popover/popover.model.js';
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { TableComponent } from './modules/table2/table.component.js';
 
@@ -34,421 +42,414 @@ import { TableComponent } from './modules/table2/table.component.js';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [
-      ModalService,
-  ],
-  entryComponents: [
-      ExampleModalComponent,
-  ]
+  providers: [ModalService],
+  entryComponents: [ExampleModalComponent],
 })
-
 export class AppComponent implements OnInit {
-    modalData;
-    chartData;
-    tableData;
-    tableHeaderData;
-    lineData;
-    dataSet;
-    pieData;
-    barData;
-    cluster;
-    searchText;
-    openAll;
-    singleTableData;
-    totalRows = 0;
-    resetSearch: boolean;
-    searchValue: string;
-    dropDown = [
-        {
-            content: 'option1',
-            value: 'op1'
-        },
-        {
-            content: 'option2',
-            value: 'op2'
-        },
-        {
-            content: 'option3',
-            value: 'op3'
-        }
-    ];
+  modalData;
+  chartData;
+  tableData;
+  tableHeaderData;
+  lineData;
+  dataSet;
+  pieData;
+  barData;
+  cluster;
+  searchText;
+  openAll;
+  singleTableData;
+  totalRows = 0;
+  resetSearch: boolean;
+  searchValue: string;
+  dropDown = [
+    {
+      content: 'option1',
+      value: 'op1',
+    },
+    {
+      content: 'option2',
+      value: 'op2',
+    },
+    {
+      content: 'option3',
+      value: 'op3',
+    },
+  ];
 
-    tabs = [
-        {
-            title: 'tab1',
-            id: 'tab1',
-            ariaLabel: 'tab1 hello',
-            description: 'Files acceptable are whatever you want to upload.',
-        },
-        {
-            title: 'tab2',
-            ariaLabel: 'tab1 yellow',
-            description: 'Files acceptable are TXT, TSV, CSV.',
-        },
-        {
-            title: 'tab3',
-            id: 'tab3',
-            ariaLabel: 'tab3 mellow',
-            description: 'Files acceptable are cat and dog pictures.',
-            disabled: true,
-        }
-    ];
+  tabs = [
+    {
+      title: 'tab1',
+      id: 'tab1',
+      ariaLabel: 'tab1 hello',
+      description: 'Files acceptable are whatever you want to upload.',
+    },
+    {
+      title: 'tab2',
+      ariaLabel: 'tab1 yellow',
+      description: 'Files acceptable are TXT, TSV, CSV.',
+    },
+    {
+      title: 'tab3',
+      id: 'tab3',
+      ariaLabel: 'tab3 mellow',
+      description: 'Files acceptable are cat and dog pictures.',
+      disabled: true,
+    },
+  ];
 
-    codeSnippetModel = new CodeSnippetModel({
-        label: 'XPath',
-        copyLinkLabel: 'Copy!!',
-        contentItems: [
-            new CodeSnippetContentItemModel({content: 'line1'}),
-            new CodeSnippetContentItemModel({content: '  - line 2'}),
-            new CodeSnippetContentItemModel({
-                content: '     - line 3',
-                className: 'ds-u-fill--error-lightest ds-u-color--error-dark',
-                lineNumber: 150
-            }),
-            new CodeSnippetContentItemModel({content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'}),
-        ],
-        // copyContent: 'copy override',
-    });
+  codeSnippetModel = new CodeSnippetModel({
+    label: 'XPath',
+    copyLinkLabel: 'Copy!!',
+    contentItems: [
+      new CodeSnippetContentItemModel({ content: 'line1' }),
+      new CodeSnippetContentItemModel({ content: '  - line 2' }),
+      new CodeSnippetContentItemModel({
+        content: '     - line 3',
+        className: 'ds-u-fill--error-lightest ds-u-color--error-dark',
+        lineNumber: 150,
+      }),
+      new CodeSnippetContentItemModel({
+        content:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      }),
+    ],
+    // copyContent: 'copy override',
+  });
 
-    tabTitle: string = 'not clicked';
-    tabDesc: string = '';
+  tabTitle: string = 'not clicked';
+  tabDesc: string = '';
 
-    fileUploadModel = new FileUploadModel({
-        label: 'Drag and Drop',
-        ariaLabel: 'Drag and Drop',
-        id: 'drag_drop',
-        dataAutoId: 'drag-drop-auto',
-        height: 250,
-    });
+  fileUploadModel = new FileUploadModel({
+    label: 'Drag and Drop',
+    ariaLabel: 'Drag and Drop',
+    id: 'drag_drop',
+    dataAutoId: 'drag-drop-auto',
+    height: 250,
+  });
 
-    appTableModalComponent = AppTableModalComponent;
+  appTableModalComponent = AppTableModalComponent;
 
-    @ViewChild('uploader') uploader: FileUploadComponent;
+  @ViewChild('uploader') uploader: FileUploadComponent;
 
-    popoverModel: PopoverModel = new PopoverModel({
-        items: [
-            new PopoverItemModel({
-                label: 'Menu Item 1',
-            }),
-            new PopoverItemModel({
-                label: 'Menu Item 2',
-                url: 'https://www.google.com'
-            }),
-        ],
-        showArrow: false,
-        icon: faEllipsisV,
-        label: null,
-        mdePopoverPositionX: mdePopoverPositionXEnum.AFTER,
-        mdePopoverPositionY: mdePopoverPositionYEnum.BELOW
-    });
+  popoverModel: PopoverModel = new PopoverModel({
+    items: [
+      new PopoverItemModel({
+        label: 'Menu Item 1',
+      }),
+      new PopoverItemModel({
+        label: 'Menu Item 2',
+        url: 'https://www.google.com',
+      }),
+    ],
+    showArrow: false,
+    icon: faEllipsisV,
+    label: null,
+    mdePopoverPositionX: mdePopoverPositionXEnum.AFTER,
+    mdePopoverPositionY: mdePopoverPositionYEnum.BELOW,
+  });
 
-    tableModel: TableModel = new TableModel({
-        id: 'storiesTable',
-        rowHeaderColumnKey: 'label',
-        headers: [
-          new TableHeaderModel({
-            label: 'Select All',
-            ariaLabel: 'Activate enter key to select all rows',
+  tableModel: TableModel = new TableModel({
+    id: 'storiesTable',
+    headers: [
+      new TableHeaderModel({
+        label: 'Select All',
+        ariaLabel: 'Activate enter key to select all rows',
+        type: TableCellTypeEnum.CHECKBOX,
+        columnKey: 'checkbox',
+      }),
+      new TableHeaderModel({
+        label: 'Label',
+        columnKey: 'label',
+      }),
+      new TableHeaderModel({
+        label: 'Date',
+        columnKey: 'date',
+        isRowHeader: true,
+      }),
+      new TableHeaderModel({
+        label: 'User',
+        columnKey: 'user',
+        type: TableHeaderTypeEnum.SORT,
+      }),
+      new TableHeaderModel({
+        label: 'Long Text Long Text',
+        columnKey: 'longText',
+      }),
+      new TableHeaderModel({
+        label: 'Status',
+        columnKey: 'status',
+        type: TableHeaderTypeEnum.SORT,
+      }),
+      new TableHeaderModel({
+        label: 'Action',
+        columnKey: 'action',
+      }),
+    ],
+    rows: [
+      new TableRowModel({
+        cells: [
+          new TableCellModel({
+            label: 'Row 1',
+            ariaLabel: 'Activate spacebar to select row 1',
+            checkboxValue: '1',
             type: TableCellTypeEnum.CHECKBOX,
             columnKey: 'checkbox',
           }),
-          new TableHeaderModel({
-            label: 'Label',
-            columnKey: 'label',
+          new TableCellModel({
+            label: 'Row 1',
+            type: TableCellTypeEnum.BUTTON,
+            class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
           }),
-          new TableHeaderModel({
-            label: 'Date',
-            columnKey: 'date',
-            isRowHeader: true
+          new TableCellModel({
+            label: '1/1/2000',
           }),
-          new TableHeaderModel({
-            label: 'User',
-            columnKey: 'user',
-            type: TableHeaderTypeEnum.SORT
+          new TableCellModel({
+            label: 'Jim <span class="ds-c-badge ds-c-badge--alert">New</span>',
+            icon: faUser,
+            iconClass: 'ds-u-color--primary',
           }),
-          new TableHeaderModel({
-            label: 'Long Text Long Text',
-            columnKey: 'longText',
+          new TableCellModel({
+            label: 'abcdefghijklmnopqrstuvwxyz1234567890',
           }),
-          new TableHeaderModel({
-            label: 'Status',
-            columnKey: 'status',
-            type: TableHeaderTypeEnum.SORT
+          new TableCellModel({
+            label: 'Active',
+            icon: faCircle,
+            iconClass: 'ds-u-color--success',
           }),
-          new TableHeaderModel({
-            label: 'Action',
-            columnKey: 'action',
+          new TableCellModel({
+            type: TableCellTypeEnum.POPOVER,
+            popoverModel: this.popoverModel,
           }),
         ],
-        rows: [
-          new TableRowModel({
-            cells: [
-              new TableCellModel({
-                label: 'Row 1',
-                ariaLabel: 'Activate spacebar to select row 1',
-                checkboxValue: '1',
-                type: TableCellTypeEnum.CHECKBOX,
-                columnKey: 'checkbox',
-              }),
-              new TableCellModel({
-                label: 'Row 1',
-                type: TableCellTypeEnum.BUTTON,
-                class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
-              }),
-              new TableCellModel({
-                label: '1/1/2000',
-              }),
-              new TableCellModel({
-                label: 'Jim <span class="ds-c-badge ds-c-badge--alert">New</span>',
-                icon: faUser,
-                iconClass: 'ds-u-color--primary',
-              }),
-              new TableCellModel({
-                label: 'abcdefghijklmnopqrstuvwxyz1234567890',
-              }),
-              new TableCellModel({
-                label: 'Active',
-                icon: faCircle,
-                iconClass: 'ds-u-color--success'
-              }),
-              new TableCellModel({
-                type: TableCellTypeEnum.POPOVER,
-                popoverModel: this.popoverModel
-              })
-            ]
+      }),
+      new TableRowModel({
+        cells: [
+          new TableCellModel({
+            label: 'Row 2',
+            ariaLabel: 'Activate spacebar to select row 2',
+            checkboxValue: '2',
+            type: TableCellTypeEnum.CHECKBOX,
+            columnKey: 'checkbox',
           }),
-          new TableRowModel({
-            cells: [
-              new TableCellModel({
-                label: 'Row 2',
-                ariaLabel: 'Activate spacebar to select row 2',
-                checkboxValue: '2',
-                type: TableCellTypeEnum.CHECKBOX,
-                columnKey: 'checkbox',
-              }),
-              new TableCellModel({
-                label: 'Row 2',
-                type: TableCellTypeEnum.BUTTON,
-                class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
-              }),
-              new TableCellModel({
-                label: '2/2/2002'
-              }),
-              new TableCellModel({
-                label: 'Pam',
-                icon: faUser,
-                iconClass: 'ds-u-color--primary',
-              }),
-              new TableCellModel({
-                label: 'abcdefghijklmnopqrstuvwxyz1234567890',
-              }),
-              new TableCellModel({
-                label: 'Suspended',
-                icon: faCircle,
-                iconClass: 'ds-u-color--error'
-              }),
-              new TableCellModel({
-                type: TableCellTypeEnum.POPOVER,
-                popoverModel: this.popoverModel
-              })
-            ]
+          new TableCellModel({
+            label: 'Row 2',
+            type: TableCellTypeEnum.BUTTON,
+            class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
           }),
-          new TableRowModel({
-            cells: [
-              new TableCellModel({
-                label: 'Row 3',
-                ariaLabel: 'Activate spacebar to select row 3',
-                checkboxValue: '3',
-                type: TableCellTypeEnum.CHECKBOX,
-                columnKey: 'checkbox',
-              }),
-              new TableCellModel({
-                label: 'Row 3',
-                type: TableCellTypeEnum.BUTTON,
-                class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
-              }),
-              new TableCellModel({
-                label: '2/1/2004'
-              }),
-              new TableCellModel({
-                label: 'Dwight',
-                icon: faUser,
-                iconClass: 'ds-u-color--primary',
-              }),
-              new TableCellModel({
-                label: 'abcdefghijklmnopqrstuvwxyz1234567890',
-              }),
-              new TableCellModel({
-                label: 'Active',
-                icon: faCircle,
-                iconClass: 'ds-u-color--success'
-              }),
-              new TableCellModel({
-                type: TableCellTypeEnum.POPOVER,
-                popoverModel: this.popoverModel
-              })
-            ]
+          new TableCellModel({
+            label: '2/2/2002',
           }),
-          new TableRowModel({
-            cells: [
-              new TableCellModel({
-                label: 'Row 4',
-                ariaLabel: 'Activate spacebar to select row 4',
-                checkboxValue: '4',
-                type: TableCellTypeEnum.CHECKBOX,
-                columnKey: 'checkbox',
-              }),
-              new TableCellModel({
-                label: 'Row 4',
-                type: TableCellTypeEnum.BUTTON,
-                class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
-              }),
-              new TableCellModel({
-                label: '1/5/2010'
-              }),
-              new TableCellModel({
-                label: 'Jim',
-                icon: faUser,
-                iconClass: 'ds-u-color--primary',
-              }),
-              new TableCellModel({
-                label: 'abcdefghijklmnopqrstuvwxyz1234567890',
-              }),
-              new TableCellModel({
-                label: 'Inactive',
-                icon: faCircle,
-                iconClass: 'ds-u-color--gray'
-              }),
-              new TableCellModel({
-                type: TableCellTypeEnum.POPOVER,
-                popoverModel: this.popoverModel
-              })
-            ]
+          new TableCellModel({
+            label: 'Pam',
+            icon: faUser,
+            iconClass: 'ds-u-color--primary',
           }),
-          new TableRowModel({
-            cells: [
-              new TableCellModel({
-                label: 'Row 5',
-                ariaLabel: 'Activate spacebar to select row 5',
-                checkboxValue: '5',
-                type: TableCellTypeEnum.CHECKBOX,
-                columnKey: 'checkbox',
-              }),
-              new TableCellModel({
-                label: 'Row 5',
-                type: TableCellTypeEnum.BUTTON,
-                class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
-              }),
-              new TableCellModel({
-                label: '2/5/2010'
-              }),
-              new TableCellModel({
-                label: 'Stanley',
-                icon: faUser,
-                iconClass: 'ds-u-color--primary',
-              }),
-              new TableCellModel({
-                label: 'abcdefghijklmnopqrstuvwxyz1234567890',
-              }),
-              new TableCellModel({
-                label: 'Inactive',
-                icon: faCircle,
-                iconClass: 'ds-u-color--gray'
-              }),
-              new TableCellModel({
-                type: TableCellTypeEnum.POPOVER,
-                popoverModel: this.popoverModel
-              })
-            ]
+          new TableCellModel({
+            label: 'abcdefghijklmnopqrstuvwxyz1234567890',
+          }),
+          new TableCellModel({
+            label: 'Suspended',
+            icon: faCircle,
+            iconClass: 'ds-u-color--error',
+          }),
+          new TableCellModel({
+            type: TableCellTypeEnum.POPOVER,
+            popoverModel: this.popoverModel,
           }),
         ],
-        totalRows: 20,
-        summary: 'This table is an example implementation of the Table Component',
-        pagination: new TablePaginationModel({
-          isEnabled: true,
-          perPage: 5,
-          currentPage: 1,
-        })
-      });
+      }),
+      new TableRowModel({
+        cells: [
+          new TableCellModel({
+            label: 'Row 3',
+            ariaLabel: 'Activate spacebar to select row 3',
+            checkboxValue: '3',
+            type: TableCellTypeEnum.CHECKBOX,
+            columnKey: 'checkbox',
+          }),
+          new TableCellModel({
+            label: 'Row 3',
+            type: TableCellTypeEnum.BUTTON,
+            class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
+          }),
+          new TableCellModel({
+            label: '2/1/2004',
+          }),
+          new TableCellModel({
+            label: 'Dwight',
+            icon: faUser,
+            iconClass: 'ds-u-color--primary',
+          }),
+          new TableCellModel({
+            label: 'abcdefghijklmnopqrstuvwxyz1234567890',
+          }),
+          new TableCellModel({
+            label: 'Active',
+            icon: faCircle,
+            iconClass: 'ds-u-color--success',
+          }),
+          new TableCellModel({
+            type: TableCellTypeEnum.POPOVER,
+            popoverModel: this.popoverModel,
+          }),
+        ],
+      }),
+      new TableRowModel({
+        cells: [
+          new TableCellModel({
+            label: 'Row 4',
+            ariaLabel: 'Activate spacebar to select row 4',
+            checkboxValue: '4',
+            type: TableCellTypeEnum.CHECKBOX,
+            columnKey: 'checkbox',
+          }),
+          new TableCellModel({
+            label: 'Row 4',
+            type: TableCellTypeEnum.BUTTON,
+            class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
+          }),
+          new TableCellModel({
+            label: '1/5/2010',
+          }),
+          new TableCellModel({
+            label: 'Jim',
+            icon: faUser,
+            iconClass: 'ds-u-color--primary',
+          }),
+          new TableCellModel({
+            label: 'abcdefghijklmnopqrstuvwxyz1234567890',
+          }),
+          new TableCellModel({
+            label: 'Inactive',
+            icon: faCircle,
+            iconClass: 'ds-u-color--gray',
+          }),
+          new TableCellModel({
+            type: TableCellTypeEnum.POPOVER,
+            popoverModel: this.popoverModel,
+          }),
+        ],
+      }),
+      new TableRowModel({
+        cells: [
+          new TableCellModel({
+            label: 'Row 5',
+            ariaLabel: 'Activate spacebar to select row 5',
+            checkboxValue: '5',
+            type: TableCellTypeEnum.CHECKBOX,
+            columnKey: 'checkbox',
+          }),
+          new TableCellModel({
+            label: 'Row 5',
+            type: TableCellTypeEnum.BUTTON,
+            class: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
+          }),
+          new TableCellModel({
+            label: '2/5/2010',
+          }),
+          new TableCellModel({
+            label: 'Stanley',
+            icon: faUser,
+            iconClass: 'ds-u-color--primary',
+          }),
+          new TableCellModel({
+            label: 'abcdefghijklmnopqrstuvwxyz1234567890',
+          }),
+          new TableCellModel({
+            label: 'Inactive',
+            icon: faCircle,
+            iconClass: 'ds-u-color--gray',
+          }),
+          new TableCellModel({
+            type: TableCellTypeEnum.POPOVER,
+            popoverModel: this.popoverModel,
+          }),
+        ],
+      }),
+    ],
+    totalRows: 20,
+    summary: 'This table is an example implementation of the Table Component',
+    pagination: new TablePaginationModel({
+      isEnabled: true,
+      perPage: 5,
+      currentPage: 1,
+    }),
+  });
 
-      
-      @ViewChild('tableComponent') table2Component: TableComponent;
+  @ViewChild('tableComponent') table2Component: TableComponent;
 
-    constructor(
-        private modalService: ModalService,
-        private toastService: ToastService,
-    ) {}
+  constructor(private modalService: ModalService, private toastService: ToastService) {}
 
-    buttonClick(e) {
-        if (e.button) {
-            console.log(e);
-            this.modalService
-            .appendComponentToBody(AppTableModalComponent, e.event.target.id, 'Modal Example', e.button.array, 'cancelButton1');
-        } else {
-            console.log('Button pressed.');
-        }
+  buttonClick(e) {
+    if (e.button) {
+      console.log(e);
+      this.modalService.appendComponentToBody(
+        AppTableModalComponent,
+        e.event.target.id,
+        'Modal Example',
+        e.button.array,
+        'cancelButton1'
+      );
+    } else {
+      console.log('Button pressed.');
     }
+  }
 
-    ngOnInit() {
-        this.modalData = modalData;
-        this.chartData = chartData;
-        this.tableData = tableData;
-        this.tableHeaderData = tableHeaderData;
-        this.lineData = lineData;
-        this.dataSet = dataSet;
-        this.pieData = pieData;
-        this.cluster = cluster;
-        this.barData = barData;
-        this.singleTableData = singleTableData;
-        // console.log(this.tabTitle);
-        this.modalService.modalDestroyed.subscribe({
-            next: (id) => {
-                console.log(`The #${id} modal has just closed`);
-            }
-        })
+  ngOnInit() {
+    this.modalData = modalData;
+    this.chartData = chartData;
+    this.tableData = tableData;
+    this.tableHeaderData = tableHeaderData;
+    this.lineData = lineData;
+    this.dataSet = dataSet;
+    this.pieData = pieData;
+    this.cluster = cluster;
+    this.barData = barData;
+    this.singleTableData = singleTableData;
+    // console.log(this.tabTitle);
+    this.modalService.modalDestroyed.subscribe({
+      next: (id) => {
+        console.log(`The #${id} modal has just closed`);
+      },
+    });
+  }
+
+  searchFunction(e) {
+    if (e.target.value.trim() !== '') {
+      this.openAll = true;
+      this.searchText = e.target.value;
+      this.totalRows = 0;
+    } else {
+      this.openAll = false;
+      this.searchText = false;
+      this.totalRows = 0;
     }
+  }
 
-    searchFunction(e) {
-        if (e.target.value.trim() !== '') {
-            this.openAll = true;
-            this.searchText = e.target.value;
-            this.totalRows = 0;
-        } else {
-            this.openAll = false;
-            this.searchText = false;
-            this.totalRows = 0;
-        }
-    }
+  countTableRows(e) {
+    this.totalRows += e;
+  }
 
-    countTableRows(e) {
-        this.totalRows += e;
-    }
+  announce(e) {
+    console.log(e);
+    this.searchValue = e;
+  }
 
-    announce(e) {
-        console.log(e);
-        this.searchValue = e;
-    }
+  clear() {
+    this.resetSearch = true;
+  }
 
-    clear() {
-        this.resetSearch = true;
-    }
+  tabSelected(e) {
+    this.tabTitle = e.target.innerText;
+    this.tabDesc = this.tabs.filter((tab) => tab.title === e.target.innerText)[0].description;
+  }
 
-    tabSelected(e) {
-        this.tabTitle = e.target.innerText;
-        this.tabDesc = this.tabs.filter((tab) => tab.title === e.target.innerText)[0].description
-    }
+  uploadFile($event) {
+    console.log($event);
+    console.log(this.uploader.promptUpload());
+  }
 
-    uploadFile($event) {
-        console.log($event);
-        console.log(this.uploader.promptUpload());
-    }
-
-    showToast(message, title, variation) {
-        this.toastService.showToast(
-            message,
-            title,
-            variation
-        );
-    }
-
+  showToast(message, title, variation) {
+    this.toastService.showToast(message, title, variation);
+  }
 }
