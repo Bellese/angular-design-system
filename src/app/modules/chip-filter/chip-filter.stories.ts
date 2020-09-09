@@ -1,11 +1,11 @@
 // Storybook
-import { storiesOf, moduleMetadata } from '@storybook/angular';
+import { moduleMetadata, storiesOf } from '@storybook/angular';
 import { StoriesModule } from '../../../stories/stories.module';
 import { defaultProps } from '../../../../.storybook/helpers';
 
 // Modules
 import { ChipFilterModule } from './chip-filter.module';
-import { dropdownList, settingsProps, dropdownSettings, dropdownSettings2, dropdownSettings3 } from './story.const';
+import { dropdownList, dropdownSettings, dropdownSettings2, dropdownSettings3, settingsProps } from './story.const';
 
 const props = {
   ...defaultProps,
@@ -134,9 +134,10 @@ storiesOf('Components/Chip Filter', module)
               style="width: 50vw; display: block; position: relative; margin: 0 auto; padding-top: 4rem"
               [data]="dropdownList"
               [loading]="loading"
-              [(ngModel)]="selectedItems"apper
+              [(ngModel)]="selectedItems"
               [settings]="dropdownSettings"
               (onDeSelect)="logjam($event)"
+              (onFilterChange)="logjam($event)"
               (onDeSelectAll)="logjam($event)"
               (onScrolledToBottom)="bottomScrolled($event)"
               (onSelect)="logjam($event)"
