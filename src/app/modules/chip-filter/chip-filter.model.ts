@@ -12,6 +12,7 @@ export class IDropdownSettings {
   hintMessage?: string;
   errorMessage?: string;
   labelName?: string;
+  searchText?: string;
   labelClass?: string;
   searchPlaceholder?: string;
   disabled?: boolean;
@@ -28,8 +29,8 @@ export class IDropdownSettings {
 }
 
 export class ListItem {
-  id: String | number;
-  text: String | number;
+  id: string | number;
+  text: string | number;
   isDisabled?: boolean;
 
   public constructor(source: any) {
