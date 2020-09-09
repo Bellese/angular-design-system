@@ -118,7 +118,6 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
 
   ngOnInit() {
     this.setComponent();
-    console.log(this);
   }
 
   ngOnChanges(changes: SimpleChanges) {
