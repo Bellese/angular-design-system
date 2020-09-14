@@ -116,7 +116,7 @@ export const dropdownSettings = {
   placeholder: 'Search Provider(s)',
   searchPlaceholder: 'Search by Provider Name or ID',
   idField: 'id',
-  textField: 'text',
+  textField: 'test',
   selectAllText: 'Select All Providers',
   unSelectAllText: 'UnSelect All Providers',
   label: 'Search Providers',
