@@ -7,21 +7,25 @@ import {
   EventEmitter,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  ViewEncapsulation, OnInit, OnChanges, SimpleChanges
+  ViewEncapsulation,
+  OnInit,
+  OnChanges,
+  SimpleChanges,
 } from '@angular/core';
-import {NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/forms';
-import {ListItem, IDropdownSettings} from './chip-filter.model';
-import {ChipFilterPipe} from './chip-filter.pipe';
-import {faTimes} from '@fortawesome/free-solid-svg-icons';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { ListItem, IDropdownSettings } from './chip-filter.model';
+import { ChipFilterPipe } from './chip-filter.pipe';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { Subject } from 'rxjs/internal/Subject';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 export const DROPDOWN_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => AppChipFilterComponent),
-  multi: true
+  multi: true,
 };
 
-const noop = () => {
-};
+const noop = () => {};
 
 @Component({
   selector: 'app-chip-filter',
@@ -29,12 +33,12 @@ const noop = () => {
   styleUrls: ['./chip-filter.component.scss'],
   providers: [DROPDOWN_CONTROL_VALUE_ACCESSOR],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnChanges {
   public _sourceDataType = null;
-  public _sourceDataFields: Array<String> = [];
-  public selectedItems: Array<ListItem> = [];
+  public _sourceDataFields: string[] = [];
+  public selectedItems: ListItem[] = [];
   public icon = faTimes;
   public filter: ListItem;
   public defaultSettings: IDropdownSettings = {
@@ -64,14 +68,22 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
     searchPlaceholder: 'Search',
   };
 
+  onTouchedCallback: () => void = noop;
+  onChangeCallback: (_: any) => void = noop;
+
+  private searchQueryChanged: Subject<string> = new Subject<string>();
+
   @Input() disabled = false;
 
   @Input() settings: IDropdownSettings;
 
-  @Input() data: Array<ListItem> = [];
+  @Input() data: ListItem[] = [];
+
+  @Input() loading = false;
 
   @Output('onFilterChange')
-  onFilterChange: EventEmitter<ListItem> = new EventEmitter<any>();
+  onFilterChange: EventEmitter<any> = new EventEmitter<any>();
+
   @Output('onDropDownClose')
   onDropDownClose: EventEmitter<ListItem> = new EventEmitter<any>();
 
@@ -82,19 +94,31 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   onDeSelect: EventEmitter<ListItem> = new EventEmitter<any>();
 
   @Output('onSelectAll')
-  onSelectAll: EventEmitter<Array<ListItem>> = new EventEmitter<Array<any>>();
+  onSelectAll: EventEmitter<ListItem[]> = new EventEmitter<any[]>();
 
   @Output('onDeSelectAll')
-  onDeSelectAll: EventEmitter<Array<ListItem>> = new EventEmitter<Array<any>>();
+  onDeSelectAll: EventEmitter<ListItem[]> = new EventEmitter<any[]>();
 
-  onTouchedCallback: () => void = noop;
-  onChangeCallback: (_: any) => void = noop;
+  @Output('onScrolledToBottom')
+  onScrolledToBottom: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  @HostListener('scroll', ['$event'])
+  onScroll(event: any) {
+    if (event.target.offsetHeight + event.target.scrollTop >= event.target.scrollHeight) {
+      this.onScrolledToBottom.emit(true);
+    }
+  }
 
   constructor(private cdr: ChangeDetectorRef, private listFilterPipe: ChipFilterPipe) {
+    this.searchQueryChanged.pipe(debounceTime(1000), distinctUntilChanged()).subscribe((data) => {
+      this.onFilterChange.emit(data);
+    });
   }
 
   ngOnInit() {
-    this.setComponent();
+    this.settings = this.setSettings(this.settings);
+    this.setData(this.data);
+    this.filter = new ListItem(this.data);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -104,10 +128,9 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   setComponent(): void {
     this.settings = this.setSettings(this.settings);
     this.setData(this.data);
-    this.filter = new ListItem(this.data);
   }
 
-  setData(value: Array<any>): void {
+  setData(value: any[]): void {
     const firstItem = value[0];
     this._sourceDataType = typeof firstItem;
     this._sourceDataFields = this.getFields(firstItem);
@@ -115,10 +138,10 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
       typeof item === 'string' || typeof item === 'number'
         ? new ListItem(item)
         : new ListItem({
-          id: item[this.settings.idField],
-          text: item[this.settings.textField],
-          isDisabled: item[this.settings.disabledField]
-        })
+            id: item[this.settings.idField],
+            text: item[this.settings.textField],
+            isDisabled: item[this.settings.disabledField],
+          })
     );
   }
 
@@ -131,7 +154,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   }
 
   onFilterTextChange($event) {
-    this.onFilterChange.emit($event);
+    this.searchQueryChanged.next($event);
   }
 
   onItemClick($event: any, item: ListItem) {
@@ -141,7 +164,9 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
 
     const found = this.isSelected(item);
     // tslint:disable-next-line:max-line-length
-    const allowAdd = this.settings.limitSelection === -1 || (this.settings.limitSelection > 0 && this.selectedItems.length < this.settings.limitSelection);
+    const allowAdd =
+      this.settings.limitSelection === -1 ||
+      (this.settings.limitSelection > 0 && this.selectedItems.length < this.settings.limitSelection);
     if (!found) {
       if (allowAdd) {
         this.addSelected(item);
@@ -164,10 +189,10 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
               typeof firstItem === 'string' || typeof firstItem === 'number'
                 ? new ListItem(firstItem)
                 : new ListItem({
-                  id: firstItem[this.settings.idField],
-                  text: firstItem[this.settings.textField],
-                  isDisabled: firstItem[this.settings.disabledField]
-                })
+                    id: firstItem[this.settings.idField],
+                    text: firstItem[this.settings.textField],
+                    isDisabled: firstItem[this.settings.disabledField],
+                  }),
             ];
           }
         } catch (e) {
@@ -178,10 +203,10 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
           typeof item === 'string' || typeof item === 'number'
             ? new ListItem(item)
             : new ListItem({
-              id: item[this.settings.idField],
-              text: item[this.settings.textField],
-              isDisabled: item[this.settings.disabledField]
-            })
+                id: item[this.settings.idField],
+                text: item[this.settings.textField],
+                isDisabled: item[this.settings.disabledField],
+              })
         );
         if (this.settings.limitSelection > 0) {
           this.selectedItems = data.splice(0, this.settings.limitSelection);
@@ -218,7 +243,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
 
   isSelected(clickedItem: ListItem) {
     let found = false;
-    this.selectedItems.forEach(item => {
+    this.selectedItems.forEach((item) => {
       if (clickedItem.id === item.id) {
         found = true;
       }
@@ -233,7 +258,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   isAllItemsSelected(): boolean {
     // get disabld item count
     const filteredItems = this.listFilterPipe.transform(this.data, this.filter);
-    const itemDisabledCount = filteredItems.filter(item => item.isDisabled).length;
+    const itemDisabledCount = filteredItems.filter((item) => item.isDisabled).length;
     // take disabled items into consideration when checking
     if ((!this.data || this.data.length === 0) && this.settings.allowRemoteDataSearch) {
       return false;
@@ -257,7 +282,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   }
 
   removeSelected(itemSel: ListItem) {
-    this.selectedItems.forEach(item => {
+    this.selectedItems.forEach((item) => {
       if (itemSel.id === item.id) {
         this.selectedItems.splice(this.selectedItems.indexOf(item), 1);
       }
@@ -269,7 +294,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   emittedValue(val: any): any {
     const selected = [];
     if (Array.isArray(val)) {
-      val.map(item => {
+      val.map((item) => {
         selected.push(this.objectify(item));
       });
     } else {
@@ -318,12 +343,15 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   }
 
   toggleSelectAll() {
-    if (this.disabled) {
+    if (this.disabled || this.loading) {
       return false;
     }
     if (!this.isAllItemsSelected()) {
       // filter out disabled item first before slicing
-      this.selectedItems = this.listFilterPipe.transform(this.data, this.filter).filter(item => !item.isDisabled).slice();
+      this.selectedItems = this.listFilterPipe
+        .transform(this.data, this.filter)
+        .filter((item) => !item.isDisabled)
+        .slice();
       this.onSelectAll.emit(this.emittedValue(this.selectedItems));
     } else {
       this.selectedItems = [];

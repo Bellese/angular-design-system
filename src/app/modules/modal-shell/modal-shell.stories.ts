@@ -5,7 +5,7 @@ import { StoriesModule } from '../../../stories/stories.module';
 // Modules
 import { ModalShellModule } from './modal-shell.module';
 
-storiesOf('Components|Modal Shell', module)
+storiesOf('Components/Modal Shell', module)
     .addDecorator(
         moduleMetadata({
             imports: [

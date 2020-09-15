@@ -1,92 +1,107 @@
-<div id="cardClusterComponent" attr.data-auto-id="{{ cardArray.dataAutoId }}"
-    class="ds-l-row ds-u-justify-content--center ds-u-align-items--center ds-u-padding--1" (window:resize)="resize()"
-    (window:load)="resize()">
-
-    <div *ngIf="cardArray.mainCard" class="ds-l-lg-col--{{ mainCardWidth }} ds-l-md-col--12 ds-l-sm-col--12">
-        <div 
-            id="CardCluster0" [ngClass]="cardArray.buttonClicked === 'CardCluster0' ? 'active': null"
-            class="ds-u-margin-bottom--2 no-Margin-Bottom pointer card ds-u-padding-top--4 ds-u-padding-bottom--4 ds-u-padding-x--2"
-            [attr.aria-label]="cardArray.ariaLabel || cardArray.mainTitle"
-            (click)="passAction($event)" (keyup.enter)="passAction($event)"
-            role="button" tabindex="0"
-        >
-            <div class='cardClusterContent ds-l-row'>
-                <div *ngIf="cardArray.showRadioButton" class='ds-l-col--auto ds-u-padding-right--0'>
-                    <app-choice
-                        index="0"
-                        inputType="radio"
-                        size="small"
-                        [value]="cardArray.mainTitle"
-                        groupName="cardClusterCheckbox"
-                        [isChecked]="cardArray.buttonClicked === 'CardCluster0'"
-                        [showTitle]="false"
-                        tabIndex="-1">
-                    </app-choice>
-                </div>
-                <div class='ds-l-col' [ngClass]="{'ds-u-padding-left--0': cardArray.showRadioButton}">
-                    <div class="ds-u-font-size--h1 ds-u-color--black noPoint">
-                        <fa-icon [icon]="cardArray.mainTitleIcon" *ngIf="cardArray.mainTitleIcon"></fa-icon>
-                        {{ cardArray.mainTitle || '&nbsp;'  }}
-                    </div>
-                    <div class="ds-u-font-size--h2 ds-u-color--black ds-u-font-weight--bold noPoint">
-                        {{ total === undefined || total === '' ? '&nbsp;' : total }}
-                    </div>
-                    <div class="ds-u-font-size--h3 ds-u-color--black noPoint">
-                        {{ cardArray.mainSub || '&nbsp;' }}
-                    </div>    
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div *ngIf="cardArray.cluster.length" 
-        [ngClass]="cardArray.mainCard ? 'ds-l-lg-col--8': 'ds-l-lg-col--12'"
-        class="ds-l-md-col--12 ds-l-sm-col--12" 
-        id="followCard"
+<div
+  id="cardClusterComponent"
+  attr.data-auto-id="{{ cardArray.dataAutoId }}"
+  class="ds-l-row ds-u-justify-content--center ds-u-align-items--center ds-u-padding--1"
+  (window:resize)="resize()"
+  (window:load)="resize()"
+>
+  <div *ngIf="cardArray.mainCard" class="ds-l-lg-col--{{ mainCardWidth }} ds-l-md-col--12 ds-l-sm-col--12">
+    <div
+      id="CardCluster0"
+      [ngClass]="cardArray.buttonClicked === 'CardCluster0' ? 'active' : null"
+      class="ds-u-margin-bottom--2 no-Margin-Bottom pointer card ds-u-padding-top--4 ds-u-padding-bottom--4 ds-u-padding-x--2"
+      [attr.aria-label]="cardArray.ariaLabel || cardArray.mainTitle"
+      (click)="passAction($event)"
+      (keyup.enter)="passAction($event)"
+      role="button"
+      tabindex="0"
     >
-        <div class="ds-l-row">
-            <ng-container *ngFor="let card of cardArray.cluster; let x = index;">
-                <div class="ds-l-col" [ngClass]="(x + 1 ) % 2 === 0 ? 'padding-L-0' : ''">
-                    <div 
-                        id="{{'CardCluster'+(x+1)}}"
-                        [ngClass]="{'active': cardArray.buttonClicked === 'CardCluster'+(x+1), 'disabled': card.disabled}"
-                        class="{{'pointer card cardHeight ds-u-padding--1 ds-u-margin-bottom--2 ' + card.classButton}}"
-                        (click)="passAction($event)" (keyup.enter)="passAction($event)"
-                        role="button"
-                        [attr.tabindex]="card.disabled ? null : 0"
-                        [attr.aria-label]="card.ariaLabel || card.name"
-                    >    
-                        <div class='cardClusterContent ds-l-row ds-u-margin-x--0'>
-                            <div *ngIf="cardArray.showRadioButton" class='ds-l-col--auto ds-u-padding-x--0'>
-                                <app-choice
-                                    [index]="x"
-                                    inputType="radio"
-                                    size="small"
-                                    [value]="card.name"
-                                    groupName="cardClusterCheckbox"
-                                    [isChecked]="cardArray.buttonClicked === 'CardCluster'+(x+1)"
-                                    [showTitle]="false"
-                                    [disabled]="card.disabled"
-                                    tabIndex="-1">
-                                </app-choice>
-                            </div>
-                            <div class='ds-l-col' [ngClass]="{'ds-u-padding-x--0': cardArray.showRadioButton}">
-                                <div class="ds-u-font-size--h3 ds-u-font-weight--bold noPoint"
-                                    [ngClass]="card.classValue">
-                                    <fa-icon [icon]="card.valueIcon" *ngIf="card.valueIcon"></fa-icon>
-                                    {{ card.value === undefined || card.value === '' ? '&nbsp;' : card.value }}
-                                </div>
-                                <div class="ds-text noPoint" [ngClass]="card.className">
-                                    <fa-icon [icon]="card.nameIcon" *ngIf="card.nameIcon"></fa-icon>
-                                    {{ !card.name ? '&nbsp;' : card.name }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class='ds-l-col--12 ds-u-display--none ds-u-lg-display--block' *ngIf="(x + 1) % cardArray.rowMaxItems == 0"></div>
-                <div class='ds-l-col--12 ds-u-display--block ds-u-lg-display--none' *ngIf="(x + 1) % 2 == 0"></div>
-            </ng-container>
+      <div class="cardClusterContent ds-l-row">
+        <div *ngIf="cardArray.showRadioButton" class="ds-l-col--auto ds-u-padding-right--0">
+          <app-choice
+            index="0"
+            inputType="radio"
+            size="small"
+            [value]="cardArray.mainTitle"
+            groupName="cardClusterCheckbox"
+            [isChecked]="cardArray.buttonClicked === 'CardCluster0'"
+            [showTitle]="false"
+            tabIndex="-1"
+          >
+          </app-choice>
         </div>
+        <div class="ds-l-col" [ngClass]="{ 'ds-u-padding-left--0': cardArray.showRadioButton }">
+          <div class="ds-u-font-size--h1 ds-u-color--black noPoint">
+            <fa-icon [icon]="cardArray.mainTitleIcon" *ngIf="cardArray.mainTitleIcon"></fa-icon>
+            {{ cardArray.mainTitle || '&nbsp;' }}
+          </div>
+          <div class="ds-u-font-size--h2 ds-u-color--black ds-u-font-weight--bold noPoint">
+            {{ total === undefined || total === '' ? '&nbsp;' : total }}
+          </div>
+          <div class="ds-u-font-size--h3 ds-u-color--black noPoint">
+            {{ cardArray.mainSub || '&nbsp;' }}
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <div
+    *ngIf="cardArray.cluster.length"
+    [ngClass]="cardArray.mainCard ? 'ds-l-lg-col--8' : 'ds-l-lg-col--12'"
+    class="ds-l-md-col--12 ds-l-sm-col--12"
+    id="followCard"
+  >
+    <div class="ds-l-row">
+      <ng-container *ngFor="let card of cardArray.cluster; let x = index">
+        <div class="ds-l-col" [ngClass]="(x + 1) % 2 === 0 ? 'padding-L-0' : ''">
+          <div
+            id="{{ 'CardCluster' + (x + 1) }}"
+            [ngClass]="{ active: cardArray.buttonClicked === 'CardCluster' + (x + 1), disabled: card.disabled }"
+            class="{{ 'pointer card cardHeight ds-u-padding--1 ds-u-margin-bottom--2 ' + card.classButton }}"
+            (click)="passAction($event)"
+            (keyup.enter)="passAction($event)"
+            role="button"
+            [attr.tabindex]="card.disabled ? null : 0"
+            [attr.aria-label]="card.ariaLabel || card.name"
+          >
+            <div class="cardClusterContent ds-l-row ds-u-margin-x--0">
+              <div *ngIf="cardArray.showRadioButton" class="ds-l-col--auto ds-u-padding-x--0">
+                <app-choice
+                  [index]="x"
+                  inputType="radio"
+                  size="small"
+                  [value]="card.name"
+                  groupName="cardClusterCheckbox"
+                  [isChecked]="cardArray.buttonClicked === 'CardCluster' + (x + 1)"
+                  [showTitle]="true"
+                  [label]="card.ariaLabel"
+                  [ariaLabel]="card.ariaLabel"
+                  [labelTextClass]="'sr-only'"
+                  [disabled]="card.disabled"
+                  tabIndex="-1"
+                >
+                </app-choice>
+              </div>
+              <div class="ds-l-col" [ngClass]="{ 'ds-u-padding-x--0': cardArray.showRadioButton }">
+                <div class="ds-u-font-size--h3 ds-u-font-weight--bold noPoint" [ngClass]="card.classValue">
+                  <fa-icon [icon]="card.valueIcon" *ngIf="card.valueIcon"></fa-icon>
+                  {{ card.value === undefined || card.value === '' ? '&nbsp;' : card.value }}
+                </div>
+                <div class="ds-text noPoint" [ngClass]="card.className">
+                  <fa-icon [icon]="card.nameIcon" *ngIf="card.nameIcon"></fa-icon>
+                  {{ !card.name ? '&nbsp;' : card.name }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ds-l-col--12 ds-u-display--none ds-u-lg-display--block"
+          *ngIf="(x + 1) % cardArray.rowMaxItems == 0"
+        ></div>
+        <div class="ds-l-col--12 ds-u-display--block ds-u-lg-display--none" *ngIf="(x + 1) % 2 == 0"></div>
+      </ng-container>
+    </div>
+  </div>
 </div>

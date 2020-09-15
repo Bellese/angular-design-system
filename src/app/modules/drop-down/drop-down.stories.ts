@@ -26,7 +26,7 @@ const props = {
     dropDownData,
 };
 
-storiesOf('Components|Drop Down', module)
+storiesOf('Components/Drop Down', module)
     .addDecorator(
         moduleMetadata({
             imports: [

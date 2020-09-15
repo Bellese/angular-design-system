@@ -36,7 +36,7 @@ const props = {
   calendarModel,
 };
 
-storiesOf("Components|Calendar", module)
+storiesOf('Components/Calendar', module)
   .addDecorator(
     moduleMetadata({
       imports: [StoriesModule, CalendarModule]

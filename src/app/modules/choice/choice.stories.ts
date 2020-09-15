@@ -6,7 +6,7 @@ import { defaultProps } from '../../../../.storybook/helpers';
 // Modules
 import { ChoiceModule } from './choice.module';
 
-storiesOf('Components|Choice', module)
+storiesOf('Components/Choice', module)
     .addDecorator(
         moduleMetadata({
             imports: [

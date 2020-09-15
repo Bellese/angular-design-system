@@ -119,7 +119,7 @@ cardClusterDataDisabledCards.cluster[3].disabled = true;
      cardClusterDataDisabledCards
  };
 
-storiesOf('Components|Card Cluster', module)
+storiesOf('Components/Card Cluster', module)
     .addDecorator(
         moduleMetadata({
             imports: [

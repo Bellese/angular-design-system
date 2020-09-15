@@ -1,57 +1,103 @@
-<label
-  *ngIf="settings?.labelName" [ngClass]="settings.labelClass"
-  class="ds-c-label ds-u-margin-top--0 ds-u-sans">
-  <span class="ds-u-font-weight--bold">{{settings?.labelName}}</span>
-  <span *ngIf="settings.hintMessage" class="ds-c-field__hint ds-c-field__hint--inverse">{{ settings?.hintMessage }}</span>
-  <span *ngIf="settings.error" class="ds-c-field__hint ds-u-color--error" id="undefined-message"
-        role="alert">{{ settings?.errorMessage }}</span>
+<label *ngIf="settings?.labelName" [ngClass]="settings.labelClass" class="ds-c-label ds-u-margin-top--0 ds-u-sans">
+  <span class="ds-u-font-weight--bold">{{ settings?.labelName }}</span>
+  <span *ngIf="settings.hintMessage" class="ds-c-field__hint ds-c-field__hint--inverse">{{
+    settings?.hintMessage
+    }}</span>
+  <span *ngIf="settings.error" class="ds-c-field__hint ds-u-color--error" id="undefined-message" role="alert">{{
+    settings?.errorMessage
+    }}</span>
 </label>
 
-<div tabindex="=0" (blur)="onTouched()" class="multiselect-dropdown ds-c-field" [class.disabled]="disabled" (clickOutside)="closeDropdown()">
+<div
+  tabindex="=0"
+  (blur)="onTouched()"
+  class="multiselect-dropdown ds-c-field"
+  [class.disabled]="disabled"
+  (clickOutside)="closeDropdown()"
+>
   <div id="chip-container">
     <div tabindex="-1" class="dropdown-btn" (click)="toggleDropdown($event)">
-      <span class="placeholder" *ngIf="selectedItems.length == 0">{{settings.placeholder}}</span>
+      <span class="placeholder" *ngIf="selectedItems.length == 0">{{ settings.placeholder }}</span>
       <mat-chip-list>
-        <mat-chip selected color="secondary"
-                  *ngFor="let item of selectedItems;trackBy: trackByFn;let k = index"
-                  [removable]="true"
-                  (removed)="removeSelected(item)"
-                  [hidden]="k > settings.itemsShowLimit-1">
-          <span>{{item.text}}</span>
+        <mat-chip
+          selected
+          color="secondary"
+          *ngFor="let item of selectedItems; trackBy: trackByFn; let k = index"
+          [removable]="true"
+          (removed)="removeSelected(item)"
+          [hidden]="k > settings.itemsShowLimit - 1"
+        >
+          <span>{{ item.text }}</span>
           <fa-icon [icon]="icon" matChipRemove></fa-icon>
         </mat-chip>
       </mat-chip-list>
       <div class="counter">
-        <span *ngIf="itemShowRemaining()>0">+{{itemShowRemaining()}} <span id="other">Other</span></span>
+        <span *ngIf="itemShowRemaining() > 0">+{{ itemShowRemaining() }} <span id="other">Other</span></span>
         <span class="arrow" [class.disabled]="disabled"></span>
       </div>
     </div>
   </div>
   <div class="dropdown-list" [hidden]="!settings?.defaultOpen">
     <ul class="item1">
-      <li (click)="toggleSelectAll()"
-          *ngIf="(data.length > 0 || settings.allowRemoteDataSearch) && !settings.singleSelection && settings.enableCheckAll && settings.limitSelection===-1"
-          class="multiselect-item-checkbox" style="border-bottom: 1px solid #ccc;padding:10px">
-        <input type="checkbox" aria-label="multiselect-select-all" [checked]="isAllItemsSelected()"
-               [disabled]="disabled || isLimitSelectionReached()"/>
-        <div>{{!isAllItemsSelected() ? settings.selectAllText : settings.unSelectAllText}}</div>
+      <li
+        (click)="toggleSelectAll()"
+        *ngIf="
+          (data.length > 0 || settings.allowRemoteDataSearch) &&
+          !settings.singleSelection &&
+          settings.enableCheckAll &&
+          settings.limitSelection === -1
+        "
+        class="multiselect-item-checkbox"
+        style="border-bottom: 1px solid #ccc;padding:10px"
+      >
+        <input
+          type="checkbox"
+          aria-label="multiselect-select-all"
+          [checked]="isAllItemsSelected()"
+          [disabled]="disabled || isLimitSelectionReached() || loading"
+        />
+        <div>{{ !isAllItemsSelected() ? settings.selectAllText : settings.unSelectAllText }}</div>
       </li>
-      <li class="filter-textbox"
-          *ngIf="(data.length>0 || settings.allowRemoteDataSearch) && settings.allowSearchFilter">
-        <input type="text" aria-label="multiselect-search" [readOnly]="disabled"
-               [placeholder]="settings.searchPlaceholder" [(ngModel)]="filter.text"
-               (ngModelChange)="onFilterTextChange($event)">
+      <li
+        class="filter-textbox"
+        *ngIf="(data.length > 0 || settings.allowRemoteDataSearch) && settings.allowSearchFilter"
+      >
+        <input
+          type="text"
+          aria-label="multiselect-search"
+          [readOnly]="disabled || loading"
+          [placeholder]="settings.searchPlaceholder"
+          [(ngModel)]="filter.text"
+          (ngModelChange)="onFilterTextChange($event)"
+        />
       </li>
     </ul>
-    <ul class="item2" [style.maxHeight]="settings.maxHeight+'px'">
-      <li *ngFor="let item of data | chipSelectFilter:filter; let i = index;" (click)="onItemClick($event,item)"
-          class="multiselect-item-checkbox">
-        <input type="checkbox" aria-label="multiselect-item" [checked]="isSelected(item)"
-               [disabled]="disabled || (isLimitSelectionReached() && !isSelected(item)) || item.isDisabled"/>
-        <div>{{item.text}}</div>
+    <ul class="item2" [style.maxHeight]="settings.maxHeight + 'px'" (scroll)="onScroll($event)">
+      <div class="spinner--container"  [style.height]="settings.maxHeight + 'px'" *ngIf="loading">
+        <app-spinner
+          [dataAutoId]="'data-table-page-spinner'"
+          [inversed]="false"
+          [filled]="false"
+          [color]="'muted'"
+          [size]="'big'"
+        >
+        </app-spinner>
+      </div>
+      <li
+        *ngFor="let item of data | chipSelectFilter: filter; let i = index"
+        (click)="onItemClick($event, item)"
+        class="multiselect-item-checkbox"
+      >
+        <input
+          type="checkbox"
+          aria-label="multiselect-item"
+          [checked]="isSelected(item)"
+          [disabled]="disabled || (isLimitSelectionReached() && !isSelected(item)) || item.isDisabled || loading"
+        />
+        <div>{{ item.text }}</div>
       </li>
-      <li class='no-data' *ngIf="data.length == 0 && !settings.allowRemoteDataSearch">
-        <h5>{{settings.noDataAvailablePlaceholderText}}</h5>
+      <li class="no-data" *ngIf="data.length == 0 && !settings.allowRemoteDataSearch">
+        <h5>{{ settings.noDataAvailablePlaceholderText }}</h5>
       </li>
     </ul>
   </div>

@@ -1,42 +1,48 @@
 <ng-container [ngSwitch]="tableHeaderModel.type">
-    <ng-container *ngSwitchCase="TableHeaderTypeEnum.SORT">
-        <app-button
-            [title]="tableHeaderModel.label"
-            [ariaLabel]="'Activate to sort'"
-            [buttonID]="'header_' + tableHeaderModel.columnKey"
-            (callBack)="headerClickEvent($event)"
-            buttonType="ds-u-padding--0 ds-u-border--0 ds-u-color--base"
-        >
-            {{ tableHeaderModel.label }}
-            <fa-icon 
-                *ngIf="tableHeaderModel.sort !== TableHeaderSortEnum.NONE" 
-                class="ds-u-display--inline-block"
-                [icon]="tableHeaderModel.sort === TableHeaderSortEnum.ASC ? faCaretUp : faCaretDown"
-            ></fa-icon>
-        </app-button>
-    </ng-container>
+  <ng-container *ngSwitchCase="TableHeaderTypeEnum.SORT">
+    <app-button
+      [title]="tableHeaderModel.label"
+      [ariaLabel]="'Activate to sort' + tableHeaderModel.label + 'column'"
+      [buttonID]="'header_' + tableHeaderModel.columnKey"
+      (callBack)="headerClickEvent($event)"
+      buttonType="ds-u-padding--0 ds-u-border--0 ds-u-color--base"
+    >
+      {{ tableHeaderModel.label }}
+      <fa-icon
+        *ngIf="tableHeaderModel.sort !== TableHeaderSortEnum.NONE"
+        class="ds-u-display--inline-block"
+        [icon]="tableHeaderModel.sort === TableHeaderSortEnum.ASC ? faCaretUp : faCaretDown"
+      ></fa-icon>
+    </app-button>
+  </ng-container>
 
-    <ng-container *ngSwitchCase="TableHeaderTypeEnum.CHECKBOX">
-        <app-choice
-            [label]="tableHeaderModel.label"
-            [value]="tableHeaderModel.columnKey"
-            [isChecked]="tableHeaderModel.isChecked"
-            [showTitle]="false"
-            size="small"
-            (choiceChange)="headerClickEvent($event)"
-        >
-        </app-choice>
-    </ng-container>
+  <ng-container *ngSwitchCase="TableHeaderTypeEnum.CHECKBOX">
+    <app-choice
+      [label]="tableHeaderModel.label"
+      [value]="tableHeaderModel.columnKey"
+      [isChecked]="tableHeaderModel.isChecked"
+      [showTitle]="true"
+      [labelTextClass]="'sr-only'"
+      size="small"
+      (choiceChange)="headerClickEvent($event)"
+    >
+    </app-choice>
+    <div [class]="'sr-only'" [title]="tableHeaderModel.label" tabindex="0">
+      {{ tableHeaderModel.label }}
+    </div>
+  </ng-container>
 
-    <ng-container *ngSwitchCase="TableHeaderTypeEnum.DEFAULT">
-        <div [class]="'header_' + tableHeaderModel.columnKey" [title]="tableHeaderModel.label" tabindex="0">
-            {{ tableHeaderModel.label }}
-        </div>
-    </ng-container>
+  <ng-container *ngSwitchCase="TableHeaderTypeEnum.DEFAULT">
+    <div
+      [ngClass]="['header_' + tableHeaderModel.columnKey, tableHeaderModel.class]"
+      [title]="tableHeaderModel.label"
+      tabindex="0"
+    >
+      {{ tableHeaderModel.label }}
+    </div>
+  </ng-container>
 
-    <!-- [ariaLabel]="header.header.prop === selected ? (header.header.value + ': ' + handleDirection()) : header.header.value + ': ' + 'activate to sort'"
+  <!-- [ariaLabel]="header.header.prop === selected ? (header.header.value + ': ' + handleDirection()) : header.header.value + ': ' + 'activate to sort'"
     [ariaSort]="header.header.prop === selected ? handleDirection() : setDefaultDirection()"
     [buttonType]="(header.header.prop === selected) ? handleDirection() + ' ' + 'header_'+header.header.prop : setDefaultDirection() + ' pointer arrow ' + 'header_'+header.header.prop" -->
-
-
 </ng-container>
