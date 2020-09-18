@@ -116,7 +116,9 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   }
 
   ngOnInit() {
-    this.setComponent();
+    this.settings = this.setSettings(this.settings);
+    this.setData(this.data);
+    this.filter = new ListItem(this.data);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -126,7 +128,6 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   setComponent(): void {
     this.settings = this.setSettings(this.settings);
     this.setData(this.data);
-    this.filter = new ListItem(this.data);
   }
 
   setData(value: any[]): void {
