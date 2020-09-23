@@ -20,6 +20,7 @@ export class PopoverComponent implements OnInit {
   faChevronDown = faChevronDown;
   faChevronUp = faChevronUp;
   isOpen = false;
+  hasChanged = false;
 
   constructor() { }
 
@@ -28,10 +29,12 @@ export class PopoverComponent implements OnInit {
 
   isOpened() {
     this.isOpen = true;
+    this.hasChanged = true;
   }
 
   isClosed() {
     this.isOpen = false;
+    this.hasChanged = true;
   }
 
   handleClick(item: PopoverItemModel) {
