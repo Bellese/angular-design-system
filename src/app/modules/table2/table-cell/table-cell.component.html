@@ -23,6 +23,7 @@
 
     <ng-container *ngSwitchCase="TableCellTypeEnum.CHECKBOX">
       <app-choice
+        [labelTextClass]="'sr-only'"
         [label]="tableCellModel.label"
         [ariaLabel]="tableCellModel.ariaLabel"
         [value]="tableCellModel.checkboxValue"
