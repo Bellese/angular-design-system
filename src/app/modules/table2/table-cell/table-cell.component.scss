@@ -1,0 +1,9 @@
+.table--button {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  @media screen and (max-width: 1080px) {
+    max-width: 300px;
+  }
+}
