@@ -1,9 +1,3 @@
-.table_cell {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
 .table--button {
   white-space: nowrap;
   overflow: hidden;
