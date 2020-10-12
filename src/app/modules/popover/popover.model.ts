@@ -27,11 +27,14 @@ export enum mdePopoverPositionYEnum {
     BELOW = 'below',
 }
 
+// tslint:disable-next-line: max-classes-per-file
 export class PopoverModel extends AngularDesignSystemModel {
     id = 'popover';
     icon: IconDefinition = null;
     label = 'Open Popover';
     ariaLabel = 'Activate enter key to open popover';
+    ariaLiveTextOpen = 'The popover menu has been opened';
+    ariaLiveTextClosed = 'The popover menu has been closed';
     showArrow = true;
     mdePopoverPositionX ? = mdePopoverPositionXEnum.BEFORE;
     mdePopoverPositionY ? = mdePopoverPositionYEnum.BELOW;

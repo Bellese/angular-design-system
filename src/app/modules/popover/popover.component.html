@@ -4,28 +4,41 @@
   [ariaLabel]="popoverModel.ariaLabel ? popoverModel.ariaLabel : popoverModel.label"
   buttonType="ds-c-button ds-c-button--transparent ds-u-padding--0 ds-u-padding-x--1 ds-u-text-decoration--none hqr-hide ds-u-color--base"
   [mdePopoverTriggerFor]="menuPopover"
-  mdePopoverTriggerOn="click"
+  mdePopoverTriggerOn="none"
   [mdePopoverPositionX]="popoverModel.mdePopoverPositionX"
   [mdePopoverPositionY]="popoverModel.mdePopoverPositionY"
   #popoverTrigger="mdePopoverTrigger"
   mdePopoverArrowOffsetX="16"
-  (opened)="isOpened()"
-  (closed)="isClosed()"
+  (callBack)="handlePopoverButtonClick()"
   class="ds-u-padding-left--1"
 >
   <fa-icon [icon]="popoverModel.icon" *ngIf="popoverModel.icon"></fa-icon>
   {{ popoverModel.label }}
   <ng-content *ngIf="!popoverModel.label && !popoverModel.icon"></ng-content>
-  <fa-icon [icon]="isOpen ? faChevronUp : faChevronDown" class="ds-u-padding-left--1" *ngIf="popoverModel.showArrow"></fa-icon>
+  <fa-icon
+    [icon]="isOpen ? faChevronUp : faChevronDown"
+    class="ds-u-padding-left--1"
+    *ngIf="popoverModel.showArrow"
+  ></fa-icon>
 </app-button>
 
-<mde-popover
-  #menuPopover="mdePopover"
-  [mdePopoverOverlapTrigger]="false"
-  id="mdePopoverId"
->
-  <div class="mde-popover-content-inner ds-u-display--inline-block ds-u-padding--1 ds-u-fill--white" id="mde--popover--container">
-    <div *ngFor="let item of popoverModel.items; let i = index" class="ds-u-display--flex ds-u-justify-content--between" [style.cursor]="'pointer'">
+<div aria-atomic="true" aria-live="assertive" class="sr-only">
+  <span
+    *ngIf="hasChanged"
+    [innerHTML]="this.isOpen ? this.popoverModel.ariaLiveTextOpen : this.popoverModel.ariaLiveTextClosed"
+  ></span>
+</div>
+
+<mde-popover #menuPopover="mdePopover" [mdePopoverOverlapTrigger]="false" id="mdePopoverId">
+  <div
+    class="mde-popover-content-inner ds-u-display--inline-block ds-u-padding--1 ds-u-fill--white"
+    id="mde--popover--container"
+  >
+    <div
+      *ngFor="let item of popoverModel.items; let i = index"
+      class="ds-u-display--flex ds-u-justify-content--between"
+      [style.cursor]="'pointer'"
+    >
       <app-button
         [buttonID]="item.id"
         [ariaLabel]="item.ariaLabel ? item.ariaLabel : item.label"
@@ -36,7 +49,12 @@
       >
         {{ item.label }}
       </app-button>
-      <fa-icon [icon]="item.icon" *ngIf="item.icon" class="ds-u-padding--1 ds-u-padding-y--2"(click)="handleClick(item)" ></fa-icon>
+      <fa-icon
+        [icon]="item.icon"
+        *ngIf="item.icon"
+        class="ds-u-padding--1 ds-u-padding-y--2"
+        (click)="handleClick(item)"
+      ></fa-icon>
     </div>
   </div>
 </mde-popover>
