@@ -15,7 +15,7 @@
         (callBack)="buttonClickEvent($event)"
         [disabled]="tableCellModel.buttonDisabled"
         [ariaLabel]="tableCellModel.ariaLabel ? tableCellModel.ariaLabel : tableCellModel.label"
-        [buttonType]="'ds-c-button ' + tableCellModel.buttonClass"
+        [buttonType]="'table--button ds-c-button ' + tableCellModel.buttonClass"
       >
         <ng-container *ngTemplateOutlet="cellContent"></ng-container>
       </app-button>
