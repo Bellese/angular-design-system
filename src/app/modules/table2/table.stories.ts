@@ -97,7 +97,7 @@ const tableModel: TableModel = new TableModel({
           columnKey: 'checkbox',
         }),
         new TableCellModel({
-          label: 'Row 1',
+          label: 'Row 1 asdf asd asd fasd f asdf asd f asdf  asdf adsf a dsf adsf dasf asd f adsfa sdf',
           type: TableCellTypeEnum.BUTTON,
           buttonClass: 'ds-u-padding--0 ds-u-border--0 ds-u-color--base',
           buttonOnClick: ($event) => {
