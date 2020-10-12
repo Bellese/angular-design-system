@@ -6,7 +6,7 @@ import { TableCellModel, TableCellTypeEnum } from '../table.models';
 @Component({
   selector: 'app-table-cell-2',
   templateUrl: './table-cell.component.html',
-  styleUrls: ['./table-cell.component.css'],
+  styleUrls: ['./table-cell.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class TableCellComponent {
