@@ -13,15 +13,20 @@ export class TooltipComponent implements OnInit {
   @Input() tooltipModel: TooltipModel;
 
   TooltipTriggerTypeEnum = TooltipTriggerTypeEnum;
-  tooltipProps;
+  tippyProps;
 
   constructor() {}
 
   ngOnInit(): void {
-    this.tooltipProps = {
+
+    this.tippyProps = {
       content: this.tooltipModel.tooltipContent,
       trigger: 'mouseenter focus click',
       theme: this.tooltipModel.inversed ? 'hqr-inversed' : 'hqr',
+      maxWidth: this.tooltipModel.maxWidth,
+      offset: this.tooltipModel.offset,
+      placement: this.tooltipModel.placement,
+      duration: this.tooltipModel.transitionDuration,
     };
   }
 }

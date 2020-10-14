@@ -354,22 +354,29 @@ TABLE AND PAGINATION
 </app-table-2>
 
 <button (click)="table2Component.getSelectedCheckboxValues('checkbox')">asdf</button> -->
-
-  <app-tooltip
-    [tooltipModel]="{
-      triggerType: TooltipTriggerTypeEnum.LINK,
-      triggerContent: 'hover or click me!',
-      tooltipContent: 'hey this is my content!',
-      ariaLabel: 'this is my aria label',
-      inversed: true
-    }"
-  ></app-tooltip>
-  <app-tooltip
-    [tooltipModel]="{
-      triggerType: TooltipTriggerTypeEnum.BUTTON,
-      triggerContent: 'hover or click me!',
-      tooltipContent: 'hey this is my content!',
-      ariaLabel: 'this is my aria label'
-    }"
-  ></app-tooltip>
+  <div class="ds-u-fill--primary-darkest ds-u-margin-bottom--2 ds-u-padding--6 ds-u-text-align--center">
+    <app-tooltip
+      [tooltipModel]="{
+        id: 'tooltipButton',
+        triggerType: TooltipTriggerTypeEnum.BUTTON,
+        triggerContent: 'hover or click me!',
+        tooltipContent: 'hey this is my content and my colors are inverted!',
+        ariaLabel: 'this is my aria label',
+        triggerClass: 'ds-c-button--primary',
+        inversed: true
+      }"
+    ></app-tooltip>
+  </div>
+  <div class="ds-u-padding--6 ds-u-text-align--center">
+    <app-tooltip
+      [tooltipModel]="{
+        id: 'tooltipLink',
+        triggerType: TooltipTriggerTypeEnum.LINK,
+        triggerContent: 'hover or click me!',
+        tooltipContent: 'hey this is my content!',
+        ariaLabel: 'this is my aria label',
+        placement: TooltipPlacementEnum.RIGHT
+      }"
+    ></app-tooltip>
+  </div>
 </section>

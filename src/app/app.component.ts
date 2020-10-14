@@ -37,7 +37,7 @@ import {
 } from './modules/popover/popover.model.js';
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { TableComponent } from './modules/table2/table.component.js';
-import { TooltipTriggerTypeEnum } from './modules/tooltip/tooltip.models';
+import { TooltipPlacementEnum, TooltipTriggerTypeEnum } from './modules/tooltip/tooltip.models';
 
 @Component({
   selector: 'app-root',
@@ -378,6 +378,7 @@ export class AppComponent implements OnInit {
   });
 
   TooltipTriggerTypeEnum = TooltipTriggerTypeEnum;
+  TooltipPlacementEnum = TooltipPlacementEnum;
 
   @ViewChild('tableComponent') table2Component: TableComponent;
 
