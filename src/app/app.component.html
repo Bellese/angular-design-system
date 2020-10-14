@@ -1,9 +1,8 @@
 <section class="ds-l-container preview__grid">
-
-<!-- UNCOMMENT CODE ON THIS PAGE TO SEE EXAMPLES OF COMPONENTS
+  <!-- UNCOMMENT CODE ON THIS PAGE TO SEE EXAMPLES OF COMPONENTS
 <br>
 <br> -->
-<!-- 
+  <!-- 
 <p>ACCORDION COMPONENT EXAMPLE</p>
 <app-accordion>
     <app-panel
@@ -55,7 +54,7 @@
     </app-panel>
 </app-accordion> -->
 
-<!-- ALERT COMPONENT EXAMPLE
+  <!-- ALERT COMPONENT EXAMPLE
 <app-alert
     dataAutoId = 'dataID'
     variation = 'Warn'
@@ -67,8 +66,7 @@
         i have added more examples
 </app-alert> -->
 
-        
-<!-- BAR GRAPH COMPONENT EXAMPLE
+  <!-- BAR GRAPH COMPONENT EXAMPLE
 <app-bar-graph
     [data]="barData"
     title='Bar Graph Example'
@@ -91,7 +89,7 @@
     dataAutoId = 'testingID'>
 </app-bar-graph> -->
 
-<!-- BUTTON COMPONENT EXAMPLE
+  <!-- BUTTON COMPONENT EXAMPLE
 <app-button
     ariaLabel = 'Button Example'
     buttonType = 'ds-c-button--danger'
@@ -102,8 +100,8 @@
     (callBack) = 'announce($event)'>
         Example Button
 </app-button> -->
-    
-<!-- CARD CLUSTER COMPONENT EXAMPLE
+
+  <!-- CARD CLUSTER COMPONENT EXAMPLE
 <app-card-cluster 
     [cardArray]="cluster"
     buttonClicked='CardCluster1'
@@ -111,7 +109,7 @@
     (passButton)="buttonClick($event)">
 </app-card-cluster> -->
 
-<!-- Choice COMPONENT EXAMPLE
+  <!-- Choice COMPONENT EXAMPLE
 <app-choice
     index = 0
     value = 'choiceExample'
@@ -122,8 +120,7 @@
     errorMessage = 'please check me'>
 </app-choice> -->
 
-    
-<!-- CIRCLE GRAPH COMPONENT EXAMPLE
+  <!-- CIRCLE GRAPH COMPONENT EXAMPLE
 <app-circle-graph
     dataAutoId = 'testingID'
     [data]='pieData'
@@ -141,18 +138,17 @@
     (passButton)='buttonClick($event)'>
 </app-circle-graph> -->
 
-<!-- DATE-PICKER COMPONENT EXAMPLE
+  <!-- DATE-PICKER COMPONENT EXAMPLE
 <app-date-picker 
     label = 'Date Example'
     dataAutoId = 'testingID'>
 </app-date-picker> -->
 
-<!-- DOWNLOAD-QUE COMPONENT EXAMPLE
+  <!-- DOWNLOAD-QUE COMPONENT EXAMPLE
 <app-download-que>
 </app-download-que> -->
 
-
-<!-- DROP DOWN COMPONENT EXAMPLE
+  <!-- DROP DOWN COMPONENT EXAMPLE
 <app-drop-down
     [options] = 'dropDown'
     labelName = 'Drop down example'
@@ -166,7 +162,7 @@
     (selectedOption) = 'announce($event)'>
 </app-drop-down> -->
 
-<!-- LINE GRAPH COMPONENT EXAMPLE
+  <!-- LINE GRAPH COMPONENT EXAMPLE
 <app-line-graph
     [data]= 'lineData'
     [animations] = true
@@ -186,7 +182,7 @@
     (LineClick) = "announce($event)">
 </app-line-graph> -->
 
-<!-- SEARCH_FIELD COMPONENT EXAMPLE
+  <!-- SEARCH_FIELD COMPONENT EXAMPLE
 <div style='width: 460px;'>
     <app-search-field 
         [reset]='resetSearch'
@@ -207,7 +203,7 @@
     reset example
 </button> -->
 
-<!-- SPINNER COMPONENT EXAMPLE
+  <!-- SPINNER COMPONENT EXAMPLE
 <app-spinner
     size = 'big'
     color = 'success'
@@ -217,7 +213,7 @@
     dataAutoId = 'testingID'>
 </app-spinner> -->
 
-<!-- STAR RATING COMPONENT EXAMPLE
+  <!-- STAR RATING COMPONENT EXAMPLE
 <app-star-rating
     dataAutoId = 'testingID'
     [width]="'10px'"
@@ -226,7 +222,7 @@
     [rating]="2">
 </app-star-rating> -->
 
-<!-- TABLE, SEARCH AND ACCORDION EXAMPLE
+  <!-- TABLE, SEARCH AND ACCORDION EXAMPLE
 <br/>
 <input type="text" (keyup.enter)="searchFunction($event)"/>
 <span>{{ totalRows }} results</span>
@@ -265,7 +261,7 @@
     </ng-container>
 </app-accordion> -->
 
-<!--     
+  <!--     
 TABLE AND PAGINATION
 <br/>
 <app-table
@@ -278,7 +274,7 @@ TABLE AND PAGINATION
     (paginateNext)="announce($event)">
 </app-table> -->
 
-<!-- TAB
+  <!-- TAB
 <br/>
 <app-tabs
     [tabs]="tabs"
@@ -287,7 +283,7 @@ TABLE AND PAGINATION
     (onChange)="announce($event)">
 </app-tabs> -->
 
-<!-- TICKET COMPONENT EXAMPLE
+  <!-- TICKET COMPONENT EXAMPLE
 <div class="ds-l-row ds-u-padding-y--1" style='max-width: 1280px;'>
     <div class="ds-l-lg-col--4 ds-l-md-col--6 ds-l-sm-col--12">
         <app-ticket
@@ -321,7 +317,7 @@ TABLE AND PAGINATION
     </div>
 </div> -->
 
-<!-- File Upload Component
+  <!-- File Upload Component
 <app-file-upload [fileUploadModel]="fileUploadModel" (onFileUpload)="announce($event)" #uploader></app-file-upload>
 
 <app-button
@@ -330,12 +326,11 @@ TABLE AND PAGINATION
     Upload
 </app-button> -->
 
-  
-<!-- Code Snippet
+  <!-- Code Snippet
 <app-code-snippet [codeSnippetModel]="codeSnippetModel" #uploader></app-code-snippet> -->
 
-<!-- Modal Component<br /> -->
-<!-- <app-modal
+  <!-- Modal Component<br /> -->
+  <!-- <app-modal
     id='modalExample'
     modalTitle='modalTitle'
     [modalData]='modalData'
@@ -344,7 +339,7 @@ TABLE AND PAGINATION
 >
 </app-modal> -->
 
-<!-- Toast Component / Service<br />
+  <!-- Toast Component / Service<br />
 <app-button (click)="showToast('Error Message', 'Error Title', 'error')">Show Error Toast</app-button><br />
 <app-button (click)="showToast('Success Message', 'Success Title', 'success')">Show Success Toast</app-button><br />
 <app-button (click)="showToast('Warn Message', 'Warn Title', 'warn')">Show Warn Toast</app-button><br />
@@ -353,9 +348,35 @@ TABLE AND PAGINATION
 
 </section> -->
 
-<app-table-2
+  <!-- <app-table-2
 #tableComponent
 [tableModel]="tableModel">
 </app-table-2>
 
-<button (click)="table2Component.getSelectedCheckboxValues('checkbox')">asdf</button>
+<button (click)="table2Component.getSelectedCheckboxValues('checkbox')">asdf</button> -->
+  <div class="ds-u-fill--primary-darkest ds-u-margin-bottom--2 ds-u-padding--6 ds-u-text-align--center">
+    <app-tooltip
+      [tooltipModel]="{
+        id: 'tooltipButton',
+        triggerType: TooltipTriggerTypeEnum.BUTTON,
+        triggerContent: 'hover or click me!',
+        tooltipContent: 'hey this is my content and my colors are inverted!',
+        ariaLabel: 'this is my aria label',
+        triggerClass: 'ds-c-button--primary',
+        inversed: true
+      }"
+    ></app-tooltip>
+  </div>
+  <div class="ds-u-padding--6 ds-u-text-align--center">
+    <app-tooltip
+      [tooltipModel]="{
+        id: 'tooltipLink',
+        triggerType: TooltipTriggerTypeEnum.LINK,
+        triggerContent: 'hover or click me!',
+        tooltipContent: 'hey this is my content!',
+        ariaLabel: 'this is my aria label',
+        placement: TooltipPlacementEnum.RIGHT
+      }"
+    ></app-tooltip>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+<ng-container [ngSwitch]="tooltipModel.triggerType">
+  <ng-container *ngSwitchCase="TooltipTriggerTypeEnum.LINK">
+    <a
+      [id]="tooltipModel.id"
+      ngxTippy
+      [tippyProps]="tippyProps"
+      href="javascript:void(0)"
+      class="tooltipTrigger"
+      [ngClass]="tooltipModel.triggerClass"
+      [attr.aria-label]="tooltipModel.ariaLabel"
+      >{{ tooltipModel.triggerContent }}</a
+    >
+  </ng-container>
+  <ng-container *ngSwitchCase="TooltipTriggerTypeEnum.BUTTON">
+    <app-button
+      ngxTippy
+      [buttonID]="tooltipModel.id"
+      [tippyProps]="tippyProps"
+      [buttonType]="'tooltipTrigger ' + tooltipModel.triggerClass"
+      [ariaLabel]="tooltipModel.ariaLabel"
+      >{{ tooltipModel.triggerContent }}</app-button
+    >
+  </ng-container>
+</ng-container>

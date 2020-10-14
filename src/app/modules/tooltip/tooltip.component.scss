@@ -1,0 +1,40 @@
+@import '@cmsgov/design-system-support/src/settings/index';
+
+.tooltipTrigger {
+  text-decoration: underline;
+  text-decoration-style: dashed;
+}
+
+::ng-deep .tippy-box[data-theme~='hqr'] {
+  background-color: $color-primary-darkest;
+  color: $color-white;
+  &[data-placement^='top'] > .tippy-arrow::before {
+    border-top-color: $color-primary-darkest;
+  }
+  &[data-placement^='bottom'] > .tippy-arrow::before {
+    border-bottom-color: $color-primary-darkest;
+  }
+  &[data-placement^='left'] > .tippy-arrow::before {
+    border-left-color: $color-primary-darkest;
+  }
+  &[data-placement^='right'] > .tippy-arrow::before {
+    border-right-color: $color-primary-darkest;
+  }
+}
+
+::ng-deep .tippy-box[data-theme~='hqr-inversed'] {
+  background-color: $color-white;
+  color: $color-primary-darkest;
+  &[data-placement^='top'] > .tippy-arrow::before {
+    border-top-color: $color-white;
+  }
+  &[data-placement^='bottom'] > .tippy-arrow::before {
+    border-bottom-color: $color-white;
+  }
+  &[data-placement^='left'] > .tippy-arrow::before {
+    border-left-color: $color-white;
+  }
+  &[data-placement^='right'] > .tippy-arrow::before {
+    border-right-color: $color-white;
+  }
+}
