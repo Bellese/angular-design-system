@@ -8,8 +8,10 @@
       class="tooltipTrigger"
       [ngClass]="tooltipModel.triggerClass"
       [attr.aria-label]="tooltipModel.ariaLabel"
-      >{{ tooltipModel.triggerContent }}</a
     >
+      <fa-icon *ngIf="tooltipModel.triggerIcon" [icon]="tooltipModel.triggerIcon"></fa-icon>
+      {{ tooltipModel.triggerContent }}
+    </a>
   </ng-container>
   <ng-container *ngSwitchCase="TooltipTriggerTypeEnum.BUTTON">
     <app-button
@@ -18,7 +20,9 @@
       [tippyProps]="tippyProps"
       [buttonType]="'tooltipTrigger ' + tooltipModel.triggerClass"
       [ariaLabel]="tooltipModel.ariaLabel"
-      >{{ tooltipModel.triggerContent }}</app-button
     >
+      <fa-icon *ngIf="tooltipModel.triggerIcon" [icon]="tooltipModel.triggerIcon"></fa-icon>
+      {{ tooltipModel.triggerContent }}
+    </app-button>
   </ng-container>
 </ng-container>

@@ -1,3 +1,4 @@
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { AngularDesignSystemModel } from '../../models/angular-design-system.models';
 
 export enum TooltipPlacementEnum {
@@ -23,6 +24,7 @@ export class TooltipModel extends AngularDesignSystemModel {
   transitionDuration?: number;
   triggerType: TooltipTriggerTypeEnum = TooltipTriggerTypeEnum.LINK;
   triggerContent: string;
+  triggerIcon?: IconDefinition;
   triggerClass?: string;
   tooltipContent: string;
 
