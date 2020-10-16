@@ -6,11 +6,12 @@ import { defaultProps } from '../../../../.storybook/helpers';
 // Modules
 import { TooltipModule } from './tooltip.module';
 import { TooltipModel, TooltipPlacementEnum, TooltipTriggerTypeEnum } from './tooltip.models';
+import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 
 const tooltipModel: TooltipModel = new TooltipModel({
   id: 'tooltipLink',
   triggerType: TooltipTriggerTypeEnum.LINK,
-  triggerContent: 'hover or click me!',
+  triggerContent: 'Tooltip - hover or click me!',
   tooltipContent: 'hey this is my content!',
   ariaLabel: 'this is my aria label',
   placement: TooltipPlacementEnum.RIGHT,
@@ -28,11 +29,29 @@ const tooltipModelInversed = {
   triggerClass: 'ds-u-color--white',
 };
 
+const tooltipModelIcon = {
+  ...tooltipModel,
+  triggerType: TooltipTriggerTypeEnum.BUTTON,
+  triggerContent: 'Look at my icon!',
+  triggerClass: 'ds-c-button--primary',
+  triggerIcon: faQuestionCircle,
+};
+
+const tooltipModelIconOnly = {
+  ...tooltipModel,
+  triggerType: TooltipTriggerTypeEnum.BUTTON,
+  triggerContent: '',
+  triggerClass: 'ds-c-button--transparent ds-u-padding-x--0',
+  triggerIcon: faQuestionCircle,
+};
+
 const props = {
   ...defaultProps,
   tooltipModel,
   tooltipModelButton,
   tooltipModelInversed,
+  tooltipModelIcon,
+  tooltipModelIconOnly,
 };
 
 storiesOf('Components/Tooltip', module)
@@ -120,6 +139,11 @@ storiesOf('Components/Tooltip', module)
               value: 'A css class to add to the trigger element',
             },
             {
+              name: 'triggerIcon',
+              type: 'IconDefinition',
+              value: 'An icon to display at the beginning of the trigger element',
+            },
+            {
               name: 'tooltipContent',
               type: 'string',
               value: 'The content that displays inside of the tooltip',
@@ -152,6 +176,22 @@ storiesOf('Components/Tooltip', module)
                 [tooltipModel]="tooltipModelInversed"
             ></app-tooltip>
         </div>
+    `,
+    props,
+  }))
+  .add('Adding Icon', () => ({
+    template: `
+        <app-tooltip
+            [tooltipModel]="tooltipModelIcon"
+        ></app-tooltip>
+    `,
+    props,
+  }))
+  .add('Only Icon', () => ({
+    template: `
+        <app-tooltip
+            [tooltipModel]="tooltipModelIconOnly"
+        ></app-tooltip>
     `,
     props,
   }));
