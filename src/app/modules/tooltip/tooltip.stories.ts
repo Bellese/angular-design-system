@@ -11,7 +11,7 @@ import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 const tooltipModel: TooltipModel = new TooltipModel({
   id: 'tooltipLink',
   triggerType: TooltipTriggerTypeEnum.LINK,
-  triggerContent: 'hover or click me!',
+  triggerContent: 'Tooltip - hover or click me!',
   tooltipContent: 'hey this is my content!',
   ariaLabel: 'this is my aria label',
   placement: TooltipPlacementEnum.RIGHT,

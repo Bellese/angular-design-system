@@ -1,8 +1,10 @@
 @import '@cmsgov/design-system-support/src/settings/index';
 
-.tooltipTrigger {
+a.tooltipTrigger {
   text-decoration: underline;
-  text-decoration-style: dashed;
+  text-decoration-style: dotted;
+  color: $color-base;
+  text-decoration-color: $color-primary;
 }
 
 ::ng-deep .tippy-box[data-theme~='hqr'] {
