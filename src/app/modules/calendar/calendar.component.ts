@@ -13,6 +13,7 @@ import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
 export class CalendarComponent {
   @Input() calendarModel: CalendarModel;
   @Output() selectedDates = new EventEmitter<any>();
+  @Output() hideEndDate = new EventEmitter<any>();
 
   showEndDate: boolean = true;
   errorMessage: string;
@@ -92,6 +93,7 @@ export class CalendarComponent {
     this.showEndDate = !event.target.checked;
     if (!this.showEndDate) {
       this.calendarModel.endDate = null;
+      this.hideEndDate.emit(true);
     }
   }
 }
