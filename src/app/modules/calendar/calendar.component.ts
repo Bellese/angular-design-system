@@ -94,6 +94,8 @@ export class CalendarComponent {
     if (!this.showEndDate) {
       this.calendarModel.endDate = null;
       this.hideEndDate.emit(true);
+    } else {
+      this.hideEndDate.emit(false);
     }
   }
 }
