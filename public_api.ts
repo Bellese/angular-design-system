@@ -29,6 +29,7 @@ export * from './src/app/modules/popover/popover.module';
 export * from './src/app/modules/toast/toast.module';
 export * from './src/app/modules/table2/table.module';
 export * from './src/app/modules/calendar/calendar.module';
+export * from './src/app/modules/tooltip/tooltip.module';
 export * from './src/app/modules/chip-filter/chip-filter.module';
 
 // Services
@@ -50,7 +51,12 @@ export { FileUploadModel } from './src/app/modules/file-upload/file-upload.model
 export { CodeSnippetModel, CodeSnippetContentItemModel } from './src/app/modules/code-snippet/code-snippet.model';
 export { BarGraphModel, BarGraphDataModel } from './src/app/modules/bar-graph/bar-graph.model';
 export { LineGraphModel, LineGraphDataModel } from './src/app/modules/line-graph/line-graph.model';
-export { PopoverModel, PopoverItemModel, mdePopoverPositionXEnum, mdePopoverPositionYEnum } from './src/app/modules/popover/popover.model';
+export {
+  PopoverModel,
+  PopoverItemModel,
+  mdePopoverPositionXEnum,
+  mdePopoverPositionYEnum,
+} from './src/app/modules/popover/popover.model';
 export { CardClusterModel, CardClusterClusterModel } from './src/app/modules/card-cluster/card-cluster.models';
 export { CalendarModel } from './src/app/modules/calendar/calendar.model';
 export * from './src/app/modules/table2/table.models';
