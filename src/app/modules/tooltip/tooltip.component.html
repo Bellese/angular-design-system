@@ -8,7 +8,7 @@
       class="tooltipTrigger"
       [ngClass]="tooltipModel.triggerClass"
       [attr.aria-label]="tooltipModel.ariaLabel"
-    >ippy
+    >
       <fa-icon *ngIf="tooltipModel.triggerIcon" [icon]="tooltipModel.triggerIcon"></fa-icon>
       <span *ngIf="tooltipModel.triggerContent">{{ tooltipModel.triggerContent }}</span>
       <ng-content select="[triggerContent]"></ng-content>
