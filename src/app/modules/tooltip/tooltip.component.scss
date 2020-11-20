@@ -1,5 +1,7 @@
-@import '@cmsgov/design-system-support/src/settings/index';
-
+$color-base: #212121 !default;
+$color-primary: #0071bc !default;
+$color-primary-darkest: #112e51 !default;
+$color-white: #fff !default;
 a.tooltipTrigger {
   text-decoration: underline;
   text-decoration-style: dotted;
