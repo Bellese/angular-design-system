@@ -18,7 +18,6 @@ export class TooltipComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-
     this.tippyProps = {
       content: this.tooltipModel.tooltipContent,
       trigger: 'mouseenter focus click',
@@ -27,6 +26,7 @@ export class TooltipComponent implements OnInit {
       offset: this.tooltipModel.offset,
       placement: this.tooltipModel.placement,
       duration: this.tooltipModel.transitionDuration,
+      allowHTML: true,
     };
   }
 }
