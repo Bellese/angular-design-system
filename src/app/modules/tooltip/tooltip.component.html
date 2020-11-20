@@ -10,7 +10,8 @@
       [attr.aria-label]="tooltipModel.ariaLabel"
     >
       <fa-icon *ngIf="tooltipModel.triggerIcon" [icon]="tooltipModel.triggerIcon"></fa-icon>
-      {{ tooltipModel.triggerContent }}
+      <span *ngIf="tooltipModel.triggerContent">{{ tooltipModel.triggerContent }}</span>
+      <ng-content select="[triggerContent]"></ng-content>
     </a>
   </ng-container>
   <ng-container *ngSwitchCase="TooltipTriggerTypeEnum.BUTTON">
@@ -22,7 +23,8 @@
       [ariaLabel]="tooltipModel.ariaLabel"
     >
       <fa-icon *ngIf="tooltipModel.triggerIcon" [icon]="tooltipModel.triggerIcon"></fa-icon>
-      {{ tooltipModel.triggerContent }}
+      <span *ngIf="tooltipModel.triggerContent">{{ tooltipModel.triggerContent }}</span>
+      <ng-content select="[triggerContent]"></ng-content>
     </app-button>
   </ng-container>
 </ng-container>
