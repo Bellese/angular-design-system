@@ -4,6 +4,8 @@ import * as moment from 'moment';
 // Models
 import { CalendarModel } from './calendar.model';
 import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { Subject } from 'rxjs/internal/Subject';
 
 @Component({
   selector: 'app-calendar',
@@ -15,12 +17,21 @@ export class CalendarComponent {
   @Output() selectedDates = new EventEmitter<any>();
   @Output() hideEndDate = new EventEmitter<any>();
 
-  showEndDate: boolean = true;
+  showEndDate = true;
   errorMessage: string;
+  private _dateValueChanged: Subject<any> = new Subject<any>();
 
   faCalendarAlt = faCalendarAlt;
 
-  constructor() {}
+  constructor() {
+    this._dateValueChanged.pipe(debounceTime(3000), distinctUntilChanged()).subscribe((data) => {
+      this.validateDate(data);
+    });
+  }
+
+  dateValueChanged(event) {
+    this._dateValueChanged.next(event);
+  }
 
   validateDate(event) {
     const date: moment.Moment = event && (moment as any).default(event.value);
