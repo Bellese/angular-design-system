@@ -1,26 +1,48 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnDestroy, OnInit } from '@angular/core';
 import * as moment from 'moment';
 
 // Models
 import { CalendarModel } from './calendar.model';
 import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
+import { debounceTime, distinctUntilChanged, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs/internal/Subject';
 
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css'],
 })
-export class CalendarComponent {
+export class CalendarComponent implements OnInit, OnDestroy {
   @Input() calendarModel: CalendarModel;
   @Output() selectedDates = new EventEmitter<any>();
   @Output() hideEndDate = new EventEmitter<any>();
 
-  showEndDate: boolean = true;
+  showEndDate = true;
   errorMessage: string;
+  private _dateValueChanged: Subject<any> = new Subject<any>();
+  private unsubscribe$: Subject<any> = new Subject<any>();
 
   faCalendarAlt = faCalendarAlt;
 
   constructor() {}
+
+  ngOnInit() {
+    this._dateValueChanged
+      .pipe(debounceTime(3000), distinctUntilChanged(), takeUntil(this.unsubscribe$))
+      .subscribe((data) => {
+        this.validateDate(data);
+      });
+  }
+
+  ngOnDestroy(): void {
+    if (this.unsubscribe$) {
+      this.unsubscribe$.complete();
+    }
+  }
+
+  dateValueChanged(event) {
+    this._dateValueChanged.next(event);
+  }
 
   validateDate(event) {
     const date: moment.Moment = event && (moment as any).default(event.value);
