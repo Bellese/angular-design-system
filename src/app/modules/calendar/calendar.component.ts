@@ -28,7 +28,11 @@ export class CalendarComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this._dateValueChanged
-      .pipe(debounceTime(3000), distinctUntilChanged(), takeUntil(this.unsubscribe$))
+      .pipe(
+        debounceTime(this.calendarModel?.debounceTime || 1500),
+        distinctUntilChanged(),
+        takeUntil(this.unsubscribe$)
+      )
       .subscribe((data) => {
         this.validateDate(data);
       });
