@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnDestroy, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import * as moment from 'moment';
 
 // Models
@@ -6,16 +6,19 @@ import { CalendarModel } from './calendar.model';
 import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
 import { debounceTime, distinctUntilChanged, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs/internal/Subject';
+import { MatDatepicker } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css'],
 })
-export class CalendarComponent implements OnInit, OnDestroy {
+export class CalendarComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input() calendarModel: CalendarModel;
   @Output() selectedDates = new EventEmitter<any>();
   @Output() hideEndDate = new EventEmitter<any>();
+  @ViewChild('startPicker') startDatePicker: MatDatepicker<any>;
+  @ViewChild('endPicker') endDatePicker: MatDatepicker<any>;
 
   showEndDate = true;
   errorMessage: string;
@@ -36,6 +39,15 @@ export class CalendarComponent implements OnInit, OnDestroy {
       .subscribe((data) => {
         this.validateDate(data);
       });
+  }
+
+  ngAfterViewInit() {
+    if (this.startDatePicker) {
+      this.startDatePicker.opened = false;
+    }
+    if (this.endDatePicker) {
+      this.endDatePicker.opened = false;
+    }
   }
 
   ngOnDestroy(): void {

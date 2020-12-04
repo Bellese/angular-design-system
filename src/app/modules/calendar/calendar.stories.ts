@@ -26,6 +26,11 @@ const calendarNoBox = new CalendarModel({
   id: 'calendar',
   isDateRange: true,
 });
+const calendarWithDebounce = new CalendarModel({
+  ...calendarModel,
+  debounceTime: 5000,
+});
+
 const calendarModelNoRange = new CalendarModel({
   id: 'calendar',
   dateLabel: 'Pick your date',
@@ -36,6 +41,7 @@ const props = {
   calendarModelNoRange,
   calendarNoBox,
   calendarModel,
+  calendarWithDebounce,
 };
 
 storiesOf('Components/Calendar', module)
@@ -153,6 +159,15 @@ storiesOf('Components/Calendar', module)
     template: `
             <app-calendar
                 [calendarModel] = 'calendarNoBox'
+                (selectedDates) = 'handleEvent($event)'>
+            </app-calendar>
+        `,
+    props,
+  }))
+  .add('With Debounced Input', () => ({
+    template: `
+            <app-calendar
+                [calendarModel] = 'calendarWithDebounce'
                 (selectedDates) = 'handleEvent($event)'>
             </app-calendar>
         `,
