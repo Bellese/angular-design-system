@@ -12,7 +12,7 @@
       {{ calendarModel.dateLabel }}
     </label>
     <input
-      [matDatepicker]="datePicker"
+      [matDatepicker]="startPicker"
       class="datepicker-input"
       placeholder="DD/MM/YYYY"
       name="date"
@@ -23,7 +23,7 @@
       [min]="calendarModel.minDate"
       [max]="calendarModel.maxDate"
     />
-    <mat-datepicker-toggle matSuffix [for]="datePicker" class="date-toggle">
+    <mat-datepicker-toggle matSuffix [for]="startPicker" class="date-toggle">
       <fa-icon
         [icon]="faCalendarAlt"
         class="ds-u-color--primary"
@@ -31,7 +31,7 @@
         matDatepickerToggleIcon
       ></fa-icon>
     </mat-datepicker-toggle>
-    <mat-datepicker #datePicker></mat-datepicker>
+    <mat-datepicker #startPicker></mat-datepicker>
   </div>
   <ng-container *ngIf="showEndDate && calendarModel.isDateRange">
     <span class="toSpan">to</span>
@@ -44,7 +44,7 @@
       </label>
       <input
         matInput
-        [matDatepicker]="endDatePicker"
+        [matDatepicker]="endPicker"
         class="datepicker-input"
         placeholder="DD/MM/YYYY"
         name="endDate"
@@ -57,7 +57,7 @@
       />
       <mat-datepicker-toggle
         matSuffix
-        [for]="endDatePicker"
+        [for]="endPicker"
         class="date-toggle"
       >
         <fa-icon
@@ -67,7 +67,7 @@
           matDatepickerToggleIcon
         ></fa-icon>
       </mat-datepicker-toggle>
-      <mat-datepicker #endDatePicker></mat-datepicker>
+      <mat-datepicker #endPicker></mat-datepicker>
     </div>
   </ng-container>
 </div>
