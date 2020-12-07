@@ -261,8 +261,6 @@ storiesOf('Components/Panel', module)
   .add('Title Placement + Expanded Title Override', () => ({
     template: `
             <app-panel
-
-
                 (panelClick) = "handleEvent($event)"
                 title = 'View More'
                 [titlePlacement] = 'PanelTitlePlacementEnum.BOTTOM'
