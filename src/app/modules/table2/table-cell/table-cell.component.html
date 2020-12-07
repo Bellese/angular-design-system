@@ -46,32 +46,3 @@
     </ng-container>
   </ng-container>
 </div>
-
-<!--
-<div *ngIf="tableCellModel.type === TableCellTypeEnum.CHECKBOX"
-     class="{{data.key + ' ' + dataClass}}"
-     [ngClass]="data.value.attr ? data.value.attr : false"
-     [attr.title]="!data.value.title ? data.value.value : data.value.title">
-    <app-choice
-        [value]="data.value.value"
-        [groupName]="data.value.attr"
-        [showTitle]="false"
-        [index]="index">
-    </app-choice>
-</div>
--->
-
-<!-- <div *ngIf="tableCellModel.type === TableCellTypeEnum.BUTTON"
-    [id]="data.value.id"
-    [disabled]="data.value.disabled ? data.value.disabled: false"
-    [attr.title]="!data.value.title ? data.value.value : data.value.title"
-    [attr.aria-label]="data.value.ariaLabel ? data.value.ariaLabel : tableCellText()"
-    type="button"
-    (click)="buttonCallback($event)"
-    (keyup.enter)="buttonCallback($event)"
-    class="ds-c-button pointer {{data.key + ' ' + dataClass}}"
-    [ngClass]="'tableCell ' + data.value.attr + ' ' + dataClass"
->
-    <fa-icon *ngIf="data.value.icon" [icon]="data.value.icon"></fa-icon>
-    {{ tableCellModel.label }}
-</button> -->

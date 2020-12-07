@@ -13,53 +13,47 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { faPencilAlt, faChevronCircleRight, faCheck } from '@fortawesome/free-solid-svg-icons';
 
 const props = {
-    ...defaultProps,
-    faPencilAlt,
-    faChevronCircleRight,
-    faCheck
+  ...defaultProps,
+  faPencilAlt,
+  faChevronCircleRight,
+  faCheck,
 };
 
 storiesOf('Components/Accordian', module)
-    .addDecorator(
-        moduleMetadata({
-            imports: [
-                StoriesModule,
-                AccordionModule,
-                PanelModule,
-                BrowserAnimationsModule,
-                FontAwesomeModule,
-            ],
-        }),
-    )
-    .add('Intro', () => ({
-        template: `
+  .addDecorator(
+    moduleMetadata({
+      imports: [StoriesModule, AccordionModule, PanelModule, BrowserAnimationsModule, FontAwesomeModule],
+    })
+  )
+  .add('Intro', () => ({
+    template: `
             <app-storybook-component-intro-component
                 [imports]="imports"
                 [parameters]="parameters"
                 [notes]="notes"
             ></app-storybook-component-intro-component>
         `,
-        props: {
-            imports: [
-                {
-                    modules: ['AccordionModule', 'PanelModule'],
-                    file: '@bellese/angular-design-system',
-                    ngmodule: 'imports',
-                },
-                {
-                    modules: ['BrowserAnimationsModule'],
-                    file: '@angular/platform-browser/animations',
-                    ngmodule: 'imports',
-                },
-            ],
-            notes: [
-                // tslint:disable-next-line: max-line-length
-                'The accordian component does not take any parameters.  It is an HTML tag that wraps around a set of panel components, to keep communication between panels. For example if you open one panel the other will close. If you want the panels to open independent of each other dont wrap the panels in an app-accordion tag.',
-            ]
-        }
-    }))
-    .add('Normal', () => ({
-        template: `
+    props: {
+      imports: [
+        {
+          modules: ['AccordionModule', 'PanelModule'],
+          file: '@bellese/angular-design-system',
+          ngmodule: 'imports',
+        },
+        {
+          modules: ['BrowserAnimationsModule'],
+          file: '@angular/platform-browser/animations',
+          ngmodule: 'imports',
+        },
+      ],
+      notes: [
+        // tslint:disable-next-line: max-line-length
+        'The accordian component does not take any parameters.  It is an HTML tag that wraps around a set of panel components, to keep communication between panels. For example if you open one panel the other will close. If you want the panels to open independent of each other dont wrap the panels in an app-accordion tag.',
+      ],
+    },
+  }))
+  .add('Normal', () => ({
+    template: `
             <app-accordion>
                 <app-panel
                     (panelClick) = "handleEvent($event)"
@@ -93,14 +87,15 @@ storiesOf('Components/Accordian', module)
                 </app-panel>
             </app-accordion>
         `,
-        props: defaultProps
-    })).add('Light', () => ({
-        template: `
+    props: defaultProps,
+  }))
+  .add('Light', () => ({
+    template: `
             <app-accordion>
                 <app-panel
                     (panelClick) = "handleEvent($event)"
                     title =''
-                    titleClass = 'ds-u-fill--transparent ds-u-padding--0 ds-u-font-weight--bold ds-u-border-top--1'
+                    titleClass = 'ds-u-fill--transparent ds-u-padding--2 ds-u-font-weight--bold ds-u-border-top--1 ds-u-font-size--h4 ds-u-md-font-size--h3'
                     extTitleClass = 'ds-u-font-size--base'
                     dataAutoId = 'dataID'
                     expandedClass = 'ds-u-fill--gray-lightest ds-u-padding--2 ds-u-margin-left--7'
@@ -140,7 +135,7 @@ storiesOf('Components/Accordian', module)
                 <app-panel
                     (panelClick) = "handleEvent($event)"
                     title ='HBIPS-5'
-                    titleClass = 'ds-u-fill--transparent ds-u-padding--0 ds-u-font-weight--bold ds-u-border-top--1'
+                    titleClass = 'ds-u-fill--transparent ds-u-padding--2 ds-u-font-weight--bold ds-u-border-top--1 ds-u-font-size--h4 ds-u-md-font-size--h3'
                     extTitleClass = 'ds-u-font-size--base'
                     dataAutoId = 'dataID'
                     expandedClass = 'ds-u-fill--gray-lightest ds-u-padding--2 ds-u-margin-left--7'
@@ -170,7 +165,7 @@ storiesOf('Components/Accordian', module)
                 <app-panel
                     (panelClick) = "handleEvent($event)"
                     title ='HBIPS-5'
-                    titleClass = 'ds-u-fill--transparent ds-u-padding--0 ds-u-font-weight--bold ds-u-border-top--1'
+                    titleClass = 'ds-u-fill--transparent ds-u-padding--2 ds-u-font-weight--bold ds-u-border-top--1 ds-u-font-size--h4 ds-u-md-font-size--h3'
                     extTitleClass = 'ds-u-font-size--base'
                     dataAutoId = 'dataID'
                     expandedClass = 'ds-u-fill--gray-lightest ds-u-padding--2 ds-u-margin-left--7'
@@ -199,5 +194,5 @@ storiesOf('Components/Accordian', module)
                 </app-panel>
             </app-accordion>
         `,
-        props
-    }));
+    props,
+  }));

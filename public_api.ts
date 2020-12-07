@@ -21,7 +21,6 @@ export * from './src/app/modules/panel/panel.module';
 export * from './src/app/modules/card-cluster/card-cluster.module';
 export * from './src/app/modules/ticket/ticket.module';
 export * from './src/app/modules/search-field/search-field.module';
-export * from './src/app/modules/download-que/download-que.module';
 export * from './src/app/modules/tabs/tabs.module';
 export * from './src/app/modules/file-upload/file-upload.module';
 export * from './src/app/modules/code-snippet/code-snippet.module';
@@ -62,3 +61,4 @@ export { CardClusterModel, CardClusterClusterModel } from './src/app/modules/car
 export { CalendarModel } from './src/app/modules/calendar/calendar.model';
 export * from './src/app/modules/table2/table.models';
 export * from './src/app/modules/chip-filter/chip-filter.model';
+export * from './src/app/modules/panel/panel.models';
