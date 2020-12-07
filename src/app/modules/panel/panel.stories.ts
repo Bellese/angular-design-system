@@ -7,7 +7,7 @@ import { defaultProps } from '../../../../.storybook/helpers';
 import { PanelModule } from './panel.module';
 
 // Models
-import { PanelIconPlacementEnum } from './panel.models';
+import { PanelIconPlacementEnum, PanelTitlePlacementEnum } from './panel.models';
 
 // Misc
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,6 +18,7 @@ const props = {
   faChevronDown,
   faChevronUp,
   PanelIconPlacementEnum,
+  PanelTitlePlacementEnum,
 };
 
 storiesOf('Components/Panel', module)
@@ -66,6 +67,14 @@ storiesOf('Components/Panel', module)
           default:
             'ds-u-fill--primary-darkest ds-u-color--white ds-u-font-size--h4 ds-u-md-font-size--h3 ds-u-padding--2',
         },
+        {
+          name: 'titlePlacement',
+          type: 'PanelTitlePlacementEnum',
+          value: 'Override the placement of the Title',
+          options: PanelTitlePlacementEnum,
+          default: 'PanelTitlePlacementEnum.TOP',
+        },
+
         {
           name: 'extTitle',
           type: 'boolean',
@@ -119,7 +128,7 @@ storiesOf('Components/Panel', module)
         {
           name: 'iconPlacement',
           type: 'PanelIconPlacementEnum',
-          value: 'An icon to show in the panel when a panel is expanded.',
+          value: 'Override the placement of the icon.',
           default: 'PanelIconPlacementEnum.LEFT',
           options: PanelIconPlacementEnum,
         },
@@ -249,13 +258,12 @@ storiesOf('Components/Panel', module)
         `,
     props,
   }))
-  .add('Change Title When Expanded', () => ({
+  .add('Title Placement + Expanded Title Override', () => ({
     template: `
             <app-panel
-
-
                 (panelClick) = "handleEvent($event)"
-                title ='View More'
+                title = 'View More'
+                [titlePlacement] = 'PanelTitlePlacementEnum.BOTTOM'
                 titleExpanded ='View Less'
                 titleClass = 'ds-u-fill--transparent ds-u-margin--0 ds-u-font-size--base ds-u-color--primary'
                 dataAutoId = 'dataID'
