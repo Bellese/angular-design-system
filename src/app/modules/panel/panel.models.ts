@@ -3,3 +3,8 @@ export enum PanelIconPlacementEnum {
   RIGHT = 'right',
   INLINE = 'inline',
 }
+
+export enum PanelTitlePlacementEnum {
+  TOP = 'TOP',
+  BOTTOM = 'BOTTOM',
+}

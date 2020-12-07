@@ -1,52 +1,60 @@
-<div class="ds-l-container ds-u-margin-bottom--3 ds-u-padding--0">
-    <div
-        class="ds-l-row ds-u-align-items--top ds-u-justify-content--center ds-u-margin--0 pointer panel"
-        [ngClass]="titleClass"
-        (click)="panelStateChange($event)"
-        (keyup.enter)="panelStateChange($event)"
-        tabindex="0"
-        role="button"
-        [attr.aria-expanded]="expand || openAll"
-        attr.data-auto-id="{{dataAutoId}}"
-    >
-        <ng-template #plusIcon>
-            <div class="ds-l-col--auto plusIcon ds-u-padding--0"
-                (click)="plusActionClick($event)"
-                (keyup.enter)="plusActionClick($event)">
-                <fa-icon 
-                    [icon]="icon"
-                    [ngClass]="{'hideIcon': (expand || openAll)}">
-                </fa-icon>
-                <fa-icon 
-                    [icon]="iconExpanded"
-                    [ngClass]="{'hideIcon': !(expand || openAll)}">
-                </fa-icon>
-            </div>
-        </ng-template>
-
-        <ng-container *ngIf="iconPlacement === PanelIconPlacementEnum.LEFT">
-            <ng-container *ngTemplateOutlet="plusIcon"></ng-container>
-            <div class='ds-l-col--auto'></div>
-        </ng-container>
-
-        <div class="ds-l-col--auto ds-u-padding-left--0 title">
-            <ng-container *ngIf="title else titleComplex">{{ (titleExpanded && (expand || openAll)) ? titleExpanded : title }}</ng-container>
-            <ng-template #titleComplex><ng-content select="ng-container"></ng-content></ng-template>
-        </div>
-        <ng-container *ngIf="iconPlacement === PanelIconPlacementEnum.INLINE">
-            <ng-container *ngTemplateOutlet="plusIcon"></ng-container>
-        </ng-container>
-
-
-        <div [ngClass]="extTitleClass" class="extTitle ds-l-col ds-u-text-align--right">
-            <ng-content *ngIf="extTitle" select="span"></ng-content>
-        </div>
-
-        <ng-container *ngIf="iconPlacement === PanelIconPlacementEnum.RIGHT">
-            <ng-container *ngTemplateOutlet="plusIcon"></ng-container>
-            <div class='ds-l-col--auto'></div>
-        </ng-container>
+<ng-template #plusIcon>
+    <div class="ds-l-col--auto plusIcon ds-u-padding--0"
+        (click)="plusActionClick($event)"
+        (keyup.enter)="plusActionClick($event)">
+        <fa-icon 
+            [icon]="icon"
+            [ngClass]="{'hideIcon': (expand || openAll)}">
+        </fa-icon>
+        <fa-icon 
+            [icon]="iconExpanded"
+            [ngClass]="{'hideIcon': !(expand || openAll)}">
+        </fa-icon>
     </div>
+</ng-template>
+
+<ng-template #panelTitle>
+    <div
+    class="ds-l-row ds-u-align-items--top ds-u-justify-content--center ds-u-margin--0 pointer panel"
+    [ngClass]="titleClass"
+    (click)="panelStateChange($event)"
+    (keyup.enter)="panelStateChange($event)"
+    tabindex="0"
+    role="button"
+    [attr.aria-expanded]="expand || openAll"
+    attr.data-auto-id="{{dataAutoId}}"
+>
+    <ng-container *ngIf="iconPlacement === PanelIconPlacementEnum.LEFT">
+        <ng-container *ngTemplateOutlet="plusIcon"></ng-container>
+        <div class='ds-l-col--auto'></div>
+    </ng-container>
+
+    <div class="ds-l-col--auto ds-u-padding-left--0 title">
+        <ng-container *ngIf="title else titleComplex">{{ (titleExpanded && (expand || openAll)) ? titleExpanded : title }}</ng-container>
+        <ng-template #titleComplex><ng-content select="ng-container"></ng-content></ng-template>
+    </div>
+    <ng-container *ngIf="iconPlacement === PanelIconPlacementEnum.INLINE">
+        <ng-container *ngTemplateOutlet="plusIcon"></ng-container>
+    </ng-container>
+
+
+    <div [ngClass]="extTitleClass" class="extTitle ds-l-col ds-u-text-align--right">
+        <ng-content *ngIf="extTitle" select="span"></ng-content>
+    </div>
+
+    <ng-container *ngIf="iconPlacement === PanelIconPlacementEnum.RIGHT">
+        <ng-container *ngTemplateOutlet="plusIcon"></ng-container>
+        <div class='ds-l-col--auto'></div>
+    </ng-container>
+</div>
+
+</ng-template>
+
+<div class="ds-l-container ds-u-margin-bottom--3 ds-u-padding--0">
+    
+    <ng-container *ngIf="titlePlacement === PanelTitlePlacementEnum.TOP">
+        <ng-container *ngTemplateOutlet="panelTitle"></ng-container>
+    </ng-container>
 
     <div
         *ngIf="expand || openAll"
@@ -55,4 +63,8 @@
     >
         <ng-content select="div"></ng-content>
     </div>
+
+    <ng-container *ngIf="titlePlacement === PanelTitlePlacementEnum.BOTTOM">
+        <ng-container *ngTemplateOutlet="panelTitle"></ng-container>
+    </ng-container>
 </div>

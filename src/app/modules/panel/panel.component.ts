@@ -1,8 +1,8 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Animations } from '../animations/animations';
-import { PanelIconPlacementEnum } from './panel.models';
+import { PanelIconPlacementEnum, PanelTitlePlacementEnum } from './panel.models';
 
 @Component({
   selector: 'app-panel',
@@ -17,6 +17,8 @@ export class AppPanelComponent implements OnInit {
   @Input() titleExpanded: string;
   @Input() titleClass =
     'ds-u-fill--primary-darkest ds-u-color--white ds-u-font-size--h4 ds-u-md-font-size--h3 ds-u-padding--2';
+  @Input() titlePlacement: PanelTitlePlacementEnum = PanelTitlePlacementEnum.TOP;
+
   @Input() extTitle = false;
   @Input() extTitleClass: string;
   @Input() expand = false;
@@ -31,6 +33,7 @@ export class AppPanelComponent implements OnInit {
 
   clicked;
   PanelIconPlacementEnum = PanelIconPlacementEnum;
+  PanelTitlePlacementEnum = PanelTitlePlacementEnum;
 
   constructor() {}
 
