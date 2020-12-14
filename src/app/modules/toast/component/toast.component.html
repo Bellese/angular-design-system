@@ -6,8 +6,6 @@
     >{{ message }}</app-alert>
 </div>
 
-<div class="sr-only" role="alert">
-    <span>{{ variation }} alert has appeared.</span>
-    <span *ngIf="title">{{ title }}</span>
-    <span *ngIf="message">{{ message }}</span>
+<div *ngIf="state.value !== 'inactive'" role="alert" aria-atomic="true" aria-live="assertive" class="sr-only">
+    <div [innerHTML]="variation + 'alert has appeared. ' + title + ' ' + message"></div>
 </div>
