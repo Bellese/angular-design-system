@@ -98,6 +98,9 @@
 <div aria-atomic="true" aria-live="assertive" class="sr-only">
   <div *ngIf="tableModel.isLoading">The data table is loading.</div>
 </div>
+<div aria-atomic="true" aria-live="assertive" class="sr-only">
+  <div *ngIf="!tableModel.isLoading">The data table has loaded with {{tableModel.rows.length}} results.</div>
+</div>
 
 <app-paging
   *ngIf="
