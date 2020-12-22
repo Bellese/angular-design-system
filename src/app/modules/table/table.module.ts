@@ -14,6 +14,7 @@ import { ButtonModule } from '../button/button.module';
 import { ChoiceModule } from '../choice/choice.module';
 import { ModalModule } from '../modal/modal.module';
 import { ModalShellModule } from '../modal-shell/modal-shell.module';
+import { PopoverModule } from '../popover/popover.module';
 import { PagingModule } from '../paging/paging.module';
 import { StarModule } from '../star/star.module';
 import { TextFieldModule } from '../text-field/text-field.module';
@@ -43,31 +44,30 @@ import { FilterPipe } from '../../pipes/filter.pipe';
     PipesModule,
     ModalModule,
     ModalShellModule,
-    FontAwesomeModule
+    PopoverModule,
+    FontAwesomeModule,
   ],
   declarations: [
     AppTableComponent,
     AppTableDataComponent,
     AppTableHeaderComponent,
     AppTableModalComponent,
-    AppTableRowComponent
+    AppTableRowComponent,
   ],
-  entryComponents: [
-    AppTableModalComponent
-  ],
+  entryComponents: [AppTableModalComponent],
   exports: [
     AppTableComponent,
     AppTableDataComponent,
     AppTableHeaderComponent,
     AppTableModalComponent,
-    AppTableRowComponent
-  ]
+    AppTableRowComponent,
+  ],
 })
 export class TableModule {
-    static forRoot(): ModuleWithProviders<TableModule> {
-        return {
-            ngModule: TableModule,
-            providers: [ FilterPipe ]
-        };
-    }
+  static forRoot(): ModuleWithProviders<TableModule> {
+    return {
+      ngModule: TableModule,
+      providers: [FilterPipe],
+    };
+  }
 }
