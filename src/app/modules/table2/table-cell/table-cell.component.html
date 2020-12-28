@@ -40,7 +40,9 @@
     </ng-container>
 
     <ng-container *ngSwitchCase="TableCellTypeEnum.DEFAULT">
-      <ng-container *ngTemplateOutlet="cellContent"></ng-container>
+      <div>
+        <ng-container *ngTemplateOutlet="cellContent"></ng-container>
+      </div>
     </ng-container>
   </ng-container>
 </div>
