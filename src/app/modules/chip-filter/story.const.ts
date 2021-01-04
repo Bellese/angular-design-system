@@ -125,6 +125,12 @@ export const dropdownSettings = {
   labelName: 'Provider(s)',
 };
 
+export const dropdownSettingsError = {
+  ...dropdownSettings,
+  error: true,
+  errorMessage: 'This is an error',
+};
+
 export const dropdownSettings2 = {
   singleSelection: false,
   idField: 'id',

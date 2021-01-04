@@ -5,7 +5,14 @@ import { defaultProps } from '../../../../.storybook/helpers';
 
 // Modules
 import { ChipFilterModule } from './chip-filter.module';
-import { dropdownList, dropdownSettings, dropdownSettings2, dropdownSettings3, settingsProps } from './story.const';
+import {
+  dropdownList,
+  dropdownSettings,
+  dropdownSettingsError,
+  dropdownSettings2,
+  dropdownSettings3,
+  settingsProps,
+} from './story.const';
 
 const props = {
   ...defaultProps,
@@ -13,6 +20,7 @@ const props = {
   selectedItems: [],
   loading: false,
   dropdownSettings,
+  dropdownSettingsError,
   dropdownSettings2,
   dropdownSettings3,
   logjam: (e) => {
@@ -73,6 +81,21 @@ storiesOf('Components/Chip Filter', module)
               [data]="dropdownList"
               [(ngModel)]="selectedItems"
               [settings]="dropdownSettings"
+              (onDeSelect)="logjam($event)"
+              (onDeSelectAll)="logjam($event)"
+              (onSelect)="logjam($event)"
+              (onSelectAll)="logjam($event)">
+            </app-chip-filter>
+        `,
+    props,
+  }))
+  .add('Error', () => ({
+    template: `
+            <app-chip-filter
+              style="width: 50vw; display: block; position: relative; margin: 0 auto; padding-top: 4rem;"
+              [data]="dropdownList"
+              [(ngModel)]="selectedItems"
+              [settings]="dropdownSettingsError"
               (onDeSelect)="logjam($event)"
               (onDeSelectAll)="logjam($event)"
               (onSelect)="logjam($event)"
