@@ -76,7 +76,6 @@
     "moment": "^2.28.0",
     "ngx-clipboard": "^12.2.1",
     "ngx-pagination": "^3.1.1",
-    "ngx-tippy-wrapper": "^2.0.3",
     "ngx-toastr": "^12.0.1",
     "npm": "^7.3.0",
     "rxjs": "^6.6.2",
