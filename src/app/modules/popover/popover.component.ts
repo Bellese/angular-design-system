@@ -45,16 +45,4 @@ export class PopoverComponent implements OnInit {
       console.warn('The click handler for this item was not configured correctly.');
     }
   }
-
-  tabLeave(e, index, item) {
-    //Shift tab was pressed on first element
-    if (e.shiftKey && e.keyCode == 9 && index === 0) {
-      document.getElementById(this.popoverModel.id).focus();
-    }
-    if (e.key === 'Tab' && !e.shiftKey) {
-      if (index === this.popoverModel.items.length - 1) {
-        document.getElementById(this.popoverModel.id).focus();
-      }
-    }
-  }
 }
