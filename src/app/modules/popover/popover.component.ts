@@ -33,7 +33,7 @@ export class PopoverComponent implements OnInit {
     // Delay popover from opening so the browser knows to read the aria-live text first
     setTimeout(() => {
       this.trigger.togglePopover();
-    }, 300);
+    }, 150);
   }
 
   handleClick(item: PopoverItemModel) {

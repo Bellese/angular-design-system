@@ -2,7 +2,10 @@
   [buttonID]="popoverModel.id"
   [dataAutoId]="popoverModel.dataAutoId ? popoverModel.dataAutoId : popoverModel.id"
   [ariaLabel]="popoverModel.ariaLabel ? popoverModel.ariaLabel : popoverModel.label"
-  buttonType="ds-c-button ds-c-button--transparent ds-u-padding--0 ds-u-padding-x--1 ds-u-text-decoration--none hqr-hide ds-u-color--base"
+  [buttonType]="
+    'ds-c-button ds-c-button--transparent ds-u-padding--0 ds-u-padding-x--1 ds-u-text-decoration--none hqr-hide ' +
+    popoverModel.buttonClass
+  "
   [mdePopoverTriggerFor]="menuPopover"
   mdePopoverTriggerOn="none"
   [mdePopoverPositionX]="popoverModel.mdePopoverPositionX"

@@ -40,11 +40,17 @@ const popoverModelUtility = {
   mdePopoverPositionY: mdePopoverPositionYEnum.ABOVE,
 };
 
+const popoverModelButtonClass = {
+  ...popoverModel,
+  buttonClass: 'ds-u-color--primary',
+};
+
 const props = {
   ...defaultProps,
   popoverModel,
   popoverModelUtility,
   faEllipsisV,
+  popoverModelButtonClass,
 };
 
 storiesOf('Components/Popover', module)
@@ -102,6 +108,12 @@ storiesOf('Components/Popover', module)
               type: 'string',
               value: 'This will be read to the user when the popover menu is closed.',
               default: 'The popover menu has been closed',
+            },
+            {
+              name: 'buttonClass',
+              type: 'string',
+              value: 'A class that will get added to the button that a user clicks to open the popover.',
+              default: 'ds-u-color--base',
             },
             {
               name: 'icon',
@@ -193,6 +205,14 @@ storiesOf('Components/Popover', module)
     template: `
             <app-popover [popoverModel] = 'popoverModelUtility'>
                 <fa-icon [icon]="faEllipsisV"></fa-icon>
+            </app-popover>
+        `,
+    props,
+  }))
+  .add('Override text color in button', () => ({
+    template: `
+            <app-popover
+              [popoverModel] = 'popoverModelButtonClass'>
             </app-popover>
         `,
     props,
