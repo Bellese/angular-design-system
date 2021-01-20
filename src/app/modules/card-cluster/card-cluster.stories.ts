@@ -69,6 +69,11 @@ const cardClusterDataSelectedCard = {
   buttonClicked: 'CardCluster4',
 };
 
+const cardClusterResizeTimeout = {
+  ...cardClusterDataNormal,
+  resizeTimeout: 1,
+};
+
 const cardClusterDataSetTotal = {
   ...cardClusterDataNormal,
   total: 9999,
@@ -111,6 +116,7 @@ const props = {
   cardClusterDataWithoutMain,
   cardClusterDataWithoutMiniCards,
   cardClusterDataSelectedCard,
+  cardClusterResizeTimeout,
   cardClusterDataSetTotal,
   cardClusterDataShowRadioButtons,
   cardClusterDataShowRadioButtonsAndIcons,
@@ -313,8 +319,7 @@ storiesOf('Components/Card Cluster', module)
   .add('Change resize timeout', () => ({
     template: `
             <app-card-cluster
-                [cardArray]="cardClusterDataSelectedCard"
-                [resizeTimeout]="0"
+                [cardArray]="cardClusterResizeTimeout"
                 (passButton)="handleEvent($event)">
             </app-card-cluster>
         `,

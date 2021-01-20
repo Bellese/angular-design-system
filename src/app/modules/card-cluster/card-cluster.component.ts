@@ -12,7 +12,6 @@ export class AppCardClusterComponent implements OnInit {
   // The following inputs have been deprecated and moved into the CardClusterModel object
   @Input() buttonClicked = 'CardCluster0'; // DEPRECATED
   @Input() dataAutoId: string; // DEPRECATED
-  @Input() resizeTimeout: number;
   @Output() passButton = new EventEmitter<any>();
 
   numArray1 = [];
@@ -94,7 +93,6 @@ export class AppCardClusterComponent implements OnInit {
         this.cardArray.rowMaxItems = Math.ceil(this.cardArray.cluster.length / 2);
       }
     }
-
     this.resize();
   }
 
@@ -127,6 +125,6 @@ export class AppCardClusterComponent implements OnInit {
       } else if (this.cardArray.mainCard && graphContainer < 1024) {
         document.querySelector('#CardCluster0 .cardClusterContent').setAttribute('style', 'height: auto;');
       }
-    }, this.resizeTimeout || 250);
+    }, this.cardArray?.resizeTimeout || 250);
   }
 }
