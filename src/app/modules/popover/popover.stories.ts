@@ -45,12 +45,39 @@ const popoverModelButtonClass = {
   buttonClass: 'ds-u-color--primary',
 };
 
+const popoverModelScrolling = {
+  ...popoverModel,
+  items: [
+    ...popoverModel.items,
+    ...popoverModel.items,
+    ...popoverModel.items,
+    ...popoverModel.items,
+    ...popoverModel.items,
+    ...popoverModel.items,
+    ...popoverModel.items,
+    ...popoverModel.items,
+    ...popoverModel.items,
+    ...popoverModel.items,
+    ...popoverModel.items,
+    ...popoverModel.items,
+    ...popoverModel.items,
+    ...popoverModel.items,
+    ...popoverModel.items,
+    ...popoverModel.items,
+    ...popoverModel.items,
+    ...popoverModel.items,
+    ...popoverModel.items,
+    ...popoverModel.items,
+  ],
+};
+
 const props = {
   ...defaultProps,
   popoverModel,
   popoverModelUtility,
   faEllipsisV,
   popoverModelButtonClass,
+  popoverModelScrolling,
 };
 
 storiesOf('Components/Popover', module)
@@ -213,6 +240,14 @@ storiesOf('Components/Popover', module)
     template: `
             <app-popover
               [popoverModel] = 'popoverModelButtonClass'>
+            </app-popover>
+        `,
+    props,
+  }))
+  .add('Scrolling Content', () => ({
+    template: `
+            <app-popover
+              [popoverModel] = 'popoverModelScrolling'>
             </app-popover>
         `,
     props,
