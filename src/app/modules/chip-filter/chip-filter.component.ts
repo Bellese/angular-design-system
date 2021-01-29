@@ -72,6 +72,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   onChangeCallback: (_: any) => void = noop;
 
   private searchQueryChanged: Subject<string> = new Subject<string>();
+  public searchFilter: string;
 
   @Input() disabled = false;
 
@@ -154,6 +155,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   }
 
   onFilterTextChange($event) {
+    this.searchFilter = $event;
     this.searchQueryChanged.next($event);
   }
 
@@ -256,6 +258,10 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   }
 
   isAllItemsSelected(): boolean {
+    // All items cannot be selected if items are being filtered
+    if (this.searchFilter) {
+      return false;
+    }
     // get disabld item count
     const filteredItems = this.listFilterPipe.transform(this.data, this.filter);
     const itemDisabledCount = filteredItems.filter((item) => item.isDisabled).length;
