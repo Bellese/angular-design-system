@@ -340,6 +340,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   }
 
   closeDropdown() {
+    this.searchFilter = '';
     this.settings.defaultOpen = false;
     // clear search text
     if (this.settings.clearSearchFilter) {
