@@ -3,73 +3,65 @@
     {{ errorMessage }}
   </span>
 </legend>
-<div class="ds-l-form-row">
-  <div class="ds-l-col--auto">
-    <label
-      class="ds-c-label ds-u-font-weight--bold ds-u-margin-top--1"
-      for="date"
-    >
-      {{ calendarModel.dateLabel }}
-    </label>
-    <input
-      [matDatepicker]="startPicker"
-      class="datepicker-input"
-      placeholder="DD/MM/YYYY"
-      name="date"
-      id="{{ calendarModel.id + 'Date' }}"
-      (dateInput)="dateValueChanged($event)"
-      attr.aria-label="{{calendarModel.ariaLabelDate}}"
-      [value]="calendarModel.date"
-      [min]="calendarModel.minDate"
-      [max]="calendarModel.maxDate"
-    />
-    <mat-datepicker-toggle matSuffix [for]="startPicker" class="date-toggle">
-      <fa-icon
-        [icon]="faCalendarAlt"
-        class="ds-u-color--primary"
-        style="font-size: 1.4rem;"
-        matDatepickerToggleIcon
-      ></fa-icon>
-    </mat-datepicker-toggle>
-    <mat-datepicker #startPicker></mat-datepicker>
-  </div>
-  <ng-container *ngIf="showEndDate && calendarModel.isDateRange">
-    <span class="toSpan">to</span>
-    <div class="ds-l-col--auto">
-      <label
-        class="ds-c-label ds-u-font-weight--bold ds-u-margin-top--1"
-        for="endDate"
-      >
-        {{ calendarModel.endDateLabel }}
+<div class="ds-l-container ds-u-padding--0">
+  <div class="ds-l-form-row ds-u-align-items--end">
+    <div class="ds-l-col--12 ds-l-md-col date-toggle-wrapper">
+      <label class="ds-c-label ds-u-font-weight--bold ds-u-margin-top--1" for="date">
+        {{ calendarModel.dateLabel }}
       </label>
       <input
-        matInput
-        [matDatepicker]="endPicker"
+        [matDatepicker]="startPicker"
         class="datepicker-input"
-        placeholder="DD/MM/YYYY"
-        name="endDate"
-        id="{{ calendarModel.id + 'EndDate' }}"
+        placeholder="MM/DD/YYYY"
+        name="date"
+        id="{{ calendarModel.id + 'Date' }}"
         (dateInput)="dateValueChanged($event)"
-        attr.aria-label="{{calendarModel.ariaLabelEndDate}}"
-        [value]="calendarModel.endDate"
-        [min]="calendarModel.minEndDate"
-        [max]="calendarModel.maxEndDate"
+        attr.aria-label="{{ calendarModel.ariaLabelDate }}"
+        [value]="calendarModel.date"
+        [min]="calendarModel.minDate"
+        [max]="calendarModel.maxDate"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="endPicker"
-        class="date-toggle"
-      >
+      <mat-datepicker-toggle matSuffix [for]="startPicker" class="date-toggle">
         <fa-icon
           [icon]="faCalendarAlt"
           class="ds-u-color--primary"
-          style="font-size: 1.4rem;"
+          style="font-size: 1.4rem"
           matDatepickerToggleIcon
         ></fa-icon>
       </mat-datepicker-toggle>
-      <mat-datepicker #endPicker></mat-datepicker>
+      <mat-datepicker #startPicker></mat-datepicker>
     </div>
-  </ng-container>
+    <ng-container *ngIf="showEndDate && calendarModel.isDateRange">
+      <div class="ds-l-col--12 ds-l-md-col--auto"><div class="ds-u-padding-y--1">to</div></div>
+      <div class="ds-l-col--12 ds-l-md-col date-toggle-wrapper">
+        <label class="ds-c-label ds-u-font-weight--bold ds-u-margin-top--1" for="endDate">
+          {{ calendarModel.endDateLabel }}
+        </label>
+        <input
+          matInput
+          [matDatepicker]="endPicker"
+          class="datepicker-input"
+          placeholder="MM/DD/YYYY"
+          name="endDate"
+          id="{{ calendarModel.id + 'EndDate' }}"
+          (dateInput)="dateValueChanged($event)"
+          attr.aria-label="{{ calendarModel.ariaLabelEndDate }}"
+          [value]="calendarModel.endDate"
+          [min]="calendarModel.minEndDate"
+          [max]="calendarModel.maxEndDate"
+        />
+        <mat-datepicker-toggle matSuffix [for]="endPicker" class="date-toggle">
+          <fa-icon
+            [icon]="faCalendarAlt"
+            class="ds-u-color--primary"
+            style="font-size: 1.4rem"
+            matDatepickerToggleIcon
+          ></fa-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #endPicker></mat-datepicker>
+      </div>
+    </ng-container>
+  </div>
 </div>
 <app-choice
   *ngIf="calendarModel.isDateRange && calendarModel.isCheckBox"
