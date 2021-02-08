@@ -26,6 +26,7 @@ export class TableHeaderModel extends AngularDesignSystemModel {
   colspan: number;
   isRowHeader = false;
   headerWidth?: string;
+  modalText?: string;
 
   // Sort Properties
   sort?: TableHeaderSortEnum = TableHeaderSortEnum.NONE;
@@ -58,6 +59,7 @@ export class TableCellModel extends AngularDesignSystemModel {
   type?: TableCellTypeEnum = TableCellTypeEnum.DEFAULT;
   class? = '';
   colspan: number;
+  modalText?: string;
 
   // Icon Properties
   icon?: IconDefinition;

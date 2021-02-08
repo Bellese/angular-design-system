@@ -17,6 +17,10 @@ import { SpinnerModule } from '../spinner/spinner.module';
 // Ohter Modules
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { TableInfoModalComponent } from './table-info-modal/table-info-modal.component';
+import { ModalShellModule } from '../modal-shell/modal-shell.module';
+import { ModalService } from '../../services/modal/modal.service';
+import { ModalGenericComponent } from '../modal-shell/modal-generic/modal-generic.component';
 
 @NgModule({
   imports: [
@@ -27,22 +31,16 @@ import { NgxPaginationModule } from 'ngx-pagination';
     PopoverModule,
     NgxPaginationModule,
     SpinnerModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ModalShellModule,
   ],
-  declarations: [
-    TableComponent,
-    TableHeaderComponent,
-    TableCellComponent,
-  ],
-  exports: [
-    TableComponent,
-  ]
+  declarations: [TableComponent, TableHeaderComponent, TableCellComponent, TableInfoModalComponent],
+  exports: [TableComponent],
 })
-
 export class Table2Module {
   static forRoot(): ModuleWithProviders<Table2Module> {
-      return {
-          ngModule: Table2Module,
-      };
+    return {
+      ngModule: Table2Module,
+    };
   }
 }

@@ -14,6 +14,7 @@
         [icon]="tableHeaderModel.sort === TableHeaderSortEnum.ASC ? faCaretUp : faCaretDown"
       ></fa-icon>
     </app-button>
+    <ng-container *ngTemplateOutlet="tableInfoModal"></ng-container>
   </ng-container>
 
   <ng-container *ngSwitchCase="TableHeaderTypeEnum.CHECKBOX">
@@ -27,19 +28,20 @@
       (choiceChange)="headerClickEvent($event)"
     >
     </app-choice>
-    <div [class]="'sr-only'" [title]="tableHeaderModel.label" tabindex="0">
+    <ng-container *ngTemplateOutlet="tableInfoModal"></ng-container>
+    <div class="sr-only" [title]="tableHeaderModel.label">
       {{ tableHeaderModel.label }}
     </div>
   </ng-container>
 
   <ng-container *ngSwitchCase="TableHeaderTypeEnum.DEFAULT">
-    <div
-      [ngClass]="['header_' + tableHeaderModel.columnKey, tableHeaderModel.class]"
-      [title]="tableHeaderModel.label"
-      tabindex="0"
-    >
+    <div [ngClass]="['header_' + tableHeaderModel.columnKey, tableHeaderModel.class]" [title]="tableHeaderModel.label">
       {{ tableHeaderModel.label }}
+      <ng-container *ngTemplateOutlet="tableInfoModal"></ng-container>
     </div>
   </ng-container>
-
 </ng-container>
+
+<ng-template #tableInfoModal>
+  <app-table-info-modal *ngIf="tableHeaderModel.modalText" [tableHeaderModel]="tableHeaderModel"></app-table-info-modal>
+</ng-template>
