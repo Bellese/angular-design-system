@@ -28,6 +28,8 @@ import {
 import { faCircle, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalService } from '../../services/modal/modal.service';
+import { ModalGenericComponent } from '../modal-shell/modal-generic/modal-generic.component';
 
 const popoverModel: PopoverModel = new PopoverModel({
   items: [
@@ -60,6 +62,7 @@ const tableModel: TableModel = new TableModel({
     new TableHeaderModel({
       label: 'Label',
       columnKey: 'label',
+      modalText: 'This is an example modal!',
     }),
     new TableHeaderModel({
       label: 'Date',
@@ -320,6 +323,8 @@ storiesOf('Components/Table', module)
   .addDecorator(
     moduleMetadata({
       imports: [StoriesModule, Table2Module, BrowserAnimationsModule],
+      providers: [ModalService],
+      entryComponents: [ModalGenericComponent],
     })
   )
   .add('Intro', () => ({
@@ -369,6 +374,12 @@ storiesOf('Components/Table', module)
                   name: 'label',
                   type: 'string',
                   value: 'The label that is shown inside of the header',
+                },
+                {
+                  name: 'modalText',
+                  type: 'string',
+                  value:
+                    'If this variable is set, a question mark icon will appear to the right of the headers label, that will show a modal with this text when clicked.',
                 },
                 {
                   name: 'type',

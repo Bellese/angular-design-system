@@ -161,6 +161,7 @@ export class AppComponent implements OnInit {
       new TableHeaderModel({
         label: 'Label',
         columnKey: 'label',
+        modalText: 'This is my modal.  Do you like it?',
       }),
       new TableHeaderModel({
         label: 'Date',
@@ -175,6 +176,20 @@ export class AppComponent implements OnInit {
       new TableHeaderModel({
         label: 'Long Text Long Text',
         columnKey: 'longText',
+        modalText: `
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Mauris ut semper diam. Ut ultrices ullamcorper neque</strong>,
+            sed congue elit porttitor in. In at justo libero. Sed elementum bibendum ante id elementum. Aenean maximus ex at ornare tempor.
+            Vivamus vitae consequat justo.
+          </p>
+          <p>
+            Vivamus sed volutpat leo. Fusce placerat ante quis nulla tincidunt, quis viverra augue convallis.
+            Vestibulum et pretium eros, vel posuere nibh. Morbi ultrices, justo eu iaculis bibendum, turpis magna blandit mi, et tincidunt
+            nunc odio sed enim. Nulla eros mauris, facilisis sed fermentum id, dictum sollicitudin arcu. Donec id ligula interdum nisl
+            dignissim congue sit amet a velit. Integer velit justo, mattis eget ante sed, aliquam bibendum magna. Suspendisse bibendum,
+            enim quis pretium sollicitudin, odio felis posuere mi, id auctor ligula est sit amet magna.
+          </p>
+        `,
       }),
       new TableHeaderModel({
         label: 'Status',

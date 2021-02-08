@@ -1,0 +1,67 @@
+<app-modal-shell
+  [modalTitle]="modalTitle"
+  [modalCount]="modalCount"
+  (closeModal)="handleClose($event)"
+  [headerTemplate]="modalData.header ? headerTemplate : null"
+  [bodyTemplate]="bodyTemplate"
+  [footerTemplate]="footerTemplate"
+  [modalClass]="modalData.modalClass"
+  [jawsBody]="true"
+>
+  <ng-template #headerTemplate let-modalHeader="modalHeader">
+    <div
+      *ngIf="modalData.header"
+      [innerHTML]="modalData.header"
+      id="{{ 'dialog-title-' + modalHeader.modalCount }}"
+    ></div>
+  </ng-template>
+
+  <ng-template #bodyTemplate let-modalBody="modalBody">
+    <div *ngIf="modalData.body" [innerHTML]="modalData.body"></div>
+    <div *ngIf="modalData.bodyFormatted">
+      <ng-container *ngFor="let data of modalData.bodyFormatted">
+        <h2 *ngIf="data.heading" [ngClass]="'ds-h2 ' + data.class">
+          {{ data.heading }}
+        </h2>
+        <p *ngIf="data.paragraph" [ngClass]="'ds-text ' + data.class">
+          {{ data.paragraph }}
+        </p>
+        <h3 *ngIf="data.heading2" [ngClass]="'ds-h4 ' + data.class">
+          {{ data.heading2 }}
+        </h3>
+        <hr *ngIf="data.hline" [ngClass]="data.class"/>
+      </ng-container>
+    </div>
+    <ng-content *ngIf="modalData.useNgContent"></ng-content>
+  </ng-template>
+  <ng-template #footerTemplate let-modalFooter="modalFooter">
+    <app-button
+      *ngIf="modalData.buttonLabel"
+      [buttonID]="modalData.buttonId"
+      (callBack)="confirm(null, $event)"
+      [buttonType]="modalData.buttonType"
+      [ariaLabel]="modalData.buttonLabel || modalData.ariaLabel"
+    >
+      {{ modalData.buttonLabel }}
+      <div aria-live="assertive" class="sr-only" aria-atomic="true" aria-atomic="true">
+        <div
+          [innerHTML]="modalData.buttonLabel"
+        ></div>
+      </div>
+    </app-button>
+    <app-button
+      *ngFor="let button of modalData.buttons"
+      [buttonID]="button.buttonId"
+      (callBack)="confirm(button.onConfirm, $event)"
+      [buttonType]="button.buttonType"
+      [ariaLabel]="button.buttonLabel || modalData.ariaLabel"
+    >
+      {{ button.buttonLabel }}
+      <div aria-live="assertive" class="sr-only" aria-atomic="true" aria-atomic="true">
+        <div
+          [innerHTML]="button.buttonLabel"
+        ></div>
+      </div>
+    </app-button>
+  </ng-template>
+</app-modal-shell>
