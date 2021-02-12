@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-modal-generic',
+  selector: 'app-modal-generic-ds',
   templateUrl: './modal-generic.component.html',
   styleUrls: ['./modal-generic.component.scss'],
 })

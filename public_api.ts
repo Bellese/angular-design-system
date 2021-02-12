@@ -43,6 +43,7 @@ export * from './src/app/directives/directive.module';
 
 // Components
 export { AppTableModalComponent } from './src/app/modules/table/table-modal/table-modal.component';
+export { ModalGenericComponent } from './src/app/modules/modal-shell/modal-generic/modal-generic.component';
 
 // Models
 export { TabModel } from './src/app/modules/tabs/tabs.model';
