@@ -79,7 +79,7 @@
     "ngx-tippy-wrapper": "^2.1.0",
     "ngx-toastr": "^12.0.1",
     "npm": "^7.3.0",
-    "rxjs": "^6.6.2",
+    "rxjs": "^6.6.6",
     "sw-toolbox": "3.6.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
