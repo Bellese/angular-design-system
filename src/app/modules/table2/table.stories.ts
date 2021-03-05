@@ -16,6 +16,7 @@ import {
   TableCellTypeEnum,
   TablePaginationModel,
   TableHeaderSortEnum,
+  TableHeaderRowModel,
 } from './table.models';
 import {
   PopoverModel,
@@ -298,17 +299,82 @@ const tableModelLoading = {
   isLoading: true,
 };
 
-const tableModelHighlightedRow = JSON.parse(JSON.stringify(tableModel));
+const tableModelHighlightedRow = new TableModel(JSON.parse(JSON.stringify(tableModel)));
 tableModelHighlightedRow.rows[3].class = 'ds-u-fill--primary-alt-lightest';
 
-const tableModelColspan = JSON.parse(JSON.stringify(tableModel));
-tableModelColspan.headers[1].colspan = 2;
-tableModelColspan.headers[1].label = 'Label with a colspan of 2';
-tableModelColspan.headers.shift();
+const tableModelColspan = new TableModel(JSON.parse(JSON.stringify(tableModel)));
+tableModelColspan.headerRows[0].cells[1].colspan = 2;
+tableModelColspan.headerRows[0].cells[1].label = 'Label with a colspan of 2';
+tableModelColspan.headerRows[0].cells.shift();
 tableModelColspan.rows.map((row) => {
   row.cells[4].colspan = 2;
   row.cells.splice(5, 1);
 });
+
+const tableModelMultipleHeaderRows = new TableModel(JSON.parse(JSON.stringify(tableModel)));
+tableModelMultipleHeaderRows.headerClass = 'ds-u-fill--primary-alt-lightest';
+tableModelMultipleHeaderRows.headerRows = [
+  new TableHeaderRowModel({
+    cells: [
+      new TableHeaderModel({
+        label: 'Select All',
+        ariaLabel: 'Activate enter key to select all rows',
+        type: TableCellTypeEnum.CHECKBOX,
+        columnKey: 'checkbox',
+        rowspan: 2,
+        cellClass: 'ds-u-border-right--1',
+      }),
+      new TableHeaderModel({
+        label: 'Header Pt 1',
+        colspan: 4,
+        cellClass: 'ds-u-border-bottom--1 ds-u-border-right--1',
+      }),
+      new TableHeaderModel({
+        label: 'Header Pt 2',
+        colspan: 2,
+        cellClass: 'ds-u-border-bottom--1',
+      }),
+    ],
+  }),
+  new TableHeaderRowModel({
+    cells: [
+      new TableHeaderModel({
+        label: 'Label',
+        columnKey: 'label',
+        modalText: 'This is an example modal!',
+        cellClass: 'ds-u-border-right--1',
+      }),
+      new TableHeaderModel({
+        label: 'Date',
+        columnKey: 'date',
+        isRowHeader: true,
+        cellClass: 'ds-u-border-right--1',
+      }),
+      new TableHeaderModel({
+        label: 'User',
+        columnKey: 'user',
+        type: TableHeaderTypeEnum.SORT,
+        cellClass: 'ds-u-border-right--1',
+      }),
+      new TableHeaderModel({
+        label: 'Long Text Long Text',
+        columnKey: 'longText',
+        headerWidth: '20%',
+        cellClass: 'ds-u-border-right--1',
+      }),
+      new TableHeaderModel({
+        label: 'Status',
+        columnKey: 'status',
+        type: TableHeaderTypeEnum.SORT,
+        cellClass: 'ds-u-border-right--1',
+      }),
+      new TableHeaderModel({
+        label: 'Action',
+        columnKey: 'action',
+      }),
+    ],
+  }),
+];
 
 const props = {
   ...defaultProps,
@@ -317,6 +383,7 @@ const props = {
   tableModelLoading,
   tableModelHighlightedRow,
   tableModelColspan,
+  tableModelMultipleHeaderRows,
 };
 
 storiesOf('Components/Table', module)
@@ -361,7 +428,7 @@ storiesOf('Components/Table', module)
             },
             {
               name: 'headers',
-              type: 'TableHeaderModel[]',
+              type: 'TableHeaderRowModel[]',
               value: 'Use this to set the table headers.',
               properties: [
                 {
@@ -416,12 +483,22 @@ storiesOf('Components/Table', module)
                 {
                   name: 'class',
                   type: 'string',
+                  value: 'Specify a class for text inside of the header cell.',
+                },
+                {
+                  name: 'cellClass',
+                  type: 'string',
                   value: 'Specify a class for the header cell.',
                 },
                 {
                   name: 'colspan',
                   type: 'number',
                   value: 'Specify a colspan for the header cell.',
+                },
+                {
+                  name: 'rowspan',
+                  type: 'number',
+                  value: 'Specify a rowspan for the header cell.',
                 },
               ],
             },
@@ -472,6 +549,11 @@ storiesOf('Components/Table', module)
                       name: 'colspan',
                       type: 'number',
                       value: 'Specify a colspan for the table cell.',
+                    },
+                    {
+                      name: 'rowspan',
+                      type: 'number',
+                      value: 'Specify a rowspan for the table cell.',
                     },
                     {
                       name: 'icon',
@@ -573,6 +655,13 @@ storiesOf('Components/Table', module)
             },
           ],
         },
+        {
+          name: 'headers',
+          type: 'TableHeaderModel[]',
+          isDeprecated: true,
+          value:
+            '(Deprecated) This has been replaced by the headerRows property.  If this is set, and headerRows is not set, this value will get converted to the format expected in the headerRows property.',
+        },
       ],
       notes: [
         'This is v2 of the table component.  At the moment, the old component is still available for use, but it has been deprecated and all new pages should use this version.',
@@ -628,6 +717,16 @@ storiesOf('Components/Table', module)
     template: `
           <app-table-2
               [tableModel]="tableModelColspan"
+              (paginationClick)="handleEvent($event)"
+              (sortClick)="handleEvent($event)">
+          </app-table-2>
+      `,
+    props,
+  }))
+  .add('Multiple Header Rows', () => ({
+    template: `
+          <app-table-2
+              [tableModel]="tableModelMultipleHeaderRows"
               (paginationClick)="handleEvent($event)"
               (sortClick)="handleEvent($event)">
           </app-table-2>
