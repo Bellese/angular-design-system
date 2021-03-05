@@ -159,7 +159,6 @@ export class TableModel extends AngularDesignSystemModel {
     // Convert headers paramater to headerRows parameter and unset headers
     if (this.headers.length && !this.headerRows.length) {
       this.headerRows = [new TableHeaderRowModel({ cells: this.headers })];
-      console.log(this);
     }
     // this.headers = null;
 
@@ -215,7 +214,6 @@ export class TableModel extends AngularDesignSystemModel {
   }
 
   unselectHeaderCheckbox(columnKey: string): void {
-    console.log('unselect', columnKey);
     for (const headerRow of this.headerRows) {
       headerRow.cells
         .filter((header) => header.columnKey === columnKey)
