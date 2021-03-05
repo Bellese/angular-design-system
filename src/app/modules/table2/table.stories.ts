@@ -432,73 +432,85 @@ storiesOf('Components/Table', module)
               value: 'Use this to set the table headers.',
               properties: [
                 {
-                  name: 'columnKey',
-                  type: 'string',
-                  value:
-                    'An identifier that should be shared between all cells and headers in one column.  This is very important for checkbox columns.  This doubles as a css class that you can use to style the header.',
-                },
-                {
-                  name: 'label',
-                  type: 'string',
-                  value: 'The label that is shown inside of the header',
-                },
-                {
-                  name: 'modalText',
-                  type: 'string',
-                  value:
-                    'If this variable is set, a question mark icon will appear to the right of the headers label, that will show a modal with this text when clicked.',
-                },
-                {
-                  name: 'type',
-                  type: 'TableHeaderTypeEnum',
-                  options: TableHeaderTypeEnum,
-                  default: 'TableHeaderTypeEnum.DEFAULT',
-                  value: 'The type of header. Current supported options are sort, checkbox, or default',
-                },
-                {
-                  name: 'isRowHeader',
-                  type: 'boolean',
-                  default: 'false',
-                  value:
-                    'Set this to true to change all corresponding table cells into row headers.  This is important for 508 compliance.',
-                },
-                {
-                  name: 'sort',
-                  type: 'TableHeaderSortEnum',
-                  options: TableHeaderSortEnum,
-                  default: 'TableHeaderSortEnum.NONE',
-                  value: 'Specify if the column is sorted.  Current supported options are asc, desc, or none.',
-                },
-                {
-                  name: 'isChecked',
-                  type: 'boolean',
-                  default: false,
-                  value: 'Specify if a checkbox is checked.',
-                },
-                {
-                  name: 'headerWidth',
-                  type: 'string',
-                  value: 'Specify a width for the header cell.',
-                },
-                {
                   name: 'class',
                   type: 'string',
-                  value: 'Specify a class for text inside of the header cell.',
+                  value: 'A class for the table cell.',
                 },
                 {
-                  name: 'cellClass',
-                  type: 'string',
-                  value: 'Specify a class for the header cell.',
-                },
-                {
-                  name: 'colspan',
-                  type: 'number',
-                  value: 'Specify a colspan for the header cell.',
-                },
-                {
-                  name: 'rowspan',
-                  type: 'number',
-                  value: 'Specify a rowspan for the header cell.',
+                  name: 'cells',
+                  type: 'TableHeaderModel[]',
+                  value: 'Use this to set the table cells.',
+                  properties: [
+                    {
+                      name: 'columnKey',
+                      type: 'string',
+                      value:
+                        'An identifier that should be shared between all cells and headers in one column.  This is very important for checkbox columns.  This doubles as a css class that you can use to style the header.',
+                    },
+                    {
+                      name: 'label',
+                      type: 'string',
+                      value: 'The label that is shown inside of the header',
+                    },
+                    {
+                      name: 'modalText',
+                      type: 'string',
+                      value:
+                        'If this variable is set, a question mark icon will appear to the right of the headers label, that will show a modal with this text when clicked.',
+                    },
+                    {
+                      name: 'type',
+                      type: 'TableHeaderTypeEnum',
+                      options: TableHeaderTypeEnum,
+                      default: 'TableHeaderTypeEnum.DEFAULT',
+                      value: 'The type of header. Current supported options are sort, checkbox, or default',
+                    },
+                    {
+                      name: 'isRowHeader',
+                      type: 'boolean',
+                      default: 'false',
+                      value:
+                        'Set this to true to change all corresponding table cells into row headers.  This is important for 508 compliance.',
+                    },
+                    {
+                      name: 'sort',
+                      type: 'TableHeaderSortEnum',
+                      options: TableHeaderSortEnum,
+                      default: 'TableHeaderSortEnum.NONE',
+                      value: 'Specify if the column is sorted.  Current supported options are asc, desc, or none.',
+                    },
+                    {
+                      name: 'isChecked',
+                      type: 'boolean',
+                      default: false,
+                      value: 'Specify if a checkbox is checked.',
+                    },
+                    {
+                      name: 'headerWidth',
+                      type: 'string',
+                      value: 'Specify a width for the header cell.',
+                    },
+                    {
+                      name: 'class',
+                      type: 'string',
+                      value: 'Specify a class for text inside of the header cell.',
+                    },
+                    {
+                      name: 'cellClass',
+                      type: 'string',
+                      value: 'Specify a class for the header cell.',
+                    },
+                    {
+                      name: 'colspan',
+                      type: 'number',
+                      value: 'Specify a colspan for the header cell.',
+                    },
+                    {
+                      name: 'rowspan',
+                      type: 'number',
+                      value: 'Specify a rowspan for the header cell.',
+                    },
+                  ],
                 },
               ],
             },
