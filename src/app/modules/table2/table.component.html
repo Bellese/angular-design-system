@@ -15,14 +15,16 @@
       tableModel.summary
     }}
   </caption>
-  <thead *ngIf="tableModel.headers.length" class="tableHeading" [ngClass]="tableModel.headerClass">
-    <tr>
+  <thead *ngIf="tableModel.headerRows.length" class="tableHeading" [ngClass]="tableModel.headerClass">
+    <tr *ngFor="let headerRow of tableModel.headerRows" [attr.class]="headerRow.class">
       <th
-        *ngFor="let header of tableModel.headers"
+        *ngFor="let header of headerRow.cells"
         scope="col"
-        [ngClass]="[header.type]"
+        [ngClass]="[header.type, header.cellClass]"
         [style.width]="header.headerWidth"
         [attr.colspan]="header.colspan"
+        [attr.rowspan]="header.rowspan"
+        [attr.scope]="header.colspan > 1 ? 'colgroup' : null"
         [title]="header.label"
       >
         <app-table-header-2 [tableHeaderModel]="header" (headerClick)="headerClick($event)"></app-table-header-2>
@@ -53,6 +55,7 @@
           [ngClass]="cell.type"
           *ngIf="cellIndex === tableModel._rowHeaderIndex"
           [attr.colspan]="cell.colspan"
+          [attr.rowspan]="cell.rowspan"
           [title]="cell.label"
         >
           <ng-container *ngTemplateOutlet="cellComponent"></ng-container>
@@ -61,6 +64,7 @@
           [ngClass]="cell.type"
           *ngIf="cellIndex !== tableModel._rowHeaderIndex"
           [attr.colspan]="cell.colspan"
+          [attr.rowspan]="cell.rowspan"
           [title]="cell.label"
         >
           <ng-container *ngTemplateOutlet="cellComponent"></ng-container>
@@ -99,7 +103,7 @@
   <div *ngIf="tableModel.isLoading">The data table is loading.</div>
 </div>
 <div aria-atomic="true" aria-live="assertive" class="sr-only">
-  <div *ngIf="!tableModel.isLoading">The data table has loaded with {{tableModel.rows.length}} results.</div>
+  <div *ngIf="!tableModel.isLoading">The data table has loaded with {{ tableModel.rows.length }} results.</div>
 </div>
 
 <app-paging

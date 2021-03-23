@@ -22,7 +22,9 @@ export class TableHeaderModel extends AngularDesignSystemModel {
   columnKey: string;
   label: string;
   type: TableHeaderTypeEnum = TableHeaderTypeEnum.DEFAULT;
+  cellClass = '';
   class = '';
+  rowspan: number;
   colspan: number;
   isRowHeader = false;
   headerWidth?: string;
@@ -92,6 +94,17 @@ export class TableCellModel extends AngularDesignSystemModel {
  ***********************/
 
 // tslint:disable-next-line: max-classes-per-file
+export class TableHeaderRowModel extends AngularDesignSystemModel {
+  cells: TableHeaderModel[] = [];
+  class: string;
+
+  constructor(options?: any) {
+    super();
+    this.setOptions(options);
+  }
+}
+
+// tslint:disable-next-line: max-classes-per-file
 export class TableRowModel extends AngularDesignSystemModel {
   cells: TableCellModel[] = [];
   class: string;
@@ -125,7 +138,8 @@ export class TablePaginationModel extends AngularDesignSystemModel {
 // tslint:disable-next-line: max-classes-per-file
 export class TableModel extends AngularDesignSystemModel {
   id: string;
-  headers: TableHeaderModel[] = [];
+  headerRows?: TableHeaderRowModel[] = [];
+  headers: TableHeaderModel[] = []; // deprecated and replaced with headerRows
   rows: TableRowModel[] = [];
   totalRows: number;
   summary: string;
@@ -142,30 +156,52 @@ export class TableModel extends AngularDesignSystemModel {
     super();
     this.setOptions(options);
 
-    this._rowHeaderIndex = this.headers.findIndex((header) => header.isRowHeader);
+    // Convert headers paramater to headerRows parameter and unset headers
+    if (this.headers.length && !this.headerRows.length) {
+      this.headerRows = [new TableHeaderRowModel({ cells: this.headers })];
+    }
+    // this.headers = null;
+
+    let rowHeaderIndex = 0;
+    for (const headerRow of this.headerRows) {
+      rowHeaderIndex = 0;
+      for (const header of headerRow.cells) {
+        if (header.isRowHeader) {
+          break;
+        }
+        rowHeaderIndex += header.colspan || 1;
+      }
+      if (rowHeaderIndex) {
+        break;
+      }
+    }
+    this._rowHeaderIndex = rowHeaderIndex;
   }
 
   toggleSort(columnKey: string): void {
-    for (const header of this.headers) {
-      if (header.columnKey === columnKey) {
-        if (header.sort === TableHeaderSortEnum.NONE || header.sort === TableHeaderSortEnum.ASC) {
-          header.sort = TableHeaderSortEnum.DESC;
+    for (const headerRow of this.headerRows) {
+      for (const header of headerRow.cells) {
+        if (header.columnKey === columnKey) {
+          if (header.sort === TableHeaderSortEnum.NONE || header.sort === TableHeaderSortEnum.ASC) {
+            header.sort = TableHeaderSortEnum.DESC;
+          } else {
+            header.sort = TableHeaderSortEnum.ASC;
+          }
         } else {
-          header.sort = TableHeaderSortEnum.ASC;
+          header.sort = TableHeaderSortEnum.NONE;
         }
-      } else {
-        header.sort = TableHeaderSortEnum.NONE;
       }
     }
   }
 
   toggleSelectAll(columnKey: string, isChecked: boolean): void {
-    // Set isChecked value in model for header
-    this.headers
-      .filter((header) => header.columnKey === columnKey)
-      .map((header) => {
-        header.isChecked = isChecked;
-      });
+    for (const headerRow of this.headerRows) {
+      headerRow.cells
+        .filter((header) => header.columnKey === columnKey)
+        .map((header) => {
+          header.isChecked = isChecked;
+        });
+    }
 
     // Set isChecked value in model for each related cell
     for (const row of this.rows) {
@@ -178,11 +214,13 @@ export class TableModel extends AngularDesignSystemModel {
   }
 
   unselectHeaderCheckbox(columnKey: string): void {
-    this.headers
-      .filter((header) => header.columnKey === columnKey)
-      .map((header) => {
-        header.isChecked = false;
-      });
+    for (const headerRow of this.headerRows) {
+      headerRow.cells
+        .filter((header) => header.columnKey === columnKey)
+        .map((header) => {
+          header.isChecked = false;
+        });
+    }
   }
 
   public getSelectedCheckboxValues(columnKey: string): string[] {
