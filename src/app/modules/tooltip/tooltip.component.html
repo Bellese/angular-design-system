@@ -10,7 +10,7 @@
       [attr.aria-label]="tooltipModel.ariaLabel"
     >
       <fa-icon *ngIf="tooltipModel.triggerIcon" [icon]="tooltipModel.triggerIcon"></fa-icon>
-      <span *ngIf="tooltipModel.triggerContent">{{ tooltipModel.triggerContent }}</span>
+      <span *ngIf="tooltipModel.triggerContent" [innerHTML]="tooltipModel.triggerContent"></span>
       <ng-content select="[triggerContent]"></ng-content>
     </a>
   </ng-container>
@@ -23,7 +23,7 @@
       [ariaLabel]="tooltipModel.ariaLabel"
     >
       <fa-icon *ngIf="tooltipModel.triggerIcon" [icon]="tooltipModel.triggerIcon"></fa-icon>
-      <span *ngIf="tooltipModel.triggerContent">{{ tooltipModel.triggerContent }}</span>
+      <span *ngIf="tooltipModel.triggerContent" [innerHTML]="tooltipModel.triggerContent"></span>
       <ng-content select="[triggerContent]"></ng-content>
     </app-button>
   </ng-container>
