@@ -17,7 +17,8 @@
     "@fortawesome/free-solid-svg-icons",
     "@material-extended/mde",
     "ngx-toastr",
-    "ngx-tippy-wrapper"
+    "ngx-tippy-wrapper",
+    "@ngx-formly/core"
   ],
   "lib": {
     "entryFile": "public_api.ts"
