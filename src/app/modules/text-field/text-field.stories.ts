@@ -104,6 +104,41 @@ storiesOf('Components/Text Field', module)
           type: 'boolean',
           value: 'Disable the text field',
         },
+        {
+          name: 'control',
+          type: 'formControl',
+          value: 'Tracks the value and validation status of an individual form control',
+        },
+        {
+          name: 'formlyAttributes',
+          type: 'string',
+          value: 'Used for ngx-formly custom component integration',
+        },
+        {
+          name: 'alertMessageList',
+          type: 'array of strings',
+          value: 'Used to display one or more alerts on the form field using the Alert component',
+        },
+        {
+          name: 'alertVariation',
+          type: 'string',
+          value: 'Type of alert status. Can be error, warn, or success',
+        },
+        {
+          name: 'keydown',
+          type: 'function',
+          value: 'Tap into the user keydown event',
+        },
+        {
+          name: 'paste',
+          type: 'function',
+          value: 'Tap into the user paste event',
+        },
+        {
+          name: 'blur',
+          type: 'function',
+          value: 'Tap into the user blur event',
+        },
       ],
     },
   }))

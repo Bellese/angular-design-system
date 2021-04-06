@@ -1,6 +1,22 @@
 <div *ngIf="errorMessage" class="ds-c-field__hint ds-u-color--error ds-u-margin-y--2" role="alert">
   {{ errorMessage }}
 </div>
+
+<ng-template [ngIf]="alertMessageList && alertMessageList?.length">
+  <div class="ds-u-margin-y--2">
+    <app-alert dataAutoId="{{ groupName + '-' + alertVariation }}" [hideClose]="true" variation="{{ alertVariation }}">
+      <div *ngIf="alertMessageList.length > 1; else singleAlert">
+        <div *ngFor="let alertMessage of alertMessageList">
+          <li>{{ alertMessage }}</li>
+        </div>
+      </div>
+      <ng-template #singleAlert>
+        {{ alertMessageList[0] }}
+      </ng-template>
+    </app-alert>
+  </div>
+</ng-template>
+
 <input
   [type]="inputType"
   class="ds-c-choice {{ choiceSize[size] }} {{ inputClass }}"
@@ -13,6 +29,8 @@
   attr.aria-label="{{ ariaLabel }}"
   [attr.tabindex]="tabIndex ? tabIndex : null"
   [disabled]="disabled"
+  [formControl]="control"
+  [attr.formlyAttributes]="formlyAttributes ? formlyAttributes : 'field'"
 />
 <label for="{{ value + '-' + index }}" class="{{ labelClass }}" id="{{ value + '-' + index + '-label' }}">
   <span *ngIf="showTitle" class="{{ labelTextClass }}">{{ label ? label : value }}</span>
