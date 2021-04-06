@@ -1,9 +1,10 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-choice',
   templateUrl: './choice.component.html',
-  styleUrls: ['./choice.component.css']
+  styleUrls: ['./choice.component.css'],
 })
 export class AppChoiceComponent implements OnInit {
   @Input() inputType = 'checkbox';
@@ -22,6 +23,10 @@ export class AppChoiceComponent implements OnInit {
   @Input() dataAutoId: string;
   @Input() tabIndex: number;
   @Input() labelTextClass: string;
+  @Input() control: FormControl;
+  @Input() formlyAttributes = 'field';
+  @Input() alertMessageList?: Array<string>;
+  @Input() alertVariation?: string;
 
   @Output() choiceChange = new EventEmitter<any>();
 
@@ -29,7 +34,11 @@ export class AppChoiceComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (!this.control) {
+      this.control = new FormControl();
+    }
+  }
 
   onChange($event) {
     this.choiceChange.emit($event);
@@ -38,5 +47,5 @@ export class AppChoiceComponent implements OnInit {
 
 enum ChoiceSize {
   'small' = 'ds-c-choice--small',
-  'medium' = ''
+  'medium' = '',
 }

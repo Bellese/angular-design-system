@@ -54,7 +54,8 @@
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "3.8.3"
+    "typescript": "3.8.3",
+    "@ngx-formly/core": "^5.10.1"
   },
   "dependencies": {
     "@angular/animations": "9.1.13",
