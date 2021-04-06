@@ -3,6 +3,22 @@
   <span *ngIf="hint" class="ds-c-field__hint" [ngClass]="hintClass" role="alert">{{ hint }}</span>
   <span *ngIf="errorMessage" class="ds-c-field__hint ds-u-color--error" role="alert">{{ errorMessage }}</span>
 </label>
+
+<ng-template [ngIf]="alertMessageList && alertMessageList?.length">
+  <div class="ds-u-margin-y--2">
+    <app-alert dataAutoId="{{ id + '-' + alertVariation }}" [hideClose]="true" variation="{{ alertVariation }}">
+      <div *ngIf="alertMessageList.length > 1; else singleAlert">
+        <div *ngFor="let alertMessage of alertMessageList">
+          <li>{{ alertMessage }}</li>
+        </div>
+      </div>
+      <ng-template #singleAlert>
+        {{ alertMessageList[0] }}
+      </ng-template>
+    </app-alert>
+  </div>
+</ng-template>
+
 <ng-container *ngIf="!multiline; else textarea">
   <input
     class="ds-c-field"
@@ -18,6 +34,9 @@
     (change)="callBackFunction($event)"
     value="{{ defaultValue }}"
     [disabled]="disabled"
+    (blur)="blurCallBackFunction($event)"
+    [formControl]="control"
+    [formlyAttributes]="formlyAttributes"
   />
 </ng-container>
 <ng-template #textarea>
@@ -35,5 +54,7 @@
     value="{{ defaultValue }}"
     [disabled]="disabled"
     rows="4"
+    [formControl]="control"
+    [formlyAttributes]="formlyAttributes"
   ></textarea>
 </ng-template>
