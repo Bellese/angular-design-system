@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ModalGenericComponent } from './modal-generic.component';
 
@@ -6,7 +6,7 @@ describe('ModalGenericComponent', () => {
   let component: ModalGenericComponent;
   let fixture: ComponentFixture<ModalGenericComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ModalGenericComponent],
     }).compileComponents();

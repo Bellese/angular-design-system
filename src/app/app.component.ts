@@ -16,8 +16,8 @@ import { ExampleModalComponent } from './components/example-modal/example-modal.
 import { AppTableModalComponent } from './modules/table/table-modal/table-modal.component';
 
 import { FileUploadModel } from './modules/file-upload/file-upload.model';
-import { CodeSnippetModel, CodeSnippetContentItemModel } from './modules/code-snippet/code-snippet.model.js';
-import { FileUploadComponent } from './modules/file-upload/file-upload.component.js';
+import { CodeSnippetModel, CodeSnippetContentItemModel } from './modules/code-snippet/code-snippet.model';
+import { FileUploadComponent } from './modules/file-upload/file-upload.component';
 import { ToastService } from './modules/toast/service/toast.service';
 import {
   TableModel,
@@ -27,16 +27,16 @@ import {
   TableRowModel,
   TableCellModel,
   TablePaginationModel,
-} from './modules/table2/table.models.js';
+} from './modules/table2/table.models';
 import { faUser, faCircle } from '@fortawesome/free-regular-svg-icons';
 import {
   PopoverModel,
   PopoverItemModel,
   mdePopoverPositionXEnum,
   mdePopoverPositionYEnum,
-} from './modules/popover/popover.model.js';
+} from './modules/popover/popover.model';
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
-import { TableComponent } from './modules/table2/table.component.js';
+import { TableComponent } from './modules/table2/table.component';
 import { TooltipPlacementEnum, TooltipTriggerTypeEnum } from './modules/tooltip/tooltip.models';
 
 @Component({
