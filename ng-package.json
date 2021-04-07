@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
-  "whitelistedNonPeerDependencies": [
+  "allowedNonPeerDependencies": [
     "angular",
     "rxjs",
     "sw-toolbox",
@@ -20,6 +20,19 @@
     "ngx-tippy-wrapper"
   ],
   "lib": {
-    "entryFile": "public_api.ts"
+    "entryFile": "public_api.ts",
+    "umdModuleIds": {
+      "@fortawesome/angular-fontawesome": "angularFontawesome",
+      "@fortawesome/free-regular-svg-icons": "freeRegularSvgIcons",
+      "@fortawesome/free-solid-svg-icons": "freeSolidSvgIcons",
+      "@material-extended/mde": "mde",
+      "@ngx-formly/core": "ngxFormlyCore",
+      "@swimlane/ngx-charts": "ngxCharts",
+      "moment": "moment",
+      "ngx-clipboard": "ngxClipboard",
+      "ngx-pagination": "ngxPagination",
+      "ngx-tippy-wrapper": "ngxTippyWrapper",
+      "ngx-toastr": "ngxToaster"
+    }
   }
 }
