@@ -10,6 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "postinstall": "ngcc",
     "packagr": "ng-packagr -p ng-package.json && cp -r ./src/assets ./dist/src/assets",
     "repository": {
       "type": "git",

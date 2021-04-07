@@ -391,7 +391,6 @@ storiesOf('Components/Table', module)
     moduleMetadata({
       imports: [StoriesModule, Table2Module, BrowserAnimationsModule],
       providers: [ModalService],
-      entryComponents: [ModalGenericComponent],
     })
   )
   .add('Intro', () => ({

@@ -88,6 +88,5 @@ import { CalendarModule } from './modules/calendar/calendar.module';
   ],
   providers: [AppService, FilterPipe],
   bootstrap: [AppComponent],
-  entryComponents: [ExampleModalComponent, AppTableModalComponent],
 })
 export class AppModule {}
