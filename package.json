@@ -23,6 +23,8 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1002.3",
     "@angular-devkit/build-ng-packagr": "^0.1002.3",
+    "@angular-devkit/core": "^11.2.7",
+    "@angular-devkit/schematics": "^11.2.7",
     "@angular/cli": "^10.2.3",
     "@angular/compiler-cli": "10.2.4",
     "@angular/language-service": "10.2.4",
@@ -30,6 +32,7 @@
     "@cmsgov/design-system-core": "^3.7.2",
     "@cmsgov/design-system-layout": "^3.7.2",
     "@ngx-formly/core": "^5.10.1",
+    "@schematics/angular": "^11.2.7",
     "@storybook/addon-actions": "^6.2.5",
     "@storybook/addon-console": "^1.2.3",
     "@storybook/addon-links": "^6.2.5",
