@@ -14,9 +14,7 @@ import ComponentIntroComponent from './component-intro.component';
     ParameterListComponent,
     ParameterComponent,
   ],
-  imports: [
-    CommonModule,
-  ],
+  imports: [CommonModule],
   exports: [
     CommonModule,
     ComponentIntroComponent,
@@ -24,6 +22,6 @@ import ComponentIntroComponent from './component-intro.component';
     NgModuleComponent,
     ParameterListComponent,
     ParameterComponent,
-  ]
+  ],
 })
-export class StoriesModule { }
+export class StoriesModule {}
