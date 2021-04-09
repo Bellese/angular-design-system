@@ -43,6 +43,7 @@ import { PopoverModule } from './modules/popover/popover.module';
 import { ToastModule } from './modules/toast/toast.module';
 import { TooltipModule } from './modules/tooltip/tooltip.module';
 import { CalendarModule } from './modules/calendar/calendar.module';
+import { StoriesModule } from '../stories/stories.module';
 
 @NgModule({
   declarations: [AppComponent, ExampleModalComponent],
@@ -85,6 +86,7 @@ import { CalendarModule } from './modules/calendar/calendar.module';
     Table2Module,
     CalendarModule,
     TooltipModule,
+    StoriesModule,
   ],
   providers: [AppService, FilterPipe],
   bootstrap: [AppComponent],
