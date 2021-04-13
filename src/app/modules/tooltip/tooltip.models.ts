@@ -19,7 +19,7 @@ export class TooltipModel extends AngularDesignSystemModel {
   id?: string;
   inversed = false;
   maxWidth?: number | 'none' = 'none';
-  offset?: number[];
+  offset?: [number, number];
   placement: TooltipPlacementEnum = TooltipPlacementEnum.AUTO;
   transitionDuration?: number;
   triggerType: TooltipTriggerTypeEnum = TooltipTriggerTypeEnum.LINK;

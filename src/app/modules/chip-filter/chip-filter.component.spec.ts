@@ -1,12 +1,11 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {AppChipFilterComponent} from './chip-filter.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {CommonModule} from '@angular/common';
-import {MatChipsModule} from '@angular/material/chips';
-import {MatInputModule} from '@angular/material/input';
-import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {ChipFilterPipe} from './chip-filter.pipe';
-
+import { async, ComponentFixture, fakeAsync, inject, TestBed, tick } from '@angular/core/testing';
+import { AppChipFilterComponent } from './chip-filter.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatInputModule } from '@angular/material/input';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ChipFilterPipe } from './chip-filter.pipe';
 
 describe('ChipFilterComponent', () => {
   let component: AppChipFilterComponent;
@@ -14,18 +13,10 @@ describe('ChipFilterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        CommonModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatChipsModule,
-        MatInputModule,
-        FontAwesomeModule
-      ],
+      imports: [CommonModule, FormsModule, ReactiveFormsModule, MatChipsModule, MatInputModule, FontAwesomeModule],
       providers: [ChipFilterPipe],
-      declarations: [AppChipFilterComponent, ChipFilterPipe]
-    })
-      .compileComponents();
+      declarations: [AppChipFilterComponent, ChipFilterPipe],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -43,7 +34,7 @@ describe('ChipFilterComponent', () => {
       expect(component.getFields('test').length).toBe(0);
     });
     it('should return a list of keys if input data is an object', () => {
-      expect(component.getFields({id: 1})[0]).toBe('id');
+      expect(component.getFields({ id: 1 })[0]).toBe('id');
     });
   });
 
@@ -80,10 +71,11 @@ describe('ChipFilterComponent', () => {
     it('do nothing if disabled and single selection', () => {
       component.disabled = true;
       component.settings.singleSelection = true;
-      expect(component.toggleDropdown({
-        preventDefault: () => {
-        }
-      })).toBeFalsy();
+      expect(
+        component.toggleDropdown({
+          preventDefault: () => {},
+        })
+      ).toBeFalsy();
     });
     it('do set the opposite of open/close (open)', () => {
       component.disabled = false;
@@ -91,8 +83,7 @@ describe('ChipFilterComponent', () => {
       component.settings.defaultOpen = false;
       spyOn(component.onDropDownClose, 'emit');
       component.toggleDropdown({
-        preventDefault: () => {
-        }
+        preventDefault: () => {},
       });
       expect(component.settings.defaultOpen).toBeTruthy();
     });
@@ -103,8 +94,7 @@ describe('ChipFilterComponent', () => {
       component.settings.defaultOpen = true;
       spyOn(component.onDropDownClose, 'emit');
       component.toggleDropdown({
-        preventDefault: () => {
-        }
+        preventDefault: () => {},
       });
       expect(component.settings.defaultOpen).toBeFalsy();
       expect(component.onDropDownClose.emit).toHaveBeenCalled();
@@ -141,14 +131,14 @@ describe('ChipFilterComponent', () => {
   });
 
   describe('onFilterTextChange', () => {
-    it('should define the following', () => {
+    it('should define the following', fakeAsync((): void => {
       spyOn(component.onFilterChange, 'emit');
       component.onFilterTextChange({
-        preventDefault: () => {
-        }
+        preventDefault: () => {},
       });
+      tick(1000);
       expect(component.onFilterChange.emit).toHaveBeenCalled();
-    });
+    }));
   });
 
   describe('onItemClick', () => {
@@ -174,7 +164,7 @@ describe('ChipFilterComponent', () => {
 
   describe('trackByFn', () => {
     it('should return item id', () => {
-      expect(component.trackByFn(1, {id: 2})).toBe(2);
+      expect(component.trackByFn(1, { id: 2 })).toBe(2);
     });
   });
 
@@ -187,7 +177,7 @@ describe('ChipFilterComponent', () => {
   describe('isLimitSelectionReached', () => {
     it('should return if limit adn selecterd are in parity', () => {
       component.settings.limitSelection = 1;
-      component.selectedItems = [{id: 1, text: 'arvydas sabonis'}];
+      component.selectedItems = [{ id: 1, text: 'arvydas sabonis' }];
       expect(component.isLimitSelectionReached()).toBeTruthy();
     });
   });
@@ -195,14 +185,14 @@ describe('ChipFilterComponent', () => {
   describe('itemShowRemaining', () => {
     it('should calculate items remaining', () => {
       component.settings.itemsShowLimit = 0;
-      component.selectedItems = [{id: 1, text: 'arvydas sabonis'}];
+      component.selectedItems = [{ id: 1, text: 'arvydas sabonis' }];
       expect(component.itemShowRemaining()).toBe(1);
     });
   });
 
   describe('removeSelected', () => {
     it('should remove items by matching ids', () => {
-      const item = {id: 1, text: 'arvydas sabonis'};
+      const item = { id: 1, text: 'arvydas sabonis' };
       component.selectedItems = [item];
       spyOn(component.onDeSelect, 'emit');
       component.removeSelected(item);
@@ -214,8 +204,7 @@ describe('ChipFilterComponent', () => {
   describe('emittedValue', () => {
     it('should objectify array', () => {
       expect(component.emittedValue(null).length).toBe(0);
-      expect(component.emittedValue([{id: 1}]).length).toBe(1 );
+      expect(component.emittedValue([{ id: 1 }]).length).toBe(1);
     });
   });
-
 });

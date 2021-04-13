@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { ModalService } from '../../../services/modal/modal.service';
@@ -11,14 +11,20 @@ import { TableHeaderModel } from '../table.models';
   templateUrl: './table-info-modal.component.html',
   styleUrls: ['./table-info-modal.component.css'],
 })
-export class TableInfoModalComponent {
+export class TableInfoModalComponent implements OnInit {
   @Input() tableHeaderModel: TableHeaderModel;
 
   faInfoCircle = faInfoCircle;
 
   constructor(private modalService: ModalService) {}
 
-  showModal() {
+  ngOnInit(): void {
+    if (!this.tableHeaderModel) {
+      this.tableHeaderModel = new TableHeaderModel();
+    }
+  }
+
+  showModal(): void {
     const modalData = new ModalGenericModel({
       id: this.tableHeaderModel.label,
       body: this.tableHeaderModel.modalText,
@@ -34,6 +40,6 @@ export class TableInfoModalComponent {
   }
 
   public get buttonID() {
-    return this.tableHeaderModel.label.replace(/[^A-Z0-9]/gi, '_');
+    return this.tableHeaderModel.label?.replace(/[^A-Z0-9]/gi, '_') ?? 'ModalButton';
   }
 }
