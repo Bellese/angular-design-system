@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { PopoverComponent } from './popover.component';
 import { PopoverModel, PopoverItemModel } from './popover.model';
-import { MdePopoverModule } from '@material-extended/mde';
+import { PopoverModule } from './popover.module';
 
 describe('PopoverComponent', () => {
   let component: PopoverComponent;
@@ -13,10 +13,8 @@ describe('PopoverComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PopoverComponent ],
-      imports: [ MdePopoverModule ]
-    })
-    .compileComponents();
+      imports: [PopoverModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

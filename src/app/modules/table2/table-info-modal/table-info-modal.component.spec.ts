@@ -1,16 +1,26 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ModalService } from '../../../services/modal/modal.service';
+import { ButtonModule } from '../../button/button.module';
 
 import { TableInfoModalComponent } from './table-info-modal.component';
+
+class MockModalService {
+  public appendComponentToBody(): void {
+    return null;
+  }
+}
 
 describe('TableInfoModalComponent', () => {
   let component: TableInfoModalComponent;
   let fixture: ComponentFixture<TableInfoModalComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TableInfoModalComponent ]
-    })
-    .compileComponents();
+      imports: [FontAwesomeModule, ButtonModule],
+      declarations: [TableInfoModalComponent],
+      providers: [{ provide: ModalService, useClass: MockModalService }],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
