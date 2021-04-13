@@ -8,7 +8,7 @@
   <span [innerHTML]="tableCellModel.label"></span>
 </ng-template>
 
-<div [ngClass]="cellClass()" [title]="tableCellModel.label">
+<div [ngClass]="cellClass()" [attr.title]="tableCellModel.label">
   <ng-container [ngSwitch]="tableCellModel.type">
     <ng-container *ngSwitchCase="TableCellTypeEnum.BUTTON">
       <app-button

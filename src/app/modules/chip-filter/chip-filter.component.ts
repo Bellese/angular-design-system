@@ -111,7 +111,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   }
 
   constructor(private cdr: ChangeDetectorRef, private listFilterPipe: ChipFilterPipe) {
-    this.searchQueryChanged.pipe(debounceTime(1000), distinctUntilChanged()).subscribe((data) => {
+    this.searchQueryChanged.pipe(debounceTime(1000)).subscribe((data) => {
       this.onFilterChange.emit(data);
     });
   }
