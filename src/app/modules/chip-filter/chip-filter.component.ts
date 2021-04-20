@@ -17,7 +17,7 @@ import { ListItem, IDropdownSettings } from './chip-filter.model';
 import { ChipFilterPipe } from './chip-filter.pipe';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { debounceTime } from 'rxjs/operators';
 
 export const DROPDOWN_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
