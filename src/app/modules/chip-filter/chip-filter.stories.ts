@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { moduleMetadata, Story } from '@storybook/angular';
 import { Meta } from '@storybook/angular/types-6-0';
 import { defaultProps } from '../../../../.storybook/helpers';
@@ -35,7 +36,7 @@ export default {
   title: 'Components/Chip Filter',
   decorators: [
     moduleMetadata({
-      imports: [StoriesModule, ChipFilterModule],
+      imports: [StoriesModule, ChipFilterModule, FormsModule],
     }),
   ],
   component: AppChipFilterComponent,

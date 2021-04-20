@@ -5,7 +5,7 @@ import * as moment from 'moment';
 import { CalendarModel } from './calendar.model';
 import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
 import { debounceTime, distinctUntilChanged, takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs/internal/Subject';
+import { Subject } from 'rxjs';
 import { MatDatepicker } from '@angular/material/datepicker';
 
 @Component({
