@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppPanelComponent } from './panel.component';
 import { PlusModule } from '../plus/plus.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 describe('AppPanelComponent', () => {
   let component: AppPanelComponent;
@@ -9,10 +10,9 @@ describe('AppPanelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ PlusModule ],
-      declarations: [ AppPanelComponent ]
-    })
-    .compileComponents();
+      imports: [PlusModule, FontAwesomeModule],
+      declarations: [AppPanelComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

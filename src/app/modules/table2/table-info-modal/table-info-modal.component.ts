@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { ModalService } from '../../../services/modal/modal.service';
@@ -11,22 +11,24 @@ import { TableCellModel, TableHeaderModel } from '../table.models';
   templateUrl: './table-info-modal.component.html',
   styleUrls: ['./table-info-modal.component.css'],
 })
-export class TableInfoModalComponent {
-  @Input() tableHeaderModel: TableHeaderModel;
-  @Input() tableCellModel: TableCellModel;
-  modalParent: string;
+export class TableInfoModalComponent implements OnInit {
+  @Input() infoModel: TableHeaderModel | TableCellModel;
 
   faInfoCircle = faInfoCircle;
 
-  constructor(private modalService: ModalService) {
-    this.modalParent = this.tableCellModel ? 'tableCellModel' : 'tableHeaderModel'
+  constructor(private modalService: ModalService) {}
+
+  ngOnInit(): void {
+    if (!this.infoModel) {
+      this.infoModel = new TableHeaderModel();
+    }
   }
 
-  showModal() {
+  showModal(): void {
     const modalData = new ModalGenericModel({
-      id: this[this.modalParent].label,
-      body: this[this.modalParent].modalText,
-      title: this[this.modalParent].label,
+      id: this.infoModel.label,
+      body: this.infoModel.modalText,
+      title: this.infoModel.label,
     });
     this.modalService.appendComponentToBody(
       ModalGenericComponent,
@@ -38,6 +40,6 @@ export class TableInfoModalComponent {
   }
 
   public get buttonID() {
-    return this[this.modalParent].label.replace(/[^A-Z0-9]/gi, '_');
+    return this.infoModel.label?.replace(/[^A-Z0-9]/gi, '_') ?? 'ModalButton';
   }
 }

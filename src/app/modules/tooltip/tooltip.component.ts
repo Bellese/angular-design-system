@@ -1,5 +1,6 @@
 // Angular
 import { Component, Input, OnInit } from '@angular/core';
+import { NgxTippyProps } from 'ngx-tippy-wrapper';
 
 // Models
 import { TooltipModel, TooltipTriggerTypeEnum } from './tooltip.models';
@@ -10,10 +11,10 @@ import { TooltipModel, TooltipTriggerTypeEnum } from './tooltip.models';
   styleUrls: ['./tooltip.component.scss'],
 })
 export class TooltipComponent implements OnInit {
-  @Input() tooltipModel: TooltipModel;
+  @Input() tooltipModel: TooltipModel = new TooltipModel();
 
   TooltipTriggerTypeEnum = TooltipTriggerTypeEnum;
-  tippyProps;
+  tippyProps: NgxTippyProps;
 
   constructor() {}
 

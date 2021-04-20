@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppCardClusterComponent } from './card-cluster.component';
 import { CardClusterModel } from './card-cluster.models';
@@ -10,9 +11,9 @@ describe('AppCardClusterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppCardClusterComponent ]
-    })
-    .compileComponents();
+      imports: [FontAwesomeModule],
+      declarations: [AppCardClusterComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
