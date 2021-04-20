@@ -5,6 +5,7 @@
     class="ds-u-padding-right--1"
     [ngClass]="tableCellModel.iconClass"
   ></fa-icon>
+      <ng-container *ngTemplateOutlet="tableInfoModal"></ng-container>
   <span [innerHTML]="tableCellModel.label"></span>
 </ng-template>
 
@@ -46,3 +47,7 @@
     </ng-container>
   </ng-container>
 </div>
+
+<ng-template #tableInfoModal>
+  <app-table-info-modal *ngIf="tableCellModel.modalText" [tableCellModel]="tableCellModel"></app-table-info-modal>
+</ng-template>

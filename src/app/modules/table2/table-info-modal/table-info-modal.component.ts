@@ -4,7 +4,7 @@ import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { ModalService } from '../../../services/modal/modal.service';
 import { ModalGenericComponent } from '../../modal-shell/modal-generic/modal-generic.component';
 import { ModalGenericModel } from '../../modal-shell/modal-generic/modal-generic.model';
-import { TableHeaderModel } from '../table.models';
+import { TableCellModel, TableHeaderModel } from '../table.models';
 
 @Component({
   selector: 'app-table-info-modal',
@@ -13,16 +13,20 @@ import { TableHeaderModel } from '../table.models';
 })
 export class TableInfoModalComponent {
   @Input() tableHeaderModel: TableHeaderModel;
+  @Input() tableCellModel: TableCellModel;
+  modalParent: string;
 
   faInfoCircle = faInfoCircle;
 
-  constructor(private modalService: ModalService) {}
+  constructor(private modalService: ModalService) {
+    this.modalParent = this.tableCellModel ? 'tableCellModel' : 'tableHeaderModel'
+  }
 
   showModal() {
     const modalData = new ModalGenericModel({
-      id: this.tableHeaderModel.label,
-      body: this.tableHeaderModel.modalText,
-      title: this.tableHeaderModel.label,
+      id: this[this.modalParent].label,
+      body: this[this.modalParent].modalText,
+      title: this[this.modalParent].label,
     });
     this.modalService.appendComponentToBody(
       ModalGenericComponent,
@@ -34,6 +38,6 @@ export class TableInfoModalComponent {
   }
 
   public get buttonID() {
-    return this.tableHeaderModel.label.replace(/[^A-Z0-9]/gi, '_');
+    return this[this.modalParent].label.replace(/[^A-Z0-9]/gi, '_');
   }
 }
