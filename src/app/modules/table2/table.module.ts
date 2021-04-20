@@ -19,8 +19,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { TableInfoModalComponent } from './table-info-modal/table-info-modal.component';
 import { ModalShellModule } from '../modal-shell/modal-shell.module';
-import { ModalService } from '../../services/modal/modal.service';
-import { ModalGenericComponent } from '../modal-shell/modal-generic/modal-generic.component';
 
 @NgModule({
   imports: [
