@@ -1,6 +1,6 @@
 {
   "name": "@bellese/angular-design-system",
-  "version": "3.0.64",
+  "version": "3.0.65",
   "license": "MIT",
   "scripts": {
     "ng": "ng",

@@ -8,20 +8,15 @@ import {
   EventEmitter,
   Output,
   TemplateRef,
-  Directive
+  Directive,
 } from '@angular/core';
 
-import {
-  DOCUMENT
-} from '@angular/common';
-import {BehaviorSubject} from 'rxjs/internal/BehaviorSubject';
-import {Observable} from 'rxjs/internal/Observable';
+import { DOCUMENT } from '@angular/common';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Directive()
 @Injectable()
-
 export class ModalService {
-
   private submittedSource = new BehaviorSubject<boolean>(false);
   public _isSubmitted: Observable<boolean> = this.submittedSource.asObservable();
 
@@ -33,19 +28,16 @@ export class ModalService {
     private injector: Injector,
     private resolver: ComponentFactoryResolver,
     @Inject(DOCUMENT) private doc: any
-  ) {
-
-  }
+  ) {}
 
   modalCount = 0;
-  scrollBarWidth = (window.innerWidth - document.documentElement.clientWidth);
+  scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
 
   prepModalSettings() {
     this.modalCount++;
 
     // Must use clientheight and innerheight because mac hides scrollbar automatically so we cant base it off width
     if (document.body.clientHeight > window.innerHeight && this.modalCount === 1) {
-
       // Stop background from scrolling
       document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
 
@@ -53,7 +45,9 @@ export class ModalService {
       const bodyRightMargin = document.getElementsByTagName('body')[0].style.marginRight;
 
       // Either there will be a margin tied to body or default is 8px, sccrollbar grabbed by variable
-      const margin = bodyRightMargin ? parseInt(bodyRightMargin) + this.scrollBarWidth + 'px' : (this.scrollBarWidth + 8) + 'px';
+      const margin = bodyRightMargin
+        ? parseInt(bodyRightMargin) + this.scrollBarWidth + 'px'
+        : this.scrollBarWidth + 8 + 'px';
 
       document.getElementsByTagName('body')[0].style.marginRight = margin;
     }
@@ -76,7 +70,6 @@ export class ModalService {
 
     // Must use clientheight and innerheight because mac hides scrollbar automatically so we cant base it off width
     if (document.body.clientHeight > window.innerHeight && this.modalCount === 0) {
-
       // Allow background to scroll again
       document.getElementsByTagName('body')[0].style.overflowY = 'auto';
 
@@ -84,15 +77,16 @@ export class ModalService {
       const bodyRightMargin = document.getElementsByTagName('body')[0].style.marginRight;
 
       // Either there will be a margin tied to body or default is 8px, sccrollbar is 16px
-      const margin =
-        bodyRightMargin ? ((parseInt(bodyRightMargin) - this.scrollBarWidth) * 2) / 2 + 'px' : (this.scrollBarWidth + 8) + 'px';
+      const margin = bodyRightMargin
+        ? ((parseInt(bodyRightMargin) - this.scrollBarWidth) * 2) / 2 + 'px'
+        : this.scrollBarWidth + 8 + 'px';
 
       document.getElementsByTagName('body')[0].style.marginRight = margin;
     }
 
     // add ariahidden to the modal before another is implemented
     if (this.modalCount > 0) {
-      document.getElementById('modalImplementation' + (this.modalCount)).setAttribute('aria-hidden', 'false');
+      document.getElementById('modalImplementation' + this.modalCount).setAttribute('aria-hidden', 'false');
     }
 
     if (this.modalCount === 0) {
@@ -131,26 +125,19 @@ export class ModalService {
     this.appRef.attachView(componentRef.hostView);
 
     // Get DOM element from component
-    const domElem = (componentRef.hostView as EmbeddedViewRef<any>)
-      .rootNodes[0] as HTMLElement;
+    const domElem = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
 
     // Append DOM element to the div id of modal-host
     document.getElementById('unique-modal-host').appendChild(domElem);
 
     // Send Title Inputs to any Modal Body
-    (<any>componentRef
-      .instance)
-      .modalTitle = title;
+    (<any>componentRef.instance).modalTitle = title;
 
     // Send a unique identifier for modals
-    (<any>componentRef
-      .instance)
-      .modalCount = this.modalCount;
+    (<any>componentRef.instance).modalCount = this.modalCount;
 
     // Send Data Inputs to any Modal Body
-    (<any>componentRef
-      .instance)
-      .modalData = data;
+    (<any>componentRef.instance).modalData = data;
 
     // Focuses on first clickable button that is not the X
     setTimeout(() => {
@@ -161,19 +148,15 @@ export class ModalService {
     }, 0);
 
     // Listen for close button to be pushed
-    (<any>componentRef
-      .instance)
-      .closeModal
-      .subscribe(x => {
-        this.appRef.detachView(componentRef.hostView);
-        componentRef.destroy();
-        this.modalDestroyed.emit(id);
-        this.removeModalSettings(id);
-      });
+    (<any>componentRef.instance).closeModal.subscribe((x) => {
+      this.appRef.detachView(componentRef.hostView);
+      componentRef.destroy();
+      this.modalDestroyed.emit(id);
+      this.removeModalSettings(id);
+    });
   }
 
   resolveContentProj(comp) {
-
     if (comp) {
       if (typeof comp === 'string') {
         const element = this.doc.createTextNode(comp);
