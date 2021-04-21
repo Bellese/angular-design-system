@@ -36,9 +36,8 @@ export class TableCellComponent {
   stripHtmlTagsFromTitle(labelString) {
     if (labelString) {
       return labelString.replace(/<(.|\n)*?>/g, '');
-    } else {
-      return labelString;
     }
+    return labelString;
   }
 
   buttonClickEvent($event) {
