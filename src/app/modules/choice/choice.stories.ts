@@ -41,6 +41,11 @@ export const Intro: Story<ComponentIntroComponent> = () => ({
           'Use this to set the type of the input in this component.  You can use either checkbox or radio.  The default value is checkbox.',
       },
       {
+        name: 'id',
+        type: 'string',
+        value: '(optional) Specify the id of the form field',
+      },
+      {
         name: 'index',
         type: 'string',
         value: 'This will allow you find the unique input within the whole group',
@@ -267,6 +272,27 @@ export const Disabled: Story<AppChoiceComponent> = () => ({
                 labelClass = 'choiceEx'
                 dataAutoId = 'testingID'
                 [disabled] = 'true'
+                (choiceChange) = 'handleEvent($event)'
+            >
+            </app-choice>
+        `,
+  props: defaultProps,
+});
+
+export const DefineFieldID: Story<AppChoiceComponent> = () => ({
+  template: `
+            <app-choice
+                index = 0
+                fieldId = "customID"
+                value = 'I agree to the terms and conditions'
+                ariaLabel = 'Check the checkbox to agree to the terms and conditions'
+                groupName = 'choicetoendallchoice'
+                size = 'small'
+                [isChecked] = 'false'
+                [showTitle] = true
+                labelClass = 'choiceEx'
+                inputClass = 'choiceInputClass'
+                dataAutoId = 'testingID'
                 (choiceChange) = 'handleEvent($event)'
             >
             </app-choice>
