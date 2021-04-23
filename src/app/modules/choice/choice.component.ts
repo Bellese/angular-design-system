@@ -9,6 +9,7 @@ import { FormControl } from '@angular/forms';
 export class AppChoiceComponent implements OnInit {
   @Input() inputType = 'checkbox';
   @Input() index = 'main';
+  @Input() fieldId: string;
   @Input() size: string;
   @Input() label: string;
   @Input() ariaLabel: string;
@@ -42,6 +43,10 @@ export class AppChoiceComponent implements OnInit {
 
   onChange($event) {
     this.choiceChange.emit($event);
+  }
+
+  public get fieldIdComputed() {
+    return this.fieldId ? this.fieldId : (this.value + '-' + this.index)
   }
 }
 
