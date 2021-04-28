@@ -40,14 +40,8 @@
     </ng-container>
 
     <ng-container *ngSwitchCase="TableCellTypeEnum.DEFAULT">
-      <div>
-        <ng-container *ngTemplateOutlet="cellContent"></ng-container>
-      </div>
+      <ng-container *ngTemplateOutlet="cellContent"></ng-container>
     </ng-container>
   </ng-container>
-</div>
-<ng-container *ngTemplateOutlet="tableInfoModal"></ng-container>
-
-<ng-template #tableInfoModal>
   <app-table-info-modal *ngIf="tableCellModel.modalText" [infoModel]="tableCellModel"></app-table-info-modal>
-</ng-template>
+</div>

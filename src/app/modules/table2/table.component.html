@@ -52,7 +52,7 @@
         </ng-template>
         <th
           scope="row"
-          [ngClass]="cell.type"
+          [ngClass]="[cell.type, cell.cellClass]"
           *ngIf="cellIndex === tableModel._rowHeaderIndex"
           [attr.colspan]="cell.colspan"
           [attr.rowspan]="cell.rowspan"
@@ -61,7 +61,7 @@
           <ng-container *ngTemplateOutlet="cellComponent"></ng-container>
         </th>
         <td
-          [ngClass]="cell.type"
+          [ngClass]="[cell.type, cell.cellClass]"
           *ngIf="cellIndex !== tableModel._rowHeaderIndex"
           [attr.colspan]="cell.colspan"
           [attr.rowspan]="cell.rowspan"

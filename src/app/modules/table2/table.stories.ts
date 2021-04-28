@@ -110,6 +110,7 @@ const tableModel: TableModel = new TableModel({
           label: 'Jim <span class="ds-c-badge ds-c-badge--alert">New</span>',
           icon: faUser,
           iconClass: 'ds-u-color--primary',
+          modalText: 'This is an example modal!',
         }),
         new TableCellModel({
           label: 'abcdefghijklmnopqrstuvwxyz1234567890',
@@ -147,6 +148,7 @@ const tableModel: TableModel = new TableModel({
           label: 'Pam',
           icon: faUser,
           iconClass: 'ds-u-color--primary',
+          cellClass: 'ds-u-font-weight--bold',
         }),
         new TableCellModel({
           label: 'abcdefghijklmnopqrstuvwxyz1234567890',
@@ -552,6 +554,11 @@ export const Intro: Story<ComponentIntroComponent> = () => ({
                   },
                   {
                     name: 'class',
+                    type: 'string',
+                    value: 'A class for the text in the table cell',
+                  },
+                  {
+                    name: 'cellClass',
                     type: 'string',
                     value: 'A class for the table cell',
                   },
