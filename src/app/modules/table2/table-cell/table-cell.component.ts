@@ -33,6 +33,13 @@ export class TableCellComponent {
     });
   }
 
+  stripHtmlTagsFromTitle(labelString) {
+    if (labelString) {
+      return labelString.replace(/<(.|\n)*?>/g, '');
+    }
+    return labelString;
+  }
+
   buttonClickEvent($event) {
     if (this.tableCellModel.buttonOnClick) {
       this.tableCellModel.buttonOnClick($event);

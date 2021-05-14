@@ -60,6 +60,7 @@ export class TableCellModel extends AngularDesignSystemModel {
   ariaLabel?: string;
   type?: TableCellTypeEnum = TableCellTypeEnum.DEFAULT;
   class? = '';
+  cellClass? = '';
   colspan: number;
   modalText?: string;
 
