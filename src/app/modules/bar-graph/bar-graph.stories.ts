@@ -5,10 +5,10 @@ import { defaultProps } from '../../../../.storybook/helpers';
 import ComponentIntroComponent from '../../../stories/component-intro.component';
 import { StoriesModule } from '../../../stories/stories.module';
 import { BarGraphComponent } from './bar-graph.component';
-import { BarGraphModel } from './bar-graph.model';
+import { BarGraphDataModel, BarGraphGroupDataModel, BarGraphModel } from './bar-graph.model';
 import { BarGraphModule } from './bar-graph.module';
 
-const barGraphData = [
+const barGraphData: BarGraphDataModel[] = [
   {
     name: 'STP-2',
     value: 100,
@@ -27,9 +27,190 @@ const barGraphModel = new BarGraphModel({
   data: barGraphData,
 });
 
+const barGraphGroupData: BarGraphGroupDataModel[] = [
+  {
+    name: 'CY 2017',
+    series: [
+      {
+        name: 'Facility',
+        value: 35,
+      },
+      {
+        name: 'State',
+        value: 55,
+      },
+      {
+        name: 'National',
+        value: 65,
+      },
+    ],
+  },
+  {
+    name: 'CY 2018',
+    series: [
+      {
+        name: 'Facility',
+        value: 19,
+      },
+      {
+        name: 'State',
+        value: 32,
+      },
+      {
+        name: 'National',
+        value: 38,
+      },
+    ],
+  },
+  {
+    name: 'CY 2019',
+    series: [
+      {
+        name: 'Facility',
+        value: 37,
+      },
+      {
+        name: 'State',
+        value: 62,
+      },
+      {
+        name: 'National',
+        value: 75,
+      },
+    ],
+  },
+  {
+    name: 'CY 2020',
+    series: [
+      {
+        name: 'Facility',
+        value: 28,
+      },
+      {
+        name: 'State',
+        value: 46,
+      },
+      {
+        name: 'National',
+        value: 54,
+      },
+    ],
+  }, // [
+  //   {
+  //     name: 'Germany',
+  //     series: [
+  //       {
+  //         name: '2010',
+  //         value: 40632,
+  //         extra: {
+  //           code: 'de',
+  //         },
+  //       },
+  //       {
+  //         name: '2000',
+  //         value: 36953,
+  //         extra: {
+  //           code: 'de',
+  //         },
+  //       },
+  //       {
+  //         name: '1990',
+  //         value: 31476,
+  //         extra: {
+  //           code: 'de',
+  //         },
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     name: 'United States',
+  //     series: [
+  //       {
+  //         name: '2010',
+  //         value: 0,
+  //         extra: {
+  //           code: 'us',
+  //         },
+  //       },
+  //       {
+  //         name: '2000',
+  //         value: 45986,
+  //         extra: {
+  //           code: 'us',
+  //         },
+  //       },
+  //       {
+  //         name: '1990',
+  //         value: 37060,
+  //         extra: {
+  //           code: 'us',
+  //         },
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     name: 'France',
+  //     series: [
+  //       {
+  //         name: '2010',
+  //         value: 36745,
+  //         extra: {
+  //           code: 'fr',
+  //         },
+  //       },
+  //       {
+  //         name: '2000',
+  //         value: 34774,
+  //         extra: {
+  //           code: 'fr',
+  //         },
+  //       },
+  //       {
+  //         name: '1990',
+  //         value: 29476,
+  //         extra: {
+  //           code: 'fr',
+  //         },
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     name: 'United Kingdom',
+  //     series: [
+  //       {
+  //         name: '2010',
+  //         value: 36240,
+  //         extra: {
+  //           code: 'uk',
+  //         },
+  //       },
+  //       {
+  //         name: '2000',
+  //         value: 32543,
+  //         extra: {
+  //           code: 'uk',
+  //         },
+  //       },
+  //       {
+  //         name: '1990',
+  //         value: 26424,
+  //         extra: {
+  //           code: 'uk',
+  //         },
+  //       },
+  //     ],
+  // },
+];
+
+const barGraphGroupModel = new BarGraphModel({
+  data: barGraphGroupData,
+  legend: true,
+});
+
 const props = {
   ...defaultProps,
-  barGraphModel: barGraphModel,
+  barGraphModel,
+  barGraphGroupModel,
 };
 
 export default {
@@ -191,6 +372,13 @@ export const Intro: Story<ComponentIntroComponent> = () => ({
 export const Normal: Story<BarGraphComponent> = () => ({
   template: `
     <app-bar-graph [barGraphModel]='barGraphModel'></app-bar-graph>
+`,
+  props,
+});
+
+export const Grouped: Story<BarGraphComponent> = () => ({
+  template: `
+    <app-bar-graph [barGraphModel]='barGraphGroupModel'></app-bar-graph>
 `,
   props,
 });
