@@ -1,6 +1,6 @@
 {
   "name": "@bellese/angular-design-system",
-  "version": "3.0.68",
+  "version": "3.0.70",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -47,7 +47,7 @@
     "karma-coverage-istanbul-reporter": "^2.1.1",
     "karma-jasmine": "^1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "ng-packagr": "^11.2.4",
+    "ng-packagr": "^9.0.0",
     "prettier": "^2.3.0",
     "protractor": "^7.0.0",
     "ts-node": "~4.1.0",
