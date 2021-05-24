@@ -29,8 +29,8 @@
   attr.aria-label="{{ ariaLabel }}"
   [attr.tabindex]="tabIndex ? tabIndex : null"
   [disabled]="disabled"
-  [formControl]="control"
-  [attr.formlyAttributes]="formlyAttributes ? formlyAttributes : 'field'"
+  [attr.formControl]="control"
+  [attr.formlyAttributes]="formlyAttributes"
 />
 <label for="{{ fieldIdComputed }}" class="{{ labelClass }}" id="{{ fieldIdComputed + '-label' }}">
   <span *ngIf="showTitle" class="{{ labelTextClass }}">{{ label ? label : value }}</span>
