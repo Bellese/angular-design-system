@@ -1,18 +1,26 @@
-import { AfterViewInit, Component, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { AppTableModalComponent } from '../table/table-modal/table-modal.component';
-import { BarGraphDataModel, BarGraphModel } from './bar-graph.model';
+import { BarGraphDataModel, BarGraphGroupDataModel, BarGraphModel } from './bar-graph.model';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-bar-graph',
   templateUrl: './bar-graph.component.html',
   styleUrls: ['./bar-graph.component.css'],
 })
-export class BarGraphComponent implements OnInit, AfterViewInit {
+export class BarGraphComponent implements OnInit {
   customColors;
   comp = AppTableModalComponent;
   view: any[];
 
   isGroupDisplayed = false;
+  isSmallScreen = false;
+  barGraphData: BarGraphDataModel[] | BarGraphGroupDataModel[];
+  isPrevPageEnabled = false;
+  isNextPageEnabled = false;
+  currentPage = 1;
+  faChevronLeft = faChevronLeft;
+  faChevronRight = faChevronRight;
 
   @Input() barGraphModel: BarGraphModel;
 
@@ -26,7 +34,7 @@ export class BarGraphComponent implements OnInit, AfterViewInit {
     // Bar Graphs with groups have to use a different ngx-charts component than normal bar graphs
     // We can assume that if the first element of the array has a series property, then we are dealing
     // with a grouped chart.
-    if (this.barGraphModel.data[0].hasOwnProperty('series')) {
+    if (this.barGraphModel.data?.length && this.barGraphModel.data[0].hasOwnProperty('series')) {
       this.isGroupDisplayed = true;
     }
 
@@ -34,11 +42,11 @@ export class BarGraphComponent implements OnInit, AfterViewInit {
       this.handleColor();
     }
 
+    this.calculateSmallScreen();
     this.resize();
-  }
 
-  ngAfterViewInit() {
-    console.log(this.barChartContainer);
+    this.barGraphData = this.barGraphModel.data;
+    this.refreshBarGraphData();
   }
 
   resize() {
@@ -58,6 +66,49 @@ export class BarGraphComponent implements OnInit, AfterViewInit {
           },
         ];
       }
+    }
+  }
+
+  refreshBarGraphData() {
+    let sliceStart = this.barGraphModel.data.length - this.currentPage * this.barGraphModel.maxBarGroups;
+    const sliceEnd = sliceStart + this.barGraphModel.maxBarGroups;
+    if (sliceStart <= 0) {
+      sliceStart = 0;
+    }
+    console.log(sliceStart, sliceEnd);
+    this.barGraphData = this.barGraphModel.data.slice(sliceStart, sliceEnd);
+    if (this.barGraphData.length < this.barGraphModel.data.length) {
+      this.isPrevPageEnabled = true;
+      this.isNextPageEnabled = true;
+      if (sliceStart === 0) {
+        this.isPrevPageEnabled = false;
+      }
+      if (sliceEnd === this.barGraphModel.data.length) {
+        this.isNextPageEnabled = false;
+      }
+    }
+  }
+
+  gotoPrevPage() {
+    this.currentPage++;
+    this.refreshBarGraphData();
+  }
+
+  gotoNextPage() {
+    this.currentPage--;
+    this.refreshBarGraphData();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.calculateSmallScreen();
+  }
+
+  calculateSmallScreen() {
+    if (window.innerWidth < 768) {
+      this.isSmallScreen = true;
+    } else {
+      this.isSmallScreen = false;
     }
   }
 }

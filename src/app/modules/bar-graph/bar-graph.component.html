@@ -1,6 +1,16 @@
-<h2 class="title">
-  {{ barGraphModel.title }}
-</h2>
+<div class="header ds-u-padding-bottom--2" *ngIf="barGraphModel.title || isNextPageEnabled || isPrevPageEnabled">
+  <div class="title ds-u-padding-left--3">
+    {{ barGraphModel.title }}
+  </div>
+  <div *ngIf="isNextPageEnabled || isPrevPageEnabled">
+    <app-button buttonType="ds-c-button--transparent" [disabled]="!isPrevPageEnabled" (callBack)="gotoPrevPage()">
+      <fa-icon [icon]="faChevronLeft"></fa-icon>
+    </app-button>
+    <app-button buttonType="ds-c-button--transparent" [disabled]="!isNextPageEnabled" (callBack)="gotoNextPage()">
+      <fa-icon [icon]="faChevronRight"></fa-icon>
+    </app-button>
+  </div>
+</div>
 
 <p class="sr-only">
   {{ barGraphModel.title }} bar graph image
@@ -21,7 +31,7 @@
     *ngIf="!this.isGroupDisplayed; else groupChart"
     [view]="view"
     [scheme]="barGraphModel.colorScheme"
-    [results]="barGraphModel.data"
+    [results]="barGraphData"
     [yAxis]="barGraphModel.showYAxis"
     [xAxis]="barGraphModel.showXAxis"
     [showYAxisLabel]="barGraphModel.xAxisLabel !== ''"
@@ -36,13 +46,15 @@
     [customColors]="customColors"
     [barPadding]="barGraphModel.barPadding"
     [legend]="barGraphModel.legend"
+    [legendPosition]="isSmallScreen ? barGraphModel.legendLocationSmall : barGraphModel.legendLocation"
+    legendPosition="below"
   >
   </ngx-charts-bar-vertical>
   <ng-template #groupChart>
     <ngx-charts-bar-vertical-2d
       [view]="view"
       [scheme]="barGraphModel.colorScheme"
-      [results]="barGraphModel.data"
+      [results]="barGraphData"
       [yAxis]="barGraphModel.showYAxis"
       [xAxis]="barGraphModel.showXAxis"
       [showYAxisLabel]="barGraphModel.xAxisLabel !== ''"
@@ -57,6 +69,8 @@
       [customColors]="customColors"
       [barPadding]="barGraphModel.barPadding"
       [legend]="barGraphModel.legend"
+      [legendPosition]="isSmallScreen ? barGraphModel.legendLocationSmall : barGraphModel.legendLocation"
+      legendPosition="right"
     >
     </ngx-charts-bar-vertical-2d>
   </ng-template>

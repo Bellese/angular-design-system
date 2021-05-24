@@ -1,9 +1,13 @@
+export enum BarGraphLegendLocationEnum {
+  RIGHT = 'right',
+  BELOW = 'below',
+}
+
 export class BarGraphModel {
   // ngx-charts Data
   data: BarGraphDataModel[] | BarGraphGroupDataModel[];
 
   // ngx-charts Display
-  title: string;
   colorScheme: any = {
     domain: ['#6DB6FF', '#DB6D00', '#009292', '#666666'],
   };
@@ -21,6 +25,12 @@ export class BarGraphModel {
   roundDomains = true;
   roundEdges = true;
   legend = false;
+  legendLocation = BarGraphLegendLocationEnum.RIGHT;
+  legendLocationSmall = BarGraphLegendLocationEnum.BELOW;
+
+  // Additional Configurations
+  title: string;
+  maxBarGroups: number = 0;
 
   // Misc.
   dataAutoId: string;
