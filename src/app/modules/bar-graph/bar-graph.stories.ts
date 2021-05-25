@@ -107,6 +107,7 @@ const barGraphMaxBarModel = new BarGraphModel({
   ...barGraphGroupModel,
   title: 'A really cool bar graph',
   maxBarGroups: 2,
+  legend: true,
 });
 
 const barGraphDataSets: BarGraphDataSetModel[] = [
@@ -330,6 +331,7 @@ const barGraphDataSetsModel = new BarGraphModel({
   dataSets: barGraphDataSets,
   title: 'A really cool bar graph',
   maxBarGroups: 4,
+  legend: true,
 });
 
 const props = {

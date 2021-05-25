@@ -1,6 +1,11 @@
 import { Component, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { AppTableModalComponent } from '../table/table-modal/table-modal.component';
-import { BarGraphDataModel, BarGraphGroupDataModel, BarGraphModel } from './bar-graph.model';
+import {
+  BarGraphDataModel,
+  BarGraphGroupDataModel,
+  BarGraphLegendLocationEnum,
+  BarGraphModel,
+} from './bar-graph.model';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -71,14 +76,14 @@ export class BarGraphComponent implements OnInit {
   }
 
   resize(): void {
-    const graphContainer = document.getElementsByClassName('mainGraphClass')[0].clientWidth;
+    const graphContainer = document.getElementsByClassName('mainGraphClass')[0]?.clientWidth;
     this.view = [graphContainer, graphContainer / 2];
   }
 
   handleColor(): void {
     // Only run this function if the bar graph has a single set of data and is not grouped
     if (!this.isGroupDisplayed) {
-      const barGraphData = <BarGraphDataModel[]>this.barGraphData;
+      const barGraphData = this.barGraphData as BarGraphDataModel[];
       if (barGraphData[0].value < barGraphData[1].value) {
         this.customColors = [
           {
@@ -126,6 +131,22 @@ export class BarGraphComponent implements OnInit {
       this.barGraphModel.data = this.barGraphModel.dataSets[index].data;
     }
     this.setupBarGraphData();
+  }
+
+  public get pagingLabel(): string {
+    let labelStart: string;
+    let labelEnd: string;
+    let graphData;
+
+    if (this.isGroupDisplayed) {
+      graphData = this.barGraphData as BarGraphGroupDataModel[];
+    } else {
+      graphData = this.barGraphData as BarGraphDataModel[];
+    }
+    labelStart = graphData[0].name;
+    labelEnd = graphData[graphData.length - 1].name;
+
+    return `${labelStart} - ${labelEnd}`;
   }
 
   gotoPrevPage(): void {

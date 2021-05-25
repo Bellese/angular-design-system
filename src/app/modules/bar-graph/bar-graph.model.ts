@@ -26,12 +26,13 @@ export class BarGraphModel {
   roundDomains = true;
   roundEdges = true;
   legend = false;
+  legendTitle = '';
   legendLocation = BarGraphLegendLocationEnum.RIGHT;
   legendLocationSmall = BarGraphLegendLocationEnum.BELOW;
 
   // Additional Configurations
   title: string;
-  maxBarGroups: number = 0;
+  maxBarGroups = 0;
 
   // Misc.
   dataAutoId: string;
@@ -47,6 +48,7 @@ export class BarGraphModel {
   }
 }
 
+// tslint:disable-next-line: max-classes-per-file
 export class BarGraphDataModel {
   name: string;
   value: number;
@@ -54,15 +56,17 @@ export class BarGraphDataModel {
   modalTitle?: string;
 }
 
+// tslint:disable-next-line: max-classes-per-file
 export class BarGraphGroupDataModel {
   name: string;
-  series: {
+  series: Array<{
     name: string;
     value: number;
     extra?: any;
-  }[];
+  }>;
 }
 
+// tslint:disable-next-line: max-classes-per-file
 export class BarGraphDataSetModel {
   name: string;
   data: BarGraphDataModel[] | BarGraphGroupDataModel[];

@@ -1,8 +1,3 @@
-.header {
-  display: flex;
-  justify-content: space-between;
-}
-
 .title {
   color: #212121;
   /* text-align: center; */
@@ -59,4 +54,21 @@ span[id^='value_'] {
 
 :host ::ng-deep .x.axis .tick text {
   font-size: 16px !important;
+}
+
+.data-sets-container {
+  align-self: center;
+}
+
+::ng-deep .data-set-button.data-set-button-active {
+  border-bottom: 1px solid #0071bc;
+}
+
+.header-y-axis-adjust {
+  padding-left: 60px;
+}
+
+::ng-deep .is-small-screen .chart-legend .legend-wrap {
+  padding-left: 70px !important;
+  width: calc(100% - 70px) !important;
 }
