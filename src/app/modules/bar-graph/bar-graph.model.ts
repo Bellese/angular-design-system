@@ -5,7 +5,8 @@ export enum BarGraphLegendLocationEnum {
 
 export class BarGraphModel {
   // ngx-charts Data
-  data: BarGraphDataModel[] | BarGraphGroupDataModel[];
+  data?: BarGraphDataModel[] | BarGraphGroupDataModel[];
+  dataSets?: BarGraphDataSetModel[];
 
   // ngx-charts Display
   colorScheme: any = {
@@ -60,4 +61,9 @@ export class BarGraphGroupDataModel {
     value: number;
     extra?: any;
   }[];
+}
+
+export class BarGraphDataSetModel {
+  name: string;
+  data: BarGraphDataModel[] | BarGraphGroupDataModel[];
 }

@@ -5,7 +5,7 @@ import { defaultProps } from '../../../../.storybook/helpers';
 import ComponentIntroComponent from '../../../stories/component-intro.component';
 import { StoriesModule } from '../../../stories/stories.module';
 import { BarGraphComponent } from './bar-graph.component';
-import { BarGraphDataModel, BarGraphGroupDataModel, BarGraphModel } from './bar-graph.model';
+import { BarGraphDataModel, BarGraphDataSetModel, BarGraphGroupDataModel, BarGraphModel } from './bar-graph.model';
 import { BarGraphModule } from './bar-graph.module';
 
 const barGraphData: BarGraphDataModel[] = [
@@ -109,11 +109,235 @@ const barGraphMaxBarModel = new BarGraphModel({
   maxBarGroups: 2,
 });
 
+const barGraphDataSets: BarGraphDataSetModel[] = [
+  {
+    name: 'Quarters',
+    data: [
+      {
+        name: 'Q1 2019',
+        series: [
+          {
+            name: 'Facility',
+            value: 35,
+          },
+          {
+            name: 'State',
+            value: 55,
+          },
+          {
+            name: 'National',
+            value: 65,
+          },
+        ],
+      },
+      {
+        name: 'Q2 2019',
+        series: [
+          {
+            name: 'Facility',
+            value: 19,
+          },
+          {
+            name: 'State',
+            value: 32,
+          },
+          {
+            name: 'National',
+            value: 38,
+          },
+        ],
+      },
+      {
+        name: 'Q3 2019',
+        series: [
+          {
+            name: 'Facility',
+            value: 37,
+          },
+          {
+            name: 'State',
+            value: 62,
+          },
+          {
+            name: 'National',
+            value: 75,
+          },
+        ],
+      },
+      {
+        name: 'Q4 2019',
+        series: [
+          {
+            name: 'Facility',
+            value: 28,
+          },
+          {
+            name: 'State',
+            value: 46,
+          },
+          {
+            name: 'National',
+            value: 54,
+          },
+        ],
+      },
+      {
+        name: 'Q1 2020',
+        series: [
+          {
+            name: 'Facility',
+            value: 35,
+          },
+          {
+            name: 'State',
+            value: 55,
+          },
+          {
+            name: 'National',
+            value: 65,
+          },
+        ],
+      },
+      {
+        name: 'Q2 2020',
+        series: [
+          {
+            name: 'Facility',
+            value: 19,
+          },
+          {
+            name: 'State',
+            value: 32,
+          },
+          {
+            name: 'National',
+            value: 38,
+          },
+        ],
+      },
+      {
+        name: 'Q3 2020',
+        series: [
+          {
+            name: 'Facility',
+            value: 37,
+          },
+          {
+            name: 'State',
+            value: 62,
+          },
+          {
+            name: 'National',
+            value: 75,
+          },
+        ],
+      },
+      {
+        name: 'Q4 2020',
+        series: [
+          {
+            name: 'Facility',
+            value: 28,
+          },
+          {
+            name: 'State',
+            value: 46,
+          },
+          {
+            name: 'National',
+            value: 54,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'Years',
+    data: [
+      {
+        name: 'CY 2017',
+        series: [
+          {
+            name: 'Facility',
+            value: 35,
+          },
+          {
+            name: 'State',
+            value: 55,
+          },
+          {
+            name: 'National',
+            value: 65,
+          },
+        ],
+      },
+      {
+        name: 'CY 2018',
+        series: [
+          {
+            name: 'Facility',
+            value: 19,
+          },
+          {
+            name: 'State',
+            value: 32,
+          },
+          {
+            name: 'National',
+            value: 38,
+          },
+        ],
+      },
+      {
+        name: 'CY 2019',
+        series: [
+          {
+            name: 'Facility',
+            value: 37,
+          },
+          {
+            name: 'State',
+            value: 62,
+          },
+          {
+            name: 'National',
+            value: 75,
+          },
+        ],
+      },
+      {
+        name: 'CY 2020',
+        series: [
+          {
+            name: 'Facility',
+            value: 28,
+          },
+          {
+            name: 'State',
+            value: 46,
+          },
+          {
+            name: 'National',
+            value: 54,
+          },
+        ],
+      },
+    ],
+  },
+];
+
+const barGraphDataSetsModel = new BarGraphModel({
+  dataSets: barGraphDataSets,
+  title: 'A really cool bar graph',
+  maxBarGroups: 4,
+});
+
 const props = {
   ...defaultProps,
   barGraphModel,
   barGraphGroupModel,
   barGraphMaxBarModel,
+  barGraphDataSetsModel,
 };
 
 export default {
@@ -289,6 +513,13 @@ export const Grouped: Story<BarGraphComponent> = () => ({
 export const MaxBarGroups: Story<BarGraphComponent> = () => ({
   template: `
     <app-bar-graph [barGraphModel]='barGraphMaxBarModel'></app-bar-graph>
+`,
+  props,
+});
+
+export const DataSets: Story<BarGraphComponent> = () => ({
+  template: `
+    <app-bar-graph [barGraphModel]='barGraphDataSetsModel'></app-bar-graph>
 `,
   props,
 });

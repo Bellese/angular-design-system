@@ -2,19 +2,32 @@
   <div class="title ds-u-padding-left--3">
     {{ barGraphModel.title }}
   </div>
-  <div *ngIf="isNextPageEnabled || isPrevPageEnabled">
-    <app-button buttonType="ds-c-button--transparent" [disabled]="!isPrevPageEnabled" (callBack)="gotoPrevPage()">
-      <fa-icon [icon]="faChevronLeft"></fa-icon>
-    </app-button>
-    <app-button buttonType="ds-c-button--transparent" [disabled]="!isNextPageEnabled" (callBack)="gotoNextPage()">
-      <fa-icon [icon]="faChevronRight"></fa-icon>
-    </app-button>
+  <div>
+    <ng-container *ngIf="barGraphModel.dataSets">
+      <app-button
+        *ngFor="let dataSet of barGraphModel.dataSets; let i = index"
+        buttonType="ds-c-button--transparent ds-u-color--black {{
+          i === this.currentSet ? 'ds-u-font-weight--bold' : 'ds-u-font-weight--normal'
+        }}"
+        (callBack)="selectDataSet(i)"
+      >
+        {{ dataSet.name }}
+      </app-button>
+    </ng-container>
+    <ng-container *ngIf="isPagingDisplayed">
+      <app-button buttonType="ds-c-button--transparent" [disabled]="!isPrevPageEnabled" (callBack)="gotoPrevPage()">
+        <fa-icon [icon]="faChevronLeft"></fa-icon>
+      </app-button>
+      <app-button buttonType="ds-c-button--transparent" [disabled]="!isNextPageEnabled" (callBack)="gotoNextPage()">
+        <fa-icon [icon]="faChevronRight"></fa-icon>
+      </app-button>
+    </ng-container>
   </div>
 </div>
 
 <p class="sr-only">
   {{ barGraphModel.title }} bar graph image
-  <ng-container *ngFor="let item of barGraphModel.data; let i = index">
+  <ng-container *ngFor="let item of barGraphData; let i = index">
     Bar {{ i + 1 }} {{ item.name }} value is {{ item.value }}
   </ng-container>
 </p>
@@ -77,11 +90,7 @@
 </div>
 
 <div *ngIf="barGraphModel.showXAxis" aria-hidden="true" id="valueContainer">
-  <span
-    class="tickMarkers"
-    *ngFor="let val of barGraphModel.data; let i = index"
-    [id]="'value_' + i + barGraphModel.id"
-  >
+  <span class="tickMarkers" *ngFor="let val of barGraphData; let i = index" [id]="'value_' + i + barGraphModel.id">
     <div *ngIf="val.value === '' && val.modal">
       <app-modal
         [modalData]="val.modal"

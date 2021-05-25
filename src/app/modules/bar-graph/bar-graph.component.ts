@@ -14,11 +14,13 @@ export class BarGraphComponent implements OnInit {
   view: any[];
 
   isGroupDisplayed = false;
+  isPagingDisplayed = false;
   isSmallScreen = false;
   barGraphData: BarGraphDataModel[] | BarGraphGroupDataModel[];
   isPrevPageEnabled = false;
   isNextPageEnabled = false;
   currentPage = 1;
+  currentSet = 0;
   faChevronLeft = faChevronLeft;
   faChevronRight = faChevronRight;
 
@@ -26,16 +28,9 @@ export class BarGraphComponent implements OnInit {
 
   @ViewChild('barChart', { static: true }) barChartContainer;
 
-  ngOnInit() {
+  ngOnInit(): void {
     if (!this.barGraphModel) {
       this.barGraphModel = new BarGraphModel();
-    }
-
-    // Bar Graphs with groups have to use a different ngx-charts component than normal bar graphs
-    // We can assume that if the first element of the array has a series property, then we are dealing
-    // with a grouped chart.
-    if (this.barGraphModel.data?.length && this.barGraphModel.data[0].hasOwnProperty('series')) {
-      this.isGroupDisplayed = true;
     }
 
     if (this.barGraphModel.compareBars) {
@@ -45,19 +40,45 @@ export class BarGraphComponent implements OnInit {
     this.calculateSmallScreen();
     this.resize();
 
-    this.barGraphData = this.barGraphModel.data;
-    this.refreshBarGraphData();
+    if (this.barGraphModel.dataSets) {
+      this.selectDataSet(0);
+    }
+
+    // Determine if the paging components should display with the chart
+    // Because it creates a bad user experience if the component displays for one set and not for others,
+    // we have to iterate through all series to see if any need paging
+    // Combine datasets and data propeties into one large array to avoid duplication of logic
+    const combinedData = [...(this.barGraphModel.dataSets || []), { data: this.barGraphModel.data || [] }];
+    for (const dataSet of combinedData) {
+      if (this.barGraphModel.maxBarGroups && dataSet.data.length > this.barGraphModel.maxBarGroups) {
+        this.isPagingDisplayed = true;
+      }
+    }
+
+    this.setupBarGraphData();
   }
 
-  resize() {
+  setupBarGraphData(): void {
+    this.currentPage = 1;
+    this.refreshBarGraphData();
+
+    // Bar Graphs with groups have to use a different ngx-charts component than normal bar graphs
+    // We can assume that if the first element of the array has a series property, then we are dealing
+    // with a grouped chart.
+    if (this.barGraphData?.length && this.barGraphData[0].hasOwnProperty('series')) {
+      this.isGroupDisplayed = true;
+    }
+  }
+
+  resize(): void {
     const graphContainer = document.getElementsByClassName('mainGraphClass')[0].clientWidth;
     this.view = [graphContainer, graphContainer / 2];
   }
 
-  handleColor() {
+  handleColor(): void {
     // Only run this function if the bar graph has a single set of data and is not grouped
     if (!this.isGroupDisplayed) {
-      const barGraphData = <BarGraphDataModel[]>this.barGraphModel.data;
+      const barGraphData = <BarGraphDataModel[]>this.barGraphData;
       if (barGraphData[0].value < barGraphData[1].value) {
         this.customColors = [
           {
@@ -69,13 +90,20 @@ export class BarGraphComponent implements OnInit {
     }
   }
 
-  refreshBarGraphData() {
-    let sliceStart = this.barGraphModel.data.length - this.currentPage * this.barGraphModel.maxBarGroups;
-    const sliceEnd = sliceStart + this.barGraphModel.maxBarGroups;
-    if (sliceStart <= 0) {
+  refreshBarGraphData(): void {
+    let sliceStart: number;
+    let sliceEnd: number;
+    if (this.barGraphModel.maxBarGroups) {
+      sliceStart = this.barGraphModel.data.length - this.currentPage * this.barGraphModel.maxBarGroups;
+      sliceEnd = sliceStart + this.barGraphModel.maxBarGroups;
+      if (sliceStart <= 0) {
+        sliceStart = 0;
+      }
+    } else {
       sliceStart = 0;
+      sliceEnd = this.barGraphModel.data.length;
     }
-    console.log(sliceStart, sliceEnd);
+
     this.barGraphData = this.barGraphModel.data.slice(sliceStart, sliceEnd);
     if (this.barGraphData.length < this.barGraphModel.data.length) {
       this.isPrevPageEnabled = true;
@@ -86,25 +114,36 @@ export class BarGraphComponent implements OnInit {
       if (sliceEnd === this.barGraphModel.data.length) {
         this.isNextPageEnabled = false;
       }
+    } else {
+      this.isPrevPageEnabled = false;
+      this.isNextPageEnabled = false;
     }
   }
 
-  gotoPrevPage() {
+  selectDataSet(index: number): void {
+    this.currentSet = index;
+    if (this.barGraphModel.dataSets?.length > index) {
+      this.barGraphModel.data = this.barGraphModel.dataSets[index].data;
+    }
+    this.setupBarGraphData();
+  }
+
+  gotoPrevPage(): void {
     this.currentPage++;
     this.refreshBarGraphData();
   }
 
-  gotoNextPage() {
+  gotoNextPage(): void {
     this.currentPage--;
     this.refreshBarGraphData();
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event) {
+  onResize(event): void {
     this.calculateSmallScreen();
   }
 
-  calculateSmallScreen() {
+  calculateSmallScreen(): void {
     if (window.innerWidth < 768) {
       this.isSmallScreen = true;
     } else {
