@@ -5,7 +5,13 @@ import { defaultProps } from '../../../../.storybook/helpers';
 import ComponentIntroComponent from '../../../stories/component-intro.component';
 import { StoriesModule } from '../../../stories/stories.module';
 import { BarGraphComponent } from './bar-graph.component';
-import { BarGraphDataModel, BarGraphDataSetModel, BarGraphGroupDataModel, BarGraphModel } from './bar-graph.model';
+import {
+  BarGraphDataModel,
+  BarGraphDataSetModel,
+  BarGraphGroupDataModel,
+  BarGraphLegendLocationEnum,
+  BarGraphModel,
+} from './bar-graph.model';
 import { BarGraphModule } from './bar-graph.module';
 
 const barGraphData: BarGraphDataModel[] = [
@@ -375,8 +381,74 @@ export const Intro: Story<ComponentIntroComponent> = () => ({
         properties: [
           {
             name: 'data',
-            type: 'array',
-            value: 'The data for the bar graph',
+            type: 'BarGraphDataModel[] | BarGraphGroupDataModel[]',
+            value:
+              'The data for the bar graph.  This can be either single bars or grouped bars. Object definitions for the two types are included below.',
+            properties: [
+              {
+                name: 'BarGraphDataModel',
+                type: 'BarGraphDataModel',
+                value:
+                  'This is the type that can be passed into the data property if you want to display a single bar graph',
+                properties: [
+                  {
+                    name: 'name',
+                    type: 'string',
+                    value: 'The name of the bar that gets displayed on the X Axis',
+                  },
+                  {
+                    name: 'value',
+                    type: 'number',
+                    value: 'The value to display in the bar grah',
+                  },
+                  {
+                    name: 'modal',
+                    type: 'any',
+                    value: '(Optional) Data to display in a modal',
+                  },
+                  {
+                    name: 'modalTitle',
+                    type: 'string',
+                    value: '(Optional) The title for the modal',
+                  },
+                ],
+              },
+              {
+                name: 'BarGraphGroupDataModel',
+                type: 'BarGraphGroupDataModel',
+                value:
+                  'This is the type that can be passed into the data property if you want to display a grouped bar graph',
+                properties: [
+                  {
+                    name: 'name',
+                    type: 'string',
+                    value: 'The name of the group that displays in the bar graph and legend',
+                  },
+                  {
+                    name: 'series',
+                    type: 'array',
+                    value: 'Values associated with the group to display in the bar graph',
+                    properties: [
+                      {
+                        name: 'name',
+                        type: 'string',
+                        value: 'The name of the bar that gets displayed on the X Axis',
+                      },
+                      {
+                        name: 'value',
+                        type: 'number',
+                        value: 'The value to display in the bar grah',
+                      },
+                      {
+                        mame: 'extra',
+                        type: 'any',
+                        value: '(Optional) Extra information to pass into the bar graph',
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
           },
           {
             name: 'title',
@@ -452,7 +524,14 @@ export const Intro: Story<ComponentIntroComponent> = () => ({
           {
             name: 'barPadding',
             type: 'number',
-            value: 'padding between the bars in bar graph',
+            value: 'Padding between the bars in bar graph',
+            default: 2,
+          },
+          {
+            name: 'groupPadding',
+            type: 'number',
+            value: 'Padding between grouped bars, only applicable if groups are displayed',
+            default: 10,
           },
           {
             name: 'showGridLines',
@@ -469,25 +548,38 @@ export const Intro: Story<ComponentIntroComponent> = () => ({
             type: 'string',
             value: 'Use this for testing ID',
           },
+          {
+            name: 'legend',
+            type: 'boolean',
+            value: 'Enable or disable a legend for the graph',
+            default: 'false',
+          },
+          {
+            name: 'legendTitle',
+            type: 'string',
+            value: 'Set the title for the legend if it is displayed',
+            default: `''`,
+          },
+          {
+            name: 'legendLocation',
+            type: 'BarGraphLegendLocationEnum',
+            options: BarGraphLegendLocationEnum,
+            default: 'BarGraphLegendLocationEnum.RIGHT',
+            value: 'Where to display the legend when the graph is being displayed on non-mobile screen sizes.',
+          },
+          {
+            name: 'legendLocationSmall',
+            type: 'BarGraphLegendLocationEnum',
+            options: BarGraphLegendLocationEnum,
+            default: 'BarGraphLegendLocationEnum.BELOW',
+            value: 'Where to display the legend when the graph is being displayed on mobile screen sizes.',
+          },
         ],
       },
     ],
     notes: [
       // tslint:disable-next-line: max-line-length
       'The bar graph component utilizes the <a href="https://swimlane.github.io/ngx-charts" target="_blank">ngx-charts</a> library.',
-      `Expected format for 'data' :
-                  <pre>
-  [
-      {
-          "name": "Facility",
-          "value": 2
-      },
-      {
-          "name": "National",
-          "value": 4
-      }
-  ]
-                  </pre>`,
       `Expected format for 'colorScheme' :
                   <pre>
   colorScheme = {
