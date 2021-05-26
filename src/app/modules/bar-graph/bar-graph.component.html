@@ -1,72 +1,155 @@
-<h2 class="title">
-    {{ barGraphModel.title }}
-</h2>
-
-<p class="sr-only">
-    {{ barGraphModel.title }} bar graph image
-    <ng-container *ngFor="let item of barGraphModel.data; let i = index">
-       Bar {{ i + 1 }} {{item.name}} value is {{item.value}} 
-    </ng-container>
-</p>
-
-<div 
-    class="ds-l-row mainGraphClass" 
-    [id]="'barGraph_' + barGraphModel.id"
-    attr.data-auto-id="{{ barGraphModel.dataAutoId }}"
-    (window:resize)="resize()" 
-    (window:load)="resize()"
+<div
+  class="ds-l-container header ds-u-padding-bottom--2"
+  *ngIf="barGraphModel.title || isNextPageEnabled || isPrevPageEnabled"
+  [ngClass]="{ 'is-small-screen': isSmallScreen }"
 >
-    <ngx-charts-bar-vertical 
-        [view]="view" 
-        [scheme]="barGraphModel.colorScheme" 
-        [results]="barGraphModel.data"
-        [yAxis]="barGraphModel.showYAxis"
-        [xAxis]="barGraphModel.showXAxis" 
-        [showYAxisLabel]="barGraphModel.xAxisLabel !== ''" 
-        [xAxisLabel]="barGraphModel.xAxisLabel" 
-        [yAxisLabel]="barGraphModel.yAxisLabel" 
-        [animations]="barGraphModel.animations"
-        [showGridLines]="barGraphModel.showGridLines" 
-        [roundDomains]="barGraphModel.roundDomains" 
-        [gradient]="barGraphModel.gradient" 
-        [roundEdges]="barGraphModel.roundEdges"
-        [tooltipDisabled]="barGraphModel.tooltipDisabled"
-        [customColors]="customColors"
-        [barPadding]="barGraphModel.barPadding"
+  <div class="ds-l-row">
+    <div class="ds-l-col--12 ds-l-md-col ds-u-text-align--left header-y-axis-adjust">
+      <div class="title ds-u-padding-bottom--1">
+        {{ barGraphModel.title }}
+      </div>
+      <div>
+        <ng-container *ngIf="isPagingDisplayed">
+          {{ pagingLabel }}
+          <app-button
+            buttonType="ds-c-button--transparent ds-u-padding-x--1"
+            [disabled]="!isPrevPageEnabled"
+            (callBack)="gotoPrevPage()"
+          >
+            <fa-icon [icon]="faChevronLeft"></fa-icon>
+          </app-button>
+          <app-button
+            buttonType="ds-c-button--transparent ds-u-padding-x--1"
+            [disabled]="!isNextPageEnabled"
+            (callBack)="gotoNextPage()"
+          >
+            <fa-icon [icon]="faChevronRight"></fa-icon>
+          </app-button>
+        </ng-container>
+      </div>
+    </div>
+    <div
+      *ngIf="barGraphModel.dataSets"
+      class="ds-l-col--12 ds-l-md-col--auto data-sets-container ds-u-padding-y--1 ds-u-md-padding-y--0"
+      [ngClass]="{ 'header-y-axis-adjust': isSmallScreen }"
     >
-    </ngx-charts-bar-vertical>
-</div>
+      <app-button
+        *ngFor="let dataSet of barGraphModel.dataSets; let i = index; let isLast = last"
+        buttonType="ds-c-button--transparent ds-u-color--black ds-u-padding--0  data-set-button {{
+          i === this.currentSet ? 'ds-u-font-weight--bold data-set-button-active' : 'ds-u-font-weight--normal'
+        }} {{ !isLast ? 'ds-u-margin-right--4' : '' }}"
+        (callBack)="selectDataSet(i)"
+      >
+        {{ dataSet.name }}
+      </app-button>
+    </div>
+  </div>
+  <div class="ds-l-row">
+    <div class="ds-l-col">
+      <p class="sr-only">
+        {{ barGraphModel.title }} bar graph image
+        <ng-container *ngFor="let item of barGraphData; let i = index">
+          Bar {{ i + 1 }} {{ item.name }} value is {{ item.value }}
+        </ng-container>
+      </p>
 
-<div *ngIf="barGraphModel.showXAxis" aria-hidden="true" id="valueContainer">
-    <span class="tickMarkers" *ngFor="let val of barGraphModel.data; let i = index" [id]="'value_' + i + barGraphModel.id">
-        <div *ngIf="val.value === '' && val.modal">
-            <app-modal
-                [modalData]="val.modal"
-                [modalComponent]="comp"
-                [buttonClass]="'tableCell'"
-                [content]="'N/A*'"
-                [id]="'col_' + i + barGraphModel.id"
-                [modalTitle]="val.modalTitle">
-            </app-modal>
-        </div>
-        <div *ngIf="val.value === '' && !val.modal">
-            N/A
-        </div>
-        <div *ngIf="val.value !== '' && val.modal; else noModal">
-            <app-modal
-                [modalData]="val.modal"
-                [modalComponent]="comp"
-                [buttonClass]="'tableCell'"
-                [content]="val.value + '*'"
-                [id]="'col_' + i + barGraphModel.id"
-                [modalTitle]="val.modalTitle">
-            </app-modal>
-        </div>
-        <ng-template #noModal>
-            {{val.value}}
+      <div
+        class="ds-l-row mainGraphClass"
+        [id]="'barGraph_' + barGraphModel.id"
+        attr.data-auto-id="{{ barGraphModel.dataAutoId }}"
+        (window:resize)="resize()"
+        (window:load)="resize()"
+      >
+        <!-- Use a different component depending on the type of graph we are showing -->
+        <ngx-charts-bar-vertical
+          *ngIf="!this.isGroupDisplayed; else groupChart"
+          [view]="view"
+          [scheme]="barGraphModel.colorScheme"
+          [results]="barGraphData"
+          [yAxis]="barGraphModel.showYAxis"
+          [xAxis]="barGraphModel.showXAxis"
+          [showYAxisLabel]="barGraphModel.xAxisLabel !== ''"
+          [xAxisLabel]="barGraphModel.xAxisLabel"
+          [yAxisLabel]="barGraphModel.yAxisLabel"
+          [animations]="barGraphModel.animations"
+          [showGridLines]="barGraphModel.showGridLines"
+          [roundDomains]="barGraphModel.roundDomains"
+          [gradient]="barGraphModel.gradient"
+          [roundEdges]="barGraphModel.roundEdges"
+          [tooltipDisabled]="barGraphModel.tooltipDisabled"
+          [customColors]="customColors"
+          [barPadding]="barGraphModel.barPadding"
+          [legend]="barGraphModel.legend"
+          [legendTitle]="barGraphModel.legendTitle"
+          [legendPosition]="isSmallScreen ? barGraphModel.legendLocationSmall : barGraphModel.legendLocation"
+          legendPosition="below"
+        >
+        </ngx-charts-bar-vertical>
+
+        <ng-template #groupChart>
+          <ngx-charts-bar-vertical-2d
+            [view]="view"
+            [scheme]="barGraphModel.colorScheme"
+            [results]="barGraphData"
+            [yAxis]="barGraphModel.showYAxis"
+            [xAxis]="barGraphModel.showXAxis"
+            [showYAxisLabel]="barGraphModel.xAxisLabel !== ''"
+            [xAxisLabel]="barGraphModel.xAxisLabel"
+            [yAxisLabel]="barGraphModel.yAxisLabel"
+            [animations]="barGraphModel.animations"
+            [showGridLines]="barGraphModel.showGridLines"
+            [roundDomains]="barGraphModel.roundDomains"
+            [gradient]="barGraphModel.gradient"
+            [roundEdges]="barGraphModel.roundEdges"
+            [tooltipDisabled]="barGraphModel.tooltipDisabled"
+            [customColors]="customColors"
+            [barPadding]="barGraphModel.barPadding"
+            [legend]="barGraphModel.legend"
+            [legendTitle]="barGraphModel.legendTitle"
+            [legendPosition]="isSmallScreen ? barGraphModel.legendLocationSmall : barGraphModel.legendLocation"
+            legendPosition="right"
+          >
+          </ngx-charts-bar-vertical-2d>
         </ng-template>
-    </span>
-</div>
-<div id="nameContainer" aria-hidden="true" *ngIf="barGraphModel.xAxisLabel !== ''" class="x-axis-label">
-    {{barGraphModel.xAxisLabel}}
+      </div>
+
+      <div *ngIf="barGraphModel.showXAxis" aria-hidden="true" id="valueContainer">
+        <span
+          class="tickMarkers"
+          *ngFor="let val of barGraphData; let i = index"
+          [id]="'value_' + i + barGraphModel.id"
+        >
+          <div *ngIf="val.value === '' && val.modal">
+            <app-modal
+              [modalData]="val.modal"
+              [modalComponent]="comp"
+              [buttonClass]="'tableCell'"
+              [content]="'N/A*'"
+              [id]="'col_' + i + barGraphModel.id"
+              [modalTitle]="val.modalTitle"
+            >
+            </app-modal>
+          </div>
+          <div *ngIf="val.value === '' && !val.modal">N/A</div>
+          <div *ngIf="val.value !== '' && val.modal; else noModal">
+            <app-modal
+              [modalData]="val.modal"
+              [modalComponent]="comp"
+              [buttonClass]="'tableCell'"
+              [content]="val.value + '*'"
+              [id]="'col_' + i + barGraphModel.id"
+              [modalTitle]="val.modalTitle"
+            >
+            </app-modal>
+          </div>
+          <ng-template #noModal>
+            {{ val.value }}
+          </ng-template>
+        </span>
+      </div>
+      <div id="nameContainer" aria-hidden="true" *ngIf="barGraphModel.xAxisLabel !== ''" class="x-axis-label">
+        {{ barGraphModel.xAxisLabel }}
+      </div>
+    </div>
+  </div>
 </div>
