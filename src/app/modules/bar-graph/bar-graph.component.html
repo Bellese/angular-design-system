@@ -1,9 +1,5 @@
-<div
-  class="ds-l-container header ds-u-padding-bottom--2"
-  *ngIf="barGraphModel.title || isNextPageEnabled || isPrevPageEnabled"
-  [ngClass]="{ 'is-small-screen': isSmallScreen }"
->
-  <div class="ds-l-row">
+<div class="ds-l-container header ds-u-padding-bottom--2" [ngClass]="{ 'is-small-screen': isSmallScreen }">
+  <div class="ds-l-row" *ngIf="barGraphModel.title || isNextPageEnabled || isPrevPageEnabled">
     <div class="ds-l-col--12 ds-l-md-col ds-u-text-align--left header-y-axis-adjust">
       <div class="title ds-u-padding-bottom--1">
         {{ barGraphModel.title }}
