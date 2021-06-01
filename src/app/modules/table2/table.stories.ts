@@ -154,7 +154,7 @@ const tableModel: TableModel = new TableModel({
           label: 'abcdefghijklmnopqrstuvwxyz1234567890',
         }),
         new TableCellModel({
-          label: 'Suspended',
+          label: 2,
           icon: faCircle,
           iconClass: 'ds-u-color--error',
         }),
