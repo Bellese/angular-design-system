@@ -35,8 +35,8 @@
     value="{{ defaultValue }}"
     [disabled]="disabled"
     (blur)="blurCallBackFunction($event)"
-    [attr.formControl]="control"
-    [attr.formlyAttributes]="formlyAttributes"
+    [formControl]="control"
+    [formlyAttributes]="formlyAttributes"
   />
 </ng-container>
 <ng-template #textarea>
@@ -54,7 +54,7 @@
     value="{{ defaultValue }}"
     [disabled]="disabled"
     rows="4"
-    [attr.formControl]="control"
-    [attr.formlyAttributes]="formlyAttributes"
+    [formControl]="control"
+    [formlyAttributes]="formlyAttributes"
   ></textarea>
 </ng-template>
