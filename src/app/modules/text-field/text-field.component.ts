@@ -24,7 +24,7 @@ export class AppTextFieldComponent implements OnInit {
   @Input() disabled: boolean;
   @Input() multiline = false;
   @Input() control: FormControl;
-  @Input() formlyAttributes = 'field';
+  @Input() formlyAttributes = {};
   @Output() keydown = new EventEmitter<any>();
   @Output() paste = new EventEmitter<any>();
   @Output() blur = new EventEmitter<any>();
