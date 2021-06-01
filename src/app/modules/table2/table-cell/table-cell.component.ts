@@ -34,7 +34,7 @@ export class TableCellComponent {
   }
 
   stripHtmlTagsFromTitle(labelString) {
-    if (labelString) {
+    if (labelString && labelString.replace) {
       return labelString.replace(/<(.|\n)*?>/g, '');
     }
     return labelString;
