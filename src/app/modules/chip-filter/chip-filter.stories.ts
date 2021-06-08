@@ -12,6 +12,8 @@ import {
   dropdownSettings2,
   dropdownSettings3,
   dropdownSettingsError,
+  dropdownSettingsSingleSelection,
+  dropdownSettingsLimitSelection,
   settingsProps,
 } from './story.const';
 
@@ -24,6 +26,8 @@ const props = {
   dropdownSettingsError,
   dropdownSettings2,
   dropdownSettings3,
+  dropdownSettingsSingleSelection,
+  dropdownSettingsLimitSelection,
   logjam: (e) => {
     console.log(e);
   },
@@ -161,6 +165,38 @@ export const LimitChipsShown: Story<AppChipFilterComponent> = () => ({
       [data]="dropdownList"
       [(ngModel)]="selectedItems"
       [settings]="dropdownSettings3"
+      (onDeSelect)="logjam($event)"
+      (onDeSelectAll)="logjam($event)"
+      (onSelect)="logjam($event)"
+      (onSelectAll)="logjam($event)">
+    </app-chip-filter>
+  `,
+  props,
+});
+
+export const SingleSelection: Story<AppChipFilterComponent> = () => ({
+  template: `
+    <app-chip-filter
+      style="width: 50vw; display: block; position: relative; margin: 0 auto; padding-top: 4rem"
+      [data]="dropdownList"
+      [(ngModel)]="selectedItems"
+      [settings]="dropdownSettingsSingleSelection"
+      (onDeSelect)="logjam($event)"
+      (onDeSelectAll)="logjam($event)"
+      (onSelect)="logjam($event)"
+      (onSelectAll)="logjam($event)">
+    </app-chip-filter>
+  `,
+  props,
+});
+
+export const LimitSelection: Story<AppChipFilterComponent> = () => ({
+  template: `
+    <app-chip-filter
+      style="width: 50vw; display: block; position: relative; margin: 0 auto; padding-top: 4rem"
+      [data]="dropdownList"
+      [(ngModel)]="selectedItems"
+      [settings]="dropdownSettingsLimitSelection"
       (onDeSelect)="logjam($event)"
       (onDeSelectAll)="logjam($event)"
       (onSelect)="logjam($event)"
