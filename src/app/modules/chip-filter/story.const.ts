@@ -1,21 +1,24 @@
 export const dropdownList = [
   { id: 1, text: 'Provider Name 1' },
-  { id: 2, text: 'Provider Name 2213123123' },
-  { id: 3, text: 'Provider Name 452345243543254' },
-  { id: 4, text: 'Provider Name 14325234523454235' },
-  { id: 5, text: 'Provider Name 1e2q423q45' },
-  { id: 5, text: 'Provider Name 1e2q423q45' },
-  { id: 5, text: 'Provider Name 1e2q423q45' },
-  { id: 5, text: 'Provider Name 1e2q423q45' },
-  { id: 5, text: 'Provider Name 1e2q423q45' },
-  { id: 5, text: 'Provider Name 1e2q423q45' },
-  { id: 5, text: 'Provider Name 1e2q423q45' },
-  { id: 5, text: 'Provider Name 1e2q423q45' },
-  { id: 5, text: 'Provider Name 1e2q423q45' },
-  { id: 5, text: 'Provider Name 1e2q423q45' },
-  { id: 5, text: 'Provider Name 1e2q423q45' },
-  { id: 5, text: 'Provider Name 1e2q423q45' },
-  { id: 5, text: 'Provider Name 1e2q423q45' },
+  { id: 2, text: 'Provider Name 2' },
+  { id: 3, text: 'Provider Name 3' },
+  { id: 4, text: 'Provider Name 4' },
+  { id: 5, text: 'Provider Name 5' },
+  { id: 6, text: 'Provider Name 6' },
+  { id: 7, text: 'Provider Name 7' },
+  { id: 8, text: 'Provider Name 8' },
+  { id: 9, text: 'Provider Name 9' },
+  { id: 10, text: 'Provider Name 10' },
+  { id: 11, text: 'Provider Name 11' },
+  { id: 12, text: 'Provider Name 12' },
+  { id: 13, text: 'Provider Name 13' },
+  { id: 14, text: 'Provider Name 14' },
+  { id: 15, text: 'Provider Name 15' },
+  { id: 16, text: 'Provider Name 16' },
+  { id: 17, text: 'Provider Name 17' },
+  { id: 18, text: 'Provider Name 18' },
+  { id: 19, text: 'Provider Name 19' },
+  { id: 20, text: 'Provider Name 20' },
 ];
 
 export const settingsProps = [
@@ -151,4 +154,14 @@ export const dropdownSettings3 = {
   label: 'Search Providers',
   itemsShowLimit: 2,
   allowSearchFilter: false,
+};
+
+export const dropdownSettingsSingleSelection = {
+  ...dropdownSettings,
+  singleSelection: true,
+};
+
+export const dropdownSettingsLimitSelection = {
+  ...dropdownSettings,
+  limitSelection: 2,
 };

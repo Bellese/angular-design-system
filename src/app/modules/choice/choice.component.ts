@@ -25,7 +25,7 @@ export class AppChoiceComponent implements OnInit {
   @Input() tabIndex: number;
   @Input() labelTextClass: string;
   @Input() control: FormControl;
-  @Input() formlyAttributes = 'field';
+  @Input() formlyAttributes = {};
   @Input() alertMessageList?: Array<string>;
   @Input() alertVariation?: string;
 
@@ -46,7 +46,7 @@ export class AppChoiceComponent implements OnInit {
   }
 
   public get fieldIdComputed() {
-    return this.fieldId ? this.fieldId : (this.value + '-' + this.index)
+    return this.fieldId ? this.fieldId : this.value + '-' + this.index;
   }
 }
 

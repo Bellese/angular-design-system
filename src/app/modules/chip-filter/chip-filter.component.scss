@@ -172,7 +172,8 @@ app-chip-filter,
     }
   }
 
-  .multiselect-item-checkbox input[type='checkbox'] {
+  .multiselect-item-checkbox input[type='checkbox'],
+  .multiselect-item-checkbox input[type='radio'] {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -184,16 +185,20 @@ app-chip-filter,
   }
 
   .multiselect-item-checkbox input[type='checkbox']:focus + div:before,
-  .multiselect-item-checkbox input[type='checkbox']:hover + div:before {
+  .multiselect-item-checkbox input[type='checkbox']:hover + div:before,
+  .multiselect-item-checkbox input[type='radio']:focus + div:before,
+  .multiselect-item-checkbox input[type='radio']:hover + div:before {
     border-color: $base-color;
     background-color: #f2f2f2;
   }
 
-  .multiselect-item-checkbox input[type='checkbox']:active + div:before {
+  .multiselect-item-checkbox input[type='checkbox']:active + div:before,
+  .multiselect-item-checkbox input[type='radio']:active + div:before {
     transition-duration: 0s;
   }
 
-  .multiselect-item-checkbox input[type='checkbox'] + div {
+  .multiselect-item-checkbox input[type='checkbox'] + div,
+  .multiselect-item-checkbox input[type='radio'] + div {
     position: relative;
     padding-left: 2em;
     vertical-align: middle;
@@ -203,7 +208,8 @@ app-chip-filter,
     color: #000;
   }
 
-  .multiselect-item-checkbox input[type='checkbox'] + div:before {
+  .multiselect-item-checkbox input[type='checkbox'] + div:before,
+  .multiselect-item-checkbox input[type='radio'] + div:before {
     box-sizing: content-box;
     content: '';
     color: $base-color;
@@ -218,7 +224,12 @@ app-chip-filter,
     transition: all 0.4s ease;
   }
 
-  .multiselect-item-checkbox input[type='checkbox'] + div:after {
+  .multiselect-item-checkbox input[type='radio'] + div:before {
+    border-radius: 50%;
+  }
+
+  .multiselect-item-checkbox input[type='checkbox'] + div:after,
+  .multiselect-item-checkbox input[type='radio'] + div:after {
     box-sizing: content-box;
     content: '';
     background-color: $base-color;
@@ -233,7 +244,8 @@ app-chip-filter,
     transition: transform 200ms ease-out;
   }
 
-  .multiselect-item-checkbox input[type='checkbox']:disabled + div:before {
+  .multiselect-item-checkbox input[type='checkbox']:disabled + div:before,
+  .multiselect-item-checkbox input[type='radio']:disabled + div:before {
     border-color: #cccccc;
   }
 
@@ -242,16 +254,24 @@ app-chip-filter,
     + div:before
     .multiselect-item-checkbox
     input[type='checkbox']:disabled:hover
+    + div:before,
+  .multiselect-item-checkbox
+    input[type='radio']:disabled:focus
+    + div:before
+    .multiselect-item-checkbox
+    input[type='radio']:disabled:hover
     + div:before {
     background-color: inherit;
   }
 
-  .multiselect-item-checkbox input[type='checkbox']:disabled:checked + div:before {
+  .multiselect-item-checkbox input[type='checkbox']:disabled:checked + div:before,
+  .multiselect-item-checkbox input[type='radio']:disabled:checked + div:before {
     background-color: #cccccc;
     background-color: #cccccc;
   }
 
-  .multiselect-item-checkbox input[type='checkbox'] + div:after {
+  .multiselect-item-checkbox input[type='checkbox'] + div:after,
+  .multiselect-item-checkbox input[type='radio'] + div:after {
     background-color: transparent;
     top: 50%;
     left: 4px;
@@ -265,19 +285,22 @@ app-chip-filter,
     transform: rotate(-45deg) scale(0);
   }
 
-  .multiselect-item-checkbox input[type='checkbox']:checked + div:after {
+  .multiselect-item-checkbox input[type='checkbox']:checked + div:after,
+  .multiselect-item-checkbox input[type='radio']:checked + div:after {
     content: '';
     transform: rotate(-45deg) scale(1);
     transition: transform 200ms ease-out;
   }
 
-  .multiselect-item-checkbox input[type='checkbox']:checked + div:before {
+  .multiselect-item-checkbox input[type='checkbox']:checked + div:before,
+  .multiselect-item-checkbox input[type='radio']:checked + div:before {
     animation: borderscale 200ms ease-in;
     background: $base-color;
     border: 2px solid $base-color;
   }
 
-  .multiselect-item-checkbox input[type='checkbox']:checked + div:after {
+  .multiselect-item-checkbox input[type='checkbox']:checked + div:after,
+  .multiselect-item-checkbox input[type='radio']:checked + div:after {
     transform: rotate(-45deg) scale(1);
   }
 

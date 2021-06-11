@@ -93,7 +93,7 @@
         class="multiselect-item-checkbox"
       >
         <input
-          type="checkbox"
+          [type]="settings.singleSelection ? 'radio' : 'checkbox'"
           aria-label="multiselect-item"
           [checked]="isSelected(item)"
           [disabled]="disabled || (isLimitSelectionReached() && !isSelected(item)) || item.isDisabled || loading"
