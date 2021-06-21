@@ -20,7 +20,7 @@ export class AppDropDownComponent implements OnInit {
   @Input() dataAutoId: string;
   @Input() disabled: boolean;
   @Input() control: FormControl;
-  @Input() formlyAttributes = 'field';
+  @Input() formlyAttributes = {};
   @Input() alertMessageList?: Array<string>;
   @Input() alertVariation?: string;
   @Output() selectedOption = new EventEmitter<any>();
