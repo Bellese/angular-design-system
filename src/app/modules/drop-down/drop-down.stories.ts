@@ -19,11 +19,25 @@ const dropDownData = [
     content: 'option3',
     value: 'op3',
   },
+  {
+    content: 'option4',
+    value: 'op4',
+  },
+  {
+    content: 'option5',
+    value: 'op5',
+  },
+  {
+    content: 'option6',
+    value: 'op6',
+  },
 ];
 
 const props = {
   ...defaultProps,
   dropDownData,
+  disabled: true,
+  defaultSelected: 3,
 };
 
 export default {
@@ -221,6 +235,8 @@ export const SelectedOption: Story<AppDropDownComponent> = () => ({
                 id = 'DropDownExample'
                 dataAutoId = 'testingID'
                 [defaultSelected] = 2
+                defaultSelectedValue = 'op4'
+
                 (selectedOption) = 'handleEvent($event)'>
             </app-drop-down>
         `,
@@ -231,14 +247,17 @@ export const Disabled: Story<AppDropDownComponent> = () => ({
   template: `
           <app-drop-down
               [options] = 'dropDownData'
-              [disabled]='"true"'
+              [disabled]='disabled'
               labelName = 'Drop down example'
               selectClass = 'ds-c-field--medium'
               ariaLabel = 'Drop Down Aria Label'
               id = 'DropDownExample'
               dataAutoId = 'testingID'
+              [defaultSelected] = defaultSelected
               (selectedOption) = 'handleEvent($event)'>
           </app-drop-down>
+          <button (click)="disabled = !disabled">toggle disabled</button>
+          <button (click)="defaultSelected = defaultSelected + 1">toggle disabled</button>
       `,
   props,
 });
