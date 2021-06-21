@@ -30,12 +30,13 @@
     name="{{ id }}"
     [type]="inputType"
     [placeholder]="placeholder || ''"
-    (input)="callBackFunction($event)"
+    (keyup)="callBackFunction($event)"
+    (change)="callBackFunction($event)"
     value="{{ defaultValue }}"
     [disabled]="disabled"
     (blur)="blurCallBackFunction($event)"
-    [attr.formControl]="control"
-    [attr.formlyAttributes]="formlyAttributes"
+    [formControl]="control"
+    [formlyAttributes]="formlyAttributes"
   />
 </ng-container>
 <ng-template #textarea>
@@ -48,7 +49,8 @@
     id="{{ id }}"
     name="{{ id }}"
     [placeholder]="placeholder || ''"
-    (input)="callBackFunction($event)"
+    (keyup)="callBackFunction($event)"
+    (change)="callBackFunction($event)"
     value="{{ defaultValue }}"
     [disabled]="disabled"
     rows="4"
