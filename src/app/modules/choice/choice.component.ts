@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormControl } from '@angular/forms';
   templateUrl: './choice.component.html',
   styleUrls: ['./choice.component.css'],
 })
-export class AppChoiceComponent implements OnInit {
+export class AppChoiceComponent implements OnInit, OnChanges {
   @Input() inputType = 'checkbox';
   @Input() index = 'main';
   @Input() fieldId: string;
@@ -38,6 +38,21 @@ export class AppChoiceComponent implements OnInit {
   ngOnInit() {
     if (!this.control) {
       this.control = new FormControl();
+    }
+    this.setDisabled();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.disabled) {
+      this.setDisabled();
+    }
+  }
+
+  setDisabled() {
+    if (this.disabled) {
+      this.control?.disable();
+    } else {
+      this.control?.enable();
     }
   }
 
