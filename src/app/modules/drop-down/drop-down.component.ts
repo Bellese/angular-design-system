@@ -45,7 +45,7 @@ export class AppDropDownComponent implements OnInit, OnChanges {
 
   setSelectedValue() {
     if (this.defaultSelectedValue) {
-      this.control?.setValue(this.defaultSelectedValue, { onlySelf: true });
+      this.control?.setValue(this.defaultSelectedValue);
     } else if (this.defaultSelected) {
       this.control?.setValue(this.options[this.defaultSelected].value);
     }
