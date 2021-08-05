@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
@@ -12,12 +12,14 @@ describe('CalendarComponent', () => {
   let fixture: ComponentFixture<CalendarComponent>;
   const mockCalendarModel = new CalendarModel();
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [MatDatepickerModule, MatInputModule, MatNativeDateModule, FontAwesomeModule],
-      declarations: [CalendarComponent],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [MatDatepickerModule, MatInputModule, MatNativeDateModule, FontAwesomeModule],
+        declarations: [CalendarComponent],
+      }).compileComponents();
+    })
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CalendarComponent);

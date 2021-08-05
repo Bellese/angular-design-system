@@ -1,4 +1,4 @@
-import { async, ComponentFixture, fakeAsync, inject, TestBed, tick } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { AppChipFilterComponent } from './chip-filter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -11,13 +11,15 @@ describe('ChipFilterComponent', () => {
   let component: AppChipFilterComponent;
   let fixture: ComponentFixture<AppChipFilterComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [CommonModule, FormsModule, ReactiveFormsModule, MatChipsModule, MatInputModule, FontAwesomeModule],
-      providers: [ChipFilterPipe],
-      declarations: [AppChipFilterComponent, ChipFilterPipe],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [CommonModule, FormsModule, ReactiveFormsModule, MatChipsModule, MatInputModule, FontAwesomeModule],
+        providers: [ChipFilterPipe],
+        declarations: [AppChipFilterComponent, ChipFilterPipe],
+      }).compileComponents();
+    })
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AppChipFilterComponent);
