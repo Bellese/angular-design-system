@@ -1,11 +1,11 @@
-import { Component, Input, EventEmitter, Output, OnInit } from '@angular/core';
+import { Component, Input, EventEmitter, Output, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-drop-down',
   templateUrl: './drop-down.component.html',
   styleUrls: ['./drop-down.component.css'],
 })
-export class AppDropDownComponent implements OnInit {
+export class AppDropDownComponent implements OnInit, OnChanges {
   @Input() options;
   @Input() labelName: string;
   @Input() labelClass: string;
@@ -20,7 +20,7 @@ export class AppDropDownComponent implements OnInit {
   @Input() dataAutoId: string;
   @Input() disabled: boolean;
   @Input() control: FormControl;
-  @Input() formlyAttributes = 'field';
+  @Input() formlyAttributes = {};
   @Input() alertMessageList?: Array<string>;
   @Input() alertVariation?: string;
   @Output() selectedOption = new EventEmitter<any>();
@@ -28,6 +28,34 @@ export class AppDropDownComponent implements OnInit {
   ngOnInit() {
     if (!this.control) {
       this.control = new FormControl();
+    }
+    // now that reactive forms are in use, additional form field attributes have to be integrated with the form control
+    this.setSelectedValue();
+    this.setDisabled();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.disabled) {
+      this.setDisabled();
+    }
+    if (changes.defaultSelectedValue || changes.defaultSelected) {
+      this.setSelectedValue();
+    }
+  }
+
+  setSelectedValue() {
+    if (this.defaultSelectedValue) {
+      this.control?.setValue(this.defaultSelectedValue);
+    } else if (this.defaultSelected) {
+      this.control?.setValue(this.options[this.defaultSelected].value);
+    }
+  }
+
+  setDisabled() {
+    if (this.disabled) {
+      this.control?.disable();
+    } else {
+      this.control?.enable();
     }
   }
 

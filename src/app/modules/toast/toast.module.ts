@@ -7,24 +7,14 @@ import { AlertModule } from '../alert/alert.module';
 import { ToastComponent } from './component/toast.component';
 
 @NgModule({
-  declarations: [
-    ToastComponent,
-  ],
-  imports: [
-    CommonModule,
-    AlertModule,
-    ToastrModule.forRoot()
-  ],
-  entryComponents: [
-    ToastComponent,
-  ],
+  declarations: [ToastComponent],
+  imports: [CommonModule, AlertModule, ToastrModule.forRoot()],
 })
-
 export class ToastModule {
   static forRoot(): ModuleWithProviders<ToastModule> {
-      return {
-          ngModule: ToastModule,
-          providers: [ ToastService ]
-      };
+    return {
+      ngModule: ToastModule,
+      providers: [ToastService],
+    };
   }
 }
