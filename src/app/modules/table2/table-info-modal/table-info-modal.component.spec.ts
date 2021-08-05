@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ModalService } from '../../../services/modal/modal.service';
 import { ButtonModule } from '../../button/button.module';
@@ -15,13 +15,15 @@ describe('TableInfoModalComponent', () => {
   let component: TableInfoModalComponent;
   let fixture: ComponentFixture<TableInfoModalComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [FontAwesomeModule, ButtonModule],
-      declarations: [TableInfoModalComponent],
-      providers: [{ provide: ModalService, useClass: MockModalService }],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [FontAwesomeModule, ButtonModule],
+        declarations: [TableInfoModalComponent],
+        providers: [{ provide: ModalService, useClass: MockModalService }],
+      }).compileComponents();
+    })
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TableInfoModalComponent);

@@ -5,10 +5,16 @@ import { defaultProps } from '../../../../.storybook/helpers';
 import ComponentIntroComponent from '../../../stories/component-intro.component';
 import { StoriesModule } from '../../../stories/stories.module';
 import { BarGraphComponent } from './bar-graph.component';
-import { BarGraphModel } from './bar-graph.model';
+import {
+  BarGraphDataModel,
+  BarGraphDataSetModel,
+  BarGraphGroupDataModel,
+  BarGraphLegendLocationEnum,
+  BarGraphModel,
+} from './bar-graph.model';
 import { BarGraphModule } from './bar-graph.module';
 
-const barGraphData = [
+const barGraphData: BarGraphDataModel[] = [
   {
     name: 'STP-2',
     value: 100,
@@ -27,9 +33,319 @@ const barGraphModel = new BarGraphModel({
   data: barGraphData,
 });
 
+const barGraphGroupData: BarGraphGroupDataModel[] = [
+  {
+    name: 'CY 2017',
+    series: [
+      {
+        name: 'Facility',
+        value: 35,
+      },
+      {
+        name: 'State',
+        value: 55,
+      },
+      {
+        name: 'National',
+        value: 65,
+      },
+    ],
+  },
+  {
+    name: 'CY 2018',
+    series: [
+      {
+        name: 'Facility',
+        value: 19,
+      },
+      {
+        name: 'State',
+        value: 32,
+      },
+      {
+        name: 'National',
+        value: 38,
+      },
+    ],
+  },
+  {
+    name: 'CY 2019',
+    series: [
+      {
+        name: 'Facility',
+        value: 37,
+      },
+      {
+        name: 'State',
+        value: 62,
+      },
+      {
+        name: 'National',
+        value: 75,
+      },
+    ],
+  },
+  {
+    name: 'CY 2020',
+    series: [
+      {
+        name: 'Facility',
+        value: 28,
+      },
+      {
+        name: 'State',
+        value: 46,
+      },
+      {
+        name: 'National',
+        value: 54,
+      },
+    ],
+  },
+];
+
+const barGraphGroupModel = new BarGraphModel({
+  data: barGraphGroupData,
+  legend: true,
+});
+
+const barGraphMaxBarModel = new BarGraphModel({
+  ...barGraphGroupModel,
+  title: 'A really cool bar graph',
+  maxBarGroups: 2,
+  legend: true,
+});
+
+const barGraphDataSets: BarGraphDataSetModel[] = [
+  {
+    name: 'Quarters',
+    data: [
+      {
+        name: 'Q1 2019',
+        series: [
+          {
+            name: 'Facility',
+            value: 35,
+          },
+          {
+            name: 'State',
+            value: 55,
+          },
+          {
+            name: 'National',
+            value: 65,
+          },
+        ],
+      },
+      {
+        name: 'Q2 2019',
+        series: [
+          {
+            name: 'Facility',
+            value: 19,
+          },
+          {
+            name: 'State',
+            value: 32,
+          },
+          {
+            name: 'National',
+            value: 38,
+          },
+        ],
+      },
+      {
+        name: 'Q3 2019',
+        series: [
+          {
+            name: 'Facility',
+            value: 37,
+          },
+          {
+            name: 'State',
+            value: 62,
+          },
+          {
+            name: 'National',
+            value: 75,
+          },
+        ],
+      },
+      {
+        name: 'Q4 2019',
+        series: [
+          {
+            name: 'Facility',
+            value: 28,
+          },
+          {
+            name: 'State',
+            value: 46,
+          },
+          {
+            name: 'National',
+            value: 54,
+          },
+        ],
+      },
+      {
+        name: 'Q1 2020',
+        series: [
+          {
+            name: 'Facility',
+            value: 35,
+          },
+          {
+            name: 'State',
+            value: 55,
+          },
+          {
+            name: 'National',
+            value: 65,
+          },
+        ],
+      },
+      {
+        name: 'Q2 2020',
+        series: [
+          {
+            name: 'Facility',
+            value: 19,
+          },
+          {
+            name: 'State',
+            value: 32,
+          },
+          {
+            name: 'National',
+            value: 38,
+          },
+        ],
+      },
+      {
+        name: 'Q3 2020',
+        series: [
+          {
+            name: 'Facility',
+            value: 37,
+          },
+          {
+            name: 'State',
+            value: 62,
+          },
+          {
+            name: 'National',
+            value: 75,
+          },
+        ],
+      },
+      {
+        name: 'Q4 2020',
+        series: [
+          {
+            name: 'Facility',
+            value: 28,
+          },
+          {
+            name: 'State',
+            value: 46,
+          },
+          {
+            name: 'National',
+            value: 54,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'Years',
+    data: [
+      {
+        name: 'CY 2017',
+        series: [
+          {
+            name: 'Facility',
+            value: 35,
+          },
+          {
+            name: 'State',
+            value: 55,
+          },
+          {
+            name: 'National',
+            value: 65,
+          },
+        ],
+      },
+      {
+        name: 'CY 2018',
+        series: [
+          {
+            name: 'Facility',
+            value: 19,
+          },
+          {
+            name: 'State',
+            value: 32,
+          },
+          {
+            name: 'National',
+            value: 38,
+          },
+        ],
+      },
+      {
+        name: 'CY 2019',
+        series: [
+          {
+            name: 'Facility',
+            value: 37,
+          },
+          {
+            name: 'State',
+            value: 62,
+          },
+          {
+            name: 'National',
+            value: 75,
+          },
+        ],
+      },
+      {
+        name: 'CY 2020',
+        series: [
+          {
+            name: 'Facility',
+            value: 28,
+          },
+          {
+            name: 'State',
+            value: 46,
+          },
+          {
+            name: 'National',
+            value: 54,
+          },
+        ],
+      },
+    ],
+  },
+];
+
+const barGraphDataSetsModel = new BarGraphModel({
+  dataSets: barGraphDataSets,
+  title: 'A really cool bar graph',
+  maxBarGroups: 4,
+  legend: true,
+});
+
 const props = {
   ...defaultProps,
-  barGraphModel: barGraphModel,
+  barGraphModel,
+  barGraphGroupModel,
+  barGraphMaxBarModel,
+  barGraphDataSetsModel,
 };
 
 export default {
@@ -65,8 +381,74 @@ export const Intro: Story<ComponentIntroComponent> = () => ({
         properties: [
           {
             name: 'data',
-            type: 'array',
-            value: 'The data for the bar graph',
+            type: 'BarGraphDataModel[] | BarGraphGroupDataModel[]',
+            value:
+              'The data for the bar graph.  This can be either single bars or grouped bars. Object definitions for the two types are included below.',
+            properties: [
+              {
+                name: 'BarGraphDataModel',
+                type: 'BarGraphDataModel',
+                value:
+                  'This is the type that can be passed into the data property if you want to display a single bar graph',
+                properties: [
+                  {
+                    name: 'name',
+                    type: 'string',
+                    value: 'The name of the bar that gets displayed on the X Axis',
+                  },
+                  {
+                    name: 'value',
+                    type: 'number',
+                    value: 'The value to display in the bar grah',
+                  },
+                  {
+                    name: 'modal',
+                    type: 'any',
+                    value: '(Optional) Data to display in a modal',
+                  },
+                  {
+                    name: 'modalTitle',
+                    type: 'string',
+                    value: '(Optional) The title for the modal',
+                  },
+                ],
+              },
+              {
+                name: 'BarGraphGroupDataModel',
+                type: 'BarGraphGroupDataModel',
+                value:
+                  'This is the type that can be passed into the data property if you want to display a grouped bar graph',
+                properties: [
+                  {
+                    name: 'name',
+                    type: 'string',
+                    value: 'The name of the group that displays in the bar graph and legend',
+                  },
+                  {
+                    name: 'series',
+                    type: 'array',
+                    value: 'Values associated with the group to display in the bar graph',
+                    properties: [
+                      {
+                        name: 'name',
+                        type: 'string',
+                        value: 'The name of the bar that gets displayed on the X Axis',
+                      },
+                      {
+                        name: 'value',
+                        type: 'number',
+                        value: 'The value to display in the bar grah',
+                      },
+                      {
+                        mame: 'extra',
+                        type: 'any',
+                        value: '(Optional) Extra information to pass into the bar graph',
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
           },
           {
             name: 'title',
@@ -142,7 +524,14 @@ export const Intro: Story<ComponentIntroComponent> = () => ({
           {
             name: 'barPadding',
             type: 'number',
-            value: 'padding between the bars in bar graph',
+            value: 'Padding between the bars in bar graph',
+            default: 2,
+          },
+          {
+            name: 'groupPadding',
+            type: 'number',
+            value: 'Padding between grouped bars, only applicable if groups are displayed',
+            default: 10,
           },
           {
             name: 'showGridLines',
@@ -159,25 +548,38 @@ export const Intro: Story<ComponentIntroComponent> = () => ({
             type: 'string',
             value: 'Use this for testing ID',
           },
+          {
+            name: 'legend',
+            type: 'boolean',
+            value: 'Enable or disable a legend for the graph',
+            default: 'false',
+          },
+          {
+            name: 'legendTitle',
+            type: 'string',
+            value: 'Set the title for the legend if it is displayed',
+            default: `''`,
+          },
+          {
+            name: 'legendLocation',
+            type: 'BarGraphLegendLocationEnum',
+            options: BarGraphLegendLocationEnum,
+            default: 'BarGraphLegendLocationEnum.RIGHT',
+            value: 'Where to display the legend when the graph is being displayed on non-mobile screen sizes.',
+          },
+          {
+            name: 'legendLocationSmall',
+            type: 'BarGraphLegendLocationEnum',
+            options: BarGraphLegendLocationEnum,
+            default: 'BarGraphLegendLocationEnum.BELOW',
+            value: 'Where to display the legend when the graph is being displayed on mobile screen sizes.',
+          },
         ],
       },
     ],
     notes: [
       // tslint:disable-next-line: max-line-length
       'The bar graph component utilizes the <a href="https://swimlane.github.io/ngx-charts" target="_blank">ngx-charts</a> library.',
-      `Expected format for 'data' :
-                  <pre>
-  [
-      {
-          "name": "Facility",
-          "value": 2
-      },
-      {
-          "name": "National",
-          "value": 4
-      }
-  ]
-                  </pre>`,
       `Expected format for 'colorScheme' :
                   <pre>
   colorScheme = {
@@ -191,6 +593,27 @@ export const Intro: Story<ComponentIntroComponent> = () => ({
 export const Normal: Story<BarGraphComponent> = () => ({
   template: `
     <app-bar-graph [barGraphModel]='barGraphModel'></app-bar-graph>
+`,
+  props,
+});
+
+export const Grouped: Story<BarGraphComponent> = () => ({
+  template: `
+    <app-bar-graph [barGraphModel]='barGraphGroupModel'></app-bar-graph>
+`,
+  props,
+});
+
+export const MaxBarGroups: Story<BarGraphComponent> = () => ({
+  template: `
+    <app-bar-graph [barGraphModel]='barGraphMaxBarModel'></app-bar-graph>
+`,
+  props,
+});
+
+export const DataSets: Story<BarGraphComponent> = () => ({
+  template: `
+    <app-bar-graph [barGraphModel]='barGraphDataSetsModel'></app-bar-graph>
 `,
   props,
 });
