@@ -1,73 +1,62 @@
 .title {
-  color: #212121;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 24px;
-  height: 24px;
+    color: #212121;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 24px;
+    height: 24px;
 }
 
 .ds-l-col {
-  display: inline-block;
-  text-align: center;
-  padding-left: 0;
-  padding-right: 0;
+    display: inline-block;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .footnote {
-  font-size: 25px;
-  color: #00a6d2;
+    font-size: 25px;
+    color: #00A6D2;
 }
 
-.ds-l-row.values {
-  margin-right: 0;
+
+.ds-l-row.values  {
+    margin-right: 0;
 }
 
 .tooltip {
-  padding: 20px;
+    padding: 20px;
 }
 
 .tickMarkers {
-  position: absolute;
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 31.2px;
+    position: absolute;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 31.2px;
 }
 
 :host ::ng-deep .tableCell {
-  font-size: 24px !important;
+    font-size: 24px !important;
 }
 
-span[id^='value_'] {
-  display: none;
+span[id^="value_"] {
+    display:none;
 }
 
 #valueContainer {
-  position: relative;
+    position: relative;
 }
 
 .x-axis-label {
-  text-align: center;
-  margin: 40px auto 0 auto;
+    text-align: center;
+    margin: 40px auto 0 auto;
 }
 
 :host ::ng-deep .x.axis .tick text {
-  font-size: 16px !important;
+    font-size: 16px !important;
 }
 
-.data-sets-container {
-  align-self: center;
-}
 
-::ng-deep .data-set-button.data-set-button-active {
-  border-bottom: 1px solid #0071bc;
-}
 
-.header-y-axis-adjust {
-  padding-left: 60px;
-}
-
-::ng-deep .is-small-screen .chart-legend .legend-wrap {
-  padding-left: 70px !important;
-  width: calc(100% - 70px) !important;
-}

@@ -54,6 +54,7 @@ import { FilterPipe } from '../../pipes/filter.pipe';
     AppTableModalComponent,
     AppTableRowComponent,
   ],
+  entryComponents: [AppTableModalComponent],
   exports: [
     AppTableComponent,
     AppTableDataComponent,
