@@ -63,4 +63,3 @@ export { CalendarModel } from './src/app/modules/calendar/calendar.model';
 export * from './src/app/modules/table2/table.models';
 export * from './src/app/modules/chip-filter/chip-filter.model';
 export * from './src/app/modules/panel/panel.models';
-export * from './src/app/modules/button/button.models';

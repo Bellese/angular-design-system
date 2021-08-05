@@ -4,8 +4,8 @@
     (click)="plusActionClick($event)"
     (keyup.enter)="plusActionClick($event)"
   >
-    <fa-icon [icon]="icon" [class.hideIcon]="expand" [ngClass]="plusClass"> </fa-icon>
-    <fa-icon [icon]="iconExpanded" [class.hideIcon]="!expand || openAll" [ngClass]="plusClass"> </fa-icon>
+    <fa-icon [icon]="icon" [ngClass]="{ hideIcon: expand || openAll, plusClass: true }"> </fa-icon>
+    <fa-icon [icon]="iconExpanded" [ngClass]="{ hideIcon: !(expand || openAll), plusClass: true }"> </fa-icon>
   </div>
 </ng-template>
 

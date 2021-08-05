@@ -1,10 +1,8 @@
 import { moduleMetadata, Story } from '@storybook/angular';
 import { Meta } from '@storybook/angular/types-6-0';
-import { defaultProps } from '../../../../.storybook/helpers';
 import ComponentIntroComponent from '../../../stories/component-intro.component';
 import { StoriesModule } from '../../../stories/stories.module';
 import { AppButtonComponent } from './button.component';
-import { ButtonInputTypeEnum } from './button.models';
 import { ButtonModule } from './button.module';
 
 export default {
@@ -32,14 +30,6 @@ export const Intro: Story<ComponentIntroComponent> = () => ({
         name: 'ariaLabel',
         type: 'string',
         value: 'Use this to further specify button to the screen reader',
-      },
-      {
-        name: 'buttonInputType',
-        type: 'ButtonInputTypeEnum',
-        // tslint:disable-next-line: max-line-length
-        value: 'Use this to change the type of the button.',
-        default: 'ButtonInputTypeEnum.BUTTON',
-        options: ButtonInputTypeEnum,
       },
       {
         name: 'buttonType',
@@ -137,23 +127,4 @@ export const Disabled: Story<AppButtonComponent> = () => ({
             (callBack) = 'handleEvent($event)'>
                 Example Button
         </app-button>`,
-});
-
-export const ButtonInputType: Story<AppButtonComponent> = () => ({
-  template: `
-    <app-button
-        ariaLabel = 'Button Example'
-        [buttonInputType] = 'ButtonInputTypeEnum.SUBMIT'
-        buttonType = 'ds-c-button'
-        buttonID = 'Button1'
-        [ariaSort] = true
-        dataAutoId = 'testingID'
-        tabLevel= '2'
-        (callBack) = 'handleEvent($event)'>
-            Example Button
-    </app-button>`,
-  props: {
-    ...defaultProps,
-    ButtonInputTypeEnum,
-  },
 });

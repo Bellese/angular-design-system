@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CodeSnippetComponent } from './code-snippet.component';
 import { ButtonModule } from '../../../../public_api';
@@ -8,7 +8,7 @@ describe('CodeSnippetComponent', () => {
   let component: CodeSnippetComponent;
   let fixture: ComponentFixture<CodeSnippetComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ButtonModule, FontAwesomeModule],
       declarations: [ CodeSnippetComponent ]

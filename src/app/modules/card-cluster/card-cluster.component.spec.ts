@@ -1,4 +1,4 @@
-import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppCardClusterComponent } from './card-cluster.component';
@@ -9,14 +9,12 @@ describe('AppCardClusterComponent', () => {
   let fixture: ComponentFixture<AppCardClusterComponent>;
   const mockCardCluster = new CardClusterModel();
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [FontAwesomeModule],
-        declarations: [AppCardClusterComponent],
-      }).compileComponents();
-    })
-  );
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [FontAwesomeModule],
+      declarations: [AppCardClusterComponent],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AppCardClusterComponent);

@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit, SimpleChanges, OnChanges } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormControl } from '@angular/forms';
   templateUrl: './text-field.component.html',
   styleUrls: ['./text-field.component.css'],
 })
-export class AppTextFieldComponent implements OnInit, OnChanges {
+export class AppTextFieldComponent implements OnInit {
   @Input() ariaLabel: string;
   @Input() alertMessageList?: Array<string>;
   @Input() alertVariation?: string;
@@ -35,31 +35,6 @@ export class AppTextFieldComponent implements OnInit, OnChanges {
   ngOnInit() {
     if (!this.control) {
       this.control = new FormControl();
-    }
-    this.setDisabled();
-    this.setValue();
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes.disabled) {
-      this.setDisabled();
-    }
-    if (changes.defaultValue) {
-      this.setValue();
-    }
-  }
-
-  setValue() {
-    if (this.defaultValue) {
-      this.control?.setValue(this.defaultValue);
-    }
-  }
-
-  setDisabled() {
-    if (this.disabled) {
-      this.control?.disable();
-    } else {
-      this.control?.enable();
     }
   }
 

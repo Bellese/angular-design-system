@@ -30,15 +30,14 @@
   id="{{ 'dropdown-' + id }}"
   class="ds-c-field {{ selectClass }} ds-u-margin-bottom--0 ds-u-display--inline-block"
   [ngClass]="{ 'ds-c-field--error': error, disabled: disabled }"
+  [disabled]="disabled"
   name="options"
   attr.aria-label="{{ ariaLabel || labelName }}"
   (change)="selectOption($event)"
   attr.data-auto-id="{{ dataAutoId }}"
-  [formControl]="control"
-  [formlyAttributes]="formlyAttributes"
 >
   <ng-container *ngFor="let option of options; let i = index">
-    <option value="{{ option.value }}">
+    <option value="{{ option.value }}" [selected]="i === defaultSelected || option.value === defaultSelectedValue">
       {{ option.content }}
     </option>
   </ng-container>

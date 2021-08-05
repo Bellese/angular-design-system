@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Animations } from '../animations/animations';
 import { PanelIconPlacementEnum, PanelTitlePlacementEnum } from './panel.models';
@@ -26,8 +27,8 @@ export class AppPanelComponent implements OnInit {
   @Input() dataAutoId: string;
   @Input() plusClass = '';
   @Input() bypassPanelState = false;
-  @Input() icon = faPlus;
-  @Input() iconExpanded = faMinus;
+  @Input() icon: IconDefinition = faPlus;
+  @Input() iconExpanded: IconDefinition = faMinus;
   @Input() iconPlacement: PanelIconPlacementEnum = PanelIconPlacementEnum.LEFT;
 
   clicked;

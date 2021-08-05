@@ -234,21 +234,3 @@ export const Multiline: Story<AppTextFieldComponent> = () => ({
         `,
   props: defaultProps,
 });
-export const DefaultValue: Story<AppTextFieldComponent> = () => ({
-  template: `
-            <app-text-field
-                title = 'Text Field Title'
-                ariaLabel = 'Text Field Aria Label'
-                id = 'text-field'
-                inputClass = 'ds-c-field--medium'
-                labelClass = 'ds-u-color--base'
-                defaultValue = 'this is my default value'
-                hint = 'Text Field Hint'
-                hintClass = 'ds-u-color--muted'
-                placeholder = 'Placeholder Text'
-                dataAutoId = 'testingID'
-                (userInput) = 'handleEvent($event)'>
-            </app-text-field>
-        `,
-  props: defaultProps,
-});

@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ExampleModalComponent } from './example-modal.component';
 import { ModalModule, ModalShellModule } from '../../../../public_api';
@@ -7,7 +7,7 @@ describe('ExampleModalComponent', () => {
   let component: ExampleModalComponent;
   let fixture: ComponentFixture<ExampleModalComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         ModalModule.forRoot(),

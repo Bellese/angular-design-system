@@ -1,15 +1,14 @@
 <button
-  [type]="buttonInputType"
-  id="{{ buttonID }}"
-  (click)="callBackFunction($event)"
-  (keyup.enter)="callBackFunction($event)"
-  attr.aria-label="{{ ariaLabel }}"
-  attr.aria-sort="{{ ariaSort }}"
-  class="ds-c-button pointer"
-  [ngClass]="buttonType"
-  [disabled]="disabled"
-  attr.data-auto-id="{{ dataAutoId }}"
-  tabindex="{{ tabLevel }}"
->
-  <ng-content></ng-content>
+    type="button"
+    id="{{buttonID}}"
+    (click)="callBackFunction($event)" 
+    (keyup.enter)="callBackFunction($event)" 
+    attr.aria-label="{{ ariaLabel }}"
+    attr.aria-sort="{{ ariaSort }}"
+    class="ds-c-button pointer"
+    [ngClass]="buttonType"
+    [disabled]="disabled"
+    attr.data-auto-id="{{dataAutoId}}"
+    tabindex="{{tabLevel}}">
+        <ng-content></ng-content>
 </button>
