@@ -29,7 +29,7 @@ const barGraphData: BarGraphDataModel[] = [
   },
 ];
 
-const barGraphModel = new BarGraphModel({
+export const barGraphModel = new BarGraphModel({
   data: barGraphData,
 });
 
