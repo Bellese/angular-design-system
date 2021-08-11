@@ -1,3 +1,10 @@
+## [4.2.0](https://github.com/Bellese/angular-design-system/compare/v4.1.1...v4.2.0) (2021-08-11)
+
+
+### Features
+
+* **main.ts:** fixed linting issues in a file to trigger a ci build ([0b393b1](https://github.com/Bellese/angular-design-system/commit/0b393b1f9ff0bb775f1b6b8f86279e98b248e1f6))
+
 ### [4.1.1](https://github.com/Bellese/angular-design-system/compare/v4.1.0...v4.1.1) (2021-08-11)
 
 
