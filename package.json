@@ -100,7 +100,7 @@
       [
         "@semantic-release/exec",
         {
-          "publishCmd": "npm run packagr && npm pack dist/ && npm publish"
+          "publishCmd": "npm run packagr && cd dist && npm pack && cd .. && npm publish dist"
         }
       ],
       [
