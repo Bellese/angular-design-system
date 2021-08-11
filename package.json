@@ -91,7 +91,18 @@
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
-      "@semantic-release/npm",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
+      [
+        "@semantic-release/exec",
+        {
+          "publishCmd": "npm run packagr && npm pack dist/ && npm publish"
+        }
+      ],
       [
         "@semantic-release/git",
         {
