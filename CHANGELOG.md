@@ -1,3 +1,10 @@
+### [4.1.1](https://github.com/Bellese/angular-design-system/compare/v4.1.0...v4.1.1) (2021-08-11)
+
+
+### Bug Fixes
+
+* **semantic-release:** fixes exec publish command ([23e49b1](https://github.com/Bellese/angular-design-system/commit/23e49b19ed59fb1fc426307b216e9bf9bd1a8fdb))
+
 ## [4.1.0](https://github.com/Bellese/angular-design-system/compare/v4.0.9...v4.1.0) (2021-08-11)
 
 
