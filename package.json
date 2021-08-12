@@ -98,12 +98,6 @@
         }
       ],
       [
-        "@semantic-release/exec",
-        {
-          "publishCmd": "npm run packagr && cd dist && npm pack && cd .. && npm publish dist"
-        }
-      ],
-      [
         "@semantic-release/git",
         {
           "assets": [
