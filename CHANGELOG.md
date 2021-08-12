@@ -1,3 +1,10 @@
+### [4.2.2](https://github.com/Bellese/angular-design-system/compare/v4.2.1...v4.2.2) (2021-08-12)
+
+
+### Bug Fixes
+
+* **semantic-release:** removes publish to npm step from semantic-release and adds a publish workflow that will publish to npm when new releases are created ([d5f8924](https://github.com/Bellese/angular-design-system/commit/d5f8924800ec40df17b677effaba8f15c5b855db))
+
 ### [4.2.1](https://github.com/Bellese/angular-design-system/compare/v4.2.0...v4.2.1) (2021-08-11)
 
 
