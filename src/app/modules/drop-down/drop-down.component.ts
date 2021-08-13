@@ -13,7 +13,7 @@ export class AppDropDownComponent implements OnInit, OnChanges {
   @Input() ariaLabel: string;
   @Input() id = 1;
   @Input() defaultSelected = 0;
-  @Input() defaultSelectedValue = '';
+  @Input() defaultSelectedValue: string = null;
   @Input() hintMessage: string;
   @Input() errorMessage: string;
   @Input() error: boolean;
@@ -44,9 +44,9 @@ export class AppDropDownComponent implements OnInit, OnChanges {
   }
 
   setSelectedValue() {
-    if (this.defaultSelectedValue) {
+    if (this.defaultSelectedValue !== null) {
       this.control?.setValue(this.defaultSelectedValue);
-    } else if (this.defaultSelected) {
+    } else if (this.defaultSelected !== null) {
       this.control?.setValue(this.options[this.defaultSelected].value);
     }
   }
