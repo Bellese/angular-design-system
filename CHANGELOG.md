@@ -1,3 +1,10 @@
+### [4.2.3](https://github.com/Bellese/angular-design-system/compare/v4.2.2...v4.2.3) (2021-08-13)
+
+
+### Bug Fixes
+
+* **dropdown-component:** if no default selection was passed into the component, the first option is supposed to be selected, but that broke due to the recent formly/angular-forms integration ([3f34d22](https://github.com/Bellese/angular-design-system/commit/3f34d22433b44118f2dd73b83d8480ee23decb8f))
+
 ### [4.2.2](https://github.com/Bellese/angular-design-system/compare/v4.2.1...v4.2.2) (2021-08-12)
 
 
