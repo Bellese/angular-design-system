@@ -22,6 +22,7 @@ export class CardClusterModel extends AngularDesignSystemModel {
   mainCard = true;
   mainTitle?: string;
   mainTitleIcon?: IconDefinition;
+  mainTitleClass?: string;
   mainSub?: string;
   total?: number | string;
   ariaLabel?: string;
