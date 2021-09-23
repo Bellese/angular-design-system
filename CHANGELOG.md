@@ -1,3 +1,10 @@
+## [4.3.0](https://github.com/Bellese/angular-design-system/compare/v4.2.3...v4.3.0) (2021-09-23)
+
+
+### Features
+
+* **card-cluster:** add new param to card cluster model to change styling of main card title. add story ([#295](https://github.com/Bellese/angular-design-system/issues/295)) ([f1ba955](https://github.com/Bellese/angular-design-system/commit/f1ba95561db9f7368be59522eccfcb9436aa4379))
+
 ### [4.2.3](https://github.com/Bellese/angular-design-system/compare/v4.2.2...v4.2.3) (2021-08-13)
 
 
