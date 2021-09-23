@@ -31,7 +31,7 @@
           </app-choice>
         </div>
         <div class="ds-l-col" [ngClass]="{ 'ds-u-padding-left--0': cardArray.showRadioButton }">
-          <div class="ds-u-color--black noPoint" [ngClass]="cardArray.mainTitleClass !== undefined ? cardArray.mainTitleClass : 'ds-u-font-size--h1'">
+          <div class="ds-u-font-size--h1 ds-u-color--black noPoint">
             <fa-icon [icon]="cardArray.mainTitleIcon" *ngIf="cardArray.mainTitleIcon"></fa-icon>
             {{ cardArray.mainTitle || '&nbsp;' }}
           </div>

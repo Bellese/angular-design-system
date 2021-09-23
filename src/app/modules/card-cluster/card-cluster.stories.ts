@@ -80,12 +80,6 @@ const cardClusterDataShowRadioButtons = {
   showRadioButton: true,
 };
 
-const cardClusterDataLongNameWithCustomStyle = {
-  ...cardClusterDataNormal,
-  mainTitle: 'Safe Use of Opioids',
-  mainTitleClass: 'ds-u-font-size--h2'
-}
-
 const cardClusterDataShowRadioButtonsAndIcons = new CardClusterModel({
   mainCard: false,
   showRadioButton: true,
@@ -123,7 +117,6 @@ const props = {
   cardClusterDataShowRadioButtons,
   cardClusterDataShowRadioButtonsAndIcons,
   cardClusterDataDisabledCards,
-  cardClusterDataLongNameWithCustomStyle,
 };
 
 export default {
@@ -365,16 +358,6 @@ export const DisabledCards: Story<AppCardClusterComponent> = () => ({
   template: `
     <app-card-cluster
       [cardArray]="cardClusterDataDisabledCards"
-      (passButton)="handleEvent($event)">
-    </app-card-cluster>
-  `,
-  props,
-});
-
-export const LongNameCustomTitleClass: Story<AppCardClusterComponent> = () => ({
-  template: `
-    <app-card-cluster
-      [cardArray]="cardClusterDataLongNameWithCustomStyle"
       (passButton)="handleEvent($event)">
     </app-card-cluster>
   `,
