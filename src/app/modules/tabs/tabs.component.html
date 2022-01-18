@@ -1,6 +1,7 @@
 <div class="ds-c-tabs {{ tablistClassName }}" role="tablist">
-    <a
+    <button
         *ngFor="let tab of tabs"
+        role="tab"
         href="{{ generateLink(tab) }}"
         [id]="tab.id" 
         class="ds-c-tabs__item {{ tab.className }}" 
@@ -13,5 +14,5 @@
         (keyup.enter)="passAction($event)" 
     >
         {{tab.title}}
-    </a>
+    </button>
 </div>
