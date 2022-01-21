@@ -29,6 +29,13 @@ const props = {
   tabs,
 };
 
+const useButtons = true;
+const buttonsProps = {
+  ...defaultProps,
+  tabs,
+  useButtons: true,
+};
+
 export default {
   title: 'Components/Tabs',
   decorators: [
@@ -82,6 +89,11 @@ export const Intro: Story<ComponentIntroComponent> = () => ({
         value:
           'A javascript function that will be called when a tab is clicked. It takes one argument, which is a click event.',
       },
+      {
+        name: 'tabsAsButtons',
+        type: 'boolean',
+        value: 'Uses <button> instead of <a> for tab element for better ARIA support.',
+      },
     ],
     notes: [
       "Expected format for 'tabs'",
@@ -120,4 +132,16 @@ export const Normal: Story<AppTabsComponent> = () => ({
             </app-tabs>
         `,
   props,
+});
+
+export const UsesButtonElement: Story<AppTabsComponent> = () => ({
+  template: `
+            <app-tabs
+                [tabsAsButtons]="useButtons"
+                [tabs]="tabs"
+                defaultSelectedId="tab2"
+                (onChange)="handleEvent($event)">
+            </app-tabs>
+        `,
+  buttonsProps,
 });

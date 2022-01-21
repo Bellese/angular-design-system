@@ -94,6 +94,18 @@ export class AppCardClusterComponent implements OnInit {
       }
     }
     this.resize();
+
+    // Handle optional parameters appropriately
+    let idRoot: string;
+    if (this.cardArray.cluster.length > 0) {
+      if (this.cardArray.idRoot) {
+        idRoot = this.cardArray.idRoot;
+      }
+      this.cardArray.cluster.forEach(function(card, index) {
+        // set unique IDs for each card
+        card.id = idRoot ? `${idRoot}${index}` : `CardCluster${index + 1}`;
+      });
+    }
   }
 
   resize() {

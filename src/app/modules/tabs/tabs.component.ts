@@ -16,10 +16,15 @@ export class AppTabsComponent implements OnInit {
     @Input() tabs: TabModel[];
     @Input() defaultSelectedId: string;
     @Input() tablistClassName: string;
+    // Setting to true should let screen reader properly read when a tab is selected
+    @Input() tabsAsButtons?: boolean;
     @Output() onChange = new EventEmitter<any>();
 
     /*
      * ngOnInit is used to select a default tab when the component loads
+     * Note: We use <button> instead of <a> for tabs, as shown in Mozilla and
+     *   w3schools examples, because tab content is not meant to be opened in
+     *   a new browser window or tab.
      */
     ngOnInit() {
         if (!this.tabs) {

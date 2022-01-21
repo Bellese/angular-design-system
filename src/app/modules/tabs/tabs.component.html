@@ -1,17 +1,39 @@
-<div class="ds-c-tabs {{ tablistClassName }}" role="tablist">
-    <a
-        *ngFor="let tab of tabs"
-        href="{{ generateLink(tab) }}"
-        [id]="tab.id" 
-        class="ds-c-tabs__item {{ tab.className }}" 
-        [attr.aria-label]="tab.ariaLabel" 
-        [attr.aria-disabled]="tab.disabled"
-        [attr.aria-hidden]="tab.visible"
-        [attr.aria-selected]="tab.selected"
-        [attr.data-auto-id]="tab.dataAutoId"
-        (click)="passAction($event)" 
-        (keyup.enter)="passAction($event)" 
-    >
-        {{tab.title}}
-    </a>
+<div *ngIf="tabsAsButtons; else anchorElse">
+    <div class="ds-c-tabs {{ tablistClassName }}" role="tablist">
+        <button
+            *ngFor="let tab of tabs"
+            role="tab"
+            onclick="generateLink(tab)"
+            [id]="tab.id"
+            class="ds-c-tabs__item {{ tab.className }}"
+            [attr.aria-label]="tab.ariaLabel"
+            [attr.aria-disabled]="tab.disabled"
+            [attr.aria-hidden]="tab.visible"
+            [attr.aria-selected]="tab.selected"
+            [attr.data-auto-id]="tab.dataAutoId"
+            (click)="passAction($event)"
+            (keyup.enter)="passAction($event)"
+        >
+            {{tab.title}}
+        </button>
+    </div>
 </div>
+<ng-template #anchorElse>
+    <div class="ds-c-tabs {{ tablistClassName }}" role="tablist">
+        <a
+            *ngFor="let tab of tabs"
+            href="{{ generateLink(tab) }}"
+            [id]="tab.id"
+            class="ds-c-tabs__item {{ tab.className }}"
+            [attr.aria-label]="tab.ariaLabel"
+            [attr.aria-disabled]="tab.disabled"
+            [attr.aria-hidden]="tab.visible"
+            [attr.aria-selected]="tab.selected"
+            [attr.data-auto-id]="tab.dataAutoId"
+            (click)="passAction($event)"
+            (keyup.enter)="passAction($event)"
+        >
+            {{tab.title}}
+        </a>
+    </div>
+</ng-template>
