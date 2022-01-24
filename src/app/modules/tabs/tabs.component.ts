@@ -43,6 +43,7 @@ export class AppTabsComponent implements OnInit {
         this.selectTab(this.defaultSelectedId);
     }
 
+    // Selects tab and passes along event to user-provided event handler, as assigned to onChange.
     passAction(e) {
         this.selectTab(e.srcElement.id);
         this.onChange.emit(e);
@@ -72,6 +73,7 @@ export class AppTabsComponent implements OnInit {
 
     }
 
+    // Deprecated?: This may be redundant and/or unused. Seems like most of the handling uses id via (click) and passAction.
     generateLink(tab: TabModel) {
         return tab.link ? tab.link : "javascript:void(0)";
     }
