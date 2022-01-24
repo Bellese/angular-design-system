@@ -20,7 +20,7 @@ const tabs = [
   {
     title: 'tab3',
     ariaLabel: 'tab3 mellow',
-    link: 'tab3gi',
+    link: 'tab3',
   },
 ];
 
@@ -29,10 +29,25 @@ const props = {
   tabs,
 };
 
+const buttons = [
+  {
+    title: 'tab1',
+    ariaLabel: 'tab1 hello',
+  },
+  {
+    title: 'tab2',
+    ariaLabel: 'tab1 yellow',
+  },
+  {
+    title: 'tab3',
+    ariaLabel: 'tab3 mellow',
+  },
+];
+
 const useButtons = true;
 const buttonsProps = {
   ...defaultProps,
-  tabs,
+  tabs: buttons,
   useButtons: true,
 };
 
@@ -143,5 +158,5 @@ export const UsesButtonElement: Story<AppTabsComponent> = () => ({
                 (onChange)="handleEvent($event)">
             </app-tabs>
         `,
-  buttonsProps,
+  props: buttonsProps,
 });
