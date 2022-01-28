@@ -22,7 +22,7 @@ export class AppTabsComponent implements OnInit {
 
     /*
      * ngOnInit is used to select a default tab when the component loads
-     * Note: We use <button> instead of <a> for tabs, as shown in Mozilla and
+     * NOTE: We offer the option to use <button> instead of <a> for tabs, as shown in Mozilla and
      *   w3schools examples, because tab content is not meant to be opened in
      *   a new browser window or tab.
      */

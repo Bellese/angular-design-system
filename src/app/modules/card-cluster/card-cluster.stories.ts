@@ -8,6 +8,14 @@ import { AppCardClusterComponent } from './card-cluster.component';
 import { CardClusterModel } from './card-cluster.models';
 import { CardClusterModule } from './card-cluster.module';
 
+// NOTE: when running the storybook on localhost, you may find that while running
+// from the "Docs" view, the cards eventually stop rendering. This is a known issue.
+// The current implementatinon of Card Cluster, and the Stories here, do not ensure that
+// every `id` is unique. Whether that's a root cause for this Storybook behavior, it would
+// be a great enhancement.
+//
+// Either way, the workaround with Storybook is to stay in the "Canvas" view, and view each
+// story individually.
 const cardClusterDataNormal = new CardClusterModel({
   mainCard: true,
   mainTitle: 'STK-2',
@@ -90,6 +98,7 @@ const cardClusterDataShowRadioButtonsAndIcons = new CardClusterModel({
   mainCard: false,
   showRadioButton: true,
   rowMaxItems: 2,
+  clusterIdPrefix: 'userSelectCard',
   cluster: [
     {
       value: 'Basic User',
@@ -186,6 +195,14 @@ export const Intro: Story<ComponentIntroComponent> = () => ({
               'The total to show in the main card.  Leave blank to calculate based on the sum of all values in the cluster.',
           },
           {
+            name: 'clusterIdPrefix',
+            type: 'string',
+            optional: true,
+            // tslint:disable-next-line: max-line-length
+            value:
+              'NOTE: Overrides card cluster array item `id` field. This is a common string prefix to be enumerated in each cluster card element id. I.e. `role` for an array of 2 cards would generate ids `role1, role2`. Leaving blank will use `CardCluster` as the prefix.',
+          },
+          {
             name: 'ariaLabel',
             type: 'string',
             optional: true,
@@ -231,6 +248,12 @@ export const Intro: Story<ComponentIntroComponent> = () => ({
                 value: 'The value to show in the card inside the cluster',
               },
               {
+                name: 'id',
+                type: 'string',
+                optional: true,
+                value: 'NOTE: This is overridden when using `clusterIdPrefix`. Manually define the card element id. ',
+              },
+              {
                 name: 'nameIcon',
                 type: 'IconDefinition',
                 optional: true,
@@ -249,6 +272,14 @@ export const Intro: Story<ComponentIntroComponent> = () => ({
                 // tslint:disable-next-line: max-line-length
                 value:
                   "Use this to further specify main card to the screen reader.  Leave blank to use the card's name.",
+              },
+              {
+                name: 'ariaDescribedbyName',
+                type: 'string',
+                optional: true,
+                // tslint:disable-next-line: max-line-length
+                value:
+                  'Allows `name` text to get read by a screen reader in addition to `ariaLabel`. Best used when a card has lengthy extra text provided by `name`, or when you want that text',
               },
               {
                 name: 'classButton',

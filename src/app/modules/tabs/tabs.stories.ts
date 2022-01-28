@@ -107,6 +107,7 @@ export const Intro: Story<ComponentIntroComponent> = () => ({
       {
         name: 'tabsAsButtons',
         type: 'boolean',
+        optional: true,
         value: 'Uses <button> instead of <a> for tab element for better ARIA support.',
       },
     ],
