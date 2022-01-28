@@ -90,7 +90,7 @@
                   <fa-icon [icon]="card.valueIcon" *ngIf="card.valueIcon"></fa-icon>
                   {{ card.value === undefined || card.value === '' ? '&nbsp;' : card.value }}
                 </div>
-                <div class="ds-text noPoint" [ngClass]="card.className" id="{{ card.id }}name">
+                <div class="ds-text noPoint" [ngClass]="card.className" id="{{ card.id }}-name">
                   <fa-icon [icon]="card.nameIcon" *ngIf="card.nameIcon"></fa-icon>
                   {{ !card.name ? '&nbsp;' : card.name }}
                 </div>
