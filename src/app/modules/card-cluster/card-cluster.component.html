@@ -64,7 +64,7 @@
             [attr.role]="cardArray.showRadioButton ? 'radio' : 'button'"
             [attr.tabindex]="card.disabled ? null : 0"
             [attr.aria-label]="card.ariaLabel || card.name"
-            [attr.aria-describedby]="card.ariaDecribedbyName ? card.id + 'name' : undefined"
+            [attr.aria-describedby]="card.ariaDescribedByName ? card.id + '-name' : undefined"
             [attr.aria-checked]="cardArray.showRadioButton ? (cardArray.buttonClicked === card.id) : undefined"
           >
             <div class="cardClusterContent ds-l-row ds-u-margin-x--0">

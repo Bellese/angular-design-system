@@ -73,7 +73,6 @@ export class AppTabsComponent implements OnInit {
 
     }
 
-    // Deprecated?: This may be redundant and/or unused. Seems like most of the handling uses id via (click) and passAction.
     generateLink(tab: TabModel) {
         return tab.link ? tab.link : "javascript:void(0)";
     }

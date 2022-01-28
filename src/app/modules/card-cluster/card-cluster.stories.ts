@@ -105,7 +105,7 @@ const cardClusterDataShowRadioButtonsAndIcons = new CardClusterModel({
       name: 'A Basic User is an Organization Role with Read/Write Access to the Organization(s) in their system.',
       valueIcon: faEye,
       ariaLabel: 'Activate enter to select Basic User',
-      ariaDecribedbyName: true,
+      ariaDescribedByName: true,
       classButton: 'ds-u-padding--2',
     },
     {
@@ -113,7 +113,7 @@ const cardClusterDataShowRadioButtonsAndIcons = new CardClusterModel({
       name: 'A Security Administrator is a person who manages User Roles & Permissions for their Organization.',
       valueIcon: faUserShield,
       ariaLabel: 'Activate enter to select Security Administrator',
-      ariaDecribedbyName: true,
+      ariaDescribedByName: true,
       classButton: 'ds-u-padding--2',
     },
   ],
@@ -274,7 +274,7 @@ export const Intro: Story<ComponentIntroComponent> = () => ({
                   "Use this to further specify main card to the screen reader.  Leave blank to use the card's name.",
               },
               {
-                name: 'ariaDescribedbyName',
+                name: 'ariaDescribedByName',
                 type: 'string',
                 optional: true,
                 // tslint:disable-next-line: max-line-length

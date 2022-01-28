@@ -8,7 +8,7 @@ export class CardClusterClusterModel extends AngularDesignSystemModel {
   id?: string;
   valueIcon?: IconDefinition;
   ariaLabel?: string;
-  ariaDescribedbyName?: false;
+  ariaDescribedByName?: false;
   classValue?: string;
   classButton?: string;
   className?: string;
