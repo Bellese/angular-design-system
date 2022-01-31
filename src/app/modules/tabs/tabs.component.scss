@@ -1,4 +1,12 @@
+$tab-border-color: #d6d7d9;
+
 .ds-c-tabs__item {
     color: #323A45;
     font-weight: normal;
+    border-left: 1px solid $tab-border-color;
+    border-right: 0px;
+}
+
+.ds-c-tabs__item:last-child {
+    border-right: 1px solid $tab-border-color
 }

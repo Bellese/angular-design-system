@@ -5,8 +5,10 @@ export class CardClusterClusterModel extends AngularDesignSystemModel {
   value: string | number;
   name?: string;
   nameIcon?: IconDefinition;
+  id?: string;
   valueIcon?: IconDefinition;
   ariaLabel?: string;
+  ariaDescribedByName?: false;
   classValue?: string;
   classButton?: string;
   className?: string;
@@ -31,6 +33,7 @@ export class CardClusterModel extends AngularDesignSystemModel {
   buttonClicked?: string;
   dataAutoId?: string;
   resizeTimeout?: number;
+  clusterIdPrefix?: string;
   cluster: CardClusterClusterModel[];
 
   constructor(options?) {

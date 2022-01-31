@@ -20,13 +20,35 @@ const tabs = [
   {
     title: 'tab3',
     ariaLabel: 'tab3 mellow',
-    link: 'tab3gi',
+    link: 'tab3',
   },
 ];
 
 const props = {
   ...defaultProps,
   tabs,
+};
+
+const buttons = [
+  {
+    title: 'tab1',
+    ariaLabel: 'tab1 hello',
+  },
+  {
+    title: 'tab2',
+    ariaLabel: 'tab1 yellow',
+  },
+  {
+    title: 'tab3',
+    ariaLabel: 'tab3 mellow',
+  },
+];
+
+const useButtons = true;
+const buttonsProps = {
+  ...defaultProps,
+  tabs: buttons,
+  useButtons: true,
 };
 
 export default {
@@ -82,6 +104,12 @@ export const Intro: Story<ComponentIntroComponent> = () => ({
         value:
           'A javascript function that will be called when a tab is clicked. It takes one argument, which is a click event.',
       },
+      {
+        name: 'tabsAsButtons',
+        type: 'boolean',
+        optional: true,
+        value: 'Uses <button> instead of <a> for tab element for better ARIA support.',
+      },
     ],
     notes: [
       "Expected format for 'tabs'",
@@ -120,4 +148,16 @@ export const Normal: Story<AppTabsComponent> = () => ({
             </app-tabs>
         `,
   props,
+});
+
+export const UsesButtonElement: Story<AppTabsComponent> = () => ({
+  template: `
+            <app-tabs
+                [tabsAsButtons]="useButtons"
+                [tabs]="tabs"
+                defaultSelectedId="tab2"
+                (onChange)="handleEvent($event)">
+            </app-tabs>
+        `,
+  props: buttonsProps,
 });

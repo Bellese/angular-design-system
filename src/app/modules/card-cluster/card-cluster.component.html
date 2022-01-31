@@ -52,18 +52,20 @@
     class="ds-l-md-col--12 ds-l-sm-col--12"
     id="followCard"
   >
-    <div class="ds-l-row">
+    <div class="ds-l-row" [attr.role]="cardArray.showRadioButton ? 'radiogroup' : undefined">
       <ng-container *ngFor="let card of cardArray.cluster; let x = index">
         <div class="ds-l-col" [ngClass]="(x + 1) % 2 === 0 ? 'padding-L-0' : ''">
           <div
-            id="{{ 'CardCluster' + (x + 1) }}"
-            [ngClass]="{ active: cardArray.buttonClicked === 'CardCluster' + (x + 1), disabled: card.disabled }"
+            id="{{ card.id }}"
+            [ngClass]="{ active: cardArray.buttonClicked === card.id, disabled: card.disabled }"
             class="{{ 'pointer card cardHeight ds-u-padding--1 ds-u-margin-bottom--2 ' + card.classButton }}"
             (click)="passAction($event)"
             (keyup.enter)="passAction($event)"
-            role="button"
+            [attr.role]="cardArray.showRadioButton ? 'radio' : 'button'"
             [attr.tabindex]="card.disabled ? null : 0"
             [attr.aria-label]="card.ariaLabel || card.name"
+            [attr.aria-describedby]="card.ariaDescribedByName ? card.id + '-name' : undefined"
+            [attr.aria-checked]="cardArray.showRadioButton ? (cardArray.buttonClicked === card.id) : undefined"
           >
             <div class="cardClusterContent ds-l-row ds-u-margin-x--0">
               <div *ngIf="cardArray.showRadioButton" class="ds-l-col--auto ds-u-padding-x--0">
@@ -73,7 +75,7 @@
                   size="small"
                   [value]="card.name"
                   groupName="cardClusterCheckbox"
-                  [isChecked]="cardArray.buttonClicked === 'CardCluster' + (x + 1)"
+                  [isChecked]="cardArray.buttonClicked === card.id"
                   [showTitle]="true"
                   [label]="card.ariaLabel"
                   [ariaLabel]="card.ariaLabel"
@@ -88,7 +90,7 @@
                   <fa-icon [icon]="card.valueIcon" *ngIf="card.valueIcon"></fa-icon>
                   {{ card.value === undefined || card.value === '' ? '&nbsp;' : card.value }}
                 </div>
-                <div class="ds-text noPoint" [ngClass]="card.className">
+                <div class="ds-text noPoint" [ngClass]="card.className" id="{{ card.id }}-name">
                   <fa-icon [icon]="card.nameIcon" *ngIf="card.nameIcon"></fa-icon>
                   {{ !card.name ? '&nbsp;' : card.name }}
                 </div>

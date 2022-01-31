@@ -18,6 +18,14 @@ export enum TableHeaderSortEnum {
   DESC = 'desc',
 }
 
+// https://developer.mozilla.org/en-US/docs/Web/API/Element/ariaSort
+export enum TableHeaderSortAriaEnum {
+  NONE = 'none',
+  ASCENDING = 'ascending',
+  DESCENDING = 'descending',
+  OTHER = 'other',
+}
+
 export class TableHeaderModel extends AngularDesignSystemModel {
   columnKey: string;
   label: string;
@@ -32,6 +40,7 @@ export class TableHeaderModel extends AngularDesignSystemModel {
 
   // Sort Properties
   sort?: TableHeaderSortEnum = TableHeaderSortEnum.NONE;
+  ariaSort?: TableHeaderSortAriaEnum = TableHeaderSortAriaEnum.NONE;
 
   // Checkbox Properties
   isChecked? = false;
@@ -185,11 +194,14 @@ export class TableModel extends AngularDesignSystemModel {
         if (header.columnKey === columnKey) {
           if (header.sort === TableHeaderSortEnum.NONE || header.sort === TableHeaderSortEnum.ASC) {
             header.sort = TableHeaderSortEnum.DESC;
+            header.ariaSort = TableHeaderSortAriaEnum.DESCENDING;
           } else {
             header.sort = TableHeaderSortEnum.ASC;
+            header.ariaSort = TableHeaderSortAriaEnum.ASCENDING
           }
         } else {
           header.sort = TableHeaderSortEnum.NONE;
+          header.ariaSort = TableHeaderSortAriaEnum.NONE;
         }
       }
     }

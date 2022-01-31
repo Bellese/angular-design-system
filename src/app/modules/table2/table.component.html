@@ -9,14 +9,15 @@
   class="table-background ds-c-table ds-c-table--borderless"
   [ngClass]="tableModel.class"
   [id]="tableModel.id"
+  role="table"
 >
   <caption *ngIf="tableModel.summary" class="tableHeading sr-only">
     {{
       tableModel.summary
     }}
   </caption>
-  <thead *ngIf="tableModel.headerRows.length" class="tableHeading" [ngClass]="tableModel.headerClass">
-    <tr *ngFor="let headerRow of tableModel.headerRows" [attr.class]="headerRow.class">
+  <thead *ngIf="tableModel.headerRows.length" class="tableHeading" [ngClass]="tableModel.headerClass" role ="rowgroup">
+    <tr *ngFor="let headerRow of tableModel.headerRows" [attr.class]="headerRow.class" role="row">
       <th
         *ngFor="let header of headerRow.cells"
         scope="col"
@@ -26,6 +27,8 @@
         [attr.rowspan]="header.rowspan"
         [attr.scope]="header.colspan > 1 ? 'colgroup' : null"
         [attr.title]="header.label"
+        role="columnheader"
+        [attr.aria-sort]="header.ariaSort ? header.ariaSort : undefined"
       >
         <app-table-header-2 [tableHeaderModel]="header" (headerClick)="headerClick($event)"></app-table-header-2>
       </th>
