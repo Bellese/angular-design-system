@@ -1,3 +1,10 @@
+## [4.4.0](https://github.com/Bellese/angular-design-system/compare/v4.3.0...v4.4.0) (2022-01-31)
+
+
+### Features
+
+* **card-cluster, tabs, table:** better ARIA support ([#305](https://github.com/Bellese/angular-design-system/issues/305)) ([e3c5a7e](https://github.com/Bellese/angular-design-system/commit/e3c5a7e35ded8d33c47250ac2e019517dceae63e))
+
 ## [4.3.0](https://github.com/Bellese/angular-design-system/compare/v4.2.3...v4.3.0) (2021-09-23)
 
 
