@@ -33,10 +33,15 @@ export class AppPanelComponent implements OnInit {
   clicked;
   PanelIconPlacementEnum = PanelIconPlacementEnum;
   PanelTitlePlacementEnum = PanelTitlePlacementEnum;
+  plusIconClass = 'pointer ds-u-padding-x--0';
 
   constructor() {}
 
   ngOnInit() {
+    if (this.iconPlacement === PanelIconPlacementEnum.RIGHT) {
+      this.plusIconClass = 'pointer ds-u-padding-left--2';
+    }
+
     if (this.expand) {
       this.clicked = true;
     }

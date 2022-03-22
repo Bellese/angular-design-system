@@ -1,6 +1,11 @@
 .panel {
   padding: 3px;
 }
+
+.plusIcon {
+  width: 16px;
+}
+
 .plusIcon fa-icon {
   -moz-transition: all 0.3s ease;
   transition: all 0.3s ease;

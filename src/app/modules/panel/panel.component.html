@@ -1,6 +1,7 @@
 <ng-template #plusIcon>
   <div
-    class="ds-l-col--auto plusIcon ds-u-padding--0"
+    class="plusIcon"
+    [ngClass]="plusIconClass"
     (click)="plusActionClick($event)"
     (keyup.enter)="plusActionClick($event)"
   >
@@ -11,38 +12,58 @@
 
 <ng-template #panelTitle>
   <div
-    class="ds-l-row ds-u-align-items--top ds-u-justify-content--center ds-u-margin--0 pointer panel"
+    class="ds-l-row ds-u-align-items--top ds-u-margin--0 panel"
     [ngClass]="titleClass"
-    (click)="panelStateChange($event)"
-    (keyup.enter)="panelStateChange($event)"
-    tabindex="0"
-    role="button"
-    [attr.aria-expanded]="expand || openAll"
-    attr.data-auto-id="{{ dataAutoId }}"
   >
-    <ng-container *ngIf="iconPlacement === PanelIconPlacementEnum.LEFT">
-      <ng-container *ngTemplateOutlet="plusIcon"></ng-container>
-      <div class="ds-l-col--auto"></div>
-    </ng-container>
-
-    <div class="ds-l-col--auto ds-u-padding-left--0 title">
-      <ng-container *ngIf="title; else titleComplex">{{
-        titleExpanded && (expand || openAll) ? titleExpanded : title
-      }}</ng-container>
-      <ng-template #titleComplex><ng-content select="ng-container"></ng-content></ng-template>
+    <div
+      (click)="panelStateChange($event)"
+      (keyup.enter)="panelStateChange($event)"
+      tabindex="0"
+      role="button"
+      [attr.aria-expanded]="expand || openAll"
+      attr.data-auto-id="{{ dataAutoId }}"
+      class="ds-l-col pointer"
+    >
+      <div class="ds-l-row">
+        <div
+          class="ds-l-col--auto ds-u-padding-left--0 ds-u-padding-right--2"
+          *ngIf="iconPlacement === PanelIconPlacementEnum.LEFT"
+        >
+          <ng-container>
+            <ng-container *ngTemplateOutlet="plusIcon"></ng-container>
+          </ng-container>
+        </div>
+        <div class="title ds-l-col--auto ds-u-padding-left--0">
+          <ng-container *ngIf="title; else titleComplex">{{
+            titleExpanded && (expand || openAll) ? titleExpanded : title
+          }}</ng-container>
+          <ng-template #titleComplex><ng-content select="ng-container"></ng-content></ng-template>
+        </div>
+        <ng-container *ngIf="iconPlacement === PanelIconPlacementEnum.INLINE">
+          <ng-container *ngTemplateOutlet="plusIcon"></ng-container>
+        </ng-container>
+      </div>
     </div>
-    <ng-container *ngIf="iconPlacement === PanelIconPlacementEnum.INLINE">
-      <ng-container *ngTemplateOutlet="plusIcon"></ng-container>
-    </ng-container>
 
-    <div [ngClass]="extTitleClass" class="extTitle ds-l-col ds-u-text-align--right">
-      <ng-content *ngIf="extTitle" select="span"></ng-content>
+    <div [ngClass]="extTitleClass" class="ds-l-col--auto">
+      <div class="ds-l-row ds-u-margin-left--auto">
+        <ng-content *ngIf="extTitle" select="span"></ng-content>
+        <div
+          *ngIf="iconPlacement === PanelIconPlacementEnum.RIGHT"
+          (click)="panelStateChange($event)"
+          (keyup.enter)="panelStateChange($event)"
+          tabindex="0"
+          role="button"
+          [attr.aria-expanded]="expand || openAll"
+          attr.data-auto-id="{{ dataAutoId }}"
+        >
+          <ng-container>
+            <ng-container *ngTemplateOutlet="plusIcon"></ng-container>
+          </ng-container>
+        </div>
+        <div class="ds-u-padding-right--2"></div>
+      </div>
     </div>
-
-    <ng-container *ngIf="iconPlacement === PanelIconPlacementEnum.RIGHT">
-      <ng-container *ngTemplateOutlet="plusIcon"></ng-container>
-      <div class="ds-l-col--auto"></div>
-    </ng-container>
   </div>
 </ng-template>
 
