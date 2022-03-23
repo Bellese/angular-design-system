@@ -30,7 +30,7 @@ export class AppPanelComponent implements OnInit {
   @Input() iconExpanded = faMinus;
   @Input() iconPlacement: PanelIconPlacementEnum = PanelIconPlacementEnum.LEFT;
 
-  clicked;
+  clicked = false;
   PanelIconPlacementEnum = PanelIconPlacementEnum;
   PanelTitlePlacementEnum = PanelTitlePlacementEnum;
   plusIconClass = 'pointer ds-u-padding-x--0';

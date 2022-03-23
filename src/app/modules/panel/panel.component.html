@@ -1,4 +1,5 @@
 <ng-template #plusIcon>
+  <!-- Some padding classes are controlled in the component.ts file -->
   <div
     class="plusIcon"
     [ngClass]="plusIconClass"
@@ -15,6 +16,7 @@
     class="ds-l-row ds-u-align-items--top ds-u-margin--0 panel"
     [ngClass]="titleClass"
   >
+    <!-- clickable group of possible icons and title fills most of the outmost row -->
     <div
       (click)="panelStateChange($event)"
       (keyup.enter)="panelStateChange($event)"
@@ -25,6 +27,7 @@
       class="ds-l-col pointer"
     >
       <div class="ds-l-row">
+        <!-- Left Icon -->
         <div
           class="ds-l-col--auto ds-u-padding-left--0 ds-u-padding-right--2"
           *ngIf="iconPlacement === PanelIconPlacementEnum.LEFT"
@@ -33,29 +36,31 @@
             <ng-container *ngTemplateOutlet="plusIcon"></ng-container>
           </ng-container>
         </div>
+        <!-- Title -->
         <div class="title ds-l-col--auto ds-u-padding-left--0">
           <ng-container *ngIf="title; else titleComplex">{{
             titleExpanded && (expand || openAll) ? titleExpanded : title
           }}</ng-container>
           <ng-template #titleComplex><ng-content select="ng-container"></ng-content></ng-template>
         </div>
+        <!-- Inline Icon -->
         <ng-container *ngIf="iconPlacement === PanelIconPlacementEnum.INLINE">
           <ng-container *ngTemplateOutlet="plusIcon"></ng-container>
         </ng-container>
       </div>
     </div>
 
+    <!-- Extra title, often an app-button which contains a span, as 'select'ed below -->
     <div [ngClass]="extTitleClass" class="ds-l-col--auto">
       <div class="ds-l-row ds-u-margin-left--auto">
         <ng-content *ngIf="extTitle" select="span"></ng-content>
+        <!-- Right Icon - click behavior identical to "clickable group" above -->
         <div
           *ngIf="iconPlacement === PanelIconPlacementEnum.RIGHT"
           (click)="panelStateChange($event)"
           (keyup.enter)="panelStateChange($event)"
-          tabindex="0"
           role="button"
           [attr.aria-expanded]="expand || openAll"
-          attr.data-auto-id="{{ dataAutoId }}"
         >
           <ng-container>
             <ng-container *ngTemplateOutlet="plusIcon"></ng-container>
