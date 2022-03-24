@@ -2,7 +2,6 @@
   <!-- Some padding classes are controlled in the component.ts file -->
   <div
     class="plusIcon"
-    [ngClass]="plusIconClass"
     (click)="plusActionClick($event)"
     (keyup.enter)="plusActionClick($event)"
   >
@@ -29,54 +28,57 @@
       <div class="ds-l-row">
         <!-- Left Icon -->
         <div
-          class="ds-l-col--auto ds-u-padding-left--0 ds-u-padding-right--2"
+          class="ds-l-col--auto"
+          [ngClass]="plusIconClass"
           *ngIf="iconPlacement === PanelIconPlacementEnum.LEFT"
         >
-          <ng-container>
-            <ng-container *ngTemplateOutlet="plusIcon"></ng-container>
-          </ng-container>
+          <ng-container *ngTemplateOutlet="plusIcon"></ng-container>
         </div>
         <!-- Title -->
         <div class="title ds-l-col--auto ds-u-padding-left--0">
           <ng-container *ngIf="title; else titleComplex">{{
             titleExpanded && (expand || openAll) ? titleExpanded : title
           }}</ng-container>
+          <!-- This 'select' means any <ng-container> between <app-panel> tags will be the Title content -->
           <ng-template #titleComplex><ng-content select="ng-container"></ng-content></ng-template>
         </div>
         <!-- Inline Icon -->
-        <ng-container *ngIf="iconPlacement === PanelIconPlacementEnum.INLINE">
+        <div *ngIf="iconPlacement === PanelIconPlacementEnum.INLINE" [ngClass]="plusIconClass">
           <ng-container *ngTemplateOutlet="plusIcon"></ng-container>
-        </ng-container>
+        </div>
       </div>
     </div>
 
     <!-- Extra title, often an app-button which contains a span, as 'select'ed below -->
     <div [ngClass]="extTitleClass" class="ds-l-col--auto">
       <div class="ds-l-row ds-u-margin-left--auto">
+        <!-- Right Text / Title / Button -->
+        <!-- This 'select' means any <span> between <app-panel> tags will be the Right Text -->
         <ng-content *ngIf="extTitle" select="span"></ng-content>
         <!-- Right Icon - click behavior identical to "clickable group" above -->
         <div
           *ngIf="iconPlacement === PanelIconPlacementEnum.RIGHT"
+          [ngClass]="plusIconClass"
           (click)="panelStateChange($event)"
           (keyup.enter)="panelStateChange($event)"
+          tabindex="0"
           role="button"
           [attr.aria-expanded]="expand || openAll"
         >
-          <ng-container>
-            <ng-container *ngTemplateOutlet="plusIcon"></ng-container>
-          </ng-container>
+          <ng-container *ngTemplateOutlet="plusIcon"></ng-container>
         </div>
-        <div class="ds-u-padding-right--2"></div>
       </div>
     </div>
   </div>
 </ng-template>
 
+<!-- Panel body / content -->
 <div class="ds-l-container ds-u-margin-bottom--3 ds-u-padding--0">
   <ng-container *ngIf="titlePlacement === PanelTitlePlacementEnum.TOP">
     <ng-container *ngTemplateOutlet="panelTitle"></ng-container>
   </ng-container>
 
+  <!-- This 'select' means any <div> between <app-panel> tags will be the panel content -->
   <div *ngIf="expand || openAll" [@fadeInTrigger]="expand" [ngClass]="expandedClass">
     <ng-content select="div"></ng-content>
   </div>
