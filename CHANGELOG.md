@@ -1,3 +1,10 @@
+### [4.4.1](https://github.com/Bellese/angular-design-system/compare/v4.4.0...v4.4.1) (2022-03-24)
+
+
+### Bug Fixes
+
+* **app-panel:**  508 / a11y - avoid button nesting, fix screen reader confusion ([#311](https://github.com/Bellese/angular-design-system/issues/311)) ([7d917ed](https://github.com/Bellese/angular-design-system/commit/7d917eda66c8e8b2456869bcd7db8ac44f7aff6f))
+
 ## [4.4.0](https://github.com/Bellese/angular-design-system/compare/v4.3.0...v4.4.0) (2022-01-31)
 
 
