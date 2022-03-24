@@ -15,7 +15,7 @@ export class AppPanelComponent implements OnInit {
   @Input() title: string;
   @Input() titleExpanded: string;
   @Input() titleClass =
-    'ds-u-fill--primary-darkest ds-u-color--white ds-u-font-size--h4 ds-u-md-font-size--h3 ds-u-padding--2';
+    'ds-u-fill--primary-darkest ds-u-color--white ds-u-font-size--h4 ds-u-md-font-size--h3 ds-u-padding-left--2 ds-u-padding-right--4 ds-u-padding-y--2';
   @Input() titlePlacement: PanelTitlePlacementEnum = PanelTitlePlacementEnum.TOP;
 
   @Input() extTitle = false;
@@ -30,13 +30,18 @@ export class AppPanelComponent implements OnInit {
   @Input() iconExpanded = faMinus;
   @Input() iconPlacement: PanelIconPlacementEnum = PanelIconPlacementEnum.LEFT;
 
-  clicked;
+  clicked = false;
   PanelIconPlacementEnum = PanelIconPlacementEnum;
   PanelTitlePlacementEnum = PanelTitlePlacementEnum;
+  plusIconClass = 'pointer ds-u-padding-left--0';
 
   constructor() {}
 
   ngOnInit() {
+    if (this.iconPlacement === PanelIconPlacementEnum.RIGHT) {
+      this.plusIconClass = 'pointer ds-u-padding-left--2';
+    }
+
     if (this.expand) {
       this.clicked = true;
     }

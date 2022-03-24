@@ -178,9 +178,6 @@ export const Normal: Story<AppPanelComponent> = () => ({
                 [expand] = false
                 [openAll] = false
             >
-                <span>
-                    Additional Title
-                </span>
                 <div>
                     Panel Content
                 </div>
@@ -202,8 +199,54 @@ export const CustomIcon: Story<AppPanelComponent> = () => ({
                 [icon] = "faChevronDown"
                 [iconExpanded] = "faChevronUp"
             >
+                <div>
+                    Panel Content
+                </div>
+            </app-panel>
+        `,
+  props,
+});
+
+
+export const CustomIconAndExpandedTitle: Story<AppPanelComponent> = () => ({
+  template: `
+            <app-panel
+                (panelClick) = "handleEvent($event)"
+                title ='Panel Example'
+                extTitleClass = 'customizeExtra'
+                dataAutoId = 'dataID'
+                [extTitle] = true
+                [expand] = false
+                [openAll] = false
+                [icon] = "faChevronDown"
+                [iconExpanded] = "faChevronUp"
+            >
                 <span>
                     Additional Title
+                </span>
+                <div>
+                    Panel Content
+                </div>
+            </app-panel>
+        `,
+  props,
+});
+
+export const CustomIconAndExpandedButton: Story<AppPanelComponent> = () => ({
+  template: `
+            <app-panel
+                (panelClick) = "handleEvent($event)"
+                title ='Panel Example'
+                extTitleClass = 'customizeExtra'
+                dataAutoId = 'dataID'
+                [extTitle] = true
+                [expand] = false
+                [openAll] = false
+                [icon] = "faChevronDown"
+                [iconExpanded] = "faChevronUp"
+            >
+                <span>
+                    <button class="ds-c-button ds-c-button--transparent ds-u-padding--0">A Button</button>
                 </span>
                 <div>
                     Panel Content
