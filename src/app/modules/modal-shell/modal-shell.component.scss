@@ -45,3 +45,24 @@ h1 {
     max-height: 100vh;
     overflow-y:auto;
 }
+
+.modal-header-content {
+  flex: 1;
+
+  ::ng-deep {
+    // Override to ensure the first element (which will likely be a header element) doesn't have the default space
+    // at the top, so that it aligns with the close button
+    :first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+  }
+}
+
+.modal-header-close-button {
+  ::ng-deep {
+    button {
+      text-decoration: none;
+    }
+  }
+}

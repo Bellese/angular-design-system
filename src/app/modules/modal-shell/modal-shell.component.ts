@@ -9,7 +9,7 @@ import {
 @Component({
   selector: 'app-modal-shell',
   templateUrl: './modal-shell.component.html',
-  styleUrls: ['./modal-shell.component.css']
+  styleUrls: ['./modal-shell.component.scss']
 })
 export class AppModalShellComponent {
 
