@@ -1,54 +1,61 @@
-<div id="{{'modalImplementation' + modalCount}}" class="ds-c-dialog-wrap" [attr.aria-modal]="true" [attr.aria-labelledby]="'dialog-title-' + modalCount" [attr.aria-describedby]="'dialog-body-' + modalCount" role="dialog" id="modalDialog" id="modal" (keyDown.esc)="onClose()" attr.data-auto-id="{{dataAutoId}}">
-    <div tabindex="0" class="focus-trap-hidden" id="firstModalTab" (focus)="findTab($event)" aria-hidden="true"></div>
-        <div class="tableClass">
-            <div class="cellClass">
-                <div class="ds-c-dialog {{modalClass}}" role="document">
-                    <app-button
-                        class="floatRight"
-                        (callBack)="onClose()" 
-                        [ariaLabel]="'Close modal dialog'" 
-                        [buttonType]="'modalTabIndex ds-c-button--transparent ds-c-dialog__close'" 
-                        [buttonID]="'closeButton'+modalCount">
-                        Close
-                    </app-button>
-                    
-                    <ng-template #defaultHeader let-modalHeader="modalHeader">
-                        <h1 class="ds-h1" id="{{'dialog-title-' + modalHeader.modalCount}}">
-                            {{modalHeader.modalTitle}}
-                        </h1>
-                    </ng-template>
-                    
-                    <ng-container *ngTemplateOutlet="headerTemplate ? headerTemplate : defaultHeader; context: getTitle">
-                    </ng-container>
+<div id="{{'modalImplementation' + modalCount}}" class="ds-c-dialog-wrap" [attr.aria-modal]="true"
+     [attr.aria-labelledby]="'dialog-title-' + modalCount" [attr.aria-describedby]="'dialog-body-' + modalCount"
+     role="dialog" id="modalDialog" id="modal" (keyDown.esc)="onClose()" attr.data-auto-id="{{dataAutoId}}">
+  <div tabindex="0" class="focus-trap-hidden" id="firstModalTab" (focus)="findTab($event)" aria-hidden="true"></div>
+  <div class="tableClass">
+    <div class="cellClass">
+      <div class="ds-c-dialog {{modalClass}}" role="document">
+        <div class="modal-header-wrapper ds-u-display--flex ds-u-margin-bottom--2">
+          <div class="modal-header-content">
+            <ng-container
+              *ngTemplateOutlet="headerTemplate ? headerTemplate : defaultHeader; context: getTitle">
+            </ng-container>
 
-                    <main [id]="jawsBody ? 'dialog-body-' + modalCount : ''">
-
-                        <ng-template #defaultBody let-modalBody="modalBody">
-                            <p>
-                                {{modalBody.modalData}}
-                            </p>
-                        </ng-template>
-
-                        <ng-container *ngTemplateOutlet="bodyTemplate ? bodyTemplate : defaultBody; context: getBody">
-                        </ng-container>
-
-                        <aside class="ds-c-dialog__actions">
-                            <ng-template #defaultFooter>
-                                <app-button
-                                    (callBack)="onClose()" 
-                                    [ariaLabel]="'Cancel modal'" 
-                                    [buttonType]="'modalTabIndex'" 
-                                    [buttonID]="'cancelButton'+modalCount">
-                                    Cancel
-                                </app-button>
-                            </ng-template>
-
-                            <ng-container *ngTemplateOutlet="footerTemplate ? footerTemplate : defaultFooter">
-                            </ng-container>
-                        </aside>
-                    </main>
-                </div>
-            </div>
+            <ng-template #defaultHeader let-modalHeader="modalHeader">
+              <h2 class="ds-h2"
+                  id="{{'dialog-title-' + modalHeader.modalCount}}">
+                {{modalHeader.modalTitle}}
+              </h2>
+            </ng-template>
+          </div>
+          <app-button
+            class="modal-header-close-button ds-u-margin-left--1"
+            (callBack)="onClose()"
+            [ariaLabel]="'Close modal dialog'"
+            [buttonType]="'modalTabIndex ds-c-button--transparent ds-c-dialog__close'"
+            [buttonID]="'closeButton'+modalCount">
+            Close
+          </app-button>
         </div>
-    <div tabindex="0" class="focus-trap-hidden" id="lastModalTab" (focus)="findTab($event)" aria-hidden="true"></div>
+
+        <main [id]="jawsBody ? 'dialog-body-' + modalCount : ''">
+
+          <ng-template #defaultBody let-modalBody="modalBody">
+            <p>
+              {{modalBody.modalData}}
+            </p>
+          </ng-template>
+
+          <ng-container *ngTemplateOutlet="bodyTemplate ? bodyTemplate : defaultBody; context: getBody">
+          </ng-container>
+
+          <aside class="ds-c-dialog__actions">
+            <ng-template #defaultFooter>
+              <app-button
+                (callBack)="onClose()"
+                [ariaLabel]="'Cancel modal'"
+                [buttonType]="'modalTabIndex'"
+                [buttonID]="'cancelButton'+modalCount">
+                Cancel
+              </app-button>
+            </ng-template>
+
+            <ng-container *ngTemplateOutlet="footerTemplate ? footerTemplate : defaultFooter">
+            </ng-container>
+          </aside>
+        </main>
+      </div>
+    </div>
+  </div>
+  <div tabindex="0" class="focus-trap-hidden" id="lastModalTab" (focus)="findTab($event)" aria-hidden="true"></div>
 </div>
