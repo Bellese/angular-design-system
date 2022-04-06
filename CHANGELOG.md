@@ -1,3 +1,10 @@
+### [4.4.2](https://github.com/Bellese/angular-design-system/compare/v4.4.1...v4.4.2) (2022-04-06)
+
+
+### Bug Fixes
+
+* **app-modal-shell:** update modal header ([#315](https://github.com/Bellese/angular-design-system/issues/315)) ([b3403bb](https://github.com/Bellese/angular-design-system/commit/b3403bb3a5b9228bde16c7353e45d88899014ab6))
+
 ### [4.4.1](https://github.com/Bellese/angular-design-system/compare/v4.4.0...v4.4.1) (2022-03-24)
 
 
