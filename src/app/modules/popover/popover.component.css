@@ -23,7 +23,7 @@
 /*****************************
  * The following styles were copied over by hand because I could not get the
  * following command to work:
- * @import '~@angular/cdk/overlay-prebuilt.css';
+ * @import '@angular/cdk/overlay-prebuilt.css';
  *****************************/
 
 ::ng-deep.cdk-global-overlay-wrapper,
