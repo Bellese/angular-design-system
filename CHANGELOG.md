@@ -1,3 +1,10 @@
+### [4.4.6](https://github.com/Bellese/angular-design-system/compare/v4.4.5...v4.4.6) (2022-04-13)
+
+
+### Bug Fixes
+
+* **app-button:** prevent inverse button color modification ([#320](https://github.com/Bellese/angular-design-system/issues/320)) ([170231e](https://github.com/Bellese/angular-design-system/commit/170231e475137c1f6073e06179c06ab797a0956f))
+
 ### [4.4.5](https://github.com/Bellese/angular-design-system/compare/v4.4.4...v4.4.5) (2022-04-13)
 
 
