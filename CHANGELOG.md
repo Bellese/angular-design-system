@@ -1,3 +1,10 @@
+### [4.4.5](https://github.com/Bellese/angular-design-system/compare/v4.4.4...v4.4.5) (2022-04-13)
+
+
+### Bug Fixes
+
+* **app-button:** hardcode colors ([#319](https://github.com/Bellese/angular-design-system/issues/319)) ([0089c55](https://github.com/Bellese/angular-design-system/commit/0089c55a1de69c3229545df168c6d9e60e5075f6))
+
 ### [4.4.4](https://github.com/Bellese/angular-design-system/compare/v4.4.3...v4.4.4) (2022-04-13)
 
 
