@@ -7,7 +7,7 @@ import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 })
 
 export class AppCircleGraphComponent implements OnInit {
-    view: any[];
+    view: [number, number];
 
     @Input() data: any[];
     @Input() scheme: any = {
@@ -22,7 +22,7 @@ export class AppCircleGraphComponent implements OnInit {
     @Input() doughnut: boolean;
     @Input() arcWidth: number;
     @Input() gradient: boolean;
-    @Input() tooltipDisabled: object;
+    @Input() tooltipDisabled: boolean;
     @Input() title: string;
     @Input() dataAutoId: string;
     @Input() hideGraph: boolean;

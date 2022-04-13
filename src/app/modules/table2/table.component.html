@@ -78,14 +78,7 @@
 </table>
 
 <ng-container *ngIf="!tableModel.rows.length && !tableModel.isLoading && tableModel.showTable">
-  <div #noResults>
-    <ng-content select="[noResults]"></ng-content>
-  </div>
-  <div
-    *ngIf="
-      noResults.nativeElement && noResults.nativeElement.childNodes && noResults.nativeElement.childNodes.length == 0
-    "
-  >
+  <div>
     No Results Found
   </div>
 </ng-container>

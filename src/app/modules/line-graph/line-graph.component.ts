@@ -10,7 +10,7 @@ import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 })
 
 export class AppLineGraphComponent implements OnInit, AfterViewInit {
-    view: any[];
+    view: [number, number];
     filterValues: any[] = [];
     rangeFrom;
     rangeTo;

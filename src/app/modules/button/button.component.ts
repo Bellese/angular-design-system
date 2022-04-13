@@ -11,7 +11,7 @@ export class AppButtonComponent {
   @Input() ariaLabel: string;
   @Input() buttonType: string;
   @Input() buttonID: string;
-  @Input() ariaSort: boolean;
+  @Input() ariaSort: 'ascending' | 'descending' | 'none';
   @Input() dataAutoId: string;
   @Input() disabled: boolean;
   @Input() tabLevel = '0';
