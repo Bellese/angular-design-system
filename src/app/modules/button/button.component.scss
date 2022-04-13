@@ -5,7 +5,7 @@
 }
 
 .ds-c-button {
-  &:not(.ds-c-button--primary):not(.ds-c-button--transparent):not([disabled]) {
+  &:not(.ds-c-button--primary):not(.ds-c-button--transparent):not(.ds-c-button--inverse):not([disabled]) {
     border-color: #205493;
     color: #205493;
   }
