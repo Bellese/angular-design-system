@@ -7,8 +7,7 @@
 }
 
 .ds-c-button {
-  &:not(.ds-c-button--primary)
-  :not(.ds-c-button-transparent) {
+  &:not(.ds-c-button--primary):not(.ds-c-button--transparent):not([disabled]) {
     border-color: $color-primary-darker;
     color: $color-primary-darker;
   }

@@ -26,6 +26,7 @@
     "@babel/core": "^7.14.6",
     "@cmsgov/design-system-core": "^3.7.2",
     "@cmsgov/design-system-layout": "^3.7.2",
+    "@cmsgov/design-system-support": "^3.7.2",
     "@storybook/addon-actions": "^6.3.6",
     "@storybook/addon-console": "^1.2.3",
     "@storybook/addon-essentials": "^6.3.6",
