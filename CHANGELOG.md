@@ -1,3 +1,10 @@
+### [4.4.3](https://github.com/Bellese/angular-design-system/compare/v4.4.2...v4.4.3) (2022-04-13)
+
+
+### Bug Fixes
+
+* **app-button:** improve button accessibility ([#317](https://github.com/Bellese/angular-design-system/issues/317)) ([e8daaf8](https://github.com/Bellese/angular-design-system/commit/e8daaf8c23e7fe0c0c1d9da21406653703eb3251))
+
 ### [4.4.2](https://github.com/Bellese/angular-design-system/compare/v4.4.1...v4.4.2) (2022-04-06)
 
 
