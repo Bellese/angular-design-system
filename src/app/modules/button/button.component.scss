@@ -1,0 +1,15 @@
+@import '@cmsgov/design-system-support/src/index';
+
+.ds-c-button--transparent[disabled] {
+  background-color: transparent;
+  border: 1px solid transparent;
+  opacity: 0.5;
+}
+
+.ds-c-button {
+  &:not(.ds-c-button--primary)
+  :not(.ds-c-button-transparent) {
+    border-color: $color-primary-darker;
+    color: $color-primary-darker;
+  }
+}
