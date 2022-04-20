@@ -71,6 +71,7 @@ export class TableCellModel extends AngularDesignSystemModel {
   class? = '';
   cellClass? = '';
   colspan: number;
+  rowspan: number;
   modalText?: string;
 
   // Icon Properties

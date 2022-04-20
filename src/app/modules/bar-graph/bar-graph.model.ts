@@ -51,7 +51,7 @@ export class BarGraphModel {
 // tslint:disable-next-line: max-classes-per-file
 export class BarGraphDataModel {
   name: string;
-  value: number;
+  value: number | string;
   modal?: any;
   modalTitle?: string;
 }

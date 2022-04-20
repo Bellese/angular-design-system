@@ -20,7 +20,7 @@ export class AppTableHeaderComponent {
     // sets a class of 'ascending' or 'descending'
     // only to the currently selected (clicked) header
 
-    handleDirection() {
+    handleDirection(): 'ascending' | 'descending'  {
         if (this.asc) {
             return 'ascending';
         } else {
@@ -28,10 +28,11 @@ export class AppTableHeaderComponent {
         }
     }
 
-    // sets previously selected headers to a default state of false
-    setDefaultDirection() {
+    // sets previously selected headers to a default state of 'none'
+    // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-sort#values
+    setDefaultDirection(): 'none' {
         this.asc = true;
-        return '';
+        return 'none';
     }
 
 }

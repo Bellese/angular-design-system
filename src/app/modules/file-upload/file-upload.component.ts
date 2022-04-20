@@ -20,10 +20,9 @@ export class FileUploadComponent implements OnInit {
   }
 
   uploadFile(event) {
-    const files = [];
-    for (const file of event) {
-      files.push(file);
-    }
+    // ts workaround since `files` doesn't exist on EventTarget
+    // and I can't cast types in the template
+    const files = event.files ?? event
     this.onFileUpload.emit(files);
     this.fileInput.nativeElement.value = '';
   }

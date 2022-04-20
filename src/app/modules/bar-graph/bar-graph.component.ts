@@ -3,7 +3,6 @@ import { AppTableModalComponent } from '../table/table-modal/table-modal.compone
 import {
   BarGraphDataModel,
   BarGraphGroupDataModel,
-  BarGraphLegendLocationEnum,
   BarGraphModel,
 } from './bar-graph.model';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
@@ -16,12 +15,13 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 export class BarGraphComponent implements OnInit {
   customColors;
   comp = AppTableModalComponent;
-  view: any[];
+  view: [number, number];
 
   isGroupDisplayed = false;
   isPagingDisplayed = false;
   isSmallScreen = false;
-  barGraphData: BarGraphDataModel[] | BarGraphGroupDataModel[];
+  barGraphData: BarGraphDataModel[];
+  barGraphGroupData: BarGraphGroupDataModel[];
   isPrevPageEnabled = false;
   isNextPageEnabled = false;
   currentPage = 1;
@@ -52,7 +52,7 @@ export class BarGraphComponent implements OnInit {
     // Determine if the paging components should display with the chart
     // Because it creates a bad user experience if the component displays for one set and not for others,
     // we have to iterate through all series to see if any need paging
-    // Combine datasets and data propeties into one large array to avoid duplication of logic
+    // Combine datasets and data properties into one large array to avoid duplication of logic
     const combinedData = [...(this.barGraphModel.dataSets || []), { data: this.barGraphModel.data || [] }];
     for (const dataSet of combinedData) {
       if (this.barGraphModel.maxBarGroups && dataSet.data.length > this.barGraphModel.maxBarGroups) {
@@ -66,13 +66,6 @@ export class BarGraphComponent implements OnInit {
   setupBarGraphData(): void {
     this.currentPage = 1;
     this.refreshBarGraphData();
-
-    // Bar Graphs with groups have to use a different ngx-charts component than normal bar graphs
-    // We can assume that if the first element of the array has a series property, then we are dealing
-    // with a grouped chart.
-    if (this.barGraphData?.length && this.barGraphData[0].hasOwnProperty('series')) {
-      this.isGroupDisplayed = true;
-    }
   }
 
   resize(): void {
@@ -83,7 +76,7 @@ export class BarGraphComponent implements OnInit {
   handleColor(): void {
     // Only run this function if the bar graph has a single set of data and is not grouped
     if (!this.isGroupDisplayed) {
-      const barGraphData = this.barGraphData as BarGraphDataModel[];
+      const barGraphData = this.barGraphData;
       if (barGraphData[0].value < barGraphData[1].value) {
         this.customColors = [
           {
@@ -109,8 +102,9 @@ export class BarGraphComponent implements OnInit {
       sliceEnd = this.barGraphModel.data.length;
     }
 
-    this.barGraphData = this.barGraphModel.data.slice(sliceStart, sliceEnd);
-    if (this.barGraphData.length < this.barGraphModel.data.length) {
+    const data = this.barGraphModel.data.slice(sliceStart, sliceEnd);
+
+    if (data.length < this.barGraphModel.data.length) {
       this.isPrevPageEnabled = true;
       this.isNextPageEnabled = true;
       if (sliceStart === 0) {
@@ -122,6 +116,19 @@ export class BarGraphComponent implements OnInit {
     } else {
       this.isPrevPageEnabled = false;
       this.isNextPageEnabled = false;
+    }
+
+    // Bar Graphs with groups have to use a different ngx-charts component than normal bar graphs
+    // We can assume that if the first element of the array has a series property, then we are dealing
+    // with a grouped chart.
+    if (data[0]?.hasOwnProperty('series')){
+      this.barGraphData = [];
+      this.barGraphGroupData = data as BarGraphGroupDataModel[];
+      this.isGroupDisplayed = true;
+    } else {
+      this.barGraphData = data as BarGraphDataModel[];
+      this.barGraphGroupData = [];
+      this.isGroupDisplayed = false;
     }
   }
 
@@ -139,9 +146,9 @@ export class BarGraphComponent implements OnInit {
     let graphData;
 
     if (this.isGroupDisplayed) {
-      graphData = this.barGraphData as BarGraphGroupDataModel[];
+      graphData = this.barGraphGroupData;
     } else {
-      graphData = this.barGraphData as BarGraphDataModel[];
+      graphData = this.barGraphData;
     }
     labelStart = graphData[0].name;
     labelEnd = graphData[graphData.length - 1].name;

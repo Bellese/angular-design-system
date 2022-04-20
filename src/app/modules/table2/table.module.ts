@@ -22,20 +22,19 @@ import { TableInfoModalComponent } from './table-info-modal/table-info-modal.com
 import { ModalShellModule } from '../modal-shell/modal-shell.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ButtonModule,
-    ChoiceModule,
-    PagingModule,
-    PopoverModule,
-    NgxPaginationModule,
-    SpinnerModule,
-    FontAwesomeModule,
-    ModalShellModule,
-  ],
-  declarations: [TableComponent, TableHeaderComponent, TableCellComponent, TableInfoModalComponent],
-  exports: [TableComponent],
-  entryComponents: [ModalGenericComponent],
+    imports: [
+        CommonModule,
+        ButtonModule,
+        ChoiceModule,
+        PagingModule,
+        PopoverModule,
+        NgxPaginationModule,
+        SpinnerModule,
+        FontAwesomeModule,
+        ModalShellModule,
+    ],
+    declarations: [TableComponent, TableHeaderComponent, TableCellComponent, TableInfoModalComponent],
+    exports: [TableComponent]
 })
 export class Table2Module {
   static forRoot(): ModuleWithProviders<Table2Module> {

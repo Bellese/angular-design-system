@@ -8,7 +8,7 @@ import { FormControl } from '@angular/forms';
 })
 export class AppChoiceComponent implements OnInit, OnChanges {
   @Input() inputType = 'checkbox';
-  @Input() index = 'main';
+  @Input() index: number | string = 'main';
   @Input() fieldId: string;
   @Input() size: string;
   @Input() label: string;

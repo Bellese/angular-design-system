@@ -11,7 +11,7 @@ export class AppDropDownComponent implements OnInit, OnChanges {
   @Input() labelClass: string;
   @Input() selectClass: string;
   @Input() ariaLabel: string;
-  @Input() id = 1;
+  @Input() id: string | number = 1;
   @Input() defaultSelected = 0;
   @Input() defaultSelectedValue: string = null;
   @Input() hintMessage: string;
