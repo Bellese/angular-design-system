@@ -1,3 +1,16 @@
+## [5.0.0](https://github.com/Bellese/angular-design-system/compare/v4.4.6...v5.0.0) (2022-04-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* Upgrade Angular from 11 to 13
+
+Co-authored-by: Marc Celestini <mcelestini@bellese.io>
+
+### Features
+
+* Angular 13 Upgrade ([#321](https://github.com/Bellese/angular-design-system/issues/321)) ([39669af](https://github.com/Bellese/angular-design-system/commit/39669af250095553801e4a21cb0d3293381b949a))
+
 ### [4.4.6](https://github.com/Bellese/angular-design-system/compare/v4.4.5...v4.4.6) (2022-04-13)
 
 
