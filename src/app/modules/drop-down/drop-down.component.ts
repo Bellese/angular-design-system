@@ -11,6 +11,7 @@ export class AppDropDownComponent implements OnInit, OnChanges {
   @Input() labelClass: string;
   @Input() selectClass: string;
   @Input() ariaLabel: string;
+  @Input() ariaLabeledby: string;
   @Input() id: string | number = 1;
   @Input() defaultSelected = 0;
   @Input() defaultSelectedValue: string = null;
@@ -25,6 +26,8 @@ export class AppDropDownComponent implements OnInit, OnChanges {
   @Input() alertVariation?: string;
   @Output() selectedOption = new EventEmitter<any>();
 
+  attr: any;
+
   ngOnInit() {
     if (!this.control) {
       this.control = new FormControl();
@@ -32,6 +35,31 @@ export class AppDropDownComponent implements OnInit, OnChanges {
     // now that reactive forms are in use, additional form field attributes have to be integrated with the form control
     this.setSelectedValue();
     this.setDisabled();
+    this.setAttributes();
+  }
+
+  // Set attributes for elements which can't be used as-is from Inputs
+  setAttributes() {
+    const selectId = `dropdown-${this.id}`;
+    const labelId = this.labelName ? `${selectId}-label` : null;
+
+    // If a label is defined, the select should use aria-labeledby instead of aria-label
+    // so that the screen reader doesn't "stutter" when using "reading" commands, and
+    // tabbing/focus-driven behavior is preserved.
+    //
+    // Also allow explicitly assigning aria-labeledby in case there is no label,
+    // i.e. we wish to use dropdown in a table, and some other column value should
+    // effectively "label" it.
+    this.attr = {
+      label: {
+        id: labelId,
+      },
+      select: {
+        id: selectId,
+        ariaLabeledby: this.ariaLabeledby || labelId,
+        ariaLabel: labelId ? null : this.ariaLabel,
+      },
+    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
