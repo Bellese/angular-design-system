@@ -1,8 +1,9 @@
 <label
   *ngIf="labelName"
+  [id]="attr.label.id"
   [ngClass]="labelClass"
   class="ds-c-label ds-u-margin-top--0 ds-u-sans"
-  for="{{ 'dropdown-' + id }}"
+  [for]="attr.select.id"
 >
   <span class="ds-u-font-weight--bold">{{ labelName }}</span>
   <span *ngIf="hintMessage" class="ds-c-field__hint ds-c-field__hint--inverse">{{ hintMessage }}</span>
@@ -27,18 +28,20 @@
 </ng-template>
 
 <select
-  id="{{ 'dropdown-' + id }}"
+  id="{{ attr.select.id }}"
+  role="listbox"
   class="ds-c-field {{ selectClass }} ds-u-margin-bottom--0 ds-u-display--inline-block"
   [ngClass]="{ 'ds-c-field--error': error, disabled: disabled }"
   name="options"
-  attr.aria-label="{{ ariaLabel || labelName }}"
+  attr.aria-label="{{ attr.select.ariaLabel }}"
+  attr.aria-labeledby="{{ attr.select.ariaLabeledby }}"
   (change)="selectOption($event)"
   attr.data-auto-id="{{ dataAutoId }}"
   [formControl]="control"
   [formlyAttributes]="formlyAttributes"
 >
   <ng-container *ngFor="let option of options; let i = index">
-    <option value="{{ option.value }}">
+    <option value="{{ option.value }}" [attr.aria-selected]="option.value === control.value">
       {{ option.content }}
     </option>
   </ng-container>
