@@ -1,3 +1,10 @@
+## [5.0.1](https://github.com/Bellese/angular-design-system/compare/v5.0.0...v5.0.1) (2022-07-05)
+
+
+### Bug Fixes
+
+* **app-drop-down:** 508 / a11y - aria-describedby, aria-selected ([9dc110f](https://github.com/Bellese/angular-design-system/commit/9dc110f869d976cf17d0bf1a069042efe2440c0a))
+
 ## [5.0.0](https://github.com/Bellese/angular-design-system/compare/v4.4.6...v5.0.0) (2022-04-20)
 
 
