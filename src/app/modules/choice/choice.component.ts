@@ -59,11 +59,11 @@ export class AppChoiceComponent implements OnInit, OnChanges {
 
   // If the a value is passed into the component and no value is set on the form control,
   // manually set the value
-  setValue() {
-    if (this.value && !this.control?.value) {
-      this.control?.setValue(this.value);
-    }
-  }
+  // setValue() {
+  //   if (this.value && !this.control?.value) {
+  //     this.control?.setValue(this.value);
+  //   }
+  // }
 
   onChange($event) {
     this.choiceChange.emit($event);
