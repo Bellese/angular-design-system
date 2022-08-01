@@ -40,7 +40,6 @@ export class AppChoiceComponent implements OnInit, OnChanges {
       this.control = new FormControl();
     }
     this.setDisabled();
-    this.setValue();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -56,14 +55,6 @@ export class AppChoiceComponent implements OnInit, OnChanges {
       this.control?.enable();
     }
   }
-
-  // If the a value is passed into the component and no value is set on the form control,
-  // manually set the value
-  // setValue() {
-  //   if (this.value && !this.control?.value) {
-  //     this.control?.setValue(this.value);
-  //   }
-  // }
 
   onChange($event) {
     this.choiceChange.emit($event);
