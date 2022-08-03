@@ -1,3 +1,10 @@
+## [5.0.2](https://github.com/Bellese/angular-design-system/compare/v5.0.1...v5.0.2) (2022-08-03)
+
+
+### Bug Fixes
+
+* **app-choice:** remove setValue function to work better with formly ([#325](https://github.com/Bellese/angular-design-system/issues/325)) ([0061b70](https://github.com/Bellese/angular-design-system/commit/0061b703fdacec6a5fe6881cd356ffa886d16b57))
+
 ## [5.0.1](https://github.com/Bellese/angular-design-system/compare/v5.0.0...v5.0.1) (2022-07-05)
 
 
