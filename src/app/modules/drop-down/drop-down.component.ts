@@ -11,7 +11,7 @@ export class AppDropDownComponent implements OnInit, OnChanges {
   @Input() labelClass: string;
   @Input() selectClass: string;
   @Input() ariaLabel: string;
-  @Input() ariaLabeledby: string;
+  @Input() ariaLabelledby: string;
   @Input() id: string | number = 1;
   @Input() defaultSelected = 0;
   @Input() defaultSelectedValue: string = null;
@@ -43,11 +43,11 @@ export class AppDropDownComponent implements OnInit, OnChanges {
     const selectId = `dropdown-${this.id}`;
     const labelId = this.labelName ? `${selectId}-label` : null;
 
-    // If a label is defined, the select should use aria-labeledby instead of aria-label
+    // If a label is defined, the select should use aria-labelledby instead of aria-label
     // so that the screen reader doesn't "stutter" when using "reading" commands, and
     // tabbing/focus-driven behavior is preserved.
     //
-    // Also allow explicitly assigning aria-labeledby in case there is no label,
+    // Also allow explicitly assigning aria-labelledby in case there is no label,
     // i.e. we wish to use dropdown in a table, and some other column value should
     // effectively "label" it.
     this.attr = {
@@ -56,7 +56,7 @@ export class AppDropDownComponent implements OnInit, OnChanges {
       },
       select: {
         id: selectId,
-        ariaLabeledby: this.ariaLabeledby || labelId,
+        ariaLabelledby: this.ariaLabelledby || labelId,
         ariaLabel: labelId ? null : this.ariaLabel,
       },
     }
