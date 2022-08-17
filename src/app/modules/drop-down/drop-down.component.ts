@@ -19,6 +19,7 @@ export class AppDropDownComponent implements OnInit, OnChanges {
   @Input() errorMessage: string;
   @Input() error: boolean;
   @Input() dataAutoId: string;
+  @Input() dataTest: string;
   @Input() disabled: boolean;
   @Input() control: FormControl;
   @Input() formlyAttributes = {};
@@ -59,6 +60,19 @@ export class AppDropDownComponent implements OnInit, OnChanges {
         ariaLabelledby: this.ariaLabelledby || labelId,
         ariaLabel: labelId ? null : this.ariaLabel,
       },
+      dataTest: {
+        label: null,
+        alerts: null,
+        select: null,
+      }
+    };
+
+    if (this.dataTest) {
+      this.attr.dataTest = {
+        label: `${this.dataTest}-label`,
+        alerts: `${this.dataTest}-alerts`,
+        select: `${this.dataTest}-select`,
+      };
     }
   }
 

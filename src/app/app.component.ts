@@ -75,6 +75,7 @@ export class AppComponent implements OnInit {
       value: 'op3',
     },
   ];
+  alertMessageList = ['Alert message 1', 'Alert message 2'];
 
   tabs = [
     {
