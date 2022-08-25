@@ -12,7 +12,8 @@ import { DataTestDirective } from './data-test.directive';
     DataTestDirective
   ],
   exports: [
-    FileUploadDragDropDirective
+    FileUploadDragDropDirective,
+    DataTestDirective,
   ]
 })
 export class DirectiveModule { }

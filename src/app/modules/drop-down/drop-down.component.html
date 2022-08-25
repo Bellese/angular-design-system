@@ -1,9 +1,9 @@
+<!-- TODO: deprecate dataAutoId -->
 <label
   *ngIf="labelName"
   [id]="attr.label.id"
   [ngClass]="labelClass"
   class="ds-c-label ds-u-margin-top--0 ds-u-sans"
-  attr.data-test="{{ attr.dataTest.label }}"
   [for]="attr.select.id"
 >
   <span class="ds-u-font-weight--bold">{{ labelName }}</span>
@@ -14,12 +14,11 @@
 </label>
 
 <ng-template [ngIf]="alertMessageList && alertMessageList?.length">
-  <div class="ds-u-margin-y--2" attr.data-test="{{ attr.dataTest.alerts }}">
+  <div class="ds-u-margin-y--2">
     <!-- We can't really guarantee or control uniqueness of items in alertMessageList,
       at least not whether they're unique alertVariation values...
     Best to put test ID on outer "container" element and let engineers
     control the behavior/expectations in UIs and tests. -->
-    <!-- TODO: deprecate dataAutoId usage in dropdown alerts. -->
     <app-alert
       dataAutoId="{{ id + '-' + alertVariation }}"
       [hideClose]="true"
@@ -47,7 +46,6 @@
   attr.aria-labelledby="{{ attr.select.ariaLabelledby }}"
   (change)="selectOption($event)"
   attr.data-auto-id="{{ dataAutoId }}"
-  attr.data-test="{{ attr.dataTest.select }}"
   [formControl]="control"
   [formlyAttributes]="formlyAttributes"
 >

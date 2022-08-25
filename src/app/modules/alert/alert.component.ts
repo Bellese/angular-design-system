@@ -11,22 +11,6 @@ export class AlertComponent {
     @Input() hideIcon = false;
     @Input() hideClose = false;
     @Input() dataAutoId: string;
-    @Input() dataTest: string;
 
     hide: boolean;
-    dataTestVals = {
-      outer: null,
-      close: null,
-      heading: null,
-    };
-
-    ngOnInit() {
-      if (this.dataTest) {
-        this.dataTestVals = {
-          outer: `${this.dataTest}-${this.variation}`,
-          close: `${this.dataTest}-close`,
-          heading: `${this.dataTest}-heading`,
-        };
-      }
-    }
 }

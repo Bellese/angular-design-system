@@ -74,16 +74,16 @@
   hideIcon=true
   hideClose=true
   dataAutoId="todo-deprecate-this"
-  dataTest="alert-all-options"
+  hqrDataTest="alert-all-options"
 >"Error" variation example with all options set by user</app-alert>
 
-<span><b>Warn - all possible data-test: </b></span>
+<span><b>Warn - data-test: </b></span>
 <app-alert
   variation="warn"
   heading="Warn Heading Text"
   hideIcon=true
-  dataTest="alert-all-data-test"
->"Warn" variation example. Inspect source to see data-test values.</app-alert>
+  hqrDataTest="alert-all-data-test"
+>"Warn" variation example. Inspect source to see data-test.</app-alert>
 
 <span><b>Alert - minimum, only heading: </b></span>
 <app-alert
@@ -411,7 +411,7 @@ TABLE AND PAGINATION
   [defaultSelected]=2
   errorMessage='please input correct response'
   [error]=false
-  dataTest='testID-dropdown-alertmessages'
+  hqrDataTest='testID-dropdown-alertmessages'
   [alertMessageList]="alertMessageList"
   alertVariation="error"
   (selectedOption)='announce($event)'>

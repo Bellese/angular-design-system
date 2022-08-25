@@ -1,10 +1,10 @@
 import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[hqrTestId]'
+  selector: '[hqrDataTest]'
 })
 export class DataTestDirective implements OnInit {
-  @Input() hqrTestId!: string;
+  @Input() hqrDataTest!: string;
 
   element: any; // must be 'any' to match el.nativeElement
 
@@ -17,7 +17,7 @@ export class DataTestDirective implements OnInit {
   }
 
   inputToAttribute() {
-    this.renderer.setAttribute(this.element, 'data-test', this.hqrTestId);
+    this.renderer.setAttribute(this.element, 'data-test', this.hqrDataTest);
     this.renderer.removeAttribute(this.element, 'hqrTestId');
   }
 }

@@ -4,14 +4,12 @@
     hideIcon ? 'hide-icon' : null
   }} ds-c-alert--{{ hideClose ? 'hide-close' : 'close' }}"
   attr.data-auto-id="{{ dataAutoId }}"
-  attr.data-test="{{ dataTestVals.outer }}"
 >
   <div class="close">
     <button
       *ngIf="!hideClose"
       (click)="hide = true"
       class="ds-c-button ds-c-button--transparent ds-c-dialog__close"
-      attr.data-test="{{ dataTestVals.close }}"
     >
       Close
     </button>
@@ -20,7 +18,6 @@
     <div
       class="ds-c-alert__heading"
       *ngIf="heading"
-      attr.data-test="{{ dataTestVals.heading }}"
     >
       {{heading}}
     </div>
