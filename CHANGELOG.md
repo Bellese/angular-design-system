@@ -1,3 +1,10 @@
+## [5.1.0](https://github.com/Bellese/angular-design-system/compare/v5.0.2...v5.1.0) (2022-08-25)
+
+
+### Features
+
+* **DataTestDirective:** using hqrDataTest in HTML templates sets data-test attribute ([#328](https://github.com/Bellese/angular-design-system/issues/328)) ([9bcca36](https://github.com/Bellese/angular-design-system/commit/9bcca36d1526cd0b8c0b7b2391c99fca87ec7b19))
+
 ## [5.0.2](https://github.com/Bellese/angular-design-system/compare/v5.0.1...v5.0.2) (2022-08-03)
 
 
