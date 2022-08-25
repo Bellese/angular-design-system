@@ -59,7 +59,7 @@ export class AppDropDownComponent implements OnInit, OnChanges {
         ariaLabelledby: this.ariaLabelledby || labelId,
         ariaLabel: labelId ? null : this.ariaLabel,
       },
-    }
+    };
   }
 
   ngOnChanges(changes: SimpleChanges): void {

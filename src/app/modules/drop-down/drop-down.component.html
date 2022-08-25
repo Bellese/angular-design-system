@@ -1,3 +1,4 @@
+<!-- TODO: deprecate dataAutoId -->
 <label
   *ngIf="labelName"
   [id]="attr.label.id"
@@ -14,7 +15,15 @@
 
 <ng-template [ngIf]="alertMessageList && alertMessageList?.length">
   <div class="ds-u-margin-y--2">
-    <app-alert dataAutoId="{{ id + '-' + alertVariation }}" [hideClose]="true" variation="{{ alertVariation }}">
+    <!-- We can't really guarantee or control uniqueness of items in alertMessageList,
+      at least not whether they're unique alertVariation values...
+    Best to put test ID on outer "container" element and let engineers
+    control the behavior/expectations in UIs and tests. -->
+    <app-alert
+      dataAutoId="{{ id + '-' + alertVariation }}"
+      [hideClose]="true"
+      variation="{{ alertVariation }}"
+    >
       <div *ngIf="alertMessageList.length > 1; else singleAlert">
         <div *ngFor="let alertMessage of alertMessageList">
           <li>{{ alertMessage }}</li>

@@ -66,6 +66,30 @@
         i have added more examples
 </app-alert> -->
 
+<h2>Alert</h2>
+<span><b>Alert - all options: </b></span>
+<app-alert
+  variation="error"
+  heading="Error Heading Text"
+  hideIcon=true
+  hideClose=true
+  dataAutoId="todo-deprecate-this"
+  hqrDataTest="alert-all-options"
+>"Error" variation example with all options set by user</app-alert>
+
+<span><b>Warn - data-test: </b></span>
+<app-alert
+  variation="warn"
+  heading="Warn Heading Text"
+  hideIcon=true
+  hqrDataTest="alert-all-data-test"
+>"Warn" variation example. Inspect source to see data-test.</app-alert>
+
+<span><b>Alert - minimum, only heading: </b></span>
+<app-alert
+  heading="Only Set the Heading"
+></app-alert>
+
   <!-- BAR GRAPH COMPONENT EXAMPLE
 <app-bar-graph
     [data]="barData"
@@ -367,51 +391,66 @@ TABLE AND PAGINATION
 
 <h2>DROP DOWN</h2>
 <app-drop-down
-  [options] = 'dropDown'
-  labelName = 'Drop down - basic'
-  selectClass = 'ds-c-field--medium'
-  id = 'basic'
-  [defaultSelected] = 2
-  errorMessage = 'please input correct response'
-  [error] = false
-  dataAutoId = 'testingID-dropdown-basic'
-  (selectedOption) = 'announce($event)'>
+  [options]='dropDown'
+  labelName='Drop down - basic'
+  selectClass='ds-c-field--medium'
+  id='basic'
+  [defaultSelected]=2
+  errorMessage='please input correct response'
+  [error]=false
+  dataAutoId='testingID-dropdown-basic'
+  (selectedOption)='announce($event)'>
+</app-drop-down>
+<br>
+
+<app-drop-down
+  [options]='dropDown'
+  labelName='Drop down with alerts - inspect source to see data-test'
+  selectClass='ds-c-field--medium'
+  id='dropdown-data-test'
+  [defaultSelected]=2
+  errorMessage='please input correct response'
+  [error]=false
+  hqrDataTest='testID-dropdown-alertmessages'
+  [alertMessageList]="alertMessageList"
+  alertVariation="error"
+  (selectedOption)='announce($event)'>
 </app-drop-down>
 <br>
 
 <span><b>Drop down - no label: </b></span>
 <app-drop-down
-  [options] = 'dropDown'
-  selectClass = 'ds-c-field--medium'
-  id = 'no-label'
-  errorMessage = 'please input correct response'
-  [error] = false
-  dataAutoId = 'testingID-dropdown-basic'
-  (selectedOption) = 'announce($event)'>
+  [options]='dropDown'
+  selectClass='ds-c-field--medium'
+  id='no-label'
+  errorMessage='please input correct response'
+  [error]=false
+  dataAutoId='testingID-dropdown-basic'
+  (selectedOption)='announce($event)'>
 </app-drop-down>
 <br>
 
 <span><b>Drop down - aria-label, no label: </b></span>
 <app-drop-down
-  [options] = 'dropDown'
-  selectClass = 'ds-c-field--medium'
-  id = 'aria-label-no-label'
+  [options]='dropDown'
+  selectClass='ds-c-field--medium'
+  id='aria-label-no-label'
   ariaLabel='custom aria label'
-  errorMessage = 'please input correct response'
-  [error] = false
-  dataAutoId = 'testingID-dropdown-basic'
-  (selectedOption) = 'announce($event)'>
+  errorMessage='please input correct response'
+  [error]=false
+  dataAutoId='testingID-dropdown-basic'
+  (selectedOption)='announce($event)'>
 </app-drop-down>
 <br>
 
 <span id="dropdown-external-label"><b>Drop down - aria-labelledby, no label: </b></span>
 <app-drop-down
-  [options] = 'dropDown'
-  selectClass = 'ds-c-field--medium'
-  id = 'aria-labelledby-no-label'
+  [options]='dropDown'
+  selectClass='ds-c-field--medium'
+  id='aria-labelledby-no-label'
   ariaLabelledby='dropdown-external-label'
-  errorMessage = 'please input correct response'
-  [error] = false
-  dataAutoId = 'testingID-dropdown-basic'
-  (selectedOption) = 'announce($event)'>
+  errorMessage='please input correct response'
+  [error]=false
+  dataAutoId='testingID-dropdown-basic'
+  (selectedOption)='announce($event)'>
 </app-drop-down>

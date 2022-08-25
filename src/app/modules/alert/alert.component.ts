@@ -13,5 +13,4 @@ export class AlertComponent {
     @Input() dataAutoId: string;
 
     hide: boolean;
-
 }
