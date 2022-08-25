@@ -8,17 +8,17 @@ import { DataTestDirective } from './data-test.directive';
 let fixture: ComponentFixture<TestComponent>;
 let des: DebugElement[];
 
-beforeEach(() => {
-  fixture = TestBed.configureTestingModule({
-    declarations: [ DataTestDirective, TestComponent]
-  })
-  .createComponent(TestComponent);
-
-  fixture.detectChanges();
-  des = fixture.debugElement.queryAll(By.directive(DataTestDirective));
-})
-
 describe('DataTestDirective', () => {
+  beforeEach(() => {
+    fixture = TestBed.configureTestingModule({
+      declarations: [ DataTestDirective, TestComponent]
+    })
+    .createComponent(TestComponent);
+
+    fixture.detectChanges();
+    des = fixture.debugElement.queryAll(By.directive(DataTestDirective));
+  })
+
   it('should find elements with hqrDataTest assigned', () => {
     expect(des.length).toBeGreaterThan(0);
   });
