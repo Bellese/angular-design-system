@@ -56,7 +56,7 @@ export { AppTableHeaderComponent } from './src/app/modules/table/table-header/ta
 export { AppTableRowComponent } from './src/app/modules/table/table-row/table-row.component'
 export { AppButtonComponent } from './src/app/modules/button/button.component';
 export { FileUploadDragDropDirective } from './src/app/directives/file-upload-drag-drop.directive';
-export { DataTestDirective } from './src/app/directives/data-test.directive'
+export { DataTestDirective } from './src/app/directives/data-test.directive';
 export { AppChoiceComponent } from './src/app/modules/choice/choice.component';
 export { AppModalComponent } from './src/app/modules/modal/modal.component';
 export { AppModalShellComponent } from './src/app/modules/modal-shell/modal-shell.component';
