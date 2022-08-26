@@ -1,3 +1,10 @@
+## [5.1.1](https://github.com/Bellese/angular-design-system/compare/v5.1.0...v5.1.1) (2022-08-26)
+
+
+### Bug Fixes
+
+* **DataTestDirective:** fix build, publish by adding public_api export ([#329](https://github.com/Bellese/angular-design-system/issues/329)) ([2afdf33](https://github.com/Bellese/angular-design-system/commit/2afdf337b0ffe1700a678880a8e8c854d8d32ab4))
+
 ## [5.1.0](https://github.com/Bellese/angular-design-system/compare/v5.0.2...v5.1.0) (2022-08-25)
 
 
