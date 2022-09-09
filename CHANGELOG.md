@@ -1,3 +1,10 @@
+## [5.2.0](https://github.com/Bellese/angular-design-system/compare/v5.1.1...v5.2.0) (2022-09-09)
+
+
+### Features
+
+* **table:** support tooltips in table-data component ([aaf8ee6](https://github.com/Bellese/angular-design-system/commit/aaf8ee62e5352d763c91609aff96edb5d3637c0d))
+
 ## [5.1.1](https://github.com/Bellese/angular-design-system/compare/v5.1.0...v5.1.1) (2022-08-26)
 
 
