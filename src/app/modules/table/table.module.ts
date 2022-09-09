@@ -29,6 +29,7 @@ import { DirectiveModule } from '../../directives/directive.module';
 // pipes modules
 import { PipesModule } from '../../pipes/pipes.module';
 import { FilterPipe } from '../../pipes/filter.pipe';
+import { TooltipModule } from '../tooltip/tooltip.module';
 
 @NgModule({
   imports: [
@@ -46,6 +47,7 @@ import { FilterPipe } from '../../pipes/filter.pipe';
     ModalShellModule,
     PopoverModule,
     FontAwesomeModule,
+    TooltipModule
   ],
   declarations: [
     AppTableComponent,
