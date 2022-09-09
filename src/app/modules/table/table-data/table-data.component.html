@@ -44,7 +44,10 @@
     [ngClass]="data.value.attr ? data.value.attr : false"
     [attr.title]="!data.value.title ? data.value.value : data.value.title"
     tabindex="0"
->   <app-tooltip *ngIf="data.value.tooltipModel" [tooltipModel] = 'data.value.tooltipModel'>
+>
+    <app-tooltip *ngIf="data.value.tooltipModel"
+        [tooltipModel]="data.value.tooltipModel"
+    >
     </app-tooltip>
     <fa-icon *ngIf="data.value.icon" [icon]="data.value.icon"></fa-icon>
 </div>
