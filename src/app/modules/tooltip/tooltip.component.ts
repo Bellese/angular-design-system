@@ -28,6 +28,7 @@ export class TooltipComponent implements OnInit {
       placement: this.tooltipModel.placement,
       duration: this.tooltipModel.transitionDuration,
       allowHTML: true,
+      interactive: this.tooltipModel.interactive
     };
   }
 }
