@@ -1,3 +1,10 @@
+## [5.2.1](https://github.com/Bellese/angular-design-system/compare/v5.2.0...v5.2.1) (2022-09-23)
+
+
+### Bug Fixes
+
+* **ci:** trigger release ([#332](https://github.com/Bellese/angular-design-system/issues/332)) ([b26c55c](https://github.com/Bellese/angular-design-system/commit/b26c55c52c8e2c00c6ebd5985c62ad0b2a04aa98))
+
 ## [5.2.0](https://github.com/Bellese/angular-design-system/compare/v5.1.1...v5.2.0) (2022-09-09)
 
 
