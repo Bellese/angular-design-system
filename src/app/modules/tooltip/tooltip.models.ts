@@ -27,6 +27,7 @@ export class TooltipModel extends AngularDesignSystemModel {
   triggerIcon?: IconDefinition;
   triggerClass?: string;
   tooltipContent: string;
+  interactive = false;
 
   constructor(options?: any) {
     super();
