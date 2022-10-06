@@ -109,7 +109,8 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   @Output('onScrolledToBottom')
   onScrolledToBottom: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  @ViewChild('ccnList') ccnList: ElementRef;
+  @ViewChild('prvdrDropdown') prvdrDropdown: ElementRef;
+  @ViewChild('prvdrList') prvdrList: ElementRef;
 
   public focusElement = -1;
 
@@ -347,7 +348,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
     }
   }
   toggleDropdownWithArrowDown(evt) {
-    console.log('arrows back');
+    console.log('onDasher');
     evt.preventDefault();
     if (this.disabled && this.settings.singleSelection) {
       return;
@@ -362,26 +363,41 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
     //   this.ccnList.nativeElement.focus();
     // });
 
+
   }
-  onLocationFocus() {
-    this.focusElement = 0;
-    console.log('focuselem ' + this.focusElement);
-  }
+  // onLocationFocus() {
+  //   this.focusElement = 0;
+  //   console.log('focuselem ' + this.focusElement);
+  // }
   onLocationBlur() {
     this.focusElement = -1;
   }
 
-  onArrowUp() {
+  onArrowUp(e) {
+    e.preventDefault();
     if (this.focusElement > 0) {
       this.focusElement--;
       console.log('arrowUp' + this.focusElement);
+        console.log('we scrollin\' !');
+        document.getElementById('listElem' + this.focusElement).scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest'
+        });
     }
   }
 
-  onArrowDown() {
+  onArrowDown(e) {
+    e.preventDefault();
     if (this.focusElement <= this.data.length - 2) {
       this.focusElement++;
       console.log('arrowDown' + this.focusElement);
+        console.log('we scrollin\' !');
+        document.getElementById('listElem' + this.focusElement).scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest'
+        });
     }
   }
 

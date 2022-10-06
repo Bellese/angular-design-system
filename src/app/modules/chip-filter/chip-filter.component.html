@@ -8,7 +8,7 @@
   }}</span>
 </label>
 
-<div
+<div #prvdrDropdown
   tabindex="0"
   (blur)="onTouched()"
   class="multiselect-dropdown ds-c-field"
@@ -16,8 +16,8 @@
   (clickOutside)="closeDropdown()"
   (keydown.enter)="toggleDropdownWithArrowDown($event)"
   (blur)="onLocationBlur()"
-  (keydown.ArrowUp)="onArrowUp()"
-  (keydown.ArrowDown)="onArrowDown()"
+  (keydown.ArrowUp)="onArrowUp($event)"
+  (keydown.ArrowDown)="onArrowDown($event)"
 >
   <div id="chip-container">
     <div tabindex="-1" class="dropdown-btn" (click)="toggleDropdown($event)">
@@ -91,11 +91,11 @@
         >
         </app-spinner>
       </div>
-      <li #ccnList [ngClass]="{'focus-background': focusElement == ccnList.tabIndex}"
-        *ngFor="let item of data | chipSelectFilter: filter; let i = index"
+      <li #prvdrList id="{{ 'listElem' + i }}" [ngClass]="{'focus-background': focusElement == prvdrList.tabIndex}"
+          *ngFor="let item of data | chipSelectFilter: filter; let i = index"
           tabIndex="{{i}}"
-        (click)="onItemClick($event, item)"
-        class="multiselect-item-checkbox"
+          (click)="onItemClick($event, item)"
+          class="multiselect-item-checkbox"
       >
         <input
           [type]="settings.singleSelection ? 'radio' : 'checkbox'"
