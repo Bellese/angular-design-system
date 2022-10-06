@@ -10,7 +10,7 @@ import {
   ViewEncapsulation,
   OnInit,
   OnChanges,
-  SimpleChanges,
+  SimpleChanges, ViewChild, ElementRef,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { ListItem, IDropdownSettings } from './chip-filter.model';
@@ -36,6 +36,12 @@ const noop = () => {};
   encapsulation: ViewEncapsulation.None,
 })
 export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnChanges {
+
+  constructor(private cdr: ChangeDetectorRef, private listFilterPipe: ChipFilterPipe) {
+    this.searchQueryChanged.pipe(debounceTime(1000)).subscribe((data) => {
+      this.onFilterChange.emit(data);
+    });
+  }
   public _sourceDataType = null;
   public _sourceDataFields: string[] = [];
   public selectedItems: ListItem[] = [];
@@ -103,6 +109,10 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   @Output('onScrolledToBottom')
   onScrolledToBottom: EventEmitter<boolean> = new EventEmitter<boolean>();
 
+  @ViewChild('ccnList') ccnList: ElementRef;
+
+  public focusElement = -1;
+
   @HostListener('scroll', ['$event'])
   onScroll(event: any) {
     if (event.target.offsetHeight + event.target.scrollTop >= event.target.scrollHeight) {
@@ -110,16 +120,13 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
     }
   }
 
-  constructor(private cdr: ChangeDetectorRef, private listFilterPipe: ChipFilterPipe) {
-    this.searchQueryChanged.pipe(debounceTime(1000)).subscribe((data) => {
-      this.onFilterChange.emit(data);
-    });
-  }
-
   ngOnInit() {
     this.settings = this.setSettings(this.settings);
     this.setData(this.data);
     this.filter = new ListItem(this.data);
+    document.addEventListener('focusin', function() {
+      console.log('focused: ', document.activeElement);
+    }, true);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -329,6 +336,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   }
 
   toggleDropdown(evt) {
+    console.log('ok');
     evt.preventDefault();
     if (this.disabled && this.settings.singleSelection) {
       return;
@@ -336,6 +344,44 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
     this.settings.defaultOpen = !this.settings.defaultOpen;
     if (!this.settings.defaultOpen) {
       this.onDropDownClose.emit();
+    }
+  }
+  toggleDropdownWithArrowDown(evt) {
+    console.log('arrows back');
+    evt.preventDefault();
+    if (this.disabled && this.settings.singleSelection) {
+      return;
+    }
+    this.settings.defaultOpen = !this.settings.defaultOpen;
+    if (!this.settings.defaultOpen) {
+      this.onDropDownClose.emit();
+    }
+    this.focusElement = 0;
+    console.log('focuselem ' + this.focusElement);
+    // setTimeout(() => {
+    //   this.ccnList.nativeElement.focus();
+    // });
+
+  }
+  onLocationFocus() {
+    this.focusElement = 0;
+    console.log('focuselem ' + this.focusElement);
+  }
+  onLocationBlur() {
+    this.focusElement = -1;
+  }
+
+  onArrowUp() {
+    if (this.focusElement > 0) {
+      this.focusElement--;
+      console.log('arrowUp' + this.focusElement);
+    }
+  }
+
+  onArrowDown() {
+    if (this.focusElement <= this.data.length - 2) {
+      this.focusElement++;
+      console.log('arrowDown' + this.focusElement);
     }
   }
 
