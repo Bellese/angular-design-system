@@ -10,7 +10,7 @@ import {
   ViewEncapsulation,
   OnInit,
   OnChanges,
-  SimpleChanges, ViewChild, ElementRef,
+  SimpleChanges,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { ListItem, IDropdownSettings } from './chip-filter.model';
@@ -36,12 +36,6 @@ const noop = () => {};
   encapsulation: ViewEncapsulation.None,
 })
 export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnChanges {
-
-  constructor(private cdr: ChangeDetectorRef, private listFilterPipe: ChipFilterPipe) {
-    this.searchQueryChanged.pipe(debounceTime(1000)).subscribe((data) => {
-      this.onFilterChange.emit(data);
-    });
-  }
   public _sourceDataType = null;
   public _sourceDataFields: string[] = [];
   public selectedItems: ListItem[] = [];
@@ -109,16 +103,17 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   @Output('onScrolledToBottom')
   onScrolledToBottom: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  @ViewChild('prvdrDropdown') prvdrDropdown: ElementRef;
-  @ViewChild('prvdrList') prvdrList: ElementRef;
-
-  public focusElement = -1;
-
   @HostListener('scroll', ['$event'])
   onScroll(event: any) {
     if (event.target.offsetHeight + event.target.scrollTop >= event.target.scrollHeight) {
       this.onScrolledToBottom.emit(true);
     }
+  }
+
+  constructor(private cdr: ChangeDetectorRef, private listFilterPipe: ChipFilterPipe) {
+    this.searchQueryChanged.pipe(debounceTime(1000)).subscribe((data) => {
+      this.onFilterChange.emit(data);
+    });
   }
 
   ngOnInit() {
@@ -337,7 +332,6 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   }
 
   toggleDropdown(evt) {
-    console.log('ok');
     evt.preventDefault();
     if (this.disabled && this.settings.singleSelection) {
       return;
@@ -345,59 +339,6 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
     this.settings.defaultOpen = !this.settings.defaultOpen;
     if (!this.settings.defaultOpen) {
       this.onDropDownClose.emit();
-    }
-  }
-  toggleDropdownWithArrowDown(evt) {
-    console.log('onDasher');
-    evt.preventDefault();
-    if (this.disabled && this.settings.singleSelection) {
-      return;
-    }
-    this.settings.defaultOpen = !this.settings.defaultOpen;
-    if (!this.settings.defaultOpen) {
-      this.onDropDownClose.emit();
-    }
-    this.focusElement = 0;
-    console.log('focuselem ' + this.focusElement);
-    // setTimeout(() => {
-    //   this.ccnList.nativeElement.focus();
-    // });
-
-
-  }
-  // onLocationFocus() {
-  //   this.focusElement = 0;
-  //   console.log('focuselem ' + this.focusElement);
-  // }
-  onLocationBlur() {
-    this.focusElement = -1;
-  }
-
-  onArrowUp(e) {
-    e.preventDefault();
-    if (this.focusElement > 0) {
-      this.focusElement--;
-      console.log('arrowUp' + this.focusElement);
-        console.log('we scrollin\' !');
-        document.getElementById('listElem' + this.focusElement).scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-          inline: 'nearest'
-        });
-    }
-  }
-
-  onArrowDown(e) {
-    e.preventDefault();
-    if (this.focusElement <= this.data.length - 2) {
-      this.focusElement++;
-      console.log('arrowDown' + this.focusElement);
-        console.log('we scrollin\' !');
-        document.getElementById('listElem' + this.focusElement).scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-          inline: 'nearest'
-        });
     }
   }
 
@@ -440,4 +381,68 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
     }
     return fields;
   }
+
+  // Keyboard control functions
+  focusItem = -1;
+
+  onLocationBlur() {
+    this.focusItem = -1;
+  }
+
+  handleArrowDown(e) {
+    if (!this.settings.defaultOpen) {
+      document.getElementById('dropBtn').focus(); // Without this arrow down doesn't enter text box.
+      this.toggleDropdown(e);
+
+      // If we are including 'Select All' start there.
+      this.focusItem = document.getElementById('listItem0') ? 0 : 1;
+      console.log('start item ' + this.focusItem);
+    } else {
+      this.focusNext(e);
+    }
+  }
+
+  focusNext(e) {
+    e.preventDefault();
+    if (this.focusItem < this.data.length && this.settings.defaultOpen) {
+      this.focusItem++;
+      console.log('down focuselem ' + this.focusItem);
+      document.getElementById('listItem' + this.focusItem).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+      });
+
+      if (this.focusItem === 1) {
+        setTimeout(() => {
+          document.getElementById('listItem1').focus();
+        });
+      }
+    }
+  }
+
+  focusPrevious(e) {
+    e.preventDefault();
+    if (this.focusItem > 0) {
+      this.focusItem--;
+      console.log('up focuselem ' + this.focusItem);
+      document.getElementById('listItem' + this.focusItem).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+      });
+    }
+  }
+
+  selectOnEnter(e) {
+    console.log('enter! ' + this.focusItem);
+    const itemsBeforePvrdrList = 2;
+
+  if (this.focusItem === 0) {
+      this.toggleSelectAll();
+    } else if (this.focusItem > 0) {
+      this.onItemClick(e, this.data[this.focusItem - itemsBeforePvrdrList]);
+    }
+  }
+
 }
