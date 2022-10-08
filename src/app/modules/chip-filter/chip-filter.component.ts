@@ -39,6 +39,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   public _sourceDataType = null;
   public _sourceDataFields: string[] = [];
   public selectedItems: ListItem[] = [];
+  public filteredData: ListItem[] = [];
   public icon = faTimes;
   public filter: ListItem;
   public defaultSettings: IDropdownSettings = {
@@ -73,6 +74,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
 
   private searchQueryChanged: Subject<string> = new Subject<string>();
   public searchFilter: string;
+  public focusItem = 0;
 
   @Input() disabled = false;
 
@@ -120,9 +122,6 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
     this.settings = this.setSettings(this.settings);
     this.setData(this.data);
     this.filter = new ListItem(this.data);
-    document.addEventListener('focusin', function() {
-      console.log('focused: ', document.activeElement);
-    }, true);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -142,10 +141,10 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
       typeof item === 'string' || typeof item === 'number'
         ? new ListItem(item)
         : new ListItem({
-            id: item[this.settings.idField],
-            text: item[this.settings.textField],
-            isDisabled: item[this.settings.disabledField],
-          })
+          id: item[this.settings.idField],
+          text: item[this.settings.textField],
+          isDisabled: item[this.settings.disabledField],
+        })
     );
   }
 
@@ -158,6 +157,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   }
 
   onFilterTextChange($event) {
+    this.focusItem = 2; // item 2: search textbox
     this.searchFilter = $event;
     this.searchQueryChanged.next($event);
   }
@@ -194,10 +194,10 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
               typeof firstItem === 'string' || typeof firstItem === 'number'
                 ? new ListItem(firstItem)
                 : new ListItem({
-                    id: firstItem[this.settings.idField],
-                    text: firstItem[this.settings.textField],
-                    isDisabled: firstItem[this.settings.disabledField],
-                  }),
+                  id: firstItem[this.settings.idField],
+                  text: firstItem[this.settings.textField],
+                  isDisabled: firstItem[this.settings.disabledField],
+                }),
             ];
           }
         } catch (e) {
@@ -208,10 +208,10 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
           typeof item === 'string' || typeof item === 'number'
             ? new ListItem(item)
             : new ListItem({
-                id: item[this.settings.idField],
-                text: item[this.settings.textField],
-                isDisabled: item[this.settings.disabledField],
-              })
+              id: item[this.settings.idField],
+              text: item[this.settings.textField],
+              isDisabled: item[this.settings.disabledField],
+            })
         );
         if (this.settings.limitSelection > 0) {
           this.selectedItems = data.splice(0, this.settings.limitSelection);
@@ -238,7 +238,6 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   // Set touched on blur
   @HostListener('blur')
   public onTouched() {
-    this.closeDropdown();
     this.onTouchedCallback();
   }
 
@@ -343,6 +342,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   }
 
   closeDropdown() {
+    this.focusItem = 0;
     this.searchFilter = '';
     this.settings.defaultOpen = false;
     // clear search text
@@ -383,65 +383,61 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   }
 
   // Keyboard control functions
-  focusItem = -1;
-
-  onLocationBlur() {
-    this.focusItem = -1;
-  }
-
   handleArrowDown(e) {
     if (!this.settings.defaultOpen) {
-      document.getElementById('dropBtn').focus(); // Without this arrow down doesn't enter text box.
       this.toggleDropdown(e);
-
       // If we are including 'Select All' start there.
-      this.focusItem = document.getElementById('listItem0') ? 0 : 1;
-      console.log('start item ' + this.focusItem);
+      this.focusItem = document.getElementById('selectAll') ? 1 : 2;
+      this.scrollToItem();
     } else {
-      this.focusNext(e);
+      this.onArrowDown(e);
     }
   }
 
-  focusNext(e) {
+  onArrowDown(e) {
     e.preventDefault();
-    if (this.focusItem < this.data.length && this.settings.defaultOpen) {
+    const totalElements  = this.filteredData.length + 2;
+    if (this.focusItem < totalElements) {
       this.focusItem++;
-      console.log('down focuselem ' + this.focusItem);
-      document.getElementById('listItem' + this.focusItem).scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest'
-      });
+      this.scrollToItem();
+    }
+  }
 
-      if (this.focusItem === 1) {
-        setTimeout(() => {
-          document.getElementById('listItem1').focus();
-        });
+  onArrowUp(e) {
+    e.preventDefault();
+    const firstItem = document.getElementById('selectAll') ? 1 : 2;
+    if (this.focusItem > firstItem) {
+      this.focusItem--;
+      this.scrollToItem();
+    }
+  }
+
+  scrollToItem() {
+    if (this.focusItem === 2) {
+      setTimeout(() => {
+        document.getElementById('search').focus();
+      });
+    } else if (this.focusItem > 2) {
+      const scrollItem = document.getElementById('listElem' + this.focusItem);
+      if (scrollItem) {
+        scrollItem.scrollIntoView(false);
       }
     }
   }
 
-  focusPrevious(e) {
-    e.preventDefault();
-    if (this.focusItem > 0) {
-      this.focusItem--;
-      console.log('up focuselem ' + this.focusItem);
-      document.getElementById('listItem' + this.focusItem).scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest'
-      });
-    }
+  loadFilterList(filteredItems) {
+    this.filteredData = filteredItems;
   }
 
   selectOnEnter(e) {
-    console.log('enter! ' + this.focusItem);
-    const itemsBeforePvrdrList = 2;
-
-  if (this.focusItem === 0) {
+    /* The filteredData list starts with index:0 and there are 2 list items
+   (Select All & Search) before the filteredData items are displayed
+   so the offset is 3. For example the 3rd focusItem is filteredData[0]  */
+    const itemOffset = 3;
+    if (this.focusItem === 1) {
       this.toggleSelectAll();
-    } else if (this.focusItem > 0) {
-      this.onItemClick(e, this.data[this.focusItem - itemsBeforePvrdrList]);
+    } else if (this.focusItem >= itemOffset) {
+      this.onItemClick(e, this.filteredData[this.focusItem - itemOffset]);
     }
   }
 
