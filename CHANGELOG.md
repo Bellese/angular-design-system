@@ -1,3 +1,16 @@
+## [5.2.2](https://github.com/Bellese/angular-design-system/compare/v5.2.1...v5.2.2) (2022-10-11)
+
+
+### Bug Fixes
+
+* **chip-filter.component.html, chip-filter.component.ts, chip-filter.component.scss:** highlighting providers with arrow keys working. ([db2e854](https://github.com/Bellese/angular-design-system/commit/db2e8541ebdfb087cce2c12e7a7dafbffd10e806))
+* **chip-filter.component.html, chip-filter.component.ts:** all functionality working. ([cc6e370](https://github.com/Bellese/angular-design-system/commit/cc6e370b0670917e6d94673187f7b67b8010f5aa))
+* **chip-filter.component.html, chip-filter.component.ts:** entering search txt box with arrows working. ([ff53c0b](https://github.com/Bellese/angular-design-system/commit/ff53c0bc27d28cfa79fbd13ea2dde56808dff5d2))
+* **chip-filter.component.html, chip-filter.component.ts:** scrolling in dropDown with arrows working. ([2a508d3](https://github.com/Bellese/angular-design-system/commit/2a508d38ca9b66d23cb6414bfff8b40472f8e16f))
+* **chip-filter.component.ts:** add constant focus item values. ([ebdc3ad](https://github.com/Bellese/angular-design-system/commit/ebdc3ad727515035ccd783e3d9ac2b81cb37b6de))
+* **chip-filter.component.ts:** add search const for onFilterTextChange. ([abc8244](https://github.com/Bellese/angular-design-system/commit/abc82440a79a876faaacaf74c00dba5834833778))
+* **chip-filter:** remove typo in tabindex value ([c657c34](https://github.com/Bellese/angular-design-system/commit/c657c34a98b5719d65baa0bd0238e85d0906f501))
+
 ## [5.2.1](https://github.com/Bellese/angular-design-system/compare/v5.2.0...v5.2.1) (2022-09-23)
 
 
