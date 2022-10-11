@@ -159,7 +159,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   }
 
   onFilterTextChange($event) {
-    this.focusItem = 2; // item 2: search textbox
+    this.focusItem = AppChipFilterComponent.searchItem;
     this.searchFilter = $event;
     this.searchQueryChanged.next($event);
   }
