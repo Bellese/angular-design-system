@@ -36,6 +36,8 @@ const noop = () => {};
   encapsulation: ViewEncapsulation.None,
 })
 export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnChanges {
+  public static readonly selectAllItem = 1;
+  public static readonly searchItem = 2;
   public _sourceDataType = null;
   public _sourceDataFields: string[] = [];
   public selectedItems: ListItem[] = [];
@@ -386,8 +388,8 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   handleArrowDown(e) {
     if (!this.settings.defaultOpen) {
       this.toggleDropdown(e);
-      // If we are including 'Select All' start there.
-      this.focusItem = document.getElementById('selectAll') ? 1 : 2;
+      // If we are including 'Select All' start there, otherwise start with the search text box.
+      this.focusItem = document.getElementById('selectAll') ? AppChipFilterComponent.selectAllItem : AppChipFilterComponent.searchItem;
       this.scrollToItem();
     } else {
       this.onArrowDown(e);
@@ -405,7 +407,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
 
   onArrowUp(e) {
     e.preventDefault();
-    const firstItem = document.getElementById('selectAll') ? 1 : 2;
+    const firstItem = document.getElementById('selectAll') ? AppChipFilterComponent.selectAllItem : AppChipFilterComponent.searchItem;
     if (this.focusItem > firstItem) {
       this.focusItem--;
       this.scrollToItem();
@@ -413,11 +415,11 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   }
 
   scrollToItem() {
-    if (this.focusItem === 2) {
+    if (this.focusItem === AppChipFilterComponent.searchItem) {
       setTimeout(() => {
         document.getElementById('search').focus();
       });
-    } else if (this.focusItem > 2) {
+    } else if (this.focusItem > AppChipFilterComponent.searchItem) {
       const scrollItem = document.getElementById('listElem' + this.focusItem);
       if (scrollItem) {
         scrollItem.scrollIntoView(false);
@@ -434,7 +436,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
    (Select All & Search) before the filteredData items are displayed
    so the offset is 3. For example the 3rd focusItem is filteredData[0]  */
     const itemOffset = 3;
-    if (this.focusItem === 1) {
+    if (this.focusItem === AppChipFilterComponent.selectAllItem) {
       this.toggleSelectAll();
     } else if (this.focusItem >= itemOffset) {
       this.onItemClick(e, this.filteredData[this.focusItem - itemOffset]);
