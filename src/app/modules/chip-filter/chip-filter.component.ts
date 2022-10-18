@@ -36,6 +36,12 @@ const noop = () => {};
   encapsulation: ViewEncapsulation.None,
 })
 export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnChanges {
+  /**
+   * The filteredData list starts with index:0 and there are 2 list items
+   * (ids: selectAll & search) before the filteredData items are displayed
+   * so the offset is 3. For example the 3rd focusItem is filteredData[0]
+   */
+  public static readonly itemOffset = 3;
   public static readonly selectAllItem = 1;
   public static readonly searchItem = 2;
   public _sourceDataType = null;
@@ -387,10 +393,10 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   // Keyboard control functions
   toggleDropdownOnEnter(e) {
     if (!this.settings.defaultOpen) {
+      this.toggleDropdown(e);
       // If we are including 'Select All' start there, otherwise start with the search text box.
       this.focusItem = document.getElementById('selectAll') ? AppChipFilterComponent.selectAllItem : AppChipFilterComponent.searchItem;
       this.scrollToItem();
-      this.toggleDropdown(e);
     } else {
       this.closeDropdown();
       document.getElementById('dropDown').focus();
@@ -421,15 +427,21 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   }
 
   scrollToItem() {
-    if (this.focusItem === AppChipFilterComponent.searchItem) {
+    if (this.focusItem === AppChipFilterComponent.selectAllItem) {
+      setTimeout(() => {
+      document.getElementById('selectAll').focus();
+      });
+    } else if (this.focusItem === AppChipFilterComponent.searchItem) {
       setTimeout(() => {
         document.getElementById('search').focus();
       });
-    } else if (this.focusItem > AppChipFilterComponent.searchItem) {
+    } else {
       const scrollItem = document.getElementById('listElem' + this.focusItem);
       if (scrollItem) {
         scrollItem.scrollIntoView(false);
       }
+      const elemNumber = this.focusItem - AppChipFilterComponent.itemOffset;
+      document.getElementById('listElem' + elemNumber).focus();
     }
   }
 
@@ -438,18 +450,41 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   }
 
   selectOnSpace(e) {
-    /* The filteredData list starts with index:0 and there are 2 list items
-   (Select All & Search) before the filteredData items are displayed
-   so the offset is 3. For example the 3rd focusItem is filteredData[0]  */
     if (this.focusItem !== AppChipFilterComponent.searchItem && this.settings.defaultOpen) {
       e.preventDefault();
-      const itemOffset = 3;
       if (this.focusItem === AppChipFilterComponent.selectAllItem) {
         this.toggleSelectAll();
-      } else if (this.focusItem >= itemOffset) {
-        this.onItemClick(e, this.filteredData[this.focusItem - itemOffset]);
+      } else if (this.focusItem >= AppChipFilterComponent.itemOffset) {
+        this.onItemClick(e, this.filteredData[this.focusItem - AppChipFilterComponent.itemOffset]);
       }
+    }
+    this.scrollToItem();
+  }
+
+  getItemAriaLabel(item, isSelected) {
+    if (isSelected) {
+      return item.text + 'selected. Activate enter to close listbox, or use arrow up and down keys to scroll to another item.';
+    } else {
+      return 'activate space bar to select ' + item.text + '.';
     }
   }
 
+  getSelectAllAriaLabel() {
+    if (this.isAllItemsSelected()) {
+      return 'All providers selected. Activate enter to close listbox.';
+    } else {
+      return 'activate space bar to select all providers, or use arrow up and down keys to scroll to another item in this listbox.';
+    }
+  }
+
+  /**
+   * If this is called and the drop-down is open, the keyboard has unexpectedly
+   * lost focus. In that case this method calls scrollToItem() to get it back.
+   */
+  @HostListener('window:keyup', ['$event'])
+  keyEvent() {
+    if (this.settings.defaultOpen) {
+      this.scrollToItem();
+    }
+  }
 }
