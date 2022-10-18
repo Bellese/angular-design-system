@@ -385,32 +385,38 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   }
 
   // Keyboard control functions
-  handleArrowDown(e) {
+  toggleDropdownOnEnter(e) {
     if (!this.settings.defaultOpen) {
-      this.toggleDropdown(e);
       // If we are including 'Select All' start there, otherwise start with the search text box.
       this.focusItem = document.getElementById('selectAll') ? AppChipFilterComponent.selectAllItem : AppChipFilterComponent.searchItem;
       this.scrollToItem();
+      this.toggleDropdown(e);
     } else {
-      this.onArrowDown(e);
+      this.closeDropdown();
+      document.getElementById('dropDown').focus();
     }
+
   }
 
   onArrowDown(e) {
-    e.preventDefault();
-    const totalElements  = this.filteredData.length + 2;
-    if (this.focusItem < totalElements) {
-      this.focusItem++;
-      this.scrollToItem();
+    if (this.settings.defaultOpen) {
+      e.preventDefault();
+      const totalElements = this.filteredData.length + 2;
+      if (this.focusItem < totalElements) {
+        this.focusItem++;
+        this.scrollToItem();
+      }
     }
   }
 
   onArrowUp(e) {
-    e.preventDefault();
-    const firstItem = document.getElementById('selectAll') ? AppChipFilterComponent.selectAllItem : AppChipFilterComponent.searchItem;
-    if (this.focusItem > firstItem) {
-      this.focusItem--;
-      this.scrollToItem();
+    if (this.settings.defaultOpen) {
+      e.preventDefault();
+      const firstItem = document.getElementById('selectAll') ? AppChipFilterComponent.selectAllItem : AppChipFilterComponent.searchItem;
+      if (this.focusItem > firstItem) {
+        this.focusItem--;
+        this.scrollToItem();
+      }
     }
   }
 
@@ -431,15 +437,18 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
     this.filteredData = filteredItems;
   }
 
-  selectOnEnter(e) {
+  selectOnSpace(e) {
     /* The filteredData list starts with index:0 and there are 2 list items
    (Select All & Search) before the filteredData items are displayed
    so the offset is 3. For example the 3rd focusItem is filteredData[0]  */
-    const itemOffset = 3;
-    if (this.focusItem === AppChipFilterComponent.selectAllItem) {
-      this.toggleSelectAll();
-    } else if (this.focusItem >= itemOffset) {
-      this.onItemClick(e, this.filteredData[this.focusItem - itemOffset]);
+    if (this.focusItem !== AppChipFilterComponent.searchItem && this.settings.defaultOpen) {
+      e.preventDefault();
+      const itemOffset = 3;
+      if (this.focusItem === AppChipFilterComponent.selectAllItem) {
+        this.toggleSelectAll();
+      } else if (this.focusItem >= itemOffset) {
+        this.onItemClick(e, this.filteredData[this.focusItem - itemOffset]);
+      }
     }
   }
 

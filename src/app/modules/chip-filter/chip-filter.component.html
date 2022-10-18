@@ -8,16 +8,16 @@
     }}</span>
 </label>
 
-<div
+<div id="dropDown"
      tabindex="0"
      (blur)="onTouched()"
      class="multiselect-dropdown ds-c-field"
      [class.disabled]="disabled"
      (clickOutside)="closeDropdown()"
-     (keydown.ArrowDown)="handleArrowDown($event)"
-     (keydown.ArrowUp)="onArrowUp($event)"
-     (keydown.enter)="selectOnEnter($event)"
-     (keydown.tab)="closeDropdown()"
+     (keydown.enter)="toggleDropdownOnEnter($event)"
+     (keydown.arrowDown)="onArrowDown($event)"
+     (keydown.arrowUp)="onArrowUp($event)"
+     (keydown.space)="selectOnSpace($event)"
 
 >
   <div id="chip-container">
