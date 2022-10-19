@@ -8,16 +8,17 @@
     }}</span>
 </label>
 
-<div
+<div id="dropDown"
      tabindex="0"
+     [attr.aria-label]="'Providers listbox, activate enter to search for a provider.'"
      (blur)="onTouched()"
      class="multiselect-dropdown ds-c-field"
      [class.disabled]="disabled"
      (clickOutside)="closeDropdown()"
-     (keydown.ArrowDown)="handleArrowDown($event)"
-     (keydown.ArrowUp)="onArrowUp($event)"
-     (keydown.enter)="selectOnEnter($event)"
-     (keydown.tab)="closeDropdown()"
+     (keydown.enter)="toggleDropdownOnEnter($event)"
+     (keydown.arrowDown)="onArrowDown($event)"
+     (keydown.arrowUp)="onArrowUp($event)"
+     (keydown.space)="selectOnSpace($event)"
 
 >
   <div id="chip-container">
@@ -47,7 +48,7 @@
   </div>
   <div class="dropdown-list" [hidden]="!settings?.defaultOpen">
     <ul class="item1">
-      <li  id="selectAll" [ngClass]="{'ds-u-fill--primary-alt-lightest': focusItem == 1}"
+      <li tabindex="0" id="selectAll" [ngClass]="{'ds-u-fill--primary-alt-lightest': focusItem == 1}"
         (click)="toggleSelectAll()"
         *ngIf="
           (data.length > 0 || settings.allowRemoteDataSearch) &&
@@ -61,7 +62,7 @@
       >
         <input
           type="checkbox"
-          aria-label="multiselect-select-all"
+          [attr.aria-label]="getSelectAllAriaLabel()"
           [checked]="isAllItemsSelected()"
           [disabled]="disabled || isLimitSelectionReached() || loading"
         />
@@ -72,12 +73,14 @@
         *ngIf="(data.length > 0 || settings.allowRemoteDataSearch) && settings.allowSearchFilter"
       >
         <input id="search"
-          type="text"
-          aria-label="multiselect-search"
-          [readOnly]="disabled || loading"
-          [placeholder]="settings.searchPlaceholder"
-          [(ngModel)]="filter.text"
-          (ngModelChange)="onFilterTextChange($event)"
+               type="text"
+               [attr.aria-label]="'text field, search by Provider Name or ID, or use arrow up and down keys to scroll to another item in this listbox'"
+               role="searchbox"
+               tabindex="1"
+               [readOnly]="disabled || loading"
+               [placeholder]="settings.searchPlaceholder"
+               [(ngModel)]="filter.text"
+               (ngModelChange)="onFilterTextChange($event)"
         />
       </li>
     </ul>
@@ -92,16 +95,16 @@
         >
         </app-spinner>
       </div>
-      <li #prvdrList id="{{ 'listElem' + i }}" [ngClass]="{'ds-u-fill--primary-alt-lightest': focusItem == prvdrList.tabIndex + 3}"
+      <li #prvdrList id="{{ 'listElem' + i }}" [ngClass]="{'ds-u-fill--primary-alt-lightest': focusItem == prvdrList.tabIndex + 1}"
           *ngFor="let item of data | chipSelectFilter: filter as filterItems; let i = index let isLast=last"
-          tabIndex="{{i}}"
+          tabIndex="{{i+2}}"
           (click)="onItemClick($event, item)"
           class="multiselect-item-checkbox"
       >
         <div *ngIf="isLast">{{loadFilterList(filterItems)}}</div>
         <input
           [type]="settings.singleSelection ? 'radio' : 'checkbox'"
-          aria-label="multiselect-item"
+          [attr.aria-label]="getItemAriaLabel(item, isSelected(item))"
           [checked]="isSelected(item)"
           [disabled]="disabled || (isLimitSelectionReached() && !isSelected(item)) || item.isDisabled || loading"
         />
