@@ -1,3 +1,11 @@
+## [5.3.2](https://github.com/Bellese/angular-design-system/compare/v5.3.1...v5.3.2) (2022-10-19)
+
+
+### Bug Fixes
+
+* **chip-filter.component.ts, chip-filter.component.html:** update ARIA text & fix focus issues. ([28d6c76](https://github.com/Bellese/angular-design-system/commit/28d6c76f920b4d6c5f56ae983edcdf2d6eb3dbc0))
+* **chip-filter.component.ts, chip-filter.component.html:** update keys that control multi-select. ([9d9e111](https://github.com/Bellese/angular-design-system/commit/9d9e111f13210eff8aa6fbcd183b651e23ab7614))
+
 ## [5.2.2](https://github.com/Bellese/angular-design-system/compare/v5.2.1...v5.2.2) (2022-10-11)
 
 
