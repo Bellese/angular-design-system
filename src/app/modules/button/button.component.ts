@@ -9,7 +9,7 @@ import { ButtonInputTypeEnum } from './button.models';
 export class AppButtonComponent {
   @Input() buttonInputType: ButtonInputTypeEnum = ButtonInputTypeEnum.BUTTON;
   @Input() ariaLabel: string;
-  @Input() buttonType: string;
+  @Input() buttonType: string = 'ds-c-button--primary';
   @Input() buttonID: string;
   @Input() ariaSort: 'ascending' | 'descending' | 'none';
   @Input() dataAutoId: string;
