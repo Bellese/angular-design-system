@@ -1,4 +1,5 @@
 <section class="ds-l-container preview__grid">
+<br>
   <!-- UNCOMMENT CODE ON THIS PAGE TO SEE EXAMPLES OF COMPONENTS
 <br>
 <br> -->
@@ -65,6 +66,43 @@
         you need to add more document examples<br />
         i have added more examples
 </app-alert> -->
+
+<h2>Panel</h2>
+
+<app-panel
+    (panelClick) = "announce($event)"
+    title ='Accordion Example with a really long title to see if the left icon overlaps.'
+    extTitleClass = ''
+    dataAutoId = 'dataID'
+    [extTitle] = true
+    [expand] = true
+    expandedClass = 'ds-u-fill--gray-lightest ds-u-border-top--0 ds-u-border--1 ds-u-border--dark ds-u-padding--2'
+    [openAll] = false>
+    <span>
+        Additional Title
+    </span>
+    <div>
+        Content Structure
+    </div>
+</app-panel>
+
+<app-panel
+    (panelClick) = "announce($event)"
+    dataAutoId = 'dataID'
+    [extTitle] = true
+    [expand] = true
+    expandedClass = 'ds-u-fill--gray-lightest ds-u-border-top--0 ds-u-border--1 ds-u-border--dark ds-u-padding--2'
+    [openAll] = false>
+    <ng-container>
+      <div>
+        Accordion Example maybe with a button or whatever just to see what happens.
+      </div>
+    </ng-container>
+    <span><app-button>DELETE EVERYTHING</app-button></span>
+    <div>
+      And then everything else. I hope you're enjoying yourself. Lorem Ipsum etc etc etc. At first I thought I'd type "the rain in Spain..." and so forth, then "falls mainly only the plain" triggered "but I get up again" from Chumbawumba's hit song "Tubthumping". What on Earth.
+    </div>
+</app-panel>
 
 <h2>Alert</h2>
 <span><b>Alert - all options: </b></span>
