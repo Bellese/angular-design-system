@@ -28,14 +28,14 @@
       <div class="ds-l-row">
         <!-- Left Icon -->
         <div
-          class="ds-l-col--auto"
+          class="ds-l-col--auto ds-u-padding-right--0"
           [ngClass]="plusIconClass"
           *ngIf="iconPlacement === PanelIconPlacementEnum.LEFT"
         >
           <ng-container *ngTemplateOutlet="plusIcon"></ng-container>
         </div>
         <!-- Title -->
-        <div class="title ds-l-col--auto ds-u-padding-left--0">
+        <div class="title ds-l-col--11 ds-u-justify-content--start">
           <ng-container *ngIf="title; else titleComplex">{{
             titleExpanded && (expand || openAll) ? titleExpanded : title
           }}</ng-container>
