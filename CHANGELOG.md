@@ -1,3 +1,10 @@
+## [5.3.3](https://github.com/Bellese/angular-design-system/compare/v5.3.2...v5.3.3) (2022-10-28)
+
+
+### Bug Fixes
+
+* **panel, button:** responsive icon, title spacing. Higher contrast button ([#336](https://github.com/Bellese/angular-design-system/issues/336)) ([093847a](https://github.com/Bellese/angular-design-system/commit/093847a1443fed03af7980d580c79333a9828465))
+
 ## [5.3.2](https://github.com/Bellese/angular-design-system/compare/v5.3.1...v5.3.2) (2022-10-19)
 
 
