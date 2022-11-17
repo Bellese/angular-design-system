@@ -492,3 +492,44 @@ TABLE AND PAGINATION
   dataAutoId='testingID-dropdown-basic'
   (selectedOption)='announce($event)'>
 </app-drop-down>
+
+<!-- <app-text-field
+  [alertVariation]="to.showWarnings && to.warnings.length > 0 ? 'warn' : ''"
+  [alertMessageList]="to.showWarnings && to.warnings.length > 0 ? to.warnings : null"
+  [defaultValue]="to.value"
+  [title]="to.label"
+  [ariaLabel]="to.ariaLabel"
+  [errorMessage]="to.showValidation === true || to.showValidation === null ? validationMessage.errorMessage : ''"
+  [id]="to.id"
+  [inputClass]="to.inputClass + ' ' + (showError ? 'ds-c-field--error' : '')"
+  [labelClass]="to.labelClass"
+  [hint]="to.hint"
+  hintClass="ds-u-color--muted"
+  [multiline]="to.multiline"
+  [placeholder]="to.placeholder || ''"
+  [dataAutoId]="to.id"
+  [control]="formControl"
+  [formlyAttributes]="field"
+  (keydown)="handleKeydown($event)"
+  (paste)="handlePaste($event)"
+  (blur)="handleBlur($event)"
+>
+</app-text-field> -->
+
+<h2>TEXT FIELD</h2>
+
+<app-text-field
+  alertVariation="info"
+  required="true"
+  defaultValue="some value"
+  title="Text field with both require and aria-required"
+  ariaLabel="bogus aria-label"
+  errorMessage="Look what you've done"
+  id="text-field-id-1"
+  inputClass="ds-u-font-weight--normal"
+  labelClass="ds-u-font-weight--bold"
+  placeholder="some example text"
+  dataAutoId="text-field-auto-id-1"
+  hqrDataTest="text-field-data-test-1"
+>
+</app-text-field>

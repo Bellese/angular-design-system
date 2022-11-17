@@ -12,6 +12,7 @@ export class AppTextFieldComponent implements OnInit, OnChanges {
   @Input() alertVariation?: string;
   @Input() title: string;
   @Input() id: string;
+  @Input() required: false;
   @Input() defaultValue: string;
   @Input() inputClass: string;
   @Input() inputType = 'text';
