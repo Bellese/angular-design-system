@@ -44,6 +44,8 @@
     class="ds-c-field"
     attr.data-auto-id="{{ dataAutoId }}"
     attr.aria-label="{{ ariaLabel || title }}"
+    [attr.aria-required]="required"
+    [required]="required"
     tabindex="0"
     [ngClass]="inputClass + ' ' + (errorMessage ? 'ds-c-field--error' : '')"
     id="{{ id }}"
