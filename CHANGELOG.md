@@ -1,3 +1,10 @@
+## [5.3.4](https://github.com/Bellese/angular-design-system/compare/v5.3.3...v5.3.4) (2022-11-18)
+
+
+### Bug Fixes
+
+* **text-field:** multiline required and aria-required ([#342](https://github.com/Bellese/angular-design-system/issues/342)) ([0c33a50](https://github.com/Bellese/angular-design-system/commit/0c33a50d5811b130cc6451219e3fd670dc2fd0c6))
+
 ## [5.3.3](https://github.com/Bellese/angular-design-system/compare/v5.3.2...v5.3.3) (2022-10-28)
 
 
