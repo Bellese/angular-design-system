@@ -1,3 +1,10 @@
+## [5.3.6](https://github.com/Bellese/angular-design-system/compare/v5.3.5...v5.3.6) (2022-12-05)
+
+
+### Bug Fixes
+
+* **text-field:** revert ([#343](https://github.com/Bellese/angular-design-system/issues/343)) role=alert changed to aria-live polite, label includes title ([#346](https://github.com/Bellese/angular-design-system/issues/346)) ([42f8c1c](https://github.com/Bellese/angular-design-system/commit/42f8c1c0c50b8b05b7471b3b407232926842424e))
+
 ## [5.3.5](https://github.com/Bellese/angular-design-system/compare/v5.3.4...v5.3.5) (2022-11-21)
 
 
