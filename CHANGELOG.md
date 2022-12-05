@@ -1,3 +1,10 @@
+## [5.3.7](https://github.com/Bellese/angular-design-system/compare/v5.3.6...v5.3.7) (2022-12-05)
+
+
+### Bug Fixes
+
+* **choice:** set aria-checked to match checked ([#350](https://github.com/Bellese/angular-design-system/issues/350)) ([4c454f9](https://github.com/Bellese/angular-design-system/commit/4c454f9f99b08a1b6cd28ab9fbc47cab037f11ff))
+
 ## [5.3.6](https://github.com/Bellese/angular-design-system/compare/v5.3.5...v5.3.6) (2022-12-05)
 
 
