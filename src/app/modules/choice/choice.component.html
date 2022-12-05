@@ -24,6 +24,7 @@
   name="{{ groupName }}"
   [attr.value]="value"
   [checked]="isChecked"
+  [attr.aria-checked]="isChecked"
   attr.data-auto-id="{{ dataAutoId }}"
   (change)="onChange($event)"
   attr.aria-label="{{ ariaLabel }}"
