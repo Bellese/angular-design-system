@@ -77,10 +77,6 @@ export class AppComponent implements OnInit {
   ];
   alertMessageList = ['Alert message 1', 'Alert message 2'];
 
-  textField = {
-    errorMessage: 'This is a required field',
-  }
-
   tabs = [
     {
       title: 'tab1',
@@ -474,13 +470,5 @@ export class AppComponent implements OnInit {
 
   showToast(message, title, variation) {
     this.toastService.showToast(message, title, variation);
-  }
-
-  textFieldErrorToggle(tf) {
-    if (!tf.errorMessage) {
-      tf.errorMessage = 'This is a required field';
-    } else {
-      tf.errorMessage = null;
-    }
   }
 }

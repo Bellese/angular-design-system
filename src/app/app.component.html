@@ -182,15 +182,6 @@
     errorMessage = 'please check me'>
 </app-choice> -->
 
-<app-choice
-  value="radio-selection-1"
-  [showTitle]="true"
-  label="radio label text"
-  inputType="radio"
-  [isChecked]="false"
-  >
-</app-choice>
-
   <!-- CIRCLE GRAPH COMPONENT EXAMPLE
 <app-circle-graph
     dataAutoId = 'testingID'
@@ -527,15 +518,13 @@ TABLE AND PAGINATION
 
 <h2>TEXT FIELD</h2>
 
-<app-button (click)="textFieldErrorToggle(textField)">Toggle Text Field Errors</app-button><br />
-
 <app-text-field
   alertVariation="info"
   required="true"
   defaultValue="some value"
   title="Text field with both require and aria-required"
   ariaLabel="bogus aria-label"
-  [errorMessage]="textField.errorMessage"
+  errorMessage="Look what you've done"
   id="text-field-id-1"
   inputClass="ds-u-font-weight--normal"
   labelClass="ds-u-font-weight--bold"
@@ -555,7 +544,7 @@ TABLE AND PAGINATION
   defaultValue="some value"
   title="Multi-line Text field with both require and aria-required"
   ariaLabel="bogus aria-label"
-  [errorMessage]="textField.errorMessage"
+  errorMessage="Look what you've done"
   id="text-field-id-2"
   inputClass="ds-u-font-weight--normal"
   labelClass="ds-u-font-weight--bold"
