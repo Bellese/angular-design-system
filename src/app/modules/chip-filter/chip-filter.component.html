@@ -101,7 +101,12 @@
           (click)="onItemClick($event, item)"
           class="multiselect-item-checkbox"
       >
-        <div *ngIf="isLast">{{loadFilterList(filterItems)}}</div>
+        <div *ngIf="isLast">{{loadFilterList(filterItems)}}
+          <div *ngIf="focusItem == 2" aria-live="polite" style="overflow:hidden; height:0;width:0;">
+            {{filterItems.length}} providers found, use arrow keys to scroll through providers
+            </div>
+        </div>
+
         <input
           [type]="settings.singleSelection ? 'radio' : 'checkbox'"
           [attr.aria-label]="getItemAriaLabel(item, isSelected(item))"
