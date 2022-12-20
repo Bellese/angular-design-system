@@ -1,3 +1,11 @@
+## [5.3.8](https://github.com/Bellese/angular-design-system/compare/v5.3.7...v5.3.8) (2022-12-20)
+
+
+### Bug Fixes
+
+* **chip-filter.component.html:** Add aria text to signal when providers load after search is complete ([c1aabbe](https://github.com/Bellese/angular-design-system/commit/c1aabbe2a1b42f326dc167bccaeef083779077db))
+* **chip-filter.component.html:** Use variable to determine if text box is selected ([7865c8d](https://github.com/Bellese/angular-design-system/commit/7865c8d7aa83bb2620b380621fd2a7ee756b022f))
+
 ## [5.3.7](https://github.com/Bellese/angular-design-system/compare/v5.3.6...v5.3.7) (2022-12-05)
 
 
