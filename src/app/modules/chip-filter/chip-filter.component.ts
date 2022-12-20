@@ -43,7 +43,6 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
    */
   public static readonly itemOffset = 3;
   public static readonly selectAllItem = 1;
-  public static readonly searchItem = 2;
   public _sourceDataType = null;
   public _sourceDataFields: string[] = [];
   public selectedItems: ListItem[] = [];
@@ -83,6 +82,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   private searchQueryChanged: Subject<string> = new Subject<string>();
   public searchFilter: string;
   public focusItem = 0;
+  public readonly searchItem = 2;
 
   @Input() disabled = false;
 
@@ -165,7 +165,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   }
 
   onFilterTextChange($event) {
-    this.focusItem = AppChipFilterComponent.searchItem;
+    this.focusItem = this.searchItem;
     this.searchFilter = $event;
     this.searchQueryChanged.next($event);
   }
@@ -395,7 +395,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
     if (!this.settings.defaultOpen) {
       this.toggleDropdown(e);
       // If we are including 'Select All' start there, otherwise start with the search text box.
-      this.focusItem = document.getElementById('selectAll') ? AppChipFilterComponent.selectAllItem : AppChipFilterComponent.searchItem;
+      this.focusItem = document.getElementById('selectAll') ? AppChipFilterComponent.selectAllItem : this.searchItem;
       this.scrollToItem();
     } else {
       this.closeDropdown();
@@ -418,7 +418,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   onArrowUp(e) {
     if (this.settings.defaultOpen) {
       e.preventDefault();
-      const firstItem = document.getElementById('selectAll') ? AppChipFilterComponent.selectAllItem : AppChipFilterComponent.searchItem;
+      const firstItem = document.getElementById('selectAll') ? AppChipFilterComponent.selectAllItem : this.searchItem;
       if (this.focusItem > firstItem) {
         this.focusItem--;
         this.scrollToItem();
@@ -431,7 +431,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
       setTimeout(() => {
       document.getElementById('selectAll').focus();
       });
-    } else if (this.focusItem === AppChipFilterComponent.searchItem) {
+    } else if (this.focusItem === this.searchItem) {
       setTimeout(() => {
         document.getElementById('search').focus();
       });
@@ -450,7 +450,7 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   }
 
   selectOnSpace(e) {
-    if (this.focusItem !== AppChipFilterComponent.searchItem && this.settings.defaultOpen) {
+    if (this.focusItem !== this.searchItem && this.settings.defaultOpen) {
       e.preventDefault();
       if (this.focusItem === AppChipFilterComponent.selectAllItem) {
         this.toggleSelectAll();
