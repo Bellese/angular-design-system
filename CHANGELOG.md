@@ -1,3 +1,10 @@
+## [5.3.9](https://github.com/Bellese/angular-design-system/compare/v5.3.8...v5.3.9) (2022-12-21)
+
+
+### Bug Fixes
+
+* **chip-filter.component.html:** Move aria-live to first item to help with JAWS compatibility. ([f705509](https://github.com/Bellese/angular-design-system/commit/f705509c2ec565e1457bc5d5b3040f3b732a74f0))
+
 ## [5.3.8](https://github.com/Bellese/angular-design-system/compare/v5.3.7...v5.3.8) (2022-12-20)
 
 
