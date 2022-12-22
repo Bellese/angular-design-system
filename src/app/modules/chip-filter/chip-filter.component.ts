@@ -83,7 +83,6 @@ export class AppChipFilterComponent implements ControlValueAccessor, OnInit, OnC
   public searchFilter: string;
   public focusItem = 0;
   public readonly searchItem = 2;
-  public
 
   @Input() disabled = false;
 
