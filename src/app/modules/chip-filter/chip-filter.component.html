@@ -103,7 +103,7 @@
       >
         <div *ngIf="isLast">{{loadFilterList(filterItems)}}</div>
 
-        <div *ngIf="i == 1 && focusItem <= this.searchItem" aria-live="polite" style="overflow:hidden; height:0;width:0;">
+        <div *ngIf="i == 0 && focusItem <= this.searchItem" aria-live="polite" style="overflow:hidden; height:0;width:0;">
           {{filterItems.length}} providers found, use arrow keys to scroll through providers
         </div>
 
