@@ -1,7 +1,4 @@
 <div class="pillbox-background ds-u-radius--8 ds-u-padding-left--2 ds-u-padding-right--2">
-  <!-- <div class="pillbox-container-first ds-u-padding-y--1">
-    <span class="pillbox-content ds-u-font-size--base">{{ contentFirst.label }}</span>
-  </div> -->
   <div *ngIf="contentFraction !== null" class="ds-u-padding-y--1">
     <ng-template *ngTemplateOutlet="fraction; context: { $implicit: contentFraction }"></ng-template>
   </div>
@@ -11,7 +8,7 @@
       <ng-template *ngTemplateOutlet="single; context: { $implicit: contentFirst }"></ng-template>
     </div>
 
-    <div *ngIf="contentFirst.length > 1" class="pillbox-fraction-container">
+    <div *ngIf="contentFirst.length > 1" class="pillbox-column-container">
       <ng-template *ngTemplateOutlet="multiple; context: { $implicit: contentFirst }"></ng-template>
     </div>
   </div>
@@ -25,7 +22,7 @@
       <ng-template *ngTemplateOutlet="single; context: { $implicit: contentSecond }"></ng-template>
     </div>
 
-    <div *ngIf="contentSecond.length > 1" class="pillbox-fraction-container">
+    <div *ngIf="contentSecond.length > 1" class="pillbox-column-container">
       <ng-template *ngTemplateOutlet="multiple; context: { $implicit: contentSecond }"></ng-template>
     </div>
   </div>
@@ -34,20 +31,20 @@
 <ng-template #single let-content>
   <div class="ds-u-padding-y--1">
     <div class="pillbox-content" [ngClass]="content[0].classes">
-      {{ contentFirst[0].label }}
+      {{ content[0].label }}
     </div>
   </div>
 </ng-template>
 
 <ng-template #multiple let-content>
-  <div class="ds-u-padding-y--1 pillbox-content-multiple pillbox-fraction-container">
-    <div class="pillbox-content pillbox-numerator-label" [ngClass]="content[0].classes">
+  <div class="ds-u-padding-y--1 pillbox-content-multiple pillbox-column-container">
+    <div class="pillbox-content pillbox-column-content" [ngClass]="content[0].classes">
       {{ content[0].label }}
     </div>
 
-    <div class="pillbox-fraction-divider-container"></div>
+    <div class="pillbox-column-spacer"></div>
 
-    <div class="pillbox-content pillbox-denominator-label" [ngClass]="content[1].classes">
+    <div class="pillbox-content pillbox-column-content" [ngClass]="content[1].classes">
       <div *ngIf="!content[1].tooltipModel">
         {{ content[1].label }}
       </div>
@@ -59,16 +56,16 @@
 </ng-template>
 
 <ng-template #fraction let-pbFraction>
-  <div class="pillbox-fraction-container">
-    <div class="pillbox-fraction-content pillbox-numerator ds-u-font-size--base ds-u-font-weight--bold">
+  <div class="pillbox-column-container">
+    <div class="pillbox-column-content ds-u-font-size--base ds-u-font-weight--bold">
       {{ pbFraction.numerator | number }}
     </div>
 
-    <div class="pillbox-fraction-divider-container">
-      <div class="pillbox-fraction-divider ds-u-padding-right--1"></div>
+    <div class="pillbox-column-spacer">
+      <div class="pillbox-column-divider ds-u-padding-right--1"></div>
     </div>
 
-    <div class="pillbox-fraction-content pillbox-denominator ds-u-font-size--base ds-u-font-weight--bold">
+    <div class="pillbox-fraction-content pillbox-column-content ds-u-font-size--base ds-u-font-weight--bold">
       {{ pbFraction.denominator | number }}
     </div>
   </div>

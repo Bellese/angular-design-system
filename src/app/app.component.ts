@@ -170,6 +170,9 @@ export class AppComponent implements OnInit {
         {
           label: 'Second low',
         },
+        {
+          label: 'this gets trimmed, greedy dev!',
+        },
       ],
     },
     fraction: {
