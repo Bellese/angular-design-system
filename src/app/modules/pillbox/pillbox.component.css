@@ -1,0 +1,88 @@
+.pillbox-background {
+  background-color: #E0F3F8;
+  border-radius: 8px;
+  width: 190px;
+  height: 61px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.pillbox-container-first {
+  flex-shrink: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.pillbox-divider-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.pillbox-divider {
+  background-color: #9A9A9A;
+  height: 100%;
+  width: 1px;
+}
+
+.pillbox-container-second {
+  flex-shrink: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.pillbox-fraction-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.pillbox-numerator {
+  flex-shrink: 1;
+  line-height: 18px;
+}
+
+.pillbox-numerator-label {
+  flex-shrink: 1;
+  line-height: 18px;
+}
+
+.pillbox-denominator {
+  flex-shrink: 1;
+  line-height: 18px;
+}
+
+.pillbox-denominator-label {
+  flex-shrink: 1;
+  line-height: 18px;
+}
+
+.pillbox-fraction-divider-container {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.pillbox-fraction-divider {
+  display: flex;
+  flex-grow: 1;
+  background-color: #000000;
+  height: 1px;
+  width: 100%;
+  align-self: center;
+}
+
+.pillbox-content {
+  line-height: 18px;
+}
+
+.pillbox-content-multiple {
+  height: 100%;
+}

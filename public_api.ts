@@ -30,6 +30,7 @@ export * from './src/app/modules/table2/table.module';
 export * from './src/app/modules/calendar/calendar.module';
 export * from './src/app/modules/tooltip/tooltip.module';
 export * from './src/app/modules/chip-filter/chip-filter.module';
+export * from './src/app/modules/pillbox/pillbox.module';
 
 // Services
 export * from './src/app/services/modal/modal.service';
@@ -83,6 +84,7 @@ export { TableComponent } from './src/app/modules/table2/table.component';
 export { CalendarComponent } from './src/app/modules/calendar/calendar.component';
 export { TooltipComponent } from './src/app/modules/tooltip/tooltip.component';
 export { AppChipFilterComponent } from './src/app/modules/chip-filter/chip-filter.component';
+export { AppPillboxComponent } from './src/app/modules/pillbox/pillbox.component';
 
 // Models
 export { TabModel } from './src/app/modules/tabs/tabs.model';
@@ -103,3 +105,4 @@ export * from './src/app/modules/table2/table.models';
 export * from './src/app/modules/chip-filter/chip-filter.model';
 export * from './src/app/modules/panel/panel.models';
 export * from './src/app/modules/button/button.models';
+export * from './src/app/modules/pillbox/pillbox.models';
