@@ -20,17 +20,25 @@
   outline-color: Highlight;
 }
 
-.border {
+.time-container-border {
   border: 2px solid #323a45 !important;
 }
 
-.error-border {
+.time-container-error-border {
   border: 3px solid #e31c3d !important;
 }
 
-.time-container-error {
+
+.time-container-error-shake {
   animation: shake 0.2s ease-in-out 0s 2;
   box-shadow: 0 0 0.5em #e31c3d;
+}
+
+@keyframes shake {
+  0% { margin-left: 0rem; }
+  25% { margin-left: 0.5rem; }
+  75% { margin-left: -0.5rem; }
+  100% { margin-left: 0rem; }
 }
 
 .time-input {
@@ -98,13 +106,6 @@
 
 .enabled-background {
   background-color: white;
-}
-
-@keyframes shake {
-  0% { margin-left: 0rem; }
-  25% { margin-left: 0.5rem; }
-  75% { margin-left: -0.5rem; }
-  100% { margin-left: 0rem; }
 }
 
 .time-picker-body {

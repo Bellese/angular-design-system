@@ -140,13 +140,13 @@ export class AppTwentyFourHourTimeComponent implements OnInit, OnChanges {
   addValidationError = () => {
     this.announceCurrentTime(true);
     this.removeFocusStyling();
-    document.getElementById(`time-container-${this.id}`).classList.add('time-container-error');
+    document.getElementById(`time-container-${this.id}`).classList.add('time-container-error-shake');
     setTimeout(() => {
       this.removeValidationError();
     }, 5000);
   };
   removeValidationError = () => {
-    document.getElementById(`time-container-${this.id}`).classList.remove('time-container-error');
+    document.getElementById(`time-container-${this.id}`).classList.remove('time-container-error-shake');
     this.addFocusStyling();
   };
 

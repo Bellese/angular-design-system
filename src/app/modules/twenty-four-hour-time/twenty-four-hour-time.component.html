@@ -25,8 +25,13 @@
 
 <div
   id="time-container-{{id}}"
-  [ngClass]="inputClass + ' ' + (errorMessage ? 'error-border' : 'border') + ' ' + (disabled? 'disabled-background' : 'enabled-background')"
-  class="time-container ds-l-row ds-u-margin-y--1">
+  [ngClass]="inputClass + ' ' + 
+    (errorMessage ? 'time-container-error-border' : 'time-container-border') + ' ' +
+    (disabled ? 'disabled-background' : 'enabled-background')"
+  class="time-container
+    ds-l-row
+    ds-u-margin-y--1"
+  >
   <div class="ds-l-col-10 input-padding">
     <input
       class="time-input ds-u-font-size--sm"
@@ -59,11 +64,10 @@
     ></span>
   </div>
 </div>
-<div class="
-  time-picker
-  ds-u-radius
-  ds-u-border--1
-  ds-u-border--dark"
+<div class="time-picker
+    ds-u-radius
+    ds-u-border--1
+    ds-u-border--dark"
   *ngIf="timePickerVisible"
   id="time-picker-{{id}}"
   (click)="stopPropagation($event)"
@@ -72,7 +76,7 @@
   <div class="time-picker-header">
     <div tabindex="-1" class="time-picker-label">Select time</div>
     <span
-      [id]="id+ '_close_time_picker'"
+      id="{{id}}_close_time_picker"
       tabindex="0"
       alt="close"
       class="close-image"
