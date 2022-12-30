@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { AlertModule } from '../alert/alert.module';
-import { AppTwentyFourHourTimeComponent } from './twenty-four-hour-time';
+import { AppTwentyFourHourTimeComponent } from './twenty-four-hour-time.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
