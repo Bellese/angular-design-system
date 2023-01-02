@@ -1,3 +1,13 @@
+## [5.3.10](https://github.com/Bellese/angular-design-system/compare/v5.3.9...v5.3.10) (2023-01-02)
+
+
+### Bug Fixes
+
+* **chip-filter.component.html:** Have JAWS notify when provider list loads. ([a7dccb2](https://github.com/Bellese/angular-design-system/commit/a7dccb26d50a7d4b80d2ed3e6d9383d12778e2ec))
+* **chip-filter.component.html:** Update condition to attach aria-live for JAWS compatibility. ([c849cba](https://github.com/Bellese/angular-design-system/commit/c849cbaa939a59bdd7c5303123808094825fa5fd))
+* **chip-filter.component.html:** Update condition to attach aria-live for JAWS compatibility. ([e540da3](https://github.com/Bellese/angular-design-system/commit/e540da347dd69d82208c8077ef99432589c21c9a))
+* **chip-filter.component.html:** Update condition to attach aria-live for JAWS compatibility. ([8072842](https://github.com/Bellese/angular-design-system/commit/8072842204d17a2c0fc719f72d3405faccefb3bb))
+
 ## [5.3.9](https://github.com/Bellese/angular-design-system/compare/v5.3.8...v5.3.9) (2022-12-21)
 
 
