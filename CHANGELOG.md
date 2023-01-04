@@ -1,3 +1,10 @@
+## [5.3.11](https://github.com/Bellese/angular-design-system/compare/v5.3.10...v5.3.11) (2023-01-04)
+
+
+### Bug Fixes
+
+* **chip-filter.component.html:** Add comment so it's apparent why the message is repeated in VoiceOver. ([d38b036](https://github.com/Bellese/angular-design-system/commit/d38b0361fff60c293221d7c8f1f896b0479268c1))
+
 ## [5.3.10](https://github.com/Bellese/angular-design-system/compare/v5.3.9...v5.3.10) (2023-01-02)
 
 
