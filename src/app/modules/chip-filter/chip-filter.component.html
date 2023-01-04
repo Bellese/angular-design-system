@@ -103,6 +103,8 @@
       >
         <div *ngIf="isLast">{{loadFilterList(filterItems)}}</div>
 
+        <! -- This message is announced 1x in JAWS and 1x/item in VoiceOver.
+              Attemps to add only once, i.e. (*ngIf="i == 0") does not work on filter change in JAWS -->
         <div *ngIf="focusItem <= this.searchItem" aria-live="polite" style="overflow:hidden; height:0;width:0;">
           {{filterItems.length}} providers found, use arrow keys to scroll through providers
         </div>
