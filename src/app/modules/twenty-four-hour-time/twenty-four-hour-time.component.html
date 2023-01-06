@@ -52,17 +52,19 @@
       (focus)="addFocusStyling()"
     />
   </div>
+
   <div class="ds-l-col--2 clock-parent">
     <span
       role="button"
       tabindex="0"
       alt="clock"
       class="clock-image"
-      aria-label="Activate enter to open the time picker."
+      aria-label="open the time picker"
       (click)="openTimePicker($event)"
       (keyup.enter)="openTimePicker($event)"
     ></span>
   </div>
+
   <div class="time-picker
       ds-u-radius
       ds-u-border--1
@@ -79,65 +81,58 @@
         tabindex="0"
         alt="close"
         class="close-image"
-        aria-label="Activate enter to close the time picker"
+        aria-label="close the time picker"
         (click)="closeTimePicker($event)"
         (keyup.enter)="closeTimePicker($event)"
       ></span>
     </div>
+
     <div class="time-picker-body" tabindex="-1">
       <div class="other-number-row">
         <div class="other-number-column other-column-top">
           <div
             class="bumper-icon top-icon"
             tabindex="0"
-            aria-label="Activate enter to decrement the hour value"
+            aria-label="decrement the hour value"
             role="button"
             (click)="stepTime('hours', 'decrement')"
             (keyup.enter)="stepTime('hours', 'decrement')"
           >
             <fa-icon [icon]="faChevronUp"></fa-icon>
           </div>
-          <div *ngFor="let hour of previousHours">
-            {{hour}}
-          </div>
+          <div *ngFor="let hour of previousHours">{{hour}}</div>
         </div>
+
         <div class="other-number-spacer"></div>
+
         <div class="other-number-column other-column-top">
           <div
             class="bumper-icon top-icon"
             tabindex="0"
-            aria-label="Activate enter to decrement the minute value"
+            aria-label="decrement the minute value"
             role="button"
             (click)="stepTime('minutes', 'decrement')"
             (keyup.enter)="stepTime('minutes', 'decrement')"
           >
             <fa-icon [icon]="faChevronUp"></fa-icon>
           </div>
-          <div *ngFor="let minute of previousMinutes">
-            {{minute}}
-          </div>
+          <div *ngFor="let minute of previousMinutes">{{minute}}</div>
         </div>
       </div>
 
       <div class="selected-time-row">
-        <div
-          class="item-selected"
-        >{{timeHours}}</div>
+        <div class="item-selected">{{timeHours}}</div>
         <div class="time-colon">:</div>
-        <div
-          class="item-selected"
-        >{{timeMinutes}}</div>
+        <div class="item-selected">{{timeMinutes}}</div>
       </div>
 
       <div class="other-number-row">
         <div class="other-number-column other-column-bottom">
-          <div *ngFor="let hour of nextHours">
-            {{hour}}
-          </div>
+          <div *ngFor="let hour of nextHours">{{hour}}</div>
           <div
             class="bumper-icon bottom-icon"
             tabindex="0"
-            aria-label="Activate enter to increment the hour value"
+            aria-label="increment the hour value"
             role="button"
             (click)="stepTime('hours', 'increment')"
             (keyup.enter)="stepTime('hours', 'increment')"
@@ -145,15 +140,15 @@
             <fa-icon [icon]="faChevronDown"></fa-icon>
           </div>
         </div>
+
         <div class="other-number-spacer"></div>
+
         <div class="other-number-column other-column-bottom">
-          <div *ngFor="let minute of nextMinutes">
-            {{minute}}
-          </div>
+          <div *ngFor="let minute of nextMinutes">{{minute}}</div>
           <div
             class="bumper-icon bottom-icon"
             tabindex="0"
-            aria-label="Activate enter to increment the minute value"
+            aria-label="increment the minute value"
             role="button"
             (click)="stepTime('minutes', 'increment')"
             (keyup.enter)="stepTime('minutes', 'increment')"
@@ -162,6 +157,7 @@
             <fa-icon [icon]="faChevronDown"></fa-icon>
           </div>
         </div>
+
       </div>
     </div>
   </div>

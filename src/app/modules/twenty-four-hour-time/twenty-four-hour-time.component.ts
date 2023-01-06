@@ -269,9 +269,9 @@ export class AppTwentyFourHourTimeComponent implements OnInit, OnChanges {
 
   stepTime(unit: 'hours' | 'minutes', direction: 'increment' | 'decrement') {
     if (unit === 'hours') {
-      // calculate hour step
       const currentHour = Number(this.timeHours);
       let newHour;
+
       if (direction === 'increment' && currentHour < 23) {
         newHour = currentHour + 1;
       } else if (direction === 'decrement' && currentHour > 0) {
