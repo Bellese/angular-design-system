@@ -5,6 +5,7 @@ export type PillboxContent = {
   classes?: string,
   bold?: boolean,
   innerHTML?: string,
+  hqrDataTest?: string,
   tooltip?: string,
   tooltipModel?: TooltipModel,
 }
@@ -16,5 +17,6 @@ export type PillboxFraction = {
   denominatorLabel?: string,
   rate: number,
   rateLabel?: string,
+  hqrDataTest?: string,
   rateTooltip: string,
 }

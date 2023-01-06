@@ -30,7 +30,7 @@
 
 <ng-template #single let-content>
   <div class="ds-u-padding-y--1">
-    <div class="pillbox-content" [ngClass]="content[0].classes">
+    <div [ngClass]="content[0].classes" [hqrDataTest]="content[0].hqrDataTest">
       {{ content[0].label }}
     </div>
   </div>
@@ -38,13 +38,13 @@
 
 <ng-template #multiple let-content>
   <div class="ds-u-padding-y--1 pillbox-content-multiple pillbox-column-container">
-    <div class="pillbox-content pillbox-column-content" [ngClass]="content[0].classes">
+    <div class="pillbox-column-content" [ngClass]="content[0].classes" [hqrDataTest]="content[0].hqrDataTest">
       {{ content[0].label }}
     </div>
 
     <div class="pillbox-column-spacer"></div>
 
-    <div class="pillbox-content pillbox-column-content" [ngClass]="content[1].classes">
+    <div class="pillbox-column-content" [ngClass]="content[1].classes" [hqrDataTest]="content[1].hqrDataTest">
       <div *ngIf="!content[1].tooltipModel">
         {{ content[1].label }}
       </div>
@@ -56,7 +56,7 @@
 </ng-template>
 
 <ng-template #fraction let-pbFraction>
-  <div class="pillbox-column-container">
+  <div class="pillbox-column-container" [hqrDataTest]="pbFraction.hqrDataTest ? pbFraction.hqrDataTest : ''">
     <div class="pillbox-column-content ds-u-font-size--base ds-u-font-weight--bold">
       {{ pbFraction.numerator | number }}
     </div>

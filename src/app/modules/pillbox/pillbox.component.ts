@@ -4,10 +4,14 @@ import { TooltipModel } from '../tooltip/tooltip.models';
 import { PillboxContent, PillboxFraction } from './pillbox.models';
 
 // TODO:
-// - aria-labeledby / aria-describedby?
 // - id
 // - hqrDataTest
 // - code/function comments
+// - innerHTML
+
+// Not implementing 'id' until it's proven necessary. I.e. to re-use ids elsewhere
+// for aria-labeledby etc. Tooltips can accept 'id' values, but utility isn't immediately
+// apparent. If id control in Tooltip is required, we can still pass it in with TooltipModel
 
 @Component({
   selector: 'app-pillbox',
@@ -58,6 +62,10 @@ export class AppPillboxComponent implements OnInit {
     if (c.tooltip || c.tooltipModel) {
       c.tooltipModel = c.tooltipModel ?? this.makeTooltipModel(c.tooltip, c.label);
     }
+
+    if (!c.hqrDataTest) {
+      c.hqrDataTest = 'fart';
+    }
   }
 
   private makeTooltipModel(tip: string, label: string): TooltipModel {
@@ -67,6 +75,7 @@ export class AppPillboxComponent implements OnInit {
       triggerContent: label,
       tooltipContent: tip,
       maxWidth: 148,
+      id: '', // otherwise it ends up 'undefined' or 'null' as strings in HTML
     });
 
     return model;

@@ -139,7 +139,7 @@ export class AppComponent implements OnInit {
         label: 'Single label, no styling or whatever'
       }]
     },
-    simplestCenterdBold: {
+    simplestCenteredBold: {
       first: <PillboxContent[]>[{
         label: 'Single label, style override and bold',
         classes: 'ds-u-font-size--base ds-u-leading--base ds-u-text-align--center',
@@ -190,7 +190,8 @@ export class AppComponent implements OnInit {
         numerator: 0,
         denominator: 0,
         rate: 0,
-        rateTooltip: 'Lower rates indicate better performance'
+        rateTooltip: 'Lower rates indicate better performance',
+        hqrDataTest: 'fractionZeros'
       },
     }
   };
