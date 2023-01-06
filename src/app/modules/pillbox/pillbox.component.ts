@@ -64,7 +64,7 @@ export class AppPillboxComponent implements OnInit {
     }
 
     if (!c.hqrDataTest) {
-      c.hqrDataTest = 'fart';
+      c.hqrDataTest = '';
     }
   }
 
