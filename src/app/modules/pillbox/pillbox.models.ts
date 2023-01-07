@@ -20,3 +20,16 @@ export type PillboxFraction = {
   hqrDataTest?: string,
   rateTooltip: string,
 }
+
+export type PillboxColumnContent = {
+  top: PillboxContent,
+  bottom : PillboxContent,
+}
+
+export type PillboxContentPair = {
+  left: PillboxContent | PillboxColumnContent,
+  right: PillboxContent | PillboxColumnContent,
+}
+
+export type PillboxContentType =
+  PillboxContent | PillboxColumnContent | PillboxContentPair | PillboxFraction;

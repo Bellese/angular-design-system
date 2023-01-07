@@ -1,10 +1,9 @@
 import { formatPercent } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { TooltipModel } from '../tooltip/tooltip.models';
-import { PillboxContent, PillboxFraction } from './pillbox.models';
+import { PillboxContent, PillboxContentType, PillboxFraction } from './pillbox.models';
 
 // TODO:
-// - id
 // - hqrDataTest
 // - code/function comments
 // - innerHTML
@@ -19,9 +18,10 @@ import { PillboxContent, PillboxFraction } from './pillbox.models';
   styleUrls: ['./pillbox.component.css'],
 })
 export class AppPillboxComponent implements OnInit {
-  @Input() contentFirst!: PillboxContent[];
+  @Input() contentFirst?: PillboxContent[];
   @Input() contentSecond?: PillboxContent[] = null;
   @Input() contentFraction?: PillboxFraction = null;
+  @Input() data!: PillboxContentType;
 
   ngOnInit(): void {
     // Fraction use case overrides pretty much everything
@@ -35,6 +35,15 @@ export class AppPillboxComponent implements OnInit {
     } else {
       this.contentFirst = this.trimAndSetContent(this.contentFirst);
     }
+  }
+
+  switch ((typeof data)) {
+    case value:
+
+      break;
+
+    default:
+      break;
   }
 
   private trimAndSetContent(contents: PillboxContent[]): PillboxContent[] {
