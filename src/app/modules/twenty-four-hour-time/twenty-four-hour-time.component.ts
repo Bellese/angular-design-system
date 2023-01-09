@@ -75,7 +75,7 @@ export class AppTwentyFourHourTimeComponent implements OnInit, OnChanges {
 
   setValue() {
     if (this.defaultValue) {
-      this.control?.setValue(this.defaultValue);
+      this.control.setValue(this.defaultValue);
       this.knownGoodTimeValue = this.defaultValue;
       this.announceCurrentTime();
       [this.timeHours, this.timeMinutes] = this.defaultValue.split(':');
@@ -104,9 +104,9 @@ export class AppTwentyFourHourTimeComponent implements OnInit, OnChanges {
 
   setDisabled() {
     if (this.disabled) {
-      this.control?.disable();
+      this.control.disable();
     } else {
-      this.control?.enable();
+      this.control.enable();
     }
   }
 
