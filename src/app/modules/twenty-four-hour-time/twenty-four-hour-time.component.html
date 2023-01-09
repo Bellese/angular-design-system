@@ -30,11 +30,14 @@
     (disabled ? 'disabled-background' : 'enabled-background')"
   class="time-container
     ds-l-row
-    ds-u-margin-y--1"
+    ds-u-margin-y--1
+    ds-u-margin-left--0"
   >
   <div class="ds-l-col-10 input-padding">
     <input
-      class="time-input ds-u-font-size--sm"
+      class="time-input
+        ds-u-font-size--base
+        ds-u-border--0"
       name="{{ id }}"
       attr.aria-label="{{ ariaLabel || title }}"
       attr.data-auto-id="{{ dataAutoId }}"
@@ -53,16 +56,18 @@
     />
   </div>
 
-  <div class="ds-l-col--2 clock-parent">
-    <span
+  <div class="clock-parent
+    ds-l-col--2"
+  >
+    <div
       role="button"
       tabindex="0"
       alt="clock"
-      class="clock-image"
+      class="clock-image ds-u-padding-top--1"
       aria-label="open the time picker"
       (click)="openTimePicker($event)"
       (keyup.enter)="openTimePicker($event)"
-    ></span>
+    ></div>
   </div>
 
   <div class="time-picker
@@ -74,21 +79,26 @@
     (click)="stopPropagation($event)"
     (focusout)="focusLost($event)"
   >
-    <div class="time-picker-header">
+    <div class="time-picker-header
+      ds-u-padding-x--1
+      ds-u-padding-top--2
+      ds-u-padding-bottom--0
+      ds-u-font-weight--bold"
+    >
       <div tabindex="-1" class="time-picker-label">Select time</div>
       <span
         id="{{id}}_close_time_picker"
+        class="close-image ds-u-font-weight--bold"
         tabindex="0"
         alt="close"
-        class="close-image"
         aria-label="close the time picker"
         (click)="closeTimePicker($event)"
         (keyup.enter)="closeTimePicker($event)"
       ></span>
     </div>
 
-    <div class="time-picker-body" tabindex="-1">
-      <div class="other-number-row">
+    <div class="time-picker-body ds-u-font-weight--bold" tabindex="-1">
+      <div class="other-number-row ds-u-padding-y--0 ds-u-padding-x--1">
         <div class="other-number-column other-column-top">
           <div
             class="bumper-icon top-icon"
@@ -126,7 +136,7 @@
         <div class="item-selected">{{timeMinutes}}</div>
       </div>
 
-      <div class="other-number-row">
+      <div class="other-number-row ds-u-padding-y--0 ds-u-padding-x--1">
         <div class="other-number-column other-column-bottom">
           <div *ngFor="let hour of nextHours">{{hour}}</div>
           <div

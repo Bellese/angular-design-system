@@ -8,7 +8,6 @@
 }
 
 .time-container {
-  margin-left: 0px;
   max-width: 500px;
   position: relative;
   border-radius: 3px;
@@ -43,7 +42,6 @@
 }
 
 .time-input {
-  border: none;
   width: 100%;
 }
 
@@ -71,8 +69,6 @@
 .time-picker-header {
   display: flex;
   justify-content: space-between;
-  font-weight: bold;
-  padding: 16px 8px 0px 8px;
   min-height: 36px;
 }
 
@@ -84,11 +80,8 @@
 .clock-image {
   position: absolute;
   right: 8px;
-  top: 4px;
   height: 14px;
   width: 14px;
-  padding-top: 14px;
-  display: inline-block;
   background-image: url(../../../assets/images/clock.svg);
   background-position: center;
   background-repeat: no-repeat;
@@ -97,7 +90,6 @@
 .close-image {
   height: 18px;
   width: 18px;
-  font-weight: bold;
   background-image: url(../../../assets/images/close--smaller.svg);
   background-position: center;
   background-repeat: no-repeat;
@@ -113,7 +105,6 @@
 
 .time-picker-body {
   padding: 8px 76px;
-  font-weight: bold;
 }
 
 .selected-time-row {
@@ -123,8 +114,8 @@
 }
 
 .item-selected {
-  padding: 0px 4px;
   border-radius: 4px;
+  padding: 0px 4px;
   background-color: #0071bc;
   color: #f2f2f2;
 }
@@ -137,7 +128,6 @@
 .other-number-row {
   display: flex;
   flex-direction: row;
-  padding: 0px 8px;
 }
 
 .other-number-column {
@@ -186,8 +176,8 @@
 
 .bumper-icon {
   position: absolute;
-  color: #0071bc;
   padding-left: 4px;
+  color: #0071bc;
   z-index: 3;
 }
 
