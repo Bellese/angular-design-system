@@ -4,11 +4,11 @@
   </div>
 
   <div class="pillbox-container-first" [ngClass]="{ 'ds-u-padding-left--1': contentFraction !== null}">
-    <div *ngIf="contentFirst.length <= 1">
-      <ng-template *ngTemplateOutlet="single; context: { $implicit: contentFirst }"></ng-template>
+    <div *ngIf="!contentFirst.bottom">
+      <ng-template *ngTemplateOutlet="single; context: { $implicit: contentFirst.top }"></ng-template>
     </div>
 
-    <div *ngIf="contentFirst.length > 1" class="pillbox-column-container">
+    <div *ngIf="contentFirst.bottom" class="pillbox-column-container">
       <ng-template *ngTemplateOutlet="multiple; context: { $implicit: contentFirst }"></ng-template>
     </div>
   </div>
@@ -18,11 +18,11 @@
   </div>
 
   <div *ngIf="contentSecond" class="pillbox-container-second">
-    <div *ngIf="contentSecond.length <= 1">
-      <ng-template *ngTemplateOutlet="single; context: { $implicit: contentSecond }"></ng-template>
+    <div *ngIf="!contentSecond.bottom">
+      <ng-template *ngTemplateOutlet="single; context: { $implicit: contentSecond.top }"></ng-template>
     </div>
 
-    <div *ngIf="contentSecond.length > 1" class="pillbox-column-container">
+    <div *ngIf="contentSecond.bottom" class="pillbox-column-container">
       <ng-template *ngTemplateOutlet="multiple; context: { $implicit: contentSecond }"></ng-template>
     </div>
   </div>
@@ -30,26 +30,36 @@
 
 <ng-template #single let-content>
   <div class="ds-u-padding-y--1">
-    <div [ngClass]="content[0].classes" [hqrDataTest]="content[0].hqrDataTest">
-      {{ content[0].label }}
+    <div [ngClass]="content.classes" [hqrDataTest]="content.hqrDataTest">
+      <div *ngIf="!content.tooltipModel">
+        {{ content.label }}
+      </div>
+      <div *ngIf="content.tooltipModel">
+        <app-tooltip [tooltipModel]="content.tooltipModel"></app-tooltip>
+      </div>
     </div>
   </div>
 </ng-template>
 
 <ng-template #multiple let-content>
   <div class="ds-u-padding-y--1 pillbox-content-multiple pillbox-column-container">
-    <div class="pillbox-column-content" [ngClass]="content[0].classes" [hqrDataTest]="content[0].hqrDataTest">
-      {{ content[0].label }}
+    <div class="pillbox-column-content" [ngClass]="content.top.classes" [hqrDataTest]="content.top.hqrDataTest">
+      <div *ngIf="!content.top.tooltipModel">
+        {{ content.top.label }}
+      </div>
+      <div *ngIf="content.top.tooltipModel">
+        <app-tooltip [tooltipModel]="content.top.tooltipModel"></app-tooltip>
+      </div>
     </div>
 
     <div class="pillbox-column-spacer"></div>
 
-    <div class="pillbox-column-content" [ngClass]="content[1].classes" [hqrDataTest]="content[1].hqrDataTest">
-      <div *ngIf="!content[1].tooltipModel">
-        {{ content[1].label }}
+    <div class="pillbox-column-content" [ngClass]="content.bottom.classes" [hqrDataTest]="content.bottom.hqrDataTest">
+      <div *ngIf="!content.bottom.tooltipModel">
+        {{ content.bottom.label }}
       </div>
-      <div *ngIf="content[1].tooltipModel" [ngClass]="content[1].classes">
-        <app-tooltip [tooltipModel]="content[1].tooltipModel"></app-tooltip>
+      <div *ngIf="content.bottom.tooltipModel">
+        <app-tooltip [tooltipModel]="content.bottom.tooltipModel"></app-tooltip>
       </div>
     </div>
   </div>
@@ -65,7 +75,7 @@
       <div class="pillbox-column-divider ds-u-padding-right--1"></div>
     </div>
 
-    <div class="pillbox-fraction-content pillbox-column-content ds-u-font-size--base ds-u-font-weight--bold">
+    <div class="pillbox-column-content ds-u-font-size--base ds-u-font-weight--bold">
       {{ pbFraction.denominator | number }}
     </div>
   </div>

@@ -68,27 +68,23 @@
 </app-alert> -->
 
 <h2>Pillbox</h2>
-<app-pillbox style="display:inline-block" [contentFirst]=pillboxData.simplest.first></app-pillbox>
-<app-pillbox style="display:inline-block" [contentFirst]=pillboxData.simplestCenteredBold.first></app-pillbox>
+<app-pillbox style="display:inline-block" [data]=pillboxData.simplest.first></app-pillbox>
+<app-pillbox style="display:inline-block" [data]=pillboxData.simplestCenteredBold.first></app-pillbox>
 <app-pillbox
   style="display:inline-block"
-  [contentFirst]=pillboxData.twoLabels.first
-  [contentSecond]=pillboxData.twoLabels.second>
+  [data]=pillboxData.twoLabels>
 </app-pillbox>
 <app-pillbox
   style="display:inline-block"
-  [contentFirst]=pillboxData.labelPairs.first
-  [contentSecond]=pillboxData.labelPairs.second>
+  [data]=pillboxData.labelPairs>
 </app-pillbox>
 <app-pillbox
   style="display:inline-block"
-  [contentFirst]=pillboxData.fraction.first
-  [contentFraction]=pillboxData.fraction.fraction>
+  [data]=pillboxData.fraction>
 </app-pillbox>
 <app-pillbox
   style="display:inline-block"
-  [contentFirst]=pillboxData.fraction.first
-  [contentFraction]=pillboxData.fractionZeros.fraction>
+  [data]=pillboxData.fractionZeros>
 </app-pillbox>
 
 <h2>Panel</h2>

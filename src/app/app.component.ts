@@ -38,7 +38,7 @@ import {
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { TableComponent } from './modules/table2/table.component';
 import { TooltipPlacementEnum, TooltipTriggerTypeEnum } from './modules/tooltip/tooltip.models';
-import { PillboxContent, PillboxFraction } from './modules/pillbox/pillbox.models';
+import { PillboxContent, PillboxContentPair, PillboxFraction } from './modules/pillbox/pillbox.models';
 
 @Component({
   selector: 'app-root',
@@ -135,64 +135,55 @@ export class AppComponent implements OnInit {
 
   pillboxData = {
     simplest: {
-      first: <PillboxContent[]>[{
+      first: <PillboxContent>{
         label: 'Single label, no styling or whatever'
-      }]
+      },
     },
     simplestCenteredBold: {
-      first: <PillboxContent[]>[{
+      first: {
         label: 'Single label, style override and bold',
         classes: 'ds-u-font-size--base ds-u-leading--base ds-u-text-align--center',
         bold: true,
-      }]
+      },
     },
-    twoLabels: {
-      first: <PillboxContent[]>[{
+    twoLabels: <PillboxContentPair>{
+      left: {
         label: 'First label',
-      }],
-      second: <PillboxContent[]>[{
+      },
+      right: {
         label: 'Second label',
-      }],
+      },
     },
-    labelPairs: {
-      first: <PillboxContent[]>[
-        {
+    labelPairs: <PillboxContentPair>{
+      left: {
+        top: {
           label: 'First high',
         },
-        {
+        bottom: {
           label: 'First low',
         },
-      ],
-      second: <PillboxContent[]>[
-        {
+      },
+      right: {
+        top: {
           label: 'Second high',
         },
-        {
+        bottom: {
           label: 'Second low',
         },
-        {
-          label: 'this gets trimmed, greedy dev!',
-        },
-      ],
-    },
-    fraction: {
-      first: null,
-      fraction: <PillboxFraction>{
-        numerator: 95,
-        denominator: 96,
-        rate: 0.95,
-        rateTooltip: 'Higher rates indicate better performance'
       },
+    },
+    fraction: <PillboxFraction>{
+      numerator: 95,
+      denominator: 96,
+      rate: 0.95,
+      rateTooltip: 'Higher rates indicate better performance',
     },
     fractionZeros: {
-      first: null,
-      fraction: <PillboxFraction>{
-        numerator: 0,
-        denominator: 0,
-        rate: 0,
-        rateTooltip: 'Lower rates indicate better performance',
-        hqrDataTest: 'fractionZeros'
-      },
+      numerator: 0,
+      denominator: 0,
+      rate: 0,
+      rateTooltip: 'Lower rates indicate better performance',
+      hqrDataTest: 'fractionZeros',
     }
   };
 
