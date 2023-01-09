@@ -41,6 +41,7 @@ export class AppTwentyFourHourTimeComponent implements OnInit, OnChanges {
   screenReaderAnnouncement = '';
   inputDebounceTimeout: ReturnType<typeof setTimeout>;
   knownGoodTimeValue: string;
+  focused = false;
 
   faChevronUp = faChevronUp;
   faChevronDown = faChevronDown;
@@ -116,7 +117,7 @@ export class AppTwentyFourHourTimeComponent implements OnInit, OnChanges {
 
   blurCallBackFunction(e) {
     if (!e.relatedTarget?.classList?.contains('clock-image')) {
-      this.removeFocusStyling();
+      this.focused = false;
     }
     this.blur.emit(e);
   }
@@ -130,16 +131,12 @@ export class AppTwentyFourHourTimeComponent implements OnInit, OnChanges {
   }
 
   addFocusStyling() {
-    document.getElementById(`time-container-${this.id}`).classList.add('time-container-focus');
-  }
-
-  removeFocusStyling() {
-    document.getElementById(`time-container-${this.id}`).classList.remove('time-container-focus');
+    this.focused = true;
   }
 
   addValidationError = () => {
     this.announceCurrentTime(true);
-    this.removeFocusStyling();
+    this.focused = false;
     document.getElementById(`time-container-${this.id}`).classList.add('time-container-error-shake');
     setTimeout(() => {
       this.removeValidationError();
@@ -147,11 +144,11 @@ export class AppTwentyFourHourTimeComponent implements OnInit, OnChanges {
   };
   removeValidationError = () => {
     document.getElementById(`time-container-${this.id}`).classList.remove('time-container-error-shake');
-    this.addFocusStyling();
+    this.focused = true
   };
 
   announceCurrentTime(hasError = false) {
-    this.screenReaderAnnouncement = `${hasError ? 'Invalid time provided' : ''}. The current time value is ${
+    this.screenReaderAnnouncement = `${hasError ? 'Invalid time provided.' : ''} The current time value is ${
       this.control.value
     }`;
   }
@@ -231,7 +228,7 @@ export class AppTwentyFourHourTimeComponent implements OnInit, OnChanges {
   openTimePicker(event: Event) {
     if (!this.disabled) {
       this.removeValidationError();
-      this.addFocusStyling();
+      this.focused = true;
       event.stopPropagation();
       event.preventDefault();
 
@@ -256,7 +253,7 @@ export class AppTwentyFourHourTimeComponent implements OnInit, OnChanges {
     // ignore these clicks and only close the timepicker when we're clicking outside the page
     const timePickerClasses = ['bumper-icon', 'time-picker-body', 'time-picker-label', 'close-image'];
     if (timePickerClasses.every((tpc) => !event.relatedTarget?.classList?.contains(tpc))) {
-      this.removeFocusStyling();
+      this.focused = false;
       this.closeTimePicker(event);
     }
   }

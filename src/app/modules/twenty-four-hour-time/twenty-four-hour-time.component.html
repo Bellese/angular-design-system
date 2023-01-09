@@ -27,7 +27,8 @@
   id="time-container-{{id}}"
   [ngClass]="inputClass + ' ' + 
     (errorMessage ? 'time-container-error-border' : 'time-container-border') + ' ' +
-    (disabled ? 'disabled-background' : 'enabled-background')"
+    (disabled ? 'disabled-background' : 'enabled-background') + ' ' +
+    (focused ? 'time-container-focus': '')"
   class="time-container
     ds-l-row
     ds-u-margin-y--1
