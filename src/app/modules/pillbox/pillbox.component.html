@@ -28,39 +28,34 @@
   </div>
 </div>
 
-<ng-template #single let-content>
-  <div class="ds-u-padding-y--1">
-    <div [ngClass]="content.classes" [hqrDataTest]="content.hqrDataTest">
-      <div *ngIf="!content.tooltipModel">
-        {{ content.label }}
-      </div>
-      <div *ngIf="content.tooltipModel">
-        <app-tooltip [tooltipModel]="content.tooltipModel"></app-tooltip>
-      </div>
+<ng-template #item let-content>
+  <div [ngClass]="content.classes" [hqrDataTest]="content.hqrDataTest">
+    <div *ngIf="!content.tooltipModel && !content.innerHTML">
+      {{ content.label }}
     </div>
+    <div *ngIf="content.tooltipModel">
+      <app-tooltip [tooltipModel]="content.tooltipModel"></app-tooltip>
+    </div>
+    <div *ngIf="content.innerHTML" [innerHTML]="content.innerHTML"></div>
   </div>
 </ng-template>
 
-<ng-template #multiple let-content>
+<ng-template #single let-content>
+  <div class="ds-u-padding-y--1">
+    <ng-template *ngTemplateOutlet="item; context: { $implicit: content }"></ng-template>
+  </div>
+</ng-template>
+
+<ng-template #multiple let-column>
   <div class="ds-u-padding-y--1 pillbox-content-multiple pillbox-column-container">
-    <div class="pillbox-column-content" [ngClass]="content.top.classes" [hqrDataTest]="content.top.hqrDataTest">
-      <div *ngIf="!content.top.tooltipModel">
-        {{ content.top.label }}
-      </div>
-      <div *ngIf="content.top.tooltipModel">
-        <app-tooltip [tooltipModel]="content.top.tooltipModel"></app-tooltip>
-      </div>
+    <div class="pillbox-column-content" [ngClass]="column.top.classes" [hqrDataTest]="column.top.hqrDataTest">
+      <ng-template *ngTemplateOutlet="item; context: { $implicit: column.top }"></ng-template>
     </div>
 
     <div class="pillbox-column-spacer"></div>
 
-    <div class="pillbox-column-content" [ngClass]="content.bottom.classes" [hqrDataTest]="content.bottom.hqrDataTest">
-      <div *ngIf="!content.bottom.tooltipModel">
-        {{ content.bottom.label }}
-      </div>
-      <div *ngIf="content.bottom.tooltipModel">
-        <app-tooltip [tooltipModel]="content.bottom.tooltipModel"></app-tooltip>
-      </div>
+    <div class="pillbox-column-content" [ngClass]="column.bottom.classes" [hqrDataTest]="column.bottom.hqrDataTest">
+      <ng-template *ngTemplateOutlet="item; context: { $implicit: column.bottom }"></ng-template>
     </div>
   </div>
 </ng-template>

@@ -158,6 +158,7 @@ export class AppComponent implements OnInit {
       left: {
         top: {
           label: 'First high',
+          tooltip: 'simple tooltip text',
         },
         bottom: {
           label: 'First low',
@@ -169,6 +170,7 @@ export class AppComponent implements OnInit {
         },
         bottom: {
           label: 'Second low',
+          innerHTML: '<span id="pillbox-innerHTML"><b>innerHTML</b></span>'
         },
       },
     },
@@ -184,7 +186,7 @@ export class AppComponent implements OnInit {
       rate: 0,
       rateTooltip: 'Lower rates indicate better performance',
       hqrDataTest: 'fractionZeros',
-    }
+    },
   };
 
   popoverModel: PopoverModel = new PopoverModel({
