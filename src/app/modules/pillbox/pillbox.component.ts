@@ -3,13 +3,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { TooltipModel } from '../tooltip/tooltip.models';
 import { PillboxColumnContent, PillboxContent, PillboxContentPair, PillboxContentType, PillboxFraction } from './pillbox.models';
 
-// TODO:
-// - code/function comments
-// - innerHTML
-
 // Not implementing 'id' until it's proven necessary. I.e. to re-use ids elsewhere
 // for aria-labeledby etc. Tooltips can accept 'id' values, but utility isn't immediately
-// apparent. If id control in Tooltip is required, we can still pass it in with TooltipModel
+// apparent. If id control in Tooltip is required, we can still pass it in with TooltipModel.
+// We can also workaround quite a bit with innerHTML until a solid need or design emerges.
 
 @Component({
   selector: 'app-pillbox',
@@ -53,6 +50,14 @@ export class AppPillboxComponent implements OnInit {
     }
   }
 
+  /**
+   * Modifies PillboxContent c to handle customization, or set defaults as required
+   *
+   * @remarks
+   * 'classes' will override default styling. 'bold' always appends.
+   *
+   * @param c PillboxContent
+   */
   private setContent(c: PillboxContent) {
     // Set default style/classes if none provided
     if (!c.classes) {
@@ -73,6 +78,13 @@ export class AppPillboxComponent implements OnInit {
     }
   }
 
+  /**
+   * Creates tooltip with UX defaults for this component, using only label and tooltip text
+   *
+   * @param tip text label for the tooltip
+   * @param label text label to receive the tooltip
+   * @returns TooltipModel via tooltip.models / app-tooltip
+   */
   private makeTooltipModel(tip: string, label: string): TooltipModel {
     let model : TooltipModel;
 
@@ -86,6 +98,13 @@ export class AppPillboxComponent implements OnInit {
     return model;
   }
 
+  /**
+   * Creates left and right PillboxColumnContent, with applied defaults or overrides,
+   * allowing passing in a single PillboxContent for either half.
+   *
+   * @param pair PillboxContent or PillboxColumnContent for each side
+   * @returns left and right PillboxColumnContent, as required by the html tempalte
+   */
   private makePairContent(pair: PillboxContentPair): {
     left: PillboxColumnContent,
     right: PillboxColumnContent,
@@ -118,6 +137,14 @@ export class AppPillboxComponent implements OnInit {
     return {left, right};
   }
 
+  /**
+   * Creates left and right PillboxColumnContent from focused PillboxFraction values,
+   * using specific styles and design goals.
+   *
+   * @param frac PillboxFraction
+   * @returns PillboxFraction-specific left and right PillboxColumnContent,
+   * as required by the html template
+   */
   private makeFractionContent(frac: PillboxFraction): {
     left: PillboxColumnContent,
     right: PillboxColumnContent,

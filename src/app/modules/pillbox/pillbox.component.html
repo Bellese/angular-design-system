@@ -1,8 +1,14 @@
+<!-- Core layout of the Pillbox.
+Handle layout, padding, margins and hard defaults here.
+Handle most of the customization and flexibilty in component.ts, even for styles. -->
 <div class="pillbox-background ds-u-radius--8 ds-u-padding-left--2 ds-u-padding-right--2">
+  <!-- Only for custom PillboxFraction use case -->
   <div *ngIf="contentFraction !== null" class="ds-u-padding-y--1">
     <ng-template *ngTemplateOutlet="fraction; context: { $implicit: contentFraction }"></ng-template>
   </div>
 
+  <!-- 'bottom' param should be null for a single content item. When defined, use vertically-justified float/flex layout -->
+  <!-- contentFirst is always generated from input.-->
   <div class="pillbox-container-first" [ngClass]="{ 'ds-u-padding-left--1': contentFraction !== null}">
     <div *ngIf="!contentFirst.bottom">
       <ng-template *ngTemplateOutlet="single; context: { $implicit: contentFirst.top }"></ng-template>
@@ -13,6 +19,8 @@
     </div>
   </div>
 
+  <!-- contentSecond should get generated from PillboxContentPair or PillboxFraction inputs -->
+  <!-- Displays content in 'left | right' layout -->
   <div *ngIf="contentSecond" class="pillbox-divider-container ds-u-padding-y--1">
     <div class="pillbox-divider"></div>
   </div>
@@ -28,6 +36,7 @@
   </div>
 </div>
 
+<!-- Core, single content item of the Pillbox -->
 <ng-template #item let-content>
   <div [ngClass]="content.classes" [hqrDataTest]="content.hqrDataTest">
     <div *ngIf="!content.tooltipModel && !content.innerHTML">
@@ -40,12 +49,14 @@
   </div>
 </ng-template>
 
+<!-- Layout for a single item in Pillbox column -->
 <ng-template #single let-content>
   <div class="ds-u-padding-y--1">
     <ng-template *ngTemplateOutlet="item; context: { $implicit: content }"></ng-template>
   </div>
 </ng-template>
 
+<!-- Layout for a stack of 2 items in Pillbox column -->
 <ng-template #multiple let-column>
   <div class="ds-u-padding-y--1 pillbox-content-multiple pillbox-column-container">
     <div class="pillbox-column-content" [ngClass]="column.top.classes">
@@ -60,6 +71,9 @@
   </div>
 </ng-template>
 
+<!-- Layout for the left-side, numeral fraction, in the custom PillboxFraction usecase. Each value should
+float to the top and bottom, and be vertically aligned with the 'left | right' label content for the
+numerator and denominator (respectively) -->
 <ng-template #fraction let-pbFraction>
   <div class="pillbox-column-container" [hqrDataTest]="pbFraction.hqrDataTest ? pbFraction.hqrDataTest : ''">
     <div class="pillbox-column-content ds-u-font-size--base ds-u-font-weight--bold">
