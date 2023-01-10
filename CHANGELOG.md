@@ -1,3 +1,10 @@
+## [5.4.0](https://github.com/Bellese/angular-design-system/compare/v5.3.11...v5.4.0) (2023-01-10)
+
+
+### Features
+
+* **twenty-four-hour-time:** Implement new 24hr time component ([#355](https://github.com/Bellese/angular-design-system/issues/355)) ([cb76cef](https://github.com/Bellese/angular-design-system/commit/cb76cef998914f102f24a376066537d113672210))
+
 ## [5.3.11](https://github.com/Bellese/angular-design-system/compare/v5.3.10...v5.3.11) (2023-01-04)
 
 
