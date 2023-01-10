@@ -46,7 +46,7 @@ export class AppPillboxComponent implements OnInit {
       this.contentFirst = {
         top: this.data,
         bottom: null,
-      }
+      };
     }
   }
 
