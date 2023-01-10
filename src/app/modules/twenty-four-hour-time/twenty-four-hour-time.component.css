@@ -80,7 +80,7 @@
 .clock-image {
   position: absolute;
   right: 8px;
-  height: 14px;
+  height: 100%;
   width: 14px;
   background-image: url(../../../assets/images/clock.svg);
   background-position: center;
