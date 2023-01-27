@@ -23,24 +23,24 @@ export class AppPillboxComponent implements OnInit {
   ngOnInit(): void {
     // Any more complex than this, and we'll need enums and a prop to 'switch' on
     // for handling various *Content* types
-    if ("numerator" in this.data) {
+    if ('numerator' in this.data) {
       // Handle PillboxFraction - a bespoke usecase
       let { left, right } = this.makeFractionContent(this.data);
       this.contentFirst = left;
       this.contentSecond = right;
       this.contentFraction = this.data;
-    } else if ("left" in this.data) {
+    } else if ('left' in this.data) {
       // Handle PillboxContentPair
       // PillboxContent or PillboxColumnContent on either side with a vertical divider
       let { left, right } = this.makePairContent(this.data);
       this.contentFirst = left;
       this.contentSecond = right;
-    } else if ("top" in this.data) {
+    } else if ('top' in this.data) {
       // Handle a single PillboxColumnContent
       this.setContent(this.data.top);
       this.setContent(this.data.bottom);
       this.contentFirst = this.data;
-    } else if ("label" in this.data) {
+    } else if ('label' in this.data) {
       // Handle a single PillboxContent
       this.setContent(this.data);
       this.contentFirst = {
@@ -112,7 +112,7 @@ export class AppPillboxComponent implements OnInit {
     var left: PillboxColumnContent;
     var right: PillboxColumnContent;
 
-    if ("top" in pair.left) {
+    if ('top' in pair.left) {
       left = pair.left;
       this.setContent(left.bottom);
     } else {
@@ -123,7 +123,7 @@ export class AppPillboxComponent implements OnInit {
     }
     this.setContent(left.top);
 
-    if ("top" in pair.right) {
+    if ('top' in pair.right) {
       right = pair.right;
       this.setContent(right.bottom);
     } else {

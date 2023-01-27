@@ -1,4 +1,4 @@
-import { TooltipModel } from "../tooltip/tooltip.models";
+import { TooltipModel } from '../tooltip/tooltip.models';
 
 /** Wrapper type to allow multiple formats for input data */
 export type PillboxContentType =
