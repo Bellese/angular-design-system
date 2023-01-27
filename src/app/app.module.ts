@@ -43,6 +43,7 @@ import { PopoverModule } from './modules/popover/popover.module';
 import { ToastModule } from './modules/toast/toast.module';
 import { TooltipModule } from './modules/tooltip/tooltip.module';
 import { CalendarModule } from './modules/calendar/calendar.module';
+import { TwentyFourHourTimeModule } from './modules/twenty-four-hour-time/twenty-four-hour-time.module';
 import { StoriesModule } from '../stories/stories.module';
 import { PillboxModule } from './modules/pillbox/pillbox.module';
 
@@ -87,6 +88,7 @@ import { PillboxModule } from './modules/pillbox/pillbox.module';
     ToastModule,
     Table2Module,
     TooltipModule,
+    TwentyFourHourTimeModule,
     StoriesModule,
     PillboxModule,
   ],

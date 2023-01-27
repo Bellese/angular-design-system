@@ -1,3 +1,42 @@
+## [5.4.0](https://github.com/Bellese/angular-design-system/compare/v5.3.11...v5.4.0) (2023-01-10)
+
+
+### Features
+
+* **twenty-four-hour-time:** Implement new 24hr time component ([#355](https://github.com/Bellese/angular-design-system/issues/355)) ([cb76cef](https://github.com/Bellese/angular-design-system/commit/cb76cef998914f102f24a376066537d113672210))
+
+## [5.3.11](https://github.com/Bellese/angular-design-system/compare/v5.3.10...v5.3.11) (2023-01-04)
+
+
+### Bug Fixes
+
+* **chip-filter.component.html:** Add comment so it's apparent why the message is repeated in VoiceOver. ([d38b036](https://github.com/Bellese/angular-design-system/commit/d38b0361fff60c293221d7c8f1f896b0479268c1))
+
+## [5.3.10](https://github.com/Bellese/angular-design-system/compare/v5.3.9...v5.3.10) (2023-01-02)
+
+
+### Bug Fixes
+
+* **chip-filter.component.html:** Have JAWS notify when provider list loads. ([a7dccb2](https://github.com/Bellese/angular-design-system/commit/a7dccb26d50a7d4b80d2ed3e6d9383d12778e2ec))
+* **chip-filter.component.html:** Update condition to attach aria-live for JAWS compatibility. ([c849cba](https://github.com/Bellese/angular-design-system/commit/c849cbaa939a59bdd7c5303123808094825fa5fd))
+* **chip-filter.component.html:** Update condition to attach aria-live for JAWS compatibility. ([e540da3](https://github.com/Bellese/angular-design-system/commit/e540da347dd69d82208c8077ef99432589c21c9a))
+* **chip-filter.component.html:** Update condition to attach aria-live for JAWS compatibility. ([8072842](https://github.com/Bellese/angular-design-system/commit/8072842204d17a2c0fc719f72d3405faccefb3bb))
+
+## [5.3.9](https://github.com/Bellese/angular-design-system/compare/v5.3.8...v5.3.9) (2022-12-21)
+
+
+### Bug Fixes
+
+* **chip-filter.component.html:** Move aria-live to first item to help with JAWS compatibility. ([f705509](https://github.com/Bellese/angular-design-system/commit/f705509c2ec565e1457bc5d5b3040f3b732a74f0))
+
+## [5.3.8](https://github.com/Bellese/angular-design-system/compare/v5.3.7...v5.3.8) (2022-12-20)
+
+
+### Bug Fixes
+
+* **chip-filter.component.html:** Add aria text to signal when providers load after search is complete ([c1aabbe](https://github.com/Bellese/angular-design-system/commit/c1aabbe2a1b42f326dc167bccaeef083779077db))
+* **chip-filter.component.html:** Use variable to determine if text box is selected ([7865c8d](https://github.com/Bellese/angular-design-system/commit/7865c8d7aa83bb2620b380621fd2a7ee756b022f))
+
 ## [5.3.7](https://github.com/Bellese/angular-design-system/compare/v5.3.6...v5.3.7) (2022-12-05)
 
 

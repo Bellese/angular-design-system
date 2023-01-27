@@ -1,0 +1,174 @@
+<label class="ds-c-label" [ngClass]="labelClass" for="{{ id }}">
+  <span class="ds-u-font-weight--bold">{{ title }}</span>
+  <span *ngIf="hint" class="ds-c-field__hint" [ngClass]="hintClass" role="alert">{{ hint }}</span>
+  <span *ngIf="errorMessage" class="ds-c-field__hint ds-u-color--error" role="alert">{{ errorMessage }}</span>
+</label>
+
+<ng-template [ngIf]="alertMessageList?.length">
+  <div class="ds-u-margin-y--2">
+    <app-alert dataAutoId="{{ id + '-' + alertVariation }}" [hideClose]="true" variation="{{ alertVariation }}">
+      <div *ngIf="alertMessageList.length > 1; else singleAlert">
+        <div *ngFor="let alertMessage of alertMessageList">
+          <li>{{ alertMessage }}</li>
+        </div>
+      </div>
+      <ng-template #singleAlert>
+        {{ alertMessageList[0] }}
+      </ng-template>
+    </app-alert>
+  </div>  
+</ng-template>
+
+<div aria-live="assertive" class="sr-only">
+  <div *ngIf="screenReaderAnnouncement.length > 0">{{screenReaderAnnouncement}}</div>
+</div>
+
+<div
+  id="time-container-{{id}}"
+  [ngClass]="inputClass + ' ' + 
+    (errorMessage ? 'time-container-error-border' : 'time-container-border') + ' ' +
+    (disabled ? 'disabled-background' : 'enabled-background') + ' ' +
+    (focused ? 'time-container-focus': '')"
+  class="time-container
+    ds-l-row
+    ds-u-margin-y--1"
+  >
+  <div class="ds-l-col-10 input-padding">
+    <input
+      class="time-input
+        ds-u-font-size--base
+        ds-u-border--0"
+      name="{{ id }}"
+      attr.aria-label="{{ ariaLabel || title }}"
+      attr.data-auto-id="{{ dataAutoId }}"
+      type="text"
+      tabindex="0"
+      onClick="this.setSelectionRange(0, this.value.length)"
+      maxlength="5"
+      [disabled]="disabled"
+      [formControl]="control"
+      [formlyAttributes]="formlyAttributes"
+      (input)="validateInput($event)"
+      (change)="formatAndSetTime($event)"
+      (blur)="blurCallBackFunction($event)"
+      (keyup)="keyupCallBackFunction($event)"
+      (focus)="addFocusStyling()"
+    />
+  </div>
+
+  <div class="clock-parent
+    ds-l-col--2"
+  >
+    <div
+      role="button"
+      tabindex="0"
+      alt="clock"
+      class="clock-image"
+      aria-label="open the time picker"
+      (click)="openTimePicker($event)"
+      (keyup.enter)="openTimePicker($event)"
+    ></div>
+  </div>
+
+  <div class="time-picker
+      ds-u-radius
+      ds-u-border--1
+      ds-u-border--dark"
+    *ngIf="timePickerVisible"
+    id="time-picker-{{id}}"
+    (click)="stopPropagation($event)"
+    (focusout)="focusLost($event)"
+  >
+    <div class="time-picker-header
+      ds-u-padding-x--1
+      ds-u-padding-top--2
+      ds-u-padding-bottom--0
+      ds-u-font-weight--bold"
+    >
+      <div tabindex="-1" class="time-picker-label">Select time</div>
+      <span
+        id="{{id}}_close_time_picker"
+        class="close-image ds-u-font-weight--bold"
+        tabindex="0"
+        alt="close"
+        aria-label="close the time picker"
+        (click)="closeTimePicker($event)"
+        (keyup.enter)="closeTimePicker($event)"
+      ></span>
+    </div>
+
+    <div class="time-picker-body ds-u-font-weight--bold" tabindex="-1">
+      <div class="other-number-row ds-u-padding-y--0 ds-u-padding-x--1">
+        <div class="other-number-column other-column-top">
+          <div
+            class="bumper-icon top-icon"
+            tabindex="0"
+            aria-label="decrement the hour value"
+            role="button"
+            (click)="stepTime('hours', 'decrement')"
+            (keyup.enter)="stepTime('hours', 'decrement')"
+          >
+            <fa-icon [icon]="faChevronUp"></fa-icon>
+          </div>
+          <div *ngFor="let hour of previousHours">{{hour}}</div>
+        </div>
+
+        <div class="other-number-spacer"></div>
+
+        <div class="other-number-column other-column-top">
+          <div
+            class="bumper-icon top-icon"
+            tabindex="0"
+            aria-label="decrement the minute value"
+            role="button"
+            (click)="stepTime('minutes', 'decrement')"
+            (keyup.enter)="stepTime('minutes', 'decrement')"
+          >
+            <fa-icon [icon]="faChevronUp"></fa-icon>
+          </div>
+          <div *ngFor="let minute of previousMinutes">{{minute}}</div>
+        </div>
+      </div>
+
+      <div class="selected-time-row">
+        <div class="item-selected">{{timeHours}}</div>
+        <div class="time-colon">:</div>
+        <div class="item-selected">{{timeMinutes}}</div>
+      </div>
+
+      <div class="other-number-row ds-u-padding-y--0 ds-u-padding-x--1">
+        <div class="other-number-column other-column-bottom">
+          <div *ngFor="let hour of nextHours">{{hour}}</div>
+          <div
+            class="bumper-icon bottom-icon"
+            tabindex="0"
+            aria-label="increment the hour value"
+            role="button"
+            (click)="stepTime('hours', 'increment')"
+            (keyup.enter)="stepTime('hours', 'increment')"
+          >
+            <fa-icon [icon]="faChevronDown"></fa-icon>
+          </div>
+        </div>
+
+        <div class="other-number-spacer"></div>
+
+        <div class="other-number-column other-column-bottom">
+          <div *ngFor="let minute of nextMinutes">{{minute}}</div>
+          <div
+            class="bumper-icon bottom-icon"
+            tabindex="0"
+            aria-label="increment the minute value"
+            role="button"
+            (click)="stepTime('minutes', 'increment')"
+            (keyup.enter)="stepTime('minutes', 'increment')"
+            (keydown.tab)="focusOnCloseButton($event)"
+          >
+            <fa-icon [icon]="faChevronDown"></fa-icon>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

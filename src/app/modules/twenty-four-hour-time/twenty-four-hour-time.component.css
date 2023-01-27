@@ -1,0 +1,196 @@
+.ds-c-field {
+  margin-bottom: 0;
+  margin-top:5px;
+}
+
+.ds-c-label {
+  margin-top: 0;
+}
+
+.time-container {
+  max-width: 500px;
+  position: relative;
+  border-radius: 3px;
+  padding: 8px 0px !important;
+  margin-left: 0px;
+}
+
+.time-container-focus {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-color: Highlight;
+}
+
+.time-container-border {
+  border: 2px solid #323a45 !important;
+}
+
+.time-container-error-border {
+  border: 3px solid #e31c3d !important;
+}
+
+
+.time-container-error-shake {
+  animation: shake 0.2s ease-in-out 0s 2;
+  box-shadow: 0 0 0.5em #e31c3d;
+}
+
+@keyframes shake {
+  0% { margin-left: 0rem; }
+  25% { margin-left: 0.5rem; }
+  75% { margin-left: -0.5rem; }
+  100% { margin-left: 0rem; }
+}
+
+.time-input {
+  width: 100%;
+}
+
+.time-input:focus {
+  outline: none;
+}
+
+.time-input:disabled {
+  background: lightgrey;
+}
+
+.time-picker {
+  position: absolute;
+  background: white;
+  top: 45px;
+  left: -2px;
+  z-index: 1;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.time-picker-label {
+  flex-grow: 1;
+}
+
+.time-picker-header {
+  display: flex;
+  justify-content: space-between;
+  min-height: 36px;
+}
+
+.clock-parent {
+  position: relative;
+  margin-right: 4px;
+}
+
+.clock-image {
+  position: absolute;
+  right: 8px;
+  height: 100%;
+  width: 14px;
+  background-image: url(../../../assets/images/clock.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.close-image {
+  height: 18px;
+  width: 18px;
+  background-image: url(../../../assets/images/close--smaller.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.disabled-background {
+  background-color: lightgrey;
+}
+
+.enabled-background {
+  background-color: white;
+}
+
+.time-picker-body {
+  padding: 8px 76px;
+}
+
+.selected-time-row {
+  display: flex;
+  flex-direction: row;
+  padding: 0px 10px
+}
+
+.item-selected {
+  border-radius: 4px;
+  padding: 0px 4px;
+  background-color: #0071bc;
+  color: #f2f2f2;
+}
+
+.time-colon {
+  margin: 0px 6px;
+  font-weight: 600;
+}
+
+.other-number-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.other-number-column {
+  padding: 0px 7px;
+  display: flex;
+  flex-direction: column;
+  line-height: 125%;
+  min-height: 60px;
+}
+
+.other-column-top {
+  justify-content: end;
+  position: relative;
+}
+
+.other-column-top:after {
+  position: absolute;
+  z-index: 2;
+  background-image: linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255, 0) 100%);
+  width: 100%;
+  height: 4em;
+  bottom: 0;
+  left: 0;
+  content: "";
+}
+
+.other-column-bottom {
+  justify-content: start;
+  position: relative;
+}
+
+.other-column-bottom:after {
+  position: absolute;
+  z-index: 2;
+  background-image: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255, 0) 100%);
+  width: 100%;
+  height: 4em;
+  bottom: 0;
+  left: 0;
+  content: "";
+}
+
+.other-number-spacer {
+  min-width: 9px;
+}
+
+.bumper-icon {
+  position: absolute;
+  padding-left: 4px;
+  color: #0071bc;
+  z-index: 3;
+}
+
+.top-icon {
+  top: 0px;
+}
+
+.bottom-icon {
+  bottom: 0px;
+}
+
+.input-padding {
+  padding-left: 4px !important;
+  flex-grow: 1;
+}

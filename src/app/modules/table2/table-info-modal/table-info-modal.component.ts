@@ -24,9 +24,9 @@ export class TableInfoModalComponent implements OnInit {
     }
   }
 
-  showModal(): void {
+  showModal(e): void {
     const modalData = new ModalGenericModel({
-      id: this.infoModel.label,
+      id: e.target.id.toString(),
       body: this.infoModel.modalText,
       title: this.infoModel.label,
     });

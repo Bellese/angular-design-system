@@ -31,6 +31,7 @@ export * from './src/app/modules/calendar/calendar.module';
 export * from './src/app/modules/tooltip/tooltip.module';
 export * from './src/app/modules/chip-filter/chip-filter.module';
 export * from './src/app/modules/pillbox/pillbox.module';
+export * from './src/app/modules/twenty-four-hour-time/twenty-four-hour-time.module';
 
 // Services
 export * from './src/app/services/modal/modal.service';
@@ -85,6 +86,7 @@ export { CalendarComponent } from './src/app/modules/calendar/calendar.component
 export { TooltipComponent } from './src/app/modules/tooltip/tooltip.component';
 export { AppChipFilterComponent } from './src/app/modules/chip-filter/chip-filter.component';
 export { AppPillboxComponent } from './src/app/modules/pillbox/pillbox.component';
+export { AppTwentyFourHourTimeComponent } from './src/app/modules/twenty-four-hour-time/twenty-four-hour-time.component';
 
 // Models
 export { TabModel } from './src/app/modules/tabs/tabs.model';
