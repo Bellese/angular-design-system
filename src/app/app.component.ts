@@ -38,6 +38,7 @@ import {
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { TableComponent } from './modules/table2/table.component';
 import { TooltipPlacementEnum, TooltipTriggerTypeEnum } from './modules/tooltip/tooltip.models';
+import { PillboxContent, PillboxContentPair, PillboxFraction } from './modules/pillbox/pillbox.models';
 
 @Component({
   selector: 'app-root',
@@ -131,6 +132,62 @@ export class AppComponent implements OnInit {
   appTableModalComponent = AppTableModalComponent;
 
   @ViewChild('uploader') uploader: FileUploadComponent;
+
+  pillboxData = {
+    simplest: {
+      first: <PillboxContent>{
+        label: 'Single label, no styling or whatever'
+      },
+    },
+    simplestCenteredBold: {
+      first: {
+        label: 'Single label, style override and bold',
+        classes: 'ds-u-font-size--base ds-u-leading--base ds-u-text-align--center',
+        bold: true,
+      },
+    },
+    twoLabels: <PillboxContentPair>{
+      left: {
+        label: 'First label',
+      },
+      right: {
+        label: 'Second label',
+      },
+    },
+    labelPairs: <PillboxContentPair>{
+      left: {
+        top: {
+          label: 'First high',
+          tooltip: 'simple tooltip text',
+        },
+        bottom: {
+          label: 'First low',
+        },
+      },
+      right: {
+        top: {
+          label: 'Second high',
+        },
+        bottom: {
+          label: 'Second low',
+          innerHTML: '<span id="pillbox-innerHTML"><b>innerHTML</b></span>'
+        },
+      },
+    },
+    fraction: <PillboxFraction>{
+      numerator: 95,
+      denominator: 96,
+      rate: 0.95,
+      rateTooltip: 'Higher rates indicate better performance',
+    },
+    fractionZeros: {
+      numerator: 0,
+      denominator: 0,
+      rate: 0,
+      rateTooltip: 'Lower rates indicate better performance',
+      hqrDataTest: 'fractionZeros',
+    },
+  };
 
   popoverModel: PopoverModel = new PopoverModel({
     items: [

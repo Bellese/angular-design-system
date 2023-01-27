@@ -45,6 +45,7 @@ import { TooltipModule } from './modules/tooltip/tooltip.module';
 import { CalendarModule } from './modules/calendar/calendar.module';
 import { TwentyFourHourTimeModule } from './modules/twenty-four-hour-time/twenty-four-hour-time.module';
 import { StoriesModule } from '../stories/stories.module';
+import { PillboxModule } from './modules/pillbox/pillbox.module';
 
 @NgModule({
   declarations: [AppComponent, ExampleModalComponent],
@@ -80,15 +81,16 @@ import { StoriesModule } from '../stories/stories.module';
     TicketModule,
     SearchFieldModule,
     TabsModule,
+    CalendarModule,
     FileUploadModule,
     CodeSnippetModule,
     PopoverModule,
     ToastModule,
     Table2Module,
-    CalendarModule,
     TooltipModule,
     TwentyFourHourTimeModule,
     StoriesModule,
+    PillboxModule,
   ],
   providers: [AppService, FilterPipe],
   bootstrap: [AppComponent],

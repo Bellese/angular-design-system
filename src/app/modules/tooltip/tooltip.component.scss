@@ -1,11 +1,13 @@
 $color-base: #212121 !default;
-$color-primary: #0071bc !default;
+$color-primary: #205493 !default;
 $color-primary-darkest: #112e51 !default;
 $color-white: #fff !default;
 
 a.tooltipTrigger {
   text-decoration: underline;
-  text-decoration-style: dotted;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
   color: $color-base;
   text-decoration-color: $color-primary;
 }

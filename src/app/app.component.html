@@ -3,15 +3,15 @@
   <!-- UNCOMMENT CODE ON THIS PAGE TO SEE EXAMPLES OF COMPONENTS
 <br>
 <br> -->
-  <!-- 
+  <!--
 <p>ACCORDION COMPONENT EXAMPLE</p>
 <app-accordion>
     <app-panel
-        (panelClick) = "announce($event)"  
-        title ='Accordion Example' 
+        (panelClick) = "announce($event)"
+        title ='Accordion Example'
         extTitleClass = 'customizeExtra'
         dataAutoId = 'dataID'
-        [extTitle] = true 
+        [extTitle] = true
         [expand] = true
         expandedClass = 'ds-u-fill--gray-lightest ds-u-border-top--0 ds-u-border--1 ds-u-border--dark ds-u-padding--2'
         [openAll] = false>
@@ -22,12 +22,12 @@
             Content Structure
         </div>
     </app-panel>
-    <app-panel 
-        (panelClick) = "announce($event)"  
-        title ='Accordion Example' 
+    <app-panel
+        (panelClick) = "announce($event)"
+        title ='Accordion Example'
         extTitleClass = 'customizeExtra'
         dataAutoId = 'dataID'
-        [extTitle] = true  
+        [extTitle] = true
         [expand] = false
         [openAll] = false>
         <span>
@@ -37,13 +37,13 @@
             Content Structure 2
         </div>
     </app-panel>
-    <app-panel 
-        (panelClick) = "announce($event)"  
-        title ='Accordion Example' 
+    <app-panel
+        (panelClick) = "announce($event)"
+        title ='Accordion Example'
         titleClass='ds-u-fill--success'
         extTitleClass = 'customizeExtra'
         dataAutoId = 'dataID'
-        [extTitle] = true  
+        [extTitle] = true
         [expand] = true
         expandedClass = 'ds-u-padding-x--0'
         [openAll] = false>
@@ -66,6 +66,26 @@
         you need to add more document examples<br />
         i have added more examples
 </app-alert> -->
+
+<h2>Pillbox</h2>
+<app-pillbox style="display:inline-block" [data]=pillboxData.simplest.first></app-pillbox>
+<app-pillbox style="display:inline-block" [data]=pillboxData.simplestCenteredBold.first></app-pillbox>
+<app-pillbox
+  style="display:inline-block"
+  [data]=pillboxData.twoLabels>
+</app-pillbox>
+<app-pillbox
+  style="display:inline-block"
+  [data]=pillboxData.labelPairs>
+</app-pillbox>
+<app-pillbox
+  style="display:inline-block"
+  [data]=pillboxData.fraction>
+</app-pillbox>
+<app-pillbox
+  style="display:inline-block"
+  [data]=pillboxData.fractionZeros>
+</app-pillbox>
 
 <h2>Panel</h2>
 
@@ -138,7 +158,7 @@
     [showYAxis] = true
     [showXAxisLabel] = true
     [showYAxisLabel] = true
-    xAxisLabel = 'x label'  
+    xAxisLabel = 'x label'
     yAxisLabel = 'y label'
     [animations] = true
     [roundDomains] = false
@@ -164,7 +184,7 @@
 </app-button> -->
 
   <!-- CARD CLUSTER COMPONENT EXAMPLE
-<app-card-cluster 
+<app-card-cluster
     [cardArray]="cluster"
     buttonClicked='CardCluster1'
     dataAutoId = 'testingID'
@@ -201,7 +221,7 @@
 </app-circle-graph> -->
 
   <!-- DATE-PICKER COMPONENT EXAMPLE
-<app-date-picker 
+<app-date-picker
     label = 'Date Example'
     dataAutoId = 'testingID'>
 </app-date-picker> -->
@@ -232,18 +252,18 @@
 
   <!-- SEARCH_FIELD COMPONENT EXAMPLE
 <div style='width: 460px;'>
-    <app-search-field 
+    <app-search-field
         [reset]='resetSearch'
-        showReset = true 
-        placeHolder='Search' 
-        title='Search Field' 
-        id='tableSearch' 
+        showReset = true
+        placeHolder='Search'
+        title='Search Field'
+        id='tableSearch'
         inputClass='searchInput'
-        labelClass='searchLabel' 
-        hint='Enter a search here' 
-        hintClass='searchHint' 
+        labelClass='searchLabel'
+        hint='Enter a search here'
+        hintClass='searchHint'
         dataAutoId='testingID'
-        (userInput)='announce($event)' 
+        (userInput)='announce($event)'
         (changes)="resetSearch = $event">
     </app-search-field>
 </div>
@@ -278,7 +298,7 @@
 <br/>
 <app-accordion>
     <ng-container *ngFor="let dataObj of dataSet; let i = index">
-        <app-panel *ngIf="dataObj" 
+        <app-panel *ngIf="dataObj"
                     [title]="dataObj.measureGroupName"
                     [openAll]="openAll">
             <span> data data data<br/> data data data</span>
@@ -286,7 +306,7 @@
                 <app-table
                     [starRating]="3"
                     [index]="i + '_' + in"
-                    [headers]="data ? data.tableHeaders: false" 
+                    [headers]="data ? data.tableHeaders: false"
                     [dataRows]="data.tableRows"
                     [searchText]="searchText"
                     [highlightSearch]="true"
@@ -309,11 +329,11 @@
     </ng-container>
 </app-accordion> -->
 
-  <!--     
+  <!--
 TABLE AND PAGINATION
 <br/>
 <app-table
-    [headers]="singleTableData.tableHeaders" 
+    [headers]="singleTableData.tableHeaders"
     [dataRows]="singleTableData.tableRows"
     [paginate]="true"
     [total]="singleTableData.count"
