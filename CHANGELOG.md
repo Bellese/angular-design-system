@@ -1,3 +1,10 @@
+## [5.5.0](https://github.com/Bellese/angular-design-system/compare/v5.4.0...v5.5.0) (2023-01-27)
+
+
+### Features
+
+* **pillbox:** New "blue pillbox" UI component ([#354](https://github.com/Bellese/angular-design-system/issues/354)) ([ef1a691](https://github.com/Bellese/angular-design-system/commit/ef1a69171bfbde478239be1dc66002671b5be1ac))
+
 ## [5.4.0](https://github.com/Bellese/angular-design-system/compare/v5.3.11...v5.4.0) (2023-01-10)
 
 
