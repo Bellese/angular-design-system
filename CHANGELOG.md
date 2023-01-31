@@ -1,3 +1,10 @@
+## [5.5.1](https://github.com/Bellese/angular-design-system/compare/v5.5.0...v5.5.1) (2023-01-31)
+
+
+### Bug Fixes
+
+* **modal-generic.component.ts:** On modal close, put focus back on originating button (for both modal close buttons). ([f069be7](https://github.com/Bellese/angular-design-system/commit/f069be7166b9a899c1a5c595253516e7cc5a2550))
+
 ## [5.5.0](https://github.com/Bellese/angular-design-system/compare/v5.4.0...v5.5.0) (2023-01-27)
 
 
