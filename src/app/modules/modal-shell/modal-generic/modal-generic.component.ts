@@ -21,6 +21,7 @@ export class ModalGenericComponent implements OnInit {
 
   handleClose($event) {
     this.closeModal.emit($event);
+    document.getElementById(this.modalData.id).focus();
   }
 
   setOnConfirmData(data) {
@@ -34,6 +35,5 @@ export class ModalGenericComponent implements OnInit {
     } else if (buttonFunc) {
       buttonFunc(this.onConfirmData);
     }
-    document.getElementById(this.modalData.id).focus();
   }
 }
