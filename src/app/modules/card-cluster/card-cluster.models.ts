@@ -15,7 +15,6 @@ export class CardClusterClusterModel extends AngularDesignSystemModel {
   className?: string;
   tooltipModel?: TooltipModel;
   disabled = false;
-  
 
   constructor(options?) {
     super();
