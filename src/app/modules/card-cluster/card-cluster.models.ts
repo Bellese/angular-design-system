@@ -1,5 +1,6 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { AngularDesignSystemModel } from '../../models/angular-design-system.models';
+import { TooltipModel } from '../tooltip/tooltip.models';
 
 export class CardClusterClusterModel extends AngularDesignSystemModel {
   value: string | number;
@@ -12,6 +13,7 @@ export class CardClusterClusterModel extends AngularDesignSystemModel {
   classValue?: string;
   classButton?: string;
   className?: string;
+  tooltipModel?: TooltipModel;
   disabled = false;
 
   constructor(options?) {
@@ -35,6 +37,7 @@ export class CardClusterModel extends AngularDesignSystemModel {
   resizeTimeout?: number;
   clusterIdPrefix?: string;
   cluster: CardClusterClusterModel[];
+  tooltipModel?: TooltipModel;
 
   constructor(options?) {
     super();
