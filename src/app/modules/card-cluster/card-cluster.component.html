@@ -94,7 +94,7 @@
                   <fa-icon [icon]="card.nameIcon" *ngIf="card.nameIcon"></fa-icon>
                   {{ !card.name ? '&nbsp;' : card.name }}
                 </div>
-                <div *ngIf="card.tooltipModel" class="ds-text noPoint" [ngClass]="$any(card.className)" id="{{ card.id }}-name">
+                <div *ngIf="card.tooltipModel" class="ds-text noPoint" [ngClass]="card.className" id="{{ card.id }}-name">
                   <hqr-tooltip [tooltipModel]="card.tooltipModel"></hqr-tooltip>
                 </div>
               </div>
