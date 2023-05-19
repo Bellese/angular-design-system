@@ -413,3 +413,4 @@ export const LongNameCustomTitleClass: Story<AppCardClusterComponent> = () => ({
   `,
   props,
 });
+
