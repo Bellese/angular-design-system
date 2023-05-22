@@ -1,3 +1,10 @@
+## [5.7.0](https://github.com/Bellese/angular-design-system/compare/v5.6.0...v5.7.0) (2023-05-22)
+
+
+### Features
+
+* **card cluster tooltip:** tooltip update ([ffebcf6](https://github.com/Bellese/angular-design-system/commit/ffebcf63683b14dcaa5163a55022b6b58d470a23))
+
 ## [5.6.0](https://github.com/Bellese/angular-design-system/compare/v5.5.1...v5.6.0) (2023-05-19)
 
 
